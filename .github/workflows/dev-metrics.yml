@@ -5,6 +5,11 @@ on:
     - cron: "0 0 * * *" # Runs daily at 00:00 UTC
   workflow_dispatch:
 
+# 🔒 Prevent concurrent runs from fighting over main
+concurrency:
+  group: metrics-main
+  cancel-in-progress: true
+
 jobs:
   generate_and_commit_metrics:
     runs-on: ubuntu-latest
@@ -13,51 +18,51 @@ jobs:
       contents: write
 
     steps:
-
+      # 1️⃣ Checkout MAIN repository
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-  
+      # 2️⃣ Checkout metrics generator repository
       - name: Checkout INSO GH Metrics code
         uses: actions/checkout@v4
         with:
           repository: Poggecci/INSO-GH-API-QUERY
           path: inso-gh-query-metrics
 
-      
+      # 3️⃣ Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
 
-    
+      # 4️⃣ Install Poetry
       - name: Install Poetry
         uses: abatilo/actions-poetry@v2
 
-      
+      # 5️⃣ Configure Poetry virtual environment
       - name: Configure Poetry
         run: |
           cd inso-gh-query-metrics
           poetry config virtualenvs.create true
           poetry config virtualenvs.in-project true
 
-    
+      # 6️⃣ Cache virtual environment
       - name: Cache virtual environment
         uses: actions/cache@v3
         with:
           path: inso-gh-query-metrics/.venv
           key: venv-${{ hashFiles('inso-gh-query-metrics/poetry.lock') }}
 
-     
+      # 7️⃣ Install dependencies
       - name: Install dependencies
         run: |
           cd inso-gh-query-metrics
           poetry install
         shell: bash
 
-     
+      # 8️⃣ Run metrics generator
       - name: Run metrics generator
         run: |
           cd inso-gh-query-metrics
@@ -68,23 +73,24 @@ jobs:
           ORGANIZATION: ${{ github.repository_owner }}
         shell: bash
 
-     
+      # 9️⃣ Move generated metrics into repo
       - name: Move Generated Metrics
         run: |
           mkdir -p metrics
           mv inso-gh-query-metrics/*${{ github.repository_owner }}*.md metrics/
         shell: bash
 
-     
+      # 🔟 Sync with remote main (extra safety)
       - name: Pull latest changes
         run: git pull --rebase origin main
 
-   
+      # 1️⃣1️⃣ Commit and push metrics (SAFE)
       - name: Auto Commit Results
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[Automated] Milestone Metrics Update"
           file_pattern: metrics/*.md
+          push_options: "--force-with-lease"
           commit_user_name: GitHub Action
           commit_user_email: action@github.com
           commit_author: GitHub Action <action@github.com>
