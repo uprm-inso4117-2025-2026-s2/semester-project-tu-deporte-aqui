@@ -73,7 +73,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[Automated] Milestone Metrics Update"
-          branch: inso-metrics
           file_pattern: metrics/*.md
           commit_user_name: GitHub Action
           commit_user_email: action@github.com
