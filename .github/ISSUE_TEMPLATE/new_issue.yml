@@ -1,0 +1,113 @@
+name: 🛠️ Feature / Task Issue
+description: Use this template to define a development task or feature clearly.
+title: "📝 [Feature] "
+labels: ["task"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📝 Title
+        _Example: Implement Accessibility Testing for the Login & Sign-Up Process_
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: 🎯 Objective
+      description: What is the main goal of this task?
+      placeholder: |
+        Example:
+        Ensure login and sign-up pages are accessible to all users by validating compliance with WCAG standards.
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📄 Description
+      description: Describe what needs to be done.
+      placeholder: |
+        - UI elements must be properly labeled and accessible via screen readers.
+        - Forms should be fully navigable via keyboard.
+        - Maintain proper contrast ratios and color usage.
+        - Error messages and status updates must be conveyed to assistive technology.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: ✅ Acceptance Criteria
+      description: Define what must be true for this issue to be considered complete.
+      placeholder: |
+        - All input fields and interactive elements are screen reader-friendly.
+        - The login and sign-up process is fully navigable using only a keyboard.
+        - Error messages and validation feedback are properly announced.
+        - The UI meets WCAG 2.1 AA standards.
+        - An automated accessibility report is generated and reviewed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: testing_plan
+    attributes:
+      label: 🧪 Testing Plan
+      description: Explain how this task will be tested.
+      placeholder: |
+        - Ensure input fields have appropriate labels (aria-label or <label>).
+        - Verify tab navigation and visible focus indicators.
+        - Test with screen readers (NVDA, JAWS, VoiceOver).
+        - Check color contrast (≥ 4.5:1 for normal text).
+        - Confirm error messages include text, not just color.
+        - Run automated tools: axe DevTools, Lighthouse, WAVE.
+        - Generate an accessibility audit report.
+    validations:
+      required: true
+
+  - type: input
+    id: timeframe
+    attributes:
+      label: 📅 Target Completion Date
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: 🚦 Urgency
+      options:
+        - "1 – Low"
+        - "2 – Minor"
+        - "3 – Normal"
+        - "4 – High"
+        - "5 – Critical"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: 🚦 Difficulty
+      options:
+        - "1 – Easy"
+        - "2 – Very Low"
+        - "3 – Low"
+        - "4 – Moderate"
+        - "5 – Medium"
+        - "6 – Medium-High"
+        - "7 – Hard"
+        - "8 – Complex"
+        - "9 – Very Complex"
+        - "10 – Extremely Complex"
+    validations:
+      required: true
+
+  - type: input
+    id: recommended_assignee
+    attributes:
+      label: 👤 Recommended Assigned Developer
+      placeholder: "@username"
+    validations:
+      required: false
