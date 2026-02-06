@@ -74,6 +74,7 @@ jobs:
         with:
           commit_message: "[Automated] Milestone Metrics Update"
           file_pattern: metrics/*.md
+          pull_options: "--rebase"
           commit_user_name: GitHub Action
           commit_user_email: action@github.com
           commit_author: GitHub Action <action@github.com>
