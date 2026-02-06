@@ -55,28 +55,28 @@
 
 | Developer | Week #1 | Week #2 | Week #3 | Week #4 | Penalty |
 |---|---|---|---|---|---|
-| noelcolon | No | No | No | No | 14.0 |
-| luissorrentini | Yes | No | No | No | 9.0 |
-| geraldrodriguez1 | Yes | No | No | No | 9.0 |
-| Edward20uprm | No | No | No | No | 14.0 |
-| Fernando18Torres | Yes | No | No | No | 9.0 |
-| angelvillegas1 | Yes | No | No | No | 9.0 |
-| angelramos1 | Yes | No | No | No | 9.0 |
-| JRRR0912 | Yes | No | No | No | 9.0 |
+| joaquin787 | No | No | No | No | 14.0 |
 | dAninAd1248 | Yes | No | No | No | 9.0 |
+| luissorrentini | Yes | No | No | No | 9.0 |
+| diegohdnz11 | Yes | No | No | No | 9.0 |
+| Fernando18Torres | Yes | No | No | No | 9.0 |
+| NatanaelMassallo | Yes | No | No | No | 9.0 |
+| AlexitoUpr | Yes | No | No | No | 9.0 |
+| anthonyharriel | Yes | No | No | No | 9.0 |
+| Dieg0Rios | Yes | No | No | No | 9.0 |
+| pedrocortess | Yes | No | No | No | 9.0 |
+| geraldrodriguez1 | Yes | No | No | No | 9.0 |
+| angelvillegas1 | Yes | No | No | No | 9.0 |
+| noelcolon | No | No | No | No | 14.0 |
+| Naedra | Yes | No | No | No | 9.0 |
+| seba-15 | Yes | No | No | No | 9.0 |
+| Edward20uprm | No | No | No | No | 14.0 |
 | AlbertoRodriguez10 | No | No | No | No | 14.0 |
 | Massinl | Yes | No | No | No | 9.0 |
-| joaquin787 | No | No | No | No | 14.0 |
-| pedrocortess | Yes | No | No | No | 9.0 |
-| anthonyharriel | Yes | No | No | No | 9.0 |
-| diegohdnz11 | Yes | No | No | No | 9.0 |
+| angelramos1 | Yes | No | No | No | 9.0 |
 | yandielhernandez | Yes | No | No | No | 9.0 |
+| JRRR0912 | Yes | No | No | No | 9.0 |
 | Edgar-glz | Yes | No | No | No | 9.0 |
-| NatanaelMassallo | Yes | No | No | No | 9.0 |
-| Naedra | Yes | No | No | No | 9.0 |
-| Dieg0Rios | Yes | No | No | No | 9.0 |
-| seba-15 | Yes | No | No | No | 9.0 |
-| AlexitoUpr | Yes | No | No | No | 9.0 |
 
 ## Point Percent by Label
 
