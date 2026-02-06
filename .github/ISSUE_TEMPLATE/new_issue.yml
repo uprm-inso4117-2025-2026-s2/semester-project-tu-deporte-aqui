@@ -91,16 +91,11 @@ body:
     attributes:
       label: 🚦 Difficulty
       options:
-        - "1 – Easy"
-        - "2 – Very Low"
-        - "3 – Low"
-        - "4 – Moderate"
-        - "5 – Medium"
-        - "6 – Medium-High"
-        - "7 – Hard"
-        - "8 – Complex"
-        - "9 – Very Complex"
-        - "10 – Extremely Complex"
+        - "1 – Very Easy"
+        - "2 - Easy"
+        - "3 - Moderate"
+        - "4 - Hard"
+        - "5 - Very Hard"
     validations:
       required: true
 
