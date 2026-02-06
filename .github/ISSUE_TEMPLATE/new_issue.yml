@@ -2,7 +2,6 @@ name: 🛠️ Feature / Task Issue
 description: Use this template to define a development task or feature clearly.
 title: "📝 [Feature] "
 labels: ["task"]
-assignees: []
 
 body:
   - type: markdown
