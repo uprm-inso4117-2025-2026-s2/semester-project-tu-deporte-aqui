@@ -4,8 +4,8 @@
   "managers": ["anthonyharriel", "Fernando18Torres"],
   "milestones": {
     "Milestone #1": {
-      "startDate": "2026-02-02T08:00:00-04:00",
-      "endDate": "2026-02-27T20:00:00-04:00",
+      "startDate": "2026-02-02",
+      "endDate": "2026-02-27",
       "projectedGroupGrade": 100.0
     },
     "Milestone #2": {
