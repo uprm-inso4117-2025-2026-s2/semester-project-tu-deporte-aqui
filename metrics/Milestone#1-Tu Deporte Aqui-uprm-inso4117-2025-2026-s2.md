@@ -1,6 +1,6 @@
 # Milestone Data
 
-## Date Generated: 2026-02-06
+## Date Generated: 2026-02-07
 | Developer | Points Closed | Percent Contribution | Indivudal Grade | Milestone Grade | Lecture Topic Tasks |
 | --------- | ------------- | -------------------- | --------------- | --------------- | ------------------- |
 | joaquin787 | 0.0 | 0.0% | 0.0% | 40.0% | 0 |
@@ -55,28 +55,28 @@
 
 | Developer | Week #1 | Week #2 | Week #3 | Week #4 | Penalty |
 |---|---|---|---|---|---|
-| joaquin787 | No | No | No | No | 14.0 |
-| dAninAd1248 | Yes | No | No | No | 9.0 |
-| luissorrentini | Yes | No | No | No | 9.0 |
-| diegohdnz11 | Yes | No | No | No | 9.0 |
-| Fernando18Torres | Yes | No | No | No | 9.0 |
-| NatanaelMassallo | Yes | No | No | No | 9.0 |
-| AlexitoUpr | Yes | No | No | No | 9.0 |
-| anthonyharriel | Yes | No | No | No | 9.0 |
-| Dieg0Rios | Yes | No | No | No | 9.0 |
-| pedrocortess | Yes | No | No | No | 9.0 |
 | geraldrodriguez1 | Yes | No | No | No | 9.0 |
+| AlbertoRodriguez10 | Yes | No | No | No | 9.0 |
+| diegohdnz11 | Yes | No | No | No | 9.0 |
+| Dieg0Rios | Yes | No | No | No | 9.0 |
+| anthonyharriel | Yes | No | No | No | 9.0 |
+| yandielhernandez | Yes | No | No | No | 9.0 |
+| Fernando18Torres | Yes | No | No | No | 9.0 |
+| joaquin787 | No | No | No | No | 14.0 |
+| luissorrentini | Yes | No | No | No | 9.0 |
+| dAninAd1248 | Yes | No | No | No | 9.0 |
+| seba-15 | Yes | No | No | No | 9.0 |
+| AlexitoUpr | Yes | No | No | No | 9.0 |
+| NatanaelMassallo | Yes | No | No | No | 9.0 |
+| Massinl | Yes | No | No | No | 9.0 |
+| JRRR0912 | Yes | No | No | No | 9.0 |
 | angelvillegas1 | Yes | No | No | No | 9.0 |
 | noelcolon | No | No | No | No | 14.0 |
-| Naedra | Yes | No | No | No | 9.0 |
-| seba-15 | Yes | No | No | No | 9.0 |
-| Edward20uprm | No | No | No | No | 14.0 |
-| AlbertoRodriguez10 | No | No | No | No | 14.0 |
-| Massinl | Yes | No | No | No | 9.0 |
 | angelramos1 | Yes | No | No | No | 9.0 |
-| yandielhernandez | Yes | No | No | No | 9.0 |
-| JRRR0912 | Yes | No | No | No | 9.0 |
 | Edgar-glz | Yes | No | No | No | 9.0 |
+| Naedra | Yes | No | No | No | 9.0 |
+| pedrocortess | Yes | No | No | No | 9.0 |
+| Edward20uprm | No | No | No | No | 14.0 |
 
 ## Point Percent by Label
 
@@ -85,7 +85,6 @@ There are no labels assigned to any issue
 
 | Message |
 | ------- |
-| WARNING: Milestone "Milestone #1" not found in any repo associated with the team |
 | INFO: Found Project(name='Tu Deporte Aqui', number=1, url='https://github.com/orgs/uprm-inso4117-2025-2026-s2/projects/1', public=False) |
 | WARNING: Project visibility is set to private. This can lead to issues not being found if the Personal Access Token doesn't have permissions for viewing private projects. |
 | WARNING: joaquin787 hasn't completed the minimum 1 task(s) required for sprint 2026/02/02-2026/02/15 |
