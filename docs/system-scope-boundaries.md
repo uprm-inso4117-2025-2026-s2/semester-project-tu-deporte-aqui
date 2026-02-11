@@ -1,0 +1,106 @@
+System Scope & Boundary Conditions
+
+Purpose:
+
+This document defines the official scope boundaries for Tu Deporte Aquí during Phase 1. Its purpose is to prevent scope creep, align all teams, and establish clear testing and reliability expectations.
+
+In-Scope (Phase 1)
+
+Geographic Scope
+	•	Local Puerto Rico sports leagues only.
+	•	Includes Puerto Rico-based collegiate athletic programs.
+  • No United States mainland professional leagues (NBA, NFL, MLB) or international leagues outside Puerto Rico.
+
+
+
+League Coverage Examples
+	•	BSN (Baloncesto Superior Nacional)
+	•	Local collegiate leagues in Puerto Rico
+	•	UPRM (University of Puerto Rico at Mayagüez) athletic teams and events
+	•	Municipal or regional Puerto Rico leagues
+
+Coverage of UPRM teams includes official varsity sports programs (e.g., basketball, volleyball, track & field, baseball, etc.) where publicly available data exists.
+
+
+
+Data Types Included
+	•	Game scores (live or completed)
+	•	Standings
+	•	Player updates
+	•	Match metadata (date, location, teams)
+	•	Event schedules
+	•	University team game results and event summaries (when available)
+
+
+
+Platform Scope
+	•	Mobile-first web-based platform
+	•	No native mobile applications in Phase 1
+
+
+
+Explicitly Out of Scope
+  • United States mainland professional leagues (NBA, NFL, MLB)
+  • International leagues outside Puerto Rico
+	•	Live video streaming
+	•	Fantasy sports features
+	•	Betting features
+	•	Ticket purchasing systems
+	•	Social media integrations
+	•	User-generated content
+	•	Monetization systems
+	•	Real-time push notifications
+
+
+
+Operational Boundaries
+	•	No guarantee of real-time updates
+	•	Limited or no official APIs
+	•	Possible reliance on:
+	  -	League websites
+	  -	University athletic department websites
+	  -	Social media posts
+	  -	Informal reporting sources
+	•	Data may be delayed, incomplete, or inconsistent
+
+The system prioritizes transparency over perfect real-time accuracy.
+
+
+
+Reliability Guarantees & Limitations
+
+The system guarantees:
+	•	Clear communication of data uncertainty
+	•	Transparent handling of degraded states
+	•	No silent failures
+
+The system does not guarantee:
+	•	Instant updates
+	•	100% accuracy from unofficial sources
+	•	Continuous availability during extreme load
+
+
+
+Assumptions
+	1.	Many local leagues and university programs lack official APIs.
+	2.	Data may require scraping or manual aggregation.
+	3.	Reporting formats may vary across sources.
+	4.	Information may be delayed or incomplete.
+	5.	University athletic data availability may vary by sport.
+
+
+
+Future Expansion (Out of Phase 1)
+
+Potential future features:
+	•	National league expansion
+	•	Official API integrations
+	•	Push notifications
+	•	User accounts and personalization
+	•	Advanced analytics dashboards
+
+These are not included in Milestone 1.
+
+References
+	•	ISO/IEC 25010:2011. Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models. International Organization for Standardization.
+https://iso25000.com/index.php/en/iso-25000-standards/iso-25010
