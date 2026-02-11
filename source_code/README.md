@@ -1,0 +1,1 @@
+This folder will contain frontend and application source code.
