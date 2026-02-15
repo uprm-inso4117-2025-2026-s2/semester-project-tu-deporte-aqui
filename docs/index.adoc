@@ -1,18 +1,41 @@
 = Project Documentation
 :toc:
-:toclevels: 2
+:toclevels: 4
 
-== Overview
-This documentation describes the project and how to use, run, and contribute to it.
+== 1 Informative part
+include::01-informative/01-01-team.adoc[]
+=== 1.2 Current situation, needs, ideas
+include::01-informative/01-02-current-situation-needs-ideas/01-02-01-current-situation.adoc[]
+include::01-informative/01-02-current-situation-needs-ideas/01-02-02-need.adoc[]
+include::01-informative/01-02-current-situation-needs-ideas/01-02-03-ideas.adoc[]
+=== 1.3 Scope, span, and synopsis
+include::01-informative/01-03-scope-span-synopsis/01-03-01-scope-and-span.adoc[]
+include::01-informative/01-03-scope-span-synopsis/01-03-02-synopsis.adoc[]
+include::01-informative/01-04-other-activities.adoc[]
+include::01-informative/01-05-derived-goals.adoc[]
 
-== Getting Started
-TODO: Add prerequisites and setup instructions.
+== 2 Descriptive part
+=== 2.1 Domain description
+include::02-descriptive/02-01-domain-description/02-01-01-domain-rough-sketch.adoc[]
+include::02-descriptive/02-01-domain-description/02-01-02-terminology.adoc[]
+include::02-descriptive/02-01-domain-description/02-01-03-domain-terminology-vs-sketch.adoc[]
+include::02-descriptive/02-01-domain-description/02-01-04-narrative.adoc[]
+include::02-descriptive/02-01-domain-description/02-01-05-events-actions-behaviors.adoc[]
+include::02-descriptive/02-01-domain-description/02-01-06-function-signatures.adoc[]
+=== 2.2 Requirements
+include::02-descriptive/02-02-requirements/02-02-01-user-stories-epics-features.adoc[]
+include::02-descriptive/02-02-requirements/02-02-02-personas.adoc[]
+include::02-descriptive/02-02-requirements/02-02-03-domain-requirements.adoc[]
+include::02-descriptive/02-02-requirements/02-02-04-interface-requirements.adoc[]
+include::02-descriptive/02-02-requirements/02-02-05-machine-requirements.adoc[]
+=== 2.3 Implementation
+include::02-descriptive/02-03-implementation/02-03-01-selected-fragments.adoc[]
 
-== Architecture
-TODO: Add high-level architecture and component descriptions.
+== 3 Analytic part
+include::03-analytic/03-01-concept-analysis.adoc[]
+include::03-analytic/03-02-validation-verification.adoc[]
 
-== Usage
-TODO: Explain how to use the application.
-
-== Contributing
-TODO: Add contribution workflow and documentation guidelines.
+== 4 Specific class topics
+include::04-class-topics/04-01-tdd.adoc[]
+include::04-class-topics/04-02-bdd-tool-usage.adoc[]
+include::04-class-topics/04-03-debugging.adoc[]
