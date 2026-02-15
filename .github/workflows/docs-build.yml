@@ -1,0 +1,35 @@
+name: Build AsciiDoc Docs (Docker)
+
+on:
+  push:
+    branches: [documentation]
+    paths:
+      - "docs/**"
+      - ".github/workflows/docs-build.yml"
+  pull_request:
+    branches: [documentation]
+    paths:
+      - "docs/**"
+      - ".github/workflows/docs-build.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build HTML and PDF (Docker)
+        run: |
+          mkdir -p docs/_build
+          docker run --rm \
+          -v "$GITHUB_WORKSPACE:/documents" \
+          asciidoctor/docker-asciidoctor \
+          /bin/bash -lc "asciidoctor -o docs/_build/index.html docs/index.adoc && asciidoctor-pdf -o docs/_build/index.pdf docs/index.adoc"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation-build
+          path: docs/_build/
