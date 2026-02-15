@@ -1,6 +1,6 @@
 # Milestone Data
 
-## Date Generated: 2026-02-14
+## Date Generated: 2026-02-15
 | Developer | Points Closed | Percent Contribution | Indivudal Grade | Milestone Grade | Lecture Topic Tasks |
 | --------- | ------------- | -------------------- | --------------- | --------------- | ------------------- |
 | Ojani | 0.0 | 0.0% | 0.0% | 40.0% | 0 |
@@ -67,38 +67,38 @@
 
 | Developer | Week #1 | Week #2 | Week #3 | Week #4 | Penalty |
 |---|---|---|---|---|---|
-| joaquin787 | No | No | No | No | 14.0 |
-| Fernando18Torres | Yes | Yes | No | No | 5.0 |
-| JRRR0912 | Yes | Yes | No | No | 5.0 |
-| Joaquin939 | Yes | Yes | No | No | 5.0 |
-| AlexitoUpr | Yes | Yes | No | No | 5.0 |
-| seba-15 | Yes | Yes | No | No | 5.0 |
-| Massinl | Yes | Yes | No | No | 5.0 |
-| diegohdnz11 | Yes | Yes | No | No | 5.0 |
-| angelvillegas1 | Yes | Yes | No | No | 5.0 |
 | pedrocortess | Yes | Yes | No | No | 5.0 |
-| luissorrentini | Yes | Yes | No | No | 5.0 |
-| Naedra | Yes | Yes | No | No | 5.0 |
-| AlbertoRodriguez10 | Yes | No | No | No | 9.0 |
-| NatanaelMassallo | Yes | Yes | No | No | 5.0 |
-| anthonyharriel | Yes | Yes | No | No | 5.0 |
-| Dieg0Rios | Yes | Yes | No | No | 5.0 |
-| Christopher11Perez | No | Yes | No | No | 7.0 |
-| Ojani | Yes | Yes | No | No | 5.0 |
-| igrv2003 | Yes | Yes | No | No | 5.0 |
-| geraldrodriguez1 | Yes | Yes | No | No | 5.0 |
-| dAninAd1248 | Yes | Yes | No | No | 5.0 |
-| angelramos1 | Yes | Yes | No | No | 5.0 |
-| noelcolon | No | No | No | No | 14.0 |
-| LianetteAlberto | No | No | No | No | 14.0 |
+| Massinl | Yes | Yes | No | No | 5.0 |
 | Edgar-glz | Yes | Yes | No | No | 5.0 |
-| yandielhernandez | Yes | Yes | No | No | 5.0 |
+| dAninAd1248 | Yes | Yes | No | No | 5.0 |
+| Dieg0Rios | Yes | Yes | No | No | 5.0 |
+| anthonyharriel | Yes | Yes | No | No | 5.0 |
+| LianetteAlberto | No | No | No | No | 14.0 |
 | marcosarraiza | Yes | Yes | No | No | 5.0 |
+| angelramos1 | Yes | Yes | No | No | 5.0 |
+| yandielhernandez | Yes | Yes | No | No | 5.0 |
+| angelvillegas1 | Yes | Yes | No | No | 5.0 |
+| Joaquin939 | Yes | Yes | No | No | 5.0 |
+| NatanaelMassallo | Yes | Yes | No | No | 5.0 |
+| noelcolon | No | Yes | No | No | 7.0 |
+| luissorrentini | Yes | Yes | No | No | 5.0 |
+| igrv2003 | Yes | Yes | No | No | 5.0 |
+| Christopher11Perez | No | Yes | No | No | 7.0 |
+| diegohdnz11 | Yes | Yes | No | No | 5.0 |
+| AlbertoRodriguez10 | Yes | No | No | No | 9.0 |
+| Fernando18Torres | Yes | Yes | No | No | 5.0 |
+| geraldrodriguez1 | Yes | Yes | No | No | 5.0 |
+| AlexitoUpr | Yes | Yes | No | No | 5.0 |
 | Edward20uprm | No | No | No | No | 14.0 |
+| Naedra | Yes | Yes | No | No | 5.0 |
+| Ojani | Yes | Yes | No | No | 5.0 |
+| JRRR0912 | Yes | Yes | No | No | 5.0 |
+| joaquin787 | No | No | No | No | 14.0 |
+| seba-15 | Yes | Yes | No | No | 5.0 |
 
 ## Point Percent by Label
 
-| Developer | state: waiting for assign | state: waiting-for-manager | task: development |
+| Developer | task: development | state: waiting-for-manager | state: waiting for assign |
 |---|---|---|---|
 | Ojani | 0.0% | 0.0% | 0.0% |
 | joaquin787 | 0.0% | 0.0% | 0.0% |
@@ -133,9 +133,9 @@
 | INFO: Found Project(name='Tu Deporte Aqui', number=1, url='https://github.com/orgs/uprm-inso4117-2025-2026-s2/projects/1', public=False) |
 | WARNING: Project visibility is set to private. This can lead to issues not being found if the Personal Access Token doesn't have permissions for viewing private projects. |
 | WARNING: [Issue #31](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/31) is not associated with a milestone. |
-| WARNING: [Issue #33](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/33) is not associated with a milestone. |
 | WARNING: [Issue #38](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/38) is not associated with a milestone. |
-| WARNING: [Issue #42](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/42) is not associated with a milestone. |
+| WARNING: [Issue #47](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/47) is not associated with a milestone. |
+| WARNING: [Issue #49](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/49) is not associated with a milestone. |
 | WARNING: Ojani hasn't completed the minimum 1 task(s) required for sprint 2026/02/04-2026/02/16 |
 | WARNING: joaquin787 hasn't completed the minimum 1 task(s) required for sprint 2026/02/04-2026/02/16 |
 | WARNING: JRRR0912 hasn't completed the minimum 1 task(s) required for sprint 2026/02/04-2026/02/16 |
