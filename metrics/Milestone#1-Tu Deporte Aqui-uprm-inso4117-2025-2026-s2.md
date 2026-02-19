@@ -1,6 +1,6 @@
 # Milestone Data
 
-## Date Generated: 2026-02-18
+## Date Generated: 2026-02-19
 | Developer | Points Closed | Percent Contribution | Indivudal Grade | Milestone Grade | Lecture Topic Tasks |
 | --------- | ------------- | -------------------- | --------------- | --------------- | ------------------- |
 | Ojani | 0.0 | 0.0% | 0.0% | 40.0% | 0 |
@@ -69,67 +69,67 @@
 
 | Developer | Week #1 | Week #2 | Week #3 | Week #4 | Penalty |
 |---|---|---|---|---|---|
-| diegohdnz11 | Yes | Yes | No | No | 5.0 |
-| dAninAd1248 | Yes | Yes | No | No | 5.0 |
-| LianetteAlberto | No | No | No | No | 14.0 |
-| angelramos1 | Yes | Yes | No | No | 5.0 |
-| angelvillegas1 | Yes | Yes | No | No | 5.0 |
-| Fernando18Torres | Yes | Yes | No | No | 5.0 |
-| AlbertoRodriguez10 | Yes | No | No | No | 9.0 |
-| joaquin787 | No | No | No | No | 14.0 |
-| Jafet160 | No | No | No | No | 14.0 |
-| pedrocortess | Yes | Yes | No | No | 5.0 |
-| Dieg0Rios | Yes | Yes | No | No | 5.0 |
-| Naedra | Yes | Yes | No | No | 5.0 |
-| Joaquin939 | Yes | Yes | No | No | 5.0 |
-| NatanaelMassallo | Yes | Yes | No | No | 5.0 |
-| anthonyharriel | Yes | Yes | No | No | 5.0 |
-| yandielhernandez | Yes | Yes | No | No | 5.0 |
-| Ojani | Yes | Yes | No | No | 5.0 |
-| Edward20uprm | No | No | No | No | 14.0 |
 | noelcolon | No | Yes | No | No | 7.0 |
-| igrv2003 | Yes | Yes | No | No | 5.0 |
+| Edward20uprm | No | No | No | No | 14.0 |
 | Edgar-glz | Yes | Yes | No | No | 5.0 |
-| Christopher11Perez | No | Yes | No | No | 7.0 |
-| marcosarraiza | Yes | Yes | No | No | 5.0 |
-| luissorrentini | Yes | Yes | No | No | 5.0 |
-| Massinl | Yes | Yes | No | No | 5.0 |
-| AlexitoUpr | Yes | Yes | No | No | 5.0 |
-| geraldrodriguez1 | Yes | Yes | No | No | 5.0 |
+| LianetteAlberto | No | No | No | No | 14.0 |
 | JRRR0912 | Yes | Yes | No | No | 5.0 |
+| luissorrentini | Yes | Yes | No | No | 5.0 |
+| AlbertoRodriguez10 | Yes | No | No | No | 9.0 |
+| Ojani | Yes | Yes | No | No | 5.0 |
+| anthonyharriel | Yes | Yes | No | No | 5.0 |
+| geraldrodriguez1 | Yes | Yes | No | No | 5.0 |
+| Naedra | Yes | Yes | No | No | 5.0 |
+| Massinl | Yes | Yes | No | No | 5.0 |
+| yandielhernandez | Yes | Yes | No | No | 5.0 |
+| marcosarraiza | Yes | Yes | No | No | 5.0 |
+| Fernando18Torres | Yes | Yes | No | No | 5.0 |
+| Joaquin939 | Yes | Yes | No | No | 5.0 |
+| Dieg0Rios | Yes | Yes | No | No | 5.0 |
+| joaquin787 | No | No | No | No | 14.0 |
+| NatanaelMassallo | Yes | Yes | No | No | 5.0 |
+| Jafet160 | No | No | No | No | 14.0 |
+| angelramos1 | Yes | Yes | No | No | 5.0 |
+| Christopher11Perez | No | Yes | No | No | 7.0 |
+| angelvillegas1 | Yes | Yes | No | No | 5.0 |
+| diegohdnz11 | Yes | Yes | No | No | 5.0 |
+| pedrocortess | Yes | Yes | No | No | 5.0 |
+| dAninAd1248 | Yes | Yes | No | No | 5.0 |
+| igrv2003 | Yes | Yes | No | No | 5.0 |
 | seba-15 | Yes | Yes | No | No | 5.0 |
+| AlexitoUpr | Yes | Yes | No | No | 5.0 |
 
 ## Point Percent by Label
 
-| Developer | state: waiting-for-manager | team 2 | team 1 | task: documentation | state: in-progress | team 4 | state: waiting for assign | team 5 | state: concluded | task: development | team 3 |
+| Developer | state: waiting for assign | team 5 | task: development | team 3 | team 4 | state: waiting-for-manager | state: in-progress | state: concluded | team 2 | team 1 | task: documentation |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Ojani | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
 | joaquin787 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
 | Jafet160 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| JRRR0912 | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| Naedra | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% |
-| igrv2003 | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% |
-| marcosarraiza | 100.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% |
-| NatanaelMassallo | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 100.0% |
-| seba-15 | 100.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% |
-| luissorrentini | 100.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| dAninAd1248 | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% |
-| Joaquin939 | 100.0% | 100.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| JRRR0912 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| Naedra | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| igrv2003 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 100.0% | 0.0% | 0.0% |
+| marcosarraiza | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% |
+| NatanaelMassallo | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% |
+| seba-15 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 100.0% | 0.0% | 0.0% | 100.0% |
+| luissorrentini | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% |
+| dAninAd1248 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 100.0% | 0.0% |
+| Joaquin939 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 100.0% | 0.0% | 100.0% | 0.0% | 0.0% |
 | LianetteAlberto | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| pedrocortess | 95.5% | 0.0% | 0.0% | 0.0% | 0.0% | 95.5% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| Edward20uprm | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% |
-| Massinl | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% |
-| angelramos1 | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| Christopher11Perez | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% |
+| pedrocortess | 0.0% | 0.0% | 0.0% | 0.0% | 95.5% | 95.5% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| Edward20uprm | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% |
+| Massinl | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 100.0% | 0.0% | 0.0% |
+| angelramos1 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| Christopher11Perez | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
 | Edgar-glz | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| geraldrodriguez1 | 100.0% | 0.0% | 100.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| AlbertoRodriguez10 | 50.0% | 0.0% | 100.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 50.0% | 0.0% | 0.0% |
-| angelvillegas1 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 100.0% | 0.0% |
-| yandielhernandez | 93.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 93.0% |
-| Dieg0Rios | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 100.0% | 100.0% | 0.0% | 0.0% |
+| geraldrodriguez1 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 100.0% | 100.0% |
+| AlbertoRodriguez10 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 50.0% | 0.0% | 50.0% | 0.0% | 100.0% | 100.0% |
+| angelvillegas1 | 100.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| yandielhernandez | 0.0% | 0.0% | 0.0% | 93.0% | 0.0% | 93.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| Dieg0Rios | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 100.0% |
 | noelcolon | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| diegohdnz11 | 100.0% | 0.0% | 0.0% | 0.0% | 100.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| AlexitoUpr | 100.0% | 0.0% | 100.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| diegohdnz11 | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 100.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| AlexitoUpr | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 100.0% | 100.0% |
 # Metrics Generation Logs
 
 | Message |
