@@ -1,0 +1,57 @@
+==== 2.2.2 Personas
+
+=== Persona A: Sebastian Rivera, the Superfan
+Sebastian is a Puerto Rico sports fan who follows local leagues weekly and checks scores during games and playoffs.
+He values speed and clarity, and he gets frustrated when different sources disagree or updates arrive late.
+
+Goals::
+* Quickly see game results, standings, and key updates in one place
+* Know whether information is current and trustworthy during big events
+* Avoid confusion when reports conflict
+
+Pain points::
+* Different pages and posts report different scores or update at different times
+* During playoffs, sites lag or go down exactly when he needs them most
+* When something is missing, he does not know if it is an error or just not posted yet
+
+=== Persona B: Coach Abiel Rullan, the Team Organizer
+Abiel manages a local team and cares about schedules, standings, and accurate public reporting of results.
+He wants the platform to reflect reality and avoid spreading incorrect information about teams or players.
+
+Goals::
+* Confirm schedules and standings are accurate for his league
+* Catch and correct errors quickly when something looks wrong
+* Share trustworthy updates with players and parents
+
+Pain points::
+* Updates are often delayed and he has to double-check multiple sources
+* Conflicting reports create arguments and confusion among teams and fans
+* There is no clear way to tell if a result is verified or provisional
+
+=== Persona C: Andres Perez, the Sports Reporter
+Andres covers Puerto Rico sports and posts rapid updates, especially during tournaments and breaking news.
+He needs a platform that can represent uncertainty cleanly when details are still developing.
+
+Goals::
+* Publish and reference updates without causing misinformation
+* Make it clear when an update is preliminary vs confirmed
+* Keep coverage stable during high-traffic moments
+
+Pain points::
+* Early reports may be incomplete, but the public wants immediate updates
+* A single wrong post can spread fast if the platform does not handle conflicts well
+* When systems degrade, users often receive confusing or unhelpful error messages
+
+==== Persona D: Chris Ramos, the Platform Engineer
+Chris is responsible for reliability and quality of the sports information platform.
+He focuses on predictable behavior under failures, automation in testing, and clear user-facing status.
+
+Goals::
+* Prevent incorrect or outdated information from being shown as “final”
+* Keep the system available during peak events
+* Standardize reliability tests and integrate them into CI
+
+Pain points::
+* Most tests pass in normal conditions but do not cover failures and stress
+* External sources fail or behave unpredictably
+* It is hard to measure trust-impacting issues without good observability
