@@ -1,0 +1,20 @@
+=== 2.1.1 Domain Rough Sketch
+
+While shaping the idea for *Tu Deporte Aquí*, we kept running into the same real-world constraint: sports information in Puerto Rico does not live in one clean database. It is scattered across league sites, news outlets, social media, and informal sources, and those channels often disagree or update at different speeds. Because of that, the A3 treats reliability as the main lens for the domain, not just “having features.” The platform has to consistently show accurate standings, results, and athlete updates, while staying understandable when the underlying inputs are messy.
+
+Distributed sources and conflicting information::
+A central theme is that the platform must ingest data from multiple leagues and informal reporting channels, which naturally increases the chance of incorrect or outdated information appearing. The domain therefore includes disagreement as a normal scenario, where two sources may report conflicting information and the system must still behave predictably.
+
+Delays and missing updates::
+We also focused on the fact that updates can arrive late or not arrive at all, especially for local events. The platform must handle incomplete, delayed, or missing inputs without turning that uncertainty into user confusion.
+
+High demand moments::
+Another part of the domain is that reliability gets stress tested when people care the most, such as playoffs, major tournaments, and breaking news. These moments create high traffic pressure, so availability and performance under load are part of the core domain expectations.
+
+Clear behavior during degraded states::
+We identified that failures are not only technical events, they are user-facing experiences. If fallback strategies and error handling are weak, failures surface directly to users. In this domain, the platform needs to communicate uncertainty and degraded states clearly, and still keep user messages informative even when dependencies fail or data is unreliable.
+
+Trust as the main outcome::
+All of these concerns tie back to the end result the A3 prioritizes: long term user trust. When information is wrong, late, or unclear during important events, users lose confidence quickly and the platform becomes perceived as unreliable over time.
+
+Overall, the domain rough sketch describes a reliability driven platform that remains available during peak demand, stays consistent when sources conflict or arrive late, and communicates reliability status in a way users can understand, supported by testing that targets stress and failure conditions rather than only normal operation.
