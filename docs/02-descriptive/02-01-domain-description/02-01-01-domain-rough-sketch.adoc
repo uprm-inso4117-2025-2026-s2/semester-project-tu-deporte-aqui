@@ -1,4 +1,4 @@
-=== 2.1.1 Domain Rough Sketch
+==== 2.1.1 Domain Rough Sketch
 
 While shaping the idea for *Tu Deporte Aquí*, we kept running into the same real-world constraint: sports information in Puerto Rico does not live in one clean database. It is scattered across league sites, news outlets, social media, and informal sources, and those channels often disagree or update at different speeds. Because of that, the A3 treats reliability as the main lens for the domain, not just “having features.” The platform has to consistently show accurate standings, results, and athlete updates, while staying understandable when the underlying inputs are messy.
 
