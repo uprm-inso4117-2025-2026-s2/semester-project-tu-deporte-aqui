@@ -1,0 +1,149 @@
+== 1.1 Team
+
+=== Project Organization
+
+Tu Deporte Aquí is organized into five specialized teams to support structured documentation, research, and feature preparation during Milestone 1.
+
+Milestone 1 does not involve implementation or source code development. The focus is on defining scope, system behavior, reliability expectations, and transparency requirements for a mobile-first platform serving local Puerto Rico sports.
+
+Each team is responsible for a clearly defined domain area to ensure full coverage of system expectations before development begins.
+
+=== Team Structure
+
+==== Team 1 – Core Documentation & Project Standards
+
+Responsible for establishing the official documentation foundation:
+
+- Expanding the A3 into a structured project overview
+- Defining scope boundaries (local leagues only)
+- Documenting assumptions (limited or no official APIs; reliance on informal sources)
+- Maintaining the main README and documentation index
+- Defining shared glossary and documentation standards
+- Configuring AsciiDoc build automation
+- Preparing the final compiled Milestone 1 documentation
+
+This team ensures documentation consistency, structure, and governance.
+
+==== Team 2 – Live Games & Match Coverage
+
+Defines how live game information is displayed and trusted:
+
+- What data is shown (scores, time, league, status)
+- Handling delayed updates
+- Resolving conflicting score reports
+- Behavior when information is missing
+- Mobile-first UI messaging for provisional data
+
+This team focuses on reliability under real-world uncertainty.
+
+==== Team 3 – Standings & Tournament Progress
+
+Defines how standings are calculated and communicated:
+
+- Representation of local league standings
+- Handling inconsistencies across informal sources
+- Resolving or flagging conflicting standings
+- Displaying provisional or uncertain rankings
+- Managing edge cases (postponements, incomplete data)
+
+This team ensures structural integrity of league progression information.
+
+==== Team 4 – Teams & Athletes Profiles
+
+Defines expectations for profile information accuracy:
+
+- Required and optional profile fields
+- Acceptable levels of staleness
+- Handling incomplete or outdated data
+- Mobile-friendly indicators for uncertain information
+
+This team focuses on data completeness and freshness constraints.
+
+==== Team 5 – News, Alerts & System Transparency
+
+Defines how system updates and uncertainty are communicated:
+
+- Criteria for publishing news vs urgent alerts
+- Handling unverified or conflicting reports
+- Transparency indicators (last update time, confidence level)
+- Messaging during degraded or uncertain states
+
+This team ensures user trust and system transparency.
+
+=== Roles and Responsibilities
+
+==== Developers
+
+Developers are responsible for:
+
+- Creating and completing GitHub issues
+- Conducting research aligned with team goals
+- Writing structured documentation
+- Following the Issue Creation Guidelines
+- Submitting work through pull requests
+- Ensuring acceptance criteria are satisfied
+
+All work must be issue-based and documented.
+
+==== Team Leads
+
+Team Leads:
+
+- Coordinate work within their assigned team
+- Conduct first-level review of completed issues
+- Ensure alignment with Milestone 1 objectives
+- Track participation and progress
+
+Team Leads help maintain quality and consistency before escalation to managers.
+
+==== Managers
+
+Managers:
+
+- Review issue clarity and completeness
+- Assign urgency and difficulty levels
+- Approve pull requests after review
+- Close issues upon satisfactory completion
+- Ensure milestone alignment and fairness
+
+Managers ensure governance and structured progression of the project.
+
+=== Workflow and Governance
+
+The project follows an issue-driven and PR-only workflow with branch protection enabled.
+
+All work must begin with a GitHub Issue created using the standardized Issue Creation Guidelines. Issues must:
+
+- Follow the approved title format
+- Use the required content template
+- Include clearly defined acceptance criteria
+- Specify urgency and difficulty
+
+Issues may involve documentation, research, feature definition, lecture topic tasks, or coordination work.
+
+For documentation scaffold sections specifically, issues must reference the master documentation scaffold issue (#53) to ensure traceability within the single compiled document structure.
+
+Workflow:
+
+1. Issue is created following the standardized template
+2. Developer creates a feature branch
+3. Developer modifies only the assigned scope
+4. Pull request references the corresponding issue
+5. CI workflow builds documentation artifacts automatically
+6. Team Lead performs review
+7. Manager approves and merges
+
+No direct pushes to protected branches are permitted for non-admin users.
+
+=== Milestone 1 Focus
+
+Milestone 1 emphasizes:
+
+- Clear scope definition (local Puerto Rico sports only)
+- Explicit documentation of uncertainty and failure scenarios
+- Mobile-first user interface expectations
+- Transparency in data reliability and freshness
+- Structured documentation before implementation
+
+This structured team model ensures shared ownership, accountability, and disciplined engineering practices prior to any system development.
+
