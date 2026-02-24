@@ -1,0 +1,105 @@
+== 1.4 Other Activities than Development
+
+=== Purpose
+
+Milestone 1 of Tu Deporte Aquí emphasizes documentation, research, and structured system preparation rather than implementation. This section describes the non-development activities that contribute to system reliability, transparency, and organized collaboration.
+
+These activities ensure that the project evolves through disciplined engineering practices before any source code is written.
+
+=== Research Activities
+
+Research plays a central role in Milestone 1. Key research efforts include:
+
+- Investigating reliability strategies for conflicting and delayed sports data
+- Defining scope boundaries and out-of-scope conditions
+- Exploring data lineage and audit trail strategies
+- Studying transparency indicators for uncertain information
+- Analyzing requirements classification (functional vs non-functional)
+
+These research tasks ensure that system behavior is well-defined under real-world constraints.
+
+=== Documentation-as-Code
+
+The project adopts a documentation-as-code model using AsciiDoc and GitHub.
+
+This includes:
+
+- Structured folder hierarchy under /docs
+- Modular section files linked through include:: directives
+- Version-controlled documentation
+- Pull-request-based content integration
+- Automated HTML/PDF build via CI workflow
+
+This approach ensures traceability, consistency, and reproducibility of documentation.
+
+=== Pull Request and Review Process
+
+All contributions are integrated through a PR-only workflow.
+
+The process includes:
+
+1. Issue creation using the standardized template
+2. Feature branch creation
+3. Focused modification of assigned section
+4. Pull request submission
+5. Automated CI build verification
+6. Team Lead review
+7. Manager approval and merge
+
+This structured process ensures quality control and accountability.
+
+=== CI/CD and Build Automation
+
+The project includes a GitHub Actions workflow that:
+
+- Compiles the master AsciiDoc document
+- Verifies include structure
+- Generates HTML and PDF artifacts
+- Detects build or formatting errors
+
+This automation ensures documentation integrity before approval.
+
+=== Task Tracking and Governance
+
+All work is tracked through GitHub Issues.
+
+Each issue includes:
+
+- Clear objective
+- Defined acceptance criteria
+- Urgency and difficulty rating
+- Assigned contributor
+- Milestone linkage
+
+Documentation scaffold sections reference the master issue (#53) to maintain structural traceability.
+
+This governance structure prevents duplication and supports milestone compliance.
+
+=== Team Coordination
+
+Collaboration is supported through:
+
+- Team-based specialization (five domain-focused teams)
+- Regular coordination discussions
+- Milestone planning
+- Alignment on scope and assumptions
+- Shared responsibility for reliability modeling
+
+These coordination practices ensure consistent interpretation of requirements across teams.
+
+=== Milestone Planning and Retrospectives
+
+Milestone 1 includes:
+
+- Clear completion criteria
+- Defined deliverables (compiled documentation)
+- Explicit failure and uncertainty modeling
+- Iterative refinement through feedback
+
+Retrospective reflection ensures continuous improvement in documentation quality and team workflow.
+
+=== Conclusion
+
+Tu Deporte Aquí extends beyond software implementation. Research, structured documentation, governance modeling, and automated validation form the foundation of the project.
+
+These non-development activities ensure that when implementation begins, it is grounded in clearly defined scope, reliability expectations, and transparent engineering practices.
