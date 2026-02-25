@@ -1,0 +1,103 @@
+== 1.3.1 Scope and Span
+
+=== Purpose
+
+This section defines the boundaries, coverage limits, and operational constraints of Tu Deporte Aquí during Milestone 1. Clearly defining scope prevents scope creep, ensures alignment across teams, and establishes realistic expectations before implementation begins.
+
+Milestone 1 focuses exclusively on documentation, research, and structured system definition. No implementation or source code development is included in this milestone.
+
+=== In-Scope Coverage
+
+The system scope for Milestone 1 includes:
+
+==== Local Puerto Rico Sports Leagues
+
+- Coverage is limited to local leagues within Puerto Rico.
+- National and international leagues are excluded.
+- Emphasis is placed on leagues where official APIs may not exist.
+
+This focus ensures realistic alignment with data availability and milestone constraints.
+
+==== Reliability Modeling
+
+The system will define expected behavior under:
+
+- Delayed updates
+- Conflicting reports
+- Missing information
+- Corrected or revised results
+
+Explicit documentation of uncertainty handling is part of the defined scope.
+
+==== Mobile-First Platform Assumption
+
+All feature definitions and UI expectations assume a mobile-first, web-based experience.
+
+This includes:
+
+- Compact information display
+- Clear status indicators
+- Prioritization of essential game data
+
+==== Documentation-First Engineering
+
+Milestone 1 includes:
+
+- Structured documentation scaffold
+- Defined system behavior and assumptions
+- Research-based reliability strategies
+- Governance and workflow definition
+
+No backend, frontend, or database implementation is included at this stage.
+
+=== Out-of-Scope Elements
+
+The following elements are explicitly excluded from Milestone 1:
+
+- Implementation of application code
+- Integration with official league APIs
+- Automated web scraping mechanisms
+- National or international league coverage
+- Real-time performance optimization
+- Production deployment or hosting infrastructure
+
+These exclusions ensure that Milestone 1 remains focused on system definition rather than execution.
+
+=== Operational Constraints
+
+Tu Deporte Aquí operates under the following constraints:
+
+==== Informal Data Sources
+
+- Data may originate from websites, reporters, or social media.
+- Sources may conflict or provide delayed updates.
+- Official verification mechanisms may not exist.
+
+==== Limited Structure and Standardization
+
+- Local leagues may lack standardized reporting formats.
+- Inconsistent update timing must be expected.
+- Historical corrections may occur without formal notice.
+
+==== Transparency Requirement
+
+Because of data uncertainty, the system must:
+
+- Communicate provisional states
+- Display last update times
+- Indicate possible staleness
+- Support traceability of changes
+
+These constraints directly influence system design decisions in later phases.
+
+=== Boundary Summary
+
+Tu Deporte Aquí, during Milestone 1, is a documentation-driven project focused on:
+
+- Local Puerto Rico sports
+- Reliability modeling
+- Transparency definition
+- Scope discipline
+- Structured governance
+
+By clearly defining these boundaries, the project ensures disciplined progress and alignment across all teams prior to implementation.
