@@ -1,0 +1,126 @@
+== 1.5 Derived Goals
+
+=== Purpose
+
+The following goals are derived from the identified current situation, system needs, and proposed ideas for Tu Deporte Aquí. These goals translate contextual analysis into structured and actionable objectives that guide documentation, reliability modeling, and future implementation.
+
+These goals serve as a bridge between the Informative Part and the Descriptive and Analytic sections of the document.
+
+=== Reliability Goals
+
+==== G1 – Conflict-Aware Data Handling
+
+The system shall explicitly detect and manage conflicting sports data received from multiple sources.
+
+This includes:
+- Identifying inconsistencies across sources
+- Flagging provisional values
+- Preserving traceability of overrides
+
+This goal ensures reliability under informal and semi-structured data conditions.
+
+==== G2 – Correction Transparency
+
+The system shall support traceability of corrections to scores, standings, and game statuses.
+
+This includes:
+- Tracking source attribution
+- Recording update timestamps
+- Maintaining lightweight audit history for critical fields
+
+This goal enables reconstruction of data changes and improves accountability.
+
+=== Transparency Goals
+
+==== G3 – User-Facing Uncertainty Indicators
+
+The system shall clearly communicate when information is provisional, stale, incomplete, or unverified.
+
+This includes:
+- Displaying last update time
+- Showing data confidence indicators
+- Providing context for conflicting information
+
+This goal strengthens user trust and informed interpretation of data.
+
+==== G4 – Explicit Assumption Documentation
+
+The system shall clearly document operational assumptions, including:
+
+- Limited or no official APIs
+- Reliance on websites and social media
+- Potential delays in live updates
+
+This goal prevents unrealistic expectations and scope ambiguity.
+
+=== Availability Goals
+
+==== G5 – Graceful Degradation
+
+The system shall remain operational even when one or more data sources are unavailable.
+
+This includes:
+- Serving cached or previously validated data
+- Avoiding complete system failure due to partial outages
+- Providing transparency when updates are delayed
+
+This goal ensures resilience in a low-structure data environment.
+
+=== Scope and Boundary Goals
+
+==== G6 – Local League Focus
+
+The system shall focus exclusively on local Puerto Rico sports leagues during initial development phases.
+
+National and international leagues are explicitly out of scope.
+
+This goal prevents scope creep and ensures realistic milestone alignment.
+
+==== G7 – Mobile-First Design Alignment
+
+All documentation and feature definitions shall assume a mobile-first user experience.
+
+This includes:
+- Compact UI messaging
+- Clear visual indicators
+- Prioritized essential information
+
+This goal ensures usability consistency across teams.
+
+=== Trust and Governance Goals
+
+==== G8 – Structured Documentation Before Implementation
+
+The project shall fully define system behavior, constraints, and uncertainty scenarios before any code is written.
+
+This includes:
+- Explicit failure scenario modeling
+- Defined traceability strategies
+- Clearly structured documentation scaffold
+
+This goal aligns with Milestone 1’s emphasis on documentation-first engineering.
+
+==== G9 – PR-Driven Accountability
+
+All contributions shall be issue-based and integrated through pull request review with CI validation.
+
+This ensures:
+- Traceability of changes
+- Quality control
+- Structured collaboration
+
+=== Measurability and Verification Considerations
+
+These derived goals are conceptually verifiable through:
+
+- Documentation completeness review
+- Explicit modeling of failure scenarios
+- Inclusion of uncertainty indicators in design descriptions
+- Defined traceability metadata models
+- Milestone alignment checks
+
+Future implementation phases will operationalize these goals through structured requirements and validation strategies.
+
+=== Conclusion
+
+The derived goals formalize Tu Deporte Aquí’s commitment to reliability, transparency, scope discipline, and structured engineering practices. They ensure that system design decisions remain aligned with real-world constraints of local sports data and the Milestone 1 requirement of documentation-first development.
