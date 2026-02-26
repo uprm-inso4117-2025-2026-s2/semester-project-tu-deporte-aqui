@@ -1,0 +1,62 @@
+==== 1.2.3 Ideas
+
+===== Purpose
+
+This section explains the main ideas that guide Tu Deporte Aquí. These ideas build on the conditions and needs identified in Milestone 1 and describe the direction the platform should take, without defining specific technical solutions.
+
+===== Cross-Source Validation and Source Weighting
+
+Tu Deporte Aquí collects data from multiple informal sources, where disagreements are common.
+
+Comparison before display::
+When different sources report different values for the same data point, the system should compare them before showing a result. If values match, confidence increases. If they conflict, the system should flag the issue instead of silently choosing one.
+
+Source trust levels::
+Not all sources are equally reliable. The platform should assign trust levels to different source types—for example, an official league website should carry more weight than a social media post. This weighting should be intentional and documented.
+
+Conflict visibility::
+Conflicts should be logged internally for debugging. When relevant, they should also be shown to users through clear indicators, instead of presenting the data as if it were fully certain.
+
+===== Data Freshness and Provenance
+
+Users need to understand how recent the information is and where it came from.
+
+Timestamps and source labels::
+Key data elements—scores, standings, profiles, schedules—should display when they were last updated and which source provided them (for example, "via BSN official site"). This allows users to judge reliability on their own.
+
+Update frequency expectations::
+The platform should communicate realistic refresh rates for each data type. Live scores may have small delays, while standings may update only after games are finalized. Making this clear helps reduce confusion.
+
+===== Provisional and Confidence Indicators
+
+Since much of the data comes from informal channels, the system must clearly separate confirmed information from unverified data.
+
+Provisional labeling::
+Information that has not been confirmed by a trusted source—such as early live scores from social media—should be clearly marked as provisional.
+
+Confidence progression::
+The platform should use simple labels ("Confirmed," "Provisional," "Unverified") or visual cues (badges, muted styles) to show reliability. As more sources confirm a value, the confidence level should update visibly so users can see how the data stabilizes over time.
+
+===== Handling Uncertainty and Missing Data
+
+Uncertainty is part of the platform’s environment and should be handled openly.
+
+Standardized messaging::
+Delayed scores, incomplete standings, and outdated profiles should follow a consistent visual and textual format so users can quickly understand what is happening.
+
+Degraded and no-data states::
+If the system has limited data, it should show the last known value with an "as of" indicator. If information is completely unavailable, the platform should display a clear "not available" state instead of leaving empty spaces or unclear placeholders.
+
+===== Mobile-First Display
+
+As a mobile-first web platform, all of the ideas above must work within small screen constraints.
+
+Information hierarchy::
+Essential details—score, game status, league, time—should appear first. Supporting details such as source labels, timestamps, and confidence indicators should appear in secondary or expandable views.
+
+Compact indicators::
+Icons, color coding, and short labels are preferred over long explanations. The same visual language for freshness, confidence, and provisional states should be used consistently across live scores, standings, and profiles to reduce cognitive load.
+
+===== Scope of This Section
+
+This section defines the conceptual direction of the platform. It does not include technical implementation or architectural details, which are covered later in the documentation.
