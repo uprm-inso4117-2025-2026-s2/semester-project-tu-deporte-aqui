@@ -1,0 +1,13 @@
+==== 1.3.2
+
+===== Synopsis
+
+Tu Deporte Aquí is a mobile-first, web-based platform designed to centralize sports information for local Puerto Rico leagues and collegiate teams.
+
+Currently, sports data is scattered across multiple sources such as websites and social media, often resulting in delayed, incomplete, or conflicting information. This makes it difficult for users to access reliable and consistent updates.
+
+The platform focuses on addressing these challenges by prioritizing reliability and transparency. Instead of hiding uncertainty, the system communicates verification status, confidence levels, and update timestamps to help users understand the quality of the information presented.
+
+Phase 1 of the project is limited to local Puerto Rico sports coverage. National and international leagues are explicitly out of scope.
+
+Tu Deporte Aquí aims to provide a clear, trustworthy, and accessible way for users to follow local sports while acknowledging the real-world limitations of the available data.
