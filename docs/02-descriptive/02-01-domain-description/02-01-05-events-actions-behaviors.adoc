@@ -1,0 +1,102 @@
+==== 2.1.5
+
+===== Events, Actions, and Behaviors
+
+This section defines the key domain events, system actions, and expected behaviors for Tu Deporte Aquí. The focus is reliability and transparency when sports information is delayed, incomplete, unverified, or conflicting.
+== Domain Events
+
+*E1: Report Received*::
+A new update is received from a data source (league site, reporter, community post).
+
+*E2: Live Match State Updated*::
+A match transitions between states such as Scheduled, Live, Halftime, Delayed, Suspended, Final, Postponed, or Canceled.
+
+*E3: Data Missing or Partial Coverage Detected*::
+Expected fields (score, status, clock/segment, etc.) are missing or incomplete.
+
+*E4: Conflict Detected*::
+Two or more sources disagree about a critical value (score, status, final result).
+
+*E5: Data Becomes Stale*::
+The last update timestamp exceeds a defined freshness threshold.
+
+*E6: Correction Published*::
+A previously published value is updated due to correction or reconciliation.
+
+*E7: Source Outage / Unavailable Source*::
+A source fails, stops updating, or becomes unreachable.
+
+== System Actions per Event
+
+For each event, the system performs actions that preserve user trust and allow future validation.
+
+*E1 Actions (Report Received)*::
+- Record source attribution and timestamps (publish time, ingest time, event time when available).
+- Assign verification status and confidence level.
+- Store reliability metadata required for transparency.
+
+*E2 Actions (Live Match State Updated)*::
+- Apply a standardized game state model and log the transition time.
+- Support manual override and correction logging when local updates are irregular.
+
+*E3 Actions (Missing/Partial Data)*::
+- Classify coverage level (Full Live, Live–Score Only, Live–Status Only, Live–Delayed).
+- Preserve last known valid values when available.
+
+*E4 Actions (Conflict Detected)*::
+- Set status to Conflicting and lower confidence level.
+- Preserve both values and their sources to avoid silent overwrites.
+- Trigger re-validation when new related reports arrive.
+
+*E5 Actions (Stale Data)*::
+- Mark data as Stale/Delayed and retain last confirmed values.
+- Update transparency indicators so users can see recency clearly.
+
+*E6 Actions (Correction Published)*::
+- Classify the change as Corrected and preserve lightweight change history for critical fields.
+- Provide an explanation note (correction/override) where applicable.
+
+*E7 Actions (Source Outage)*::
+- Enter Degraded State if one or more key sources fail.
+- Continue serving cached/last known data with clear messaging.
+
+== Expected System Behaviors
+
+=== Normal Operation
+- When reports are Confirmed and non-conflicting, display current values with last updated time and source type.
+- Confidence remains High when an official source is present and no conflicts exist.
+
+=== Unverified / Developing Information
+- Allow publication when time-sensitive, but label as Developing/Unverified.
+- Confidence should be Low (single unverified) or Medium (multiple agreeing non-official sources).
+- Periodically re-validate and update status if confirmation arrives.
+
+=== Conflicting Information
+- Display Conflicting state and communicate that information may change.
+- Do not silently overwrite values; preserve traceability to explain changes later.
+
+=== Missing or Partial Live Data
+- A match can be surfaced as live only if minimum live data exists (teams, league, in-progress status, and score OR clock, plus a last updated timestamp).
+- When fields are missing, degrade coverage honestly (e.g., “Clock unavailable” or “Score not available”) and keep timestamps visible.
+
+=== Delayed / Stale Information
+- If last update exceeds freshness threshold, mark as Live–Delayed or Stale.
+- Prefer showing last known valid data with a warning over showing potentially incorrect new values without context.
+
+=== Source Failure / Degraded State
+- If sources fail, continue operating using cached values.
+- Provide system-state messaging indicating synchronization delays or degraded coverage instead of blank screens.
+
+=== Corrections
+- Publish corrections explicitly (Corrected status) and preserve revision history for critical fields.
+- Users should be able to understand that a change occurred and why (correction vs conflict resolution).
+
+== Notes for Future Testing
+
+These behaviors are designed to be testable through simulation in later milestones:
+- Conflicting score scenario
+- Unverified developing report scenario
+- Delayed update / stale threshold scenario
+- Partial live coverage scenario
+- Source outage and degraded mode scenario
+- Correction lifecycle scenario
