@@ -1,0 +1,62 @@
+==== 2.1.3 Domain Terminology in Relation to Domain Rough Sketch
+
+===== Purpose
+
+This section connects the terms defined in 2.1.2 with the main themes described in the Domain Rough Sketch (2.1.1). The goal is to show how each term fits into the domain and to keep the documentation conceptually consistent.
+
+===== Mapping Terminology to Domain Themes
+
+====== Distributed Sources and Conflicting Information
+
+The rough sketch describes a system that collects data from multiple leagues and informal sources, where disagreements between reports are expected.
+
+Relevant terms:
+
+* *Conflicting* — when different sources report different values for the same data point.
+* *Unverified* — data coming from a single informal source with no independent confirmation.
+* *Source Type* — identifies the origin of a report (Official, Reporter, Community) so the system can distinguish authority levels.
+* *Corrected* — used when previously published data is revised after a conflict is resolved.
+
+====== Delays and Missing Updates
+
+The rough sketch recognizes that updates may arrive late or not at all, especially in local sports contexts.
+
+Relevant terms:
+
+* *Delayed* — information received well after the event occurred.
+* *Developing* — time-sensitive information that is still being verified.
+* *Last Updated Time* — shows the most recent system update, helping users detect stale data.
+* *Publish Time* — indicates when information was first shown to users.
+
+====== High Demand Moments
+
+The rough sketch highlights that reliability is most critical during playoffs, tournaments, and breaking news, when traffic and user expectations are highest.
+
+Relevant terms:
+
+* *Confirmed* — clearly verified information, especially important during peak moments.
+* *High Confidence* — official confirmation with no detected conflicts.
+* *Medium Confidence* — agreement across informal sources without official confirmation.
+* *Low Confidence* — data from a single unverified source or with active conflicts.
+
+====== Clear Behavior During Degraded States
+
+The rough sketch states that failures must be visible and understandable to users.
+
+Relevant terms:
+
+* *Degraded State* — when full functionality or complete data is unavailable.
+* *Graceful Degradation* — the system remains usable under partial failure and clearly communicates limits.
+* *Silent Failure* — presenting incorrect or missing information without warning.
+* *Reliability Metadata* — transparency fields such as verification status, confidence level, timestamps, and source attribution.
+
+====== Trust as the Main Outcome
+
+The rough sketch identifies long-term trust as the central objective. Trust depends on clarity, accuracy, and timeliness.
+
+Relevant terms:
+
+* *Confirmed* and *Unverified* — core signals that distinguish reliable data from uncertain data.
+* *Source Type* — enables source attribution so users can judge reliability.
+* *Publish Time* and *Last Updated Time* — provide context about data freshness.
+* *Reliability Metadata* — the overall transparency layer supporting user trust.
