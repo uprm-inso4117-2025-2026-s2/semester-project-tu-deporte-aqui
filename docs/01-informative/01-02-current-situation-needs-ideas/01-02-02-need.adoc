@@ -1,0 +1,70 @@
+==== 1.2.2 Need
+
+===== Purpose
+
+This section explains the main needs that justify building Tu Deporte Aquí. These needs come from the constraints, assumptions, and real-world conditions identified throughout Milestone 1.
+
+The needs are organized into three categories: user needs, system needs, and data reliability needs.
+
+===== User Needs
+
+In Puerto Rico, sports fans, coaches, reporters, and community members depend on league websites, social media, news outlets, and other informal sources to follow local sports. Because this information is spread across many platforms, several clear needs arise:
+
+Centralized access to local sports information::
+Users need a single, mobile-first platform that brings together game scores, standings, schedules, and athlete updates from local Puerto Rico leagues. Currently, staying informed usually means checking multiple sources that update at different times—or sometimes not at all.
+
+Clarity during uncertainty::
+When information is delayed, incomplete, or conflicting, users need the platform to clearly indicate what is confirmed, what is still uncertain, and what is missing. For example, during a live BSN playoff game, users should be able to distinguish between a confirmed final score and a provisional update taken from social media.
+
+Trustworthy information during high-demand moments::
+Playoffs, tournaments, and breaking news events are when users rely on the platform the most—and when data sources are more likely to lag or disagree. The platform must remain accessible and transparent during these peak moments, instead of failing silently or presenting unverified information as final.
+
+Source attribution and freshness indicators::
+Users need visibility into where each update comes from and when it was last refreshed. Without this context, it is difficult to determine whether a score reflects a live update, a delayed post, or outdated cached data.
+
+===== System Needs
+
+Tu Deporte Aquí operates in an environment where official APIs are limited or unavailable, and many data sources are informal. The system must be designed around this reality:
+
+Conflict detection and resolution::
+The system needs a way to detect when different sources report conflicting values for the same data point (such as different scores for a single game) and apply clear policies to resolve or flag those conflicts. Disagreement between sources should be treated as an expected condition, not a rare exception.
+
+Graceful degradation under partial failure::
+If one or more data sources become unavailable, delayed, or unreliable, the system should continue serving previously validated information instead of showing errors or empty states. Fallback behavior should be consistent and predictable.
+
+Scalability during peak traffic::
+The system must handle traffic spikes during major events like playoffs and championship games, when demand is highest and reliability is critical. Core information—scores, standings, and game status—should remain prioritized under heavy load.
+
+Standardized transparency messaging::
+The system needs a consistent way to communicate degraded states, stale data, and uncertainty. Error messages, loading indicators, and missing-data notices should be clear and uniform across the platform.
+
+===== Data Reliability Needs
+
+Since Tu Deporte Aquí aggregates data from sources that vary in structure, timeliness, and accuracy, reliability is a central concern:
+
+Provenance and traceability::
+Every piece of displayed information must have a traceable origin. The system should record which source provided each update, when it was received, and whether it has been modified since ingestion. This supports user trust and simplifies internal debugging.
+
+Handling of provisional and unverified data::
+The system must clearly differentiate between confirmed information and data that is still preliminary or unverified. Provisional updates should be labeled appropriately rather than presented with the same level of confidence as confirmed results.
+
+Staleness awareness::
+Standings, profiles, and schedules become outdated at different rates. The system needs defined thresholds for acceptable staleness and a mechanism to flag or hide information that exceeds those limits.
+
+Correction and revision tracking::
+Local leagues may revise scores, standings, or schedules after initial publication, sometimes without formal notice. The system should support basic revision tracking so corrections are recorded and previous values remain available for audit purposes.
+
+===== Assumptions
+
+The following assumptions support the needs described in this section:
+
+- Most local Puerto Rico leagues do not provide official APIs or machine-readable data feeds.
+- Data sources include league websites, university athletic department pages, social media posts, and informal reporting channels.
+- Reporting formats, update frequency, and completeness vary significantly across sources.
+- Historical corrections may occur without formal announcements.
+- The platform is mobile-first and web-based; native mobile applications are not included in Phase 1.
+- No implementation or source code is produced during Milestone 1; this section documents needs based only on research and analysis.
+
+===== Scope of This Section
+
+This section defines _what_ is needed and _why_, without going into implementation details. Technical solutions, architectural decisions, and feature-level specifications are addressed in later sections of the documentation.
