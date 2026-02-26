@@ -1,0 +1,49 @@
+==== 1.2.1
+
+===== Current Situation
+
+This section describes the current state of sports information availability in Puerto Rico prior to the implementation of Tu Deporte Aquí.
+
+====== Overview
+
+Sports information in Puerto Rico is distributed across multiple independent platforms, including league websites, social media, news outlets, and informal reporting channels. There is no centralized or standardized system for accessing this data.
+
+====== Data Distribution Environment
+
+Information is typically published through:
+- League websites
+- Social media posts (e.g., Twitter, Instagram)
+- News outlets
+- Independent reporters
+
+These sources often operate independently, with no synchronization or standardization.
+
+====== Key Limitations
+
+The current environment presents several limitations:
+- Data fragmentation across multiple platforms
+- Lack of official APIs for many leagues
+- Inconsistent update frequencies
+- Limited standardization in reporting formats
+
+====== Reliability Challenges
+
+Sports data in Puerto Rico is frequently:
+- Delayed due to manual updates or slow reporting
+- Conflicting when multiple sources provide different values
+- Incomplete when certain fields (score, time, status) are missing
+- Unverified when information comes from informal sources
+
+These issues are more noticeable during high-demand events such as playoffs.
+
+====== Impact on Users
+
+Users face several challenges:
+- Difficulty determining which information is correct
+- Need to cross-check multiple sources
+- Confusion during conflicting or delayed updates
+- Reduced trust in available information
+
+In many cases, incorrect information causes more harm to user trust than clearly communicated missing information.
+
+This situation highlights the need for a system that prioritizes transparency and reliability when handling uncertain data.
