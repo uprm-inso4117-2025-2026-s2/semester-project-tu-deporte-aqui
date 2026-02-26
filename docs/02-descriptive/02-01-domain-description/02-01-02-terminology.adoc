@@ -1,8 +1,8 @@
-= Terminology
+==== 2.1.2
+===== Terminology
+====== Verification Status Terms
 
 This section defines the official terminology used in Tu Deporte Aquí. These terms must be used consistently across documentation and future testing scenarios, especially when describing reliability, transparency, and uncertain information states.
-
-== Verification Status Terms
 
 *Confirmed*::
 Information validated by an official or highly trusted source and considered accurate at the time of display.
@@ -22,7 +22,7 @@ Information submitted significantly after the event occurred or updated slower t
 *Corrected*::
 Information that was previously published but later changed due to an official correction or reconciliation of conflicts.
 
-== Confidence Level Terms
+====== Confidence Level Terms
 
 *High Confidence*::
 Official source and no conflicts detected.
@@ -33,7 +33,7 @@ Multiple non-official sources agree, but no official confirmation exists.
 *Low Confidence*::
 Single unverified source or conflicts detected between sources.
 
-== Transparency Indicator Terms
+====== Transparency Indicator Terms
 
 *Publish Time*::
 The time a report was first made visible to users.
@@ -47,7 +47,7 @@ Classification of the origin of information (e.g., Official, Reporter, Community
 *Reliability Metadata*::
 The combined set of fields that explain trustworthiness, including verification status, confidence level, timestamps, and source attribution.
 
-== System State Terms
+====== System State Terms
 
 *Degraded State*::
 A system condition where full functionality or complete data is not available due to source failures, partial outages, missing fields, or inconsistencies.
