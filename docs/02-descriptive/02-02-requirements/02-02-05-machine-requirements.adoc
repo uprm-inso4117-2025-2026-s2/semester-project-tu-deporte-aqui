@@ -1,14 +1,15 @@
-=== 2.2.5 Machine Requirements
 
-==== Purpose
+==== 2.2.5 Machine Requirements
+
+===== Purpose
 
 This section defines the machine (non-functional) requirements for *Tu Deporte Aquí*. These requirements address performance, scalability, reliability, security, and operational aspects of the system. They are stated in measurable terms where possible; some thresholds are initial estimates and will be refined as the project progresses and more data becomes available.
 
-==== Notes on Current Status
+===== Notes on Current Status
 
 The requirements below represent the current understanding of system constraints and quality goals. As the project moves into implementation, some values (e.g., exact concurrency numbers, response time targets) may be adjusted based on load testing, user research, and infrastructure decisions. Items marked with “TBD” indicate areas requiring further investigation.
 
-==== Machine Requirements
+===== Machine Requirements
 
 [horizontal]
 R-MAC-1 (Availability):: The system shall be available to users 24/7 with a target uptime of 99.5% (excluding planned maintenance). Planned maintenance windows shall be announced at least 24 hours in advance.
@@ -43,7 +44,7 @@ R-MAC-13 (Testability):: The system shall be designed to support automated testi
 
 R-MAC-14 (Performance Testing):: Performance benchmarks (response times, throughput) shall be validated through load testing before each major release. The system shall meet the targets defined in R-MAC-2 and R-MAC-3 under simulated peak load.
 
-==== Open Items
+===== Open Items
 
 The following aspects require further investigation and will be refined in later milestones:
 
