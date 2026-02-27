@@ -1,10 +1,11 @@
-=== 2.2.4 Interface Requirements
 
-==== Purpose
+==== 2.2.4 Interface Requirements
+
+===== Purpose
 
 This section defines the interface requirements for *Tu Deporte Aquí*. These requirements specify how the system interacts with the external world to acquire, initialize, and update the representation of domain phenomena. They cover both automated data ingestion from external sources and manual input by authorized users.
 
-==== Shared Phenomena
+===== Shared Phenomena
 
 The following domain phenomena must be represented inside the system and kept synchronized with the outside world:
 
@@ -13,7 +14,7 @@ The following domain phenomena must be represented inside the system and kept sy
 * Source availability and health
 * User-initiated updates (e.g., by reporters or league officials)
 
-==== Interface Requirements
+===== Interface Requirements
 
 [horizontal]
 R-INT-1 (Automated Ingestion):: The system shall provide means to periodically fetch data from configured external sources (e.g., league websites, RSS feeds, APIs, social media streams). The fetching mechanism shall respect source-specific constraints such as rate limits and update frequencies.
