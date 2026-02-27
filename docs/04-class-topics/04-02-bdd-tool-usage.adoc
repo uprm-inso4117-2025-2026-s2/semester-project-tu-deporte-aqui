@@ -1,10 +1,11 @@
+
 === 4.2 BDD and BDD Tool Usage
 
-==== Purpose
+===== Purpose
 
 This section describes how the *Tu Deporte Aquí* team applied Behavior-Driven Development (BDD) principles to derive acceptance criteria from user stories and personas, and how those acceptance criteria were transformed into specification examples using Gherkin. We document the process we followed during the planning phase and outline our planned approach for automating these examples using Cucumber in future milestones.
 
-==== From User Stories to Acceptance Criteria
+===== From User Stories to Acceptance Criteria
 
 We began with the user stories documented in Section 2.2.1, which were written in the language of the domain and captured the needs of our personas: Sebastian (the superfan), Abiel (the coach), Andres (the reporter), and Chris (the engineer).
 
@@ -28,7 +29,7 @@ From this story, we derived the following acceptance criteria:
 * The source name (e.g., "BSN Official", "Twitter") should be visible next to the score.
 * If multiple sources report the same score, the system may show multiple source attributions.
 
-==== From Acceptance Criteria to Specification Examples
+===== From Acceptance Criteria to Specification Examples
 
 We then refined the acceptance criteria into concrete specification examples. These examples illustrate the desired behavior with specific inputs and expected outputs. They form the foundation of our BDD scenarios and are captured in the `.feature` files located in the `features/` directory of our repository.
 
@@ -48,7 +49,7 @@ Scenario: Display source attribution in standings
 
 This example is concrete and unambiguous. It uses domain terminology (standings, source, timestamp) and references our persona (Sebastian) to keep the focus on user value.
 
-==== The Feature Files
+===== The Feature Files
 
 We organized our scenarios into three feature files, each corresponding to a requirement category:
 
@@ -56,7 +57,7 @@ We organized our scenarios into three feature files, each corresponding to a req
 * `features/interface_requirements.feature` – scenarios focused on what users see: timestamps, source labels, confidence indicators, and degraded state messaging
 * `features/machine_requirements.feature` – scenarios focused on system behavior under failure, load, and other non-functional conditions
 
-===== Example: A Real Scenario from `domain_requirements.feature`
+====== Example: A Real Scenario from `domain_requirements.feature`
 
 Here is a complete scenario from our domain requirements feature file.
 
@@ -88,7 +89,7 @@ Scenario: Show when data was last updated
 
 This scenario validates interface requirement R-INT-5 (Update on Domain Event) and machine requirement R-MAC-5 (Data Freshness), and addresses the user story "As Sebastian, I want to see when each item was last updated".
 
-===== Example: A Real Scenario from `machine_requirements.feature`
+====== Example: A Real Scenario from `machine_requirements.feature`
 
 [source,gherkin]
 ----
@@ -104,7 +105,7 @@ Scenario: Continue operating when a source fails
 
 This scenario validates machine requirements R-MAC-9 (Graceful Degradation) and R-MAC-7 (Error Logging), and addresses the needs of Chris, the platform engineer.
 
-==== Traceability Matrix
+===== Traceability Matrix
 
 The following matrix traces every scenario in our feature files to the requirements it validates and the user stories that motivated it. This matrix is maintained in our documentation to ensure coverage and to help assess impact when requirements change.
 
@@ -138,15 +139,15 @@ The following matrix traces every scenario in our feature files to the requireme
 | "Recover from database connection failure" | `machine_requirements.feature` | R-MAC-12, R-MAC-9 | Chris: measure availability and recovery time
 |===
 
-==== Planned Automation with Cucumber
+===== Planned Automation with Cucumber
 
 While we are still in the planning phase and no code has been written, we have designed our approach for automating these specification examples in future milestones.
 
-===== Tool Selection: Cucumber
+====== Tool Selection: Cucumber
 
 We have selected **Cucumber** as our BDD tool. Cucumber allows us to keep our scenarios in Gherkin format (plain text) and link them to step definitions written in the same programming language we will use for implementation. This keeps the scenarios readable by non-technical stakeholders while enabling automation.
 
-===== Planned Workflow
+====== Planned Workflow
 
 Once implementation begins, we plan to follow this workflow:
 
@@ -155,7 +156,7 @@ Once implementation begins, we plan to follow this workflow:
 3. **Test hooks** will be used to set up and tear down test data, ensuring scenarios are isolated and repeatable.
 4. **Scenarios will be run** locally by developers during implementation, and also as part of the CI pipeline to catch regressions.
 
-===== Planned CI/CD Integration
+====== Planned CI/CD Integration
 
 We plan to integrate Cucumber into our CI/CD pipeline as follows:
 
@@ -164,7 +165,7 @@ We plan to integrate Cucumber into our CI/CD pipeline as follows:
 * Test reports will be generated and made visible in the pull request, so reviewers can see which scenarios passed or failed.
 * We will maintain a separate test environment where reliability scenarios (source failures, conflicting data) can be simulated safely.
 
-===== Planned Test Data and Isolation
+====== Planned Test Data and Isolation
 
 We recognize that many scenarios depend on specific data conditions (e.g., a game exists, a source reports a score). To keep scenarios reliable and independent, we plan to:
 
@@ -172,7 +173,7 @@ We recognize that many scenarios depend on specific data conditions (e.g., a gam
 * Use factories or fixtures to create the necessary domain objects (games, sources, reports) for each scenario.
 * For machine requirements (e.g., simulating source failures), we will use test doubles or mock servers that can be programmed to respond in specific ways.
 
-==== Current Status and Next Steps
+===== Current Status and Next Steps
 
 At this stage (Milestone 1), we have completed:
 
@@ -189,6 +190,6 @@ In future milestones, we will:
 * Run the scenarios against the evolving implementation
 * Refine scenarios as requirements become better understood
 
-==== Conclusion
+===== Conclusion
 
 BDD provided a structured way to move from user stories to concrete, testable specifications while keeping the language of the domain throughout. Even in the planning phase, writing scenarios helped us clarify requirements and identify edge cases. The feature files now serve as living documentation that bridges the gap between domain experts and developers. Once implementation begins, Cucumber will allow us to automate these scenarios, ensuring that the system we build matches the needs identified in our analysis and documented in our requirements.
