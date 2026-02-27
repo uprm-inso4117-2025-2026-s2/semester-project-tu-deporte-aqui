@@ -1,6 +1,4 @@
-==== 1.2.1
-
-===== Current Situation
+==== 1.2.1 Current Situation
 
 This section describes the current state of sports information availability in Puerto Rico prior to the implementation of Tu Deporte Aquí.
 
@@ -47,3 +45,4 @@ Users face several challenges:
 In many cases, incorrect information causes more harm to user trust than clearly communicated missing information.
 
 This situation highlights the need for a system that prioritizes transparency and reliability when handling uncertain data.
+
