@@ -1,0 +1,42 @@
+=== 2.2.3 Domain Requirements
+
+==== Purpose
+
+This section defines the domain requirements for *Tu Deporte Aquí*. These requirements are derived from observations of the sports information domain in Puerto Rico and capture the essential phenomena and concepts that the system must faithfully simulate. The domain properties listed below form the basis for these requirements.
+
+==== Observed Domain Properties
+
+The following properties have been observed in the domain of local Puerto Rico sports information:
+
+* DP-1: Official league sources (e.g., league websites, official announcements) are considered more authoritative than informal sources such as social media posts or news outlets.
+* DP-2: When multiple independent unofficial sources report the same value (e.g., a game score), confidence in that value increases, but it remains unverified until confirmed by an official source.
+* DP-3: Corrections to game results, standings, or athlete information occur and must be reflected in historical records.
+* DP-4: Information becomes less reliable over time; after a certain period without updates, it is considered stale.
+* DP-5: Conflicts arise when different sources report different values for the same game attribute (score, status, etc.).
+* DP-6: Sources may become temporarily or permanently unavailable, affecting the reliability of data that depended on them.
+* DP-7: Games progress through a set of states (scheduled, live, halftime, final, postponed, cancelled) that must be tracked.
+
+==== Domain Requirements
+
+The following requirements specify what the system must do to faithfully simulate the domain concepts and phenomena listed above. Each requirement is traceable to one or more domain properties.
+
+[horizontal]
+R-DOM-1 (Source Authority):: The system shall assign a trust level to each configured source based on its type (official, news, social). Official sources shall have the highest trust level. (DP-1)
+
+R-DOM-2 (Conflict Detection):: The system shall detect when two or more sources report different values for the same game attribute (e.g., score, status) and mark that attribute as conflicting. (DP-5)
+
+R-DOM-3 (Conflict Preservation):: When a conflict is detected, the system shall preserve all reported values and their source attributions. The system shall not automatically overwrite the canonical value; resolution shall follow defined policies (e.g., official source preference). (DP-1, DP-5)
+
+R-DOM-4 (Provisional Data):: If only unofficial sources report a value, the system shall mark that data as provisional. Provisional data may be displayed but must be clearly distinguished from confirmed data. (DP-2)
+
+R-DOM-5 (Confidence Building):: When multiple independent unofficial sources report the same value for a game attribute, the system may increase the confidence level associated with that data, but it shall remain marked as unverified until an official source confirms it. (DP-2)
+
+R-DOM-6 (Corrections):: When an official source issues a correction to a previously published value, the system shall update the canonical value and retain the previous value in an audit trail, along with the reason (e.g., “official correction”) and timestamp. (DP-3)
+
+R-DOM-7 (Staleness):: The system shall track the last update time for each game attribute. If the time since the last update exceeds a configurable freshness threshold (e.g., 30 minutes for live scores, 24 hours for standings), the data shall be marked as stale. (DP-4)
+
+R-DOM-8 (Source Unavailability):: If a source ceases to provide updates (e.g., repeated fetch failures), the system shall consider that source inactive and adjust the reliability of data that depended solely on it. Data from inactive sources shall be treated with lower confidence. (DP-6)
+
+R-DOM-9 (Game State Transitions):: The system shall model game states (scheduled, live, halftime, final, postponed, cancelled) and record each state transition with a timestamp and source. (DP-7)
+
+R-DOM-10 (Audit Trail):: The system shall maintain an audit trail for all changes to critical game data (score, status, final result) including the previous value, new value, source, timestamp, and reason for change. (DP-3)

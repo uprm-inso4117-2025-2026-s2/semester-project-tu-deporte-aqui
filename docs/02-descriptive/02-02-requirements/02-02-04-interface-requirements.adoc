@@ -1,0 +1,35 @@
+=== 2.2.4 Interface Requirements
+
+==== Purpose
+
+This section defines the interface requirements for *Tu Deporte Aquí*. These requirements specify how the system interacts with the external world to acquire, initialize, and update the representation of domain phenomena. They cover both automated data ingestion from external sources and manual input by authorized users.
+
+==== Shared Phenomena
+
+The following domain phenomena must be represented inside the system and kept synchronized with the outside world:
+
+* Game scores, statuses, and schedules reported by various sources (league websites, social media, news outlets, direct reports)
+* Corrections issued by official leagues
+* Source availability and health
+* User-initiated updates (e.g., by reporters or league officials)
+
+==== Interface Requirements
+
+[horizontal]
+R-INT-1 (Automated Ingestion):: The system shall provide means to periodically fetch data from configured external sources (e.g., league websites, RSS feeds, APIs, social media streams). The fetching mechanism shall respect source-specific constraints such as rate limits and update frequencies.
+
+R-INT-2 (Manual Data Entry):: The system shall provide an interface for authorized users (e.g., reporters, league representatives) to manually enter or update game information, including scores, statuses, and corrections. Manual entries shall be attributed to the user and timestamped.
+
+R-INT-3 (Source Configuration):: The system shall provide means for administrators to configure data sources, including their type, trust level, fetch schedule, and access credentials (if any). Changes to source configuration shall be logged.
+
+R-INT-4 (Data Initialization):: When a new league, team, or game is added to the system, the system shall provide means to initialize its representation from existing sources or manual entry. Initial data shall include at least the teams, scheduled dates, and any available historical results.
+
+R-INT-5 (Update on Domain Event):: When a domain event occurs (e.g., a game ends, a score changes), the system must be updated accordingly. This can happen through automated detection via source polling or webhooks, or manual input by authorized users. The system shall ensure that updates are reflected in the canonical store with appropriate provenance metadata (source, timestamp).
+
+R-INT-6 (Correction Handling):: When a correction is identified (either through automated detection of a discrepancy or manual notification), the system shall provide means to apply the correction, preserving the previous value in the audit trail. The correction shall be attributed to the source (e.g., official league, user) and timestamped.
+
+R-INT-7 (Conflict Notification):: When the system detects conflicting reports, it shall provide means to notify appropriate personnel (e.g., via a dashboard or alerts) so that manual resolution can occur if automated resolution policies are insufficient.
+
+R-INT-8 (Source Health Monitoring):: The system shall monitor the availability and responsiveness of configured sources. It shall log failures and provide visibility into source health (e.g., via a status dashboard) for administrators.
+
+R-INT-9 (User Attribution):: All manual changes to domain data shall be attributed to the authenticated user who performed the change. The system shall record the user ID along with the change in the audit trail.
