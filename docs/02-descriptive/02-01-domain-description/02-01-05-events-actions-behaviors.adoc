@@ -1,9 +1,9 @@
-==== 2.1.5
 
-===== Events, Actions, and Behaviors
+==== 2.1.5 Events, Actions, and Behaviors
 
 This section defines the key domain events, system actions, and expected behaviors for Tu Deporte Aquí. The focus is reliability and transparency when sports information is delayed, incomplete, unverified, or conflicting.
-== Domain Events
+
+===== Domain Events
 
 *E1: Report Received*::
 A new update is received from a data source (league site, reporter, community post).
@@ -26,7 +26,7 @@ A previously published value is updated due to correction or reconciliation.
 *E7: Source Outage / Unavailable Source*::
 A source fails, stops updating, or becomes unreachable.
 
-== System Actions per Event
+===== System Actions per Event
 
 For each event, the system performs actions that preserve user trust and allow future validation.
 
@@ -60,38 +60,38 @@ For each event, the system performs actions that preserve user trust and allow f
 - Enter Degraded State if one or more key sources fail.
 - Continue serving cached/last known data with clear messaging.
 
-== Expected System Behaviors
+===== Expected System Behaviors
 
-=== Normal Operation
+====== Normal Operation
 - When reports are Confirmed and non-conflicting, display current values with last updated time and source type.
 - Confidence remains High when an official source is present and no conflicts exist.
 
-=== Unverified / Developing Information
+====== Unverified / Developing Information
 - Allow publication when time-sensitive, but label as Developing/Unverified.
 - Confidence should be Low (single unverified) or Medium (multiple agreeing non-official sources).
 - Periodically re-validate and update status if confirmation arrives.
 
-=== Conflicting Information
+====== Conflicting Information
 - Display Conflicting state and communicate that information may change.
 - Do not silently overwrite values; preserve traceability to explain changes later.
 
-=== Missing or Partial Live Data
+====== Missing or Partial Live Data
 - A match can be surfaced as live only if minimum live data exists (teams, league, in-progress status, and score OR clock, plus a last updated timestamp).
 - When fields are missing, degrade coverage honestly (e.g., “Clock unavailable” or “Score not available”) and keep timestamps visible.
 
-=== Delayed / Stale Information
+====== Delayed / Stale Information
 - If last update exceeds freshness threshold, mark as Live–Delayed or Stale.
 - Prefer showing last known valid data with a warning over showing potentially incorrect new values without context.
 
-=== Source Failure / Degraded State
+====== Source Failure / Degraded State
 - If sources fail, continue operating using cached values.
 - Provide system-state messaging indicating synchronization delays or degraded coverage instead of blank screens.
 
-=== Corrections
+====== Corrections
 - Publish corrections explicitly (Corrected status) and preserve revision history for critical fields.
 - Users should be able to understand that a change occurred and why (correction vs conflict resolution).
 
-== Notes for Future Testing
+===== Notes for Future Testing
 
 These behaviors are designed to be testable through simulation in later milestones:
 - Conflicting score scenario
@@ -100,3 +100,4 @@ These behaviors are designed to be testable through simulation in later mileston
 - Partial live coverage scenario
 - Source outage and degraded mode scenario
 - Correction lifecycle scenario
+
