@@ -1,25 +1,26 @@
-=== 2.1.4 Narrative
 
-==== Purpose
+==== 2.1.4 Narrative
+
+===== Purpose
 This narrative describes how users in Puerto Rico currently obtain sports information, why that process is unreliable, and how Tu Deporte Aquí addresses uncertainty through transparency and predictable behavior.
 
-==== Context: Local Sports Information Flow
+===== Context: Local Sports Information Flow
 Many local sports updates are shared through informal channels (social media posts, chats, community pages, screenshots, and word-of-mouth) rather than standardized APIs. Coverage varies by league and region, and “official” updates may arrive late or contradict earlier reports.
 
-==== Actors and Typical Scenarios
-===== Fans and families
+===== Actors and Typical Scenarios
+====== Fans and families
 Fans want quick answers (scores, standings, schedules) while commuting or during games. Most access is mobile-first and time-sensitive.
 
-===== Players and coaches
+====== Players and coaches
 Participants use the platform to confirm game results, future matches, and team performance, especially when announcements are scattered across multiple sources.
 
-===== Leagues and organizers
+====== Leagues and organizers
 Organizers may provide partial information (schedule updates, venue changes) that does not propagate consistently across platforms.
 
-==== Narrative: What Happens Today (Problem Story)
+===== Narrative: What Happens Today (Problem Story)
 A user hears that a game has started and tries to find the score. One source posts an early score update, another source posts nothing, and a third source posts a conflicting result later. The user cannot determine which information is current, which source is more trustworthy, or whether the system is missing data. In many cases, systems fail silently—showing outdated information without indicating the last update time or confidence level.
 
-==== Narrative: Expected System Behavior (Tu Deporte Aquí)
+===== Narrative: Expected System Behavior (Tu Deporte Aquí)
 Tu Deporte Aquí aggregates and normalizes available sports data while explicitly communicating uncertainty.
 
 Key behaviors:
@@ -28,5 +29,5 @@ Key behaviors:
 - The system can present provisional results with low-confidence indicators when appropriate.
 - When multiple sources disagree, the system surfaces the conflict and avoids presenting a single answer as certain.
 
-==== Why This Matters (Reliability + Transparency)
+===== Why This Matters (Reliability + Transparency)
 Reliability in this domain is not only about being correct—it is also about being honest about uncertainty. The platform should help users make informed interpretations by showing what is known, what is unknown, and what is still being verified.
