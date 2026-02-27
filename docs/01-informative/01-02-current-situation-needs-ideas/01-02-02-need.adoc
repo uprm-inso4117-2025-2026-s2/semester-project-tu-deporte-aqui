@@ -1,4 +1,5 @@
-==== 1.2.2 Need
+
+==== 1.2.2 Needs
 
 ===== Purpose
 
@@ -68,3 +69,4 @@ The following assumptions support the needs described in this section:
 ===== Scope of This Section
 
 This section defines _what_ is needed and _why_, without going into implementation details. Technical solutions, architectural decisions, and feature-level specifications are addressed in later sections of the documentation.
+
