@@ -107,7 +107,7 @@ This team ensures user trust and system transparency.
 *Team Members:*
 
 - Juan R. Rivera Rodríguez (Lead)
-- Diego A. Rios Morales
+- Diego A. Ríos Morales
 - Lianette Alberto Muñoz
 - Marcos F. Arraiza Aviles
 - Ojiani S. Figueroa Cruz
@@ -191,6 +191,7 @@ Milestone 1 emphasizes:
 - Structured documentation before implementation
 
 This structured team model ensures shared ownership, accountability, and disciplined engineering practices prior to any system development.
+
 
 
 
