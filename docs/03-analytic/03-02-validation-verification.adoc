@@ -1,16 +1,17 @@
-== 3.2 Validation and Verification
 
-=== Purpose
+=== 3.2 Validation and Verification
+
+===== Purpose
 
 This section defines how the concepts, assumptions, and reliability strategies proposed for Tu Deporte Aquí will be evaluated during Milestone 1. Since this milestone focuses on documentation rather than implementation, validation emphasizes conceptual correctness, clarity, and alignment with project goals rather than executable testing.
 
 Validation ensures that the proposed system behavior addresses real-world conditions of local Puerto Rico sports data, including delayed updates, conflicting sources, and limited official APIs. Verification confirms that documentation artifacts are internally consistent and correctly structured.
 
-=== Validation Approach
+===== Validation Approach
 
 Validation during Milestone 1 focuses on confirming that the proposed concepts meet stakeholder expectations and realistic operating conditions.
 
-==== Concept Validation
+===== Concept Validation
 
 The reliability and transparency strategies are evaluated by analyzing whether they:
 
@@ -19,7 +20,7 @@ The reliability and transparency strategies are evaluated by analyzing whether t
 * Provide predictable and understandable system behavior
 * Align with user expectations for trust and clarity
 
-==== Scenario-Based Evaluation
+===== Scenario-Based Evaluation
 
 Concepts are examined using representative scenarios such as:
 
@@ -30,11 +31,11 @@ Concepts are examined using representative scenarios such as:
 
 These scenarios help determine whether the proposed behaviors remain consistent and reasonable.
 
-=== Verification Approach
+===== Verification Approach
 
 Verification ensures the documentation itself is correct, complete, and internally consistent.
 
-==== Documentation Consistency
+===== Documentation Consistency
 
 Verification activities include:
 
@@ -43,7 +44,7 @@ Verification activities include:
 * Confirming traceability between sections of the A3 expansion
 * Reviewing structural correctness of AsciiDoc hierarchy
 
-==== Structural Verification
+===== Structural Verification
 
 The documentation structure is verified by:
 
@@ -51,7 +52,7 @@ The documentation structure is verified by:
 * Ensuring files are placed in the correct repository folders
 * Validating successful compilation through the AsciiDoc workflow
 
-=== Expected Outcomes
+===== Expected Outcomes
 
 By completing validation and verification activities during Milestone 1, the project establishes:
 
