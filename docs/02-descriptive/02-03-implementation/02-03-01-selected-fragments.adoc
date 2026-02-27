@@ -1,0 +1,135 @@
+
+==== 2.3.1 Selected Implementation Fragments
+
+===== Purpose
+
+This section provides small, representative implementation fragments that illustrate how Tu Deporte Aquí could satisfy key reliability and transparency requirements identified in Milestone 1. These fragments are not a complete implementation and are presented only to clarify intended behavior.
+
+===== Scope and Assumptions
+
+* These fragments are illustrative and may be implemented differently depending on chosen technologies.
+* No full system, database, or deployment is implemented in Milestone 1.
+* Behavior focuses on reliability under uncertain, delayed, missing, or conflicting sports data.
+
+===== Fragment 1: Data Model for Uncertainty and Provenance
+
+====== Goal
+
+Represent a sports data value along with reliability metadata (source attribution, timestamps, confidence, and status).
+
+====== Example
+
+[source]
+----
+Record DataPoint {
+  id: String
+  kind: String              // score, standings, schedule, etc.
+  value: Any
+  status: Status            // CONFIRMED | PROVISIONAL | CONFLICTING | MISSING
+  confidence: Float         // 0.0 - 1.0
+  sources: List<SourceRef>  // attribution
+  observedAt: Instant       // when source reported
+  ingestedAt: Instant       // when system captured
+  notes: String?            // optional explanation
+}
+
+Record SourceRef {
+  sourceId: String
+  sourceName: String
+  url: String?
+}
+----
+
+====== Reliability Notes
+
+* The UI can display `status`, `confidence`, and `sources` to avoid “silent failures.”
+* `observedAt` vs `ingestedAt` supports transparency about delays.
+
+===== Fragment 2: Conflict Detection and Resolution Policy
+
+====== Goal
+
+Detect conflicting values from multiple sources and apply a predictable merge policy.
+
+====== Example
+
+[source]
+----
+function mergeDataPoints(points: List<DataPoint>): DataPoint {
+  if points.isEmpty(): return missing()
+
+  // Group by value to detect disagreement
+  groups = groupBy(points, p -> p.value)
+
+  if groups.size == 1:
+    return confirmed(best(points))
+
+  // Conflict exists
+  winner = pickByPolicy(points)   // e.g., trusted sources > recency > consensus
+  return DataPoint(
+    id = winner.id,
+    kind = winner.kind,
+    value = winner.value,
+    status = CONFLICTING,
+    confidence = winner.confidence,
+    sources = points.map(p -> p.sources).flatten(),
+    observedAt = winner.observedAt,
+    ingestedAt = now(),
+    notes = "Conflicting sources detected; displayed value chosen by policy."
+  )
+}
+----
+
+====== Reliability Notes
+
+* Conflicts are explicitly labeled, not hidden.
+* The policy should be documented (source priority, recency rules, etc.).
+
+===== Fragment 3: Staleness and “Last Updated” Indicator
+
+====== Goal
+
+Expose data freshness so users can judge reliability.
+
+====== Example
+
+[source]
+----
+function computeFreshness(dp: DataPoint, now: Instant): Freshness {
+  ageMinutes = minutesBetween(dp.observedAt, now)
+
+  if dp.kind == "live_score" and ageMinutes > 30:
+    return STALE
+  if dp.kind in ["standings", "schedule"] and ageMinutes > 1440:
+    return STALE
+
+  return FRESH
+}
+----
+
+====== Reliability Notes
+
+* The UI can show “Last updated X minutes ago.”
+* “STALE” can trigger a warning badge.
+
+===== Fragment 4: UI Presentation Rules for Uncertain Data
+
+====== Goal
+
+Ensure a mobile-first UI communicates uncertainty clearly and consistently.
+
+====== Example Rules
+
+* If `status = MISSING`: show placeholder text “Not reported yet” (never blank).
+* If `status = PROVISIONAL`: show “Provisional” badge and source attribution.
+* If `status = CONFLICTING`: show “Conflicting” badge and allow viewing sources.
+* Always show “Last updated” and the primary source.
+
+===== Traceability to Requirements
+
+* Connects to reliability and transparency needs (conflicts, staleness, provenance).
+* Supports validation goals by making behaviors observable and testable.
+
+===== Notes
+
+These fragments are designed to be small “anchors” that communicate intended system behavior. Implementation details will be refined in later milestones when technology choices and architecture are finalized.
