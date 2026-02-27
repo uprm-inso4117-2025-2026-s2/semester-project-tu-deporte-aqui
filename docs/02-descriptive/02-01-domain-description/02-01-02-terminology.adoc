@@ -1,3 +1,4 @@
+
 ==== 2.1.2
 ===== Terminology
 ====== Verification Status Terms
@@ -57,3 +58,4 @@ The system remains usable under partial failure by showing last known valid data
 
 *Silent Failure*::
 A failure where incorrect or missing information is presented without warning, explanation, or status messaging.
+
