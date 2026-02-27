@@ -23,12 +23,14 @@ include::02-descriptive/02-01-domain-description/02-01-03-domain-terminology-vs-
 include::02-descriptive/02-01-domain-description/02-01-04-narrative.adoc[]
 include::02-descriptive/02-01-domain-description/02-01-05-events-actions-behaviors.adoc[]
 include::02-descriptive/02-01-domain-description/02-01-06-function-signatures.adoc[]
+
 === 2.2 Requirements
 include::02-descriptive/02-02-requirements/02-02-01-user-stories-epics-features.adoc[]
 include::02-descriptive/02-02-requirements/02-02-02-personas.adoc[]
 include::02-descriptive/02-02-requirements/02-02-03-domain-requirements.adoc[]
 include::02-descriptive/02-02-requirements/02-02-04-interface-requirements.adoc[]
 include::02-descriptive/02-02-requirements/02-02-05-machine-requirements.adoc[]
+
 === 2.3 Implementation
 include::02-descriptive/02-03-implementation/02-03-01-selected-fragments.adoc[]
 
