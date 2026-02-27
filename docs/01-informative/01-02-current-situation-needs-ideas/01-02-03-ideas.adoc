@@ -23,7 +23,7 @@ Conflicts should be logged internally for debugging. When relevant, they should 
 Users need to understand how recent the information is and where it came from.
 
 Timestamps and source labels::
-Key data elements scores, standings, profiles, schedules—should display when they were last updated and which source provided them (for example, "via BSN official site"). This allows users to judge reliability on their own.
+Key data elements scores, standings, profiles, schedules should display when they were last updated and which source provided them (for example, "via BSN official site"). This allows users to judge reliability on their own.
 
 Update frequency expectations::
 The platform should communicate realistic refresh rates for each data type. Live scores may have small delays, while standings may update only after games are finalized. Making this clear helps reduce confusion.
@@ -61,5 +61,6 @@ Icons, color coding, and short labels are preferred over long explanations. The 
 ===== Scope of This Section
 
 This section defines the conceptual direction of the platform. It does not include technical implementation or architectural details, which are covered later in the documentation.
+
 
 
