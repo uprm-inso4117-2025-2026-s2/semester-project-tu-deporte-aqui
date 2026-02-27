@@ -40,3 +40,6 @@ include::03-analytic/03-02-validation-verification.adoc[]
 include::04-class-topics/04-01-tdd.adoc[]
 include::04-class-topics/04-02-bdd-tool-usage.adoc[]
 include::04-class-topics/04-03-debugging.adoc[]
+
+== 5 AI Disclosure
+include::ai-disclosure.adoc[]
