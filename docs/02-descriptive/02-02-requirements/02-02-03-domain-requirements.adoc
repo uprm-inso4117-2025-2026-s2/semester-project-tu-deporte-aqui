@@ -1,10 +1,11 @@
-=== 2.2.3 Domain Requirements
 
-==== Purpose
+==== 2.2.3 Domain Requirements
+
+===== Purpose
 
 This section defines the domain requirements for *Tu Deporte Aquí*. These requirements are derived from observations of the sports information domain in Puerto Rico and capture the essential phenomena and concepts that the system must faithfully simulate. The domain properties listed below form the basis for these requirements.
 
-==== Observed Domain Properties
+===== Observed Domain Properties
 
 The following properties have been observed in the domain of local Puerto Rico sports information:
 
@@ -16,7 +17,7 @@ The following properties have been observed in the domain of local Puerto Rico s
 * DP-6: Sources may become temporarily or permanently unavailable, affecting the reliability of data that depended on them.
 * DP-7: Games progress through a set of states (scheduled, live, halftime, final, postponed, cancelled) that must be tracked.
 
-==== Domain Requirements
+===== Domain Requirements
 
 The following requirements specify what the system must do to faithfully simulate the domain concepts and phenomena listed above. Each requirement is traceable to one or more domain properties.
 
