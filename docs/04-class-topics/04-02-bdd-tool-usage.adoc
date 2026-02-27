@@ -1,0 +1,194 @@
+=== 4.2 BDD and BDD Tool Usage
+
+==== Purpose
+
+This section describes how the *Tu Deporte Aquí* team applied Behavior-Driven Development (BDD) principles to derive acceptance criteria from user stories and personas, and how those acceptance criteria were transformed into specification examples using Gherkin. We document the process we followed during the planning phase and outline our planned approach for automating these examples using Cucumber in future milestones.
+
+==== From User Stories to Acceptance Criteria
+
+We began with the user stories documented in Section 2.2.1, which were written in the language of the domain and captured the needs of our personas: Sebastian (the superfan), Abiel (the coach), Andres (the reporter), and Chris (the engineer).
+
+For each user story, we analyzed it to extract concrete examples of desired system behavior. These examples became acceptance criteria, still expressed in domain terms. We did this by asking questions such as:
+
+* What specific situations might this user encounter?
+* What would the system need to show or do in those situations?
+* What would count as a successful outcome?
+
+Consider the following user story from Epic 1:
+
+[quote]
+____
+As Sebastian, I want each score and update to show its source so that I can judge credibility when multiple channels exist.
+____
+
+From this story, we derived the following acceptance criteria:
+
+* When a score comes from an official league source, it should be clearly labeled as such.
+* When a score comes from a social media source, it should be labeled as "unverified" or "provisional".
+* The source name (e.g., "BSN Official", "Twitter") should be visible next to the score.
+* If multiple sources report the same score, the system may show multiple source attributions.
+
+==== From Acceptance Criteria to Specification Examples
+
+We then refined the acceptance criteria into concrete specification examples. These examples illustrate the desired behavior with specific inputs and expected outputs. They form the foundation of our BDD scenarios and are captured in the `.feature` files located in the `features/` directory of our repository.
+
+For the story above, we created the following specification example:
+
+[source,gherkin]
+----
+Scenario: Display source attribution in standings
+  Given Sebastian navigates to league standings
+  And the standings data was last updated "5 minutes ago"
+  And the source is "BSN Official"
+  When the standings page loads
+  Then Sebastian should see a source icon next to each team's record
+  And Sebastian can tap the icon to see the source and timestamp
+  And the source information should be consistent across all standings entries
+----
+
+This example is concrete and unambiguous. It uses domain terminology (standings, source, timestamp) and references our persona (Sebastian) to keep the focus on user value.
+
+==== The Feature Files
+
+We organized our scenarios into three feature files, each corresponding to a requirement category:
+
+* `features/domain_requirements.feature` – scenarios focused on conflict detection, source authority, corrections, and staleness
+* `features/interface_requirements.feature` – scenarios focused on what users see: timestamps, source labels, confidence indicators, and degraded state messaging
+* `features/machine_requirements.feature` – scenarios focused on system behavior under failure, load, and other non-functional conditions
+
+===== Example: A Real Scenario from `domain_requirements.feature`
+
+Here is a complete scenario from our domain requirements feature file.
+
+[source,gherkin]
+----
+Scenario: Conflicting scores from different sources
+  Given a game between "Cangrejeros" and "Vaqueros" is being played
+  And a social media post reports the score as "75-70" for Cangrejeros
+  And the official league website later reports the score as "76-70" for Cangrejeros
+  Then the two reports are considered conflicting
+  And the official league report takes precedence
+  And the conflicting social media report is recorded as unofficial
+  And fans should be made aware that a discrepancy existed
+----
+
+This scenario traces directly to domain requirements R-DOM-2 (Conflict Detection) and R-DOM-3 (Conflict Preservation), and to user story "As Sebastian, I want the platform to flag when two sources disagree on a score".
+
+===== Example: A Real Scenario from `interface_requirements.feature`
+
+[source,gherkin]
+----
+Scenario: Show when data was last updated
+  Given the game data was last updated "2 minutes ago"
+  When the game details page loads
+  Then Sebastian should see a "Last updated" timestamp near the score
+  And the timestamp should show the time since last update
+  And the timestamp should be in a human-readable format
+----
+
+This scenario validates interface requirement R-INT-5 (Update on Domain Event) and machine requirement R-MAC-5 (Data Freshness), and addresses the user story "As Sebastian, I want to see when each item was last updated".
+
+===== Example: A Real Scenario from `machine_requirements.feature`
+
+[source,gherkin]
+----
+Scenario: Continue operating when a source fails
+  Given source "BSN API" returns a 500 Internal Server Error
+  When the system processes requests for data
+  Then the system should not crash
+  And the system should continue serving data from remaining sources
+  And the system should set a "partial data" flag for affected entities
+  And the system should log the error with source name and timestamp
+  And the system should return HTTP 200 to the user with available data
+----
+
+This scenario validates machine requirements R-MAC-9 (Graceful Degradation) and R-MAC-7 (Error Logging), and addresses the needs of Chris, the platform engineer.
+
+==== Traceability Matrix
+
+The following matrix traces every scenario in our feature files to the requirements it validates and the user stories that motivated it. This matrix is maintained in our documentation to ensure coverage and to help assess impact when requirements change.
+
+[options="header"]
+|===
+| Scenario (exact title from feature file) | Feature File | Requirement IDs | User Story / Persona
+| "Conflicting scores from different sources" | `domain_requirements.feature` | R-DOM-2, R-DOM-3, R-DOM-1 | Sebastian: flag when two sources disagree on a score
+| "Provisional report becomes confirmed" | `domain_requirements.feature` | R-DOM-4, R-DOM-1 | Andres: mark updates as preliminary or confirmed
+| "Official correction after publication" | `domain_requirements.feature` | R-DOM-6, R-DOM-10 | Abiel: prioritize verified league results
+| "Multiple unofficial sources agree" | `domain_requirements.feature` | R-DOM-5, R-DOM-4 | Chris: configurable validation rules for ingestion
+| "Outdated game information" | `domain_requirements.feature` | R-DOM-7 | Sebastian: see when each item was last updated
+| "Source becomes unavailable" | `domain_requirements.feature` | R-DOM-8 | Chris: standardized fallback behavior
+| "Correction without formal announcement" | `domain_requirements.feature` | R-DOM-2, R-DOM-1, R-DOM-3 | Sebastian: flag conflicting scores
+| "High demand for accurate information during playoffs" | `domain_requirements.feature` | R-MAC-3, R-MAC-4 | Sebastian: score pages load reliably during playoffs
+| "Show when data was last updated" | `interface_requirements.feature` | R-INT-5, R-MAC-5 | Sebastian: see when each item was last updated
+| "Indicate stale data to the user" | `interface_requirements.feature` | R-DOM-7, R-MAC-9 | Sebastian: know if information might be outdated
+| "Show conflicting reports from different sources" | `interface_requirements.feature` | R-DOM-2, R-DOM-3 | Sebastian: platform flags conflicting scores
+| "Handle missing data gracefully" | `interface_requirements.feature` | R-MAC-9 | Sebastian: explanation when update is missing
+| "Label provisional data from unverified sources" | `interface_requirements.feature` | R-DOM-4, R-INT-9 | Andres: avoid presenting uncertain info as definitive
+| "Display source attribution in standings" | `interface_requirements.feature` | R-DOM-1, R-INT-9 | Sebastian: each score shows its source
+| "Communicate system-wide degraded state" | `interface_requirements.feature` | R-MAC-9 | Sebastian: clear messages when data is missing; Chris: standardized fallback behavior
+| "Show confidence level for uncertain data" | `interface_requirements.feature` | R-DOM-5 | Sebastian: simple reliability cue during major events
+| "Continue operating when a source fails" | `machine_requirements.feature` | R-MAC-9, R-MAC-7 | Chris: standardized fallback behavior
+| "Fall back to cached data during source unavailability" | `machine_requirements.feature` | R-MAC-9, R-MAC-5 | Chris: standardized fallback behavior
+| "Log conflicts for debugging and analysis" | `machine_requirements.feature` | R-MAC-6 | Chris: automated tests that simulate conflicting data; dashboards for consistency
+| "Prioritize critical endpoints under high traffic" | `machine_requirements.feature` | R-MAC-3, R-MAC-4 | Sebastian: score pages load reliably during playoffs; Chris: load and stress tests
+| "Resume normal operation after source recovery" | `machine_requirements.feature` | R-MAC-8, R-MAC-9 | Chris: measure availability and recovery time
+| "Expose reliability metrics for monitoring" | `machine_requirements.feature` | R-MAC-8 | Chris: dashboards for accuracy, consistency, availability
+| "Retain correction history for audit purposes" | `machine_requirements.feature` | R-MAC-10, R-DOM-10 | Chris: audit trail for corrections
+| "Handle malformed data from a source" | `machine_requirements.feature` | R-MAC-7, R-MAC-9 | Chris: fault injection tests
+| "Recover from database connection failure" | `machine_requirements.feature` | R-MAC-12, R-MAC-9 | Chris: measure availability and recovery time
+|===
+
+==== Planned Automation with Cucumber
+
+While we are still in the planning phase and no code has been written, we have designed our approach for automating these specification examples in future milestones.
+
+===== Tool Selection: Cucumber
+
+We have selected **Cucumber** as our BDD tool. Cucumber allows us to keep our scenarios in Gherkin format (plain text) and link them to step definitions written in the same programming language we will use for implementation. This keeps the scenarios readable by non-technical stakeholders while enabling automation.
+
+===== Planned Workflow
+
+Once implementation begins, we plan to follow this workflow:
+
+1. **Feature files** (the `.feature` files we have already written, located in `features/`) will remain in the repository as living documentation.
+2. **Step definitions** will be implemented as the corresponding functionality is developed. Each Gherkin step will be mapped to code that interacts with the system under test (via its API, UI, or directly with domain logic) and asserts expected outcomes.
+3. **Test hooks** will be used to set up and tear down test data, ensuring scenarios are isolated and repeatable.
+4. **Scenarios will be run** locally by developers during implementation, and also as part of the CI pipeline to catch regressions.
+
+===== Planned CI/CD Integration
+
+We plan to integrate Cucumber into our CI/CD pipeline as follows:
+
+* On every pull request, the full test suite (including all Cucumber scenarios) will be executed automatically.
+* If any scenario fails, the build will be marked as failed, preventing merge until the issue is resolved.
+* Test reports will be generated and made visible in the pull request, so reviewers can see which scenarios passed or failed.
+* We will maintain a separate test environment where reliability scenarios (source failures, conflicting data) can be simulated safely.
+
+===== Planned Test Data and Isolation
+
+We recognize that many scenarios depend on specific data conditions (e.g., a game exists, a source reports a score). To keep scenarios reliable and independent, we plan to:
+
+* Use a test database that is reset before each test run.
+* Use factories or fixtures to create the necessary domain objects (games, sources, reports) for each scenario.
+* For machine requirements (e.g., simulating source failures), we will use test doubles or mock servers that can be programmed to respond in specific ways.
+
+==== Current Status and Next Steps
+
+At this stage (Milestone 1), we have completed:
+
+* Analysis of user stories to extract acceptance criteria
+* Transformation of acceptance criteria into Gherkin scenarios
+* Organization of scenarios into feature files in the `features/` directory
+* Creation of a traceability matrix linking scenarios to requirements
+* Planning of automation approach, tool selection, and CI/CD integration
+
+In future milestones, we will:
+
+* Implement step definitions as the corresponding features are developed
+* Set up the Cucumber test harness and integrate it with the build system
+* Run the scenarios against the evolving implementation
+* Refine scenarios as requirements become better understood
+
+==== Conclusion
+
+BDD provided a structured way to move from user stories to concrete, testable specifications while keeping the language of the domain throughout. Even in the planning phase, writing scenarios helped us clarify requirements and identify edge cases. The feature files now serve as living documentation that bridges the gap between domain experts and developers. Once implementation begins, Cucumber will allow us to automate these scenarios, ensuring that the system we build matches the needs identified in our analysis and documented in our requirements.

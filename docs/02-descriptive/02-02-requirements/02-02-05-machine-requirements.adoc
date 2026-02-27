@@ -1,0 +1,53 @@
+=== 2.2.5 Machine Requirements
+
+==== Purpose
+
+This section defines the machine (non-functional) requirements for *Tu Deporte Aquí*. These requirements address performance, scalability, reliability, security, and operational aspects of the system. They are stated in measurable terms where possible; some thresholds are initial estimates and will be refined as the project progresses and more data becomes available.
+
+==== Notes on Current Status
+
+The requirements below represent the current understanding of system constraints and quality goals. As the project moves into implementation, some values (e.g., exact concurrency numbers, response time targets) may be adjusted based on load testing, user research, and infrastructure decisions. Items marked with “TBD” indicate areas requiring further investigation.
+
+==== Machine Requirements
+
+[horizontal]
+R-MAC-1 (Availability):: The system shall be available to users 24/7 with a target uptime of 99.5% (excluding planned maintenance). Planned maintenance windows shall be announced at least 24 hours in advance.
+
+R-MAC-2 (Response Time - Normal Load):: Under normal load (concurrent users ≤ 100), the system shall respond to user-facing requests (e.g., loading game details, standings) within 200 milliseconds for 95% of requests.
+
+R-MAC-3 (Response Time - Peak Load):: During peak events (e.g., playoffs, with concurrent users up to 1000), the system shall respond to critical requests (scores, game status) within 500 milliseconds for 90% of requests. Non-critical features may experience higher latency.
+
+R-MAC-4 (Scalability):: The system shall be designed to handle an increase in concurrent users up to 2000 without significant degradation (response times may increase but remain below 2 seconds for critical requests). The architecture shall support horizontal scaling of stateless components.
+
+R-MAC-5 (Data Freshness):: The system shall update live game scores from sources at least every 5 minutes during games. For non-live data (standings, schedules), updates shall occur at least once per day. (Freshness thresholds for staleness marking are defined in R-DOM-7.)
+
+R-MAC-6 (Conflict Logging):: The system shall log all detected data conflicts, including the entities involved, the conflicting values, sources, and timestamps. Logs shall be retained for at least 30 days for analysis and auditing.
+
+R-MAC-7 (Error Logging):: The system shall log all errors (e.g., source fetch failures, parsing errors, database connectivity issues) with sufficient detail (timestamp, source, error type) to facilitate debugging. Error logs shall be retained for at least 90 days.
+
+R-MAC-8 (Monitoring and Metrics):: The system shall expose the following metrics, which shall be available via a monitoring dashboard and/or a metrics endpoint:
+* Source health (success/failure counts, response times, last success timestamp)
+* Request rates and response times per endpoint
+* Conflict counts and resolution status
+* System resource usage (CPU, memory, disk)
+
+R-MAC-9 (Graceful Degradation):: If one or more data sources become unavailable, the system shall continue to serve cached data for affected entities. The system shall clearly indicate (via user-facing messages) that data may be stale or partial.
+
+R-MAC-10 (Data Retention):: The system shall retain canonical game data indefinitely for historical reference. Audit logs and conflict logs shall be retained according to policy (at least 30 days). Raw source snapshots may be retained for a shorter period (e.g., 7 days) for debugging.
+
+R-MAC-11 (Security):: All communication between the system and external sources shall be over HTTPS. Access to manual data entry and administrative functions shall require authentication and authorization. User passwords, if any, shall be hashed and salted.
+
+R-MAC-12 (Backup and Recovery):: The system's database shall be backed up daily, with backups retained for at least 30 days. Recovery procedures shall be documented and tested at least once per quarter.
+
+R-MAC-13 (Testability):: The system shall be designed to support automated testing of reliability scenarios, including source failures, conflicting data, and stale data. Test harnesses shall allow simulation of these conditions.
+
+R-MAC-14 (Performance Testing):: Performance benchmarks (response times, throughput) shall be validated through load testing before each major release. The system shall meet the targets defined in R-MAC-2 and R-MAC-3 under simulated peak load.
+
+==== Open Items
+
+The following aspects require further investigation and will be refined in later milestones:
+
+* Precise concurrency numbers should be validated against expected user base and traffic patterns.
+* Response time targets may be adjusted based on actual network conditions and infrastructure.
+* Log retention periods may be extended or shortened based on compliance and debugging needs.
+* Security requirements will be expanded as authentication and authorization mechanisms are designed.
