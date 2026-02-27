@@ -1,10 +1,11 @@
-== 4.1 Test-Driven Development (TDD)
 
-=== Purpose
+=== 4.1 Test-Driven Development (TDD)
+
+===== Purpose
 
 This section describes how Test-Driven Development (TDD) principles support the reliability and transparency goals of Tu Deporte Aquí. TDD provides a structured approach to validating expected system behavior before implementation, aligning with the documentation-first philosophy of Milestone 1.
 
-=== Role of TDD in the Project
+===== Role of TDD in the Project
 
 TDD helps ensure that system behavior is clearly defined and verifiable before development begins. Since Tu Deporte Aquí operates with uncertain and potentially conflicting data sources, predictable behavior under different conditions is critical.
 
@@ -16,32 +17,32 @@ Key benefits include:
 * Safer future refactoring and iteration
 * Alignment between documentation and implementation
 
-=== Application to Tu Deporte Aquí
+===== Application to Tu Deporte Aquí
 
 In this project, TDD would be particularly useful for validating:
 
-==== Data Reliability Logic
+====== Data Reliability Logic
 
 * Conflict detection between multiple sources
 * Timestamp freshness evaluation
 * Handling of delayed or missing updates
 * Confidence indicator behavior
 
-==== System Behavior Under Uncertainty
+====== System Behavior Under Uncertainty
 
 * Graceful degradation when sources fail
 * Fallback behavior when data is incomplete
 * Transparency messaging to users
 * Consistent handling of provisional states
 
-==== User-Facing Behavior
+====== User-Facing Behavior
 
 * Correct display of reliability indicators
 * Mobile-first information prioritization
 * Status messaging consistency
 * Error and degraded state communication
 
-=== Example TDD Workflow
+===== Example TDD Workflow
 
 A typical workflow would include:
 
@@ -53,7 +54,7 @@ A typical workflow would include:
 
 This approach ensures that behavior remains predictable even as the system evolves.
 
-=== Alignment with Milestone 1
+===== Alignment with Milestone 1
 
 During Milestone 1, no production code is implemented. However, defining TDD strategy early provides:
 
@@ -64,6 +65,6 @@ During Milestone 1, no production code is implemented. However, defining TDD str
 
 This preparation reduces future development risk and supports structured system evolution.
 
-=== Conclusion
+===== Conclusion
 
 Test-Driven Development supports the core goals of Tu Deporte Aquí by promoting reliability, transparency, and predictable system behavior. Establishing TDD principles early ensures that future implementation remains aligned with documented expectations and real-world data constraints.
