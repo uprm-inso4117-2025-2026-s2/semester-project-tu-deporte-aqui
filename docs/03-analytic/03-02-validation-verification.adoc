@@ -11,7 +11,7 @@ Validation ensures that the proposed system behavior addresses real-world condit
 
 Validation during Milestone 1 focuses on confirming that the proposed concepts meet stakeholder expectations and realistic operating conditions.
 
-===== Concept Validation
+====== Concept Validation
 
 The reliability and transparency strategies are evaluated by analyzing whether they:
 
@@ -20,7 +20,7 @@ The reliability and transparency strategies are evaluated by analyzing whether t
 * Provide predictable and understandable system behavior
 * Align with user expectations for trust and clarity
 
-===== Scenario-Based Evaluation
+====== Scenario-Based Evaluation
 
 Concepts are examined using representative scenarios such as:
 
@@ -35,7 +35,7 @@ These scenarios help determine whether the proposed behaviors remain consistent 
 
 Verification ensures the documentation itself is correct, complete, and internally consistent.
 
-===== Documentation Consistency
+====== Documentation Consistency
 
 Verification activities include:
 
@@ -44,7 +44,7 @@ Verification activities include:
 * Confirming traceability between sections of the A3 expansion
 * Reviewing structural correctness of AsciiDoc hierarchy
 
-===== Structural Verification
+====== Structural Verification
 
 The documentation structure is verified by:
 
@@ -52,7 +52,7 @@ The documentation structure is verified by:
 * Ensuring files are placed in the correct repository folders
 * Validating successful compilation through the AsciiDoc workflow
 
-===== Expected Outcomes
+====== Expected Outcomes
 
 By completing validation and verification activities during Milestone 1, the project establishes:
 
