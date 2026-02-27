@@ -1,0 +1,101 @@
+== 3.1 Concept Analysis
+
+=== Purpose
+
+This section analyzes the key conceptual elements that define the behavior,
+structure, and reliability characteristics of Tu Deporte Aquí.
+
+The analysis focuses on how uncertainty, conflicting information, and informal
+data sources influence system design decisions.
+
+=== Core Concepts
+
+==== Sports Information Entity
+
+Sports information represents data related to games, teams, leagues, standings,
+scores, schedules, and events.
+
+This information may originate from multiple sources with varying reliability
+levels.
+
+==== Data Sources
+
+Data sources include:
+
+* League websites
+* Social media updates
+* News outlets
+* Community reports
+
+Sources may differ in accuracy, timeliness, and structure.
+
+==== Reliability State
+
+The reliability state represents the confidence level of a piece of data.
+
+Possible states include:
+
+* Confirmed
+* Provisional
+* Conflicting
+* Missing
+* Stale
+
+==== Timestamp and Freshness
+
+Each data element includes temporal metadata indicating when the information
+was last updated.
+
+Freshness indicators help users interpret reliability.
+
+=== Concept Relationships
+
+==== Source to Data Relationship
+
+Multiple sources may provide information about the same event.
+
+The system must support:
+
+* Source attribution
+* Conflict detection
+* Priority rules
+
+==== Reliability Interpretation
+
+Reliability states influence:
+
+* User interface indicators
+* System decision logic
+* Validation behavior
+
+==== User Trust Impact
+
+Transparent communication of uncertainty improves user trust and reduces
+misinterpretation of data.
+
+=== Conceptual Constraints
+
+==== Informal Data Environment
+
+Tu Deporte Aquí operates in an environment where:
+
+* Official APIs may not exist
+* Data may be delayed
+* Conflicts are common
+
+System concepts must accommodate these constraints.
+
+==== Mobile-First Context
+
+Concept design must prioritize:
+
+* Compact information display
+* Clear status indicators
+* Fast interpretation
+
+=== Summary
+
+Concept analysis provides a structured understanding of the domain elements
+that influence system reliability, transparency, and behavior.
+
+These concepts guide later modeling and validation activities.
