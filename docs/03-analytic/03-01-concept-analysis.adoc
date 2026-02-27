@@ -1,6 +1,7 @@
-== 3.1 Concept Analysis
 
-=== Purpose
+=== 3.1 Concept Analysis
+
+===== Purpose
 
 This section analyzes the key conceptual elements that define the behavior,
 structure, and reliability characteristics of Tu Deporte Aquí.
@@ -8,9 +9,9 @@ structure, and reliability characteristics of Tu Deporte Aquí.
 The analysis focuses on how uncertainty, conflicting information, and informal
 data sources influence system design decisions.
 
-=== Core Concepts
+===== Core Concepts
 
-==== Sports Information Entity
+====== Sports Information Entity
 
 Sports information represents data related to games, teams, leagues, standings,
 scores, schedules, and events.
@@ -18,7 +19,7 @@ scores, schedules, and events.
 This information may originate from multiple sources with varying reliability
 levels.
 
-==== Data Sources
+===== Data Sources
 
 Data sources include:
 
@@ -29,7 +30,7 @@ Data sources include:
 
 Sources may differ in accuracy, timeliness, and structure.
 
-==== Reliability State
+===== Reliability State
 
 The reliability state represents the confidence level of a piece of data.
 
@@ -41,16 +42,16 @@ Possible states include:
 * Missing
 * Stale
 
-==== Timestamp and Freshness
+===== Timestamp and Freshness
 
 Each data element includes temporal metadata indicating when the information
 was last updated.
 
 Freshness indicators help users interpret reliability.
 
-=== Concept Relationships
+===== Concept Relationships
 
-==== Source to Data Relationship
+====== Source to Data Relationship
 
 Multiple sources may provide information about the same event.
 
@@ -60,7 +61,7 @@ The system must support:
 * Conflict detection
 * Priority rules
 
-==== Reliability Interpretation
+===== Reliability Interpretation
 
 Reliability states influence:
 
@@ -68,14 +69,14 @@ Reliability states influence:
 * System decision logic
 * Validation behavior
 
-==== User Trust Impact
+===== User Trust Impact
 
 Transparent communication of uncertainty improves user trust and reduces
 misinterpretation of data.
 
-=== Conceptual Constraints
+===== Conceptual Constraints
 
-==== Informal Data Environment
+====== Informal Data Environment
 
 Tu Deporte Aquí operates in an environment where:
 
@@ -85,7 +86,7 @@ Tu Deporte Aquí operates in an environment where:
 
 System concepts must accommodate these constraints.
 
-==== Mobile-First Context
+===== Mobile-First Context
 
 Concept design must prioritize:
 
@@ -93,7 +94,7 @@ Concept design must prioritize:
 * Clear status indicators
 * Fast interpretation
 
-=== Summary
+===== Summary
 
 Concept analysis provides a structured understanding of the domain elements
 that influence system reliability, transparency, and behavior.
