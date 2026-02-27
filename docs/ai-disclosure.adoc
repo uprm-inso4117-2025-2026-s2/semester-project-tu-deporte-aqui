@@ -1,1 +1,22 @@
 
+===== Tools and Access Levels
+The team primarily utilized *ChatGPT (OpenAI)* and *DeepSeek*, using the free tiers of these platforms as supplemental assist with research organization and technical drafting.
+
+===== Stages of Implementation
+Generative AI was integrated into two distinct workflows:
+
+* **Research & Ideation:** AI supported the initial phases by brainstorming research directions, improving research questions, identifying potential academic references, and generating relevant search keywords.
+* **Technical Drafting:** AI was employed to draft system requirements, Behavior Driven Development (BDD) sections, and Gherkin feature files. This ensured style consistency across the extensive documentation.
+
+===== Human vs. AI Contribution
+While the AI generated initial drafts, suggested references, and provided structural outlines, the core analysis and final writing reflect the original work of the *Tu Deporte Aquí* members. We provided the necessary project context to the models and performed heavy manual revisions. For the technical sections, the AI wrote first drafts that were iteratively refined under human guidance. This members reviewed the output to ensure the final text reflected their personal understanding and academic standards.
+
+===== Verification and Fact-Checking
+The team maintained academic rigor through a strict "Trust but Verify" process. We cross-referenced AI-suggested citations with original academic databases to ensure they existed and were relevant.
+
+As a concrete example of this oversight, during the technical drafting of machine requirements, a team member identified "hallucinated" Gherkin syntax where the AI generated data tables containing only headers and established "Then" statements that were logically disconnected from "Given" statements. These errors were corrected by consulting the official Cucumber and Gherkin documentation to ensure technical accuracy.
+
+===== Learning Reflection
+The use of Generative AI gave significant benefits in efficiency and document consistency. It acted as a force multiplier by accelerating the research phase and helping structure complex ideas. 
+
+More importantly, it enhanced the team's ability to critique "seemingly strong" content. By finding faults hidden from obvious sight in AI output, members became more detail oriented and protective of their work's accuracy. We view these tools as valuable supports that enhance, rather than replace, individual accountability and learning.
