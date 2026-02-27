@@ -3,133 +3,41 @@
 
 ===== Purpose
 
-This section provides small, representative implementation fragments that illustrate how Tu Deporte Aquí could satisfy key reliability and transparency requirements identified in Milestone 1. These fragments are not a complete implementation and are presented only to clarify intended behavior.
+This section presents representative implementation concepts that illustrate how Tu Deporte Aquí could satisfy key reliability and transparency requirements identified during Milestone 1. These fragments are conceptual descriptions rather than complete implementations and are intended to clarify expected system behavior.
 
 ===== Scope and Assumptions
 
-* These fragments are illustrative and may be implemented differently depending on chosen technologies.
-* No full system, database, or deployment is implemented in Milestone 1.
-* Behavior focuses on reliability under uncertain, delayed, missing, or conflicting sports data.
+The fragments described in this section are illustrative only and may be implemented differently depending on the final technology stack and architectural decisions. No full system implementation is developed during Milestone 1. The focus is on demonstrating how the system could manage uncertain, delayed, missing, or conflicting sports data while maintaining transparency for users.
 
-===== Fragment 1: Data Model for Uncertainty and Provenance
+===== Fragment 1: Representation of Data with Reliability Metadata
 
-====== Goal
+The system should represent each piece of sports information together with contextual metadata that describes its reliability and origin. Instead of storing only the value itself (such as a score or schedule), the system should also maintain information about the source that provided the data, when it was observed, when it was ingested into the system, and the level of confidence associated with it.
 
-Represent a sports data value along with reliability metadata (source attribution, timestamps, confidence, and status).
+Each data item should include a status indicator that communicates whether the information is confirmed, provisional, conflicting, or missing. This allows users to understand not only what the data is, but also how trustworthy it is. Including timestamps for both observation and ingestion supports transparency by revealing possible delays between real-world events and system updates.
 
-====== Example
+===== Fragment 2: Conflict Detection and Resolution Strategy
 
-[source]
-----
-Record DataPoint {
-  id: String
-  kind: String              // score, standings, schedule, etc.
-  value: Any
-  status: Status            // CONFIRMED | PROVISIONAL | CONFLICTING | MISSING
-  confidence: Float         // 0.0 - 1.0
-  sources: List<SourceRef>  // attribution
-  observedAt: Instant       // when source reported
-  ingestedAt: Instant       // when system captured
-  notes: String?            // optional explanation
-}
+Because Tu Deporte Aquí relies on multiple informal or partially reliable sources, conflicting information is expected. The system should include mechanisms to detect when multiple sources report different values for the same event. When such conflicts occur, the system should apply a predefined and documented resolution policy to select a displayed value.
 
-Record SourceRef {
-  sourceId: String
-  sourceName: String
-  url: String?
-}
-----
+The resolution policy may consider factors such as source reliability, recency of information, or agreement among sources. Importantly, even when a value is selected, the system should explicitly communicate that a conflict exists rather than silently choosing one value. This maintains user trust and supports transparency.
 
-====== Reliability Notes
+===== Fragment 3: Data Freshness and Staleness Indicators
 
-* The UI can display `status`, `confidence`, and `sources` to avoid “silent failures.”
-* `observedAt` vs `ingestedAt` supports transparency about delays.
+Users must be able to evaluate how current the displayed information is. The system should therefore calculate and expose freshness indicators based on timestamps associated with the data. If information has not been updated within an expected time window, it should be marked as stale.
 
-===== Fragment 2: Conflict Detection and Resolution Policy
+Displaying “last updated” timestamps allows users to interpret whether the information reflects real-time conditions or delayed reporting. Different types of data may have different acceptable freshness windows depending on whether they represent live scores, schedules, or standings.
 
-====== Goal
+===== Fragment 4: User Interface Communication of Uncertainty
 
-Detect conflicting values from multiple sources and apply a predictable merge policy.
+The user interface should consistently communicate uncertain system states using clear and predictable visual indicators. Missing data should never appear as empty or broken content. Instead, the interface should display explanatory placeholders such as “Not reported yet.” Provisional information should include visible indicators that it may change, and conflicting data should be labeled accordingly with the option to view source details.
 
-====== Example
-
-[source]
-----
-function mergeDataPoints(points: List<DataPoint>): DataPoint {
-  if points.isEmpty(): return missing()
-
-  // Group by value to detect disagreement
-  groups = groupBy(points, p -> p.value)
-
-  if groups.size == 1:
-    return confirmed(best(points))
-
-  // Conflict exists
-  winner = pickByPolicy(points)   // e.g., trusted sources > recency > consensus
-  return DataPoint(
-    id = winner.id,
-    kind = winner.kind,
-    value = winner.value,
-    status = CONFLICTING,
-    confidence = winner.confidence,
-    sources = points.map(p -> p.sources).flatten(),
-    observedAt = winner.observedAt,
-    ingestedAt = now(),
-    notes = "Conflicting sources detected; displayed value chosen by policy."
-  )
-}
-----
-
-====== Reliability Notes
-
-* Conflicts are explicitly labeled, not hidden.
-* The policy should be documented (source priority, recency rules, etc.).
-
-===== Fragment 3: Staleness and “Last Updated” Indicator
-
-====== Goal
-
-Expose data freshness so users can judge reliability.
-
-====== Example
-
-[source]
-----
-function computeFreshness(dp: DataPoint, now: Instant): Freshness {
-  ageMinutes = minutesBetween(dp.observedAt, now)
-
-  if dp.kind == "live_score" and ageMinutes > 30:
-    return STALE
-  if dp.kind in ["standings", "schedule"] and ageMinutes > 1440:
-    return STALE
-
-  return FRESH
-}
-----
-
-====== Reliability Notes
-
-* The UI can show “Last updated X minutes ago.”
-* “STALE” can trigger a warning badge.
-
-===== Fragment 4: UI Presentation Rules for Uncertain Data
-
-====== Goal
-
-Ensure a mobile-first UI communicates uncertainty clearly and consistently.
-
-====== Example Rules
-
-* If `status = MISSING`: show placeholder text “Not reported yet” (never blank).
-* If `status = PROVISIONAL`: show “Provisional” badge and source attribution.
-* If `status = CONFLICTING`: show “Conflicting” badge and allow viewing sources.
-* Always show “Last updated” and the primary source.
+All displayed information should include attribution and update timing whenever possible. This approach ensures that users remain informed about system reliability and reduces confusion during periods of incomplete or inconsistent data reporting.
 
 ===== Traceability to Requirements
 
-* Connects to reliability and transparency needs (conflicts, staleness, provenance).
-* Supports validation goals by making behaviors observable and testable.
+These fragments directly support the reliability and transparency needs identified earlier in the documentation. By making uncertainty visible and predictable, the system improves user trust and allows validation activities to verify whether behaviors align with documented expectations.
 
 ===== Notes
 
-These fragments are designed to be small “anchors” that communicate intended system behavior. Implementation details will be refined in later milestones when technology choices and architecture are finalized.
+The selected fragments are intentionally small conceptual anchors rather than detailed technical specifications. They provide guidance for future implementation phases while remaining aligned with the documentation-focused objectives of Milestone 1.
+
