@@ -1,4 +1,4 @@
-=== 1.1 Team
+== 1.1 Team
 
 ===== Project Organization
 
@@ -24,6 +24,15 @@ Responsible for establishing the official documentation foundation:
 
 This team ensures documentation consistency, structure, and governance.
 
+*Team Members:*
+
+- Alberto J. Rodríguez Nogueras (Lead)
+- Gerald L. Rodríguez Rodríguez
+- Jafet Hernández Arroyo
+- Ángel L. Ramos Rodríguez
+- Daniel C. Colón Rivera
+- Alex M. Vázquez Galiano
+
 ====== Team 2 – Live Games & Match Coverage
 
 Defines how live game information is displayed and trusted:
@@ -35,6 +44,15 @@ Defines how live game information is displayed and trusted:
 - Mobile-first UI messaging for provisional data
 
 This team focuses on reliability under real-world uncertainty.
+
+*Team Members:*
+
+- Ángel Villegas (Lead)
+- Luis X. Sorrentini Renta
+- Noel A. Colón Mena
+- Joaquín E. Arraiza Morales
+- Ian G. Ramos Villafañe
+- Cristian J. Massini Perez
 
 ====== Team 3 – Standings & Tournament Progress
 
@@ -48,6 +66,14 @@ Defines how standings are calculated and communicated:
 
 This team ensures structural integrity of league progression information.
 
+*Team Members:*
+
+- Naedra J. Feliciano (Lead)
+- Natanael Massallo Soto
+- Christopher J. Perez Rodríguez
+- Yandiel Hernandez Otero
+- Javier A. Ventosa Maldonado
+
 ====== Team 4 – Teams & Athletes Profiles
 
 Defines expectations for profile information accuracy:
@@ -59,6 +85,14 @@ Defines expectations for profile information accuracy:
 
 This team focuses on data completeness and freshness constraints.
 
+*Team Members:*
+
+- Sebastian A. Santiago Perez (Lead)
+- Edward J. Carde Velazquez
+- Diego A. Hernandez Sanchez
+- Pedro M. Cortes Ramos
+- Edgar J. Gonzalez Vargas
+
 ====== Team 5 – News, Alerts & System Transparency
 
 Defines how system updates and uncertainty are communicated:
@@ -69,6 +103,14 @@ Defines how system updates and uncertainty are communicated:
 - Messaging during degraded or uncertain states
 
 This team ensures user trust and system transparency.
+
+*Team Members:*
+
+- Juan R. Rivera Rodríguez (Lead)
+- Diego A. Ríos Morales
+- Lianette Alberto Muñoz
+- Marcos F. Arraiza Aviles
+- Ojiani S. Figueroa Cruz
 
 ===== Roles and Responsibilities
 
@@ -87,24 +129,27 @@ All work must be issue-based and documented.
 
 ====== Team Leads
 
-Team Leads:
+Team Leads are responsible for:
 
-- Coordinate work within their assigned team
-- Conduct first-level review of completed issues
-- Ensure alignment with Milestone 1 objectives
-- Track participation and progress
+- Coordinating work within their assigned team
+- Conducting first-level review of completed issues
+- Ensuring alignment with Milestone 1 objectives
+- Tracking participation and progress
 
 Team Leads help maintain quality and consistency before escalation to managers.
 
-====== Managers
+*Managers:*
 
-Managers:
+- Anthony Martínez
+- Fernando Torres 
 
-- Review issue clarity and completeness
-- Assign urgency and difficulty levels
-- Approve pull requests after review
-- Close issues upon satisfactory completion
-- Ensure milestone alignment and fairness
+Managers are responsible for:
+
+- Reviewing issue clarity and completeness
+- Assigning urgency and difficulty levels
+- Approving pull requests after review
+- Closing issues upon satisfactory completion
+- Ensuring milestone alignment and fairness
 
 Managers ensure governance and structured progression of the project.
 
@@ -146,5 +191,7 @@ Milestone 1 emphasizes:
 - Structured documentation before implementation
 
 This structured team model ensures shared ownership, accountability, and disciplined engineering practices prior to any system development.
+
+
 
 
