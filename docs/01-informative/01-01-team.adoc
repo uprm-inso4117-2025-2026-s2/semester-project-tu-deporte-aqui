@@ -1,6 +1,6 @@
-== 1.1 Team
+=== 1.1 Team
 
-=== Project Organization
+===== Project Organization
 
 Tu Deporte Aquí is organized into five specialized teams to support structured documentation, research, and feature preparation during Milestone 1.
 
@@ -8,9 +8,9 @@ Milestone 1 does not involve implementation or source code development. The focu
 
 Each team is responsible for a clearly defined domain area to ensure full coverage of system expectations before development begins.
 
-=== Team Structure
+===== Team Structure
 
-==== Team 1 – Core Documentation & Project Standards
+====== Team 1 – Core Documentation & Project Standards
 
 Responsible for establishing the official documentation foundation:
 
@@ -24,7 +24,7 @@ Responsible for establishing the official documentation foundation:
 
 This team ensures documentation consistency, structure, and governance.
 
-==== Team 2 – Live Games & Match Coverage
+====== Team 2 – Live Games & Match Coverage
 
 Defines how live game information is displayed and trusted:
 
@@ -36,7 +36,7 @@ Defines how live game information is displayed and trusted:
 
 This team focuses on reliability under real-world uncertainty.
 
-==== Team 3 – Standings & Tournament Progress
+====== Team 3 – Standings & Tournament Progress
 
 Defines how standings are calculated and communicated:
 
@@ -48,7 +48,7 @@ Defines how standings are calculated and communicated:
 
 This team ensures structural integrity of league progression information.
 
-==== Team 4 – Teams & Athletes Profiles
+====== Team 4 – Teams & Athletes Profiles
 
 Defines expectations for profile information accuracy:
 
@@ -59,7 +59,7 @@ Defines expectations for profile information accuracy:
 
 This team focuses on data completeness and freshness constraints.
 
-==== Team 5 – News, Alerts & System Transparency
+====== Team 5 – News, Alerts & System Transparency
 
 Defines how system updates and uncertainty are communicated:
 
@@ -70,9 +70,9 @@ Defines how system updates and uncertainty are communicated:
 
 This team ensures user trust and system transparency.
 
-=== Roles and Responsibilities
+===== Roles and Responsibilities
 
-==== Developers
+====== Developers
 
 Developers are responsible for:
 
@@ -85,7 +85,7 @@ Developers are responsible for:
 
 All work must be issue-based and documented.
 
-==== Team Leads
+====== Team Leads
 
 Team Leads:
 
@@ -96,7 +96,7 @@ Team Leads:
 
 Team Leads help maintain quality and consistency before escalation to managers.
 
-==== Managers
+====== Managers
 
 Managers:
 
@@ -108,7 +108,7 @@ Managers:
 
 Managers ensure governance and structured progression of the project.
 
-=== Workflow and Governance
+===== Workflow and Governance
 
 The project follows an issue-driven and PR-only workflow with branch protection enabled.
 
@@ -135,7 +135,7 @@ Workflow:
 
 No direct pushes to protected branches are permitted for non-admin users.
 
-=== Milestone 1 Focus
+===== Milestone 1 Focus
 
 Milestone 1 emphasizes:
 
@@ -146,4 +146,5 @@ Milestone 1 emphasizes:
 - Structured documentation before implementation
 
 This structured team model ensures shared ownership, accountability, and disciplined engineering practices prior to any system development.
+
 
