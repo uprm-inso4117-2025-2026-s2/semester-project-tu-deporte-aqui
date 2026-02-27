@@ -1,6 +1,7 @@
+
 ==== 2.2.2 Personas
 
-=== Persona A: Sebastian Rivera, the Superfan
+===== Persona A: Sebastian Rivera, the Superfan
 Sebastian is a Puerto Rico sports fan who follows local leagues weekly and checks scores during games and playoffs.
 He values speed and clarity, and he gets frustrated when different sources disagree or updates arrive late.
 
@@ -14,7 +15,7 @@ Pain points::
 * During playoffs, sites lag or go down exactly when he needs them most
 * When something is missing, he does not know if it is an error or just not posted yet
 
-=== Persona B: Coach Abiel Rullan, the Team Organizer
+===== Persona B: Coach Abiel Rullan, the Team Organizer
 Abiel manages a local team and cares about schedules, standings, and accurate public reporting of results.
 He wants the platform to reflect reality and avoid spreading incorrect information about teams or players.
 
@@ -28,7 +29,7 @@ Pain points::
 * Conflicting reports create arguments and confusion among teams and fans
 * There is no clear way to tell if a result is verified or provisional
 
-=== Persona C: Andres Perez, the Sports Reporter
+===== Persona C: Andres Perez, the Sports Reporter
 Andres covers Puerto Rico sports and posts rapid updates, especially during tournaments and breaking news.
 He needs a platform that can represent uncertainty cleanly when details are still developing.
 
@@ -42,7 +43,7 @@ Pain points::
 * A single wrong post can spread fast if the platform does not handle conflicts well
 * When systems degrade, users often receive confusing or unhelpful error messages
 
-==== Persona D: Chris Ramos, the Platform Engineer
+====== Persona D: Chris Ramos, the Platform Engineer
 Chris is responsible for reliability and quality of the sports information platform.
 He focuses on predictable behavior under failures, automation in testing, and clear user-facing status.
 
