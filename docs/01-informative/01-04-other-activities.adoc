@@ -1,12 +1,13 @@
-== 1.4 Other Activities than Development
 
-=== Purpose
+=== 1.4 Other Activities than Development
+
+===== Purpose
 
 Milestone 1 of Tu Deporte Aquí emphasizes documentation, research, and structured system preparation rather than implementation. This section describes the non-development activities that contribute to system reliability, transparency, and organized collaboration.
 
 These activities ensure that the project evolves through disciplined engineering practices before any source code is written.
 
-=== Research Activities
+===== Research Activities
 
 Research plays a central role in Milestone 1. Key research efforts include:
 
@@ -18,7 +19,7 @@ Research plays a central role in Milestone 1. Key research efforts include:
 
 These research tasks ensure that system behavior is well-defined under real-world constraints.
 
-=== Documentation-as-Code
+===== Documentation-as-Code
 
 The project adopts a documentation-as-code model using AsciiDoc and GitHub.
 
@@ -32,7 +33,7 @@ This includes:
 
 This approach ensures traceability, consistency, and reproducibility of documentation.
 
-=== Pull Request and Review Process
+===== Pull Request and Review Process
 
 All contributions are integrated through a PR-only workflow.
 
@@ -48,7 +49,7 @@ The process includes:
 
 This structured process ensures quality control and accountability.
 
-=== CI/CD and Build Automation
+===== CI/CD and Build Automation
 
 The project includes a GitHub Actions workflow that:
 
@@ -59,7 +60,7 @@ The project includes a GitHub Actions workflow that:
 
 This automation ensures documentation integrity before approval.
 
-=== Task Tracking and Governance
+===== Task Tracking and Governance
 
 All work is tracked through GitHub Issues.
 
@@ -75,7 +76,7 @@ Documentation scaffold sections reference the master issue (#53) to maintain str
 
 This governance structure prevents duplication and supports milestone compliance.
 
-=== Team Coordination
+===== Team Coordination
 
 Collaboration is supported through:
 
@@ -87,7 +88,7 @@ Collaboration is supported through:
 
 These coordination practices ensure consistent interpretation of requirements across teams.
 
-=== Milestone Planning and Retrospectives
+===== Milestone Planning and Retrospectives
 
 Milestone 1 includes:
 
@@ -98,8 +99,9 @@ Milestone 1 includes:
 
 Retrospective reflection ensures continuous improvement in documentation quality and team workflow.
 
-=== Conclusion
+===== Conclusion
 
 Tu Deporte Aquí extends beyond software implementation. Research, structured documentation, governance modeling, and automated validation form the foundation of the project.
 
 These non-development activities ensure that when implementation begins, it is grounded in clearly defined scope, reliability expectations, and transparent engineering practices.
+
