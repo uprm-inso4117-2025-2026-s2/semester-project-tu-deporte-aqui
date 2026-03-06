@@ -1,0 +1,114 @@
+== Research: Handling of Delayed, Conflicting, or Missing Live Game Data
+Author: Angel A. Villegas Colon
+Date: February 2026
+
+== 1. Handling Delayed Live Updates
+
+=== NBA Platform
+
+Observed behavior:
+
+* Displays a live game clock and score.
+* If updates are delayed, the clock may visually pause.
+* Clearly shows “End of Quarter” or “Halftime” to prevent confusion.
+* Does not explicitly display “data delayed,” but avoids presenting uncertain values.
+
+Observed Strategy:
+
+* Freeze the last confirmed data.
+* Avoid displaying speculative or estimated updates.
+* Maintain structured game states (Q1, Q2, Halftime, Final).
+
+=== ESPN Platform
+
+Observed behavior:
+
+* Displays timestamp indicators such as “Final” or “Live.”
+* Occasionally shows “Delayed” during broadcast interruptions.
+* Uses structured status labels (Scheduled, Live, Final).
+
+Observed Strategy:
+
+* Clearly label the game state.
+* Avoid partial or incomplete updates.
+* Maintain consistent formatting even if data pauses.
+
+== 2. Handling Conflicting Scores Across Sources
+
+Neither the NBA nor ESPN publicly display conflicts between sources.
+
+Observed Industry Strategy:
+
+* Use a primary trusted data provider.
+* Do not display multiple score versions.
+* Update scores only after verification.
+* Perform silent backend reconciliation (users do not see conflicts).
+
+Key Insight:
+
+Major platforms resolve discrepancies internally before updating the user interface. Conflicting information is never exposed to users.
+
+== 3. Handling Missing or Incomplete Information
+
+=== NBA Platform
+
+Observed behavior:
+
+* If statistics are unavailable, fields are hidden.
+* Play-by-play sections may temporarily show “No plays available.”
+* No placeholders are shown with incorrect data.
+
+=== ESPN Platform
+
+Observed behavior:
+
+* Displays “No data available” in certain statistics sections.
+* Uses structured fallback states such as dashes or blank values.
+* Maintains layout consistency even if data is missing.
+
+Observed Strategy:
+
+* Avoid displaying inaccurate placeholders.
+* Clearly label unavailable sections.
+* Preserve UI structure to prevent confusion.
+
+== 4. Communicating Uncertainty or Provisional Data
+
+Common approaches observed across platforms:
+
+* Use clear game state labels (Live, Final, Scheduled).
+* Apply timestamp-based validation (e.g., “Final” locks the score).
+* Avoid speculative updates.
+* Do not display confidence percentages.
+* Maintain a clean UI without technical error messages.
+
+Key Pattern Across Platforms:
+
+Transparency is achieved through structured status labels rather than technical explanations.
+
+== 5. Summary of Practical Approaches
+
+[cols="1,1", options="header"]
+|===
+| Scenario | Common Strategy
+
+| Delayed Updates
+| Freeze last confirmed data and maintain game state labels
+
+| Conflicting Scores
+| Resolve internally before updating UI
+
+| Missing Data
+| Hide or clearly label sections as unavailable
+
+| Uncertainty
+| Use structured status indicators (Live, Final, Scheduled)
+|===
+
+== 6. Key Findings for System Design
+
+* A single trusted source should be prioritized.
+* Conflicts should be resolved internally, not displayed to users.
+* Clear game status labeling is critical.
+* Missing data should be labeled rather than guessed.
+* UI stability builds user trust more effectively than raw update speed.
