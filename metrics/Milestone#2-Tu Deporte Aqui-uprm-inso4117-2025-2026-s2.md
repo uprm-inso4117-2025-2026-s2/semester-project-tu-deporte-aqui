@@ -71,40 +71,40 @@
 
 | Developer | Week #1 | Week #2 | Week #3 | Week #4 | Week #5 | Penalty |
 |---|---|---|---|---|---|---|
+| Fernando18Torres | Yes | No | No | No | No | 14.0 |
+| Ojani | Yes | No | No | No | No | 14.0 |
+| luissorrentini | Yes | No | No | No | No | 14.0 |
+| JRRR0912 | Yes | No | No | No | No | 14.0 |
+| Massinl | Yes | No | No | No | No | 14.0 |
+| Edgar-glz | Yes | No | No | No | No | 14.0 |
+| Dieg0Rios | Yes | No | No | No | No | 14.0 |
+| joaquin787 | No | No | No | No | No | 20.0 |
+| jventosa28 | Yes | No | No | No | No | 14.0 |
+| seba-15 | Yes | No | No | No | No | 14.0 |
 | Naedra | Yes | No | No | No | No | 14.0 |
+| Joaquin939 | Yes | No | No | No | No | 14.0 |
+| AlexitoUpr | Yes | No | No | No | No | 14.0 |
+| yandielhernandez | Yes | No | No | No | No | 14.0 |
+| dAninAd1248 | Yes | No | No | No | No | 14.0 |
+| noelcolon | Yes | No | No | No | No | 14.0 |
+| diegohdnz11 | Yes | No | No | No | No | 14.0 |
+| Edward20uprm | Yes | No | No | No | No | 14.0 |
+| igrv2003 | Yes | No | No | No | No | 14.0 |
+| Jafet160 | Yes | No | No | No | No | 14.0 |
+| NatanaelMassallo | Yes | No | No | No | No | 14.0 |
 | Christopher11Perez | Yes | No | No | No | No | 14.0 |
+| anthonyharriel | Yes | No | No | No | No | 14.0 |
+| LianetteAlberto | Yes | No | No | No | No | 14.0 |
+| marcosarraiza | Yes | No | No | No | No | 14.0 |
+| angelvillegas1 | Yes | No | No | No | No | 14.0 |
+| angelramos1 | Yes | No | No | No | No | 14.0 |
 | AlbertoRodriguez10 | No | No | No | No | No | 20.0 |
 | pedrocortess | Yes | No | No | No | No | 14.0 |
-| igrv2003 | Yes | No | No | No | No | 14.0 |
-| Dieg0Rios | Yes | No | No | No | No | 14.0 |
-| angelramos1 | Yes | No | No | No | No | 14.0 |
-| Edward20uprm | Yes | No | No | No | No | 14.0 |
-| Jafet160 | Yes | No | No | No | No | 14.0 |
-| Ojani | Yes | No | No | No | No | 14.0 |
-| Massinl | Yes | No | No | No | No | 14.0 |
-| AlexitoUpr | Yes | No | No | No | No | 14.0 |
-| Fernando18Torres | Yes | No | No | No | No | 14.0 |
-| noelcolon | Yes | No | No | No | No | 14.0 |
-| marcosarraiza | Yes | No | No | No | No | 14.0 |
-| diegohdnz11 | Yes | No | No | No | No | 14.0 |
-| Joaquin939 | Yes | No | No | No | No | 14.0 |
-| joaquin787 | No | No | No | No | No | 20.0 |
 | geraldrodriguez1 | Yes | No | No | No | No | 14.0 |
-| LianetteAlberto | Yes | No | No | No | No | 14.0 |
-| jventosa28 | Yes | No | No | No | No | 14.0 |
-| dAninAd1248 | Yes | No | No | No | No | 14.0 |
-| luissorrentini | Yes | No | No | No | No | 14.0 |
-| seba-15 | Yes | No | No | No | No | 14.0 |
-| angelvillegas1 | Yes | No | No | No | No | 14.0 |
-| JRRR0912 | Yes | No | No | No | No | 14.0 |
-| anthonyharriel | Yes | No | No | No | No | 14.0 |
-| yandielhernandez | Yes | No | No | No | No | 14.0 |
-| NatanaelMassallo | Yes | No | No | No | No | 14.0 |
-| Edgar-glz | Yes | No | No | No | No | 14.0 |
 
 ## Point Percent by Label
 
-| Developer | task: documentation | team 2 | state: waiting-for-manager | state: in-progress |
+| Developer | state: waiting-for-manager | state: in-progress | task: documentation | team 2 |
 |---|---|---|---|---|
 | Ojani | 0.0% | 0.0% | 0.0% | 0.0% |
 | joaquin787 | 0.0% | 0.0% | 0.0% | 0.0% |
@@ -115,9 +115,9 @@
 | marcosarraiza | 0.0% | 0.0% | 0.0% | 0.0% |
 | NatanaelMassallo | 0.0% | 0.0% | 0.0% | 0.0% |
 | seba-15 | 0.0% | 0.0% | 0.0% | 0.0% |
-| luissorrentini | 100.0% | 100.0% | 100.0% | 0.0% |
+| luissorrentini | 100.0% | 0.0% | 100.0% | 100.0% |
 | dAninAd1248 | 0.0% | 0.0% | 0.0% | 0.0% |
-| Joaquin939 | 0.0% | 100.0% | 11.9% | 88.1% |
+| Joaquin939 | 11.9% | 88.1% | 0.0% | 100.0% |
 | LianetteAlberto | 0.0% | 0.0% | 0.0% | 0.0% |
 | pedrocortess | 0.0% | 0.0% | 0.0% | 0.0% |
 | Edward20uprm | 0.0% | 0.0% | 0.0% | 0.0% |
@@ -127,7 +127,7 @@
 | Edgar-glz | 0.0% | 0.0% | 0.0% | 0.0% |
 | geraldrodriguez1 | 0.0% | 0.0% | 0.0% | 0.0% |
 | AlbertoRodriguez10 | 0.0% | 0.0% | 0.0% | 0.0% |
-| angelvillegas1 | 100.0% | 100.0% | 100.0% | 0.0% |
+| angelvillegas1 | 100.0% | 0.0% | 100.0% | 100.0% |
 | yandielhernandez | 0.0% | 0.0% | 0.0% | 0.0% |
 | Dieg0Rios | 0.0% | 0.0% | 0.0% | 0.0% |
 | jventosa28 | 0.0% | 0.0% | 0.0% | 0.0% |
