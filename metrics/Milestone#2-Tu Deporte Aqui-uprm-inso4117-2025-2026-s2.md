@@ -1,6 +1,6 @@
 # Milestone Data
 
-## Date Generated: 2026-03-06
+## Date Generated: 2026-03-07
 | Developer | Points Closed | Percent Contribution | Indivudal Grade | Milestone Grade | Lecture Topic Tasks |
 | --------- | ------------- | -------------------- | --------------- | --------------- | ------------------- |
 | Ojani | 0.0 | 0.0% | 0.0% | 40.0% | 0 |
@@ -71,36 +71,36 @@
 
 | Developer | Week #1 | Week #2 | Week #3 | Week #4 | Week #5 | Penalty |
 |---|---|---|---|---|---|---|
-| Dieg0Rios | No | No | No | No | No | 20.0 |
-| Jafet160 | No | No | No | No | No | 20.0 |
-| LianetteAlberto | No | No | No | No | No | 20.0 |
-| angelvillegas1 | No | No | No | No | No | 20.0 |
-| anthonyharriel | No | No | No | No | No | 20.0 |
-| dAninAd1248 | No | No | No | No | No | 20.0 |
-| geraldrodriguez1 | No | No | No | No | No | 20.0 |
-| Fernando18Torres | Yes | No | No | No | No | 14.0 |
-| JRRR0912 | No | No | No | No | No | 20.0 |
-| joaquin787 | No | No | No | No | No | 20.0 |
-| jventosa28 | No | No | No | No | No | 20.0 |
-| Edgar-glz | No | No | No | No | No | 20.0 |
-| yandielhernandez | Yes | No | No | No | No | 14.0 |
-| luissorrentini | No | No | No | No | No | 20.0 |
-| angelramos1 | Yes | No | No | No | No | 14.0 |
-| Massinl | No | No | No | No | No | 20.0 |
-| Ojani | No | No | No | No | No | 20.0 |
-| Joaquin939 | Yes | No | No | No | No | 14.0 |
 | AlbertoRodriguez10 | No | No | No | No | No | 20.0 |
-| Naedra | No | No | No | No | No | 20.0 |
+| seba-15 | Yes | No | No | No | No | 14.0 |
+| LianetteAlberto | Yes | No | No | No | No | 14.0 |
+| angelvillegas1 | Yes | No | No | No | No | 14.0 |
+| joaquin787 | No | No | No | No | No | 20.0 |
+| JRRR0912 | Yes | No | No | No | No | 14.0 |
+| anthonyharriel | Yes | No | No | No | No | 14.0 |
+| NatanaelMassallo | Yes | No | No | No | No | 14.0 |
+| yandielhernandez | Yes | No | No | No | No | 14.0 |
+| diegohdnz11 | Yes | No | No | No | No | 14.0 |
+| marcosarraiza | Yes | No | No | No | No | 14.0 |
+| Massinl | Yes | No | No | No | No | 14.0 |
+| dAninAd1248 | Yes | No | No | No | No | 14.0 |
+| pedrocortess | Yes | No | No | No | No | 14.0 |
+| Ojani | Yes | No | No | No | No | 14.0 |
+| noelcolon | Yes | No | No | No | No | 14.0 |
+| igrv2003 | Yes | No | No | No | No | 14.0 |
+| geraldrodriguez1 | Yes | No | No | No | No | 14.0 |
+| Edgar-glz | Yes | No | No | No | No | 14.0 |
+| luissorrentini | Yes | No | No | No | No | 14.0 |
+| Joaquin939 | Yes | No | No | No | No | 14.0 |
+| jventosa28 | Yes | No | No | No | No | 14.0 |
+| Christopher11Perez | Yes | No | No | No | No | 14.0 |
+| Dieg0Rios | Yes | No | No | No | No | 14.0 |
+| Naedra | Yes | No | No | No | No | 14.0 |
 | AlexitoUpr | Yes | No | No | No | No | 14.0 |
-| diegohdnz11 | No | No | No | No | No | 20.0 |
-| Edward20uprm | No | No | No | No | No | 20.0 |
-| igrv2003 | No | No | No | No | No | 20.0 |
-| marcosarraiza | No | No | No | No | No | 20.0 |
-| pedrocortess | No | No | No | No | No | 20.0 |
-| noelcolon | No | No | No | No | No | 20.0 |
-| seba-15 | No | No | No | No | No | 20.0 |
-| Christopher11Perez | No | No | No | No | No | 20.0 |
-| NatanaelMassallo | No | No | No | No | No | 20.0 |
+| Jafet160 | Yes | No | No | No | No | 14.0 |
+| Edward20uprm | Yes | No | No | No | No | 14.0 |
+| angelramos1 | Yes | No | No | No | No | 14.0 |
+| Fernando18Torres | Yes | No | No | No | No | 14.0 |
 
 ## Point Percent by Label
 
