@@ -1,8 +1,9 @@
+
 ==== 2.1.6 Function Signatures (Pseudocode at the moment, Not Event-Tied)
 
 These signatures describe what information is needed to perform key actions in *Tu Deporte Aquí* and what state is produced or changed. The design is intentionally modular so it can be extended later without committing to a specific architecture since we don't have one decided yet.
 
-=== Core Records (state holders)
+===== Core Records (state holders)
 
 * SourceRegistry: configured sources and basic health metadata
 * RawArchive: stored raw snapshots from sources (for traceability)
@@ -11,7 +12,7 @@ These signatures describe what information is needed to perform key actions in *
 * ConflictQueue: unresolved conflicts that need resolution
 * StatusBoard: user-facing status and reliability messages
 
-=== Source Configuration
+===== Source Configuration
 
 registerSource(SourceRegistry, SourceConfig) -> SourceRegistry
 
@@ -21,7 +22,7 @@ removeSource(SourceRegistry, SourceId) -> SourceRegistry
 
 listSources(SourceRegistry) -> List<SourceConfig>
 
-=== Fetching and Snapshot Storage
+===== Fetching and Snapshot Storage
 
 fetchSnapshot(SourceRegistry, SourceId, FetchOptions) -> (SourceRegistry, Snapshot or FetchError)
 
@@ -29,7 +30,7 @@ storeSnapshot(RawArchive, Snapshot) -> (RawArchive, SnapshotId)
 
 getSnapshot(RawArchive, SnapshotId) -> Snapshot or None
 
-=== Parsing and Normalization
+===== Parsing and Normalization
 
 normalizeSnapshot(Snapshot, ParseOptions) -> (List<NormalizedUpdate>, Diagnostics)
 
@@ -37,7 +38,7 @@ storeUpdates(UpdateStore, List<NormalizedUpdate>) -> (UpdateStore, List<UpdateId
 
 getUpdate(UpdateStore, UpdateId) -> NormalizedUpdate or None
 
-=== Canonical Merge (best-known current state)
+===== Canonical Merge (best-known current state)
 
 applyUpdate(CanonicalStore, NormalizedUpdate, MergePolicy) -> (CanonicalStore, Conflict or None, Diagnostics)
 
@@ -47,7 +48,7 @@ getCanonical(CanonicalStore, EntityKey) -> CanonicalEntity or None
 
 storeCanonical(CanonicalStore, CanonicalEntity) -> CanonicalStore
 
-=== Conflict Handling
+===== Conflict Handling
 
 enqueueConflicts(ConflictQueue, List<Conflict>) -> ConflictQueue
 
@@ -59,7 +60,7 @@ resolveConflictAuto(ConflictQueue, CanonicalStore, ConflictId, MergePolicy)
 resolveConflictManual(ConflictQueue, CanonicalStore, ConflictId, ResolutionDecision)
   -> (ConflictQueue, CanonicalStore, CanonicalEntity)
 
-=== Reliability Indicators and Degraded Messaging
+===== Reliability Indicators and Degraded Messaging
 
 computeReliability(CanonicalStore, UpdateStore, EntityKey, ReliabilityPolicy)
   -> (ReliabilityIndicator, Diagnostics)
@@ -70,7 +71,7 @@ annotateEntityStatus(StatusBoard, EntityKey, ReliabilityIndicator) -> StatusBoar
 
 buildPublicView(CanonicalStore, StatusBoard, EntityKey) -> PublicView or None
 
-=== User-Facing Queries
+===== User-Facing Queries
 
 getGame(CanonicalStore, GameId) -> GameView or None
 
@@ -80,7 +81,7 @@ getAthleteUpdates(CanonicalStore, AthleteId) -> List<AthleteUpdateView>
 
 searchCanonical(CanonicalStore, SearchQuery) -> List<PublicView>
 
-=== Maintenance and Extensibility Hooks
+===== Maintenance and Extensibility Hooks
 
 recomputeAllReliability(CanonicalStore, UpdateStore, StatusBoard, ReliabilityPolicy)
   -> (StatusBoard, Diagnostics)

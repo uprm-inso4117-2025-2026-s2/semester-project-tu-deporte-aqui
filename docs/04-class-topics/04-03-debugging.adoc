@@ -1,0 +1,80 @@
+
+=== 4.3 Use of Debugging
+
+===== Purpose
+
+This section outlines the expected debugging practices that will support reliability and transparency in Tu Deporte Aquí. Debugging will help verify that the system correctly handles conflicting data, delayed updates, and source failures—key reliability concerns identified in our prior A3 submission. These scenarios represent the types of debugging sessions we expect to conduct during implementation.
+
+===== Role of Debugging
+
+Debugging provides visibility into data flows, especially when sources disagree or updates arrive late. It allows us to examine failure paths before they reach users.
+
+Key contributions:
+- Verify conflict detection logic
+- Confirm staleness thresholds trigger transparency indicators
+- Inspect state during partial source failures
+- Validate degraded mode messaging
+
+===== Debugging Environment
+
+All scenarios use:
+- **Browser DevTools** for frontend inspection and network analysis
+- **IDE debugger** for backend code examination
+- **Debug console** for expression evaluation during breakpoints
+
+===== Expected Debugging Scenarios
+
+The following scenarios represent examples of debugging sessions we plan to conduct during implementation to validate core system behaviors. Each scenario identifies a reliability concern, describes the hypothesis we will test, and outlines which debugging techniques will help us verify the behavior.
+
+===== Scenario 1: Conflict Detection in Score Merging
+
+*Hypothesis*: `mergeGameData` might overwrite conflicting scores without flagging the disagreement.
+
+*Planned Session*:
+- Set breakpoint inside `mergeGameData` at source comparison logic.
+- Create test case: official site (21–14) vs social media (24–14).
+- Use **watch panel** to monitor `existingGame.score`, `newSourceData.score`, `sourcePriority`.
+- Step through to verify whether merging correctly stores conflicting values or silently overwrites.
+
+*Expected Outcome*: This debugging will confirm whether conflict detection logic is correctly implemented. If conflicts are being silently overwritten, we will need to implement a separate conflict tracking queue.
+
+===== Scenario 2: Staleness Threshold Behavior
+
+*Hypothesis*: Data older than 15 minutes during live play should be marked `Delayed` and shown in UI.
+
+*Planned Session*:
+- Set conditional breakpoint in `evaluateFreshness` (only when `game.status === "Live"`).
+- Simulate 18‑minute data freeze using browser DevTools network throttling.
+- Use **debug console** to evaluate `Date.now() - game.lastUpdated.getTime()` and verify it exceeds 900,000 ms.
+- Step into helper function to confirm `StalenessLevel.DELAYED` is returned.
+- Check API response contains `freshness: "Delayed"` and verify UI badge renders correctly.
+
+*Expected Outcome*: This debugging will verify that staleness detection works end-to-end across backend evaluation, API response, and frontend rendering. If any layer fails to communicate staleness, we will identify the breakpoint and fix it.
+
+===== Scenario 3: Source Outage and Degraded Mode
+
+*Hypothesis*: When a source times out, the system falls back to cached data and updates status board without crashing.
+
+*Planned Session*:
+- Set breakpoint in source fetcher `catch` block.
+- Inject 30‑second timeout fault to simulate source outage.
+- Use **call stack inspection** to trace propagation to coordinator and verify `getCachedGames` is invoked.
+- Use **watch panel** to confirm `sourceHealthStatus` and `fallbackTriggered` are updated correctly.
+- Verify `setSystemStatus` is called with `DegradedState.SOURCE_UNAVAILABLE`.
+
+*Expected Outcome*: This debugging will confirm that degraded mode activates cleanly without crashes and that cached data is served with transparency messaging. If any error handling is missing, we will identify the gap in the source fetcher or coordinator.
+
+===== Integration with Testing
+
+Debugging will complement automated tests during implementation:
+- When reliability tests fail, we will debug to inspect intermediate state.
+- We will explore edge cases difficult to capture in tests.
+- We will validate behavior before writing acceptance tests.
+
+===== Alignment with Project Goals
+
+Defining debugging practices early establishes clear expectations for behavior examination during development. These scenarios directly support the reliability and transparency focus of our A3, enabling us to systematically verify that fault-injection and stress-testing practices are working as intended.
+
+===== Conclusion
+
+Debugging will be a critical tool for ensuring Tu Deporte Aquí behaves predictably under uncertainty. By examining conflict detection, staleness, and degraded mode during implementation, we will build confidence that reliability requirements are verifiable and reducible to testable code behavior.

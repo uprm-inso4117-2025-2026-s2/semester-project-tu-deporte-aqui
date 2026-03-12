@@ -1,0 +1,114 @@
+== Research: Local League Live Updates Sources
+Author: Angel Villegas Colon
+
+Date: February 2026
+
+== 1. Official League Websites
+
+=== Platform Type
+
+Official website
+
+=== Type of Data Provided
+
+* Live score
+* Game clock / quarter
+* Team statistics
+* Results
+* Game status (Scheduled, Live, Final)
+
+=== Expected Update Frequency
+
+* Near real-time (5–30 second delay typical)
+* Final scores updated immediately after game ends
+
+=== Limitations & Reliability Concerns
+
+* Smaller leagues may be updated manually
+* Delays during high-traffic events
+* No public API in some local leagues
+* Sometimes limited play-by-play detail
+
+== 2. Social Media Platforms
+
+=== Platform Type
+
+Social media
+
+=== Type of Data Provided
+
+* Score updates
+* Big play highlights
+* Quarter results
+* Final scores
+
+=== Expected Update Frequency
+
+* Manual updates (varies)
+* Often delayed by several minutes
+* May skip intermediate updates
+
+=== Limitations & Reliability Concerns
+
+* Human error possible
+* Posts may be delayed
+* No structured data format
+* Difficult to automate data extraction
+
+== 3. Third-Party Sports Platforms
+
+=== Platform Type
+
+Sports aggregator / application
+
+=== Type of Data Provided
+
+* Live scores
+* Game clock
+* Play-by-play (major leagues)
+* Player statistics
+* Standings
+
+=== Expected Update Frequency
+
+* Near real-time (often 5–15 seconds)
+* Some lag depending on data partnerships
+
+=== Limitations & Reliability Concerns
+
+* Data source not always transparent
+* Possible synchronization delay compared to official league
+* API access may require licensing or payment
+
+== 4. Source Comparison
+
+[cols="1,1,1,1,1", options="header"]
+|===
+| Source Type | Reliability | Structure | Automation Friendly | Risk Level
+
+| Official Website
+| High
+| Structured
+| Medium
+| Low
+
+| Social Media
+| Medium
+| Unstructured
+| Low
+| Medium
+
+| Third-Party Applications
+| High (major leagues)
+| Structured
+| High
+| Medium
+|===
+
+== 5. Key Findings
+
+* Official league websites are the most trustworthy source of data.
+* Social media is useful for confirmation but unreliable as a primary source.
+* Third-party aggregators often provide faster updates but may not consistently cover smaller leagues.
+* Local leagues may lack public APIs, making automation challenging.
+* Combining multiple sources increases reliability but introduces the need for conflict resolution mechanisms.

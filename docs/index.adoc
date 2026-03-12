@@ -1,6 +1,9 @@
-= Project Documentation
+= Tu Deporte Aquí
+== Project Documentation
 :toc:
 :toclevels: 4
+
+include::00-cover-page.adoc[]
 
 == 1 Informative part
 include::01-informative/01-01-team.adoc[]
@@ -22,12 +25,14 @@ include::02-descriptive/02-01-domain-description/02-01-03-domain-terminology-vs-
 include::02-descriptive/02-01-domain-description/02-01-04-narrative.adoc[]
 include::02-descriptive/02-01-domain-description/02-01-05-events-actions-behaviors.adoc[]
 include::02-descriptive/02-01-domain-description/02-01-06-function-signatures.adoc[]
+
 === 2.2 Requirements
 include::02-descriptive/02-02-requirements/02-02-01-user-stories-epics-features.adoc[]
 include::02-descriptive/02-02-requirements/02-02-02-personas.adoc[]
 include::02-descriptive/02-02-requirements/02-02-03-domain-requirements.adoc[]
 include::02-descriptive/02-02-requirements/02-02-04-interface-requirements.adoc[]
 include::02-descriptive/02-02-requirements/02-02-05-machine-requirements.adoc[]
+
 === 2.3 Implementation
 include::02-descriptive/02-03-implementation/02-03-01-selected-fragments.adoc[]
 
@@ -39,3 +44,6 @@ include::03-analytic/03-02-validation-verification.adoc[]
 include::04-class-topics/04-01-tdd.adoc[]
 include::04-class-topics/04-02-bdd-tool-usage.adoc[]
 include::04-class-topics/04-03-debugging.adoc[]
+
+== 5 AI Disclosure
+include::ai-disclosure.adoc[]
