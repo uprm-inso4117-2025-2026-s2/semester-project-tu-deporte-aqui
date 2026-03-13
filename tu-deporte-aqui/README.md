@@ -19,3 +19,17 @@ To use the components in your app, import them as follows:
 ```tsx
 import { Button } from "@/components/ui/button";
 ```
+
+## Supabase Setup
+
+1. Duplicate `.env.example` and rename it to `.env.local`.
+
+2. Replace the values with the real Supabase project credentials.
+
+3. Install dependencies:
+
+npm install
+
+4. Run the development server:
+
+npm run dev
