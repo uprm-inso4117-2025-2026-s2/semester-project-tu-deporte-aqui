@@ -1,0 +1,79 @@
+=== 3.2.2 System Testing Perspectives
+
+===== Purpose
+
+This section describes testing strategies that will be applied during
+future development stages of the Tu Deporte Aquí platform. This section outlines
+testing approaches that will evaluate the behavior of the 
+system once implementation begins.
+
+These testing strategies focus on ensuring that the platform remains
+reliable, responsive, and easy to use for sports fans accessing
+information such as teams, athletes, standings, game schedules, and
+sports news.
+
+===== Testing Approach
+
+Testing for Tu Deporte Aquí focuses on evaluating both the technical
+performance of the system and the usability of the user interface.
+These testing perspectives help ensure that users can access sports
+information quickly and interact with the platform without difficulty.
+
+====== Performance Testing
+
+Performance testing evaluates how the system behaves when multiple
+users access the platform simultaneously.
+
+The goal of this testing approach is to verify that the system remains
+responsive when users request sports information such as team standings,
+athlete statistics, or upcoming game schedules.
+
+Performance testing helps determine whether the system:
+
+* Maintains acceptable response times when multiple users access the system
+* Handles concurrent requests for sports data without delays
+* Avoids server overload during moderate traffic conditions
+* Provides stable access to sports information pages
+
+Representative scenarios include:
+
+* Multiple users checking standings at the same time
+* Several users accessing team or athlete pages simultaneously
+* Users viewing game schedules during sports events
+
+====== Usability Testing
+
+Usability testing evaluates how easily users can navigate and interact
+with the platform.
+
+Since the primary users of Tu Deporte Aquí are sports fans looking for
+quick access to match results, standings, and athlete information, the
+system interface must allow users to find information efficiently and
+without confusion.
+
+Usability testing focuses on verifying whether the platform:
+
+* Allows users to locate sports information quickly
+* Presents data in a clear and understandable format
+* Provides intuitive navigation between sections of the platform
+* Supports efficient user interaction without unnecessary complexity
+
+Typical usability scenarios include:
+
+* Finding the standings for a specific team
+* Viewing the schedule of upcoming games
+* Accessing athlete statistics
+* Navigating between teams, standings, and news sections
+
+====== Expected Outcomes
+
+By applying performance and usability testing during later development
+phases, the project aims to ensure that the Tu Deporte Aquí platform
+provides reliable and user-friendly access to sports information.
+
+These testing approaches help establish:
+
+* Responsive system behavior under normal user activity
+* Clear and intuitive navigation for sports fans
+* Consistent access to teams, athletes, schedules, and standings
+* A positive overall user experience
