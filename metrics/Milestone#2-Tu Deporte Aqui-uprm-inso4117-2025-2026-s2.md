@@ -1,6 +1,6 @@
 # Milestone Data
 
-## Date Generated: 2026-03-14
+## Date Generated: 2026-03-15
 | Developer | Points Closed | Percent Contribution | Indivudal Grade | Milestone Grade | Lecture Topic Tasks |
 | --------- | ------------- | -------------------- | --------------- | --------------- | ------------------- |
 | Ojani | 0.0 | 0.0% | 0.0% | 40.0% | 0 |
@@ -71,40 +71,40 @@
 
 | Developer | Week #1 | Week #2 | Week #3 | Week #4 | Week #5 | Penalty |
 |---|---|---|---|---|---|---|
-| NatanaelMassallo | Yes | No | No | No | No | 14.0 |
-| Joaquin939 | Yes | No | No | No | No | 14.0 |
-| Massinl | Yes | No | No | No | No | 14.0 |
-| yandielhernandez | Yes | No | No | No | No | 14.0 |
-| diegohdnz11 | Yes | No | No | No | No | 14.0 |
-| Naedra | Yes | No | No | No | No | 14.0 |
-| angelvillegas1 | Yes | No | No | No | No | 14.0 |
-| Dieg0Rios | Yes | No | No | No | No | 14.0 |
-| dAninAd1248 | Yes | No | No | No | No | 14.0 |
-| JRRR0912 | Yes | No | No | No | No | 14.0 |
-| igrv2003 | Yes | No | No | No | No | 14.0 |
 | anthonyharriel | Yes | No | No | No | No | 14.0 |
-| Christopher11Perez | Yes | No | No | No | No | 14.0 |
+| Joaquin939 | Yes | No | No | No | No | 14.0 |
+| pedrocortess | Yes | No | No | No | No | 14.0 |
+| luissorrentini | Yes | No | No | No | No | 14.0 |
 | marcosarraiza | Yes | No | No | No | No | 14.0 |
-| Ojani | Yes | No | No | No | No | 14.0 |
-| Edward20uprm | Yes | No | No | No | No | 14.0 |
-| AlexitoUpr | Yes | No | No | No | No | 14.0 |
+| Edgar-glz | Yes | No | No | No | No | 14.0 |
+| yandielhernandez | Yes | No | No | No | No | 14.0 |
+| JRRR0912 | Yes | No | No | No | No | 14.0 |
+| diegohdnz11 | Yes | No | No | No | No | 14.0 |
 | angelramos1 | Yes | No | No | No | No | 14.0 |
+| Ojani | Yes | No | No | No | No | 14.0 |
+| angelvillegas1 | Yes | No | No | No | No | 14.0 |
+| AlexitoUpr | Yes | No | No | No | No | 14.0 |
+| seba-15 | Yes | No | No | No | No | 14.0 |
+| Edward20uprm | Yes | No | No | No | No | 14.0 |
+| dAninAd1248 | Yes | No | No | No | No | 14.0 |
+| Massinl | Yes | No | No | No | No | 14.0 |
+| Dieg0Rios | Yes | No | No | No | No | 14.0 |
+| joaquin787 | No | No | No | No | No | 20.0 |
+| igrv2003 | Yes | No | No | No | No | 14.0 |
+| Naedra | Yes | No | No | No | No | 14.0 |
 | LianetteAlberto | Yes | No | No | No | No | 14.0 |
-| geraldrodriguez1 | Yes | No | No | No | No | 14.0 |
+| Fernando18Torres | Yes | No | No | No | No | 14.0 |
+| noelcolon | Yes | No | No | No | No | 14.0 |
 | AlbertoRodriguez10 | No | No | No | No | No | 20.0 |
 | jventosa28 | Yes | No | No | No | No | 14.0 |
-| pedrocortess | Yes | No | No | No | No | 14.0 |
-| seba-15 | Yes | No | No | No | No | 14.0 |
-| Fernando18Torres | Yes | No | No | No | No | 14.0 |
-| luissorrentini | Yes | No | No | No | No | 14.0 |
-| joaquin787 | No | No | No | No | No | 20.0 |
-| noelcolon | Yes | No | No | No | No | 14.0 |
 | Jafet160 | Yes | No | No | No | No | 14.0 |
-| Edgar-glz | Yes | No | No | No | No | 14.0 |
+| Christopher11Perez | Yes | No | No | No | No | 14.0 |
+| geraldrodriguez1 | Yes | No | No | No | No | 14.0 |
+| NatanaelMassallo | Yes | No | No | No | No | 14.0 |
 
 ## Point Percent by Label
 
-| Developer | team 2 | state: in-progress | state: waiting-for-manager | task: documentation |
+| Developer | team 2 | state: waiting-for-manager | task: documentation | state: in-progress |
 |---|---|---|---|---|
 | Ojani | 0.0% | 0.0% | 0.0% | 0.0% |
 | joaquin787 | 0.0% | 0.0% | 0.0% | 0.0% |
@@ -115,9 +115,9 @@
 | marcosarraiza | 0.0% | 0.0% | 0.0% | 0.0% |
 | NatanaelMassallo | 0.0% | 0.0% | 0.0% | 0.0% |
 | seba-15 | 0.0% | 0.0% | 0.0% | 0.0% |
-| luissorrentini | 100.0% | 0.0% | 100.0% | 100.0% |
+| luissorrentini | 100.0% | 100.0% | 100.0% | 0.0% |
 | dAninAd1248 | 0.0% | 0.0% | 0.0% | 0.0% |
-| Joaquin939 | 100.0% | 88.1% | 11.9% | 0.0% |
+| Joaquin939 | 100.0% | 11.9% | 0.0% | 88.1% |
 | LianetteAlberto | 0.0% | 0.0% | 0.0% | 0.0% |
 | pedrocortess | 0.0% | 0.0% | 0.0% | 0.0% |
 | Edward20uprm | 0.0% | 0.0% | 0.0% | 0.0% |
@@ -127,7 +127,7 @@
 | Edgar-glz | 0.0% | 0.0% | 0.0% | 0.0% |
 | geraldrodriguez1 | 0.0% | 0.0% | 0.0% | 0.0% |
 | AlbertoRodriguez10 | 0.0% | 0.0% | 0.0% | 0.0% |
-| angelvillegas1 | 100.0% | 0.0% | 100.0% | 100.0% |
+| angelvillegas1 | 100.0% | 100.0% | 100.0% | 0.0% |
 | yandielhernandez | 0.0% | 0.0% | 0.0% | 0.0% |
 | Dieg0Rios | 0.0% | 0.0% | 0.0% | 0.0% |
 | jventosa28 | 0.0% | 0.0% | 0.0% | 0.0% |
@@ -143,6 +143,8 @@
 | WARNING: [Issue #204](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/204) is not associated with a milestone. |
 | WARNING: [Issue #207](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/207) is not associated with a milestone. |
 | WARNING: [Issue #213](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/213) is not associated with a milestone. |
+| WARNING: [Issue #216](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/216) is not associated with a milestone. |
+| WARNING: [Issue #217](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/217) is not associated with a milestone. |
 | WARNING: Ojani hasn't completed the minimum 1 task(s) required for sprint 2026/03/03-2026/03/18 |
 | WARNING: joaquin787 hasn't completed the minimum 1 task(s) required for sprint 2026/03/03-2026/03/18 |
 | WARNING: Jafet160 hasn't completed the minimum 1 task(s) required for sprint 2026/03/03-2026/03/18 |
