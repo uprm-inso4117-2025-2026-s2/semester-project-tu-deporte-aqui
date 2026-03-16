@@ -1,0 +1,92 @@
+Tu Deporte Aquí — Messaging Style Guide
+Objective
+Create a clear, consistent tone and language style guide for Tu Deporte Aquí updates (Spanish-first + optional English), so messages remain calm, readable, and trustworthy.
+
+1) Research Local PR Sports Writing Norms
+A) Official League/Team Social Posts (Instagram)
+Tone: Professional, trustworthy, no sensationalism.
+Key Terms:
+OFICIAL: for confirmed, reliable updates (postponements, final scores, etc.)
+EN DESARROLLO: used for ongoing updates, particularly during evolving situations.
+ACTUALIZADO: to indicate an updated status (e.g., score corrections, news updates).
+Common Structure:
+"OFICIAL: [Event] ha sido [confirmed action], próximo paso: [next action]."
+"ACTUALIZADO: [Score] ahora es [new value]."
+B) Puerto Rico Sports Media (El Nuevo Día / Primera Hora)
+Tone: Informative and concrete; avoid speculation.
+Key Terms:
+Última Hora: reserved for breaking news (e.g., delays, injuries).
+Marcador Final: used to announce the final score of a game.
+Confirmado: used when a report is verified.
+Common Structure:
+"Última Hora: [Event] se ha [confirmed action]."
+"Marcador Final: [Team A] [score] – [Team B] [score]."
+C) TV/Social Sports (WAPA Deportes on Facebook)
+Tone: Short and direct, optimized for social media.
+Key Terms:
+FINAL: used for finalized scores.
+CONFIRMADO: indicates an event has been verified.
+En Vivo: used for live updates or events happening right now.
+Common Structure:
+"FINAL: [Team A] [score] – [Team B] [score]."
+"CONFIRMADO: [Event] [action taken]."
+2) Define Platform Conventions
+Spanish-First Terminology
+OFICIAL: for all confirmed information (e.g., result announcements, game postponements).
+En Desarrollo: used when new information is still coming in (e.g., a developing story).
+Confirmado: used when something is verified and final.
+Actualizado: to indicate new information has replaced outdated content (e.g., corrected score).
+Do’s and Don’ts for Tone
+Do:
+Use clear, factual language.
+Maintain a neutral, calm tone, especially when reporting uncertainty.
+Always label uncertain or developing information with appropriate terms.
+Don’t:
+Use sensational language or clickbait.
+Speculate on outcomes before information is verified.
+Ignore the importance of labeling when information is unclear.
+Consistent Formatting
+Caps Usage:
+Use ALL CAPS for key updates like OFICIAL or FINAL.
+Capitalize game results, but avoid ALL CAPS for every sentence.
+Punctuation:
+Use em dashes for breaks or to highlight the next step (e.g., “Confirmado: El evento se ha reprogramado – próximo partido será el [fecha]”).
+Avoid excessive use of exclamation marks, emojis, or other elements that could seem overly dramatic.
+Emojis:
+Use 🚨 for urgent updates or breaking news.
+✅ for confirmed updates.
+3) Approved Phrasing Library
+Common Update Types
+Final Score Update
+
+Spanish: "Final: [Equipo A] [3]–[2] [Equipo B]. Gracias por seguirnos."
+English: "Final: [Team A] [3]–[2] [Team B]. Thanks for following."
+Postponement Announcement
+
+Spanish: "OFICIAL: El partido de [Equipo A] vs [Equipo B] ha sido pospuesto debido a [razón]. Nueva fecha será anunciada pronto."
+English: "OFFICIAL: The match between [Team A] vs [Team B] has been postponed due to [reason]. New date will be announced soon."
+Developing / Unverified Information
+
+Spanish: "En desarrollo: Se están reportando rumores de [evento], pero no confirmado por fuentes oficiales. Última actualización: [hora]."
+English: "Developing: Reports indicate [event], but not confirmed by official sources. Last update: [time]."
+Correction/Updated Information
+
+Spanish: "Corrección: El marcador que publicamos anteriormente era incorrecto. Confirmado ahora: [marcador correcto]."
+English: "Correction: The score we posted earlier was incorrect. Confirmed now: [correct score]."
+4) Testing Plan
+3 Paper Scenarios to Validate:
+“Postponement announcement”: Ensure the phrasing is clear, respectful, and professional.
+“Correction to a previously posted result”: Verify that the correction language is transparent and informative.
+“Delayed update message”: Ensure tone is neutral, no unnecessary urgency, and users know when to expect a next update.
+References
+[1] Instagram — Official League Accounts
+Source: Instagram Official Accounts - Example from Liga Puerto Rico
+
+[2] WAPA Deportes — Social Media (Facebook)
+Source: WAPA Deportes on Facebook
+
+[3] Telemundo PR — Breaking Sports News
+Source: Telemundo PR - Breaking News
+
+[4] ESPN Deportes — Latin American Sports Media
+Source: ESPN Deportes
