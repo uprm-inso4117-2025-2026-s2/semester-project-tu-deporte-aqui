@@ -3,6 +3,7 @@ Objective
 Create a clear, consistent tone and language style guide for Tu Deporte Aquí updates (Spanish-first + optional English), so messages remain calm, readable, and trustworthy.
 
 1) Research Local PR Sports Writing Norms
+
 A) Official League/Team Social Posts (Instagram)
 Tone: Professional, trustworthy, no sensationalism.
 Key Terms:
@@ -12,6 +13,7 @@ ACTUALIZADO: to indicate an updated status (e.g., score corrections, news update
 Common Structure:
 "OFICIAL: [Event] ha sido [confirmed action], próximo paso: [next action]."
 "ACTUALIZADO: [Score] ahora es [new value]."
+
 B) Puerto Rico Sports Media (El Nuevo Día / Primera Hora)
 Tone: Informative and concrete; avoid speculation.
 Key Terms:
@@ -21,6 +23,7 @@ Confirmado: used when a report is verified.
 Common Structure:
 "Última Hora: [Event] se ha [confirmed action]."
 "Marcador Final: [Team A] [score] – [Team B] [score]."
+
 C) TV/Social Sports (WAPA Deportes on Facebook)
 Tone: Short and direct, optimized for social media.
 Key Terms:
@@ -30,6 +33,7 @@ En Vivo: used for live updates or events happening right now.
 Common Structure:
 "FINAL: [Team A] [score] – [Team B] [score]."
 "CONFIRMADO: [Event] [action taken]."
+
 2) Define Platform Conventions
 Spanish-First Terminology
 OFICIAL: for all confirmed information (e.g., result announcements, game postponements).
@@ -55,6 +59,7 @@ Avoid excessive use of exclamation marks, emojis, or other elements that could s
 Emojis:
 Use 🚨 for urgent updates or breaking news.
 ✅ for confirmed updates.
+
 3) Approved Phrasing Library
 Common Update Types
 Final Score Update
@@ -73,20 +78,26 @@ Correction/Updated Information
 
 Spanish: "Corrección: El marcador que publicamos anteriormente era incorrecto. Confirmado ahora: [marcador correcto]."
 English: "Correction: The score we posted earlier was incorrect. Confirmed now: [correct score]."
+
 4) Testing Plan
 3 Paper Scenarios to Validate:
 “Postponement announcement”: Ensure the phrasing is clear, respectful, and professional.
 “Correction to a previously posted result”: Verify that the correction language is transparent and informative.
 “Delayed update message”: Ensure tone is neutral, no unnecessary urgency, and users know when to expect a next update.
+
 References
+
 [1] Instagram — Official League Accounts
 Source: Instagram Official Accounts - Example from Liga Puerto Rico
+
 
 [2] WAPA Deportes — Social Media (Facebook)
 Source: WAPA Deportes on Facebook
 
+
 [3] Telemundo PR — Breaking Sports News
 Source: Telemundo PR - Breaking News
+
 
 [4] ESPN Deportes — Latin American Sports Media
 Source: ESPN Deportes
