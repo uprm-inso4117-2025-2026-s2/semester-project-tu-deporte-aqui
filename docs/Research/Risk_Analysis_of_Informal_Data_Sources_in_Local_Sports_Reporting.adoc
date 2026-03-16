@@ -1,0 +1,137 @@
+1. Conflicting Real-Time Reports in Fast-Moving Digital Platforms
+Research shows that social media platforms prioritize speed over verification. During live events, early reports are frequently corrected later, and multiple independent accounts may report different values for the same event before confirmation occurs.
+
+In live BSN games, it is common to observe different scores posted at nearly the same time by the league’s Facebook page, team Instagram accounts, and fan accounts. Because updates are manually entered and unsynchronized, discrepancies may occur within seconds.
+
+How Informal Reporting Creates Conflicts:
+
+Simultaneous Independent Posts: Different reporters publish scores based on what they observe.
+Manual Entry Errors: Typographical mistakes or misread plays can occur.
+Correction After Publication: Updates may be edited later without visibility of the original error.
+This demonstrates that systems depending on informal sources must expect temporary score inconsistencies.
+
+Here are the sources for more information:
+https://www.aeaweb.org/articles?id=10.1257/jep.31.2.211
+
+2. Latency and Irregular Update Cycles
+Digital news research indicates that human-managed accounts update irregularly. Unlike structured APIs that provide defined update intervals, social media pages may pause reporting due to staffing, connectivity, or selective posting decisions.
+
+In Liga de Béisbol Superior Doble A, teams often rely on volunteers to post inning updates. It is common to see several-minute gaps between updates while the game continues, creating uncertainty about whether the displayed score is current.
+
+How Informal Reporting Creates Latency Issues:
+
+Non-Standard Update Frequency: No guaranteed reporting schedule.
+Human Dependency: Updates depend on a single operator.
+Connectivity Constraints: Live venues may have unstable internet.
+This shows that live sports systems must treat missing updates as potential delay rather than final state.
+
+Here are the sources for more information:
+https://reutersinstitute.politics.ox.ac.uk/digital-news-report
+
+3. Incomplete or Context-Less Game Information
+User-generated content frequently lacks structured metadata such as official clock time, inning, set number, or confirmation of final status. Research on digital information quality shows that informal reporting often omits standardized fields required for automated processing.
+
+In Voleibol Superior matches, team pages commonly post set scores without clearly indicating whether the match is ongoing, which set is active, or whether the result is final. Posts may consist only of an image with minimal textual context.
+
+How Informal Reporting Creates Ambiguity:
+
+Missing Period Identifiers
+No Timestamp Included
+No Explicit Game Status (Live vs Final)
+This highlights the need for systems to avoid inferring missing game state information.
+
+4. Premature or Incorrect Final Status Declarations
+Studies of real-time digital ecosystems show that early conclusions are often revised. Declaring an event as complete before official confirmation introduces classification errors that are highly visible.
+
+During BSN playoff games, journalist or fan-operated accounts may post “Final” immediately after the buzzer. If a referee review or overtime follows, that earlier declaration becomes incorrect.
+
+How Informal Reporting Leads to Status Errors:
+
+Immediate Publishing After Apparent End
+Lack of Official Verification
+Post-Event Corrections
+Systems that automatically ingest such posts risk prematurely marking a game as final.
+
+Here are the sources for more information:
+https://doi.org/10.1145/3097286.3097341
+
+5. Content Volatility Through Edits and Deletions
+Social media platforms allow posts to be edited or deleted without a transparent revision history. Research on misinformation spread shows that corrections frequently occur after initial wide dissemination.
+
+Local sports coverage pages often edit captions to correct scores after followers comment discrepancies. An automated system may capture the original incorrect value before correction occurs.
+
+How Informal Platforms Create Integrity Risks:
+
+Editable Captions
+Deleted Posts
+No Version Tracking
+This creates integrity and traceability risks for data ingestion systems.
+
+Here are the sources for more information:
+https://www.science.org/doi/10.1126/science.aap9559
+
+6. Unverified Community-Driven Claims During Live Events
+Research on online information propagation shows that community-driven content spreads rapidly without formal verification mechanisms. In high-emotion live environments, speculation may be interpreted as fact.
+
+During live basketball games, fan pages sometimes report injuries or scoring corrections before official confirmation from league authorities. These claims may later be corrected or ignored.
+
+How Informal Reporting Amplifies Unverified Claims:
+
+Rapid Sharing Without Validation
+High Engagement Incentives
+Emotion-Driven Posting
+Systems relying on such inputs must incorporate verification safeguards.
+
+Here are the sources for more information:
+https://www.pnas.org/doi/10.1073/pnas.1806781116
+
+Engineering Implications for Live Game Systems
+Industry best practices in distributed systems and data ingestion emphasize validation, timestamp tracking, and multi-source reconciliation when consuming externally generated data.
+
+Sources:
+https://martinfowler.com/articles/patterns-of-distributed-systems/
+https://12factor.net/
+
+How Engineering Standards Address Informal Data Risks:
+
+Multi-Source Verification: Require agreement before confirming final states.
+Timestamp Transparency: Display last updated time.
+Conflict Detection: Identify and flag inconsistent values.
+Data Integrity Controls: Avoid silent overwriting of conflicting data.
+Explicit Unknown States: Do not infer missing information.
+Recommended Strategies for Handling Informal Data Risks
+Based on the research above, the following strategies are recommended:
+
+1. Require Multi-Source Confirmation for Final Status
+Do not mark a game as final unless confirmed by an official source or at least two independent sources.
+
+2. Display Last Updated Timestamp
+Show when the score was last refreshed to mitigate perceived latency.
+
+3. Implement Data Confidence Levels
+Indicate High, Medium, or Low confidence based on source reliability and agreement.
+
+4. Flag Conflicting Scores
+If discrepancies are detected, show a warning instead of silently selecting one value.
+
+5. Avoid Inferring Missing Game State
+If inning, quarter, or set is missing, explicitly mark it as unknown.
+
+6. Rank Sources by Reliability
+Prioritize official league channels over fan-operated pages.
+
+Final Definition of Live Game Status Reliability
+A Live Game Status shall be considered reliable only when:
+
+The score has a visible timestamp,
+The source reliability is documented,
+No unresolved conflict exists across tracked sources,
+Final status has been confirmed through multi-source validation.
+Any live data that does not meet these conditions shall be treated as provisional.
+
+Local Sports pages that were visited during the research
+https://bsnpr.com
+https://www.voleibolsuperior.com
+https://www.instagram.com/bsnpr
+https://www.facebook.com/bsnpr
+https://beisboldobleapr.com
