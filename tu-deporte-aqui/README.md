@@ -2,6 +2,10 @@
 
 This is a Next.js template with shadcn/ui.
 
+If you dont have next installed try:
+
+npm install next react-dom
+
 ## Adding components
 
 To add components to your app, run the following command:
