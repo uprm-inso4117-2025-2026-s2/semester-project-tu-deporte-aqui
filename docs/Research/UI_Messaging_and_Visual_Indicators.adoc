@@ -1,0 +1,177 @@
+= UI Messaging and Visual Indicators for Unverified or Provisional Live Data
+Project: Tu Deporte Aquí
+
+---
+
+== 1. Analysis of Sports Apps
+
+Three sports apps were analyzed to understand how they display provisional or live data:
+
+* ESPN
+* Flashscore
+* CBS Sports
+
+---
+
+=== ESPN
+
+* Live Games::
+  Red font in a box on the right side shows time remaining in the quarter or half.
+
+* Final Games::
+  Box displays "Final" in white font.
+
+* Delayed/Upcoming Games::
+  Gray font shows scheduled start time.
+
+* Last Updated Features::
+  No explicit timestamp, but page auto-refreshes (e.g., football/soccer game updates from minute 90+3 to Final).
+
+* Data Source::
+  Not explicitly shown; likely internal system.
+
+---
+
+=== Flashscore
+
+* Live Games::
+  Red rectangle with time remaining and score.
+
+* Final Games::
+  Score displayed in white font.
+
+* Delayed/Upcoming Games::
+  Start time shown in gray font.
+
+* Last Updated Features::
+  No explicit timestamp, but live data auto-refreshes (time decreases and score updates).
+
+* Data Source::
+  Not displayed.
+
+---
+
+=== CBS Sports
+
+* Live Games::
+  Blue font (top-left corner) shows time remaining.
+
+* Final Games::
+  "Final" displayed in white font in the same position.
+
+* Upcoming Games::
+  Scheduled start time in gray font.
+
+* Last Updated Features::
+  No live game observed during research; auto-refresh could not be tested.
+
+* Data Source::
+  Not displayed.
+
+---
+
+== 2. UI Patterns for Unverified / Delayed Data
+
+=== Pattern 1: Status Badge / Tag
+
+* Description::
+  Small colored label or chip next to the score indicating reliability (e.g., "Provisional", "Delayed").
+
+* Use Case::
+  Used when data comes from unconfirmed or secondary sources.
+
+* Source::
+  https://www.smashingmagazine.com/2025/09/ux-strategies-real-time-dashboards
+
+---
+
+=== Pattern 2: Last Updated Timestamp
+
+* Description::
+  Displays time of last update (e.g., "Updated 2 min ago").
+
+* Use Case::
+  Helps users understand data freshness and detect delays.
+
+* Source::
+  https://www.smashingmagazine.com/2025/09/ux-strategies-real-time-dashboards
+
+---
+
+=== Pattern 3: Visual State Indicator (Color + Icon)
+
+* Description::
+  Color-coded indicators to represent data confidence:
+
+  * Green ✔ → Verified
+  * Yellow ⚠ → Provisional
+  * Red ! → Conflicted
+
+* Use Case::
+  Allows users to quickly interpret reliability.
+
+* Source::
+  https://medium.com/design-group-italia/building-user-trust-in-data-d6b943e2c00f
+
+---
+
+== 3. Conflict Handling Strategy
+
+* Trigger::
+  When multiple sources report conflicting scores or game data.
+
+* User Message::
+  "Scores from multiple sources are inconsistent. Awaiting official confirmation."
+
+* Visual Indicator::
+  Warning icon (yellow/red) + "Conflicted" badge.
+
+* System Behavior::
+  * Freeze displayed score
+  * Continue polling all sources
+  * Update automatically once confirmed
+
+* Source Insight::
+  https://medium.com/design-group-italia/building-user-trust-in-data-d6b943e2c00f
+
+---
+
+== 4. Source Attribution Standard (Mobile-First)
+
+* Placement::
+  Below score in small readable text.
+
+* Format::
+  "Data Source: @ProviderName"
+
+* Behavior Rules::
+  * Always visible for live games
+  * Append "(Provisional)" if unverified
+  * If multiple sources exist → show primary source only
+
+* Source Insight::
+  https://medium.com/design-group-italia/building-user-trust-in-data-d6b943e2c00f
+
+---
+
+== 5. Screenshots
+
+=== ESPN Screenshot
+
+image::Research/images/espn-1.png[ESPN Screenshot]
+image::Research/images/espn-2.png[ESPN Screenshot]
+
+---
+
+=== Flashscore Screenshot
+
+image::Research/images/flashscore-1.png[Flashscore Screenshot]
+image::Research/images/flashscore-2.png[Flashscore Screenshot]
+image::Research/images/flashscore-3.png[Flashscore Screenshot]
+
+---
+
+=== CBS Sports Screenshot
+
+image::Research/images/cbs-1.png[CBS Sports Screenshot]
+image::Research/images/cbs-2.png[CBS Sports Screenshot]
