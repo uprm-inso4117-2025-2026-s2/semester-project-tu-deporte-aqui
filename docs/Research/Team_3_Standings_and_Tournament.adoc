@@ -1,0 +1,166 @@
+= Team 3: Standings and Tournament – Defining Next Steps for Milestone #2 Implementation (#107)
+
+This document summarizes the meetings held by Team 3 to plan and define the direction for Milestone #2 implementation.
+
+This issue also references previous work from:
+* Issue #58 – Standings and Tournament: Research, Planning and Goals
+
+== Meetings Information
+
+* Dates:
+** February 17, 2026
+** February 24, 2026
+* Time: 7:00 p.m.
+* Platform: Google Meet
+
+== Description
+
+During the meetings, the team discussed:
+
+* Findings from previous research issues
+* Peer feedback from team members
+* Identification of new required issues
+* Establishment of Team 3 goals for this phase
+* Testing approach
+* Initial planning for implementation
+
+== Decision on Standings UI Design
+
+(Based on research #37: Recommend How Standings should be displayed to Users (UI))
+
+After analyzing the different standings design types identified in research #37, the team agreed:
+
+* The selected design:
+** 4.3 Visual Ranking and Progress Indicators
+
+* Additional features incorporated from:
+** 4.2 Card-Based Standings UI
+
+NOTE: A team member created a Figma design to visualize the standings UI.
+This can be found in:
+* Issue #64 – Website designer tools for Team 3
+
+== Research Findings and Common Inconsistencies
+
+The team identified recurring issues affecting accuracy and consistency:
+
+* Temporary loss of data
+* Differences between scores from multiple data sources
+* Delays in updating live game results
+* Changes to scores after publication
+
+These inconsistencies will be actively managed during implementation.
+
+== Standings Goals
+
+The team agreed that the most important principle is:
+
+*Transparency*
+
+Goals:
+
+* Clearly inform users about any data issues
+* Communicate corrective actions promptly
+* Maintain user trust even when inconsistencies occur
+
+== Key Areas for Milestone Preparation
+
+Each team member is working on final issues to prepare for implementation.
+
+Current focus areas:
+
+* Update history implementation
+* Risk and failure scenarios + testing plan
+* Conflict resolution workflow
+* Framework recommendations
+
+These topics prepare the foundation for Milestone #2.
+
+== Testing Strategy
+
+The testing strategy was discussed with practical examples and success criteria.
+
+All team members agreed to follow this initial approach.
+
+Further details will be developed in:
+
+* Issue #74 – Risks, Failure Scenarios, Testing Plan and Rules for Standings
+
+Additionally:
+
+* A Lecture Topic Task (LTT) for the Test Plan will be created in Milestone #2
+
+== Approved Testing Scenarios
+
+NOTE: Success criteria are currently descriptive and will be refined into measurable metrics.
+
+=== Integration and System Tests
+
+==== Conflicting Data Scenario
+
+If two data sources provide conflicting information:
+
+Success criteria:
+
+* System detects inconsistency
+* UI displays message indicating:
+** Data is unofficial OR
+** Data is unverified OR
+** Data is pending confirmation
+
+NOTE: UI labels and exact implementation are still being defined.
+
+==== Updated or Modified Data Scenario
+
+If data changes after being published:
+
+Success criteria:
+
+* System displays update history
+* Timestamps are shown
+* Users can identify how data changed
+
+=== Performance Testing
+
+==== Smoke Test (Initial Load Test)
+
+Approach:
+
+* Test system with a minimal number of users
+* Validate early-stage stability
+
+Rationale:
+
+* Appropriate for initial implementation phase
+* Will scale to more complex testing later
+
+=== Unit Testing
+
+==== Conflicting Data Detection
+
+Example logic (Python reference):
+
+[source,python]
+----
+firstScore != secondScore
+----
+
+Success criteria:
+
+* Returns TRUE → conflicting data
+* Returns FALSE → consistent data
+
+NOTE: This is a simplified validation logic.
+
+More detailed test cases are currently being developed.
+
+== Summary
+
+This document establishes:
+
+* UI design decisions
+* Identified data inconsistencies
+* Core system goals (transparency)
+* Testing strategy foundations
+
+These elements support a structured transition into Milestone #2 implementation.
