@@ -5,7 +5,7 @@
 Type:: Frontend library  
 Used with:: Next.js  
 
-image::Research/images/react_framework.png[React Framework, width=500]
+image::images/react_framework.png[React Framework, width=500]
 
 === Pros
 
@@ -24,7 +24,7 @@ image::Research/images/react_framework.png[React Framework, width=500]
 
 Type:: Full web framework built on React  
 
-image::Research/images/nextjs_framework.png[Next.js Framework, width=500]
+image::images/nextjs_framework.png[Next.js Framework, width=500]
 
 === Pros
 
@@ -43,7 +43,7 @@ image::Research/images/nextjs_framework.png[Next.js Framework, width=500]
 
 Type:: Frontend framework  
 
-image::Research/images/vue_framework.png[Vue Framework, width=500]
+image::images/vue_framework.png[Vue Framework, width=500]
 
 === Pros
 
@@ -61,7 +61,7 @@ image::Research/images/vue_framework.png[Vue Framework, width=500]
 
 Type:: Modern framework  
 
-image::Research/images/svelte_framework.png[Svelte Framework, width=500]
+image::images/svelte_framework.png[Svelte Framework, width=500]
 
 === Pros
 
