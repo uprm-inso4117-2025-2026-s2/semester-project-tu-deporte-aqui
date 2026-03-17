@@ -1,0 +1,295 @@
+= AsciiDoc to PDF Research
+Project: Tu Deporte Aquí
+
+---
+
+== 1. Alignment with Milestone 1 Team Goals
+
+This research supports the Milestone 1 goal of establishing the project's documentation foundation.
+
+The PDF build action enables:
+
+* A repeatable process to generate the final documentation as a single PDF
+* A clean documentation index (e.g., `docs/index.adoc`)
+* Validation of documentation standards and glossary
+* Capturing key assumptions in a distributable PDF snapshot
+
+---
+
+== 2. Requirements and Constraints
+
+The automation must satisfy:
+
+* Inputs::
+  * AsciiDoc files (`*.adoc`)
+  * Assets (images, themes, fonts)
+
+* Output::
+  * Single PDF (optionally multiple PDFs)
+  * Stored as workflow artifact
+
+* Triggers::
+  * Changes to `docs/` or `*.adoc`
+  * Manual execution (`workflow_dispatch`)
+
+* Reliability::
+  * Deterministic builds
+  * Clear failure when inputs are missing
+
+* Security::
+  * Safe mode restricts file access
+  * Includes limited to documentation directory
+
+* Future-proofing::
+  * Use GitHub artifact actions v4+ (v3 deprecated)
+
+---
+
+== 3. Options Evaluated
+
+=== Approach A: Ruby + asciidoctor-pdf
+
+* Install Ruby
+* Install `asciidoctor-pdf` gem
+* Run CLI command
+
+---
+
+=== Approach B: Docker (Recommended)
+
+* Use `asciidoctor/docker-asciidoctor`
+* Pre-bundled toolchain
+* Run `asciidoctor-pdf` inside container
+
+---
+
+=== Approach C (Not Recommended for Milestone 1)
+
+* JVM-based (Maven/Gradle + AsciidoctorJ)
+* More powerful but heavier
+
+---
+
+== 4. Comparison Summary
+
+[cols="1,1,1", options="header"]
+|===
+| Criterion | Approach A (Ruby) | Approach B (Docker)
+
+| Setup effort
+| Medium
+| Low
+
+| Reproducibility
+| Good (if versions pinned)
+| Very high
+
+| Speed
+| Good (faster with caching)
+| Good (initial image pull overhead)
+
+| Theming / Fonts / Images
+| Full support
+| Full support
+
+| Diagrams / Extras
+| Requires extra setup
+| Built-in support
+
+| Runner Requirements
+| Ruby installed
+| Docker required
+
+| Best Fit (Milestone 1)
+| Solid but complex
+| Recommended (simple + consistent)
+|===
+
+---
+
+== 5. Recommended Workflow Architecture
+
+* Docs entrypoint::
+  `docs/index.adoc`
+
+* Output folder::
+  `build/docs/` (ignored by git)
+
+* Artifacts::
+  Upload using `actions/upload-artifact@v4`
+
+* Optional publishing::
+  Use GitHub Releases for versioned PDFs
+
+---
+
+== 6. Implementation Proposal
+
+=== Docker-Based Workflow (Recommended)
+
+[source,yaml]
+----
+name: Docs PDF
+on:
+  push:
+    paths:
+      - "docs/**"
+      - "**/*.adoc"
+      - ".github/workflows/docs-pdf.yml"
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build PDF (Docker toolchain)
+        run: |
+          mkdir -p build/docs
+          docker run --rm \
+            -u "$(id -u):$(id -g)" \
+            -v "${PWD}:/documents" \
+            asciidoctor/docker-asciidoctor \
+            asciidoctor-pdf docs/index.adoc -o build/docs/tu-deporte-aqui.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-pdf
+          path: build/docs/tu-deporte-aqui.pdf
+          retention-days: 14
+----
+
+---
+
+=== Ruby-Based Workflow (Alternative)
+
+[source,yaml]
+----
+name: Docs PDF (Ruby)
+on:
+  push:
+    paths:
+      - "docs/**"
+      - "**/*.adoc"
+      - ".github/workflows/docs-pdf.yml"
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+
+      - name: Install Asciidoctor PDF
+        run: gem install asciidoctor-pdf
+
+      - name: Build PDF
+        run: |
+          mkdir -p build/docs
+          asciidoctor-pdf docs/index.adoc -o build/docs/tu-deporte-aqui.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-pdf
+          path: build/docs/tu-deporte-aqui.pdf
+          retention-days: 14
+----
+
+---
+
+== 7. Documentation Setup Requirements
+
+To ensure stable builds:
+
+* Includes::
+  * Keep inside `docs/`
+  * SAFE mode allows includes within directory
+
+* Images::
+  * Store under `docs/images`
+  * Set `:imagesdir: images`
+  * Use `allow-uri-read` for external images
+
+* Themes::
+  * Store in `docs/resources/themes`
+  * Fonts in `docs/resources/fonts`
+
+---
+
+=== Example CLI Configuration
+
+[source,bash]
+----
+asciidoctor-pdf \
+  -a pdf-themesdir=docs/resources/themes \
+  -a pdf-theme=basic \
+  -a pdf-fontsdir=docs/resources/fonts \
+  docs/index.adoc -o build/docs/tu-deporte-aqui.pdf
+----
+
+---
+
+== 8. Integration Plan
+
+* Create `docs/index.adoc` as entrypoint
+* Add workflow file:
+  `.github/workflows/docs-pdf.yml`
+* Add `build/docs/` to `.gitignore`
+* Set artifact retention (e.g., 14 days)
+* Add badge/link in README
+
+---
+
+== 9. Optional: Publish PDFs as Release Assets
+
+[source,yaml]
+----
+- name: Publish PDF to GitHub Release
+  uses: softprops/action-gh-release@v2
+  if: github.ref_type == 'tag'
+  with:
+    files: |
+      build/docs/tu-deporte-aqui.pdf
+----
+
+Required permissions::
+
+* contents: write
+
+---
+
+== 10. Validation Checklist
+
+* Build succeeds on clean runner
+* Includes resolve correctly
+* Images embed properly
+* Theme loads correctly
+* PDF appears as downloadable artifact
+
+---
+
+== References
+
+1. https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
+2. https://github.com/actions/upload-artifact
+3. https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions
+4. https://docs.asciidoctor.org/pdf-converter/latest/convert-to-pdf/
+5. https://docs.asciidoctor.org/pdf-converter/latest/theme/apply-theme/
+6. https://docs.asciidoctor.org/pdf-converter/latest/image-paths-and-formats/
+7. https://docs.asciidoctor.org/asciidoctor/latest/safe-modes/
+8. https://github.com/asciidoctor/docker-asciidoctor
+9. https://github.com/softprops/action-gh-release
+10. https://github.com/asciidoctor/asciidoctor-pdf
