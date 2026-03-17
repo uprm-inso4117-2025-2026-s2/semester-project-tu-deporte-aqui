@@ -1,0 +1,193 @@
+= Common Inconsistencies in Standings Across Informal Sports Sources
+Project: Tu Deporte Aquí
+Issue: #35
+
+---
+
+== Objective
+
+The goal of this research is to identify and describe the most common inconsistencies found in league standings published by informal or semi-official sports sources.
+
+These findings support:
+
+* Validation rules
+* Reliability decisions
+
+for the Tu Deporte Aquí platform.
+
+---
+
+== Background
+
+Many local sports leagues in Puerto Rico rely on:
+
+* Social media posts
+* Messaging apps
+* Unofficial websites
+* Manually updated documents
+
+Because these sources lack standardized update processes, their data often differs.
+
+These inconsistencies:
+
+* Confuse users
+* Reduce trust in sports platforms
+
+Understanding these issues is necessary before defining system behavior or validation logic.
+
+---
+
+== Sources Analyzed
+
+The following sources were reviewed:
+
+* Semi-official PDF standings (Puerto Rico Double-A Baseball League)
+* Primera Hora sports article (standings + playoff status)
+* BSN standings from third-party platforms
+
+These represent common ways users access standings information in Puerto Rico.
+
+---
+
+== Common Types of Standings Inconsistencies
+
+=== 1. Win/Loss Record Differences
+
+Different sources may report different records for the same team.
+
+Causes:
+
+* Different update cutoffs
+* Outdated snapshots
+* Manual data entry errors
+
+Example::
+
+One source shows 9–3, another shows 10–4 for the same team.
+
+---
+
+=== 2. Missing or Extra Games
+
+Standings may:
+
+* Show different numbers of games played
+* Exclude certain teams
+
+Causes:
+
+* Postponed or rescheduled games
+* Partial reporting
+* Section-based grouping instead of full league
+
+---
+
+=== 3. Incorrect or Ambiguous Tie-Breaking
+
+Teams with identical records may appear in different positions.
+
+Causes:
+
+* Tie-breaking rules not defined
+* Arbitrary ordering (alphabetical or incomplete logic)
+
+---
+
+=== 4. Delayed Updates
+
+Standings may be updated hours or days after games finish.
+
+Some sources include cutoff timestamps, others do not.
+
+Result::
+
+Multiple “current” versions of standings exist simultaneously.
+
+---
+
+=== 5. Incomplete or Partial Standings
+
+Some sources only show:
+
+* Top teams
+* Playoff positions
+
+Users may misinterpret these as full standings.
+
+---
+
+== Summary of Identified Inconsistencies
+
+The most common issues include:
+
+* Win/loss record differences
+* Mismatched number of games played
+* Undefined tie-breaking rules
+* Delayed updates
+* Partial or incomplete standings
+
+---
+
+== Implications for Tu Deporte Aquí
+
+Standings should not be treated as a single source of truth.
+
+Instead:
+
+* Treat standings as time-based snapshots
+* Assign reliability levels to each source
+
+---
+
+=== System and UX Recommendations
+
+* Display update timestamps
+* Show transparency for incomplete data
+* Handle ties carefully
+* Communicate uncertainty clearly
+
+These practices help maintain user trust.
+
+---
+
+== Testing Scenarios Derived from Findings
+
+These inconsistencies support realistic testing scenarios:
+
+* Conflicting win/loss records from different sources
+* Partial standings shown as complete
+* Tied teams without clear ranking logic
+* Delayed standings after completed games
+
+These scenarios help test system behavior under real-world conditions.
+
+---
+
+== Conclusion
+
+Standings inconsistencies in Puerto Rico sports are mainly caused by:
+
+* Delayed updates
+* Partial reporting
+* Missing tie-breaking rules
+
+By recognizing these patterns, Tu Deporte Aquí can:
+
+* Design better validation logic
+* Improve transparency
+* Maintain user trust
+
+even when working with imperfect data sources.
+
+---
+
+== References
+
+* Puerto Rico Double-A Baseball League  
+  https://beisboldobleapr.com
+
+* Primera Hora – Baseball Coverage  
+  https://www.primerahora.com/deportes/beisbol/
+
+* Flashscore – BSN Standings  
+  https://www.flashscore.com/basketball/puerto-rico/bsn/standings/
