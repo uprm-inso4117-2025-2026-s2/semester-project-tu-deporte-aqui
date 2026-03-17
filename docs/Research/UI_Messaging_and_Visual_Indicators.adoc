@@ -158,20 +158,20 @@ Three sports apps were analyzed to understand how they display provisional or li
 
 === ESPN Screenshot
 
-image::Research/images/espn-1.png[ESPN Screenshot]
-image::Research/images/espn-2.png[ESPN Screenshot]
+image::images/espn-1.png[ESPN Screenshot]
+image::images/espn-2.png[ESPN Screenshot]
 
 ---
 
 === Flashscore Screenshot
 
-image::Research/images/flashscore-1.png[Flashscore Screenshot]
-image::Research/images/flashscore-2.png[Flashscore Screenshot]
-image::Research/images/flashscore-3.png[Flashscore Screenshot]
+image::images/flashscore-1.png[Flashscore Screenshot]
+image::images/flashscore-2.png[Flashscore Screenshot]
+image::images/flashscore-3.png[Flashscore Screenshot]
 
 ---
 
 === CBS Sports Screenshot
 
-image::Research/images/cbs-1.png[CBS Sports Screenshot]
-image::Research/images/cbs-2.png[CBS Sports Screenshot]
+image::images/cbs-1.png[CBS Sports Screenshot]
+image::images/cbs-2.png[CBS Sports Screenshot]
