@@ -1,0 +1,109 @@
+= Feed Ranking Logic System: “How is this prioritized?”
+Author: Diego A. Rios Morales
+Date: February 27, 2026
+
+== 1. Objective
+
+Define a ranking logic system that determines how news items are prioritized and displayed to users in the feed.
+
+== 2. Problem
+
+Users often perceive their feed as random, when in reality it is driven by an algorithm.
+
+This research aims to:
+
+* Reduce confusion
+* Provide clarity on prioritization
+* Improve trust in the system
+
+== 3. UX Principles
+
+* *Fair*: Prevent a single source or team from dominating the feed
+* *Fresh*: Prioritize timely updates (scores, injuries, live events)
+* *Controllable*: Allow users to tune their interests
+
+== 4. Prioritization Factors
+
+Each story receives a score based on multiple factors:
+
+=== A. Breaking / Urgent Signal
+
+* League or team flagged breaking update
+* Game-time events (kickoff, halftime, final)
+* Injury or roster changes
+
+=== B. Recency / Time Decay
+
+* Newer items are prioritized
+* Updates to existing items resurface with an “Updated” label
+
+=== C. Importance / Impact
+
+* Events affecting standings, playoffs, or finals
+* Major trades or announcements
+* High-impact injuries or suspensions
+
+=== D. Personalized Relevance
+
+* Followed teams or leagues
+* User-selected topics (transfers, injuries, local teams)
+* Similar-interest clusters (privacy-safe)
+
+=== E. Popularity / Trend Signal
+
+* High engagement (clicks, shares, saves)
+* Regional trends (broad region only)
+
+== 5. Ranking Buckets
+
+Each story is also assigned a primary bucket label for clarity:
+
+* Breaking
+* Game Update
+* Trending
+* For You (personalized)
+* Latest
+* Featured (admin)
+
+UI Example:
+
+* “Breaking”
+* “Trending”
+* “For You”
+
+== 6. Admin Override Logic
+
+Administrators can modify ranking behavior when necessary.
+
+=== A. Featured / Pin
+
+* Pin a story to the top for a defined time window
+* Overrides normal ranking temporarily
+* Should not block all other content
+
+=== B. Boost / Suppress
+
+* Boost increases score using a multiplier for a limited time
+* Suppress reduces visibility or removes content from top sections
+
+=== C. Rules and Guardrails
+
+* Overrides must include:
+** Reason
+** Admin ID
+** Start and end time
+
+* Overrides must be logged in a transparency/audit log
+* Safety cap on maximum number of pinned items
+
+== 7. Transparency Surface (User-Facing)
+
+Users should be able to understand *why* content appears.
+
+Examples:
+
+* “Breaking update”
+* “Trending in your region”
+* “Because you follow Team X”
+* “Recently updated”
+* “Featured by admins”
