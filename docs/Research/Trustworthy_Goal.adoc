@@ -1,0 +1,182 @@
+= Trustworthy Data & Transparency Strategy
+Project: Tu Deporte Aquí
+
+---
+
+== 1. Trust Challenges in Sports Applications
+
+Sports applications commonly face trust issues due to the dynamic and uncertain nature of live data.
+
+=== Key Problems
+
+* Live statistics are often *provisional*:
+  * Events may be reviewed later (e.g., fouls, disqualifications)
+  * Real-time feeds cannot always be fully accurate
+
+* Post-game corrections:
+  * Stats may change after the game ends
+  * Can affect standings, leaderboards, and user expectations
+
+* Player status volatility:
+  * Injuries and lineups change frequently
+  * Requires continuous updates
+
+---
+
+== 2. Trust-Building Mechanisms
+
+Platforms use the following strategies to improve user trust:
+
+=== 1. Up-Front Disclosure + Current Content
+
+* Clearly distinguish between:
+  * Live (Provisional)
+  * Official (Final)
+
+---
+
+=== 2. Provenance (Source Transparency)
+
+* Show where data comes from
+* Provide context panels with source information
+
+---
+
+=== 3. Methodology Transparency
+
+* Define how data is calculated
+* Examples:
+  * "Assist"
+  * "Chance created"
+  * "Pressure"
+
+---
+
+== 3. Transparency Strategies
+
+=== 1. Meaningful Timestamps
+
+* Display "Last updated at [time]" on all key data
+
+---
+
+=== 2. Source Citations
+
+Examples:
+
+* Injury status → "Source: NBA Injury Report"
+* Scores → "Source: League Official Feed"
+
+---
+
+=== 3. Change History
+
+* Maintain a history of:
+  * Score updates
+  * Stat corrections
+
+---
+
+=== 4. Plain Language Communication
+
+Example::
+
+"Some live stats are delayed (provider latency). Showing last confirmed totals."
+
+---
+
+== 4. Reliability Indicators in the UI
+
+Trust can be improved by separating *truth status* from *importance*.
+
+=== Key Indicators
+
+* Verification badges
+* Confidence score (simple and understandable)
+* Data freshness / latency indicators
+* Provisional vs Official state machine
+
+---
+
+== 5. Features that Increase Credibility
+
+=== 1. Easy Access to Data Details
+
+* One-click access to:
+  * Timestamps
+  * Sources
+  * Data state
+  * Definitions
+
+---
+
+=== 2. Corrections Center + Notifications
+
+* Show updates since last view
+* Example::
+
+"Game stats corrected; your total changed by +2"
+
+---
+
+=== 3. Provider Transparency
+
+* Always display the data provider
+
+---
+
+=== 4. Incident / Status Page
+
+* Show system issues or delays
+* Prevent misinformation and confusion
+
+---
+
+=== 5. Two-Source Confirmation Mode
+
+* Require confirmation from two sources for critical data
+
+---
+
+=== 6. Definitions & Methodology Section
+
+* Searchable in-app explanations
+* Clarifies:
+  * Metrics
+  * Calculations
+  * Uncertainty meaning
+
+---
+
+== Conclusion
+
+To build user trust, Tu Deporte Aquí must:
+
+* Clearly communicate uncertainty
+* Show data sources and updates
+* Maintain transparency in all system behavior
+
+By implementing these strategies, the platform can:
+
+* Reduce confusion
+* Improve credibility
+* Maintain user confidence even with imperfect data
+
+---
+
+== References
+
+* ESPN – Scoring & Stat Corrections  
+  https://support.espn.com/hc/en-us/articles/360000099732-Scoring-Stat-Corrections
+
+* NBA – Injury Report  
+  https://official.nba.com/nba-injury-report-2025-26-season/
+
+* Nielsen Norman Group – Trustworthiness in Web Design  
+  https://www.nngroup.com/articles/trustworthy-design/
+
+* Google – Evaluating Information Online  
+  https://www.google.com/intl/en_us/search/howsearchworks/information-quality/
+
+* Stats Perform – AI & Data FAQs  
+  https://www.statsperform.com/es/stats-perform-faqs-ai-innovation/
