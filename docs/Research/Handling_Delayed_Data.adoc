@@ -1,0 +1,142 @@
+= Handling Delayed, Conflicting, or Missing Live Game Data
+Author: Angel A. Villegas Colón
+Project: Tu Deporte Aquí
+
+---
+
+== 1. Handling Delayed Live Updates
+
+=== NBA Platform
+
+* Displays a live game clock and score
+* If updates are delayed, the clock may pause visually
+* Shows *End of Quarter* or *Halftime* clearly to prevent confusion
+* Does not explicitly label “data delayed,” but avoids showing uncertain values
+
+==== Observed Strategy
+
+* Freeze last confirmed data
+* Avoid speculative updates
+* Maintain structured game states (Q1, Q2, Halftime, Final)
+
+---
+
+=== ESPN Platform
+
+* Displays status indicators such as *Final* or *Live*
+* Sometimes shows *Delayed* during interruptions
+* Uses structured status labels (Scheduled, Live, Final)
+
+==== Observed Strategy
+
+* Clearly label game state
+* Avoid partial updates
+* Maintain consistent formatting even if data pauses
+
+---
+
+== 2. Handling Conflicting Scores Across Sources
+
+Neither NBA nor ESPN publicly display conflicting data.
+
+==== Observed Industry Strategy
+
+* Use a primary trusted data provider
+* Do not display multiple score versions
+* Only update once data is verified
+* Perform silent backend reconciliation
+
+==== Key Insight
+
+IMPORTANT::
+
+Major platforms resolve conflicts internally and do not expose them to users.
+
+---
+
+== 3. Handling Missing or Incomplete Information
+
+=== NBA Platform
+
+* Hides unavailable stat fields
+* May show “No plays available” for play-by-play
+* Does not display incorrect placeholders
+
+---
+
+=== ESPN Platform
+
+* Displays “No data available” in some sections
+* Uses fallback values (e.g., dashes or blanks)
+* Maintains layout consistency
+
+---
+
+==== Observed Strategy
+
+* Do not show inaccurate placeholders
+* Clearly label unavailable sections
+* Preserve UI structure to avoid confusion
+
+---
+
+== 4. Communicating Uncertainty or Provisional Data
+
+=== Common Approaches
+
+* Use clear game state labels (Live, Final, Scheduled)
+* Use timestamps to validate finality (e.g., Final locks score)
+* Avoid speculative updates
+* Avoid technical or complex messaging
+* Maintain a clean UI
+
+---
+
+==== Key Pattern Across Platforms
+
+Transparency is achieved through *simple labels*, not technical explanations.
+
+---
+
+== 5. Summary of Practical Approaches
+
+[cols="2,3", options="header"]
+|===
+| Scenario | Common Strategy
+
+| Delayed Updates
+| Freeze last confirmed data and maintain game state labels
+
+| Conflicting Scores
+| Resolve internally before updating UI
+
+| Missing Data
+| Hide or clearly label unavailable sections
+
+| Uncertainty
+| Use structured status indicators (Live, Final, Scheduled)
+|===
+
+---
+
+== 6. Key Findings for System Design
+
+* Prioritize a single trusted data source
+* Resolve conflicts internally, not in the UI
+* Use clear and consistent game status labels
+* Label missing data instead of guessing values
+* Prioritize UI stability over raw update speed
+
+---
+
+== Conclusion
+
+Handling unreliable live sports data requires a balance between accuracy, clarity, and user trust.
+
+By:
+
+* Freezing confirmed data during delays
+* Resolving conflicts internally
+* Clearly labeling missing or uncertain information
+
+Tu Deporte Aquí can maintain a reliable and user-friendly experience even under imperfect data conditions.

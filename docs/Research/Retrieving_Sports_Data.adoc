@@ -1,0 +1,88 @@
+= Retrieving Sports Data
+Project: Tu Deporte Aquí
+
+---
+
+== What I Wanted to Find
+
+* Tools for acquiring sports data in real time
+
+---
+
+== What Was Found
+
+* Most sports media outlets rely on *in-person coverage* to acquire real-time data and obtain future event information directly from league management.
+
+* This approach is *not feasible* for our project due to:
+  - Lack of direct contacts
+  - Limited human resources
+
+* Many media organizations and sports leagues provide data through:
+  - Websites
+  - Mobile applications
+
+* These platforms can be used as *data sources* through web scraping.
+
+* Example sources:
+
+  - BSN official website (in progress): https://bsnpr.com/
+  - Flashscore standings page: https://www.flashscore.com/basketball/puerto-rico/bsn/#/4r3exuxU/standings/overall/
+
+---
+
+== Web Scraping
+
+According to https://www.softr.io/blog/tools-to-extract-data-from-website, web scraping can be implemented using *Python*, which provides built-in libraries for data extraction.
+
+Several tools are available for scraping data efficiently:
+
+=== Apify
+
+* Cloud-based platform
+* Automates scraping for multiple data types
+* Supports social media extraction
+
+---
+
+=== ParseHub
+
+* Allows downloading scraped data in multiple formats
+* Useful for extracting structured data from websites
+
+---
+
+=== Web Scraper
+
+* Designed for dynamic websites
+* Uses a modular selector system
+* Supports export formats:
+  - CSV
+  - XLSX
+  - JSON
+
+---
+
+=== Hevo Data
+
+* No-code data extraction tool
+* Works in three steps
+* Supports databases and streaming services
+
+---
+
+=== ScrapingBot
+
+* Extracts data directly from URLs
+* Supports:
+  - Images
+  - Product information
+* Applicable for extracting game scores
+
+---
+
+== References
+
+* https://www.softr.io/blog/tools-to-extract-data-from-website
+* https://www.scrapingbee.com/blog/how-to-extract-data-from-a-website/
+* https://www.flashscore.com/basketball/puerto-rico/bsn/#/4r3exuxU/standings/overall/
+* https://bsnpr.com/

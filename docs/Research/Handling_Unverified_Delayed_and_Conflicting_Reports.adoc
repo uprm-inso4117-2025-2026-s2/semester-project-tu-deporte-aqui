@@ -1,0 +1,236 @@
+= Handling Unverified, Delayed, and Conflicting Reports
+Author: Lianette Alberto
+Date: February 2026
+Project: Tu Deporte Aquí
+
+== Goal
+
+Define how the platform should handle *uncertain information*:
+
+* Unverified reports
+* Delayed reports
+* Conflicting reports
+
+while maintaining:
+
+* User trust
+* Transparency
+
+This research focuses on:
+
+* Communication strategy
+* System-state messaging
+
+---
+
+== 1. Industry Research Overview
+
+Breaking news reporting typically follows a *three-phase model*:
+
+=== Initial Report (Unverified)
+
+* Marked as "Developing"
+* Uses cautious language
+* Avoids definitive claims
+
+=== Confirmation Phase
+
+* Updated with official sources
+* Clearly states confirmed details
+* Includes timestamp
+
+=== Correction / Clarification
+
+* Explicit correction notice
+* Previous version preserved
+* Discrepancies explained
+
+IMPORTANT:
+
+Credible platforms prioritize *speed*, but clearly label uncertainty.
+
+---
+
+== 2. Report Classification Model (Proposed)
+
+Each report should include a visible *verification state*:
+
+* Confirmed
+* Unverified
+* Developing
+* Conflicting
+* Delayed
+* Corrected
+
+---
+
+== 3. Handling Unverified Reports
+
+=== Criteria
+
+* Single source
+* No official confirmation
+* Time-sensitive context
+
+=== User-Facing Label
+
+"Developing – Information not yet confirmed."
+
+=== UI Indicators
+
+* Yellow badge
+* "Last updated" timestamp
+* Source label
+
+=== System Behavior
+
+* Allow publication
+* Assign lower confidence score
+* Trigger periodic re-validation
+
+---
+
+== 4. Handling Delayed Reports
+
+=== Definition
+
+Report submitted significantly after event occurrence
+
+=== Criteria
+
+If:
+
+(current_time - event_time) > threshold_hours
+
+Then:
+
+* Mark as Delayed
+
+=== User Message
+
+"This report was submitted after the event occurred."
+
+=== Transparency
+
+Show:
+
+* Event time
+* Submission time
+* Time difference
+
+---
+
+== 5. Handling Conflicting Reports
+
+=== Definition
+
+Reports about the same event contradict each other
+
+=== Triggers
+
+* Same event ID
+* Opposing status values
+* Major field mismatch
+
+=== User Message
+
+"Conflicting reports detected. Information may change."
+
+=== System Actions
+
+* Highlight discrepancies
+* Display both sources
+* Show reliability level
+
+---
+
+== 6. Transparency Indicators
+
+The system should expose:
+
+* Last updated time
+* Original publish time
+* Verification state
+* Source type (Official / Reporter / Community)
+* Confidence level (Low / Medium / High)
+
+=== Confidence Calculation (MVP)
+
+* High → Official source + no conflicts
+* Medium → Multiple agreeing non-official sources
+* Low → Single unverified source OR conflicting data
+
+---
+
+== 7. User-Facing System State Messages
+
+* Data Degraded  
+  "Some information may be delayed due to system synchronization."
+
+* Uncertain Data  
+  "This information is still being verified."
+
+* Conflicting Data  
+  "Multiple sources report different information. Updates pending."
+
+---
+
+== 8. Recommended Publishing Criteria
+
+* Publish as *News* if:
+  - Confirmed
+  - Not urgent
+  - Informational
+
+* Publish as *Alert* if:
+  - Time-sensitive
+  - High impact
+  - Requires immediate action
+
+IMPORTANT:
+
+Alerts require:
+
+* Higher verification threshold
+* Stronger visual emphasis
+
+---
+
+== 9. Risk Mitigation Strategy
+
+* Always show timestamps
+* Never silently overwrite conflicting data
+* Log corrections
+* Preserve revision history
+* Allow visible correction notes
+
+---
+
+== 10. Implementation Notes (MVP)
+
+Add fields:
+
+* verification_status
+* confidence_level
+* last_updated_at
+* source_type
+* conflict_flag
+
+System behavior:
+
+* Trigger re-validation periodically for Unverified reports
+* Re-validate when new related reports are submitted
+
+---
+
+== Conclusion
+
+Handling uncertainty *transparently* increases user trust.
+
+Key principles:
+
+* Label uncertainty clearly
+* Show timestamps
+* Avoid silent corrections
+* Distinguish alerts from news
+* Surface confidence level visibly

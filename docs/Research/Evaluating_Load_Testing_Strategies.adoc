@@ -1,0 +1,234 @@
+= Evaluating Load Testing Strategies in High-Demand Local Sports Events
+Project: Tu Deporte Aquí
+Issue: #23
+
+---
+
+== 1. Research Objectives
+
+This research analyzes load testing strategies used in sports platforms and provides recommendations for applying them in Tu Deporte Aquí to ensure reliability during high-demand local sports events.
+
+---
+
+== 2. Definition
+
+=== What is Load Testing?
+
+Load testing simulates a significant level of usage in an application to determine whether it remains stable under stress.
+
+It helps identify:
+
+* Increased response times
+* System instability
+* Maximum operating capacity
+
+---
+
+=== Why is Load Testing Important?
+
+Load testing validates system performance under realistic conditions, especially during peak traffic.
+
+For this project, it is critical because:
+
+* Many users may access the platform simultaneously during live events
+* Traffic spikes are expected during key games and tournaments
+* System failures would directly impact user trust
+
+---
+
+== 3. How Platforms Handle Traffic Spikes
+
+NOTE::
+Detailed internal strategies of sports platforms are not publicly available. The following insights are based on industry patterns.
+
+---
+
+=== Major Platforms
+
+==== Super Bowl (NFL)
+
+Handles massive traffic spikes using:
+
+* Cloud-based infrastructure
+* Content Delivery Networks (CDNs)
+* Pre-game stress testing
+* Auto-scaling servers
+
+---
+
+==== ESPN
+
+* Receives millions of users (approx. 18M)
+* Uses data center-based infrastructure to manage load
+
+---
+
+==== NBA
+
+Uses:
+
+* Real-time data processing (AI/ML)
+* Cloud services (e.g., Microsoft Azure)
+* Scalable analytics systems
+
+---
+
+=== Key Concepts
+
+==== Cloud-Based Infrastructure
+
+Cloud infrastructure consists of distributed hardware and software resources (servers, storage, networking) maintained by providers.
+
+---
+
+==== Content Delivery Network (CDN)
+
+A CDN is a distributed network of servers that delivers content from locations closer to users, improving load times and reducing latency.
+
+---
+
+== 4. Peak Traffic Scenarios (Puerto Rico Context)
+
+Typical peak times:
+
+* Weekday evenings (4:00 PM – 8:00 PM)
+* Weekends
+* School tournaments and championships
+
+These events create sudden spikes as many users attempt to access scores simultaneously.
+
+---
+
+== 5. Common User Behavior Patterns
+
+During live sports events:
+
+1. Real-time interaction (chat/discussion)
+2. Constant refreshing to get updates
+3. Frequent live score queries
+4. Simultaneous logins before and at game start
+
+---
+
+== 6. Load Testing Methodologies
+
+=== 1. Smoke Test
+
+* Verifies system functionality under minimal load
+* Establishes baseline performance
+
+---
+
+=== 2. Average Load Test
+
+* Simulates normal daily usage conditions
+
+---
+
+=== 3. Stress Test
+
+* Tests system behavior under peak traffic conditions
+
+---
+
+=== 4. Spike Test
+
+* Simulates sudden and massive traffic surges
+
+---
+
+=== 5. Breakpoint Test
+
+* Gradually increases load until system failure
+* Identifies system limits and weak points
+
+---
+
+IMPORTANT::
+
+Defining clear goals and performance metrics is essential for evaluating test success.
+
+---
+
+== 7. Recommendations for Tu Deporte Aquí
+
+Based on project scope, the most suitable initial tests are:
+
+=== Smoke Testing
+
+Purpose:
+
+* Ensure system stability under minimal load
+
+Recommended process:
+
+* Run after Unit and Integration testing
+* Use fewer than 5 virtual users
+* Execute for short durations
+* Measure response time
+
+---
+
+=== Breakpoint Testing
+
+Purpose:
+
+* Identify maximum safe load capacity
+
+Recommended process:
+
+* Start with a small number of users
+* Gradually increase load
+* Monitor:
+  ** Response time
+  ** Errors
+  ** System crashes
+
+Outcome:
+
+* Determines maximum concurrent users
+* Identifies system bottlenecks
+
+---
+
+== 8. Key Insights
+
+* Local sports platforms must handle unpredictable spikes
+* User behavior (refreshing, simultaneous access) increases load pressure
+* Simple testing strategies can provide high-value insights early
+
+---
+
+== Conclusion
+
+Load testing is essential for ensuring system reliability during high-demand sports events.
+
+By implementing:
+
+* Smoke testing for baseline validation
+* Breakpoint testing for capacity limits
+
+Tu Deporte Aquí can:
+
+* Prevent system failures
+* Improve user experience
+* Maintain trust during peak usage
+
+---
+
+== References
+
+* Boulton, Clint – *Avid Sports Fans Keep ESPN.com Traffic Spiking*  
+  https://www.eweek.com/networking/avid-sports-fans-keep-espn-com-traffic-spiking/
+
+* Martinez, Luis – *Load Testing Explained* (BlazeMeter, 2025)  
+  https://www.blazemeter.com/blog/what-is-load-testing
+
+* AWS – *What is Cloud Infrastructure?*  
+  https://aws.amazon.com/what-is/cloud-infrastructure/
+
+* Grafana Labs – *Smoke Testing Guide*  
+  https://grafana.com/blog/smoke-testing/
+
+* Grafana Labs – *Types of Load Testing*  
+  https://grafana.com/load-testing/types-of-load-testing/

@@ -1,0 +1,179 @@
+= Assumptions for Handling Conflicting Standings Data
+Project: Tu Deporte Aquí
+Related Issue: #67
+
+== 1. Objective
+
+The purpose of this document is to define how *Tu Deporte Aquí* should internally handle situations where standings data from different sources does not match.
+
+These assumptions ensure the system behaves in a:
+
+* Consistent manner
+* Predictable way
+
+This occurs before any validation logic or user-facing decisions are applied.
+
+== 2. Scope
+
+This document focuses only on *internal system assumptions*.
+
+It does NOT cover:
+
+* Validation or calculation algorithms
+* Data ingestion or scraping rules
+* User-facing warnings or messages
+* UI or design decisions
+
+These assumptions serve as a foundation for:
+
+* Workflow design
+* Validation logic
+* UX-related work
+
+== 3. Context: Why Conflicting Standings Occur
+
+Conflicting standings are common when working with informal or semi-official sports sources.
+
+This happens due to:
+
+* Different update schedules between sources
+* Delayed reporting of games
+* Manual data entry mistakes
+* Inconsistent handling of postponed or cancelled games
+
+Because these issues are expected in local sports coverage, the system must interpret conflicts consistently instead of reacting unpredictably.
+
+== 4. Core System-Level Assumptions
+
+=== Assumption 1: Conflicts Are Normal
+
+Conflicting standings data should be treated as a *normal condition*, not a system error.
+
+These situations must be:
+
+* Classified
+* Handled appropriately
+
+---
+
+=== Assumption 2: Timing Differences Do Not Always Mean Errors
+
+If differences between sources can be explained by update timing:
+
+Example:
+* One source has not yet included the most recent game
+
+Then the data should be classified as:
+
+*Provisional* (not conflicting)
+
+---
+
+=== Assumption 3: Inconsistent Records Indicate Real Conflicts
+
+If sources report:
+
+* Different win/loss totals
+* Different number of games played
+* Different ranking order
+
+And no timing explanation exists:
+
+Then this is a *true conflict*.
+
+The system should:
+
+* Avoid automatic resolution
+
+---
+
+=== Assumption 4: Partial Data Can Still Be Useful
+
+Incomplete standings:
+
+* May still provide value
+* Should NOT be considered final
+
+Until:
+
+* Completeness is confirmed
+
+---
+
+=== Assumption 5: Not All Conflicts Should Be Resolved Automatically
+
+Some conflicts require authoritative sources.
+
+In these cases, the system should:
+
+* Flag the data
+* Defer resolution
+
+Instead of forcing a decision
+
+== 5. Classification Outcomes
+
+Based on these assumptions, standings data is classified into:
+
+* *Final* → Data is consistent across all sources
+* *Provisional* → Minor differences (timing or partial updates)
+* *Conflicting* → Major inconsistencies preventing reliable interpretation
+
+NOTE: These states are internal and used by downstream system components.
+
+== 6. Example Scenarios and System Actions
+
+=== Scenario: Missing Latest Game
+
+*System assumption:* Timing difference  
+*Result:* Provisional  
+
+---
+
+=== Scenario: Different Win/Loss Records
+
+*System assumption:* True inconsistency  
+*Result:* Conflicting  
+
+---
+
+=== Scenario: All Sources Match
+
+*System assumption:* Consistency verified  
+*Result:* Final  
+
+---
+
+=== Scenario: Partial Standings Data
+
+*System assumption:* Incomplete data  
+*Result:* Provisional  
+
+== 7. Validation of Assumptions
+
+These assumptions should be validated to ensure they:
+
+* Produce consistent system behavior
+* Avoid arbitrary conflict resolution
+* Provide clear input for workflow and UX layers
+
+Validation can be done by:
+
+* Simulating conflict scenarios
+* Verifying classification consistency
+
+== 8. Conclusion
+
+By defining clear system-level assumptions for handling conflicting standings data, *Tu Deporte Aquí* can:
+
+* Behave consistently
+* Improve transparency
+* Handle imperfect data more reliably
+
+Separating:
+
+* Internal decision-making  
+from  
+* Validation logic and user-facing messaging  
+
+allows the system to scale and support clearer communication in later stages.

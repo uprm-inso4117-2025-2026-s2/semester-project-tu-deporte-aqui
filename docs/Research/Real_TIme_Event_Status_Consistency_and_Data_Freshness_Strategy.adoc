@@ -1,0 +1,97 @@
+= Real-Time Event Status Consistency and Data Freshness Strategy
+Tu Deporte Aquí – Research Report
+
+== 1. Introduction
+
+Tu Deporte Aquí integrates sports event data from leagues, organizers, and external sources. Since event details such as time, location, availability, and cancellation status frequently change, the system must ensure that information remains fresh and consistent across backend storage and frontend display.
+
+Without a defined strategy, the platform risks:
+
+* Displaying outdated event information
+* Showing conflicting statuses across views
+* Losing user trust due to incorrect availability
+
+== 2. Current Challenges
+
+Inconsistencies may occur between:
+
+* Backend stored data
+* External source updates
+* Frontend displayed information
+
+== 3. Methods Evaluated
+
+=== I. Time-Based Refresh (Polling)
+
+*Description:* Periodic synchronization at fixed intervals.
+
+*Pros:*
+
+. Simple to implement
+. Predictable update cycles
+
+*Cons:*
+
+. May allow stale data between intervals
+. Higher resource usage if interval is too short
+
+---
+
+=== II. Event-Driven Updates (Webhooks)
+
+*Description:* External sources push updates when changes occur.
+
+*Pros:*
+
+. Near real-time updates
+. Reduced unnecessary polling
+
+*Cons:*
+
+. Depends on external provider support
+. More complex integration
+
+---
+
+=== III. Versioning and Timestamp Validation
+
+*Description:* Compare timestamps or version numbers before overwriting data.
+
+*Pros:*
+
+. Prevents outdated overwrites
+. Improves conflict resolution
+
+*Cons:*
+
+. Requires reliable metadata
+. Additional implementation logic
+
+== 4. Strategy Comparison
+
+*Time-Based Refresh:* Moderate freshness, low complexity.  
+*Event-Driven Updates:* High freshness, higher complexity.  
+*Versioning/Timestamps:* High consistency, moderate complexity.
+
+== 5. Recommended Strategy
+
+The recommended approach is a hybrid strategy combining time-based refresh, timestamp validation, and conflict-resolution rules.
+
+The strategy should include:
+
+* Define refresh intervals (e.g., every 5–15 minutes depending on event proximity)
+* Implement timestamp or version comparison before updating records
+* Establish source priority rules when conflicts occur
+* Define maximum acceptable data staleness window (e.g., 15 minutes)
+* Display "Last Updated" indicator to users
+
+== 6. Testing Plan
+
+* Simulate conflicting updates from two sources
+* Simulate delayed data arrival
+* Test rapid event status changes
+* Validate frontend reflects updates consistently
+
+== 7. Conclusion
+
+Implementing a structured data freshness and consistency strategy ensures reliability, reduces user confusion, and strengthens trust in the Tu Deporte Aquí platform.
