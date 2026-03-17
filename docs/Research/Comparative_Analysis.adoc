@@ -205,7 +205,7 @@ Aligning with established UX patterns while maintaining simplicity ensures:
 
 === NBA Official App
 
-image::Research/images/nba-app.png[NBA App Screenshot]
+image::images/nba-app.png[NBA App Screenshot]
 
 NBA – NBA Official App, mobile application. Observed February 22, 2026.
 
@@ -213,7 +213,7 @@ NBA – NBA Official App, mobile application. Observed February 22, 2026.
 
 === Real App
 
-image::Research/images/real-app.png[Real App Screenshot]
+image::images/real-app.png[Real App Screenshot]
 
 Real – Real Sports App, mobile application. Observed February 22, 2026.
 
@@ -221,6 +221,6 @@ Real – Real Sports App, mobile application. Observed February 22, 2026.
 
 === ESPN App
 
-image::Research/images/espn_app_example.png[ESPN App Screenshot]
+image::images/espn_app_example.png[ESPN App Screenshot]
 
 ESPN – ESPN Mobile Application. Observed February 22, 2026.
