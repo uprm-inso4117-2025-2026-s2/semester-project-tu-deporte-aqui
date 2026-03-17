@@ -62,4 +62,4 @@ These insights will guide navigation, structure, and content organization decisi
 
 == Visual Example
 
-image::Research/images/event-discovery.png[Event Discovery UI Example]
+image::images/event-discovery.png[Event Discovery UI Example]
