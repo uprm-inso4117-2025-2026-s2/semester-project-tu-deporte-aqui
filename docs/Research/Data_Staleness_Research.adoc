@@ -1,0 +1,107 @@
+= Data Staleness Detection Strategies
+By Noel Colon
+
+== 1. Introduction
+
+Tu Deporte Aquí combines sports information from multiple leagues, reporters, and informal sources across Puerto Rico.
+
+Because the platform relies on continuously updated external data, it is vulnerable to situations where information stops updating without clear signals of failure.
+
+The purpose of this research is to:
+
+* Identify stale sports data
+* Establish freshness expectations
+* Recommend system behaviors that preserve transparency and reliability when freshness violations occur
+
+== 2. Problem Context
+
+Stale data can emerge in many scenarios, including:
+
+* A game remains marked as "Live" after completion
+* Standings fail to reflect completed matches
+* Player statistics are not updated following a game
+* A data source silently stops publishing updates
+
+== 3. Detection Strategies
+
+[cols="1,1,2", options="header"]
+|===
+|Data Type |Expected Update |Staleness Threshold
+
+|Live Score
+|Frequent
+|10–15 minutes without change
+
+|Game State
+|Event-driven states
+|30 minutes past scheduled start OR 3 hours after start if still marked live
+
+|Standings
+|Post match
+|24–48 hours
+
+|Player Statistics
+|Post match
+|24 hours
+|===
+
+=== 3.1 Time-Based Check
+
+Flags data as stale when sufficient time has passed since the last update.
+
+==== Pros
+
+* Easy to implement
+* Predictable behavior
+
+==== Cons
+
+* May produce false positives
+* Does not catch stale states unless time threshold is exceeded
+
+=== 3.2 Lifecycle Check
+
+Marks data as stale when an expected state transition does not occur.
+
+==== Pros
+
+* More context-aware
+* Effective for game state and live score
+
+==== Cons
+
+* Requires defining expected duration of games/states
+* Different sports have different durations
+* Harder to implement
+
+=== 3.3 Source Activity Check
+
+Flags staleness depending on whether the data source is still publishing updates.
+
+==== Pros
+
+* Can detect multiple stale data points at once
+* Useful for evaluating source reliability
+
+==== Cons
+
+* Source may still be active but not updating specific events
+* Requires continuous monitoring of source activity
+
+== 4. Recommended Strategy
+
+The strongest approach is a *hybrid detection strategy* combining:
+
+* Time-Based Check
+* Lifecycle Check
+* Source Activity Check
+
+Benefits:
+
+* Covers more edge cases
+* Reduces blind spots
+* Improves overall reliability and transparency
+
+Trade-off:
+
+* More complex implementation
