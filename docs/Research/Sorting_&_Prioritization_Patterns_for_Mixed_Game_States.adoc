@@ -125,16 +125,16 @@ Rationale:
 
 NBA – NBA Official App, Mobile application, Observed February 25, 2026.
 
-image::Research/images/nba_app_example.png[NBA App Game Ordering Example, width=300]
+image::images/nba_app_example.png[NBA App Game Ordering Example, width=300]
 
 === Real
 
 Real – Real Sports App, Mobile application, Observed February 25, 2026.
 
-image::Research/images/real_app_example.png[Real App Game Ordering Example, width=300]
+image::images/real_app_example.png[Real App Game Ordering Example, width=300]
 
 === ESPN
 
 ESPN – ESPN Mobile Application, Mobile application, Observed February 25, 2026.
 
-image::Research/images/espn_app_example.png[ESPN App Game Ordering Example, width=300]
+image::images/espn_app_example.png[ESPN App Game Ordering Example, width=300]
