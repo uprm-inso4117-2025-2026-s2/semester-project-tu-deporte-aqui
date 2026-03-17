@@ -1,0 +1,173 @@
+= Handling Retroactive Corrections in Sports Results
+Author: Diego A. Hernandez
+Project: Tu Deporte Aquí
+
+---
+
+== 1. Overview
+
+Sports information platforms frequently publish data quickly and refine it later.
+
+During live games:
+
+* Data depends on real-time reporting
+* Information may be provisional
+
+After games:
+
+* Leagues may review plays
+* Corrections may be applied to:
+  * Scores
+  * Player statistics
+  * Outcomes
+
+These retroactive corrections are common and necessary for long-term accuracy.
+
+---
+
+== 2. Problem Context
+
+In Tu Deporte Aquí, which aggregates data from multiple Puerto Rican leagues and sources:
+
+* Users expect accuracy
+* Users also expect consistency
+
+When data changes after being viewed:
+
+* The platform may appear unreliable
+* Users may assume errors instead of intentional updates
+
+Clear communication of corrections is essential.
+
+---
+
+== 3. Situations Where Corrections Occur
+
+Retroactive corrections typically arise from:
+
+* Statistical reviews (e.g., video analysis)
+* Administrative decisions
+* Post-game official updates
+* Delayed data from providers
+* Reinterpretation of statistics (assists, errors, defensive plays)
+
+---
+
+== 4. Risks to User Trust and Reliability
+
+If corrections are not clearly communicated, risks include:
+
+* Users seeing different results at different times
+* Confusion when standings change after being considered final
+* Reduced confidence in the platform
+* Temporary inconsistencies across system sections
+
+IMPORTANT::
+
+Users must understand that corrections are part of a reliable process—not a system failure.
+
+---
+
+== 5. Correction Handling in Existing Platforms
+
+Sports platforms typically use a combination of:
+
+=== Automatic Data Replacement
+
+* Updated data replaces old values immediately
+
+---
+
+=== Correction Indicators / Timestamps
+
+* Show that data has been updated
+* Helps users understand changes without disruption
+
+---
+
+=== Correction Logs / History
+
+* Maintain a visible record of changes
+* Allows verification of updates
+
+---
+
+== 6. Transparency Mechanisms
+
+To maintain trust while keeping the system simple:
+
+* Display “last updated” timestamps
+* Show correction indicators when data changes
+* Provide optional access to change history
+* Use clear language
+
+Example::
+
+"Stats updated after official review."
+
+---
+
+== 7. Correction Workflow
+
+A structured workflow ensures consistent behavior:
+
+1. Detect discrepancies or receive official corrections
+2. Validate corrections before applying updates
+3. Update results and dependent data:
+   * Standings
+   * Statistics
+4. Display correction indicators if visible outcomes change
+5. Maintain transparency using:
+   * Timestamps
+   * Change history
+
+---
+
+== 8. Key Design Principle
+
+Corrections should:
+
+* Improve accuracy
+* Maintain consistency
+* Preserve user trust
+
+Without:
+
+* Overwhelming users
+* Creating unnecessary alerts
+
+---
+
+== Conclusion
+
+Retroactive corrections are a normal part of sports data systems.
+
+By implementing:
+
+* Clear communication
+* Transparent updates
+* Consistent workflows
+
+Tu Deporte Aquí can:
+
+* Maintain accuracy
+* Reduce confusion
+* Strengthen user trust
+
+even when data changes after publication.
+
+---
+
+== References
+
+* ESPN – Stat Corrections  
+  https://support.espn.com/hc/en-us/articles/360000088051-Stat-Corrections
+
+* Nielsen Norman Group – Trustworthiness in Web Design  
+  https://www.nngroup.com/articles/trustworthy-design/
+
+* 247Sports – Stat Corrections  
+  https://cbsi.my.site.com/fchc/s/article/How-do-Stat-Corrections-work
+
+* Digital.gov – Introduction to Trust  
+  https://digital.gov/resources/an-introduction-to-trust
