@@ -1,0 +1,155 @@
+= Risks, Failure Scenarios, Testing Plan and Rules for Standings (#74)
+Project: Tu Deporte Aquí
+
+NOTE: This document consolidates research findings from previous issues into a structured plan. A more formal and detailed Test Plan will be developed in Milestone #2.
+
+== Key Risk Philosophy
+
+Conflicting information, delays, and unexpected issues are inevitable in real-world systems.
+
+The team’s approach focuses on:
+
+* Transparency
+* Maintaining user trust
+* Clear communication with users
+
+The primary risk identified is:
+
+*Lack of transparency and communication with users*
+
+== 1. Potential Risks Related to Standings and Tournaments
+
+NOTE: These risks will be further analyzed and expanded in the next milestone.
+
+=== a. Conflicting Standings
+
+==== Failure Scenario
+
+* Scores are conflicting (non-official)
+* System does not inform users
+
+=== b. Delays in Real-Time Updates
+
+==== Failure Scenario
+
+* System does not inform users about delayed standings updates
+
+=== c. System Scalability
+
+==== Failure Scenario
+
+* Multiple simultaneous tournaments overload the system
+
+=== d. API Integration Failures
+
+==== Failure Scenario
+
+* External API integration fails
+
+=== e. Unclear Rules / Instructions
+
+==== Failure Scenario
+
+* Ambiguous or undefined rules cause confusion or incorrect actions
+
+=== f. Inconsistent Standings
+
+==== Failure Scenario
+
+* Standings data becomes inconsistent due to missing or conflicting updates
+
+== 2. Rules for Standings
+
+NOTE: These rules will be expanded in Milestone #2.
+
+* Rules must be clearly defined before tournament start
+* Tie-break criteria must remain consistent
+* No rule changes during an active tournament
+* Every standings table must indicate score status:
+** Final
+** Provisional
+** Conflicting
+** Delayed
+* A "Last updated" timestamp must always be displayed
+* Users must be informed of any corrections to standings
+
+== 3. Recommended Testing Approach
+
+Initial testing approaches:
+
+* Unit Testing
+* Load Testing (Smoke Test)
+* System Testing
+* Debugging
+* Integration Testing
+
+== 4. Test Scenarios and Acceptance Criteria
+
+=== Integration and System Tests
+
+==== a. Conflicting Data Scenario
+
+If two data sources provide conflicting information:
+
+* System detects inconsistency
+* UI displays message indicating:
+** Data is unofficial
+** Data is unverified
+** Data is pending confirmation
+
+NOTE: UI labels under consideration:
+* Final
+* Provisional
+* Conflicting
+* Delayed
+
+==== b. Updated or Modified Data Scenario
+
+If data changes after publication:
+
+* System displays update history
+* Timestamps are shown
+* Users can identify how data changed
+
+==== c. Delayed Data Scenario
+
+If data is delayed:
+
+* System displays a label indicating delay
+* Data is marked as pending verification
+
+=== Performance Testing
+
+==== Smoke Test (Initial Load Testing)
+
+* Test system with minimal number of users
+* Validate system stability during early stages
+
+Rationale:
+
+* Suitable for early implementation phase
+* Can scale to more advanced testing later
+
+=== Unit Testing
+
+==== Conflicting Data Detection (Python Reference)
+
+[source,python]
+----
+firstScore != secondScore
+----
+
+Success criteria:
+
+* TRUE → data is conflicting
+* FALSE → data is consistent
+
+NOTE: This is a simplified validation approach. More detailed test cases will be developed later.
+
+== 5. References
+
+* GeekforGeeks, “Methods for Identifying Risks” (2025)  
+  https://www.geeksforgeeks.org/software-engineering/methods-for-identifying-risks/
+
+* ThinkSys, “Entry and Exit Criteria in Software Testing”  
+  https://www.atlassian.com/work-management/project-management/acceptance-criteria
