@@ -1,0 +1,157 @@
+= Define Service-Level Objectives (SLOs) & Availability Targets
+Author: Edward J. Carde Velazquez
+Project: Tu Deporte Aquí
+
+== Introduction
+
+This research defines measurable *Service-Level Objectives (SLOs)* for Tu Deporte Aquí.
+
+The goal is to move from abstract ideas such as:
+
+* "reliable system"
+
+to:
+
+* concrete
+* measurable
+* testable targets
+
+Since the platform aggregates sports data from multiple sources and aims to maintain long-term user trust, reliability must be defined *quantitatively*, not subjectively.
+
+---
+
+== 1. Definition of Availability
+
+Before defining metrics, it is necessary to clarify what *availability* means in this system.
+
+=== System is considered AVAILABLE when:
+
+* Homepage loads successfully
+* Standings and game detail pages render correctly
+* No server-side errors (HTTP 5xx)
+* Live scores update within acceptable delay
+* Core data components are visible:
+  - Teams
+  - Standings
+  - Game results
+
+---
+
+=== System is considered UNAVAILABLE when:
+
+* Users cannot access core pages
+* Critical components fail to render
+* Repeated server errors occur
+* Live scores remain frozen beyond acceptable latency
+
+IMPORTANT:
+
+Availability is defined based on *user-visible reliability*, not just server uptime.
+
+---
+
+== 2. Proposed Service-Level Objectives (SLOs)
+
+=== SLO 1 – Live Score Update Latency
+
+Metric::
+
+Time between official score update and display on the platform
+
+Target::
+
+≤ 30 seconds during live events
+
+Explanation::
+
+Real-time systems may aim for sub-second updates, but this platform is not in a betting environment.
+
+A 30-second delay:
+
+* Maintains perceived "live" status
+* Avoids unnecessary infrastructure complexity
+
+Why this matters::
+
+If scores lag significantly, users may:
+
+* Compare with social media
+* Lose trust in the platform
+
+Assumption::
+
+During peak load, delays up to 60 seconds may be acceptable if clearly communicated
+
+---
+
+=== SLO 2 – Mean Time to Recovery (MTTR)
+
+Metric::
+
+Time required to restore system after partial failure
+
+Target::
+
+≤ 10 minutes
+
+Explanation::
+
+Fast recovery is often more important than avoiding all failures.
+
+A system that:
+
+* fails briefly
+* recovers quickly
+
+is perceived as more reliable than one with long outages
+
+Why this matters::
+
+Sports events are time-sensitive.
+
+Example::
+
+A 30-minute outage during a final would significantly damage user trust
+
+Assumption::
+
+Recovery includes restoring data feeds, not necessarily replaying missed updates
+
+---
+
+== 3. Peak Event Assumptions
+
+During high-demand events (e.g., playoffs, finals):
+
+* Traffic may increase 2–5×
+* Temporary performance degradation is acceptable
+* Complete downtime should not exceed 15 minutes
+
+---
+
+== 4. Trade-Offs
+
+Higher reliability requires:
+
+* Redundant servers
+* Monitoring systems
+* Caching strategies
+
+This introduces:
+
+* Increased complexity
+* Higher infrastructure cost
+
+---
+
+== Conclusion
+
+These SLOs provide:
+
+* Measurable reliability baselines
+* Clear expectations for system behavior
+
+They align with the platform’s goal of:
+
+* Maintaining user trust
+* Delivering predictable performance
