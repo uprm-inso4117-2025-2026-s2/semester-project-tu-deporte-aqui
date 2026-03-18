@@ -1,0 +1,21 @@
+=== Project Research
+
+This section contains research conducted during the development of the project.
+
+It includes:
+- Technical investigations
+- Tool evaluations
+- Architectural decisions
+- Comparative analyses
+- External references
+
+The purpose of this folder is to document background work and support decisions made throughout the semester.
+
+Research documents placed here should clearly state:
+- Objective
+- Approach
+- Findings
+- Conclusion
+- References (if applicable)
+
+All research contributions must be submitted via Pull Request and linked to Issue #53.
