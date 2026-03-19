@@ -1,0 +1,4554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.26">
+<title>Project Documentation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock pre>code{display:block}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="article">
+<div id="header">
+<h1>Project Documentation</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_1_informative_part">1 Informative part</a></li>
+<li><a href="#_1_1_team">1.1 Team</a>
+<ul class="sectlevel2">
+<li><a href="#_project_organization">Project Organization</a></li>
+<li><a href="#_team_structure">Team Structure</a>
+<ul class="sectlevel3">
+<li><a href="#_team_1_core_documentation_project_standards">Team 1 – Core Documentation &amp; Project Standards</a></li>
+<li><a href="#_team_2_live_games_match_coverage">Team 2 – Live Games &amp; Match Coverage</a></li>
+<li><a href="#_team_3_standings_tournament_progress">Team 3 – Standings &amp; Tournament Progress</a></li>
+<li><a href="#_team_4_teams_athletes_profiles">Team 4 – Teams &amp; Athletes Profiles</a></li>
+<li><a href="#_team_5_news_alerts_system_transparency">Team 5 – News, Alerts &amp; System Transparency</a></li>
+</ul>
+</li>
+<li><a href="#_roles_and_responsibilities">Roles and Responsibilities</a>
+<ul class="sectlevel3">
+<li><a href="#_developers">Developers</a></li>
+<li><a href="#_team_leads">Team Leads</a></li>
+<li><a href="#_managers">Managers</a></li>
+</ul>
+</li>
+<li><a href="#_workflow_and_governance">Workflow and Governance</a></li>
+<li><a href="#_milestone_1_focus">Milestone 1 Focus</a></li>
+<li><a href="#_1_2_current_situation_needs_ideas">1.2 Current situation, needs, ideas</a>
+<ul class="sectlevel3">
+<li><a href="#_1_2_1_current_situation">1.2.1 Current Situation</a>
+<ul class="sectlevel5">
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_data_distribution_environment">Data Distribution Environment</a></li>
+<li><a href="#_key_limitations">Key Limitations</a></li>
+<li><a href="#_reliability_challenges">Reliability Challenges</a></li>
+<li><a href="#_impact_on_users">Impact on Users</a></li>
+</ul>
+</li>
+<li><a href="#_1_2_2_needs">1.2.2 Needs</a>
+<ul class="sectlevel4">
+<li><a href="#_purpose">Purpose</a></li>
+<li><a href="#_user_needs">User Needs</a></li>
+<li><a href="#_system_needs">System Needs</a></li>
+<li><a href="#_data_reliability_needs">Data Reliability Needs</a></li>
+<li><a href="#_assumptions">Assumptions</a></li>
+<li><a href="#_scope_of_this_section">Scope of This Section</a></li>
+</ul>
+</li>
+<li><a href="#_1_2_3_ideas">1.2.3 Ideas</a>
+<ul class="sectlevel4">
+<li><a href="#_purpose_2">Purpose</a></li>
+<li><a href="#_cross_source_validation_and_source_weighting">Cross-Source Validation and Source Weighting</a></li>
+<li><a href="#_data_freshness_and_provenance">Data Freshness and Provenance</a></li>
+<li><a href="#_provisional_and_confidence_indicators">Provisional and Confidence Indicators</a></li>
+<li><a href="#_handling_uncertainty_and_missing_data">Handling Uncertainty and Missing Data</a></li>
+<li><a href="#_mobile_first_display">Mobile-First Display</a></li>
+<li><a href="#_scope_of_this_section_2">Scope of This Section</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_1_3_scope_span_and_synopsis">1.3 Scope, span, and synopsis</a>
+<ul class="sectlevel3">
+<li><a href="#_1_3_1_scope_and_span">1.3.1 Scope and Span</a>
+<ul class="sectlevel4">
+<li><a href="#_purpose_3">Purpose</a></li>
+<li><a href="#_in_scope_coverage">In-Scope Coverage</a></li>
+<li><a href="#_local_puerto_rico_sports_leagues">Local Puerto Rico Sports Leagues</a></li>
+<li><a href="#_reliability_modeling">Reliability Modeling</a></li>
+<li><a href="#_mobile_first_platform_assumption">Mobile-First Platform Assumption</a></li>
+<li><a href="#_documentation_first_engineering">Documentation-First Engineering</a></li>
+<li><a href="#_out_of_scope_elements">Out-of-Scope Elements</a></li>
+<li><a href="#_operational_constraints">Operational Constraints</a></li>
+<li><a href="#_informal_data_sources">Informal Data Sources</a></li>
+<li><a href="#_limited_structure_and_standardization">Limited Structure and Standardization</a></li>
+<li><a href="#_transparency_requirement">Transparency Requirement</a></li>
+</ul>
+</li>
+<li><a href="#_boundary_summary">Boundary Summary</a></li>
+<li><a href="#_1_3_2">1.3.2</a>
+<ul class="sectlevel4">
+<li><a href="#_synopsis">Synopsis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_1_4_other_activities_than_development">1.4 Other Activities than Development</a>
+<ul class="sectlevel4">
+<li><a href="#_purpose_4">Purpose</a></li>
+<li><a href="#_research_activities">Research Activities</a></li>
+<li><a href="#_documentation_as_code">Documentation-as-Code</a></li>
+<li><a href="#_pull_request_and_review_process">Pull Request and Review Process</a></li>
+<li><a href="#_cicd_and_build_automation">CI/CD and Build Automation</a></li>
+<li><a href="#_task_tracking_and_governance">Task Tracking and Governance</a></li>
+<li><a href="#_team_coordination">Team Coordination</a></li>
+<li><a href="#_milestone_planning_and_retrospectives">Milestone Planning and Retrospectives</a></li>
+<li><a href="#_conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#_1_5_derived_goals">1.5 Derived Goals</a>
+<ul class="sectlevel4">
+<li><a href="#_purpose_5">Purpose</a></li>
+<li><a href="#_reliability_goals">Reliability Goals</a></li>
+<li><a href="#_transparency_goals">Transparency Goals</a></li>
+<li><a href="#_availability_goals">Availability Goals</a></li>
+<li><a href="#_scope_and_boundary_goals">Scope and Boundary Goals</a></li>
+<li><a href="#_trust_and_governance_goals">Trust and Governance Goals</a></li>
+<li><a href="#_measurability_and_verification_considerations">Measurability and Verification Considerations</a></li>
+<li><a href="#_conclusion_2">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_2_descriptive_part">2 Descriptive part</a>
+<ul class="sectlevel2">
+<li><a href="#_2_1_domain_description">2.1 Domain description</a>
+<ul class="sectlevel3">
+<li><a href="#_2_1_1_domain_rough_sketch">2.1.1 Domain Rough Sketch</a></li>
+<li><a href="#_2_1_2">2.1.2</a>
+<ul class="sectlevel4">
+<li><a href="#_terminology">Terminology</a></li>
+</ul>
+</li>
+<li><a href="#_2_1_3_domain_terminology_in_relation_to_domain_rough_sketch">2.1.3 Domain Terminology in Relation to Domain Rough Sketch</a>
+<ul class="sectlevel4">
+<li><a href="#_purpose_6">Purpose</a></li>
+<li><a href="#_mapping_terminology_to_domain_themes">Mapping Terminology to Domain Themes</a></li>
+</ul>
+</li>
+<li><a href="#_2_1_4_narrative">2.1.4 Narrative</a>
+<ul class="sectlevel4">
+<li><a href="#_purpose_7">Purpose</a></li>
+<li><a href="#_context_local_sports_information_flow">Context: Local Sports Information Flow</a></li>
+<li><a href="#_actors_and_typical_scenarios">Actors and Typical Scenarios</a></li>
+<li><a href="#_narrative_what_happens_today_problem_story">Narrative: What Happens Today (Problem Story)</a></li>
+<li><a href="#_narrative_expected_system_behavior_tu_deporte_aquí">Narrative: Expected System Behavior (Tu Deporte Aquí)</a></li>
+<li><a href="#_why_this_matters_reliability_transparency">Why This Matters (Reliability + Transparency)</a></li>
+</ul>
+</li>
+<li><a href="#_2_1_5_events_actions_and_behaviors">2.1.5 Events, Actions, and Behaviors</a>
+<ul class="sectlevel4">
+<li><a href="#_domain_events">Domain Events</a></li>
+<li><a href="#_system_actions_per_event">System Actions per Event</a></li>
+<li><a href="#_expected_system_behaviors">Expected System Behaviors</a></li>
+<li><a href="#_notes_for_future_testing">Notes for Future Testing</a></li>
+</ul>
+</li>
+<li><a href="#_2_1_6_function_signatures_pseudocode_at_the_moment_not_event_tied">2.1.6 Function Signatures (Pseudocode at the moment, Not Event-Tied)</a>
+<ul class="sectlevel4">
+<li><a href="#_core_records_state_holders">Core Records (state holders)</a></li>
+<li><a href="#_source_configuration">Source Configuration</a></li>
+<li><a href="#_fetching_and_snapshot_storage">Fetching and Snapshot Storage</a></li>
+<li><a href="#_parsing_and_normalization">Parsing and Normalization</a></li>
+<li><a href="#_canonical_merge_best_known_current_state">Canonical Merge (best-known current state)</a></li>
+<li><a href="#_conflict_handling">Conflict Handling</a></li>
+<li><a href="#_reliability_indicators_and_degraded_messaging">Reliability Indicators and Degraded Messaging</a></li>
+<li><a href="#_user_facing_queries">User-Facing Queries</a></li>
+<li><a href="#_maintenance_and_extensibility_hooks">Maintenance and Extensibility Hooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_epic_1_consolidated_puerto_rico_sports_information_feed">Epic 1: Consolidated Puerto Rico Sports Information Feed</a></li>
+<li><a href="#_epic_2_conflict_detection_and_consistency_controls">Epic 2: Conflict Detection and Consistency Controls</a></li>
+<li><a href="#_epic_3_graceful_degradation_and_user_trust_signals">Epic 3: Graceful Degradation and User Trust Signals</a></li>
+<li><a href="#_epic_4_high_traffic_availability_during_major_events">Epic 4: High-Traffic Availability During Major Events</a></li>
+<li><a href="#_epic_5_reliability_testing_automation_and_observability">Epic 5: Reliability Testing Automation and Observability</a></li>
+<li><a href="#_persona_a_sebastian_rivera_the_superfan">Persona A: Sebastian Rivera, the Superfan</a></li>
+<li><a href="#_persona_b_coach_abiel_rullan_the_team_organizer">Persona B: Coach Abiel Rullan, the Team Organizer</a></li>
+<li><a href="#_persona_c_andres_perez_the_sports_reporter">Persona C: Andres Perez, the Sports Reporter</a>
+<ul class="sectlevel3">
+<li><a href="#_persona_d_chris_ramos_the_platform_engineer">Persona D: Chris Ramos, the Platform Engineer</a></li>
+<li><a href="#_purpose_8">Purpose</a></li>
+<li><a href="#_observed_domain_properties">Observed Domain Properties</a></li>
+<li><a href="#_domain_requirements">Domain Requirements</a></li>
+<li><a href="#_purpose_9">Purpose</a></li>
+<li><a href="#_shared_phenomena">Shared Phenomena</a></li>
+<li><a href="#_interface_requirements">Interface Requirements</a></li>
+<li><a href="#_purpose_10">Purpose</a></li>
+<li><a href="#_notes_on_current_status">Notes on Current Status</a></li>
+<li><a href="#_machine_requirements">Machine Requirements</a></li>
+<li><a href="#_open_items">Open Items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_3_analytic_part">3 Analytic part</a></li>
+<li><a href="#_3_1_concept_analysis">3.1 Concept Analysis</a>
+<ul class="sectlevel2">
+<li><a href="#_purpose_11">Purpose</a></li>
+<li><a href="#_core_concepts">Core Concepts</a>
+<ul class="sectlevel3">
+<li><a href="#_sports_information_entity">Sports Information Entity</a></li>
+<li><a href="#_data_sources">Data Sources</a></li>
+<li><a href="#_reliability_state">Reliability State</a></li>
+<li><a href="#_timestamp_and_freshness">Timestamp and Freshness</a></li>
+</ul>
+</li>
+<li><a href="#_concept_relationships">Concept Relationships</a>
+<ul class="sectlevel3">
+<li><a href="#_source_to_data_relationship">Source to Data Relationship</a></li>
+<li><a href="#_reliability_interpretation">Reliability Interpretation</a></li>
+<li><a href="#_user_trust_impact">User Trust Impact</a></li>
+</ul>
+</li>
+<li><a href="#_conceptual_constraints">Conceptual Constraints</a>
+<ul class="sectlevel3">
+<li><a href="#_informal_data_environment">Informal Data Environment</a></li>
+<li><a href="#_mobile_first_context">Mobile-First Context</a></li>
+</ul>
+</li>
+<li><a href="#_summary">Summary</a></li>
+<li><a href="#_purpose_12">Purpose</a></li>
+<li><a href="#_validation_approach">Validation Approach</a>
+<ul class="sectlevel3">
+<li><a href="#_concept_validation">Concept Validation</a></li>
+<li><a href="#_scenario_based_evaluation">Scenario-Based Evaluation</a></li>
+</ul>
+</li>
+<li><a href="#_verification_approach">Verification Approach</a>
+<ul class="sectlevel3">
+<li><a href="#_documentation_consistency">Documentation Consistency</a></li>
+<li><a href="#_structural_verification">Structural Verification</a></li>
+</ul>
+</li>
+<li><a href="#_expected_outcomes">Expected Outcomes</a></li>
+</ul>
+</li>
+<li><a href="#_4_specific_class_topics">4 Specific class topics</a></li>
+<li><a href="#_4_1_test_driven_development_tdd">4.1 Test-Driven Development (TDD)</a>
+<ul class="sectlevel2">
+<li><a href="#_purpose_13">Purpose</a></li>
+<li><a href="#_role_of_tdd_in_the_project">Role of TDD in the Project</a></li>
+<li><a href="#_application_to_tu_deporte_aquí">Application to Tu Deporte Aquí</a>
+<ul class="sectlevel3">
+<li><a href="#_data_reliability_logic">Data Reliability Logic</a></li>
+<li><a href="#_system_behavior_under_uncertainty">System Behavior Under Uncertainty</a></li>
+<li><a href="#_user_facing_behavior">User-Facing Behavior</a></li>
+</ul>
+</li>
+<li><a href="#_example_tdd_workflow">Example TDD Workflow</a></li>
+<li><a href="#_alignment_with_milestone_1">Alignment with Milestone 1</a></li>
+<li><a href="#_conclusion_3">Conclusion</a>
+<ul class="sectlevel3">
+<li><a href="#_purpose_14">Purpose</a></li>
+<li><a href="#_from_user_stories_to_acceptance_criteria">From User Stories to Acceptance Criteria</a></li>
+<li><a href="#_from_acceptance_criteria_to_specification_examples">From Acceptance Criteria to Specification Examples</a></li>
+<li><a href="#_the_feature_files">The Feature Files</a>
+<ul class="sectlevel4">
+<li><a href="#_example_a_real_scenario_from_domain_requirements_feature">Example: A Real Scenario from <code>domain_requirements.feature</code></a></li>
+<li><a href="#_example_a_real_scenario_from_interface_requirements_feature">Example: A Real Scenario from <code>interface_requirements.feature</code></a></li>
+<li><a href="#_example_a_real_scenario_from_machine_requirements_feature">Example: A Real Scenario from <code>machine_requirements.feature</code></a></li>
+</ul>
+</li>
+<li><a href="#_traceability_matrix">Traceability Matrix</a></li>
+<li><a href="#_planned_automation_with_cucumber">Planned Automation with Cucumber</a>
+<ul class="sectlevel4">
+<li><a href="#_tool_selection_cucumber">Tool Selection: Cucumber</a></li>
+<li><a href="#_planned_workflow">Planned Workflow</a></li>
+<li><a href="#_planned_cicd_integration">Planned CI/CD Integration</a></li>
+<li><a href="#_planned_test_data_and_isolation">Planned Test Data and Isolation</a></li>
+</ul>
+</li>
+<li><a href="#_current_status_and_next_steps">Current Status and Next Steps</a></li>
+<li><a href="#_conclusion_4">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_1_informative_part">1 Informative part</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_1_team">1.1 Team</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_project_organization">Project Organization</h3>
+<div class="paragraph">
+<p>Tu Deporte Aquí is organized into five specialized teams to support structured documentation, research, and feature preparation during Milestone 1.</p>
+</div>
+<div class="paragraph">
+<p>Milestone 1 does not involve implementation or source code development. The focus is on defining scope, system behavior, reliability expectations, and transparency requirements for a mobile-first platform serving local Puerto Rico sports.</p>
+</div>
+<div class="paragraph">
+<p>Each team is responsible for a clearly defined domain area to ensure full coverage of system expectations before development begins.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_team_structure">Team Structure</h3>
+<div class="sect3">
+<h4 id="_team_1_core_documentation_project_standards">Team 1 – Core Documentation &amp; Project Standards</h4>
+<div class="paragraph">
+<p>Responsible for establishing the official documentation foundation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Expanding the A3 into a structured project overview</p>
+</li>
+<li>
+<p>Defining scope boundaries (local leagues only)</p>
+</li>
+<li>
+<p>Documenting assumptions (limited or no official APIs; reliance on informal sources)</p>
+</li>
+<li>
+<p>Maintaining the main README and documentation index</p>
+</li>
+<li>
+<p>Defining shared glossary and documentation standards</p>
+</li>
+<li>
+<p>Configuring AsciiDoc build automation</p>
+</li>
+<li>
+<p>Preparing the final compiled Milestone 1 documentation</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This team ensures documentation consistency, structure, and governance.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_team_2_live_games_match_coverage">Team 2 – Live Games &amp; Match Coverage</h4>
+<div class="paragraph">
+<p>Defines how live game information is displayed and trusted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What data is shown (scores, time, league, status)</p>
+</li>
+<li>
+<p>Handling delayed updates</p>
+</li>
+<li>
+<p>Resolving conflicting score reports</p>
+</li>
+<li>
+<p>Behavior when information is missing</p>
+</li>
+<li>
+<p>Mobile-first UI messaging for provisional data</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This team focuses on reliability under real-world uncertainty.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_team_3_standings_tournament_progress">Team 3 – Standings &amp; Tournament Progress</h4>
+<div class="paragraph">
+<p>Defines how standings are calculated and communicated:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Representation of local league standings</p>
+</li>
+<li>
+<p>Handling inconsistencies across informal sources</p>
+</li>
+<li>
+<p>Resolving or flagging conflicting standings</p>
+</li>
+<li>
+<p>Displaying provisional or uncertain rankings</p>
+</li>
+<li>
+<p>Managing edge cases (postponements, incomplete data)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This team ensures structural integrity of league progression information.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_team_4_teams_athletes_profiles">Team 4 – Teams &amp; Athletes Profiles</h4>
+<div class="paragraph">
+<p>Defines expectations for profile information accuracy:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Required and optional profile fields</p>
+</li>
+<li>
+<p>Acceptable levels of staleness</p>
+</li>
+<li>
+<p>Handling incomplete or outdated data</p>
+</li>
+<li>
+<p>Mobile-friendly indicators for uncertain information</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This team focuses on data completeness and freshness constraints.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_team_5_news_alerts_system_transparency">Team 5 – News, Alerts &amp; System Transparency</h4>
+<div class="paragraph">
+<p>Defines how system updates and uncertainty are communicated:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Criteria for publishing news vs urgent alerts</p>
+</li>
+<li>
+<p>Handling unverified or conflicting reports</p>
+</li>
+<li>
+<p>Transparency indicators (last update time, confidence level)</p>
+</li>
+<li>
+<p>Messaging during degraded or uncertain states</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This team ensures user trust and system transparency.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_roles_and_responsibilities">Roles and Responsibilities</h3>
+<div class="sect3">
+<h4 id="_developers">Developers</h4>
+<div class="paragraph">
+<p>Developers are responsible for:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating and completing GitHub issues</p>
+</li>
+<li>
+<p>Conducting research aligned with team goals</p>
+</li>
+<li>
+<p>Writing structured documentation</p>
+</li>
+<li>
+<p>Following the Issue Creation Guidelines</p>
+</li>
+<li>
+<p>Submitting work through pull requests</p>
+</li>
+<li>
+<p>Ensuring acceptance criteria are satisfied</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All work must be issue-based and documented.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_team_leads">Team Leads</h4>
+<div class="paragraph">
+<p>Team Leads:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Coordinate work within their assigned team</p>
+</li>
+<li>
+<p>Conduct first-level review of completed issues</p>
+</li>
+<li>
+<p>Ensure alignment with Milestone 1 objectives</p>
+</li>
+<li>
+<p>Track participation and progress</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Team Leads help maintain quality and consistency before escalation to managers.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_managers">Managers</h4>
+<div class="paragraph">
+<p>Managers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Review issue clarity and completeness</p>
+</li>
+<li>
+<p>Assign urgency and difficulty levels</p>
+</li>
+<li>
+<p>Approve pull requests after review</p>
+</li>
+<li>
+<p>Close issues upon satisfactory completion</p>
+</li>
+<li>
+<p>Ensure milestone alignment and fairness</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Managers ensure governance and structured progression of the project.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_workflow_and_governance">Workflow and Governance</h3>
+<div class="paragraph">
+<p>The project follows an issue-driven and PR-only workflow with branch protection enabled.</p>
+</div>
+<div class="paragraph">
+<p>All work must begin with a GitHub Issue created using the standardized Issue Creation Guidelines. Issues must:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Follow the approved title format</p>
+</li>
+<li>
+<p>Use the required content template</p>
+</li>
+<li>
+<p>Include clearly defined acceptance criteria</p>
+</li>
+<li>
+<p>Specify urgency and difficulty</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Issues may involve documentation, research, feature definition, lecture topic tasks, or coordination work.</p>
+</div>
+<div class="paragraph">
+<p>For documentation scaffold sections specifically, issues must reference the master documentation scaffold issue (#53) to ensure traceability within the single compiled document structure.</p>
+</div>
+<div class="paragraph">
+<p>Workflow:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Issue is created following the standardized template</p>
+</li>
+<li>
+<p>Developer creates a feature branch</p>
+</li>
+<li>
+<p>Developer modifies only the assigned scope</p>
+</li>
+<li>
+<p>Pull request references the corresponding issue</p>
+</li>
+<li>
+<p>CI workflow builds documentation artifacts automatically</p>
+</li>
+<li>
+<p>Team Lead performs review</p>
+</li>
+<li>
+<p>Manager approves and merges</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>No direct pushes to protected branches are permitted for non-admin users.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_milestone_1_focus">Milestone 1 Focus</h3>
+<div class="paragraph">
+<p>Milestone 1 emphasizes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clear scope definition (local Puerto Rico sports only)</p>
+</li>
+<li>
+<p>Explicit documentation of uncertainty and failure scenarios</p>
+</li>
+<li>
+<p>Mobile-first user interface expectations</p>
+</li>
+<li>
+<p>Transparency in data reliability and freshness</p>
+</li>
+<li>
+<p>Structured documentation before implementation</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This structured team model ensures shared ownership, accountability, and disciplined engineering practices prior to any system development.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_2_current_situation_needs_ideas">1.2 Current situation, needs, ideas</h3>
+<div class="sect3">
+<h4 id="_1_2_1_current_situation">1.2.1 Current Situation</h4>
+<div class="paragraph">
+<p>This section describes the current state of sports information availability in Puerto Rico prior to the implementation of Tu Deporte Aquí.</p>
+</div>
+<div class="sect5">
+<h6 id="_overview">Overview</h6>
+<div class="paragraph">
+<p>Sports information in Puerto Rico is distributed across multiple independent platforms, including league websites, social media, news outlets, and informal reporting channels. There is no centralized or standardized system for accessing this data.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_data_distribution_environment">Data Distribution Environment</h6>
+<div class="paragraph">
+<p>Information is typically published through:
+- League websites
+- Social media posts (e.g., Twitter, Instagram)
+- News outlets
+- Independent reporters</p>
+</div>
+<div class="paragraph">
+<p>These sources often operate independently, with no synchronization or standardization.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_key_limitations">Key Limitations</h6>
+<div class="paragraph">
+<p>The current environment presents several limitations:
+- Data fragmentation across multiple platforms
+- Lack of official APIs for many leagues
+- Inconsistent update frequencies
+- Limited standardization in reporting formats</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_reliability_challenges">Reliability Challenges</h6>
+<div class="paragraph">
+<p>Sports data in Puerto Rico is frequently:
+- Delayed due to manual updates or slow reporting
+- Conflicting when multiple sources provide different values
+- Incomplete when certain fields (score, time, status) are missing
+- Unverified when information comes from informal sources</p>
+</div>
+<div class="paragraph">
+<p>These issues are more noticeable during high-demand events such as playoffs.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_impact_on_users">Impact on Users</h6>
+<div class="paragraph">
+<p>Users face several challenges:
+- Difficulty determining which information is correct
+- Need to cross-check multiple sources
+- Confusion during conflicting or delayed updates
+- Reduced trust in available information</p>
+</div>
+<div class="paragraph">
+<p>In many cases, incorrect information causes more harm to user trust than clearly communicated missing information.</p>
+</div>
+<div class="paragraph">
+<p>This situation highlights the need for a system that prioritizes transparency and reliability when handling uncertain data.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_2_2_needs">1.2.2 Needs</h4>
+<div class="sect4">
+<h5 id="_purpose">Purpose</h5>
+<div class="paragraph">
+<p>This section explains the main needs that justify building Tu Deporte Aquí. These needs come from the constraints, assumptions, and real-world conditions identified throughout Milestone 1.</p>
+</div>
+<div class="paragraph">
+<p>The needs are organized into three categories: user needs, system needs, and data reliability needs.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_user_needs">User Needs</h5>
+<div class="paragraph">
+<p>In Puerto Rico, sports fans, coaches, reporters, and community members depend on league websites, social media, news outlets, and other informal sources to follow local sports. Because this information is spread across many platforms, several clear needs arise:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Centralized access to local sports information</dt>
+<dd>
+<p>Users need a single, mobile-first platform that brings together game scores, standings, schedules, and athlete updates from local Puerto Rico leagues. Currently, staying informed usually means checking multiple sources that update at different times—or sometimes not at all.</p>
+</dd>
+<dt class="hdlist1">Clarity during uncertainty</dt>
+<dd>
+<p>When information is delayed, incomplete, or conflicting, users need the platform to clearly indicate what is confirmed, what is still uncertain, and what is missing. For example, during a live BSN playoff game, users should be able to distinguish between a confirmed final score and a provisional update taken from social media.</p>
+</dd>
+<dt class="hdlist1">Trustworthy information during high-demand moments</dt>
+<dd>
+<p>Playoffs, tournaments, and breaking news events are when users rely on the platform the most—and when data sources are more likely to lag or disagree. The platform must remain accessible and transparent during these peak moments, instead of failing silently or presenting unverified information as final.</p>
+</dd>
+<dt class="hdlist1">Source attribution and freshness indicators</dt>
+<dd>
+<p>Users need visibility into where each update comes from and when it was last refreshed. Without this context, it is difficult to determine whether a score reflects a live update, a delayed post, or outdated cached data.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_system_needs">System Needs</h5>
+<div class="paragraph">
+<p>Tu Deporte Aquí operates in an environment where official APIs are limited or unavailable, and many data sources are informal. The system must be designed around this reality:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Conflict detection and resolution</dt>
+<dd>
+<p>The system needs a way to detect when different sources report conflicting values for the same data point (such as different scores for a single game) and apply clear policies to resolve or flag those conflicts. Disagreement between sources should be treated as an expected condition, not a rare exception.</p>
+</dd>
+<dt class="hdlist1">Graceful degradation under partial failure</dt>
+<dd>
+<p>If one or more data sources become unavailable, delayed, or unreliable, the system should continue serving previously validated information instead of showing errors or empty states. Fallback behavior should be consistent and predictable.</p>
+</dd>
+<dt class="hdlist1">Scalability during peak traffic</dt>
+<dd>
+<p>The system must handle traffic spikes during major events like playoffs and championship games, when demand is highest and reliability is critical. Core information—scores, standings, and game status—should remain prioritized under heavy load.</p>
+</dd>
+<dt class="hdlist1">Standardized transparency messaging</dt>
+<dd>
+<p>The system needs a consistent way to communicate degraded states, stale data, and uncertainty. Error messages, loading indicators, and missing-data notices should be clear and uniform across the platform.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_data_reliability_needs">Data Reliability Needs</h5>
+<div class="paragraph">
+<p>Since Tu Deporte Aquí aggregates data from sources that vary in structure, timeliness, and accuracy, reliability is a central concern:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Provenance and traceability</dt>
+<dd>
+<p>Every piece of displayed information must have a traceable origin. The system should record which source provided each update, when it was received, and whether it has been modified since ingestion. This supports user trust and simplifies internal debugging.</p>
+</dd>
+<dt class="hdlist1">Handling of provisional and unverified data</dt>
+<dd>
+<p>The system must clearly differentiate between confirmed information and data that is still preliminary or unverified. Provisional updates should be labeled appropriately rather than presented with the same level of confidence as confirmed results.</p>
+</dd>
+<dt class="hdlist1">Staleness awareness</dt>
+<dd>
+<p>Standings, profiles, and schedules become outdated at different rates. The system needs defined thresholds for acceptable staleness and a mechanism to flag or hide information that exceeds those limits.</p>
+</dd>
+<dt class="hdlist1">Correction and revision tracking</dt>
+<dd>
+<p>Local leagues may revise scores, standings, or schedules after initial publication, sometimes without formal notice. The system should support basic revision tracking so corrections are recorded and previous values remain available for audit purposes.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_assumptions">Assumptions</h5>
+<div class="paragraph">
+<p>The following assumptions support the needs described in this section:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Most local Puerto Rico leagues do not provide official APIs or machine-readable data feeds.</p>
+</li>
+<li>
+<p>Data sources include league websites, university athletic department pages, social media posts, and informal reporting channels.</p>
+</li>
+<li>
+<p>Reporting formats, update frequency, and completeness vary significantly across sources.</p>
+</li>
+<li>
+<p>Historical corrections may occur without formal announcements.</p>
+</li>
+<li>
+<p>The platform is mobile-first and web-based; native mobile applications are not included in Phase 1.</p>
+</li>
+<li>
+<p>No implementation or source code is produced during Milestone 1; this section documents needs based only on research and analysis.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_scope_of_this_section">Scope of This Section</h5>
+<div class="paragraph">
+<p>This section defines <em>what</em> is needed and <em>why</em>, without going into implementation details. Technical solutions, architectural decisions, and feature-level specifications are addressed in later sections of the documentation.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_2_3_ideas">1.2.3 Ideas</h4>
+<div class="sect4">
+<h5 id="_purpose_2">Purpose</h5>
+<div class="paragraph">
+<p>This section explains the main ideas that guide Tu Deporte Aquí. These ideas build on the conditions and needs identified in Milestone 1 and describe the direction the platform should take, without defining specific technical solutions.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cross_source_validation_and_source_weighting">Cross-Source Validation and Source Weighting</h5>
+<div class="paragraph">
+<p>Tu Deporte Aquí collects data from multiple informal sources, where disagreements are common.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Comparison before display</dt>
+<dd>
+<p>When different sources report different values for the same data point, the system should compare them before showing a result. If values match, confidence increases. If they conflict, the system should flag the issue instead of silently choosing one.</p>
+</dd>
+<dt class="hdlist1">Source trust levels</dt>
+<dd>
+<p>Not all sources are equally reliable. The platform should assign trust levels to different source types—for example, an official league website should carry more weight than a social media post. This weighting should be intentional and documented.</p>
+</dd>
+<dt class="hdlist1">Conflict visibility</dt>
+<dd>
+<p>Conflicts should be logged internally for debugging. When relevant, they should also be shown to users through clear indicators, instead of presenting the data as if it were fully certain.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_data_freshness_and_provenance">Data Freshness and Provenance</h5>
+<div class="paragraph">
+<p>Users need to understand how recent the information is and where it came from.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Timestamps and source labels</dt>
+<dd>
+<p>Key data elements—scores, standings, profiles, schedules—should display when they were last updated and which source provided them (for example, "via BSN official site"). This allows users to judge reliability on their own.</p>
+</dd>
+<dt class="hdlist1">Update frequency expectations</dt>
+<dd>
+<p>The platform should communicate realistic refresh rates for each data type. Live scores may have small delays, while standings may update only after games are finalized. Making this clear helps reduce confusion.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_provisional_and_confidence_indicators">Provisional and Confidence Indicators</h5>
+<div class="paragraph">
+<p>Since much of the data comes from informal channels, the system must clearly separate confirmed information from unverified data.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Provisional labeling</dt>
+<dd>
+<p>Information that has not been confirmed by a trusted source—such as early live scores from social media—should be clearly marked as provisional.</p>
+</dd>
+<dt class="hdlist1">Confidence progression</dt>
+<dd>
+<p>The platform should use simple labels ("Confirmed," "Provisional," "Unverified") or visual cues (badges, muted styles) to show reliability. As more sources confirm a value, the confidence level should update visibly so users can see how the data stabilizes over time.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_handling_uncertainty_and_missing_data">Handling Uncertainty and Missing Data</h5>
+<div class="paragraph">
+<p>Uncertainty is part of the platform’s environment and should be handled openly.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Standardized messaging</dt>
+<dd>
+<p>Delayed scores, incomplete standings, and outdated profiles should follow a consistent visual and textual format so users can quickly understand what is happening.</p>
+</dd>
+<dt class="hdlist1">Degraded and no-data states</dt>
+<dd>
+<p>If the system has limited data, it should show the last known value with an "as of" indicator. If information is completely unavailable, the platform should display a clear "not available" state instead of leaving empty spaces or unclear placeholders.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_mobile_first_display">Mobile-First Display</h5>
+<div class="paragraph">
+<p>As a mobile-first web platform, all of the ideas above must work within small screen constraints.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Information hierarchy</dt>
+<dd>
+<p>Essential details—score, game status, league, time—should appear first. Supporting details such as source labels, timestamps, and confidence indicators should appear in secondary or expandable views.</p>
+</dd>
+<dt class="hdlist1">Compact indicators</dt>
+<dd>
+<p>Icons, color coding, and short labels are preferred over long explanations. The same visual language for freshness, confidence, and provisional states should be used consistently across live scores, standings, and profiles to reduce cognitive load.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_scope_of_this_section_2">Scope of This Section</h5>
+<div class="paragraph">
+<p>This section defines the conceptual direction of the platform. It does not include technical implementation or architectural details, which are covered later in the documentation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_3_scope_span_and_synopsis">1.3 Scope, span, and synopsis</h3>
+<div class="sect3">
+<h4 id="_1_3_1_scope_and_span">1.3.1 Scope and Span</h4>
+<div class="sect4">
+<h5 id="_purpose_3">Purpose</h5>
+<div class="paragraph">
+<p>This section defines the boundaries, coverage limits, and operational constraints of Tu Deporte Aquí during Milestone 1. Clearly defining scope prevents scope creep, ensures alignment across teams, and establishes realistic expectations before implementation begins.</p>
+</div>
+<div class="paragraph">
+<p>Milestone 1 focuses exclusively on documentation, research, and structured system definition. No implementation or source code development is included in this milestone.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_in_scope_coverage">In-Scope Coverage</h5>
+<div class="paragraph">
+<p>The system scope for Milestone 1 includes:</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_local_puerto_rico_sports_leagues">Local Puerto Rico Sports Leagues</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Coverage is limited to local leagues within Puerto Rico.</p>
+</li>
+<li>
+<p>National and international leagues are excluded.</p>
+</li>
+<li>
+<p>Emphasis is placed on leagues where official APIs may not exist.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This focus ensures realistic alignment with data availability and milestone constraints.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_reliability_modeling">Reliability Modeling</h5>
+<div class="paragraph">
+<p>The system will define expected behavior under:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Delayed updates</p>
+</li>
+<li>
+<p>Conflicting reports</p>
+</li>
+<li>
+<p>Missing information</p>
+</li>
+<li>
+<p>Corrected or revised results</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Explicit documentation of uncertainty handling is part of the defined scope.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_mobile_first_platform_assumption">Mobile-First Platform Assumption</h5>
+<div class="paragraph">
+<p>All feature definitions and UI expectations assume a mobile-first, web-based experience.</p>
+</div>
+<div class="paragraph">
+<p>This includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compact information display</p>
+</li>
+<li>
+<p>Clear status indicators</p>
+</li>
+<li>
+<p>Prioritization of essential game data</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_documentation_first_engineering">Documentation-First Engineering</h5>
+<div class="paragraph">
+<p>Milestone 1 includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Structured documentation scaffold</p>
+</li>
+<li>
+<p>Defined system behavior and assumptions</p>
+</li>
+<li>
+<p>Research-based reliability strategies</p>
+</li>
+<li>
+<p>Governance and workflow definition</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>No backend, frontend, or database implementation is included at this stage.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_out_of_scope_elements">Out-of-Scope Elements</h5>
+<div class="paragraph">
+<p>The following elements are explicitly excluded from Milestone 1:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implementation of application code</p>
+</li>
+<li>
+<p>Integration with official league APIs</p>
+</li>
+<li>
+<p>Automated web scraping mechanisms</p>
+</li>
+<li>
+<p>National or international league coverage</p>
+</li>
+<li>
+<p>Real-time performance optimization</p>
+</li>
+<li>
+<p>Production deployment or hosting infrastructure</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These exclusions ensure that Milestone 1 remains focused on system definition rather than execution.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_operational_constraints">Operational Constraints</h5>
+<div class="paragraph">
+<p>Tu Deporte Aquí operates under the following constraints:</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_informal_data_sources">Informal Data Sources</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Data may originate from websites, reporters, or social media.</p>
+</li>
+<li>
+<p>Sources may conflict or provide delayed updates.</p>
+</li>
+<li>
+<p>Official verification mechanisms may not exist.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_limited_structure_and_standardization">Limited Structure and Standardization</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Local leagues may lack standardized reporting formats.</p>
+</li>
+<li>
+<p>Inconsistent update timing must be expected.</p>
+</li>
+<li>
+<p>Historical corrections may occur without formal notice.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_transparency_requirement">Transparency Requirement</h5>
+<div class="paragraph">
+<p>Because of data uncertainty, the system must:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Communicate provisional states</p>
+</li>
+<li>
+<p>Display last update times</p>
+</li>
+<li>
+<p>Indicate possible staleness</p>
+</li>
+<li>
+<p>Support traceability of changes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These constraints directly influence system design decisions in later phases.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_boundary_summary">Boundary Summary</h4>
+<div class="paragraph">
+<p>Tu Deporte Aquí, during Milestone 1, is a documentation-driven project focused on:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Local Puerto Rico sports</p>
+</li>
+<li>
+<p>Reliability modeling</p>
+</li>
+<li>
+<p>Transparency definition</p>
+</li>
+<li>
+<p>Scope discipline</p>
+</li>
+<li>
+<p>Structured governance</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By clearly defining these boundaries, the project ensures disciplined progress and alignment across all teams prior to implementation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_3_2">1.3.2</h4>
+<div class="sect4">
+<h5 id="_synopsis">Synopsis</h5>
+<div class="paragraph">
+<p>Tu Deporte Aquí is a mobile-first, web-based platform designed to centralize sports information for local Puerto Rico leagues and collegiate teams.</p>
+</div>
+<div class="paragraph">
+<p>Currently, sports data is scattered across multiple sources such as websites and social media, often resulting in delayed, incomplete, or conflicting information. This makes it difficult for users to access reliable and consistent updates.</p>
+</div>
+<div class="paragraph">
+<p>The platform focuses on addressing these challenges by prioritizing reliability and transparency. Instead of hiding uncertainty, the system communicates verification status, confidence levels, and update timestamps to help users understand the quality of the information presented.</p>
+</div>
+<div class="paragraph">
+<p>Phase 1 of the project is limited to local Puerto Rico sports coverage. National and international leagues are explicitly out of scope.</p>
+</div>
+<div class="paragraph">
+<p>Tu Deporte Aquí aims to provide a clear, trustworthy, and accessible way for users to follow local sports while acknowledging the real-world limitations of the available data.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_4_other_activities_than_development">1.4 Other Activities than Development</h3>
+<div class="sect4">
+<h5 id="_purpose_4">Purpose</h5>
+<div class="paragraph">
+<p>Milestone 1 of Tu Deporte Aquí emphasizes documentation, research, and structured system preparation rather than implementation. This section describes the non-development activities that contribute to system reliability, transparency, and organized collaboration.</p>
+</div>
+<div class="paragraph">
+<p>These activities ensure that the project evolves through disciplined engineering practices before any source code is written.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_research_activities">Research Activities</h5>
+<div class="paragraph">
+<p>Research plays a central role in Milestone 1. Key research efforts include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Investigating reliability strategies for conflicting and delayed sports data</p>
+</li>
+<li>
+<p>Defining scope boundaries and out-of-scope conditions</p>
+</li>
+<li>
+<p>Exploring data lineage and audit trail strategies</p>
+</li>
+<li>
+<p>Studying transparency indicators for uncertain information</p>
+</li>
+<li>
+<p>Analyzing requirements classification (functional vs non-functional)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These research tasks ensure that system behavior is well-defined under real-world constraints.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_documentation_as_code">Documentation-as-Code</h5>
+<div class="paragraph">
+<p>The project adopts a documentation-as-code model using AsciiDoc and GitHub.</p>
+</div>
+<div class="paragraph">
+<p>This includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Structured folder hierarchy under /docs</p>
+</li>
+<li>
+<p>Modular section files linked through include:: directives</p>
+</li>
+<li>
+<p>Version-controlled documentation</p>
+</li>
+<li>
+<p>Pull-request-based content integration</p>
+</li>
+<li>
+<p>Automated HTML/PDF build via CI workflow</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This approach ensures traceability, consistency, and reproducibility of documentation.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_pull_request_and_review_process">Pull Request and Review Process</h5>
+<div class="paragraph">
+<p>All contributions are integrated through a PR-only workflow.</p>
+</div>
+<div class="paragraph">
+<p>The process includes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Issue creation using the standardized template</p>
+</li>
+<li>
+<p>Feature branch creation</p>
+</li>
+<li>
+<p>Focused modification of assigned section</p>
+</li>
+<li>
+<p>Pull request submission</p>
+</li>
+<li>
+<p>Automated CI build verification</p>
+</li>
+<li>
+<p>Team Lead review</p>
+</li>
+<li>
+<p>Manager approval and merge</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This structured process ensures quality control and accountability.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cicd_and_build_automation">CI/CD and Build Automation</h5>
+<div class="paragraph">
+<p>The project includes a GitHub Actions workflow that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compiles the master AsciiDoc document</p>
+</li>
+<li>
+<p>Verifies include structure</p>
+</li>
+<li>
+<p>Generates HTML and PDF artifacts</p>
+</li>
+<li>
+<p>Detects build or formatting errors</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This automation ensures documentation integrity before approval.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_task_tracking_and_governance">Task Tracking and Governance</h5>
+<div class="paragraph">
+<p>All work is tracked through GitHub Issues.</p>
+</div>
+<div class="paragraph">
+<p>Each issue includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clear objective</p>
+</li>
+<li>
+<p>Defined acceptance criteria</p>
+</li>
+<li>
+<p>Urgency and difficulty rating</p>
+</li>
+<li>
+<p>Assigned contributor</p>
+</li>
+<li>
+<p>Milestone linkage</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Documentation scaffold sections reference the master issue (#53) to maintain structural traceability.</p>
+</div>
+<div class="paragraph">
+<p>This governance structure prevents duplication and supports milestone compliance.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_team_coordination">Team Coordination</h5>
+<div class="paragraph">
+<p>Collaboration is supported through:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Team-based specialization (five domain-focused teams)</p>
+</li>
+<li>
+<p>Regular coordination discussions</p>
+</li>
+<li>
+<p>Milestone planning</p>
+</li>
+<li>
+<p>Alignment on scope and assumptions</p>
+</li>
+<li>
+<p>Shared responsibility for reliability modeling</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These coordination practices ensure consistent interpretation of requirements across teams.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_milestone_planning_and_retrospectives">Milestone Planning and Retrospectives</h5>
+<div class="paragraph">
+<p>Milestone 1 includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clear completion criteria</p>
+</li>
+<li>
+<p>Defined deliverables (compiled documentation)</p>
+</li>
+<li>
+<p>Explicit failure and uncertainty modeling</p>
+</li>
+<li>
+<p>Iterative refinement through feedback</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Retrospective reflection ensures continuous improvement in documentation quality and team workflow.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_conclusion">Conclusion</h5>
+<div class="paragraph">
+<p>Tu Deporte Aquí extends beyond software implementation. Research, structured documentation, governance modeling, and automated validation form the foundation of the project.</p>
+</div>
+<div class="paragraph">
+<p>These non-development activities ensure that when implementation begins, it is grounded in clearly defined scope, reliability expectations, and transparent engineering practices.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_5_derived_goals">1.5 Derived Goals</h3>
+<div class="sect4">
+<h5 id="_purpose_5">Purpose</h5>
+<div class="paragraph">
+<p>The following goals are derived from the identified current situation, system needs, and proposed ideas for Tu Deporte Aquí. These goals translate contextual analysis into structured and actionable objectives that guide documentation, reliability modeling, and future implementation.</p>
+</div>
+<div class="paragraph">
+<p>These goals serve as a bridge between the Informative Part and the Descriptive and Analytic sections of the document.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_reliability_goals">Reliability Goals</h5>
+<div class="sect5">
+<h6 id="_g1_conflict_aware_data_handling">G1 – Conflict-Aware Data Handling</h6>
+<div class="paragraph">
+<p>The system shall explicitly detect and manage conflicting sports data received from multiple sources.</p>
+</div>
+<div class="paragraph">
+<p>This includes:
+- Identifying inconsistencies across sources
+- Flagging provisional values
+- Preserving traceability of overrides</p>
+</div>
+<div class="paragraph">
+<p>This goal ensures reliability under informal and semi-structured data conditions.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_g2_correction_transparency">G2 – Correction Transparency</h6>
+<div class="paragraph">
+<p>The system shall support traceability of corrections to scores, standings, and game statuses.</p>
+</div>
+<div class="paragraph">
+<p>This includes:
+- Tracking source attribution
+- Recording update timestamps
+- Maintaining lightweight audit history for critical fields</p>
+</div>
+<div class="paragraph">
+<p>This goal enables reconstruction of data changes and improves accountability.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_transparency_goals">Transparency Goals</h5>
+<div class="sect5">
+<h6 id="_g3_user_facing_uncertainty_indicators">G3 – User-Facing Uncertainty Indicators</h6>
+<div class="paragraph">
+<p>The system shall clearly communicate when information is provisional, stale, incomplete, or unverified.</p>
+</div>
+<div class="paragraph">
+<p>This includes:
+- Displaying last update time
+- Showing data confidence indicators
+- Providing context for conflicting information</p>
+</div>
+<div class="paragraph">
+<p>This goal strengthens user trust and informed interpretation of data.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_g4_explicit_assumption_documentation">G4 – Explicit Assumption Documentation</h6>
+<div class="paragraph">
+<p>The system shall clearly document operational assumptions, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Limited or no official APIs</p>
+</li>
+<li>
+<p>Reliance on websites and social media</p>
+</li>
+<li>
+<p>Potential delays in live updates</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This goal prevents unrealistic expectations and scope ambiguity.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_availability_goals">Availability Goals</h5>
+<div class="sect5">
+<h6 id="_g5_graceful_degradation">G5 – Graceful Degradation</h6>
+<div class="paragraph">
+<p>The system shall remain operational even when one or more data sources are unavailable.</p>
+</div>
+<div class="paragraph">
+<p>This includes:
+- Serving cached or previously validated data
+- Avoiding complete system failure due to partial outages
+- Providing transparency when updates are delayed</p>
+</div>
+<div class="paragraph">
+<p>This goal ensures resilience in a low-structure data environment.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_scope_and_boundary_goals">Scope and Boundary Goals</h5>
+<div class="sect5">
+<h6 id="_g6_local_league_focus">G6 – Local League Focus</h6>
+<div class="paragraph">
+<p>The system shall focus exclusively on local Puerto Rico sports leagues during initial development phases.</p>
+</div>
+<div class="paragraph">
+<p>National and international leagues are explicitly out of scope.</p>
+</div>
+<div class="paragraph">
+<p>This goal prevents scope creep and ensures realistic milestone alignment.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_g7_mobile_first_design_alignment">G7 – Mobile-First Design Alignment</h6>
+<div class="paragraph">
+<p>All documentation and feature definitions shall assume a mobile-first user experience.</p>
+</div>
+<div class="paragraph">
+<p>This includes:
+- Compact UI messaging
+- Clear visual indicators
+- Prioritized essential information</p>
+</div>
+<div class="paragraph">
+<p>This goal ensures usability consistency across teams.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_trust_and_governance_goals">Trust and Governance Goals</h5>
+<div class="sect5">
+<h6 id="_g8_structured_documentation_before_implementation">G8 – Structured Documentation Before Implementation</h6>
+<div class="paragraph">
+<p>The project shall fully define system behavior, constraints, and uncertainty scenarios before any code is written.</p>
+</div>
+<div class="paragraph">
+<p>This includes:
+- Explicit failure scenario modeling
+- Defined traceability strategies
+- Clearly structured documentation scaffold</p>
+</div>
+<div class="paragraph">
+<p>This goal aligns with Milestone 1’s emphasis on documentation-first engineering.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_g9_pr_driven_accountability">G9 – PR-Driven Accountability</h6>
+<div class="paragraph">
+<p>All contributions shall be issue-based and integrated through pull request review with CI validation.</p>
+</div>
+<div class="paragraph">
+<p>This ensures:
+- Traceability of changes
+- Quality control
+- Structured collaboration</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_measurability_and_verification_considerations">Measurability and Verification Considerations</h5>
+<div class="paragraph">
+<p>These derived goals are conceptually verifiable through:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation completeness review</p>
+</li>
+<li>
+<p>Explicit modeling of failure scenarios</p>
+</li>
+<li>
+<p>Inclusion of uncertainty indicators in design descriptions</p>
+</li>
+<li>
+<p>Defined traceability metadata models</p>
+</li>
+<li>
+<p>Milestone alignment checks</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Future implementation phases will operationalize these goals through structured requirements and validation strategies.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_conclusion_2">Conclusion</h5>
+<div class="paragraph">
+<p>The derived goals formalize Tu Deporte Aquí’s commitment to reliability, transparency, scope discipline, and structured engineering practices. They ensure that system design decisions remain aligned with real-world constraints of local sports data and the Milestone 1 requirement of documentation-first development.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_descriptive_part">2 Descriptive part</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_2_1_domain_description">2.1 Domain description</h3>
+<div class="sect3">
+<h4 id="_2_1_1_domain_rough_sketch">2.1.1 Domain Rough Sketch</h4>
+<div class="paragraph">
+<p>While shaping the idea for <strong>Tu Deporte Aquí</strong>, we kept running into the same real-world constraint: sports information in Puerto Rico does not live in one clean database. It is scattered across league sites, news outlets, social media, and informal sources, and those channels often disagree or update at different speeds. Because of that, the A3 treats reliability as the main lens for the domain, not just “having features.” The platform has to consistently show accurate standings, results, and athlete updates, while staying understandable when the underlying inputs are messy.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Distributed sources and conflicting information</dt>
+<dd>
+<p>A central theme is that the platform must ingest data from multiple leagues and informal reporting channels, which naturally increases the chance of incorrect or outdated information appearing. The domain therefore includes disagreement as a normal scenario, where two sources may report conflicting information and the system must still behave predictably.</p>
+</dd>
+<dt class="hdlist1">Delays and missing updates</dt>
+<dd>
+<p>We also focused on the fact that updates can arrive late or not arrive at all, especially for local events. The platform must handle incomplete, delayed, or missing inputs without turning that uncertainty into user confusion.</p>
+</dd>
+<dt class="hdlist1">High demand moments</dt>
+<dd>
+<p>Another part of the domain is that reliability gets stress tested when people care the most, such as playoffs, major tournaments, and breaking news. These moments create high traffic pressure, so availability and performance under load are part of the core domain expectations.</p>
+</dd>
+<dt class="hdlist1">Clear behavior during degraded states</dt>
+<dd>
+<p>We identified that failures are not only technical events, they are user-facing experiences. If fallback strategies and error handling are weak, failures surface directly to users. In this domain, the platform needs to communicate uncertainty and degraded states clearly, and still keep user messages informative even when dependencies fail or data is unreliable.</p>
+</dd>
+<dt class="hdlist1">Trust as the main outcome</dt>
+<dd>
+<p>All of these concerns tie back to the end result the A3 prioritizes: long term user trust. When information is wrong, late, or unclear during important events, users lose confidence quickly and the platform becomes perceived as unreliable over time.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Overall, the domain rough sketch describes a reliability driven platform that remains available during peak demand, stays consistent when sources conflict or arrive late, and communicates reliability status in a way users can understand, supported by testing that targets stress and failure conditions rather than only normal operation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_1_2">2.1.2</h4>
+<div class="sect4">
+<h5 id="_terminology">Terminology</h5>
+<div class="sect5">
+<h6 id="_verification_status_terms">Verification Status Terms</h6>
+<div class="paragraph">
+<p>This section defines the official terminology used in Tu Deporte Aquí. These terms must be used consistently across documentation and future testing scenarios, especially when describing reliability, transparency, and uncertain information states.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Confirmed</strong></dt>
+<dd>
+<p>Information validated by an official or highly trusted source and considered accurate at the time of display.</p>
+</dd>
+<dt class="hdlist1"><strong>Unverified</strong></dt>
+<dd>
+<p>Information reported by a single source or informal source without confirmation from an authoritative provider.</p>
+</dd>
+<dt class="hdlist1"><strong>Developing</strong></dt>
+<dd>
+<p>Time-sensitive information that is still being verified and may change as more sources publish updates.</p>
+</dd>
+<dt class="hdlist1"><strong>Conflicting</strong></dt>
+<dd>
+<p>A state where multiple sources report different values for the same event or field (e.g., score, status).</p>
+</dd>
+<dt class="hdlist1"><strong>Delayed</strong></dt>
+<dd>
+<p>Information submitted significantly after the event occurred or updated slower than expected due to source latency.</p>
+</dd>
+<dt class="hdlist1"><strong>Corrected</strong></dt>
+<dd>
+<p>Information that was previously published but later changed due to an official correction or reconciliation of conflicts.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_confidence_level_terms">Confidence Level Terms</h6>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>High Confidence</strong></dt>
+<dd>
+<p>Official source and no conflicts detected.</p>
+</dd>
+<dt class="hdlist1"><strong>Medium Confidence</strong></dt>
+<dd>
+<p>Multiple non-official sources agree, but no official confirmation exists.</p>
+</dd>
+<dt class="hdlist1"><strong>Low Confidence</strong></dt>
+<dd>
+<p>Single unverified source or conflicts detected between sources.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_transparency_indicator_terms">Transparency Indicator Terms</h6>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Publish Time</strong></dt>
+<dd>
+<p>The time a report was first made visible to users.</p>
+</dd>
+<dt class="hdlist1"><strong>Last Updated Time</strong></dt>
+<dd>
+<p>The most recent time the system updated the displayed information.</p>
+</dd>
+<dt class="hdlist1"><strong>Source Type</strong></dt>
+<dd>
+<p>Classification of the origin of information (e.g., Official, Reporter, Community).</p>
+</dd>
+<dt class="hdlist1"><strong>Reliability Metadata</strong></dt>
+<dd>
+<p>The combined set of fields that explain trustworthiness, including verification status, confidence level, timestamps, and source attribution.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_system_state_terms">System State Terms</h6>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Degraded State</strong></dt>
+<dd>
+<p>A system condition where full functionality or complete data is not available due to source failures, partial outages, missing fields, or inconsistencies.</p>
+</dd>
+<dt class="hdlist1"><strong>Graceful Degradation</strong></dt>
+<dd>
+<p>The system remains usable under partial failure by showing last known valid data and clearly communicating limitations instead of failing completely.</p>
+</dd>
+<dt class="hdlist1"><strong>Silent Failure</strong></dt>
+<dd>
+<p>A failure where incorrect or missing information is presented without warning, explanation, or status messaging.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_1_3_domain_terminology_in_relation_to_domain_rough_sketch">2.1.3 Domain Terminology in Relation to Domain Rough Sketch</h4>
+<div class="sect4">
+<h5 id="_purpose_6">Purpose</h5>
+<div class="paragraph">
+<p>This section connects the terms defined in 2.1.2 with the main themes described in the Domain Rough Sketch (2.1.1). The goal is to show how each term fits into the domain and to keep the documentation conceptually consistent.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_mapping_terminology_to_domain_themes">Mapping Terminology to Domain Themes</h5>
+<div class="sect5">
+<h6 id="_distributed_sources_and_conflicting_information">Distributed Sources and Conflicting Information</h6>
+<div class="paragraph">
+<p>The rough sketch describes a system that collects data from multiple leagues and informal sources, where disagreements between reports are expected.</p>
+</div>
+<div class="paragraph">
+<p>Relevant terms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Conflicting</strong> — when different sources report different values for the same data point.</p>
+</li>
+<li>
+<p><strong>Unverified</strong> — data coming from a single informal source with no independent confirmation.</p>
+</li>
+<li>
+<p><strong>Source Type</strong> — identifies the origin of a report (Official, Reporter, Community) so the system can distinguish authority levels.</p>
+</li>
+<li>
+<p><strong>Corrected</strong> — used when previously published data is revised after a conflict is resolved.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_delays_and_missing_updates">Delays and Missing Updates</h6>
+<div class="paragraph">
+<p>The rough sketch recognizes that updates may arrive late or not at all, especially in local sports contexts.</p>
+</div>
+<div class="paragraph">
+<p>Relevant terms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Delayed</strong> — information received well after the event occurred.</p>
+</li>
+<li>
+<p><strong>Developing</strong> — time-sensitive information that is still being verified.</p>
+</li>
+<li>
+<p><strong>Last Updated Time</strong> — shows the most recent system update, helping users detect stale data.</p>
+</li>
+<li>
+<p><strong>Publish Time</strong> — indicates when information was first shown to users.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_high_demand_moments">High Demand Moments</h6>
+<div class="paragraph">
+<p>The rough sketch highlights that reliability is most critical during playoffs, tournaments, and breaking news, when traffic and user expectations are highest.</p>
+</div>
+<div class="paragraph">
+<p>Relevant terms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Confirmed</strong> — clearly verified information, especially important during peak moments.</p>
+</li>
+<li>
+<p><strong>High Confidence</strong> — official confirmation with no detected conflicts.</p>
+</li>
+<li>
+<p><strong>Medium Confidence</strong> — agreement across informal sources without official confirmation.</p>
+</li>
+<li>
+<p><strong>Low Confidence</strong> — data from a single unverified source or with active conflicts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_clear_behavior_during_degraded_states">Clear Behavior During Degraded States</h6>
+<div class="paragraph">
+<p>The rough sketch states that failures must be visible and understandable to users.</p>
+</div>
+<div class="paragraph">
+<p>Relevant terms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Degraded State</strong> — when full functionality or complete data is unavailable.</p>
+</li>
+<li>
+<p><strong>Graceful Degradation</strong> — the system remains usable under partial failure and clearly communicates limits.</p>
+</li>
+<li>
+<p><strong>Silent Failure</strong> — presenting incorrect or missing information without warning.</p>
+</li>
+<li>
+<p><strong>Reliability Metadata</strong> — transparency fields such as verification status, confidence level, timestamps, and source attribution.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_trust_as_the_main_outcome">Trust as the Main Outcome</h6>
+<div class="paragraph">
+<p>The rough sketch identifies long-term trust as the central objective. Trust depends on clarity, accuracy, and timeliness.</p>
+</div>
+<div class="paragraph">
+<p>Relevant terms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Confirmed</strong> and <strong>Unverified</strong> — core signals that distinguish reliable data from uncertain data.</p>
+</li>
+<li>
+<p><strong>Source Type</strong> — enables source attribution so users can judge reliability.</p>
+</li>
+<li>
+<p><strong>Publish Time</strong> and <strong>Last Updated Time</strong> — provide context about data freshness.</p>
+</li>
+<li>
+<p><strong>Reliability Metadata</strong> — the overall transparency layer supporting user trust.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_1_4_narrative">2.1.4 Narrative</h4>
+<div class="sect4">
+<h5 id="_purpose_7">Purpose</h5>
+<div class="paragraph">
+<p>This narrative describes how users in Puerto Rico currently obtain sports information, why that process is unreliable, and how Tu Deporte Aquí addresses uncertainty through transparency and predictable behavior.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_context_local_sports_information_flow">Context: Local Sports Information Flow</h5>
+<div class="paragraph">
+<p>Many local sports updates are shared through informal channels (social media posts, chats, community pages, screenshots, and word-of-mouth) rather than standardized APIs. Coverage varies by league and region, and “official” updates may arrive late or contradict earlier reports.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_actors_and_typical_scenarios">Actors and Typical Scenarios</h5>
+<div class="sect5">
+<h6 id="_fans_and_families">Fans and families</h6>
+<div class="paragraph">
+<p>Fans want quick answers (scores, standings, schedules) while commuting or during games. Most access is mobile-first and time-sensitive.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_players_and_coaches">Players and coaches</h6>
+<div class="paragraph">
+<p>Participants use the platform to confirm game results, future matches, and team performance, especially when announcements are scattered across multiple sources.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_leagues_and_organizers">Leagues and organizers</h6>
+<div class="paragraph">
+<p>Organizers may provide partial information (schedule updates, venue changes) that does not propagate consistently across platforms.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_narrative_what_happens_today_problem_story">Narrative: What Happens Today (Problem Story)</h5>
+<div class="paragraph">
+<p>A user hears that a game has started and tries to find the score. One source posts an early score update, another source posts nothing, and a third source posts a conflicting result later. The user cannot determine which information is current, which source is more trustworthy, or whether the system is missing data. In many cases, systems fail silently—showing outdated information without indicating the last update time or confidence level.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_narrative_expected_system_behavior_tu_deporte_aquí">Narrative: Expected System Behavior (Tu Deporte Aquí)</h5>
+<div class="paragraph">
+<p>Tu Deporte Aquí aggregates and normalizes available sports data while explicitly communicating uncertainty.</p>
+</div>
+<div class="paragraph">
+<p>Key behaviors:
+- The system displays timestamps (“last updated”) for relevant data.
+- When information is missing, delayed, or conflicting, the system communicates that state clearly rather than failing silently.
+- The system can present provisional results with low-confidence indicators when appropriate.
+- When multiple sources disagree, the system surfaces the conflict and avoids presenting a single answer as certain.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_why_this_matters_reliability_transparency">Why This Matters (Reliability + Transparency)</h5>
+<div class="paragraph">
+<p>Reliability in this domain is not only about being correct—it is also about being honest about uncertainty. The platform should help users make informed interpretations by showing what is known, what is unknown, and what is still being verified.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_1_5_events_actions_and_behaviors">2.1.5 Events, Actions, and Behaviors</h4>
+<div class="paragraph">
+<p>This section defines the key domain events, system actions, and expected behaviors for Tu Deporte Aquí. The focus is reliability and transparency when sports information is delayed, incomplete, unverified, or conflicting.</p>
+</div>
+<div class="sect4">
+<h5 id="_domain_events">Domain Events</h5>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>E1: Report Received</strong></dt>
+<dd>
+<p>A new update is received from a data source (league site, reporter, community post).</p>
+</dd>
+<dt class="hdlist1"><strong>E2: Live Match State Updated</strong></dt>
+<dd>
+<p>A match transitions between states such as Scheduled, Live, Halftime, Delayed, Suspended, Final, Postponed, or Canceled.</p>
+</dd>
+<dt class="hdlist1"><strong>E3: Data Missing or Partial Coverage Detected</strong></dt>
+<dd>
+<p>Expected fields (score, status, clock/segment, etc.) are missing or incomplete.</p>
+</dd>
+<dt class="hdlist1"><strong>E4: Conflict Detected</strong></dt>
+<dd>
+<p>Two or more sources disagree about a critical value (score, status, final result).</p>
+</dd>
+<dt class="hdlist1"><strong>E5: Data Becomes Stale</strong></dt>
+<dd>
+<p>The last update timestamp exceeds a defined freshness threshold.</p>
+</dd>
+<dt class="hdlist1"><strong>E6: Correction Published</strong></dt>
+<dd>
+<p>A previously published value is updated due to correction or reconciliation.</p>
+</dd>
+<dt class="hdlist1"><strong>E7: Source Outage / Unavailable Source</strong></dt>
+<dd>
+<p>A source fails, stops updating, or becomes unreachable.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_system_actions_per_event">System Actions per Event</h5>
+<div class="paragraph">
+<p>For each event, the system performs actions that preserve user trust and allow future validation.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>E1 Actions (Report Received)</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Record source attribution and timestamps (publish time, ingest time, event time when available).</p>
+</li>
+<li>
+<p>Assign verification status and confidence level.</p>
+</li>
+<li>
+<p>Store reliability metadata required for transparency.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><strong>E2 Actions (Live Match State Updated)</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Apply a standardized game state model and log the transition time.</p>
+</li>
+<li>
+<p>Support manual override and correction logging when local updates are irregular.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><strong>E3 Actions (Missing/Partial Data)</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Classify coverage level (Full Live, Live–Score Only, Live–Status Only, Live–Delayed).</p>
+</li>
+<li>
+<p>Preserve last known valid values when available.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><strong>E4 Actions (Conflict Detected)</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Set status to Conflicting and lower confidence level.</p>
+</li>
+<li>
+<p>Preserve both values and their sources to avoid silent overwrites.</p>
+</li>
+<li>
+<p>Trigger re-validation when new related reports arrive.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><strong>E5 Actions (Stale Data)</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Mark data as Stale/Delayed and retain last confirmed values.</p>
+</li>
+<li>
+<p>Update transparency indicators so users can see recency clearly.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><strong>E6 Actions (Correction Published)</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Classify the change as Corrected and preserve lightweight change history for critical fields.</p>
+</li>
+<li>
+<p>Provide an explanation note (correction/override) where applicable.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><strong>E7 Actions (Source Outage)</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter Degraded State if one or more key sources fail.</p>
+</li>
+<li>
+<p>Continue serving cached/last known data with clear messaging.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_expected_system_behaviors">Expected System Behaviors</h5>
+<div class="sect5">
+<h6 id="_normal_operation">Normal Operation</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>When reports are Confirmed and non-conflicting, display current values with last updated time and source type.</p>
+</li>
+<li>
+<p>Confidence remains High when an official source is present and no conflicts exist.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_unverified_developing_information">Unverified / Developing Information</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow publication when time-sensitive, but label as Developing/Unverified.</p>
+</li>
+<li>
+<p>Confidence should be Low (single unverified) or Medium (multiple agreeing non-official sources).</p>
+</li>
+<li>
+<p>Periodically re-validate and update status if confirmation arrives.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_conflicting_information">Conflicting Information</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Display Conflicting state and communicate that information may change.</p>
+</li>
+<li>
+<p>Do not silently overwrite values; preserve traceability to explain changes later.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_missing_or_partial_live_data">Missing or Partial Live Data</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A match can be surfaced as live only if minimum live data exists (teams, league, in-progress status, and score OR clock, plus a last updated timestamp).</p>
+</li>
+<li>
+<p>When fields are missing, degrade coverage honestly (e.g., “Clock unavailable” or “Score not available”) and keep timestamps visible.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_delayed_stale_information">Delayed / Stale Information</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>If last update exceeds freshness threshold, mark as Live–Delayed or Stale.</p>
+</li>
+<li>
+<p>Prefer showing last known valid data with a warning over showing potentially incorrect new values without context.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_source_failure_degraded_state">Source Failure / Degraded State</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>If sources fail, continue operating using cached values.</p>
+</li>
+<li>
+<p>Provide system-state messaging indicating synchronization delays or degraded coverage instead of blank screens.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_corrections">Corrections</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Publish corrections explicitly (Corrected status) and preserve revision history for critical fields.</p>
+</li>
+<li>
+<p>Users should be able to understand that a change occurred and why (correction vs conflict resolution).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_notes_for_future_testing">Notes for Future Testing</h5>
+<div class="paragraph">
+<p>These behaviors are designed to be testable through simulation in later milestones:
+- Conflicting score scenario
+- Unverified developing report scenario
+- Delayed update / stale threshold scenario
+- Partial live coverage scenario
+- Source outage and degraded mode scenario
+- Correction lifecycle scenario</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_1_6_function_signatures_pseudocode_at_the_moment_not_event_tied">2.1.6 Function Signatures (Pseudocode at the moment, Not Event-Tied)</h4>
+<div class="paragraph">
+<p>These signatures describe what information is needed to perform key actions in <strong>Tu Deporte Aquí</strong> and what state is produced or changed. The design is intentionally modular so it can be extended later without committing to a specific architecture since we don&#8217;t have one decided yet.</p>
+</div>
+<div class="sect4">
+<h5 id="_core_records_state_holders">Core Records (state holders)</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>SourceRegistry: configured sources and basic health metadata</p>
+</li>
+<li>
+<p>RawArchive: stored raw snapshots from sources (for traceability)</p>
+</li>
+<li>
+<p>UpdateStore: stored normalized updates with provenance</p>
+</li>
+<li>
+<p>CanonicalStore: current best-known state (games, standings, athlete updates)</p>
+</li>
+<li>
+<p>ConflictQueue: unresolved conflicts that need resolution</p>
+</li>
+<li>
+<p>StatusBoard: user-facing status and reliability messages</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_source_configuration">Source Configuration</h5>
+<div class="paragraph">
+<p>registerSource(SourceRegistry, SourceConfig) &#8594; SourceRegistry</p>
+</div>
+<div class="paragraph">
+<p>updateSourceConfig(SourceRegistry, SourceId, SourceConfig) &#8594; SourceRegistry</p>
+</div>
+<div class="paragraph">
+<p>removeSource(SourceRegistry, SourceId) &#8594; SourceRegistry</p>
+</div>
+<div class="paragraph">
+<p>listSources(SourceRegistry) &#8594; List&lt;SourceConfig&gt;</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fetching_and_snapshot_storage">Fetching and Snapshot Storage</h5>
+<div class="paragraph">
+<p>fetchSnapshot(SourceRegistry, SourceId, FetchOptions) &#8594; (SourceRegistry, Snapshot or FetchError)</p>
+</div>
+<div class="paragraph">
+<p>storeSnapshot(RawArchive, Snapshot) &#8594; (RawArchive, SnapshotId)</p>
+</div>
+<div class="paragraph">
+<p>getSnapshot(RawArchive, SnapshotId) &#8594; Snapshot or None</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_parsing_and_normalization">Parsing and Normalization</h5>
+<div class="paragraph">
+<p>normalizeSnapshot(Snapshot, ParseOptions) &#8594; (List&lt;NormalizedUpdate&gt;, Diagnostics)</p>
+</div>
+<div class="paragraph">
+<p>storeUpdates(UpdateStore, List&lt;NormalizedUpdate&gt;) &#8594; (UpdateStore, List&lt;UpdateId&gt;)</p>
+</div>
+<div class="paragraph">
+<p>getUpdate(UpdateStore, UpdateId) &#8594; NormalizedUpdate or None</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_canonical_merge_best_known_current_state">Canonical Merge (best-known current state)</h5>
+<div class="paragraph">
+<p>applyUpdate(CanonicalStore, NormalizedUpdate, MergePolicy) &#8594; (CanonicalStore, Conflict or None, Diagnostics)</p>
+</div>
+<div class="paragraph">
+<p>applyUpdateBatch(CanonicalStore, List&lt;NormalizedUpdate&gt;, MergePolicy) &#8594; (CanonicalStore, List&lt;Conflict&gt;, Diagnostics)</p>
+</div>
+<div class="paragraph">
+<p>getCanonical(CanonicalStore, EntityKey) &#8594; CanonicalEntity or None</p>
+</div>
+<div class="paragraph">
+<p>storeCanonical(CanonicalStore, CanonicalEntity) &#8594; CanonicalStore</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_conflict_handling">Conflict Handling</h5>
+<div class="paragraph">
+<p>enqueueConflicts(ConflictQueue, List&lt;Conflict&gt;) &#8594; ConflictQueue</p>
+</div>
+<div class="paragraph">
+<p>listConflicts(ConflictQueue) &#8594; List&lt;Conflict&gt;</p>
+</div>
+<div class="paragraph">
+<p>resolveConflictAuto(ConflictQueue, CanonicalStore, ConflictId, MergePolicy)
+  &#8594; (ConflictQueue, CanonicalStore, CanonicalEntity or ResolveError, Diagnostics)</p>
+</div>
+<div class="paragraph">
+<p>resolveConflictManual(ConflictQueue, CanonicalStore, ConflictId, ResolutionDecision)
+  &#8594; (ConflictQueue, CanonicalStore, CanonicalEntity)</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_reliability_indicators_and_degraded_messaging">Reliability Indicators and Degraded Messaging</h5>
+<div class="paragraph">
+<p>computeReliability(CanonicalStore, UpdateStore, EntityKey, ReliabilityPolicy)
+  &#8594; (ReliabilityIndicator, Diagnostics)</p>
+</div>
+<div class="paragraph">
+<p>setSystemStatus(StatusBoard, SystemStatus) &#8594; StatusBoard</p>
+</div>
+<div class="paragraph">
+<p>annotateEntityStatus(StatusBoard, EntityKey, ReliabilityIndicator) &#8594; StatusBoard</p>
+</div>
+<div class="paragraph">
+<p>buildPublicView(CanonicalStore, StatusBoard, EntityKey) &#8594; PublicView or None</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_user_facing_queries">User-Facing Queries</h5>
+<div class="paragraph">
+<p>getGame(CanonicalStore, GameId) &#8594; GameView or None</p>
+</div>
+<div class="paragraph">
+<p>getStandings(CanonicalStore, StandingsKey) &#8594; StandingsView or None</p>
+</div>
+<div class="paragraph">
+<p>getAthleteUpdates(CanonicalStore, AthleteId) &#8594; List&lt;AthleteUpdateView&gt;</p>
+</div>
+<div class="paragraph">
+<p>searchCanonical(CanonicalStore, SearchQuery) &#8594; List&lt;PublicView&gt;</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_maintenance_and_extensibility_hooks">Maintenance and Extensibility Hooks</h5>
+<div class="paragraph">
+<p>recomputeAllReliability(CanonicalStore, UpdateStore, StatusBoard, ReliabilityPolicy)
+  &#8594; (StatusBoard, Diagnostics)</p>
+</div>
+<div class="paragraph">
+<p>rebuildCanonicalFromUpdates(CanonicalStore, UpdateStore, MergePolicy)
+  &#8594; (CanonicalStore, Diagnostics)
+=== 2.2 Requirements
+==== 2.2.1 User Stories, Epics, Features</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_epic_1_consolidated_puerto_rico_sports_information_feed">Epic 1: Consolidated Puerto Rico Sports Information Feed</h3>
+<div class="paragraph">
+<p>As a Puerto Rico sports fan, I want a centralized view of games, standings, and athlete updates so that I can follow local sports without chasing multiple sources.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Key features</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Aggregated results, standings, and athlete updates in one platform</p>
+</li>
+<li>
+<p>Source attribution for each update</p>
+</li>
+<li>
+<p>Visible freshness indicators (last updated timestamps)</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">User stories</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>As Sebastian, I want to view the latest scores and final results for selected leagues so that I can stay updated without switching between websites.</p>
+</li>
+<li>
+<p>As Sebastian, I want each score and update to show its source so that I can judge credibility when multiple channels exist.</p>
+</li>
+<li>
+<p>As Abiel, I want to view schedules and standings for my league so that I can plan and communicate accurately with my team.</p>
+</li>
+<li>
+<p>As Sebastian, I want to see when each item was last updated so that I can tell if information might be outdated during live events.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_epic_2_conflict_detection_and_consistency_controls">Epic 2: Conflict Detection and Consistency Controls</h3>
+<div class="paragraph">
+<p>As a sports fan, I want the platform to detect and handle conflicting reports so that I do not get misled by incorrect or inconsistent information.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Key features</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Conflict detection when sources disagree</p>
+</li>
+<li>
+<p>Validation and synchronization rules for ingestion</p>
+</li>
+<li>
+<p>Clear presentation of conflicts and resolution outcomes</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">User stories</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>As Sebastian, I want the platform to flag when two sources disagree on a score so that I know the result may not be final.</p>
+</li>
+<li>
+<p>As Andres, I want to mark updates as preliminary or confirmed so that the platform can represent uncertainty responsibly.</p>
+</li>
+<li>
+<p>As Abiel, I want the platform to prioritize verified league results when available so that standings do not change due to unreliable posts.</p>
+</li>
+<li>
+<p>As Chris, I want configurable validation rules for ingestion so that consistency checks can be improved as we observe real failures.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_epic_3_graceful_degradation_and_user_trust_signals">Epic 3: Graceful Degradation and User Trust Signals</h3>
+<div class="paragraph">
+<p>As a user, I want clear, informative messages when data is missing or the system is degraded so that I understand what is happening and can still make decisions.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Key features</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Degraded mode behavior for partial outages</p>
+</li>
+<li>
+<p>Informative user-facing messaging that explains uncertainty</p>
+</li>
+<li>
+<p>Reliability and status cues (data availability, source health)</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">User stories</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>As Sebastian, I want to see an explanation when an update is missing so that I know whether it is unavailable, delayed, or still being confirmed.</p>
+</li>
+<li>
+<p>As Sebastian, I want the platform to show a simple reliability cue for key pages during major events so that I can trust what I am seeing.</p>
+</li>
+<li>
+<p>As Andres, I want the platform to avoid presenting uncertain info as definitive so that users are not misled by breaking-news updates.</p>
+</li>
+<li>
+<p>As Chris, I want standardized fallback behavior when an external source fails so that failures do not surface as confusing errors to users.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_epic_4_high_traffic_availability_during_major_events">Epic 4: High-Traffic Availability During Major Events</h3>
+<div class="paragraph">
+<p>As a sports fan, I want the platform to remain responsive during playoffs and breaking news so that I can access information when demand is highest.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Key features</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Load handling for peak events</p>
+</li>
+<li>
+<p>Performance baselines and scalability targets</p>
+</li>
+<li>
+<p>Prioritized delivery of critical info (scores, standings, status)</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">User stories</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>As Sebastian, I want score and standings pages to load reliably during playoffs so that I can follow games in real time.</p>
+</li>
+<li>
+<p>As Chris, I want load and stress tests that model playoff traffic so that we can identify bottlenecks before major events.</p>
+</li>
+<li>
+<p>As Sebastian, I want the platform to still show the most essential information when traffic is extreme so that I am not blocked from updates entirely.</p>
+</li>
+<li>
+<p>As Chris, I want to measure availability and recovery time during peak-event simulations so that reliability improvements are measurable.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_epic_5_reliability_testing_automation_and_observability">Epic 5: Reliability Testing Automation and Observability</h3>
+<div class="paragraph">
+<p>As a platform engineer, I want reliability testing and monitoring integrated into development workflows so that failures and regressions are caught before users experience them.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Key features</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Automated tests for conflict, delay, and missing-data scenarios</p>
+</li>
+<li>
+<p>Fault injection for external dependencies</p>
+</li>
+<li>
+<p>Metrics and dashboards for availability, accuracy, and recovery</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">User stories</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>As Chris, I want automated tests that simulate conflicting data sources so that system behavior stays predictable when sources disagree.</p>
+</li>
+<li>
+<p>As Chris, I want automated tests that simulate delayed updates and missing data so that user-facing behavior remains clear and informative.</p>
+</li>
+<li>
+<p>As Chris, I want fault injection tests against external dependencies so that we can verify fallback strategies and error-handling logic.</p>
+</li>
+<li>
+<p>As Chris, I want CI workflows to run reliability tests regularly so that testing covers stress and failure conditions, not only normal operation.</p>
+</li>
+<li>
+<p>As Chris, I want dashboards for accuracy, consistency, availability, and recovery time so that we can track reliability improvements over time.
+==== 2.2.2 Personas</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persona_a_sebastian_rivera_the_superfan">Persona A: Sebastian Rivera, the Superfan</h3>
+<div class="paragraph">
+<p>Sebastian is a Puerto Rico sports fan who follows local leagues weekly and checks scores during games and playoffs.
+He values speed and clarity, and he gets frustrated when different sources disagree or updates arrive late.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Goals</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Quickly see game results, standings, and key updates in one place</p>
+</li>
+<li>
+<p>Know whether information is current and trustworthy during big events</p>
+</li>
+<li>
+<p>Avoid confusion when reports conflict</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Pain points</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Different pages and posts report different scores or update at different times</p>
+</li>
+<li>
+<p>During playoffs, sites lag or go down exactly when he needs them most</p>
+</li>
+<li>
+<p>When something is missing, he does not know if it is an error or just not posted yet</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persona_b_coach_abiel_rullan_the_team_organizer">Persona B: Coach Abiel Rullan, the Team Organizer</h3>
+<div class="paragraph">
+<p>Abiel manages a local team and cares about schedules, standings, and accurate public reporting of results.
+He wants the platform to reflect reality and avoid spreading incorrect information about teams or players.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Goals</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Confirm schedules and standings are accurate for his league</p>
+</li>
+<li>
+<p>Catch and correct errors quickly when something looks wrong</p>
+</li>
+<li>
+<p>Share trustworthy updates with players and parents</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Pain points</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Updates are often delayed and he has to double-check multiple sources</p>
+</li>
+<li>
+<p>Conflicting reports create arguments and confusion among teams and fans</p>
+</li>
+<li>
+<p>There is no clear way to tell if a result is verified or provisional</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persona_c_andres_perez_the_sports_reporter">Persona C: Andres Perez, the Sports Reporter</h3>
+<div class="paragraph">
+<p>Andres covers Puerto Rico sports and posts rapid updates, especially during tournaments and breaking news.
+He needs a platform that can represent uncertainty cleanly when details are still developing.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Goals</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Publish and reference updates without causing misinformation</p>
+</li>
+<li>
+<p>Make it clear when an update is preliminary vs confirmed</p>
+</li>
+<li>
+<p>Keep coverage stable during high-traffic moments</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Pain points</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Early reports may be incomplete, but the public wants immediate updates</p>
+</li>
+<li>
+<p>A single wrong post can spread fast if the platform does not handle conflicts well</p>
+</li>
+<li>
+<p>When systems degrade, users often receive confusing or unhelpful error messages</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="_persona_d_chris_ramos_the_platform_engineer">Persona D: Chris Ramos, the Platform Engineer</h4>
+<div class="paragraph">
+<p>Chris is responsible for reliability and quality of the sports information platform.
+He focuses on predictable behavior under failures, automation in testing, and clear user-facing status.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Goals</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Prevent incorrect or outdated information from being shown as “final”</p>
+</li>
+<li>
+<p>Keep the system available during peak events</p>
+</li>
+<li>
+<p>Standardize reliability tests and integrate them into CI</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Pain points</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Most tests pass in normal conditions but do not cover failures and stress</p>
+</li>
+<li>
+<p>External sources fail or behave unpredictably</p>
+</li>
+<li>
+<p>It is hard to measure trust-impacting issues without good observability
+=== 2.2.3 Domain Requirements</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_purpose_8">Purpose</h4>
+<div class="paragraph">
+<p>This section defines the domain requirements for <strong>Tu Deporte Aquí</strong>. These requirements are derived from observations of the sports information domain in Puerto Rico and capture the essential phenomena and concepts that the system must faithfully simulate. The domain properties listed below form the basis for these requirements.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_observed_domain_properties">Observed Domain Properties</h4>
+<div class="paragraph">
+<p>The following properties have been observed in the domain of local Puerto Rico sports information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>DP-1: Official league sources (e.g., league websites, official announcements) are considered more authoritative than informal sources such as social media posts or news outlets.</p>
+</li>
+<li>
+<p>DP-2: When multiple independent unofficial sources report the same value (e.g., a game score), confidence in that value increases, but it remains unverified until confirmed by an official source.</p>
+</li>
+<li>
+<p>DP-3: Corrections to game results, standings, or athlete information occur and must be reflected in historical records.</p>
+</li>
+<li>
+<p>DP-4: Information becomes less reliable over time; after a certain period without updates, it is considered stale.</p>
+</li>
+<li>
+<p>DP-5: Conflicts arise when different sources report different values for the same game attribute (score, status, etc.).</p>
+</li>
+<li>
+<p>DP-6: Sources may become temporarily or permanently unavailable, affecting the reliability of data that depended on them.</p>
+</li>
+<li>
+<p>DP-7: Games progress through a set of states (scheduled, live, halftime, final, postponed, cancelled) that must be tracked.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_domain_requirements">Domain Requirements</h4>
+<div class="paragraph">
+<p>The following requirements specify what the system must do to faithfully simulate the domain concepts and phenomena listed above. Each requirement is traceable to one or more domain properties.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+R-DOM-1 (Source Authority)
+</td>
+<td class="hdlist2">
+<p>The system shall assign a trust level to each configured source based on its type (official, news, social). Official sources shall have the highest trust level. (DP-1)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-DOM-2 (Conflict Detection)
+</td>
+<td class="hdlist2">
+<p>The system shall detect when two or more sources report different values for the same game attribute (e.g., score, status) and mark that attribute as conflicting. (DP-5)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-DOM-3 (Conflict Preservation)
+</td>
+<td class="hdlist2">
+<p>When a conflict is detected, the system shall preserve all reported values and their source attributions. The system shall not automatically overwrite the canonical value; resolution shall follow defined policies (e.g., official source preference). (DP-1, DP-5)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-DOM-4 (Provisional Data)
+</td>
+<td class="hdlist2">
+<p>If only unofficial sources report a value, the system shall mark that data as provisional. Provisional data may be displayed but must be clearly distinguished from confirmed data. (DP-2)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-DOM-5 (Confidence Building)
+</td>
+<td class="hdlist2">
+<p>When multiple independent unofficial sources report the same value for a game attribute, the system may increase the confidence level associated with that data, but it shall remain marked as unverified until an official source confirms it. (DP-2)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-DOM-6 (Corrections)
+</td>
+<td class="hdlist2">
+<p>When an official source issues a correction to a previously published value, the system shall update the canonical value and retain the previous value in an audit trail, along with the reason (e.g., “official correction”) and timestamp. (DP-3)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-DOM-7 (Staleness)
+</td>
+<td class="hdlist2">
+<p>The system shall track the last update time for each game attribute. If the time since the last update exceeds a configurable freshness threshold (e.g., 30 minutes for live scores, 24 hours for standings), the data shall be marked as stale. (DP-4)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-DOM-8 (Source Unavailability)
+</td>
+<td class="hdlist2">
+<p>If a source ceases to provide updates (e.g., repeated fetch failures), the system shall consider that source inactive and adjust the reliability of data that depended solely on it. Data from inactive sources shall be treated with lower confidence. (DP-6)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-DOM-9 (Game State Transitions)
+</td>
+<td class="hdlist2">
+<p>The system shall model game states (scheduled, live, halftime, final, postponed, cancelled) and record each state transition with a timestamp and source. (DP-7)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-DOM-10 (Audit Trail)
+</td>
+<td class="hdlist2">
+<p>The system shall maintain an audit trail for all changes to critical game data (score, status, final result) including the previous value, new value, source, timestamp, and reason for change. (DP-3)
+=== 2.2.4 Interface Requirements</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_purpose_9">Purpose</h4>
+<div class="paragraph">
+<p>This section defines the interface requirements for <strong>Tu Deporte Aquí</strong>. These requirements specify how the system interacts with the external world to acquire, initialize, and update the representation of domain phenomena. They cover both automated data ingestion from external sources and manual input by authorized users.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_shared_phenomena">Shared Phenomena</h4>
+<div class="paragraph">
+<p>The following domain phenomena must be represented inside the system and kept synchronized with the outside world:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Game scores, statuses, and schedules reported by various sources (league websites, social media, news outlets, direct reports)</p>
+</li>
+<li>
+<p>Corrections issued by official leagues</p>
+</li>
+<li>
+<p>Source availability and health</p>
+</li>
+<li>
+<p>User-initiated updates (e.g., by reporters or league officials)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_interface_requirements">Interface Requirements</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+R-INT-1 (Automated Ingestion)
+</td>
+<td class="hdlist2">
+<p>The system shall provide means to periodically fetch data from configured external sources (e.g., league websites, RSS feeds, APIs, social media streams). The fetching mechanism shall respect source-specific constraints such as rate limits and update frequencies.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-INT-2 (Manual Data Entry)
+</td>
+<td class="hdlist2">
+<p>The system shall provide an interface for authorized users (e.g., reporters, league representatives) to manually enter or update game information, including scores, statuses, and corrections. Manual entries shall be attributed to the user and timestamped.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-INT-3 (Source Configuration)
+</td>
+<td class="hdlist2">
+<p>The system shall provide means for administrators to configure data sources, including their type, trust level, fetch schedule, and access credentials (if any). Changes to source configuration shall be logged.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-INT-4 (Data Initialization)
+</td>
+<td class="hdlist2">
+<p>When a new league, team, or game is added to the system, the system shall provide means to initialize its representation from existing sources or manual entry. Initial data shall include at least the teams, scheduled dates, and any available historical results.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-INT-5 (Update on Domain Event)
+</td>
+<td class="hdlist2">
+<p>When a domain event occurs (e.g., a game ends, a score changes), the system must be updated accordingly. This can happen through automated detection via source polling or webhooks, or manual input by authorized users. The system shall ensure that updates are reflected in the canonical store with appropriate provenance metadata (source, timestamp).</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-INT-6 (Correction Handling)
+</td>
+<td class="hdlist2">
+<p>When a correction is identified (either through automated detection of a discrepancy or manual notification), the system shall provide means to apply the correction, preserving the previous value in the audit trail. The correction shall be attributed to the source (e.g., official league, user) and timestamped.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-INT-7 (Conflict Notification)
+</td>
+<td class="hdlist2">
+<p>When the system detects conflicting reports, it shall provide means to notify appropriate personnel (e.g., via a dashboard or alerts) so that manual resolution can occur if automated resolution policies are insufficient.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-INT-8 (Source Health Monitoring)
+</td>
+<td class="hdlist2">
+<p>The system shall monitor the availability and responsiveness of configured sources. It shall log failures and provide visibility into source health (e.g., via a status dashboard) for administrators.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-INT-9 (User Attribution)
+</td>
+<td class="hdlist2">
+<p>All manual changes to domain data shall be attributed to the authenticated user who performed the change. The system shall record the user ID along with the change in the audit trail.
+=== 2.2.5 Machine Requirements</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_purpose_10">Purpose</h4>
+<div class="paragraph">
+<p>This section defines the machine (non-functional) requirements for <strong>Tu Deporte Aquí</strong>. These requirements address performance, scalability, reliability, security, and operational aspects of the system. They are stated in measurable terms where possible; some thresholds are initial estimates and will be refined as the project progresses and more data becomes available.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_notes_on_current_status">Notes on Current Status</h4>
+<div class="paragraph">
+<p>The requirements below represent the current understanding of system constraints and quality goals. As the project moves into implementation, some values (e.g., exact concurrency numbers, response time targets) may be adjusted based on load testing, user research, and infrastructure decisions. Items marked with “TBD” indicate areas requiring further investigation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_machine_requirements">Machine Requirements</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+R-MAC-1 (Availability)
+</td>
+<td class="hdlist2">
+<p>The system shall be available to users 24/7 with a target uptime of 99.5% (excluding planned maintenance). Planned maintenance windows shall be announced at least 24 hours in advance.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-2 (Response Time - Normal Load)
+</td>
+<td class="hdlist2">
+<p>Under normal load (concurrent users ≤ 100), the system shall respond to user-facing requests (e.g., loading game details, standings) within 200 milliseconds for 95% of requests.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-3 (Response Time - Peak Load)
+</td>
+<td class="hdlist2">
+<p>During peak events (e.g., playoffs, with concurrent users up to 1000), the system shall respond to critical requests (scores, game status) within 500 milliseconds for 90% of requests. Non-critical features may experience higher latency.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-4 (Scalability)
+</td>
+<td class="hdlist2">
+<p>The system shall be designed to handle an increase in concurrent users up to 2000 without significant degradation (response times may increase but remain below 2 seconds for critical requests). The architecture shall support horizontal scaling of stateless components.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-5 (Data Freshness)
+</td>
+<td class="hdlist2">
+<p>The system shall update live game scores from sources at least every 5 minutes during games. For non-live data (standings, schedules), updates shall occur at least once per day. (Freshness thresholds for staleness marking are defined in R-DOM-7.)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-6 (Conflict Logging)
+</td>
+<td class="hdlist2">
+<p>The system shall log all detected data conflicts, including the entities involved, the conflicting values, sources, and timestamps. Logs shall be retained for at least 30 days for analysis and auditing.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-7 (Error Logging)
+</td>
+<td class="hdlist2">
+<p>The system shall log all errors (e.g., source fetch failures, parsing errors, database connectivity issues) with sufficient detail (timestamp, source, error type) to facilitate debugging. Error logs shall be retained for at least 90 days.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-8 (Monitoring and Metrics)
+</td>
+<td class="hdlist2">
+<p>The system shall expose the following metrics, which shall be available via a monitoring dashboard and/or a metrics endpoint:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Source health (success/failure counts, response times, last success timestamp)</p>
+</li>
+<li>
+<p>Request rates and response times per endpoint</p>
+</li>
+<li>
+<p>Conflict counts and resolution status</p>
+</li>
+<li>
+<p>System resource usage (CPU, memory, disk)</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-9 (Graceful Degradation)
+</td>
+<td class="hdlist2">
+<p>If one or more data sources become unavailable, the system shall continue to serve cached data for affected entities. The system shall clearly indicate (via user-facing messages) that data may be stale or partial.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-10 (Data Retention)
+</td>
+<td class="hdlist2">
+<p>The system shall retain canonical game data indefinitely for historical reference. Audit logs and conflict logs shall be retained according to policy (at least 30 days). Raw source snapshots may be retained for a shorter period (e.g., 7 days) for debugging.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-11 (Security)
+</td>
+<td class="hdlist2">
+<p>All communication between the system and external sources shall be over HTTPS. Access to manual data entry and administrative functions shall require authentication and authorization. User passwords, if any, shall be hashed and salted.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-12 (Backup and Recovery)
+</td>
+<td class="hdlist2">
+<p>The system&#8217;s database shall be backed up daily, with backups retained for at least 30 days. Recovery procedures shall be documented and tested at least once per quarter.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-13 (Testability)
+</td>
+<td class="hdlist2">
+<p>The system shall be designed to support automated testing of reliability scenarios, including source failures, conflicting data, and stale data. Test harnesses shall allow simulation of these conditions.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+R-MAC-14 (Performance Testing)
+</td>
+<td class="hdlist2">
+<p>Performance benchmarks (response times, throughput) shall be validated through load testing before each major release. The system shall meet the targets defined in R-MAC-2 and R-MAC-3 under simulated peak load.</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_open_items">Open Items</h4>
+<div class="paragraph">
+<p>The following aspects require further investigation and will be refined in later milestones:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Precise concurrency numbers should be validated against expected user base and traffic patterns.</p>
+</li>
+<li>
+<p>Response time targets may be adjusted based on actual network conditions and infrastructure.</p>
+</li>
+<li>
+<p>Log retention periods may be extended or shortened based on compliance and debugging needs.</p>
+</li>
+<li>
+<p>Security requirements will be expanded as authentication and authorization mechanisms are designed.
+=== 2.3 Implementation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_analytic_part">3 Analytic part</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_1_concept_analysis">3.1 Concept Analysis</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_purpose_11">Purpose</h3>
+<div class="paragraph">
+<p>This section analyzes the key conceptual elements that define the behavior,
+structure, and reliability characteristics of Tu Deporte Aquí.</p>
+</div>
+<div class="paragraph">
+<p>The analysis focuses on how uncertainty, conflicting information, and informal
+data sources influence system design decisions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_core_concepts">Core Concepts</h3>
+<div class="sect3">
+<h4 id="_sports_information_entity">Sports Information Entity</h4>
+<div class="paragraph">
+<p>Sports information represents data related to games, teams, leagues, standings,
+scores, schedules, and events.</p>
+</div>
+<div class="paragraph">
+<p>This information may originate from multiple sources with varying reliability
+levels.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_data_sources">Data Sources</h4>
+<div class="paragraph">
+<p>Data sources include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>League websites</p>
+</li>
+<li>
+<p>Social media updates</p>
+</li>
+<li>
+<p>News outlets</p>
+</li>
+<li>
+<p>Community reports</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sources may differ in accuracy, timeliness, and structure.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reliability_state">Reliability State</h4>
+<div class="paragraph">
+<p>The reliability state represents the confidence level of a piece of data.</p>
+</div>
+<div class="paragraph">
+<p>Possible states include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Confirmed</p>
+</li>
+<li>
+<p>Provisional</p>
+</li>
+<li>
+<p>Conflicting</p>
+</li>
+<li>
+<p>Missing</p>
+</li>
+<li>
+<p>Stale</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_timestamp_and_freshness">Timestamp and Freshness</h4>
+<div class="paragraph">
+<p>Each data element includes temporal metadata indicating when the information
+was last updated.</p>
+</div>
+<div class="paragraph">
+<p>Freshness indicators help users interpret reliability.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_concept_relationships">Concept Relationships</h3>
+<div class="sect3">
+<h4 id="_source_to_data_relationship">Source to Data Relationship</h4>
+<div class="paragraph">
+<p>Multiple sources may provide information about the same event.</p>
+</div>
+<div class="paragraph">
+<p>The system must support:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Source attribution</p>
+</li>
+<li>
+<p>Conflict detection</p>
+</li>
+<li>
+<p>Priority rules</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reliability_interpretation">Reliability Interpretation</h4>
+<div class="paragraph">
+<p>Reliability states influence:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User interface indicators</p>
+</li>
+<li>
+<p>System decision logic</p>
+</li>
+<li>
+<p>Validation behavior</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_user_trust_impact">User Trust Impact</h4>
+<div class="paragraph">
+<p>Transparent communication of uncertainty improves user trust and reduces
+misinterpretation of data.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conceptual_constraints">Conceptual Constraints</h3>
+<div class="sect3">
+<h4 id="_informal_data_environment">Informal Data Environment</h4>
+<div class="paragraph">
+<p>Tu Deporte Aquí operates in an environment where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Official APIs may not exist</p>
+</li>
+<li>
+<p>Data may be delayed</p>
+</li>
+<li>
+<p>Conflicts are common</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>System concepts must accommodate these constraints.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mobile_first_context">Mobile-First Context</h4>
+<div class="paragraph">
+<p>Concept design must prioritize:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compact information display</p>
+</li>
+<li>
+<p>Clear status indicators</p>
+</li>
+<li>
+<p>Fast interpretation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary">Summary</h3>
+<div class="paragraph">
+<p>Concept analysis provides a structured understanding of the domain elements
+that influence system reliability, transparency, and behavior.</p>
+</div>
+<div class="paragraph">
+<p>These concepts guide later modeling and validation activities.
+== 3.2 Validation and Verification</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_purpose_12">Purpose</h3>
+<div class="paragraph">
+<p>This section defines how the concepts, assumptions, and reliability strategies proposed for Tu Deporte Aquí will be evaluated during Milestone 1. Since this milestone focuses on documentation rather than implementation, validation emphasizes conceptual correctness, clarity, and alignment with project goals rather than executable testing.</p>
+</div>
+<div class="paragraph">
+<p>Validation ensures that the proposed system behavior addresses real-world conditions of local Puerto Rico sports data, including delayed updates, conflicting sources, and limited official APIs. Verification confirms that documentation artifacts are internally consistent and correctly structured.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validation_approach">Validation Approach</h3>
+<div class="paragraph">
+<p>Validation during Milestone 1 focuses on confirming that the proposed concepts meet stakeholder expectations and realistic operating conditions.</p>
+</div>
+<div class="sect3">
+<h4 id="_concept_validation">Concept Validation</h4>
+<div class="paragraph">
+<p>The reliability and transparency strategies are evaluated by analyzing whether they:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Address delayed, missing, and conflicting information scenarios</p>
+</li>
+<li>
+<p>Reflect informal data environments common in Puerto Rico sports</p>
+</li>
+<li>
+<p>Provide predictable and understandable system behavior</p>
+</li>
+<li>
+<p>Align with user expectations for trust and clarity</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_scenario_based_evaluation">Scenario-Based Evaluation</h4>
+<div class="paragraph">
+<p>Concepts are examined using representative scenarios such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Conflicting scores reported by multiple sources</p>
+</li>
+<li>
+<p>Missing updates during live events</p>
+</li>
+<li>
+<p>Delayed standings publication</p>
+</li>
+<li>
+<p>Partial data availability from unreliable sources</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These scenarios help determine whether the proposed behaviors remain consistent and reasonable.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_verification_approach">Verification Approach</h3>
+<div class="paragraph">
+<p>Verification ensures the documentation itself is correct, complete, and internally consistent.</p>
+</div>
+<div class="sect3">
+<h4 id="_documentation_consistency">Documentation Consistency</h4>
+<div class="paragraph">
+<p>Verification activities include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cross-checking terminology across sections</p>
+</li>
+<li>
+<p>Ensuring alignment between needs, ideas, and concepts</p>
+</li>
+<li>
+<p>Confirming traceability between sections of the A3 expansion</p>
+</li>
+<li>
+<p>Reviewing structural correctness of AsciiDoc hierarchy</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_structural_verification">Structural Verification</h4>
+<div class="paragraph">
+<p>The documentation structure is verified by:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Confirming correct section and subsection levels</p>
+</li>
+<li>
+<p>Ensuring files are placed in the correct repository folders</p>
+</li>
+<li>
+<p>Validating successful compilation through the AsciiDoc workflow</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expected_outcomes">Expected Outcomes</h3>
+<div class="paragraph">
+<p>By completing validation and verification activities during Milestone 1, the project establishes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Confidence in conceptual correctness</p>
+</li>
+<li>
+<p>Clear alignment with stakeholder needs</p>
+</li>
+<li>
+<p>Reliable documentation foundation for implementation phases</p>
+</li>
+<li>
+<p>Reduced risk of misunderstanding before development begins</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This approach supports a documentation-first engineering methodology and prepares the project for future technical validation stages.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_4_specific_class_topics">4 Specific class topics</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_4_1_test_driven_development_tdd">4.1 Test-Driven Development (TDD)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_purpose_13">Purpose</h3>
+<div class="paragraph">
+<p>This section describes how Test-Driven Development (TDD) principles support the reliability and transparency goals of Tu Deporte Aquí. TDD provides a structured approach to validating expected system behavior before implementation, aligning with the documentation-first philosophy of Milestone 1.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_role_of_tdd_in_the_project">Role of TDD in the Project</h3>
+<div class="paragraph">
+<p>TDD helps ensure that system behavior is clearly defined and verifiable before development begins. Since Tu Deporte Aquí operates with uncertain and potentially conflicting data sources, predictable behavior under different conditions is critical.</p>
+</div>
+<div class="paragraph">
+<p>Key benefits include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Early clarification of expected behavior</p>
+</li>
+<li>
+<p>Reduced ambiguity in system logic</p>
+</li>
+<li>
+<p>Improved reliability through automated validation</p>
+</li>
+<li>
+<p>Safer future refactoring and iteration</p>
+</li>
+<li>
+<p>Alignment between documentation and implementation</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_application_to_tu_deporte_aquí">Application to Tu Deporte Aquí</h3>
+<div class="paragraph">
+<p>In this project, TDD would be particularly useful for validating:</p>
+</div>
+<div class="sect3">
+<h4 id="_data_reliability_logic">Data Reliability Logic</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Conflict detection between multiple sources</p>
+</li>
+<li>
+<p>Timestamp freshness evaluation</p>
+</li>
+<li>
+<p>Handling of delayed or missing updates</p>
+</li>
+<li>
+<p>Confidence indicator behavior</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_system_behavior_under_uncertainty">System Behavior Under Uncertainty</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Graceful degradation when sources fail</p>
+</li>
+<li>
+<p>Fallback behavior when data is incomplete</p>
+</li>
+<li>
+<p>Transparency messaging to users</p>
+</li>
+<li>
+<p>Consistent handling of provisional states</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_user_facing_behavior">User-Facing Behavior</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Correct display of reliability indicators</p>
+</li>
+<li>
+<p>Mobile-first information prioritization</p>
+</li>
+<li>
+<p>Status messaging consistency</p>
+</li>
+<li>
+<p>Error and degraded state communication</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_tdd_workflow">Example TDD Workflow</h3>
+<div class="paragraph">
+<p>A typical workflow would include:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Define expected behavior in documentation.</p>
+</li>
+<li>
+<p>Write a failing test describing the behavior.</p>
+</li>
+<li>
+<p>Implement the minimal logic required to pass the test.</p>
+</li>
+<li>
+<p>Refactor while keeping tests passing.</p>
+</li>
+<li>
+<p>Expand coverage for edge cases and reliability scenarios.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This approach ensures that behavior remains predictable even as the system evolves.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_alignment_with_milestone_1">Alignment with Milestone 1</h3>
+<div class="paragraph">
+<p>During Milestone 1, no production code is implemented. However, defining TDD strategy early provides:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clear behavioral expectations</p>
+</li>
+<li>
+<p>Testable requirements</p>
+</li>
+<li>
+<p>Validation planning for later milestones</p>
+</li>
+<li>
+<p>Stronger reliability modeling</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This preparation reduces future development risk and supports structured system evolution.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conclusion_3">Conclusion</h3>
+<div class="paragraph">
+<p>Test-Driven Development supports the core goals of Tu Deporte Aquí by promoting reliability, transparency, and predictable system behavior. Establishing TDD principles early ensures that future implementation remains aligned with documented expectations and real-world data constraints.
+=== 4.2 BDD and BDD Tool Usage</p>
+</div>
+<div class="sect3">
+<h4 id="_purpose_14">Purpose</h4>
+<div class="paragraph">
+<p>This section describes how the <strong>Tu Deporte Aquí</strong> team applied Behavior-Driven Development (BDD) principles to derive acceptance criteria from user stories and personas, and how those acceptance criteria were transformed into specification examples using Gherkin. We document the process we followed during the planning phase and outline our planned approach for automating these examples using Cucumber in future milestones.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_from_user_stories_to_acceptance_criteria">From User Stories to Acceptance Criteria</h4>
+<div class="paragraph">
+<p>We began with the user stories documented in Section 2.2.1, which were written in the language of the domain and captured the needs of our personas: Sebastian (the superfan), Abiel (the coach), Andres (the reporter), and Chris (the engineer).</p>
+</div>
+<div class="paragraph">
+<p>For each user story, we analyzed it to extract concrete examples of desired system behavior. These examples became acceptance criteria, still expressed in domain terms. We did this by asking questions such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What specific situations might this user encounter?</p>
+</li>
+<li>
+<p>What would the system need to show or do in those situations?</p>
+</li>
+<li>
+<p>What would count as a successful outcome?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Consider the following user story from Epic 1:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>As Sebastian, I want each score and update to show its source so that I can judge credibility when multiple channels exist.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>From this story, we derived the following acceptance criteria:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When a score comes from an official league source, it should be clearly labeled as such.</p>
+</li>
+<li>
+<p>When a score comes from a social media source, it should be labeled as "unverified" or "provisional".</p>
+</li>
+<li>
+<p>The source name (e.g., "BSN Official", "Twitter") should be visible next to the score.</p>
+</li>
+<li>
+<p>If multiple sources report the same score, the system may show multiple source attributions.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_from_acceptance_criteria_to_specification_examples">From Acceptance Criteria to Specification Examples</h4>
+<div class="paragraph">
+<p>We then refined the acceptance criteria into concrete specification examples. These examples illustrate the desired behavior with specific inputs and expected outputs. They form the foundation of our BDD scenarios and are captured in the <code>.feature</code> files located in the <code>features/</code> directory of our repository.</p>
+</div>
+<div class="paragraph">
+<p>For the story above, we created the following specification example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-gherkin" data-lang="gherkin">Scenario: Display source attribution in standings
+  Given Sebastian navigates to league standings
+  And the standings data was last updated "5 minutes ago"
+  And the source is "BSN Official"
+  When the standings page loads
+  Then Sebastian should see a source icon next to each team's record
+  And Sebastian can tap the icon to see the source and timestamp
+  And the source information should be consistent across all standings entries</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example is concrete and unambiguous. It uses domain terminology (standings, source, timestamp) and references our persona (Sebastian) to keep the focus on user value.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_feature_files">The Feature Files</h4>
+<div class="paragraph">
+<p>We organized our scenarios into three feature files, each corresponding to a requirement category:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>features/domain_requirements.feature</code> – scenarios focused on conflict detection, source authority, corrections, and staleness</p>
+</li>
+<li>
+<p><code>features/interface_requirements.feature</code> – scenarios focused on what users see: timestamps, source labels, confidence indicators, and degraded state messaging</p>
+</li>
+<li>
+<p><code>features/machine_requirements.feature</code> – scenarios focused on system behavior under failure, load, and other non-functional conditions</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_example_a_real_scenario_from_domain_requirements_feature">Example: A Real Scenario from <code>domain_requirements.feature</code></h5>
+<div class="paragraph">
+<p>Here is a complete scenario from our domain requirements feature file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-gherkin" data-lang="gherkin">Scenario: Conflicting scores from different sources
+  Given a game between "Cangrejeros" and "Vaqueros" is being played
+  And a social media post reports the score as "75-70" for Cangrejeros
+  And the official league website later reports the score as "76-70" for Cangrejeros
+  Then the two reports are considered conflicting
+  And the official league report takes precedence
+  And the conflicting social media report is recorded as unofficial
+  And fans should be made aware that a discrepancy existed</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This scenario traces directly to domain requirements R-DOM-2 (Conflict Detection) and R-DOM-3 (Conflict Preservation), and to user story "As Sebastian, I want the platform to flag when two sources disagree on a score".</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_a_real_scenario_from_interface_requirements_feature">Example: A Real Scenario from <code>interface_requirements.feature</code></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-gherkin" data-lang="gherkin">Scenario: Show when data was last updated
+  Given the game data was last updated "2 minutes ago"
+  When the game details page loads
+  Then Sebastian should see a "Last updated" timestamp near the score
+  And the timestamp should show the time since last update
+  And the timestamp should be in a human-readable format</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This scenario validates interface requirement R-INT-5 (Update on Domain Event) and machine requirement R-MAC-5 (Data Freshness), and addresses the user story "As Sebastian, I want to see when each item was last updated".</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_a_real_scenario_from_machine_requirements_feature">Example: A Real Scenario from <code>machine_requirements.feature</code></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-gherkin" data-lang="gherkin">Scenario: Continue operating when a source fails
+  Given source "BSN API" returns a 500 Internal Server Error
+  When the system processes requests for data
+  Then the system should not crash
+  And the system should continue serving data from remaining sources
+  And the system should set a "partial data" flag for affected entities
+  And the system should log the error with source name and timestamp
+  And the system should return HTTP 200 to the user with available data</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This scenario validates machine requirements R-MAC-9 (Graceful Degradation) and R-MAC-7 (Error Logging), and addresses the needs of Chris, the platform engineer.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_traceability_matrix">Traceability Matrix</h4>
+<div class="paragraph">
+<p>The following matrix traces every scenario in our feature files to the requirements it validates and the user stories that motivated it. This matrix is maintained in our documentation to ensure coverage and to help assess impact when requirements change.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Scenario (exact title from feature file)</th>
+<th class="tableblock halign-left valign-top">Feature File</th>
+<th class="tableblock halign-left valign-top">Requirement IDs</th>
+<th class="tableblock halign-left valign-top">User Story / Persona</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Conflicting scores from different sources"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>domain_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-2, R-DOM-3, R-DOM-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: flag when two sources disagree on a score</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Provisional report becomes confirmed"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>domain_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-4, R-DOM-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Andres: mark updates as preliminary or confirmed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Official correction after publication"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>domain_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-6, R-DOM-10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abiel: prioritize verified league results</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Multiple unofficial sources agree"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>domain_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-5, R-DOM-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: configurable validation rules for ingestion</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Outdated game information"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>domain_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: see when each item was last updated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Source becomes unavailable"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>domain_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: standardized fallback behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Correction without formal announcement"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>domain_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-2, R-DOM-1, R-DOM-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: flag conflicting scores</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"High demand for accurate information during playoffs"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>domain_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-3, R-MAC-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: score pages load reliably during playoffs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Show when data was last updated"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interface_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-INT-5, R-MAC-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: see when each item was last updated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Indicate stale data to the user"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interface_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-7, R-MAC-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: know if information might be outdated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Show conflicting reports from different sources"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interface_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-2, R-DOM-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: platform flags conflicting scores</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Handle missing data gracefully"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interface_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: explanation when update is missing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Label provisional data from unverified sources"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interface_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-4, R-INT-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Andres: avoid presenting uncertain info as definitive</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Display source attribution in standings"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interface_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-1, R-INT-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: each score shows its source</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Communicate system-wide degraded state"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interface_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: clear messages when data is missing; Chris: standardized fallback behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Show confidence level for uncertain data"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interface_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-DOM-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: simple reliability cue during major events</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Continue operating when a source fails"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>machine_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-9, R-MAC-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: standardized fallback behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Fall back to cached data during source unavailability"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>machine_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-9, R-MAC-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: standardized fallback behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Log conflicts for debugging and analysis"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>machine_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: automated tests that simulate conflicting data; dashboards for consistency</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Prioritize critical endpoints under high traffic"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>machine_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-3, R-MAC-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sebastian: score pages load reliably during playoffs; Chris: load and stress tests</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Resume normal operation after source recovery"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>machine_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-8, R-MAC-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: measure availability and recovery time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Expose reliability metrics for monitoring"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>machine_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: dashboards for accuracy, consistency, availability</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Retain correction history for audit purposes"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>machine_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-10, R-DOM-10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: audit trail for corrections</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Handle malformed data from a source"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>machine_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-7, R-MAC-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: fault injection tests</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Recover from database connection failure"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>machine_requirements.feature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R-MAC-12, R-MAC-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chris: measure availability and recovery time</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_planned_automation_with_cucumber">Planned Automation with Cucumber</h4>
+<div class="paragraph">
+<p>While we are still in the planning phase and no code has been written, we have designed our approach for automating these specification examples in future milestones.</p>
+</div>
+<div class="sect4">
+<h5 id="_tool_selection_cucumber">Tool Selection: Cucumber</h5>
+<div class="paragraph">
+<p>We have selected <strong>Cucumber</strong> as our BDD tool. Cucumber allows us to keep our scenarios in Gherkin format (plain text) and link them to step definitions written in the same programming language we will use for implementation. This keeps the scenarios readable by non-technical stakeholders while enabling automation.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_planned_workflow">Planned Workflow</h5>
+<div class="paragraph">
+<p>Once implementation begins, we plan to follow this workflow:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Feature files</strong> (the <code>.feature</code> files we have already written, located in <code>features/</code>) will remain in the repository as living documentation.</p>
+</li>
+<li>
+<p><strong>Step definitions</strong> will be implemented as the corresponding functionality is developed. Each Gherkin step will be mapped to code that interacts with the system under test (via its API, UI, or directly with domain logic) and asserts expected outcomes.</p>
+</li>
+<li>
+<p><strong>Test hooks</strong> will be used to set up and tear down test data, ensuring scenarios are isolated and repeatable.</p>
+</li>
+<li>
+<p><strong>Scenarios will be run</strong> locally by developers during implementation, and also as part of the CI pipeline to catch regressions.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_planned_cicd_integration">Planned CI/CD Integration</h5>
+<div class="paragraph">
+<p>We plan to integrate Cucumber into our CI/CD pipeline as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On every pull request, the full test suite (including all Cucumber scenarios) will be executed automatically.</p>
+</li>
+<li>
+<p>If any scenario fails, the build will be marked as failed, preventing merge until the issue is resolved.</p>
+</li>
+<li>
+<p>Test reports will be generated and made visible in the pull request, so reviewers can see which scenarios passed or failed.</p>
+</li>
+<li>
+<p>We will maintain a separate test environment where reliability scenarios (source failures, conflicting data) can be simulated safely.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_planned_test_data_and_isolation">Planned Test Data and Isolation</h5>
+<div class="paragraph">
+<p>We recognize that many scenarios depend on specific data conditions (e.g., a game exists, a source reports a score). To keep scenarios reliable and independent, we plan to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use a test database that is reset before each test run.</p>
+</li>
+<li>
+<p>Use factories or fixtures to create the necessary domain objects (games, sources, reports) for each scenario.</p>
+</li>
+<li>
+<p>For machine requirements (e.g., simulating source failures), we will use test doubles or mock servers that can be programmed to respond in specific ways.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_current_status_and_next_steps">Current Status and Next Steps</h4>
+<div class="paragraph">
+<p>At this stage (Milestone 1), we have completed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Analysis of user stories to extract acceptance criteria</p>
+</li>
+<li>
+<p>Transformation of acceptance criteria into Gherkin scenarios</p>
+</li>
+<li>
+<p>Organization of scenarios into feature files in the <code>features/</code> directory</p>
+</li>
+<li>
+<p>Creation of a traceability matrix linking scenarios to requirements</p>
+</li>
+<li>
+<p>Planning of automation approach, tool selection, and CI/CD integration</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In future milestones, we will:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement step definitions as the corresponding features are developed</p>
+</li>
+<li>
+<p>Set up the Cucumber test harness and integrate it with the build system</p>
+</li>
+<li>
+<p>Run the scenarios against the evolving implementation</p>
+</li>
+<li>
+<p>Refine scenarios as requirements become better understood</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conclusion_4">Conclusion</h4>
+<div class="paragraph">
+<p>BDD provided a structured way to move from user stories to concrete, testable specifications while keeping the language of the domain throughout. Even in the planning phase, writing scenarios helped us clarify requirements and identify edge cases. The feature files now serve as living documentation that bridges the gap between domain experts and developers. Once implementation begins, Cucumber will allow us to automate these scenarios, ensuring that the system we build matches the needs identified in our analysis and documented in our requirements.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2026-02-26 16:25:12 -0400
+</div>
+</div>
+</body>
+</html>
