@@ -1,0 +1,48 @@
+== Fault Tolerance
+
+=== Overview
+
+Fault tolerance is the ability of a system to continue operating correctly even when some components fail. Instead of crashing or producing incorrect results, the system detects failures and handles them in a controlled and predictable manner.
+
+=== Importance
+
+In the project, data may come from unreliable or inconsistent sources. This creates situations where information may be missing, delayed, or conflicting. Fault tolerance ensures that the system remains stable and usable even under these conditions.
+
+=== Common Failure Scenarios
+
+- Missing data from a source  
+- Delayed updates during live events  
+- Conflicting reports from multiple sources  
+- Temporary server or API unavailability  
+
+=== Application to Tu Deporte Aquí
+
+The system should:
+
+- Provide fallback values when data is missing  
+- Clearly indicate when data is unavailable  
+- Handle conflicting data without crashing  
+- Maintain stable behavior even with partial information  
+
+=== Example Scenario
+
+[cols="1,2,2"]
+|===
+| Scenario | Issue | Expected Behavior
+
+| Missing score update
+| No data from source
+| Show "Not available" instead of blank or error
+
+| Conflicting match result
+| Different values from sources
+| Display conflict indicator
+
+| Delayed data
+| Late updates
+| Show last known value with timestamp
+|===
+
+=== Conclusion
+
+Fault tolerance is essential for ensuring that Tu Deporte Aquí remains stable, predictable, and reliable even when external data sources fail or behave inconsistently.
