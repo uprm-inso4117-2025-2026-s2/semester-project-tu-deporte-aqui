@@ -3,70 +3,64 @@
 
 ===== Purpose
 
-This section explains the main needs that justify building Tu Deporte Aquí. These needs come from the constraints, assumptions, and real-world conditions identified throughout Milestone 1.
+This section explains the needs identified from the current situation in Section 1.2.1. The focus is on what people involved in local Puerto Rico sports need, not yet on how a system would address those needs.
 
-The needs are organized into three categories: user needs, system needs, and data reliability needs.
+===== Stakeholder Context
 
-===== User Needs
+The current situation shows that sports information in Puerto Rico is spread across league websites, social media posts, news outlets, and informal reporting channels. Those sources update at different times, use different formats, and may be delayed, incomplete, or in conflict with one another.
 
-In Puerto Rico, sports fans, coaches, reporters, and community members depend on league websites, social media, news outlets, and other informal sources to follow local sports. Because this information is spread across many platforms, several clear needs arise:
+Under those conditions, several groups are affected. Sports followers want to know what is happening now and whether the information they found is dependable. Reporters, organizers, and other information originators want updates and corrections to reach the public without losing their source or context. These needs arise before any decision is made about what kind of system should be built.
 
-Centralized access to local sports information::
-Users need a single, mobile-first platform that brings together game scores, standings, schedules, and athlete updates from local Puerto Rico leagues. Currently, staying informed usually means checking multiple sources that update at different times—or sometimes not at all.
+===== Needs of Sports Followers
 
-Clarity during uncertainty::
-When information is delayed, incomplete, or conflicting, users need the platform to clearly indicate what is confirmed, what is still uncertain, and what is missing. For example, during a live BSN playoff game, users should be able to distinguish between a confirmed final score and a provisional update taken from social media.
+Accessible local sports information::
+People who follow local sports need to find current scores, schedules, standings, and related updates without searching across many unrelated channels. This need follows from the fragmented information environment described in Section 1.2.1.
 
-Trustworthy information during high-demand moments::
-Playoffs, tournaments, and breaking news events are when users rely on the platform the most—and when data sources are more likely to lag or disagree. The platform must remain accessible and transparent during these peak moments, instead of failing silently or presenting unverified information as final.
+Timely awareness of what is happening::
+Followers need information early enough to remain useful while events are still relevant. When updates arrive too late, people can no longer follow a game as it unfolds or react to changes that matter to them.
 
-Source attribution and freshness indicators::
-Users need visibility into where each update comes from and when it was last refreshed. Without this context, it is difficult to determine whether a score reflects a live update, a delayed post, or outdated cached data.
+Clarity when information is incomplete or disputed::
+Followers need to understand when available information is missing details, when reports disagree, and when a situation is still unresolved. Without that clarity, they are left to guess which version is most believable.
 
-===== System Needs
+Confidence during high-interest moments::
+During playoffs, tournaments, and other heavily followed events, followers depend more on sports information and are affected more by delays or contradictions. At those moments, they need to know whether the available information is stable or still subject to change.
 
-Tu Deporte Aquí operates in an environment where official APIs are limited or unavailable, and many data sources are informal. The system must be designed around this reality:
+===== Needs of Reporters, Organizers, and Information Originators
 
-Conflict detection and resolution::
-The system needs a way to detect when different sources report conflicting values for the same data point (such as different scores for a single game) and apply clear policies to resolve or flag those conflicts. Disagreement between sources should be treated as an expected condition, not a rare exception.
+Faithful transmission of updates::
+People who publish or relay sports information need their updates to remain connected to what they actually reported. If scores, schedules, or status changes are repeated without context, the public can no longer tell where the information came from or whether it was altered later.
 
-Graceful degradation under partial failure::
-If one or more data sources become unavailable, delayed, or unreliable, the system should continue serving previously validated information instead of showing errors or empty states. Fallback behavior should be consistent and predictable.
+Visible corrections and revisions::
+When reporters, leagues, or organizers correct previously shared information, they need those corrections to remain visible as corrections rather than disappear through silent replacement. This matters in an environment where historical changes may occur without a formal correction workflow.
 
-Scalability during peak traffic::
-The system must handle traffic spikes during major events like playoffs and championship games, when demand is highest and reliability is critical. Core information—scores, standings, and game status—should remain prioritized under heavy load.
+Recognition of differing source authority::
+Not all originators play the same role in the sports information ecosystem. Official league channels, institutional pages, journalists, and informal observers contribute differently, so those differences in authority and responsibility need to remain visible.
 
-Standardized transparency messaging::
-The system needs a consistent way to communicate degraded states, stale data, and uncertainty. Error messages, loading indicators, and missing-data notices should be clear and uniform across the platform.
+===== Cross-Cutting Need: Dependability of Information
 
-===== Data Reliability Needs
+Across all stakeholder groups, people need to judge how dependable sports information is.
 
-Since Tu Deporte Aquí aggregates data from sources that vary in structure, timeliness, and accuracy, reliability is a central concern:
+In the current situation, dependability is difficult to assess because sources are fragmented, update frequencies are inconsistent, and some reports are delayed, incomplete, or contradictory. People therefore need enough context to interpret the status of the information they encounter.
 
-Provenance and traceability::
-Every piece of displayed information must have a traceable origin. The system should record which source provided each update, when it was received, and whether it has been modified since ingestion. This supports user trust and simplifies internal debugging.
+That context includes:
 
-Handling of provisional and unverified data::
-The system must clearly differentiate between confirmed information and data that is still preliminary or unverified. Provisional updates should be labeled appropriately rather than presented with the same level of confidence as confirmed results.
+- where a piece of information came from
+- when it was last known to be updated
+- whether it appears settled, still provisional, or openly disputed
+- whether a later correction has changed the earlier picture
 
-Staleness awareness::
-Standings, profiles, and schedules become outdated at different rates. The system needs defined thresholds for acceptable staleness and a mechanism to flag or hide information that exceeds those limits.
+Source attribution, freshness, provisional status, and traceability are treated here as parts of the same need: helping people judge the dependability of the information available to them.
 
-Correction and revision tracking::
-Local leagues may revise scores, standings, or schedules after initial publication, sometimes without formal notice. The system should support basic revision tracking so corrections are recorded and previous values remain available for audit purposes.
+===== Assumptions and Plausibility
 
-===== Assumptions
+The following assumptions are used in this section. They are plausible because they match the conditions already documented in Section 1.2.1 and the research collected during Milestone 1:
 
-The following assumptions support the needs described in this section:
-
-- Most local Puerto Rico leagues do not provide official APIs or machine-readable data feeds.
-- Data sources include league websites, university athletic department pages, social media posts, and informal reporting channels.
-- Reporting formats, update frequency, and completeness vary significantly across sources.
-- Historical corrections may occur without formal announcements.
-- The platform is mobile-first and web-based; native mobile applications are not included in Phase 1.
-- No implementation or source code is produced during Milestone 1; this section documents needs based only on research and analysis.
+- Local Puerto Rico sports information is often encountered through a mix of official and unofficial channels rather than through one uniform publication mechanism.
+- The timing, structure, and completeness of updates vary noticeably between leagues and sources.
+- Corrections and late revisions are possible, especially when reporting depends on manual publication or informal communication channels.
+- Different stakeholder groups share an interest in current sports information, but they do not all approach it from the same role, level of authority, or immediate goal.
 
 ===== Scope of This Section
 
-This section defines _what_ is needed and _why_, without going into implementation details. Technical solutions, architectural decisions, and feature-level specifications are addressed in later sections of the documentation.
+This section defines the needs that arise from the current situation and explains why those needs matter. It does not choose a solution, define features, or state requirements. High-level ideas for addressing these needs appear in Section 1.2.3, while requirements are specified later in Section 2.
 
