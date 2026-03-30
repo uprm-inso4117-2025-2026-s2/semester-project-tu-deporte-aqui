@@ -1,62 +1,96 @@
+==== 2.1.2
 
-==== 2.1.2 Terminology
+===== Terminology
 
-====== Verification Status Terms
+This section defines the terms used in the descriptive part of the document. The intention is to support consistent use of concepts across the narrative, actions, requirements, and later analysis.
 
-This section defines the official terminology used in Tu Deporte Aquí. These terms must be used consistently across documentation and future testing scenarios, especially when describing reliability, transparency, and uncertain information states.
+====== Core Domain Terms
 
-*Confirmed*::
-Information validated by an official or highly trusted source and considered accurate at the time of display.
+*Sporting Event*::
+A game, match, competition, or other bounded sports occurrence that people may want to follow.
 
-*Unverified*::
-Information reported by a single source or informal source without confirmation from an authoritative provider.
+*Source*::
+An origin from which information about a sporting event is obtained.
+Examples include league websites, team pages, sports media outlets, reporters, community pages, and third-party aggregators.
 
-*Developing*::
-Time-sensitive information that is still being verified and may change as more sources publish updates.
+*Source Report*::
+A concrete communicated item produced by a source about a sporting event, such as a score update, status declaration, standings entry, correction, or postponement notice.
 
-*Conflicting*::
-A state where multiple sources report different values for the same event or field (e.g., score, status).
+*Event Record*::
+The maintained representation of what is currently known about a sporting event within the project context.
 
-*Delayed*::
-Information submitted significantly after the event occurred or updated slower than expected due to source latency.
+*Standings Snapshot*::
+A reported view of team ordering, records, or ranking at a particular time.
 
-*Corrected*::
-Information that was previously published but later changed due to an official correction or reconciliation of conflicts.
+*Correction*::
+A later change to previously communicated information caused by review, reconciliation, or newly available authoritative information.
 
-====== Confidence Level Terms
+====== Dependability and Verification Terms
 
-*High Confidence*::
-Official source and no conflicts detected.
+*Source Trust Level*::
+A relatively stable assessment of how dependable a source is considered in general.
+This concerns the source as a source, not yet the dependability of a particular reported value.
 
-*Medium Confidence*::
-Multiple non-official sources agree, but no official confirmation exists.
+*Verification State*::
+The state of confirmation of a particular reported value or event record.
 
-*Low Confidence*::
-Single unverified source or conflicts detected between sources.
+Defined verification states are:
 
-====== Transparency Indicator Terms
+* *Unverified* — not yet confirmed by an authoritative or corroborating source
+* *Confirmed* — sufficiently corroborated or supported by an authoritative source
+* *Final* — confirmed and no longer expected to change under normal circumstances
+
+*Provisional*::
+A condition in which information is available and may already be useful, but remains subject to later correction or confirmation.
+
+NOTE: In this terminology, provisional is not itself a verification state. It describes the current dependability condition of available information.
+
+*Conflict*::
+A situation in which two or more source reports provide incompatible values for the same relevant aspect of a sporting event.
+
+*Confidence Level*::
+A measure of how dependable a particular reported value is judged to be in context.
+
+Defined confidence levels are:
+
+* *High Confidence* — strong basis for dependability in the current context
+* *Medium Confidence* — plausible and useful, but with remaining uncertainty
+* *Low Confidence* — substantial uncertainty remains
+
+NOTE: Source trust level and confidence level are related but not identical. Source trust level concerns the source in general; confidence level concerns a particular reported value in a particular situation.
+
+NOTE: Verification state and confidence level are also related but not identical. A confirmed value will normally have high confidence, but confidence may additionally depend on source trust, recency, and whether unresolved conflicts remain.
+
+====== Freshness and Transparency Terms
 
 *Publish Time*::
-The time a report was first made visible to users.
+The time at which a source report was originally made available by its source.
+
+*Ingest Time*::
+The time at which the project receives or records a source report.
 
 *Last Updated Time*::
-The most recent time the system updated the displayed information.
+The most recent time at which the maintained event record was changed.
 
-*Source Type*::
-Classification of the origin of information (e.g., Official, Reporter, Community).
+*Staleness*::
+A condition in which information is no longer sufficiently current for its context because too much time has passed since the last dependable update.
 
-*Reliability Metadata*::
-The combined set of fields that explain trustworthiness, including verification status, confidence level, timestamps, and source attribution.
+*Dependability Indicator*::
+A visible marker or explanation that helps a reader understand how dependable currently displayed information is.
 
-====== System State Terms
+*Source Attribution*::
+The explicit indication of where displayed information came from.
+
+====== System Condition Terms
 
 *Degraded State*::
-A system condition where full functionality or complete data is not available due to source failures, partial outages, missing fields, or inconsistencies.
+A condition in which operation continues, but some expected information is missing, delayed, incomplete, or reduced in quality because one or more information flows are impaired.
 
 *Graceful Degradation*::
-The system remains usable under partial failure by showing last known valid data and clearly communicating limitations instead of failing completely.
+The continued provision of partial but clearly qualified information instead of abrupt failure or misleading certainty.
 
-*Silent Failure*::
-A failure where incorrect or missing information is presented without warning, explanation, or status messaging.
+*Silent Overwrite*::
+Replacement of one reported value by another without preserving visible trace of the change or conflict.
 
-
+*Unknown*::
+A deliberate indication that a relevant value is not presently known and must not be inferred.
