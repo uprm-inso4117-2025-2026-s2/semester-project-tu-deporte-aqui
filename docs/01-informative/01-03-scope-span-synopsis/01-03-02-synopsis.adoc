@@ -1,14 +1,13 @@
+==== 1.3.2
 
-==== 1.3.2 Synopsis
+===== Synopsis
 
-Tu Deporte Aquí is a mobile-first, web-based platform designed to centralize sports information for local Puerto Rico leagues and collegiate teams.
+Tu Deporte Aquí is concerned with the problem of following local sports information in Puerto Rico when relevant updates are dispersed across many channels and may differ in timing, detail, and dependability.
 
-Currently, sports data is scattered across multiple sources such as websites and social media, often resulting in delayed, incomplete, or conflicting information. This makes it difficult for users to access reliable and consistent updates.
+In the current environment, scores, standings, schedules, and related developments are often communicated through a mixture of league pages, social media accounts, sports media, reporters, and third-party platforms. This makes it difficult for fans and families, players and coaches, leagues and organizers, and sports reporters or community updaters to quickly determine what is currently known, what remains uncertain, and how dependable a particular update is.
 
-The platform focuses on addressing these challenges by prioritizing reliability and transparency. Instead of hiding uncertainty, the system communicates verification status, confidence levels, and update timestamps to help users understand the quality of the information presented.
+The project focuses on local Puerto Rico sports and excludes national and international coverage. Its emphasis is not only on access to information, but also on clarity regarding the state of that information.
 
-Phase 1 of the project is limited to local Puerto Rico sports coverage. National and international leagues are explicitly out of scope.
+A central concern throughout the project is dependability under imperfect real-world conditions. Information may be delayed, incomplete, conflicting, or later corrected. For that reason, the project gives special importance to transparency about the freshness, state, and dependability of the available information rather than assuming that all reported values are equally trustworthy.
 
-Tu Deporte Aquí aims to provide a clear, trustworthy, and accessible way for users to follow local sports while acknowledging the real-world limitations of the available data.
-
-
+At a high level, Tu Deporte Aquí aims to improve how local sports information is organized, communicated, and interpreted under conditions where information quality and timing vary across sources.
