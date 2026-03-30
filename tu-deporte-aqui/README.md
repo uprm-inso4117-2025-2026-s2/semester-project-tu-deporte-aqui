@@ -29,6 +29,10 @@ import { Button } from "@/components/ui/button";
 1. Duplicate `.env.example` and rename it to `.env.local`.
 
 2. Replace the values with the real Supabase project credentials.
+URL: https://iehsdbvufggagbjylmwm.supabase.co 
+ANON Key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImllaHNkYnZ1Z
+mdnYWdianlsbXdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4MjYxNjksImV4cCI6MjA4ODQ
+wMjE2OX0.PFF5lKopILSuYDClo6v_bV3vn_XJQo1xY1fiaLy2-H8 
 
 3. Install dependencies:
 
