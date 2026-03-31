@@ -1,68 +1,68 @@
-
 ==== 1.3.1 Scope and Span
 
 ===== Purpose
 
-This section defines the boundaries, coverage limits, and operational constraints of Tu Deporte Aquí during Milestone 1. Clearly defining scope prevents scope creep, ensures alignment across teams, and establishes realistic expectations before implementation begins.
+This section defines the boundaries, coverage limits, and operational constraints of Tu Deporte Aquí. Clearly defining scope prevents scope creep, ensures alignment across teams, and establishes realistic expectations during implementation.
 
-Milestone 1 focuses exclusively on documentation, research, and structured system definition. No implementation or source code development is included in this milestone.
+The project has transitioned from documentation and system definition into implementation. The scope now focuses on building a working system while maintaining the constraints previously defined.
 
 ===== In-Scope Coverage
 
-The system scope for Milestone 1 includes:
+The system scope includes:
 
 ===== Local Puerto Rico Sports Leagues
 
 - Coverage is limited to local leagues within Puerto Rico.
 - National and international leagues are excluded.
-- Emphasis is placed on leagues where official APIs may not exist.
+- Emphasis remains on leagues where official APIs may not exist.
 
-This focus ensures realistic alignment with data availability and milestone constraints.
+This constraint reflects the availability and reliability of data sources.
 
-===== Reliability Modeling
+===== Data Handling Under Uncertainty
 
-The system will define expected behavior under:
+The system must handle:
 
 - Delayed updates
 - Conflicting reports
 - Missing information
 - Corrected or revised results
 
-Explicit documentation of uncertainty handling is part of the defined scope.
+These cases are now considered during implementation, not only as documented scenarios.
 
-===== Mobile-First Platform Assumption
+===== Mobile-First Platform
 
-All feature definitions and UI expectations assume a mobile-first, web-based experience.
+The system is implemented as a mobile-first web platform.
 
 This includes:
 
 - Compact information display
 - Clear status indicators
 - Prioritization of essential game data
+- Responsive layout across devices
 
-===== Documentation-First Engineering
+===== Core Implementation Scope
 
-Milestone 1 includes:
+The current milestone includes:
 
-- Structured documentation scaffold
-- Defined system behavior and assumptions
-- Research-based reliability strategies
-- Governance and workflow definition
+- UI implementation using Next.js
+- Backend API routes
+- Integration with Supabase
+- Authentication and protected routes
+- Display of real data in the frontend
 
-No backend, frontend, or database implementation is included at this stage.
+This defines the transition from system definition to a working application.
 
 ===== Out-of-Scope Elements
 
-The following elements are explicitly excluded from Milestone 1:
+The following elements remain out of scope:
 
-- Implementation of application code
-- Integration with official league APIs
-- Automated web scraping mechanisms
+- Real-time data updates (e.g., polling or WebSockets)
+- Automated data scraping mechanisms
 - National or international league coverage
-- Real-time performance optimization
-- Production deployment or hosting infrastructure
+- Advanced performance optimization
+- Complex user roles or admin systems
 
-These exclusions ensure that Milestone 1 remains focused on system definition rather than execution.
+These exclusions limit system complexity and keep the focus on core functionality.
 
 ===== Operational Constraints
 
@@ -89,17 +89,15 @@ Because of data uncertainty, the system must:
 - Indicate possible staleness
 - Support traceability of changes
 
-These constraints directly influence system design decisions in later phases.
+These constraints affect how data is presented and interpreted in the system.
 
 ==== Boundary Summary
 
-Tu Deporte Aquí, during Milestone 1, is a documentation-driven project focused on:
+Tu Deporte Aquí is a system focused on:
 
 - Local Puerto Rico sports
-- Reliability modeling
-- Transparency definition
-- Scope discipline
-- Structured governance
+- Handling unreliable or inconsistent data
+- Providing transparent information to users
+- Maintaining clear scope boundaries during implementation
 
-By clearly defining these boundaries, the project ensures disciplined progress and alignment across all teams prior to implementation.
-
+These boundaries guide development decisions and help ensure consistent progress across teams.
