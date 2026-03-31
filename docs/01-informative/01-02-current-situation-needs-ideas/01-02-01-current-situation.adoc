@@ -1,48 +1,70 @@
-==== 1.2.1 Current Situation
+==== 1.2.1
 
-This section describes the current state of sports information availability in Puerto Rico prior to the implementation of Tu Deporte Aquí.
+===== Current Situation
 
-====== Overview
+This section describes how sports information about local Puerto Rico events is currently produced, shared, and consulted, without assuming any particular system.
 
-Sports information in Puerto Rico is distributed across multiple independent platforms, including league websites, social media, news outlets, and informal reporting channels. There is no centralized or standardized system for accessing this data.
+Local sports information is not provided through a single coordinated source. Instead, it appears across multiple channels. In practice, people rely on a combination of league websites, team pages, social media posts, sports media, third-party platforms, and informal community reporting to follow schedules, scores, standings, and event updates.
 
-====== Data Distribution Environment
+This description is based on project research into how local leagues publish updates, how people discover events, and how standings, scores, and live data are communicated.
 
-Information is typically published through:
-- League websites
-- Social media posts (e.g., Twitter, Instagram)
-- News outlets
-- Independent reporters
+====== Information Sources in the Current Environment
 
-These sources often operate independently, with no synchronization or standardization.
+Sports information appears through several types of sources:
 
-====== Key Limitations
+* official league websites
+* team and league social media pages
+* sports media outlets
+* independent reporters and community pages
+* third-party sports platforms
 
-The current environment presents several limitations:
-- Data fragmentation across multiple platforms
-- Lack of official APIs for many leagues
-- Inconsistent update frequencies
-- Limited standardization in reporting formats
+These sources differ in format, timing, and level of detail. Some provide structured data, while others provide short updates intended for immediate awareness.
 
-====== Reliability Challenges
+====== Fragmentation of Information
 
-Sports data in Puerto Rico is frequently:
-- Delayed due to manual updates or slow reporting
-- Conflicting when multiple sources provide different values
-- Incomplete when certain fields (score, time, status) are missing
-- Unverified when information comes from informal sources
+Information about the same event is often split across multiple sources.
 
-These issues are more noticeable during high-demand events such as playoffs.
+For example:
 
-====== Impact on Users
+* a league page may publish an official result after a reporter at the venue
+* a team account may post a score without additional context
+* a media outlet may summarize standings without showing the full table
 
-Users face several challenges:
-- Difficulty determining which information is correct
-- Need to cross-check multiple sources
-- Confusion during conflicting or delayed updates
-- Reduced trust in available information
+To understand a single event, a person may need to consult several sources.
 
-In many cases, incorrect information causes more harm to user trust than clearly communicated missing information.
+====== Irregular Timing and Delay
 
-This situation highlights the need for a system that prioritizes transparency and reliability when handling uncertain data.
+Updates are not synchronized across sources.
 
+Observed patterns include:
+
+* manual posting of scores
+* gaps between updates during active games
+* delayed publication of final results or standings
+* sources reflecting different points in time
+
+Two sources checked at the same moment may show different versions of the same event.
+
+====== Inconsistency and Incompleteness
+
+Information may differ in both content and completeness.
+
+Examples include:
+
+* different scores reported for the same game
+* inconsistent standings or rankings
+* missing time indicators or status labels
+* updates that do not indicate whether they are live or final
+
+These differences often result from manual entry, different publication practices, and lack of coordination between sources.
+
+====== Consequences for People in the Domain
+
+The current situation affects different roles:
+
+* fans and families may have difficulty deciding which information to trust
+* players and coaches may need to verify schedules and results across sources
+* leagues and organizers may see outdated or partial information circulate
+* reporters and community contributors often publish quickly without full confirmation
+
+Following local sports often requires comparing multiple sources rather than relying on a single consistent view.
