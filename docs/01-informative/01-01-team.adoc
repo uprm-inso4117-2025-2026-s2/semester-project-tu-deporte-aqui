@@ -2,27 +2,25 @@
 
 ===== Project Organization
 
-Tu Deporte Aquí is organized into five specialized teams to support structured documentation, research, and feature preparation during Milestone 1.
+Tu Deporte Aquí is organized into five specialized teams that support both documentation and implementation across project milestones.
 
-Milestone 1 does not involve implementation or source code development. The focus is on defining scope, system behavior, reliability expectations, and transparency requirements for a mobile-first platform serving local Puerto Rico sports.
+During Milestone 1, the focus was on documentation and system definition. In the current milestone, the project has transitioned into implementation, where teams are responsible for building and integrating system components.
 
-Each team is responsible for a clearly defined domain area to ensure full coverage of system expectations before development begins.
+Each team is assigned a specific domain area. This allows work to be distributed while still maintaining coordination across the system.
 
 ===== Team Structure
 
-====== Team 1 – Core Documentation & Project Standards
+====== Team 1 – Documentation & Standards
 
-Responsible for establishing the official documentation foundation:
+Responsible for maintaining consistency and supporting integration across teams:
 
-- Expanding the A3 into a structured project overview
-- Defining scope boundaries (local leagues only)
-- Documenting assumptions (limited or no official APIs; reliance on informal sources)
-- Maintaining the main README and documentation index
-- Defining shared glossary and documentation standards
-- Configuring AsciiDoc build automation
-- Preparing the final compiled Milestone 1 documentation
+- Updating README and project documentation
+- Defining folder structure and coding standards
+- Documenting API endpoints created by feature teams
+- Supporting deployment setup
+- Applying professor feedback to documentation
 
-This team ensures documentation consistency, structure, and governance.
+This team does not implement features, but ensures that the work produced by other teams remains consistent and properly documented.
 
 *Team Members:*
 
@@ -33,17 +31,17 @@ This team ensures documentation consistency, structure, and governance.
 - Daniel C. Colón Rivera
 - Alex M. Vázquez Galiano
 
-====== Team 2 – Live Games & Match Coverage
+====== Team 2 – Supabase Core & Platform
 
-Defines how live game information is displayed and trusted:
+Responsible for backend foundation and data management:
 
-- What data is shown (scores, time, league, status)
-- Handling delayed updates
-- Resolving conflicting score reports
-- Behavior when information is missing
-- Mobile-first UI messaging for provisional data
+- Setting up Supabase project
+- Designing database schema (users, games, standings, teams, athletes, news)
+- Inserting seed data
+- Implementing basic Row-Level Security
+- Supporting other teams with data access
 
-This team focuses on reliability under real-world uncertainty.
+This team acts as the central point for database-related decisions.
 
 *Team Members:*
 
@@ -54,17 +52,17 @@ This team focuses on reliability under real-world uncertainty.
 - Ian G. Ramos Villafañe
 - Cristian J. Massini Perez
 
-====== Team 3 – Standings & Tournament Progress
+====== Team 3 – Live Games & Standings
 
-Defines how standings are calculated and communicated:
+Responsible for implementing game and standings views:
 
-- Representation of local league standings
-- Handling inconsistencies across informal sources
-- Resolving or flagging conflicting standings
-- Displaying provisional or uncertain rankings
-- Managing edge cases (postponements, incomplete data)
+- Building /games and /standings pages
+- Implementing API routes
+- Fetching data from Supabase
+- Displaying scores, teams, and status
+- Handling loading and error states
 
-This team ensures structural integrity of league progression information.
+This team focuses on presenting structured sports data through working UI pages.
 
 *Team Members:*
 
@@ -74,16 +72,16 @@ This team ensures structural integrity of league progression information.
 - Yandiel Hernandez Otero
 - Javier A. Ventosa Maldonado
 
-====== Team 4 – Teams & Athletes Profiles
+====== Team 4 – News, Profiles & Alerts
 
-Defines expectations for profile information accuracy:
+Responsible for content and profile-related pages:
 
-- Required and optional profile fields
-- Acceptable levels of staleness
-- Handling incomplete or outdated data
-- Mobile-friendly indicators for uncertain information
+- Building /news, /teams/[id], and /athletes/[id]
+- Implementing API routes
+- Displaying content and profile data
+- Handling loading and error states
 
-This team focuses on data completeness and freshness constraints.
+This team focuses on making informational content accessible through the UI.
 
 *Team Members:*
 
@@ -93,16 +91,17 @@ This team focuses on data completeness and freshness constraints.
 - Pedro M. Cortes Ramos
 - Edgar J. Gonzalez Vargas
 
-====== Team 5 – News, Alerts & System Transparency
+====== Team 5 – Authentication & User System
 
-Defines how system updates and uncertainty are communicated:
+Responsible for user authentication and session management:
 
-- Criteria for publishing news vs urgent alerts
-- Handling unverified or conflicting reports
-- Transparency indicators (last update time, confidence level)
-- Messaging during degraded or uncertain states
+- Implementing login and signup
+- Managing user sessions
+- Protecting routes
+- Handling authentication errors
+- Displaying user state in UI
 
-This team ensures user trust and system transparency.
+This team ensures that user-specific functionality works correctly.
 
 *Team Members:*
 
@@ -112,86 +111,84 @@ This team ensures user trust and system transparency.
 - Marcos F. Arraiza Aviles
 - Ojiani S. Figueroa Cruz
 
+====== UI Strike Team
+
+A cross-team group responsible for shared UI components and layout consistency.
+
+Responsibilities include:
+
+- Building homepage
+- Creating shared layout components (navbar, layout wrapper, navigation)
+- Ensuring consistent styling across pages
+- Supporting mobile-first design
+
+This group coordinates UI decisions across feature teams.
+
 ===== Roles and Responsibilities
 
 ====== Developers
 
 Developers are responsible for:
 
-- Creating and completing GitHub issues
-- Conducting research aligned with team goals
-- Writing structured documentation
-- Following the Issue Creation Guidelines
+- Completing assigned issues
+- Implementing features or documentation updates
+- Writing code or documentation depending on their team
 - Submitting work through pull requests
-- Ensuring acceptance criteria are satisfied
 
-All work must be issue-based and documented.
+All work must be tracked through GitHub issues.
 
 ====== Team Leads
 
 Team Leads are responsible for:
 
-- Coordinating work within their assigned team
-- Conducting first-level review of completed issues
-- Ensuring alignment with Milestone 1 objectives
-- Tracking participation and progress
+- Coordinating work within their team
+- Reviewing work before it is merged
+- Ensuring tasks are completed according to requirements
+- Communicating with other teams when needed
 
-Team Leads help maintain quality and consistency before escalation to managers.
+This role helps reduce integration issues between teams.
 
-*Managers:*
+====== Managers
+
+Managers:
 
 - Anthony Martínez
-- Fernando Torres 
+- Fernando Torres
 
 Managers are responsible for:
 
-- Reviewing issue clarity and completeness
-- Assigning urgency and difficulty levels
-- Approving pull requests after review
-- Closing issues upon satisfactory completion
-- Ensuring milestone alignment and fairness
+- Reviewing issues and pull requests
+- Assigning urgency and difficulty
+- Ensuring milestone progress
+- Resolving cross-team issues
 
-Managers ensure governance and structured progression of the project.
+Managers ensure that the project stays aligned with milestone goals.
 
 ===== Workflow and Governance
 
-The project follows an issue-driven and PR-only workflow with branch protection enabled.
-
-All work must begin with a GitHub Issue created using the standardized Issue Creation Guidelines. Issues must:
-
-- Follow the approved title format
-- Use the required content template
-- Include clearly defined acceptance criteria
-- Specify urgency and difficulty
-
-Issues may involve documentation, research, feature definition, lecture topic tasks, or coordination work.
-
-For documentation scaffold sections specifically, issues must reference the master documentation scaffold issue (#53) to ensure traceability within the single compiled document structure.
+The project follows an issue-driven workflow with pull request review.
 
 Workflow:
 
-1. Issue is created following the standardized template
-2. Developer creates a feature branch
-3. Developer modifies only the assigned scope
-4. Pull request references the corresponding issue
-5. CI workflow builds documentation artifacts automatically
-6. Team Lead performs review
-7. Manager approves and merges
+1. Issue is created and assigned
+2. Developer works on a feature or update
+3. Changes are submitted through a pull request
+4. CI runs to validate the project
+5. Team Lead reviews
+6. Manager approves and merges
 
-No direct pushes to protected branches are permitted for non-admin users.
+This process ensures that changes are reviewed and integrated consistently.
 
-===== Milestone 1 Focus
+===== Current Milestone Focus
 
-Milestone 1 emphasizes:
+The project is currently focused on implementation.
 
-- Clear scope definition (local Puerto Rico sports only)
-- Explicit documentation of uncertainty and failure scenarios
-- Mobile-first user interface expectations
-- Transparency in data reliability and freshness
-- Structured documentation before implementation
+This includes:
 
-This structured team model ensures shared ownership, accountability, and disciplined engineering practices prior to any system development.
+- Building UI pages using Next.js
+- Implementing API routes
+- Integrating Supabase
+- Connecting frontend and backend
+- Implementing authentication
 
-
-
-
+The team structure supports this by distributing responsibility across features while maintaining coordination through shared workflows.
