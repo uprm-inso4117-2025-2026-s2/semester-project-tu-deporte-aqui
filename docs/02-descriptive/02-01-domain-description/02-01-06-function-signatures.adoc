@@ -1,90 +1,144 @@
+==== #2.1.6 Function Signatures#
 
-==== 2.1.6 Function Signatures (Pseudocode at the moment, Not Event-Tied)
+#These function signatures are tied directly to the action groups described in
+Section 2.1.5. They stay at the domain level and use the concepts already
+present in the document, rather than storage-oriented or architecture-specific
+types.#
 
-These signatures describe what information is needed to perform key actions in *Tu Deporte Aquí* and what state is produced or changed. The design is intentionally modular so it can be extended later without committing to a specific architecture since we don't have one decided yet.
+Notation uses the form:
 
-===== Core Records (state holders)
+functionName : InputTypes -> OutputTypes
 
-* SourceRegistry: configured sources and basic health metadata
-* RawArchive: stored raw snapshots from sources (for traceability)
-* UpdateStore: stored normalized updates with provenance
-* CanonicalStore: current best-known state (games, standings, athlete updates)
-* ConflictQueue: unresolved conflicts that need resolution
-* StatusBoard: user-facing status and reliability messages
+Where multiple outputs indicate updated state and produced results.
 
-===== Source Configuration
+===== #E1 Actions (Report Received)#
 
-registerSource(SourceRegistry, SourceConfig) -> SourceRegistry
+#buildReliabilityMetadata :#
+#    Source Type >< Publish Time >< Last Updated Time#
+#    -> Reliability Metadata#
 
-updateSourceConfig(SourceRegistry, SourceId, SourceConfig) -> SourceRegistry
+#Creates the reliability metadata attached to a newly received report.#
 
-removeSource(SourceRegistry, SourceId) -> SourceRegistry
+#classifyVerificationStatus :#
+#    Source Type >< Reliability Metadata#
+#    -> Confirmed or Unverified or Developing#
 
-listSources(SourceRegistry) -> List<SourceConfig>
+#Determines the initial verification status of the reported information.#
 
-===== Fetching and Snapshot Storage
+#assignConfidenceLevel :#
+#    Source Type >< Confirmed or Unverified or Developing#
+#    -> High Confidence or Medium Confidence or Low Confidence#
 
-fetchSnapshot(SourceRegistry, SourceId, FetchOptions) -> (SourceRegistry, Snapshot or FetchError)
+#Determines the initial confidence level of the reported information.#
 
-storeSnapshot(RawArchive, Snapshot) -> (RawArchive, SnapshotId)
+===== #E2 Actions (Live Match State Updated)#
 
-getSnapshot(RawArchive, SnapshotId) -> Snapshot or None
+#recordLiveStateUpdate :#
+#    Source Type >< Last Updated Time >< Reliability Metadata#
+#    -> Reliability Metadata#
 
-===== Parsing and Normalization
+#Records the reliability context of a live-match state update.#
 
-normalizeSnapshot(Snapshot, ParseOptions) -> (List<NormalizedUpdate>, Diagnostics)
+#recordManualOverride :#
+#    Source Type >< Publish Time >< Last Updated Time >< Reliability Metadata#
+#    -> Corrected >< Reliability Metadata#
 
-storeUpdates(UpdateStore, List<NormalizedUpdate>) -> (UpdateStore, List<UpdateId>)
+#Records a manual override as a traced correction when local updates are
+irregular or late.#
 
-getUpdate(UpdateStore, UpdateId) -> NormalizedUpdate or None
+===== #E3 Actions (Data Missing or Partial Coverage Detected)#
 
-===== Canonical Merge (best-known current state)
+#classifyPartialCoverage :#
+#    Reliability Metadata >< Last Updated Time#
+#    -> Developing or Delayed#
 
-applyUpdate(CanonicalStore, NormalizedUpdate, MergePolicy) -> (CanonicalStore, Conflict or None, Diagnostics)
+#Determines whether incomplete coverage should be treated as still developing
+or already delayed.#
 
-applyUpdateBatch(CanonicalStore, List<NormalizedUpdate>, MergePolicy) -> (CanonicalStore, List<Conflict>, Diagnostics)
+#preserveLastKnownMetadata :#
+#    Reliability Metadata#
+#    -> Reliability Metadata#
 
-getCanonical(CanonicalStore, EntityKey) -> CanonicalEntity or None
+#Preserves the last known reliability context when current coverage is partial
+or incomplete.#
 
-storeCanonical(CanonicalStore, CanonicalEntity) -> CanonicalStore
+===== #E4 Actions (Conflict Detected)#
 
-===== Conflict Handling
+#detectConflict :#
+#    Reliability Metadata >< Reliability Metadata#
+#    -> Conflicting or Confirmed#
 
-enqueueConflicts(ConflictQueue, List<Conflict>) -> ConflictQueue
+#Determines whether two reported values remain mutually consistent or enter a
+conflicting state.#
 
-listConflicts(ConflictQueue) -> List<Conflict>
+#lowerConfidenceAfterConflict :#
+#    Conflicting#
+#    -> Low Confidence#
 
-resolveConflictAuto(ConflictQueue, CanonicalStore, ConflictId, MergePolicy)
-  -> (ConflictQueue, CanonicalStore, CanonicalEntity or ResolveError, Diagnostics)
+#Lowers confidence when a conflict remains unresolved.#
 
-resolveConflictManual(ConflictQueue, CanonicalStore, ConflictId, ResolutionDecision)
-  -> (ConflictQueue, CanonicalStore, CanonicalEntity)
+#revalidateConflictingInformation :#
+#    Conflicting >< Source Type#
+#    -> Confirmed or Conflicting or Unverified#
 
-===== Reliability Indicators and Degraded Messaging
+#Re-evaluates a conflicting report when further source information arrives.#
 
-computeReliability(CanonicalStore, UpdateStore, EntityKey, ReliabilityPolicy)
-  -> (ReliabilityIndicator, Diagnostics)
+===== #E5 Actions (Data Becomes Stale)#
 
-setSystemStatus(StatusBoard, SystemStatus) -> StatusBoard
+#markAsDelayed :#
+#    Reliability Metadata >< Last Updated Time#
+#    -> Delayed >< Reliability Metadata#
 
-annotateEntityStatus(StatusBoard, EntityKey, ReliabilityIndicator) -> StatusBoard
+#Marks information as delayed when the freshness threshold has been exceeded.#
 
-buildPublicView(CanonicalStore, StatusBoard, EntityKey) -> PublicView or None
+#preserveLastKnownReliabilityMetadata :#
+#    Delayed >< Reliability Metadata#
+#    -> Reliability Metadata#
 
-===== User-Facing Queries
+#Keeps the last known reliability context visible after data becomes stale.#
 
-getGame(CanonicalStore, GameId) -> GameView or None
+===== #E6 Actions (Correction Published)#
 
-getStandings(CanonicalStore, StandingsKey) -> StandingsView or None
+#recordCorrection :#
+#    Reliability Metadata >< Publish Time >< Last Updated Time#
+#    -> Corrected >< Reliability Metadata#
 
-getAthleteUpdates(CanonicalStore, AthleteId) -> List<AthleteUpdateView>
+#Records that previously published information has been corrected and updates
+its reliability metadata.#
 
-searchCanonical(CanonicalStore, SearchQuery) -> List<PublicView>
+#explainCorrection :#
+#    Corrected#
+#    -> Reliability Metadata#
 
-===== Maintenance and Extensibility Hooks
+#Associates correction status with the metadata shown to users.#
 
-recomputeAllReliability(CanonicalStore, UpdateStore, StatusBoard, ReliabilityPolicy)
-  -> (StatusBoard, Diagnostics)
+===== #E7 Actions (Source Outage / Unavailable Source)#
 
-rebuildCanonicalFromUpdates(CanonicalStore, UpdateStore, MergePolicy)
-  -> (CanonicalStore, Diagnostics)
+#enterDegradedState :#
+#    Reliability Metadata#
+#    -> Degraded State#
+
+#Records that the system has entered a degraded state because source support
+is insufficient.#
+
+#maintainGracefulDegradation :#
+#    Degraded State >< Reliability Metadata#
+#    -> Graceful Degradation#
+
+#Keeps the system usable by preserving the last known reliability context
+under partial failure.#
+
+#avoidSilentFailure :#
+#    Degraded State >< Reliability Metadata#
+#    -> Graceful Degradation#
+
+#Requires failure to be communicated through visible degraded behavior rather
+than silent omission.#
+
+===== #Note on Scope#
+
+#These signatures stay with the actions described in Section 2.1.5 and focus
+on the conceptual relationship each action creates or changes. Storage
+structures, archives, queues, and other implementation-oriented records were
+removed from this section because they belong to implementation, not to the
+domain-level action view.#
