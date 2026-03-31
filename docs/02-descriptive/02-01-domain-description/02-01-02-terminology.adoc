@@ -1,62 +1,93 @@
+==== 2.1.2
 
-==== 2.1.2 Terminology
+===== Terminology
 
-====== Verification Status Terms
+This section defines terms used throughout the document to maintain consistent meaning.
 
-This section defines the official terminology used in Tu Deporte Aquí. These terms must be used consistently across documentation and future testing scenarios, especially when describing reliability, transparency, and uncertain information states.
+====== Core Domain Terms
 
-*Confirmed*::
-Information validated by an official or highly trusted source and considered accurate at the time of display.
+*Sporting Event*::
+A game, match, or competition that people may follow.
 
-*Unverified*::
-Information reported by a single source or informal source without confirmation from an authoritative provider.
+*Source*::
+An origin of information about a sporting event.
+Examples include league websites, team pages, sports media, reporters, and third-party platforms.
 
-*Developing*::
-Time-sensitive information that is still being verified and may change as more sources publish updates.
+*Source Report*::
+A specific piece of information produced by a source, such as a score update, status, or correction.
 
-*Conflicting*::
-A state where multiple sources report different values for the same event or field (e.g., score, status).
+*Event Record*::
+The maintained representation of what is currently known about a sporting event.
 
-*Delayed*::
-Information submitted significantly after the event occurred or updated slower than expected due to source latency.
+*Standings Snapshot*::
+A reported ordering or ranking of teams at a specific time.
 
-*Corrected*::
-Information that was previously published but later changed due to an official correction or reconciliation of conflicts.
+*Correction*::
+A change to previously reported information based on new or updated data.
 
-====== Confidence Level Terms
+====== Dependability and Verification Terms
 
-*High Confidence*::
-Official source and no conflicts detected.
+*Source Trust Level*::
+A general assessment of how dependable a source tends to be.
 
-*Medium Confidence*::
-Multiple non-official sources agree, but no official confirmation exists.
+*Verification State*::
+The level of confirmation of a reported value.
 
-*Low Confidence*::
-Single unverified source or conflicts detected between sources.
+Defined states:
 
-====== Transparency Indicator Terms
+* *Unverified* — not yet confirmed
+* *Confirmed* — supported by corroborating or authoritative sources
+* *Final* — not expected to change under normal conditions
+
+*Provisional*::
+Information that is available but may still change.
+
+NOTE: Provisional describes a condition, not a verification state.
+
+*Conflict*::
+A situation where multiple reports provide incompatible information.
+
+*Confidence Level*::
+An assessment of how dependable a specific value is in context.
+
+Defined levels:
+
+* *High Confidence*
+* *Medium Confidence*
+* *Low Confidence*
+
+NOTE: Confidence depends on factors such as source, recency, and consistency.
+
+====== Freshness and Transparency Terms
 
 *Publish Time*::
-The time a report was first made visible to users.
+When a source originally released the information.
+
+*Ingest Time*::
+When the information was recorded by the system.
 
 *Last Updated Time*::
-The most recent time the system updated the displayed information.
+The most recent change to the event record.
 
-*Source Type*::
-Classification of the origin of information (e.g., Official, Reporter, Community).
+*Staleness*::
+A condition where information is no longer current enough for its context.
 
-*Reliability Metadata*::
-The combined set of fields that explain trustworthiness, including verification status, confidence level, timestamps, and source attribution.
+*Dependability Indicator*::
+A marker that helps explain how reliable the information is.
 
-====== System State Terms
+*Source Attribution*::
+Identification of where the information originated.
+
+====== System Condition Terms
 
 *Degraded State*::
-A system condition where full functionality or complete data is not available due to source failures, partial outages, missing fields, or inconsistencies.
+Operation continues, but information is missing, delayed, or incomplete.
 
 *Graceful Degradation*::
-The system remains usable under partial failure by showing last known valid data and clearly communicating limitations instead of failing completely.
+Providing partial information with clear limitations instead of failing completely.
 
-*Silent Failure*::
-A failure where incorrect or missing information is presented without warning, explanation, or status messaging.
+*Silent Overwrite*::
+Replacing information without preserving previous values or indicating change.
 
-
+*Unknown*::
+A value is not available and should not be inferred.
