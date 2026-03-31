@@ -1,14 +1,13 @@
+==== 1.3.2
 
-==== 1.3.2 Synopsis
+===== Synopsis
 
-Tu Deporte Aquí is a mobile-first, web-based platform designed to centralize sports information for local Puerto Rico leagues and collegiate teams.
+Tu Deporte Aquí addresses the problem of following local sports information in Puerto Rico when updates are spread across multiple sources and may differ in timing, detail, and reliability.
 
-Currently, sports data is scattered across multiple sources such as websites and social media, often resulting in delayed, incomplete, or conflicting information. This makes it difficult for users to access reliable and consistent updates.
+Scores, standings, schedules, and event updates are commonly published through league pages, social media accounts, sports media, reporters, and third-party platforms. Because of this, it can be difficult to determine what information is current, what is uncertain, and how much confidence can be placed in a given update.
 
-The platform focuses on addressing these challenges by prioritizing reliability and transparency. Instead of hiding uncertainty, the system communicates verification status, confidence levels, and update timestamps to help users understand the quality of the information presented.
+The project focuses on local Puerto Rico sports. National and international coverage is outside its scope.
 
-Phase 1 of the project is limited to local Puerto Rico sports coverage. National and international leagues are explicitly out of scope.
+The system does not assume that all available information is complete or consistent. Updates may be delayed, partial, conflicting, or later corrected. For that reason, the project places attention on how information is presented, including its state, timing, and level of confirmation.
 
-Tu Deporte Aquí aims to provide a clear, trustworthy, and accessible way for users to follow local sports while acknowledging the real-world limitations of the available data.
-
-
+The goal is to improve how local sports information is organized and interpreted in situations where sources differ and conditions are imperfect.
