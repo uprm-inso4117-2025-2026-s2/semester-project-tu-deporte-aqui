@@ -2,12 +2,12 @@
 
 ===== Synopsis
 
-Tu Deporte Aquí is concerned with the problem of following local sports information in Puerto Rico when relevant updates are dispersed across many channels and may differ in timing, detail, and dependability.
+Tu Deporte Aquí addresses the problem of following local sports information in Puerto Rico when updates are spread across multiple sources and may differ in timing, detail, and reliability.
 
-In the current environment, scores, standings, schedules, and related developments are often communicated through a mixture of league pages, social media accounts, sports media, reporters, and third-party platforms. This makes it difficult for fans and families, players and coaches, leagues and organizers, and sports reporters or community updaters to quickly determine what is currently known, what remains uncertain, and how dependable a particular update is.
+Scores, standings, schedules, and event updates are commonly published through league pages, social media accounts, sports media, reporters, and third-party platforms. Because of this, it can be difficult to determine what information is current, what is uncertain, and how much confidence can be placed in a given update.
 
-The project focuses on local Puerto Rico sports and excludes national and international coverage. Its emphasis is not only on access to information, but also on clarity regarding the state of that information.
+The project focuses on local Puerto Rico sports. National and international coverage is outside its scope.
 
-A central concern throughout the project is dependability under imperfect real-world conditions. Information may be delayed, incomplete, conflicting, or later corrected. For that reason, the project gives special importance to transparency about the freshness, state, and dependability of the available information rather than assuming that all reported values are equally trustworthy.
+The system does not assume that all available information is complete or consistent. Updates may be delayed, partial, conflicting, or later corrected. For that reason, the project places attention on how information is presented, including its state, timing, and level of confirmation.
 
-At a high level, Tu Deporte Aquí aims to improve how local sports information is organized, communicated, and interpreted under conditions where information quality and timing vary across sources.
+The goal is to improve how local sports information is organized and interpreted in situations where sources differ and conditions are imperfect.
