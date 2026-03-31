@@ -19,7 +19,7 @@ export async function GET() {
   try {
     const { data, error } = await supabase
       .from("games")
-      .select("id,home_team_id,away_team_id,league,season,game_date,start_time,venue,status,home_score,away_score");
+      .select("id,home_team:home_team_id (id,name),away_team:away_team_id (id,name),league,season,game_date,start_time,venue,status,home_score,away_score");
 
     if (error) {
       return new Response(
