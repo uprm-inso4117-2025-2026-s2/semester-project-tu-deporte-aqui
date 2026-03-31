@@ -3,64 +3,41 @@
 
 ===== Purpose
 
-This section explains the main ideas that guide Tu Deporte Aquí. These ideas build on the conditions and needs identified in Milestone 1 and describe the direction the platform should take, without defining specific technical solutions.
+This section outlines the main ideas for Tu Deporte Aquí. These ideas respond to the needs described in Section 1.2.2 and give a high-level view of the kind of system the team intends to build.
 
-===== Cross-Source Validation and Source Weighting
+===== A Sports Information Platform for Local Puerto Rico Coverage
 
-Tu Deporte Aquí collects data from multiple informal sources, where disagreements are common.
+One central idea is to build a platform focused on local Puerto Rico sports. The platform is meant to bring together scores, schedules, standings, and related updates that are currently spread across league websites, social media posts, news outlets, and other reporting channels.
 
-Comparison before display::
-When different sources report different values for the same data point, the system should compare them before showing a result. If values match, confidence increases. If they conflict, the system should flag the issue instead of silently choosing one.
+This idea follows from the fragmented situation described earlier. Rather than expecting followers to check many sources on their own, the system-to-be would gather relevant information into one place.
 
-Source trust levels::
-Not all sources are equally reliable. The platform should assign trust levels to different source types—for example, an official league website should carry more weight than a social media post. This weighting should be intentional and documented.
+===== Open Handling of Uncertainty
 
-Conflict visibility::
-Conflicts should be logged internally for debugging. When relevant, they should also be shown to users through clear indicators, instead of presenting the data as if it were fully certain.
+Another main idea is that the platform should treat uncertainty as normal rather than exceptional. Since local sports information may be delayed, incomplete, or contradictory, the platform should not present all data as equally settled.
 
-===== Data Freshness and Provenance
+At a high level, this means the system-to-be should separate information that appears stable from information that is still uncertain, and it should make conflicts or missing information visible instead of hiding them.
 
-Users need to understand how recent the information is and where it came from.
+===== Source-Aware Presentation
 
-Timestamps and source labels::
-Key data elements scores, standings, profiles, schedules should display when they were last updated and which source provided them (for example, "via BSN official site"). This allows users to judge reliability on their own.
+The platform should present sports information together with enough source context for people to judge it. The main idea is not only to show a score or status, but also to show where that information came from and how recent it is.
 
-Update frequency expectations::
-The platform should communicate realistic refresh rates for each data type. Live scores may have small delays, while standings may update only after games are finalized. Making this clear helps reduce confusion.
+This idea follows from the need for dependability described in Section 1.2.2. If information comes from sources with different levels of authority or different update timing, the platform should preserve that context instead of presenting all updates in the same way.
 
-===== Provisional and Confidence Indicators
+===== Support for Corrections and Change Over Time
 
-Since much of the data comes from informal channels, the system must clearly separate confirmed information from unverified data.
+The platform should allow for the fact that sports information can change after it is first reported. Scores may be corrected, schedules may shift, and previously incomplete information may later be filled in.
 
-Provisional labeling::
-Information that has not been confirmed by a trusted source such as early live scores from social media—should be clearly marked as provisional.
+The idea here is that the system-to-be should not assume that the first reported value is always the final one. It should make room for updates, corrections, and later clarification.
 
-Confidence progression::
-The platform should use simple labels ("Confirmed," "Provisional," "Unverified") or visual cues (badges, muted styles) to show reliability. As more sources confirm a value, the confidence level should update visibly so users can see how the data stabilizes over time.
+===== Mobile-First Access
 
-===== Handling Uncertainty and Missing Data
+Another idea is to treat the platform as mobile-first. Many followers check sports information from their phones during games or while moving between activities, so the system should be designed with small-screen access in mind.
 
-Uncertainty is part of the platform’s environment and should be handled openly.
-
-Standardized messaging::
-Delayed scores, incomplete standings, and outdated profiles should follow a consistent visual and textual format so users can quickly understand what is happening.
-
-Degraded and no-data states::
-If the system has limited data, it should show the last known value with an "as of" indicator. If information is completely unavailable, the platform should display a clear "not available" state instead of leaving empty spaces or unclear placeholders.
-
-===== Mobile-First Display
-
-As a mobile-first web platform, all of the ideas above must work within small screen constraints.
-
-Information hierarchy::
-Essential details score, game status, league, time should appear first. Supporting details such as source labels, timestamps, and confidence indicators should appear in secondary or expandable views.
-
-Compact indicators::
-Icons, color coding, and short labels are preferred over long explanations. The same visual language for freshness, confidence, and provisional states should be used consistently across live scores, standings, and profiles to reduce cognitive load.
+At a high level, this means the most important information should be easy to reach quickly, without depending on large layouts or long explanations.
 
 ===== Scope of This Section
 
-This section defines the conceptual direction of the platform. It does not include technical implementation or architectural details, which are covered later in the documentation.
+This section gives a high-level view of how the team intends to address the needs from Section 1.2.2. It states the main ideas behind the system-to-be, but it does not define detailed behavior, technical mechanisms, or formal requirements.
 
 
 
