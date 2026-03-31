@@ -1,73 +1,182 @@
-
 ==== 2.2.1 User Stories, Epics, Features
 
+#This section organizes the main requirements-driving stories for Tu Deporte Aquí.
+To avoid dropping unexplained persona names on the reader, each story names the
+role first and then identifies the corresponding persona in parentheses. The
+full persona descriptions appear in Section 2.2.2.#
+
 ===== Epic 1: Consolidated Puerto Rico Sports Information Feed
-As a Puerto Rico sports fan, I want a centralized view of games, standings, and athlete updates so that I can follow local sports without chasing multiple sources.
 
-Key features::
-* Aggregated results, standings, and athlete updates in one platform
-* Source attribution for each update
-* Visible freshness indicators (last updated timestamps)
+#As a local-sports follower, I want one place to check scores, standings,
+schedules, and athlete updates so that I do not have to chase scattered
+posts, league pages, and chats.#
 
-User stories::
-* As Sebastian, I want to view the latest scores and final results for selected leagues so that I can stay updated without switching between websites.
-* As Sebastian, I want each score and update to show its source so that I can judge credibility when multiple channels exist.
-* As Abiel, I want to view schedules and standings for my league so that I can plan and communicate accurately with my team.
-* As Sebastian, I want to see when each item was last updated so that I can tell if information might be outdated during live events.
+#Features#
 
-===== Epic 2: Conflict Detection and Consistency Controls
-As a sports fan, I want the platform to detect and handle conflicting reports so that I do not get misled by incorrect or inconsistent information.
+#Consolidated results, standings, schedules, and athlete updates#
+#The platform groups the most consulted local-sports information in one place
+so that a fan or coach can check the current state of a league without jumping
+between unrelated pages and posts.#
 
-Key features::
-* Conflict detection when sources disagree
-* Validation and synchronization rules for ingestion
-* Clear presentation of conflicts and resolution outcomes
+#Source attribution for each displayed update#
+#Each important data item should show where it came from so that readers can
+tell whether they are looking at an official publication, a reporter update,
+or a community post.#
 
-User stories::
-* As Sebastian, I want the platform to flag when two sources disagree on a score so that I know the result may not be final.
-* As Andres, I want to mark updates as preliminary or confirmed so that the platform can represent uncertainty responsibly.
-* As Abiel, I want the platform to prioritize verified league results when available so that standings do not change due to unreliable posts.
-* As Chris, I want configurable validation rules for ingestion so that consistency checks can be improved as we observe real failures.
+#Visible freshness indicators#
+#Each important item should show when it was last updated so that readers can
+judge whether the information is still recent enough to trust during a live
+event or playoff run.#
 
-===== Epic 3: Graceful Degradation and User Trust Signals
-As a user, I want clear, informative messages when data is missing or the system is degraded so that I understand what is happening and can still make decisions.
+#User stories#
 
-Key features::
-* Degraded mode behavior for partial outages
-* Informative user-facing messaging that explains uncertainty
-* Reliability and status cues (data availability, source health)
+* #As a fast-checking fan (Sebastian), I want to view the latest scores and
+final results for selected leagues so that I can stay updated without
+switching between websites and social media posts.#
 
-User stories::
-* As Sebastian, I want to see an explanation when an update is missing so that I know whether it is unavailable, delayed, or still being confirmed.
-* As Sebastian, I want the platform to show a simple reliability cue for key pages during major events so that I can trust what I am seeing.
-* As Andres, I want the platform to avoid presenting uncertain info as definitive so that users are not misled by breaking-news updates.
-* As Chris, I want standardized fallback behavior when an external source fails so that failures do not surface as confusing errors to users.
+* #As a fast-checking fan (Sebastian), I want each displayed score, result,
+or update to show its source so that I can judge credibility quickly when
+multiple channels are posting different things.#
 
-===== Epic 4: High-Traffic Availability During Major Events
-As a sports fan, I want the platform to remain responsive during playoffs and breaking news so that I can access information when demand is highest.
+* #As an organizing coach (Abiel), I want to view schedules and standings for
+my league so that I can plan, communicate, and verify information without
+having to piece it together manually.#
 
-Key features::
-* Load handling for peak events
-* Performance baselines and scalability targets
-* Prioritized delivery of critical info (scores, standings, status)
+* #As a fast-checking fan (Sebastian), I want to see when each item was last
+updated so that I can tell whether a page reflects a live update, a delayed
+post, or stale information.#
 
-User stories::
-* As Sebastian, I want score and standings pages to load reliably during playoffs so that I can follow games in real time.
-* As Chris, I want load and stress tests that model playoff traffic so that we can identify bottlenecks before major events.
-* As Sebastian, I want the platform to still show the most essential information when traffic is extreme so that I am not blocked from updates entirely.
-* As Chris, I want to measure availability and recovery time during peak-event simulations so that reliability improvements are measurable.
+===== #Epic 2: Conflict Handling, Uncertainty, and User Trust Signals#
 
-===== Epic 5: Reliability Testing Automation and Observability
-As a platform engineer, I want reliability testing and monitoring integrated into development workflows so that failures and regressions are caught before users experience them.
+#As a person who depends on local sports information, I want the platform to
+show when information is conflicting, incomplete, delayed, or still developing
+so that I do not mistake uncertain information for a final answer.#
 
-Key features::
-* Automated tests for conflict, delay, and missing-data scenarios
-* Fault injection for external dependencies
-* Metrics and dashboards for availability, accuracy, and recovery
+#Features#
 
-User stories::
-* As Chris, I want automated tests that simulate conflicting data sources so that system behavior stays predictable when sources disagree.
-* As Chris, I want automated tests that simulate delayed updates and missing data so that user-facing behavior remains clear and informative.
-* As Chris, I want fault injection tests against external dependencies so that we can verify fallback strategies and error-handling logic.
-* As Chris, I want CI workflows to run reliability tests regularly so that testing covers stress and failure conditions, not only normal operation.
-* As Chris, I want dashboards for accuracy, consistency, availability, and recovery time so that we can track reliability improvements over time.
+#Conflict flagging and conflict visibility#
+#When two or more sources disagree about a score, status, result, or standing,
+the platform should mark the disagreement clearly instead of silently choosing
+one value and hiding the rest.#
+
+#Verified, developing, and provisional indicators#
+#The platform should distinguish between information that has already been
+confirmed and information that is still developing, provisional, or waiting
+for confirmation from a stronger source.#
+
+#Missing-data and degraded-state messaging#
+#When a value is unavailable, delayed, or affected by a source problem, the
+platform should explain what is missing and what is still known instead of
+showing blank space or a confusing generic error.#
+
+#Trusted-source prioritization#
+#When an official or clearly stronger source exists, the platform should treat
+that source as the primary reference while still making conflicts and revision
+history visible when needed.#
+
+#User stories#
+
+* #As a fast-checking fan (Sebastian), I want the platform to flag when two
+sources disagree on a score or result so that I do not assume the first number
+I see is already final.#
+
+* #As an organizing coach (Abiel), I want the platform to prioritize verified
+league results when they exist so that standings and schedules do not shift
+because of unreliable or early posts.#
+
+* #As a deadline reporter (Andres), I want to label an update as developing,
+provisional, or confirmed so that I can communicate uncertainty without
+spreading misinformation.#
+
+* #As a fast-checking fan (Sebastian), I want a clear explanation when an
+update is missing so that I know whether the information is delayed,
+unavailable, or still being checked.#
+
+* #As a deadline reporter (Andres), I want the platform to avoid presenting
+uncertain information as definitive so that breaking updates do not mislead
+the public.#
+
+* #As a reliability-focused engineer (Chris), I want standardized fallback
+behavior when an external source fails so that outages do not appear to users
+as random or inconsistent errors.#
+
+===== Epic 3: High-Traffic Availability During Major Events
+
+#As a local-sports follower, I want the platform to remain usable during
+playoffs, tournaments, and breaking-news moments so that I can still get the
+most important information when demand spikes.#
+
+#Features#
+
+#Peak-event responsiveness#
+#Core pages for scores, standings, and game status should remain responsive
+during periods of unusually high traffic.#
+
+#Prioritized delivery of essential information#
+#When load is high, the platform should keep the most important information
+available first, even if less important details need to wait.#
+
+#Recovery visibility during stressed conditions#
+#The platform should make it possible to measure whether it stays available,
+how fast it recovers, and what information remains accessible during stress.#
+
+#User stories#
+
+* #As a fast-checking fan (Sebastian), I want score and standings pages to
+load reliably during playoffs so that I can follow games while the event is
+still happening.#
+
+* #As a fast-checking fan (Sebastian), I want the platform to keep showing the
+most essential information when traffic is extreme so that I am not blocked
+from updates entirely.#
+
+* #As a deadline reporter (Andres), I want the platform to stay understandable
+during major events so that source delays, outages, or traffic spikes do not
+turn live coverage into confusion.#
+
+* #As a reliability-focused engineer (Chris), I want to measure availability
+and recovery time during peak-event simulations so that reliability work can
+be judged with actual evidence rather than guesswork.#
+
+===== Epic 4: Reliability Testing Automation and Observability
+
+#As a platform engineer, I want reliability testing and monitoring tied into
+the development workflow so that conflict handling, degraded behavior, and
+recovery logic are checked before users run into them.#
+
+#Features#
+
+#Automated reliability test coverage#
+#The project should include automated checks for conflicting data, delayed
+updates, missing fields, and other situations that are common in this domain.#
+
+#Fault injection for external dependency failure#
+#The team should be able to simulate source failures and unstable conditions
+to verify that fallback behavior still matches the documented expectations.#
+
+#Operational metrics and monitoring views#
+#The project should track reliability-related measures such as availability,
+accuracy, consistency, and recovery time so that improvements and regressions
+can be seen over time.#
+
+#User stories#
+
+* #As a reliability-focused engineer (Chris), I want automated tests that
+simulate conflicting data sources so that system behavior stays predictable
+when sources disagree.#
+
+* #As a reliability-focused engineer (Chris), I want automated tests that
+simulate delayed updates and missing data so that user-facing behavior stays
+clear when the incoming information is incomplete.#
+
+* #As a reliability-focused engineer (Chris), I want fault injection tests
+against external dependencies so that we can verify fallback strategies and
+error-handling logic before real outages happen.#
+
+* #As a reliability-focused engineer (Chris), I want CI workflows to run
+reliability tests regularly so that coverage includes stress and failure
+conditions, not only normal operation.#
+
+* #As a reliability-focused engineer (Chris), I want dashboards for accuracy,
+consistency, availability, and recovery time so that we can see whether the
+system is actually improving.#
