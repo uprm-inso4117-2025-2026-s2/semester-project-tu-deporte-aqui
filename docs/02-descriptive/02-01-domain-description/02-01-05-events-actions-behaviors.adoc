@@ -2,170 +2,136 @@
 
 ===== Events, Actions, and Composite Behaviors
 
-This section describes domain-relevant events and actions concerning the production, comparison, revision, and communication of sports information. Actions are described in terms of what they consume and what they produce. Composite behaviors are then described as meaningful compositions of those events and actions.
+This section describes events and actions related to how sports information is produced, compared, and updated.
 
 ====== Domain-Relevant Events
 
 *Report Arrival*::
-A source report about a sporting event becomes available.
+A new source report becomes available.
 
 *Conflict Emergence*::
-Two or more source reports provide incompatible values for the same relevant aspect of a sporting event.
+Multiple reports provide incompatible values.
 
 *Correction Arrival*::
-A later source report indicates that a previously communicated value should be changed.
+A report indicates that previous information should be changed.
 
 *Freshness Loss*::
-An event record remains without sufficiently current dependable update long enough that it can no longer be treated as current for its context.
+Information becomes outdated due to lack of recent updates.
 
 *Source Interruption*::
-A source that was expected to provide updates ceases to provide them or becomes unreachable.
+A source stops providing updates.
 
 ====== Actions
 
 *Record Report*::
 Consumes:
-* a source
-* a source report
-* the sporting event to which it pertains
+* source
+* source report
+* sporting event
 
 Produces:
-* a recorded source report associated with the sporting event
-* recorded publish, ingest, or other relevant times if available
+* stored report
+* associated timestamps
 
 Purpose::
-To make the incoming report available for later comparison, assessment, and traceability.
+To make the report available for later use.
 
 ---
 
 *Assess Dependability*::
 Consumes:
-* a recorded source report
-* the source trust level of its source
-* other available reports about the same sporting event
+* recorded report
+* source trust level
+* other reports
 
 Produces:
-* a verification state
-* a confidence level
-* possible indication that the information remains provisional
+* verification state
+* confidence level
 
 Purpose::
-To judge how dependable a reported value currently is, taking into account confirmation, recency, and the relation between available reports.
+To evaluate how reliable the information is.
 
 ---
 
 *Compare Reports*::
 Consumes:
-* two or more recorded source reports about the same sporting event
+* multiple reports
 
 Produces:
-* either a finding of consistency
-* or a conflict
+* consistency or conflict
 
 Purpose::
-To determine whether available reports can be treated as mutually supportive or whether they require further reconciliation.
+To determine whether reports agree.
 
 ---
 
 *Update Event Record*::
 Consumes:
-* an assessed source report
-* the current event record
+* assessed report
+* current record
 
 Produces:
-* a revised event record
-* updated last updated time
-* possible preservation of replaced value for later traceability
+* updated record
+* updated timestamp
 
 Purpose::
-To revise what is currently maintained as known about the sporting event.
+To reflect the latest known information.
 
 ---
 
 *Mark Unknown*::
 Consumes:
-* an event record for which sufficiently dependable information about a relevant value is unavailable
+* incomplete event record
 
 Produces:
-* explicit unknown value instead of inferred or guessed value
+* explicit unknown value
 
 Purpose::
-To avoid presenting unjustified certainty where the available information does not support it.
+To avoid unsupported assumptions.
 
 ---
 
 *Preserve Change Trace*::
 Consumes:
-* a replaced value
-* a replacement value
-* reason for change if available
+* old value
+* new value
 
 Produces:
-* a traceable record of the change
+* record of change
 
 Purpose::
-To preserve explainability when information changes through correction, reconciliation, or later confirmation.
+To maintain traceability.
 
 ====== Composite Behaviors
 
 *Information Consolidation*::
-This behavior is composed of:
-
-* report arrival
-* record report
-* assess dependability
-* update event record
-
-It describes how incoming source reports become part of the maintained event record.
+Sequence of:
+report arrival → record report → assess dependability → update event record
 
 ---
 
 *Conflict Handling*::
-This behavior is composed of:
-
-* conflict emergence
-* compare reports
-* assess dependability
-* preserve change trace
-* update event record or mark unknown
-
-It describes how incompatible reports are handled without silently collapsing them into an unjustified single value.
+Sequence of:
+conflict emergence → compare reports → assess dependability → update or mark unknown
 
 ---
 
 *Correction Handling*::
-This behavior is composed of:
-
-* correction arrival
-* assess dependability
-* preserve change trace
-* update event record
-
-It describes how earlier communicated information can later be revised while preserving explainability.
+Sequence of:
+correction arrival → assess dependability → preserve change trace → update event record
 
 ---
 
 *Freshness Management*::
-This behavior is composed of:
-
-* freshness loss
-* assess dependability
-* mark unknown or preserve older value with reduced dependability
-
-It describes how the maintained event record changes when information becomes too old to be treated as fully current.
+Sequence of:
+freshness loss → assess dependability → mark unknown or retain with reduced confidence
 
 ---
 
 *Source Failure Handling*::
-This behavior is composed of:
-
-* source interruption
-* freshness loss
-* assess dependability
-* mark unknown or continue under degraded state
-
-It describes how operation continues when expected reports stop arriving.
+Sequence of:
+source interruption → freshness loss → assess dependability → continue with reduced information
 
 ====== Remarks
 
-The events, actions, and composite behaviors described here belong to the domain description. Later sections may state requirements about how the system-to-be must support or present these actions, but those later requirements are distinct from the domain concepts described here.
+These concepts describe the domain itself. Later sections define how the system must support or present them.
