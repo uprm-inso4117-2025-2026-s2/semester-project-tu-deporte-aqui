@@ -3,62 +3,59 @@
 
 ===== Purpose
 
-This section connects the terms defined in 2.1.2 with the main themes described in the Domain Rough Sketch (2.1.1). The goal is to show how each term fits into the domain and to keep the documentation conceptually consistent.
+This section explains how the terminology from Section 2.1.2 is used after the rough sketch in Section 2.1.1. The rough sketch names the main concerns of the domain in broad terms. The terminology section then gives fixed terms for those concerns so the rest of the document can describe them more precisely and consistently.
 
-===== Mapping Terminology to Domain Themes
+===== From Broad Concerns to Fixed Terms
 
-====== Distributed Sources and Conflicting Information
+The rough sketch uses plain-language descriptions such as conflicting reports, delayed updates, degraded states, and trust. Section 2.1.2 introduces fixed terms for those conditions so later sections do not have to redefine them each time.
 
-The rough sketch describes a system that collects data from multiple leagues and informal sources, where disagreements between reports are expected.
+In that sense, Section 2.1.2 does not replace the rough sketch. It provides a controlled vocabulary for discussing the same domain concerns in a more exact way.
 
-Relevant terms:
+===== Terminology Used for Information Status
 
-* *Conflicting* — when different sources report different values for the same data point.
-* *Unverified* — data coming from a single informal source with no independent confirmation.
-* *Source Type* — identifies the origin of a report (Official, Reporter, Community) so the system can distinguish authority levels.
-* *Corrected* — used when previously published data is revised after a conflict is resolved.
+When the document discusses the status of sports information, it uses the verification terms from Section 2.1.2:
 
-====== Delays and Missing Updates
+- *Confirmed*
+- *Unverified*
+- *Developing*
+- *Conflicting*
+- *Delayed*
+- *Corrected*
 
-The rough sketch recognizes that updates may arrive late or not at all, especially in local sports contexts.
+These terms are used to describe how information stands at a given moment, especially when reports differ, arrive late, or change over time.
 
-Relevant terms:
+===== Terminology Used for Degree of Confidence
 
-* *Delayed* — information received well after the event occurred.
-* *Developing* — time-sensitive information that is still being verified.
-* *Last Updated Time* — shows the most recent system update, helping users detect stale data.
-* *Publish Time* — indicates when information was first shown to users.
+When the document needs to distinguish stronger from weaker support for a reported value, it uses the confidence terms from Section 2.1.2:
 
-====== High Demand Moments
+- *High Confidence*
+- *Medium Confidence*
+- *Low Confidence*
 
-The rough sketch highlights that reliability is most critical during playoffs, tournaments, and breaking news, when traffic and user expectations are highest.
+These terms do not replace verification status. They are used alongside it when the documentation needs to express how strongly available reports support a value.
 
-Relevant terms:
+===== Terminology Used for Source and Freshness Context
 
-* *Confirmed* — clearly verified information, especially important during peak moments.
-* *High Confidence* — official confirmation with no detected conflicts.
-* *Medium Confidence* — agreement across informal sources without official confirmation.
-* *Low Confidence* — data from a single unverified source or with active conflicts.
+When the document needs to state where information came from or how recent it is, it uses:
 
-====== Clear Behavior During Degraded States
+- *Publish Time*
+- *Last Updated Time*
+- *Source Type*
+- *Reliability Metadata*
 
-The rough sketch states that failures must be visible and understandable to users.
+These terms are used whenever the documentation refers to source attribution, freshness, or the contextual data attached to a report.
 
-Relevant terms:
+===== Terminology Used for System Conditions
 
-* *Degraded State* — when full functionality or complete data is unavailable.
-* *Graceful Degradation* — the system remains usable under partial failure and clearly communicates limits.
-* *Silent Failure* — presenting incorrect or missing information without warning.
-* *Reliability Metadata* — transparency fields such as verification status, confidence level, timestamps, and source attribution.
+When the document discusses conditions affecting the platform as a whole rather than a single report, it uses:
 
-====== Trust as the Main Outcome
+- *Degraded State*
+- *Graceful Degradation*
+- *Silent Failure*
 
-The rough sketch identifies long-term trust as the central objective. Trust depends on clarity, accuracy, and timeliness.
+These terms are used to describe what happens when the platform cannot operate under normal conditions.
 
-Relevant terms:
+===== Relation to the Rough Sketch
 
-* *Confirmed* and *Unverified* — core signals that distinguish reliable data from uncertain data.
-* *Source Type* — enables source attribution so users can judge reliability.
-* *Publish Time* and *Last Updated Time* — provide context about data freshness.
-* *Reliability Metadata* — the overall transparency layer supporting user trust.
+The rough sketch remains the broad description of the domain. The terminology section remains the source of truth for the defined terms used afterward. This section only states that relationship. It does not introduce new concepts beyond those already defined in Section 2.1.2.
 
