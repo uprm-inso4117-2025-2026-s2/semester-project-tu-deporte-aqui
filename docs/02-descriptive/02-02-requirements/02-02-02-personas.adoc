@@ -1,119 +1,191 @@
-
 ==== 2.2.2 Personas
 
+#The personas below ground the user stories in Section 2.2.1. They are meant
+to capture habits, pressure, context, and acceptable tradeoffs in this domain,
+not just a short list of goals and pain points.#
+
 === Sebastian Rivera "The Superfan"
-Background: Sebastian Rivera is a 22-year-old Puerto Rico sports fan from Bayamón who follows local leagues the way some people follow national teams. He checks scores during games, refreshes standings during playoffs, and keeps group chats alive with “¿cuánto va el juego?” messages. Most of his sports information comes from a messy mix of league posts, Instagram stories, and whatever link someone drops in a chat. When everything coincides, it’s fine. When sources conflict or updates arrive late, it turns into confusion fast.
 
-Sebastian doesn’t need deep analytics. He wants to know what happened, what’s happening now, and whether the info is trustworthy, especially when a big game is on and everyone is watching.
+#Background: Sebastian Rivera is a 22-year-old Puerto Rico sports fan from
+Bayamón who follows local leagues the way some people follow national teams.
+He checks scores during games, refreshes standings during playoffs, and keeps
+group chats alive with "cuanto va el juego?" messages. Most of his sports
+information comes from a messy mix of league posts, Instagram stories, and
+whatever link someone drops in a chat. When everything lines up, he gets what
+he needs fast. When sources conflict or updates arrive late, confusion starts
+immediately.#
 
-Age: 22 years old.
-Role: College student and weekly local-sports follower.
-Interests: Sebastian enjoys staying connected to local sports culture. He watches games with friends, follows team accounts, and cares a lot about bragging rights when standings shift. He likes quick, clear information and gets impatient when he has to “hunt” for what should be a simple score update.
+#Sebastian does not want deep analysis. He wants to know what happened, what
+is happening now, and whether the information in front of him deserves trust,
+especially when a big game is on and everyone around him is checking the same
+thing.#
 
-Problems: Puerto Rico sports updates are scattered across platforms and often inconsistent. Sebastian runs into different sources reporting different scores, missing context, or posting results late. During playoffs and major events, the places he checks most often become slow or unreliable, and when something is missing he can’t tell if it hasn’t been posted yet or if something broke.
+#Age: 22 years old.#
+#Role: College student and weekly local-sports follower.#
+#Interests: Sebastian likes staying connected to local sports culture. He
+watches games with friends, follows team accounts, and cares about standings
+changes because they become instant conversation in chats and on campus. He
+likes quick, clear information and gets impatient when he has to hunt for what
+should have been a simple score update.#
 
-Quotes:
-"I don’t want to search five places just to confirm the score."
-"If the info isn’t reliable during playoffs, what’s the point?"
+#Goals: Sebastian wants one fast place to check scores, final results,
+standings, and key updates. He wants to know whether information is current
+enough to trust during live games and playoffs. He also wants the platform to
+say clearly when something is uncertain, instead of leaving him to guess
+whether the problem is the source, the system, or the event itself.#
 
-Solutions:
-Feature - Consolidated Results & Standings: A centralized place to view scores, standings, and key updates without hopping between sources.
-Feature - Freshness & Source Labels: Show where the info came from and when it was last updated so Sebastian can judge reliability quickly.
-Feature - Degraded Messaging: Clear explanations when updates are delayed or missing so uncertainty doesn’t look like an error.
+#Problems: Puerto Rico sports updates are scattered across platforms and often
+inconsistent. Sebastian runs into different sources reporting different scores,
+missing context, or posting results late. During playoffs and major events,
+the places he checks most often become slow or unreliable, and when something
+is missing he cannot tell if it has not been posted yet or if something broke.#
 
+#Quotes:#
+#"I do not want to search five places just to confirm the score."#
+#"If the info is not reliable during playoffs, what is the point?"#
 
-=== Coach Abiel Rullán "The Team Organizer"
-Background: Abiel Rullán is a local coach and team organizer who manages schedules, communicates with players and parents, and cares deeply about results being reported correctly. For Abiel, sports information isn’t just entertainment, it affects planning, transportation, attendance, and even team morale. When standings or schedules are wrong online, it creates arguments, confusion, and extra work for him to correct.
+#Solutions:#
+#Feature - Consolidated Results and Standings: A centralized place to view
+scores, standings, and key updates without hopping between sources.#
+#Feature - Freshness and Source Labels: Show where the info came from and when
+it was last updated so Sebastian can judge reliability quickly.#
+#Feature - Degraded Messaging: Clear explanations when updates are delayed or
+missing so uncertainty does not look like an error.#
 
-Abiel can handle that mistakes happen. What frustrates him is when there’s no way to tell whether something is verified, provisional, or simply outdated.
+=== Coach Abiel Rullan "The Team Organizer"
 
-Age: 34 years old.
-Role: Coach and league participant (organizer/communicator).
-Interests: Abiel values structure and clarity. He wants schedules and standings that match reality and a way to communicate accurate information with confidence. He frequently double-checks postings because he’s learned that “one random post” isn’t always correct.
+#Background: Abiel Rullan is a local coach and team organizer who manages
+schedules, communicates with players and parents, and cares deeply about
+results being reported correctly. For Abiel, sports information is not just
+something to check for fun. It affects planning, transportation, attendance,
+and team morale. When standings or schedules are wrong online, he ends up
+answering questions, calming people down, and correcting the situation by
+hand.#
 
-Problems: Updates can be delayed, incomplete, or inconsistent across sources. Conflicting reports create disputes among teams and fans. Abiel often has to verify information manually because he can’t tell which source is authoritative or whether a result is final.
+#Abiel can tolerate honest delay. What frustrates him is having no clear way
+to tell whether something is verified, provisional, or simply outdated.#
 
-Quotes:
-"If the standings are wrong, I’m the one who has to explain it to everyone."
-"I just need a clear way to know what’s confirmed and what’s still pending."
+#Age: 34 years old.#
+#Role: Coach and league participant (organizer/communicator).#
+#Interests: Abiel values structure and clarity. He wants schedules and
+standings that match reality and a way to communicate accurate information
+with confidence. He frequently double-checks postings because he has learned
+that one random post can spread faster than an official correction.#
 
-Solutions:
-Feature - Verified vs Provisional Indicators: A domain-level signal that distinguishes confirmed results from developing reports.
-Feature - Conflict Flagging: Highlight disagreements between sources so Abiel knows not to treat the info as final.
-Feature - Prioritize Trusted Sources: When official league results exist, they should be treated as the most authoritative reference.
+#Goals: Abiel wants standings and schedules that reflect what actually
+happened, not what one account posted first. He wants a clean way to separate
+confirmed information from early or doubtful reports. He also wants to spot
+conflicts quickly so he can avoid repeating bad information to players,
+families, and other teams.#
 
+#Problems: Updates can be delayed, incomplete, or inconsistent across
+sources. Conflicting reports create disputes among teams and fans. Abiel often
+has to verify information manually because he cannot tell which source is
+authoritative or whether a result is final.#
 
-=== Andres Pérez "The Deadline Reporter"
-Background: Andres Pérez is a 26-year-old sports reporter and community updater who posts rapid updates during tournaments and breaking moments. He’s used to working with incomplete information at first. Someone sends a partial score, a post goes up without details, and corrections arrive later. Andres cares about speed, but he cares even more about not spreading misinformation. He wants a clean way to represent uncertainty while the story develops.
+#Quotes:#
+#"If the standings are wrong, I am the one who has to explain it to everyone."#
+#"I just need a clear way to know what is confirmed and what is still pending."#
 
-Andres also understands that the platform’s credibility depends on reliability behind the scenes. If the platform becomes slow during major events or fails when a source goes down, the audience blames the platform—not the messy reality of the sources.
+#Solutions:#
+#Feature - Verified vs Provisional Indicators: A domain-level signal that
+distinguishes confirmed results from developing reports.#
+#Feature - Conflict Flagging: Highlight disagreements between sources so
+Abiel knows not to treat the information as final.#
+#Feature - Prioritize Trusted Sources: When official league results exist,
+they should be treated as the strongest reference.#
 
-Age: 26 years old.
-Role: Sports reporter / community updater (also acts as a “maintainer” mindset during major events).
-Interests: Andres enjoys live coverage, community engagement, and being first—without being wrong. He values clarity around what is known vs what is still developing. He’s also interested in systems that stay stable under pressure, because high-traffic moments are when his work matters most.
+=== Andres Perez "The Deadline Reporter"
 
-Problems: Early reports are often incomplete, but the public wants immediate updates. Conflicting sources can cause misinformation to spread quickly. When systems degrade, users get confusing errors instead of clear explanations, and trust drops. During playoffs and high-traffic events, performance issues become visible instantly.
+#Background: Andres Perez is a 26-year-old sports reporter and community
+updater who posts rapid updates during tournaments and breaking moments. He is
+used to working with incomplete information at first. Someone sends a partial
+score, a post goes up without details, and corrections arrive later. Andres
+cares about speed, but he cares even more about not spreading misinformation.
+He wants a clean way to represent uncertainty while the story is still moving.#
 
-Quotes:
-"I can post fast, but I need a way to show what’s confirmed and what’s still developing."
-"If the site goes down during the biggest game, people won’t trust it again."
+#Andres also knows that the platform will get blamed for confusion even when
+the underlying sources are the real problem. If the platform becomes slow
+during major events or fails when a source goes down, the audience will blame
+the platform first.#
 
-Solutions:
-Feature - Preliminary vs Confirmed Updates: A way to represent developing information responsibly.
-Feature - Standardized Fallback Behavior: Clear behavior when sources fail so the platform stays understandable under outages.
-Feature - Reliability Testing & Monitoring Foundation: Stress and failure scenarios modeled early so peak-event reliability is not a surprise.
-===== Persona A: Sebastian Rivera, the Superfan
-Sebastian is a Puerto Rico sports fan who follows local leagues weekly and checks scores during games and playoffs.
-He values speed and clarity, and he gets frustrated when different sources disagree or updates arrive late.
+#Age: 26 years old.#
+#Role: Sports reporter / community updater.#
+#Interests: Andres likes live coverage, community engagement, and being first
+without being wrong. He pays attention to the difference between what is known
+now and what is still developing. He also cares about whether the platform
+stays readable under pressure, because high-traffic moments are when his work
+matters most.#
 
-Goals::
-* Quickly see game results, standings, and key updates in one place
-* Know whether information is current and trustworthy during big events
-* Avoid confusion when reports conflict
+#Goals: Andres wants to publish or reference updates without overstating what
+is known. He wants the platform to mark developing information clearly, keep
+conflicts visible, and stay stable enough that live coverage does not collapse
+during the most important events.#
 
-Pain points::
-* Different pages and posts report different scores or update at different times
-* During playoffs, sites lag or go down exactly when he needs them most
-* When something is missing, he does not know if it is an error or just not posted yet
+#Problems: Early reports are often incomplete, but the public wants immediate
+updates. Conflicting sources can spread misinformation quickly. When systems
+degrade, users get confusing errors instead of clear explanations, and trust
+drops fast. During playoffs and high-traffic events, performance issues become
+visible immediately.#
 
-===== Persona B: Coach Abiel Rullan, the Team Organizer
-Abiel manages a local team and cares about schedules, standings, and accurate public reporting of results.
-He wants the platform to reflect reality and avoid spreading incorrect information about teams or players.
+#Quotes:#
+#"I can post fast, but I need a way to show what is confirmed and what is
+still developing."#
+#"If the site goes down during the biggest game, people will not trust it
+again."#
 
-Goals::
-* Confirm schedules and standings are accurate for his league
-* Catch and correct errors quickly when something looks wrong
-* Share trustworthy updates with players and parents
+#Solutions:#
+#Feature - Preliminary vs Confirmed Updates: A way to represent developing
+information responsibly.#
+#Feature - Standardized Fallback Behavior: Clear behavior when sources fail so
+the platform stays understandable during outages.#
+#Feature - Reliability Testing and Monitoring Foundation: Stress and failure
+scenarios modeled early so peak-event reliability is not a surprise.#
 
-Pain points::
-* Updates are often delayed and he has to double-check multiple sources
-* Conflicting reports create arguments and confusion among teams and fans
-* There is no clear way to tell if a result is verified or provisional
+=== Chris Ramos "The Platform Engineer"
 
-===== Persona C: Andres Perez, the Sports Reporter
-Andres covers Puerto Rico sports and posts rapid updates, especially during tournaments and breaking news.
-He needs a platform that can represent uncertainty cleanly when details are still developing.
+#Background: Chris Ramos is the team member who gets pulled in when the
+platform behaves differently under pressure than it did in a calm demo. He
+watches what happens when sources conflict, when one feed stops updating, when
+traffic jumps, and when recovery does not happen the same way twice. Chris is
+less interested in whether one screen looks polished and more interested in
+whether the same domain situation leads to the same system behavior every
+time.#
 
-Goals::
-* Publish and reference updates without causing misinformation
-* Make it clear when an update is preliminary vs confirmed
-* Keep coverage stable during high-traffic moments
+#Chris expects this project to operate in a messy environment. He assumes that
+sources will disagree, some updates will arrive late, and outages will happen.
+What matters to him is whether the platform reacts in a way that can be
+understood, tested, and improved.#
 
-Pain points::
-* Early reports may be incomplete, but the public wants immediate updates
-* A single wrong post can spread fast if the platform does not handle conflicts well
-* When systems degrade, users often receive confusing or unhelpful error messages
+#Age: 28 years old.#
+#Role: Platform engineer focused on reliability and quality.#
+#Interests: Chris cares about predictable behavior, repeatable testing,
+observability, and clear fallback logic. He wants the project to expose where
+things fail, not hide those failures behind vague messages or silent
+assumptions. He also cares about having evidence when someone says the system
+is more reliable than it was before.#
 
-====== Persona D: Chris Ramos, the Platform Engineer
-Chris is responsible for reliability and quality of the sports information platform.
-He focuses on predictable behavior under failures, automation in testing, and clear user-facing status.
+#Goals: Chris wants reliability rules that can be tested, fallback behavior
+that stays consistent under failure, and metrics that show whether conflict
+handling, freshness handling, and recovery behavior are getting better or
+worse over time. He also wants stress conditions to be modeled before users
+find them first.#
 
-Goals::
-* Prevent incorrect or outdated information from being shown as “final”
-* Keep the system available during peak events
-* Standardize reliability tests and integrate them into CI
+#Problems: If source failures are handled differently across pages, users lose
+trust and developers lose time. If reliability behavior is not covered by
+tests, regressions slip in quietly. If the team cannot see accuracy,
+availability, consistency, and recovery trends, then reliability arguments
+turn into opinion instead of evidence.#
 
-Pain points::
-* Most tests pass in normal conditions but do not cover failures and stress
-* External sources fail or behave unpredictably
-* It is hard to measure trust-impacting issues without good observability
+#Quotes:#
+#"If we cannot test it under failure, we do not really know how it behaves."#
+#"I do not want the first real outage to be the first time we learn the
+fallback logic is inconsistent."#
+
+#Solutions:#
+#Feature - Automated Reliability Tests: Simulate conflict, delay, missing-data,
+and outage scenarios before users encounter them.#
+#Feature - Fault Injection and Recovery Checks: Verify that external dependency
+failures trigger the documented fallback behavior.#
+#Feature - Monitoring and Reliability Metrics: Track availability, accuracy,
+consistency, and recovery time so changes can be judged with evidence.#
