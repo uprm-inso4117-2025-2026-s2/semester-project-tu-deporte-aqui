@@ -1,12 +1,6 @@
-# inso-course-project-template
-This repository template will create a repository with the metrics collection set up  automatically. 
 # Next.js template
 
 This is a Next.js template with shadcn/ui.
-
-If you dont have next installed try:
-
-npm install next react-dom
 
 ## Adding components
 
