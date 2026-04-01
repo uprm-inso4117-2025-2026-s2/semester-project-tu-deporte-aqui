@@ -1,64 +1,52 @@
-
 === 1.4 Other Activities than Development
 
 ===== Purpose
 
-Milestone 1 of Tu Deporte Aquí emphasizes documentation, research, and structured system preparation rather than implementation. This section describes the non-development activities that contribute to system reliability, transparency, and organized collaboration.
+This section describes the non-development activities that support the implementation of Tu Deporte Aquí.
 
-These activities ensure that the project evolves through disciplined engineering practices before any source code is written.
+While Milestone 1 focused on research and documentation, the current milestone emphasizes implementation. However, supporting activities such as documentation, coordination, and workflow management remain necessary to ensure consistency and integration across teams.
 
-===== Research Activities
-
-Research plays a central role in Milestone 1. Key research efforts include:
-
-- Investigating reliability strategies for conflicting and delayed sports data
-- Defining scope boundaries and out-of-scope conditions
-- Exploring data lineage and audit trail strategies
-- Studying transparency indicators for uncertain information
-- Analyzing requirements classification (functional vs non-functional)
-
-These research tasks ensure that system behavior is well-defined under real-world constraints.
+These activities help maintain structure and reduce errors during development.
 
 ===== Documentation-as-Code
 
-The project adopts a documentation-as-code model using AsciiDoc and GitHub.
+The project continues to use a documentation-as-code model using AsciiDoc and GitHub.
 
 This includes:
 
 - Structured folder hierarchy under /docs
 - Modular section files linked through include:: directives
 - Version-controlled documentation
-- Pull-request-based content integration
-- Automated HTML/PDF build via CI workflow
+- Pull-request-based updates
+- Automated HTML/PDF builds through CI
 
-This approach ensures traceability, consistency, and reproducibility of documentation.
+Documentation is updated alongside implementation to reflect system behavior and design decisions.
 
 ===== Pull Request and Review Process
 
-All contributions are integrated through a PR-only workflow.
+All contributions are integrated through a PR-based workflow.
 
 The process includes:
 
 1. Issue creation using the standardized template
 2. Feature branch creation
-3. Focused modification of assigned section
+3. Implementation or documentation update
 4. Pull request submission
-5. Automated CI build verification
+5. CI build verification
 6. Team Lead review
 7. Manager approval and merge
 
-This structured process ensures quality control and accountability.
+This process ensures that changes are reviewed before being integrated and reduces inconsistencies between teams.
 
 ===== CI/CD and Build Automation
 
-The project includes a GitHub Actions workflow that:
+The project uses a GitHub Actions workflow that:
 
-- Compiles the master AsciiDoc document
-- Verifies include structure
-- Generates HTML and PDF artifacts
-- Detects build or formatting errors
+- Builds the project and documentation
+- Verifies structure and formatting
+- Detects errors before merging
 
-This automation ensures documentation integrity before approval.
+This helps prevent broken builds and ensures that changes do not introduce issues.
 
 ===== Task Tracking and Governance
 
@@ -66,42 +54,40 @@ All work is tracked through GitHub Issues.
 
 Each issue includes:
 
-- Clear objective
-- Defined acceptance criteria
-- Urgency and difficulty rating
+- Defined objective
+- Acceptance criteria
 - Assigned contributor
-- Milestone linkage
+- Milestone association
 
-Documentation scaffold sections reference the master issue (#53) to maintain structural traceability.
+Documentation-related issues reference the master scaffold issue (#53) to maintain structure.
 
-This governance structure prevents duplication and supports milestone compliance.
+This allows work to be distributed while still keeping visibility across teams.
 
 ===== Team Coordination
 
 Collaboration is supported through:
 
-- Team-based specialization (five domain-focused teams)
-- Regular coordination discussions
-- Milestone planning
-- Alignment on scope and assumptions
-- Shared responsibility for reliability modeling
+- Team-based responsibilities
+- Cross-team communication when dependencies exist
+- Coordination between frontend, backend, and data teams
+- Shared use of components and APIs
 
-These coordination practices ensure consistent interpretation of requirements across teams.
+Coordination is necessary because features depend on shared data and structure.
 
-===== Milestone Planning and Retrospectives
+===== Milestone Planning and Iteration
 
-Milestone 1 includes:
+The project follows milestone-based development.
 
-- Clear completion criteria
-- Defined deliverables (compiled documentation)
-- Explicit failure and uncertainty modeling
-- Iterative refinement through feedback
+This includes:
 
-Retrospective reflection ensures continuous improvement in documentation quality and team workflow.
+- Defined implementation goals
+- Iterative updates based on feedback
+- Adjustments to documentation and structure as the system evolves
+
+Unlike Milestone 1, changes now reflect actual system behavior rather than planned behavior.
 
 ===== Conclusion
 
-Tu Deporte Aquí extends beyond software implementation. Research, structured documentation, governance modeling, and automated validation form the foundation of the project.
+Tu Deporte Aquí includes activities beyond writing code. Documentation, coordination, and structured workflows support implementation and reduce integration issues.
 
-These non-development activities ensure that when implementation begins, it is grounded in clearly defined scope, reliability expectations, and transparent engineering practices.
-
+These activities help ensure that the system is built consistently and that changes remain traceable across milestones.
