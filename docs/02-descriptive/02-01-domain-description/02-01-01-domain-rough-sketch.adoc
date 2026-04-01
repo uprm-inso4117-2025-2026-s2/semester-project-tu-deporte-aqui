@@ -1,20 +1,72 @@
 ==== 2.1.1 Domain Rough Sketch
 
-While shaping the idea for *Tu Deporte Aquí*, we kept running into the same real-world constraint: sports information in Puerto Rico does not live in one clean database. It is scattered across league sites, news outlets, social media, and informal sources, and those channels often disagree or update at different speeds. Because of that, the A3 treats reliability as the main lens for the domain, not just “having features.” The platform has to consistently show accurate standings, results, and athlete updates, while staying understandable when the underlying inputs are messy.
+#This section keeps the early discussion in a rough form. It does not try to
+clean everything up yet. The point is to leave the original concerns visible
+so later sections can trace their concepts back to them.#
 
-Distributed sources and conflicting information::
-A central theme is that the platform must ingest data from multiple leagues and informal reporting channels, which naturally increases the chance of incorrect or outdated information appearing. The domain therefore includes disagreement as a normal scenario, where two sources may report conflicting information and the system must still behave predictably.
+#A lot of the early conversation kept circling around the same frustration:
+people want to follow local sports in Puerto Rico, but the information does
+not come from one place, does not arrive at one speed, and does not always
+match across sources.#
 
-Delays and missing updates::
-We also focused on the fact that updates can arrive late or not arrive at all, especially for local events. The platform must handle incomplete, delayed, or missing inputs without turning that uncertainty into user confusion.
+#Some of the statements and situations that came up were close to the
+following:#
 
-High demand moments::
-Another part of the domain is that reliability gets stress tested when people care the most, such as playoffs, major tournaments, and breaking news. These moments create high traffic pressure, so availability and performance under load are part of the core domain expectations.
+#* "I saw one score on Instagram and a different one in a group chat."#
+#* "Sometimes the reporter posts first, but later the league page says
+something else."#
+#* "A game can look live in one place and finished in another."#
+#* "During playoffs everybody starts checking at once, and that is exactly
+when pages get slow or updates stop."#
+#* "If nothing new has been posted, I still want to know what the last known
+score was and when it was last changed."#
+#* "A blank space is worse than saying that the information is missing."#
+#* "If a result gets corrected later, people start arguing about which version
+was the real one."#
+#* "Not every local league posts with the same format, and some barely post at
+all."#
+#* "Sometimes you only get a screenshot, a short post, or a message from
+someone who was there."#
+#* "When information changes, I want to know whether it was corrected,
+confirmed, or just replaced."#
 
-Clear behavior during degraded states::
-We identified that failures are not only technical events, they are user-facing experiences. If fallback strategies and error handling are weak, failures surface directly to users. In this domain, the platform needs to communicate uncertainty and degraded states clearly, and still keep user messages informative even when dependencies fail or data is unreliable.
+#Another thing that kept coming up was that people were not only asking for
+scores. They were also trying to figure out whether the information in front
+of them deserved trust. In practice, that meant questions like these:#
 
-Trust as the main outcome::
-All of these concerns tie back to the end result the A3 prioritizes: long term user trust. When information is wrong, late, or unclear during important events, users lose confidence quickly and the platform becomes perceived as unreliable over time.
+#* "Who posted this first?"#
+#* "Was this posted by the league, a reporter, or just a community page?"#
+#* "How old is this update?"#
+#* "Is this final, still developing, or just the only thing anyone has posted
+so far?"#
 
-Overall, the domain rough sketch describes a reliability driven platform that remains available during peak demand, stays consistent when sources conflict or arrive late, and communicates reliability status in a way users can understand, supported by testing that targets stress and failure conditions rather than only normal operation.
+#There were also rough discussion points that were not settled yet and were
+left open on purpose:#
+
+#* If an official source posts late and a reporter posts earlier, which one
+should people follow in the meantime?#
+#* If two sources disagree, should one be shown, should both be shown, or
+should the result be held back?#
+#* How old can a live update be before people stop treating it as live?#
+#* What is the minimum amount of information needed before a game should be
+shown as in progress?#
+#* If all sources go quiet during a game, should people see the last known
+value, a warning, or both?#
+
+#A recurring tension in these discussions was that failure is not only
+technical here. If a source is late, disappears, or disagrees with another
+source, people experience that as confusion right away. The problem is not
+just "the data is messy." The problem is that fans, coaches, reporters, and
+organizers still need to make sense of what is happening while the information
+is incomplete, delayed, or contradictory.#
+
+#Another recurring point was that the hardest moments are usually the ones
+people care about most. Playoffs, tournaments, rivalry games, and late-game
+updates were brought up more than once because those are the moments when more
+people are checking, more posts are appearing, and mistakes become visible
+fast.#
+
+#At this stage, the rough sketch is not meant to explain the domain neatly. It
+is a record of the situations, phrases, and unresolved questions that kept
+appearing in early discussion. Later sections can organize these into
+terminology, actions, requirements, and validation steps.#
