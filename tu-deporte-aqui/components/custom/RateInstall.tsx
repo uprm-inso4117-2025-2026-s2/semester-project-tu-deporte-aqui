@@ -1,35 +1,41 @@
 "use client"
 
+import { AngryIcon, FrownIcon, MehIcon, SmileIcon, LaughIcon } from "lucide-react";
 import { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Children } from 'react';
 import { Button } from "../ui/button";
 import Image from "next/image";
 
 export default function RateInstall() {
   const [isPWA, setIsPWA] = useState<boolean>(false);
-  const [choice, setChoice] = useState<string | null>(null);
+  const [dismissed, setDismissed] = useState<boolean>(true);
+  const [choice, setChoice] = useState<string>("");
 
   useEffect(() => {
     const mql = window.matchMedia('(display-mode: standalone)');
 
     (() => {
       setIsPWA(mql.matches)
+
+      const isDismissed: string | null = localStorage.getItem("dismissed-install-rating");
+      if (isDismissed == null) {
+        setDismissed(false)
+      }
     })();
-    
+
   }, [])
 
   const handleOptionChange = (value: string) => {
     setChoice(value);
   }
 
-  // if (isPWA) {
-  //   return (
-  //   <div>HELLO</div>
-  //   )
-  // }
-  // else {
-  //   return (<></>)
-  // }
+  const handleSubmission = (value: string) => {
+    setDismissed(true);
+    localStorage.setItem("dismissed-install-rating", "true");
+  }
+
+  if (/*!isPWA || */dismissed) return
 
   return (
     <Card className="w-full max-w-sm fixed bottom-0 left-1/2 -translate-x-1/2">
@@ -38,31 +44,31 @@ export default function RateInstall() {
       </CardHeader>
       <CardContent>
         <div className="w-full flex justify-between">
-          <RatingOption onUserChange={handleOptionChange} imgSrc="/icons/very-sad-face.png" choice={choice} value="Very bad"/>
-          <RatingOption onUserChange={handleOptionChange} imgSrc="/icons/sad-face.png" choice={choice} value="Bad"/>
-          <RatingOption onUserChange={handleOptionChange} imgSrc="/icons/neutral-face.png" choice={choice} value="Ok"/>
-          <RatingOption onUserChange={handleOptionChange} imgSrc="/icons/happy-face.png" choice={choice} value="Good"/>
-          <RatingOption onUserChange={handleOptionChange} imgSrc="/icons/very-happy-face.png" choice={choice} value="Great"/>
+          <RatingOption onUserChange={handleOptionChange} choice={choice} value="Very bad"><AngryIcon className="w-full" size={30} /></RatingOption>
+          <RatingOption onUserChange={handleOptionChange}choice={choice} value="Bad"><FrownIcon className="w-full" size={30} /></RatingOption>
+          <RatingOption onUserChange={handleOptionChange}choice={choice} value="Ok"><MehIcon className="w-full" size={30} /></RatingOption>
+          <RatingOption onUserChange={handleOptionChange}choice={choice} value="Good"><SmileIcon className="w-full" size={30} /></RatingOption>
+          <RatingOption onUserChange={handleOptionChange} choice={choice} value="Great"><LaughIcon className="w-full" size={30} /></RatingOption>
         </div>
 
       </CardContent>
 
       <CardContent className="flex justify-between">
-        <Button variant="destructive">Dismiss</Button>
-        <Button type="submit" disabled={!choice}>Submit</Button>
+        <Button onClick={() => handleSubmission("dismissed")} variant="destructive">Dismiss</Button>
+        <Button onClick={() => handleSubmission(choice)} type="submit" disabled={!choice}>Submit</Button>
       </CardContent>
     </Card>
   )
 }
 
-function RatingOption({imgSrc, value, choice, onUserChange} : {imgSrc: string, value: string, choice: string | null, onUserChange: (value: string) => void}) {
+function RatingOption({value, choice, onUserChange, children} : {value: string, choice: string, onUserChange: (value: string) => void, children: React.ReactNode}) {
   return (
-    <>
-      <label className="w-16 cursor-pointer">
-        <Image className={`select-none ml-auto mr-auto hover:brightness-100 brightness-${choice == value? '100' : '50'}`} alt={value} src={imgSrc} height={500} width={500}></Image>
-        <p className="text-xs text-center">{value}</p>
-        <input onChange={() => onUserChange(value)} value={value} name="pwa-install-rating" type="radio" className="hidden" />
-      </label>
-    </>
+    <label className="w-16 cursor-pointer">
+      <div className={`select-none hover:brightness-100 brightness-${choice == value? '100' : '50'}`}>
+        {children}
+      </div>
+      <p className="text-xs text-center mt-2">{value}</p>
+      <input onChange={() => onUserChange(value)} value={value} name="pwa-install-rating" type="radio" className="hidden" />
+    </label>
   )
 }
