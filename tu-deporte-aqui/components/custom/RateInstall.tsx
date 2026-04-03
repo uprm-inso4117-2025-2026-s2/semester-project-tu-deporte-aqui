@@ -3,9 +3,7 @@
 import { AngryIcon, FrownIcon, MehIcon, SmileIcon, LaughIcon } from "lucide-react";
 import { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Children } from 'react';
 import { Button } from "../ui/button";
-import Image from "next/image";
 
 export default function RateInstall() {
   const [isPWA, setIsPWA] = useState<boolean>(false);
@@ -30,9 +28,11 @@ export default function RateInstall() {
     setChoice(value);
   }
 
-  const handleSubmission = (value: string) => {
+  const handleSubmission = async (value: string) => {
     setDismissed(true);
     localStorage.setItem("dismissed-install-rating", "true");
+
+    await fetch(`/api/rate-install?rating=${value}`, { method: "POST" });
   }
 
   if (/*!isPWA || */dismissed) return
