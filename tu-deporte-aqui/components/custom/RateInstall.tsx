@@ -35,7 +35,7 @@ export default function RateInstall() {
     await fetch(`/api/rate-install?rating=${value}`, { method: "POST" });
   }
 
-  if (/*!isPWA || */dismissed) return
+  if (!isPWA || dismissed) return
 
   return (
     <Card className="w-full max-w-sm fixed bottom-0 left-1/2 -translate-x-1/2">
