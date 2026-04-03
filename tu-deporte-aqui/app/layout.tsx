@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
+import RateInstall from "@/components/custom/RateInstall";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'})
 
@@ -30,6 +31,7 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
+        <RateInstall/>
       </body>
     </html>
   )
