@@ -30,9 +30,9 @@ In this project, TDD would be particularly useful for validating:
 
 ====== System Behavior Under Uncertainty
 
-* Graceful degradation when sources fail
+* Graceful degradation when sources fail (example, displaying "Score unavailable" instead of partial data)
 * Fallback behavior when data is incomplete
-* Transparency messaging to users
+* Transparency messaging to users (example, marking games as "stale" when data cannot be guaranteed)
 * Consistent handling of provisional states
 
 ====== User-Facing Behavior
@@ -64,6 +64,118 @@ During Milestone 1, no production code is implemented. However, defining TDD str
 * Stronger reliability modeling
 
 This preparation reduces future development risk and supports structured system evolution.
+
+===== TDD Walkthrough Example
+
+To illustrate the practical application of TDD, this section presents a step by step evolution of a simple function called  `formatScore`.
+This function converts raw score data into an user friendly display format while handling incomplete or invalid data.
+
+The following iterations show how tests were written first, failing initially, and then the function was updated to pass each test sequentially.
+
+====== Iteration 1: Basic Formatting
+
+*Test 1: Expected behavior:*
+
+[source,javascript]
+----
+expect(formatScore(80, 75)).toBe("80 - 75");
+----
+
+*Initial stub implementation (fails test):*
+
+[source,javascript]
+----
+function formatScore() {
+  return "";
+}
+----
+
+*Updated implementation (passes test):*
+
+[source,javascript]
+----
+function formatScore(homeScore, awayScore) {
+  return `${homeScore} - ${awayScore}`;
+}
+----
+
+====== Iteration 2: Handle Missing Home Score
+
+*Test 2:*
+
+[source,javascript]
+----
+expect(formatScore(null, 75)).toBe("Score unavailable");
+----
+
+*Updated implementation:*
+
+[source,javascript]
+----
+function formatScore(homeScore, awayScore) {
+  if (homeScore == null) {
+    return "Score unavailable";
+  }
+  return `${homeScore} - ${awayScore}`;
+}
+----
+
+====== Iteration 3: Handle Missing Away Score
+
+*Test 3:*
+
+[source,javascript]
+----
+expect(formatScore(80, undefined)).toBe("Score unavailable");
+----
+
+*Updated implementation:*
+
+[source,javascript]
+----
+function formatScore(homeScore, awayScore) {
+  if (homeScore == null || awayScore == null) {
+    return "Score unavailable";
+  }
+  return `${homeScore} - ${awayScore}`;
+}
+----
+
+====== Iteration 4: Handle Both Scores Missing
+
+*Test 4:*
+
+[source,javascript]
+----
+expect(formatScore(null, null)).toBe("Score unavailable");
+----
+
+*Result:* Test passes, no changes needed.
+
+====== Iteration 5: Handle Zero Scores Correctly
+
+*Test 5:*
+
+[source,javascript]
+----
+expect(formatScore(0, 0)).toBe("0 - 0");
+----
+
+*Result:* Test passes, no changes needed.
+
+====== Final Implementation
+
+[source,javascript]
+----
+function formatScore(homeScore, awayScore) {
+  if (homeScore == null || awayScore == null) {
+    return "Score unavailable";
+  }
+  return `${homeScore} - ${awayScore}`;
+}
+----
+
+At each step, the function was modified minimally to pass the new test while keeping all previous tests passing.
 
 ===== Conclusion
 
