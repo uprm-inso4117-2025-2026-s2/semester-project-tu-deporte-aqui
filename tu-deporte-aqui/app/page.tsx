@@ -264,7 +264,7 @@ export default function GamesPage() {
                           <span>{statusView.text}</span>
                         </span>
                       </td>
-                      <td className="py-2 px-4 border text-neutral-100">{game.info_status || "-"}</td>
+                      <td className="py-2 px-4 border text-neutral-100">{game.status || "-"}</td>
                     </tr>
                   );
                 })}
