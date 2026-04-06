@@ -18,6 +18,9 @@ Date: March 12, 2026
 
 <<<
 
+== Table of Contents
+toc::[]
+
 == 1 Informative part
 include::01-informative/01-01-team.adoc[]
 === 1.2 Current situation, needs, ideas
