@@ -1,7 +1,20 @@
-include::00-cover-page.adoc[]
-
+= Tu Deporte Aquí Project Documentation
+:title-page:
+:doctype: book
 :toc:
 :toclevels: 4
+
+[.text-center]
+*Course:* INSO 4117 - Software Reliability Testing +
+*Semester:* Spring 2026 +
+*Professor:* Marko Schütz-Schmuck
+
+[.text-center]
+*Repository:* https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui +
+*Milestone:* Milestone Number #2 +
+*Date:* March 12, 2026
+
+<<<
 
 == 1 Informative part
 include::01-informative/01-01-team.adoc[]
