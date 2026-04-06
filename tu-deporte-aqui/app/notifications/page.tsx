@@ -1,11 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useSyncExternalStore } from "react"
 
 import { Button } from "@/components/ui/button"
 import { subscribeUser, unsubscribeUser, sendNotification } from '../actions'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { useEffect } from "react"
 import { Input } from "@/components/ui/input"
  
 function urlBase64ToUint8Array(base64String: string) {
@@ -21,31 +20,44 @@ function urlBase64ToUint8Array(base64String: string) {
   return outputArray
 }
 
+function subscribeToPushSupport() {
+  return () => {}
+}
+
+function getPushSupportSnapshot() {
+  if (typeof window === "undefined") {
+    return false
+  }
+
+  return 'serviceWorker' in navigator && 'PushManager' in window
+}
+
 function PushNotificationManager() {
-  const [isSupported, setIsSupported] = useState(false)
   const [subscription, setSubscription] = useState<PushSubscription | null>(
     null
   )
   const [message, setMessage] = useState('')
+  const isSupported = useSyncExternalStore(
+    subscribeToPushSupport,
+    getPushSupportSnapshot,
+    () => false
+  )
  
-  useEffect(() => {
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
-      setIsSupported(true)
-      registerServiceWorker()
+  async function ensureServiceWorkerRegistration() {
+    const existingRegistration = await navigator.serviceWorker.getRegistration('/')
+
+    if (existingRegistration) {
+      return existingRegistration
     }
-  }, [])
- 
-  async function registerServiceWorker() {
-    const registration = await navigator.serviceWorker.register('/sw.js', {
+
+    return navigator.serviceWorker.register('/sw.js', {
       scope: '/',
       updateViaCache: 'none',
     })
-    const sub = await registration.pushManager.getSubscription()
-    setSubscription(sub)
   }
  
   async function subscribeToPush() {
-    const registration = await navigator.serviceWorker.ready
+    const registration = await ensureServiceWorkerRegistration()
     const sub = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(
@@ -109,8 +121,6 @@ function PushNotificationManager() {
 }
 
 export default function Page() {
-  const [showPassword, setShowPassword] = useState(false)
-
   return (
   <div className="flex flex-col min-h-svh items-center justify-center bg-muted/30 p-6 gap-12">
     <PushNotificationManager />

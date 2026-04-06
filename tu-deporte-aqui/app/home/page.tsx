@@ -21,7 +21,9 @@ import {
   Youtube,
   Twitter,
   ChevronRight,
+  LogOut,
 } from "lucide-react"
+import { logoutUser } from "@/lib/auth"
 
 // ─── Mock Data ───────────────────────────────────────────────────────────────
 
@@ -77,10 +79,27 @@ function Navbar() {
   const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
   const [query, setQuery] = useState("")
+  const [isLoggingOut, setIsLoggingOut] = useState(false)
+  const [logoutError, setLogoutError] = useState("")
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (query.trim()) router.push(`/search?q=${encodeURIComponent(query.trim())}`)
+  }
+
+  const handleLogout = async () => {
+    setLogoutError("")
+    setIsLoggingOut(true)
+
+    const result = await logoutUser()
+
+    if (result.error) {
+      setLogoutError(result.error)
+      setIsLoggingOut(false)
+      return
+    }
+
+    router.push("/login")
   }
 
   return (
@@ -101,19 +120,33 @@ function Navbar() {
         </div>
 
         {/* Search + Menu */}
-        <div className="flex items-center gap-3">
-          <form onSubmit={handleSearch} className="hidden md:flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1.5 text-sm">
-            <Search size={14} className="text-gray-400 shrink-0" />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search..."
-              className="bg-transparent outline-none text-gray-700 placeholder-gray-400 w-28 focus:w-44 transition-all"
-            />
-          </form>
-          <button onClick={() => setMenuOpen(!menuOpen)} className="p-1 text-gray-600 hover:text-gray-900">
-            <Menu size={22} />
-          </button>
+        <div className="flex flex-col items-end gap-1">
+          <div className="flex items-center gap-3">
+            <form onSubmit={handleSearch} className="hidden md:flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1.5 text-sm">
+              <Search size={14} className="text-gray-400 shrink-0" />
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search..."
+                className="bg-transparent outline-none text-gray-700 placeholder-gray-400 w-28 focus:w-44 transition-all"
+              />
+            </form>
+            <button
+              type="button"
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-gray-400 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <LogOut size={14} />
+              {isLoggingOut ? "Logging out..." : "Log out"}
+            </button>
+            <button onClick={() => setMenuOpen(!menuOpen)} className="p-1 text-gray-600 hover:text-gray-900">
+              <Menu size={22} />
+            </button>
+          </div>
+          {logoutError ? (
+            <p className="text-xs font-medium text-red-600">{logoutError}</p>
+          ) : null}
         </div>
       </div>
 
@@ -177,7 +210,7 @@ function HeroSection() {
         <div className="flex-1">
           <h2 className="text-xl font-bold mb-4">Your Go-To Sports Hub for Puerto Rico</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
-            Experience all your favorite sports in one place. From basketball to baseball, volleyball to boxing — we bring you live scores, standings, and the latest news from Puerto Rico's sports scene.
+            Experience all your favorite sports in one place. From basketball to baseball, volleyball to boxing — we bring you live scores, standings, and the latest news from Puerto Rico&apos;s sports scene.
           </p>
         </div>
       </div>
@@ -277,7 +310,7 @@ function StandingsSection() {
             <Trophy size={36} className="text-yellow-500" />
             <h2 className="text-4xl font-black text-gray-900">Team Standings</h2>
           </div>
-          <p className="text-gray-500">Track your favorite teams' performance across different leagues</p>
+          <p className="text-gray-500">Track your favorite teams&apos; performance across different leagues</p>
         </div>
 
         {/* Card */}
