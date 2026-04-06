@@ -20,7 +20,7 @@ export async function GET() {
   try {
     const { data, error } = await supabase
       .from("standings")
-      .select("id, team_id, league, season, wins, losses");
+      .select("id, team_id, league, season, wins, losses, teams(name)");
 
     if (error) {
       return new Response(

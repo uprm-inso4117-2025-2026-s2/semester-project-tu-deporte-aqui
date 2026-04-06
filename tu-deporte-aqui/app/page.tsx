@@ -18,6 +18,9 @@ interface Standing {
   team_id: number;
   wins: number;
   losses: number;
+  teams?: {
+    name: string;
+  };
 }
 
 export default function GamesPage() {
@@ -60,6 +63,9 @@ export default function GamesPage() {
   if (loading) return <div className="p-4">Cargando juegos...</div>;
   if (error) return <div className="p-4 text-red-500">{error}</div>;
 
+  // ...importaciones y lógica existente...
+
+  // Encuentra el juego más reciente (puedes ajustar la lógica según tu modelo de datos)
   const mostRecentGame = games.length > 0 ? games[0] : null;
 
   const isFinalStatus = (status: string) => {
@@ -126,6 +132,7 @@ export default function GamesPage() {
             <span className="text-white text-sm font-semibold">Most Recent Game</span>
           </div>
           <div className="flex justify-between items-center bg-neutral-800 rounded-lg p-4">
+            {/* Equipo local */}
             <div className="flex flex-col items-center">
               <div className="text-center text-sm text-green-400 mt-2">
                 {mostRecentGame ? getStatusLabel(mostRecentGame.status) : ""}
@@ -148,6 +155,7 @@ export default function GamesPage() {
                 </span>
               </div>
             </div>
+            {/* Equipo visitante */}
             <div className="flex flex-col items-center">
               <span className="text-4xl font-bold text-red-700">
                 {mostRecentGame?.away_team?.name?.charAt(0) || "-"}
@@ -187,11 +195,26 @@ export default function GamesPage() {
                   return (
                     <tr key={team.id} className="text-white text-base border-t border-neutral-700">
                       <td className="py-2 px-2 flex items-center gap-2">
-                        <span className="w-6 h-6 bg-neutral-700 rounded-full inline-flex items-center justify-center text-xs font-bold text-neutral-300">
-                          {idx + 1}
-                        </span>
-                        <span className="ml-2">Team {team.team_id}</span>
-                      </td>
+  {/* Ranking number */}
+  <span className="w-6 h-6 bg-neutral-700 rounded-full inline-flex items-center justify-center text-xs font-bold text-neutral-300">
+    {idx + 1}
+  </span>
+
+  {/* Fake logo + name */}
+  {(() => {
+   const teamName = team.teams?.name || `Team ${team.team_id}`;
+    const initial = teamName.charAt(0);
+
+    return (
+      <>
+        <div className="w-8 h-8 rounded-full bg-green-700 flex items-center justify-center text-white font-bold">
+          {initial}
+        </div>
+        <span className="ml-2">{teamName}</span>
+      </>
+    );
+  })()}
+</td>
                       <td className="py-2 px-2 text-center">{games}</td>
                       <td className="py-2 px-2 text-center text-emerald-300 font-semibold">{team.wins}</td>
                       <td className="py-2 px-2 text-center text-rose-300">{team.losses}</td>
