@@ -1,9 +1,7 @@
-= Tu Deporte Aquí
-== Project Documentation
+include::00-cover-page.adoc[]
+
 :toc:
 :toclevels: 4
-
-include::00-cover-page.adoc[]
 
 == 1 Informative part
 include::01-informative/01-01-team.adoc[]
