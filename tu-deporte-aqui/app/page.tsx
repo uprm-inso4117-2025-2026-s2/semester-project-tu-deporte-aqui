@@ -13,8 +13,16 @@ interface Game {
   info_status?: string;
 }
 
+interface Standing {
+  id: number;
+  team_id: number;
+  wins: number;
+  losses: number;
+}
+
 export default function GamesPage() {
   const [games, setGames] = useState<Game[]>([]);
+  const [standings, setStandings] = useState<Standing[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -30,15 +38,16 @@ export default function GamesPage() {
 
     try {
       const res = await fetch("/api/games");
-
-      if (!res.ok) {
-        throw new Error("Error al cargar los juegos");
-      }
-
+      if (!res.ok) throw new Error("Error al cargar los juegos");
       const data = await res.json();
       setGames(data);
+
+      const standingsRes = await fetch("/api/standings");
+      if (!standingsRes.ok) throw new Error("Error al cargar los standings");
+      const standingsData = await standingsRes.json();
+      setStandings(standingsData);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Error al cargar los juegos");
+      setError(err instanceof Error ? err.message : "Error al cargar los datos");
     } finally {
       setLoading(false);
     }
@@ -51,10 +60,8 @@ export default function GamesPage() {
   if (loading) return <div className="p-4">Cargando juegos...</div>;
   if (error) return <div className="p-4 text-red-500">{error}</div>;
 
-  // ...importaciones y lógica existente...
-
-  // Encuentra el juego más reciente (puedes ajustar la lógica según tu modelo de datos)
   const mostRecentGame = games.length > 0 ? games[0] : null;
+
   const isFinalStatus = (status: string) => {
     const normalized = status.toLowerCase();
     return ["final", "finished", "complete", "completed", "ended"].includes(normalized);
@@ -74,7 +81,6 @@ export default function GamesPage() {
 
   const getStatusPresentation = (status: string) => {
     const normalized = status.toLowerCase();
-
     switch (normalized) {
       case "live":
       case "in_progress":
@@ -102,7 +108,6 @@ export default function GamesPage() {
     }
   };
 
-
   return (
     <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.14),_transparent_32%),linear-gradient(180deg,_#050505_0%,_#0b0b0b_45%,_#050505_100%)]">
       <div
@@ -112,6 +117,7 @@ export default function GamesPage() {
 
       <div className="relative p-4 flex flex-col items-center">
 
+        {/* Most Recent Game */}
         <div className="w-full max-w-xl bg-neutral-900 rounded-xl shadow-lg mb-8 p-4">
           <div className="flex justify-between items-center mb-2">
             <span className="text-xs text-yellow-400 font-semibold flex items-center">
@@ -120,11 +126,10 @@ export default function GamesPage() {
             <span className="text-white text-sm font-semibold">Most Recent Game</span>
           </div>
           <div className="flex justify-between items-center bg-neutral-800 rounded-lg p-4">
-            {/* Equipo local */}
             <div className="flex flex-col items-center">
               <div className="text-center text-sm text-green-400 mt-2">
                 {mostRecentGame ? getStatusLabel(mostRecentGame.status) : ""}
-              </div>  {/* Aqui añadi algo para mostrar el status del juego */}
+              </div>
               <span className="text-4xl font-bold text-yellow-400">
                 {mostRecentGame?.home_team?.name?.charAt(0) || "-"}
               </span>
@@ -143,7 +148,6 @@ export default function GamesPage() {
                 </span>
               </div>
             </div>
-            {/* Equipo visitante */}
             <div className="flex flex-col items-center">
               <span className="text-4xl font-bold text-red-700">
                 {mostRecentGame?.away_team?.name?.charAt(0) || "-"}
@@ -155,7 +159,7 @@ export default function GamesPage() {
           </div>
         </div>
 
-        {/* Standings Table Section */}
+        {/* Standings Table */}
         <div className="w-full max-w-xl bg-neutral-800 rounded-xl shadow-lg p-4">
           <table className="min-w-full">
             <thead>
@@ -168,25 +172,40 @@ export default function GamesPage() {
               </tr>
             </thead>
             <tbody>
-              {/* 6 filas vacías para standings */}
-              {[...Array(6)].map((_, idx) => (
-                <tr key={idx} className="text-white text-base border-t border-neutral-700">
-                  <td className="py-2 px-2 flex items-center gap-2">
-                    {/* Aquí puedes poner un logo si lo tienes */}
-                    <span className="w-6 h-6 bg-neutral-700 rounded-full inline-block"></span>
-                    <span className="ml-2"> </span>
+              {standings.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="py-6 text-center text-neutral-400 text-sm">
+                    No standings available.
                   </td>
-                  <td className="py-2 px-2 text-center"></td>
-                  <td className="py-2 px-2 text-center"></td>
-                  <td className="py-2 px-2 text-center"></td>
-                  <td className="py-2 px-2 text-center"></td>
                 </tr>
-              ))}
+              ) : (
+                standings.map((team, idx) => {
+                  const games = team.wins + team.losses;
+                  const pct = games > 0
+                    ? (team.wins / games).toFixed(3).replace(/^0/, "")
+                    : "—";
+                  return (
+                    <tr key={team.id} className="text-white text-base border-t border-neutral-700">
+                      <td className="py-2 px-2 flex items-center gap-2">
+                        <span className="w-6 h-6 bg-neutral-700 rounded-full inline-flex items-center justify-center text-xs font-bold text-neutral-300">
+                          {idx + 1}
+                        </span>
+                        <span className="ml-2">Team {team.team_id}</span>
+                      </td>
+                      <td className="py-2 px-2 text-center">{games}</td>
+                      <td className="py-2 px-2 text-center text-emerald-300 font-semibold">{team.wins}</td>
+                      <td className="py-2 px-2 text-center text-rose-300">{team.losses}</td>
+                      <td className="py-2 px-2 text-center font-mono">{pct}</td>
+                    </tr>
+                  );
+                })
+              )}
             </tbody>
           </table>
         </div>
       </div>
 
+      {/* Games Table */}
       <div className="relative w-full flex justify-center px-4 pb-8">
         <div className="w-full max-w-5xl mt-8 rounded-xl bg-neutral-900 p-4 shadow-lg">
           <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -276,35 +295,3 @@ export default function GamesPage() {
     </div>
   );
 }
-
-// Esto es otro layout que puedes usar para mostrar la tabla de juegos, pero el diseño que tiene actualmente es más agradable.
-//   return (
-//     <div className="p-4">
-//       <h1 className="text-2xl font-bold mb-4 text-green-600">Juegos</h1>
-//       <table className="min-w-full border border-gray-300 rounded">
-//         <thead>
-//           <tr className="bg-gray-100">
-//             <th className="py-2 px-4 border text-green-700">Equipos</th>
-//             <th className="py-2 px-4 border text-green-700">Puntuación</th>
-//             <th className="py-2 px-4 border text-green-700">Status del Juego</th>
-//             <th className="py-2 px-4 border text-green-700">Status de Información</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {games.map((game) => (
-//             <tr key={game.id} className="text-center">
-//               <td className="py-2 px-4 border font-medium">
-//                 {game.home_team?.name || "Equipo Local"} vs {game.away_team?.name || "Equipo Visitante"}
-//               </td>
-//               <td className="py-2 px-4 border">
-//                 {game.home_score} - {game.away_score}
-//               </td>
-//               <td className="py-2 px-4 border">{game.status}</td>
-//               <td className="py-2 px-4 border">{game.info_status || "-"}</td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// }
