@@ -1,0 +1,214 @@
+= [.inserted]#Lecture Topic Task: Mutation Testing to Evaluate Test Suite Strength#
+[.inserted]#Author: Gerald Rodríguez#
+
+== [.inserted]#1. Introduction#
+
+[.inserted]#This lecture topic task evaluates how sensitive the current system is to faults by applying mutation testing to a core API route.#
+
+[.inserted]#Instead of only checking whether the system works under normal conditions, mutation testing introduces small, controlled faults into the code. The goal is to observe whether these faults are detectable through the current behavior of the system.#
+
+[.inserted]#The focus of this experiment is the `/api/games` route, which retrieves sports data from Supabase and feeds the frontend.#
+
+== [.inserted]#2. Scope of the Experiment#
+
+[.inserted]#The experiment was conducted on:#
+
+- [.inserted]#API route: `/api/games`#
+- [.inserted]#Data source: Supabase (games table)#
+- [.inserted]#Frontend page: `/` (games display UI)#
+
+[.inserted]#The evaluation considered three observable outputs:#
+
+- [.inserted]#API response (`/api/games`)#
+- [.inserted]#Frontend behavior (`/`)#
+- [.inserted]#Server logs (terminal output)#
+
+[.inserted]#No automated testing framework was used. Detection was based on observable system behavior.#
+
+== [.inserted]#3. Mutation Testing Approach#
+
+[.inserted]#Each mutation consisted of modifying a small part of the code to simulate a realistic fault. After each change:#
+
+[.inserted]#1. The application was executed (`npm run dev`)#
+[.inserted]#2. The API endpoint was tested (`/api/games`)#
+[.inserted]#3. The frontend was observed (`/`)#
+[.inserted]#4. Server logs were checked#
+
+[.inserted]#A mutation is considered:#
+
+- [.inserted]#*Killed* → if the fault causes a visible or detectable change#
+- [.inserted]#*Survived* → if the system behaves as if nothing is wrong#
+
+== [.inserted]#4. Mutations Applied#
+
+[.inserted]#Five mutations were introduced in the `/api/games` route.#
+
+=== [.inserted]#Mutation Summary#
+
+[cols="1,3,4,4,1", options="header"]
+[.inserted]#|===#
+[.inserted]#| Mutation ID | Mutation | Expected Effect | Observed Result | Outcome#
+
+[.inserted]#| M1#
+[.inserted]#| `.from("games")` → `.from("game")`#
+[.inserted]#| Query should fail because the table does not exist#
+[.inserted]#| Frontend showed error, API returned missing-table error, terminal logged 500#
+[.inserted]#| Killed#
+
+[.inserted]#| M2#
+[.inserted]#| `if (error)` → `if (!error)`#
+[.inserted]#| Successful queries treated as failures#
+[.inserted]#| Frontend showed error, API returned server error, terminal logged 500#
+[.inserted]#| Killed#
+
+[.inserted]#| M3#
+[.inserted]#| Response status `200` → `500`#
+[.inserted]#| Data returned but marked as failure#
+[.inserted]#| API returned data, but frontend failed and curl confirmed HTTP 500#
+[.inserted]#| Killed#
+
+[.inserted]#| M4#
+[.inserted]#| Removed `status` from `.select(...)`#
+[.inserted]#| Data returned without status field#
+[.inserted]#| App loaded, but status column disappeared from UI#
+[.inserted]#| Killed#
+
+[.inserted]#| M5#
+[.inserted]#| `{ error: error.message }` → `{ message: error.message }`#
+[.inserted]#| Error structure changed#
+[.inserted]#| Frontend still failed, API returned modified error format#
+[.inserted]#| Killed#
+[.inserted]#|===#
+
+== [.inserted]#5. Detailed Observations#
+
+=== [.inserted]#M1 – Invalid Table Name#
+
+[.inserted]#Changing the table name caused the query to fail immediately.#
+
+- [.inserted]#API response:#
+[.inserted]#  {"error":"Could not find the table 'public.game'..."}#
+
+- [.inserted]#Frontend:#
+[.inserted]#  Error al cargar los juegos#
+
+- [.inserted]#Terminal:#
+[.inserted]#  GET /api/games 500#
+
+[.inserted]#This confirms that database-level failures are clearly detectable.#
+
+---
+
+=== [.inserted]#M2 – Inverted Error Condition#
+
+[.inserted]#The system treated successful queries as failures.#
+
+- [.inserted]#API response:#
+[.inserted]#  {"error":"Server error"}#
+
+- [.inserted]#Frontend:#
+[.inserted]#  Error al cargar los juegos#
+
+[.inserted]#This shows that control-flow errors in error handling are visible at runtime.#
+
+---
+
+=== [.inserted]#M3 – Incorrect Status Code#
+
+[.inserted]#The API returned valid data but used HTTP 500.#
+
+- [.inserted]#`/api/games` displayed data#
+- [.inserted]#`curl -i` confirmed HTTP 500#
+- [.inserted]#Frontend still failed#
+
+[.inserted]#This demonstrates that the system depends on correct HTTP status codes, not only response content.#
+
+---
+
+=== [.inserted]#M4 – Missing Required Field#
+
+[.inserted]#Removing `status` did not crash the system.#
+
+- [.inserted]#API returned valid data without `status`#
+- [.inserted]#Frontend rendered but lost status values#
+
+[.inserted]#This is a non-crashing fault that still affects correctness.#
+
+---
+
+=== [.inserted]#M5 – Modified Error Structure#
+
+[.inserted]#The error response format changed.#
+
+- [.inserted]#API response:#
+[.inserted]#  {"message":"Could not find the table..."}#
+
+- [.inserted]#Frontend still failed#
+- [.inserted]#HTTP 500 still returned#
+
+[.inserted]#This confirms that the system detects failures even if the error format changes.#
+
+== [.inserted]#6. Mutation Score#
+
+[.inserted]#Mutation Score = (Killed Mutants / Total Mutants) × 100#
+
+[.inserted]#Mutation Score = (5 / 5) × 100 = 100%#
+
+[.inserted]#All introduced mutations were detected.#
+
+== [.inserted]#7. Interpretation of Results#
+
+[.inserted]#The results show that the system is highly sensitive to faults in the tested route.#
+
+[.inserted]#The following types of faults were successfully detected:#
+
+- [.inserted]#Invalid database queries#
+- [.inserted]#Incorrect control flow#
+- [.inserted]#Wrong HTTP status codes#
+- [.inserted]#Missing required fields#
+- [.inserted]#Changes in error response structure#
+
+[.inserted]#Detection occurred through:#
+
+- [.inserted]#frontend error messages#
+- [.inserted]#API output differences#
+- [.inserted]#HTTP status codes#
+- [.inserted]#server logs#
+
+== [.inserted]#8. Limitations#
+
+[.inserted]#This experiment focused on a single route (`/api/games`).#
+
+[.inserted]#Additionally:#
+
+- [.inserted]#detection was manual, not automated#
+- [.inserted]#only five mutations were tested#
+- [.inserted]#other modules (authentication, UI logic, etc.) were not evaluated#
+
+[.inserted]#Therefore, the results reflect local robustness, not full system coverage.#
+
+== [.inserted]#9. Conclusions#
+
+[.inserted]#Mutation testing revealed that the current implementation of the `/api/games` route is strongly fault-sensitive.#
+
+[.inserted]#Even small changes in:#
+
+- [.inserted]#database queries#
+- [.inserted]#control logic#
+- [.inserted]#response structure#
+
+[.inserted]#produced observable failures.#
+
+[.inserted]#This indicates that:#
+
+- [.inserted]#the system provides useful feedback when something breaks#
+- [.inserted]#errors are not silently ignored#
+- [.inserted]#incorrect behavior is visible to users and developers#
+
+[.inserted]#Future improvements could include:#
+
+- [.inserted]#automating mutation testing#
+- [.inserted]#expanding coverage to other modules#
+- [.inserted]#adding formal assertions for API contracts#
+
+[.inserted]#Overall, the system demonstrates good fault detection behavior in this part of the application.#

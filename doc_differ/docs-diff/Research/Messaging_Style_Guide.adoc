@@ -1,0 +1,164 @@
+= [.inserted]#Tu Deporte Aquí — Messaging Style Guide#
+
+== [.inserted]#Objective#
+
+[.inserted]#Create a clear, consistent *tone* and *language style* guide for *Tu Deporte Aquí* updates (Spanish-first + optional English), so messages remain calm, readable, and trustworthy.#
+
+---
+
+== [.inserted]#1) Research Local PR Sports Writing Norms#
+
+=== [.inserted]#A) Official League/Team Social Posts (Instagram)#
+
+* [.inserted]#*Tone:* Professional, trustworthy, no sensationalism.#
+
+[.inserted]#*Key Terms:*#
+* [.inserted]#*OFICIAL:* for confirmed, reliable updates (postponements, final scores, etc.)#
+* [.inserted]#*EN DESARROLLO:* used for ongoing updates#
+* [.inserted]#*ACTUALIZADO:* indicates updated status (e.g., corrections)#
+
+[.inserted]#*Common Structure:*#
+* [.inserted]#"OFICIAL: [Event] ha sido [confirmed action], próximo paso: [next action]."#
+* [.inserted]#"ACTUALIZADO: [Score] ahora es [new value]."#
+
+---
+
+=== [.inserted]#B) Puerto Rico Sports Media (El Nuevo Día / Primera Hora)#
+
+* [.inserted]#*Tone:* Informative and concrete; avoid speculation.#
+
+[.inserted]#*Key Terms:*#
+* [.inserted]#*Última Hora:* breaking news#
+* [.inserted]#*Marcador Final:* final score announcement#
+* [.inserted]#*Confirmado:* verified information#
+
+[.inserted]#*Common Structure:*#
+* [.inserted]#"Última Hora: [Event] se ha [confirmed action]."#
+* [.inserted]#"Marcador Final: [Team A] [score] – [Team B] [score]."#
+
+---
+
+=== [.inserted]#C) TV/Social Sports (WAPA Deportes on Facebook)#
+
+* [.inserted]#*Tone:* Short and direct#
+
+[.inserted]#*Key Terms:*#
+* [.inserted]#*FINAL:* finalized scores#
+* [.inserted]#*CONFIRMADO:* verified events#
+* [.inserted]#*En Vivo:* live updates#
+
+[.inserted]#*Common Structure:*#
+* [.inserted]#"FINAL: [Team A] [score] – [Team B] [score]."#
+* [.inserted]#"CONFIRMADO: [Event] [action taken]."#
+
+---
+
+== [.inserted]#2) Define Platform Conventions#
+
+=== [.inserted]#Spanish-First Terminology#
+
+* [.inserted]#*OFICIAL:* confirmed information#
+* [.inserted]#*En Desarrollo:* evolving information#
+* [.inserted]#*Confirmado:* verified and final#
+* [.inserted]#*Actualizado:* corrected or updated information#
+
+---
+
+=== [.inserted]#Do’s and Don’ts for Tone#
+
+[.inserted]#*Do:*#
+* [.inserted]#Use clear, factual language#
+* [.inserted]#Maintain a neutral, calm tone#
+* [.inserted]#Label uncertain or developing information clearly#
+
+[.inserted]#*Don’t:*#
+* [.inserted]#Use sensational language or clickbait#
+* [.inserted]#Speculate before verification#
+* [.inserted]#Omit labels when information is unclear#
+
+---
+
+=== [.inserted]#Consistent Formatting#
+
+[.inserted]#*Caps Usage:*#
+* [.inserted]#Use *ALL CAPS* for key updates like *OFICIAL* or *FINAL*#
+* [.inserted]#Avoid ALL CAPS for full sentences#
+
+[.inserted]#*Punctuation:*#
+* [.inserted]#Use *em dashes* for transitions  #
+[.inserted]#  Example: "Confirmado: El evento se ha reprogramado – próximo partido será el [fecha]"#
+* [.inserted]#Avoid excessive exclamation marks or dramatic elements#
+
+[.inserted]#*Emojis:*#
+* [.inserted]#🚨 for urgent updates#
+* [.inserted]#✅ for confirmed updates#
+
+---
+
+== [.inserted]#3) Approved Phrasing Library#
+
+=== [.inserted]#Common Update Types#
+
+==== [.inserted]#1) Final Score Update#
+
+[.inserted]#*Spanish:*  #
+[.inserted]#"Final: [Equipo A] [3]–[2] [Equipo B]. Gracias por seguirnos."#
+
+[.inserted]#*English:*  #
+[.inserted]#"Final: [Team A] [3]–[2] [Team B]. Thanks for following."#
+
+---
+
+==== [.inserted]#2) Postponement Announcement#
+
+[.inserted]#*Spanish:*  #
+[.inserted]#"*OFICIAL*: El partido de [Equipo A] vs [Equipo B] ha sido *pospuesto* debido a [razón]. Nueva fecha será anunciada pronto."#
+
+[.inserted]#*English:*  #
+[.inserted]#"*OFFICIAL*: The match between [Team A] vs [Team B] has been *postponed* due to [reason]. New date will be announced soon."#
+
+---
+
+==== [.inserted]#3) Developing / Unverified Information#
+
+[.inserted]#*Spanish:*  #
+[.inserted]#"*En desarrollo*: Se están reportando rumores de [evento], pero *no confirmado* por fuentes oficiales. Última actualización: [hora]."#
+
+[.inserted]#*English:*  #
+[.inserted]#"*Developing*: Reports indicate [event], but *not confirmed* by official sources. Last update: [time]."#
+
+---
+
+==== [.inserted]#4) Correction / Updated Information#
+
+[.inserted]#*Spanish:*  #
+[.inserted]#"Corrección: El marcador que publicamos anteriormente era incorrecto. *Confirmado ahora*: [marcador correcto]."#
+
+[.inserted]#*English:*  #
+[.inserted]#"Correction: The score we posted earlier was incorrect. *Confirmed now*: [correct score]."#
+
+---
+
+== [.inserted]#4) Testing Plan#
+
+=== [.inserted]#Paper Scenarios to Validate#
+
+* [.inserted]#*Postponement announcement:* Ensure clarity and professionalism#
+* [.inserted]#*Correction to a previously posted result:* Ensure transparency#
+* [.inserted]#*Delayed update message:* Ensure neutral tone and clear expectations#
+
+---
+
+== [.inserted]#References#
+
+[1] *Instagram — Official League Accounts*  
+[.inserted]#Source: https://www.instagram.com/p/DVNOY9PjX7f/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==#
+
+[2] *WAPA Deportes — Social Media (Facebook)*  
+[.inserted]#Source: https://www.facebook.com/WapaDeportes#
+
+[3] *Telemundo PR — Breaking Sports News*  
+[.inserted]#Source: https://www.facebook.com/TelemundoPR#
+
+[4] *ESPN Deportes — Latin American Sports Media*  
+[.inserted]#Source: https://www.espndeportes.com#

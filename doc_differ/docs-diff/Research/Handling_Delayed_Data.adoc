@@ -1,0 +1,142 @@
+= [.inserted]#Handling Delayed, Conflicting, or Missing Live Game Data#
+[.inserted]#Author: Angel A. Villegas Colón#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#1. Handling Delayed Live Updates#
+
+=== [.inserted]#NBA Platform#
+
+* [.inserted]#Displays a live game clock and score#
+* [.inserted]#If updates are delayed, the clock may pause visually#
+* [.inserted]#Shows *End of Quarter* or *Halftime* clearly to prevent confusion#
+* [.inserted]#Does not explicitly label “data delayed,” but avoids showing uncertain values#
+
+==== [.inserted]#Observed Strategy#
+
+* [.inserted]#Freeze last confirmed data#
+* [.inserted]#Avoid speculative updates#
+* [.inserted]#Maintain structured game states (Q1, Q2, Halftime, Final)#
+
+---
+
+=== [.inserted]#ESPN Platform#
+
+* [.inserted]#Displays status indicators such as *Final* or *Live*#
+* [.inserted]#Sometimes shows *Delayed* during interruptions#
+* [.inserted]#Uses structured status labels (Scheduled, Live, Final)#
+
+==== [.inserted]#Observed Strategy#
+
+* [.inserted]#Clearly label game state#
+* [.inserted]#Avoid partial updates#
+* [.inserted]#Maintain consistent formatting even if data pauses#
+
+---
+
+== [.inserted]#2. Handling Conflicting Scores Across Sources#
+
+[.inserted]#Neither NBA nor ESPN publicly display conflicting data.#
+
+==== [.inserted]#Observed Industry Strategy#
+
+* [.inserted]#Use a primary trusted data provider#
+* [.inserted]#Do not display multiple score versions#
+* [.inserted]#Only update once data is verified#
+* [.inserted]#Perform silent backend reconciliation#
+
+==== [.inserted]#Key Insight#
+
+IMPORTANT::
+
+[.inserted]#Major platforms resolve conflicts internally and do not expose them to users.#
+
+---
+
+== [.inserted]#3. Handling Missing or Incomplete Information#
+
+=== [.inserted]#NBA Platform#
+
+* [.inserted]#Hides unavailable stat fields#
+* [.inserted]#May show “No plays available” for play-by-play#
+* [.inserted]#Does not display incorrect placeholders#
+
+---
+
+=== [.inserted]#ESPN Platform#
+
+* [.inserted]#Displays “No data available” in some sections#
+* [.inserted]#Uses fallback values (e.g., dashes or blanks)#
+* [.inserted]#Maintains layout consistency#
+
+---
+
+==== [.inserted]#Observed Strategy#
+
+* [.inserted]#Do not show inaccurate placeholders#
+* [.inserted]#Clearly label unavailable sections#
+* [.inserted]#Preserve UI structure to avoid confusion#
+
+---
+
+== [.inserted]#4. Communicating Uncertainty or Provisional Data#
+
+=== [.inserted]#Common Approaches#
+
+* [.inserted]#Use clear game state labels (Live, Final, Scheduled)#
+* [.inserted]#Use timestamps to validate finality (e.g., Final locks score)#
+* [.inserted]#Avoid speculative updates#
+* [.inserted]#Avoid technical or complex messaging#
+* [.inserted]#Maintain a clean UI#
+
+---
+
+==== [.inserted]#Key Pattern Across Platforms#
+
+[.inserted]#Transparency is achieved through *simple labels*, not technical explanations.#
+
+---
+
+== [.inserted]#5. Summary of Practical Approaches#
+
+[cols="2,3", options="header"]
+[.inserted]#|===#
+[.inserted]#| Scenario | Common Strategy#
+
+[.inserted]#| Delayed Updates#
+[.inserted]#| Freeze last confirmed data and maintain game state labels#
+
+[.inserted]#| Conflicting Scores#
+[.inserted]#| Resolve internally before updating UI#
+
+[.inserted]#| Missing Data#
+[.inserted]#| Hide or clearly label unavailable sections#
+
+[.inserted]#| Uncertainty#
+[.inserted]#| Use structured status indicators (Live, Final, Scheduled)#
+[.inserted]#|===#
+
+---
+
+== [.inserted]#6. Key Findings for System Design#
+
+* [.inserted]#Prioritize a single trusted data source#
+* [.inserted]#Resolve conflicts internally, not in the UI#
+* [.inserted]#Use clear and consistent game status labels#
+* [.inserted]#Label missing data instead of guessing values#
+* [.inserted]#Prioritize UI stability over raw update speed#
+
+---
+
+== [.inserted]#Conclusion#
+
+[.inserted]#Handling unreliable live sports data requires a balance between accuracy, clarity, and user trust.#
+
+[.inserted]#By:#
+
+* [.inserted]#Freezing confirmed data during delays#
+* [.inserted]#Resolving conflicts internally#
+* [.inserted]#Clearly labeling missing or uncertain information#
+
+[.inserted]#Tu Deporte Aquí can maintain a reliable and user-friendly experience even under imperfect data conditions.#

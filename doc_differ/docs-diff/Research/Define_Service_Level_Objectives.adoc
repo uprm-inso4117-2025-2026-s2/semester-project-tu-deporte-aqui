@@ -1,0 +1,157 @@
+= [.inserted]#Define Service-Level Objectives (SLOs) & Availability Targets#
+[.inserted]#Author: Edward J. Carde Velazquez#
+[.inserted]#Project: Tu Deporte Aquí#
+
+== [.inserted]#Introduction#
+
+[.inserted]#This research defines measurable *Service-Level Objectives (SLOs)* for Tu Deporte Aquí.#
+
+[.inserted]#The goal is to move from abstract ideas such as:#
+
+* [.inserted]#"reliable system"#
+
+[.inserted]#to:#
+
+* [.inserted]#concrete#
+* [.inserted]#measurable#
+* [.inserted]#testable targets#
+
+[.inserted]#Since the platform aggregates sports data from multiple sources and aims to maintain long-term user trust, reliability must be defined *quantitatively*, not subjectively.#
+
+---
+
+== [.inserted]#1. Definition of Availability#
+
+[.inserted]#Before defining metrics, it is necessary to clarify what *availability* means in this system.#
+
+=== [.inserted]#System is considered AVAILABLE when:#
+
+* [.inserted]#Homepage loads successfully#
+* [.inserted]#Standings and game detail pages render correctly#
+* [.inserted]#No server-side errors (HTTP 5xx)#
+* [.inserted]#Live scores update within acceptable delay#
+* [.inserted]#Core data components are visible:#
+- [.inserted]#Teams#
+- [.inserted]#Standings#
+- [.inserted]#Game results#
+
+---
+
+=== [.inserted]#System is considered UNAVAILABLE when:#
+
+* [.inserted]#Users cannot access core pages#
+* [.inserted]#Critical components fail to render#
+* [.inserted]#Repeated server errors occur#
+* [.inserted]#Live scores remain frozen beyond acceptable latency#
+
+[.inserted]#IMPORTANT:#
+
+[.inserted]#Availability is defined based on *user-visible reliability*, not just server uptime.#
+
+---
+
+== [.inserted]#2. Proposed Service-Level Objectives (SLOs)#
+
+=== [.inserted]#SLO 1 – Live Score Update Latency#
+
+Metric::
+
+[.inserted]#Time between official score update and display on the platform#
+
+Target::
+
+[.inserted]#≤ 30 seconds during live events#
+
+Explanation::
+
+[.inserted]#Real-time systems may aim for sub-second updates, but this platform is not in a betting environment.#
+
+[.inserted]#A 30-second delay:#
+
+* [.inserted]#Maintains perceived "live" status#
+* [.inserted]#Avoids unnecessary infrastructure complexity#
+
+Why this matters::
+
+[.inserted]#If scores lag significantly, users may:#
+
+* [.inserted]#Compare with social media#
+* [.inserted]#Lose trust in the platform#
+
+Assumption::
+
+[.inserted]#During peak load, delays up to 60 seconds may be acceptable if clearly communicated#
+
+---
+
+=== [.inserted]#SLO 2 – Mean Time to Recovery (MTTR)#
+
+Metric::
+
+[.inserted]#Time required to restore system after partial failure#
+
+Target::
+
+[.inserted]#≤ 10 minutes#
+
+Explanation::
+
+[.inserted]#Fast recovery is often more important than avoiding all failures.#
+
+[.inserted]#A system that:#
+
+* [.inserted]#fails briefly#
+* [.inserted]#recovers quickly#
+
+[.inserted]#is perceived as more reliable than one with long outages#
+
+Why this matters::
+
+[.inserted]#Sports events are time-sensitive.#
+
+Example::
+
+[.inserted]#A 30-minute outage during a final would significantly damage user trust#
+
+Assumption::
+
+[.inserted]#Recovery includes restoring data feeds, not necessarily replaying missed updates#
+
+---
+
+== [.inserted]#3. Peak Event Assumptions#
+
+[.inserted]#During high-demand events (e.g., playoffs, finals):#
+
+* [.inserted]#Traffic may increase 2–5×#
+* [.inserted]#Temporary performance degradation is acceptable#
+* [.inserted]#Complete downtime should not exceed 15 minutes#
+
+---
+
+== [.inserted]#4. Trade-Offs#
+
+[.inserted]#Higher reliability requires:#
+
+* [.inserted]#Redundant servers#
+* [.inserted]#Monitoring systems#
+* [.inserted]#Caching strategies#
+
+[.inserted]#This introduces:#
+
+* [.inserted]#Increased complexity#
+* [.inserted]#Higher infrastructure cost#
+
+---
+
+== [.inserted]#Conclusion#
+
+[.inserted]#These SLOs provide:#
+
+* [.inserted]#Measurable reliability baselines#
+* [.inserted]#Clear expectations for system behavior#
+
+[.inserted]#They align with the platform’s goal of:#
+
+* [.inserted]#Maintaining user trust#
+* [.inserted]#Delivering predictable performance#

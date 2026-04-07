@@ -1,0 +1,64 @@
+
+=== [.inserted]#3.2.1 Validation and Verification#
+
+===== [.inserted]#Purpose#
+
+[.inserted]#This section defines how the concepts, assumptions, and reliability strategies proposed for Tu Deporte Aquí will be evaluated during Milestone 1. Since this milestone focuses on documentation rather than implementation, validation emphasizes conceptual correctness, clarity, and alignment with project goals rather than executable testing.#
+
+[.inserted]#Validation ensures that the proposed system behavior addresses real-world conditions of local Puerto Rico sports data, including delayed updates, conflicting sources, and limited official APIs. Verification confirms that documentation artifacts are internally consistent and correctly structured.#
+
+===== [.inserted]#Validation Approach#
+
+[.inserted]#Validation during Milestone 1 focuses on confirming that the proposed concepts meet stakeholder expectations and realistic operating conditions.#
+
+====== [.inserted]#Concept Validation#
+
+[.inserted]#The reliability and transparency strategies are evaluated by analyzing whether they:#
+
+* [.inserted]#Address delayed, missing, and conflicting information scenarios#
+* [.inserted]#Reflect informal data environments common in Puerto Rico sports#
+* [.inserted]#Provide predictable and understandable system behavior#
+* [.inserted]#Align with user expectations for trust and clarity#
+
+====== [.inserted]#Scenario-Based Evaluation#
+
+[.inserted]#Concepts are examined using representative scenarios such as:#
+
+* [.inserted]#Conflicting scores reported by multiple sources#
+* [.inserted]#Missing updates during live events#
+* [.inserted]#Delayed standings publication#
+* [.inserted]#Partial data availability from unreliable sources#
+
+[.inserted]#These scenarios help determine whether the proposed behaviors remain consistent and reasonable.#
+
+===== [.inserted]#Verification Approach#
+
+[.inserted]#Verification ensures the documentation itself is correct, complete, and internally consistent.#
+
+====== [.inserted]#Documentation Consistency#
+
+[.inserted]#Verification activities include:#
+
+* [.inserted]#Cross-checking terminology across sections#
+* [.inserted]#Ensuring alignment between needs, ideas, and concepts#
+* [.inserted]#Confirming traceability between sections of the A3 expansion#
+* [.inserted]#Reviewing structural correctness of AsciiDoc hierarchy#
+
+====== [.inserted]#Structural Verification#
+
+[.inserted]#The documentation structure is verified by:#
+
+* [.inserted]#Confirming correct section and subsection levels#
+* [.inserted]#Ensuring files are placed in the correct repository folders#
+* [.inserted]#Validating successful compilation through the AsciiDoc workflow#
+
+====== [.inserted]#Expected Outcomes#
+
+[.inserted]#By completing validation and verification activities during Milestone 1, the project establishes:#
+
+* [.inserted]#Confidence in conceptual correctness#
+* [.inserted]#Clear alignment with stakeholder needs#
+* [.inserted]#Reliable documentation foundation for implementation phases#
+* [.inserted]#Reduced risk of misunderstanding before development begins#
+
+[.inserted]#This approach supports a documentation-first engineering methodology and prepares the project for future technical validation stages.#

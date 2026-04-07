@@ -1,0 +1,225 @@
+= [.inserted]#Message Templates for System Updates & Alerts#
+[.inserted]#Author: Diego A Rios Morales#
+[.inserted]#Date: February 2026#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#Communication Principles#
+
+[.inserted]#Effective system communication should:#
+
+* [.inserted]#Use simple, non-technical language#
+* [.inserted]#Clearly state what is happening#
+* [.inserted]#Explain who is affected#
+* [.inserted]#Provide next steps or expectations#
+* [.inserted]#Maintain consistent tone and structure#
+
+---
+
+== [.inserted]#1. News Update Template#
+
+[.inserted]#Used for routine updates such as:#
+
+* [.inserted]#Match results#
+* [.inserted]#Schedule announcements#
+* [.inserted]#Player news#
+
+=== [.inserted]#Template#
+
+----
+[.inserted]#Update: <Title>#
+
+[.inserted]#<Brief summary of the update>#
+
+[.inserted]#Date: <date>#
+[.inserted]#Location/Event: <optional>#
+
+[.inserted]#More details: <link>#
+----
+
+---
+
+=== [.inserted]#Example#
+
+----
+[.inserted]#Update: Team A wins championship#
+
+[.inserted]#Team A defeated Team B 3–1 in the finals.#
+
+[.inserted]#Date: Feb 15, 2026#
+----
+
+---
+
+== [.inserted]#2. Urgent Alert Template#
+
+[.inserted]#Used for:#
+
+* [.inserted]#Cancellations#
+* [.inserted]#Emergencies#
+* [.inserted]#Safety issues#
+* [.inserted]#Major disruptions#
+
+=== [.inserted]#Template#
+
+----
+[.inserted]#URGENT ALERT#
+
+[.inserted]#<What happened>#
+
+[.inserted]#Affected: <who/what is impacted>#
+
+[.inserted]#Action: <what users should do>#
+
+[.inserted]#We will provide updates as more information becomes available.#
+----
+
+---
+
+=== [.inserted]#Example#
+
+----
+[.inserted]#URGENT ALERT#
+
+[.inserted]#Today’s match has been canceled due to severe weather.#
+
+[.inserted]#Affected: All attendees and teams#
+
+[.inserted]#Action: Do not travel to the venue.#
+----
+
+---
+
+== [.inserted]#3. Delayed Data / Pending Update Template#
+
+[.inserted]#Used when:#
+
+* [.inserted]#Results are delayed#
+* [.inserted]#Scores are pending#
+* [.inserted]#Information is not yet confirmed#
+
+=== [.inserted]#Template#
+
+----
+[.inserted]#Update Delayed#
+
+[.inserted]#We are currently waiting for official confirmation of <information>.#
+
+[.inserted]#Status: Pending verification#
+
+[.inserted]#Expected update: <time if known>#
+
+[.inserted]#Thank you for your patience.#
+----
+
+---
+
+=== [.inserted]#Example#
+
+----
+[.inserted]#Update Delayed#
+
+[.inserted]#We are waiting for official confirmation of the final match score.#
+
+[.inserted]#Status: Pending verification#
+
+[.inserted]#Expected update: Shortly#
+----
+
+---
+
+== [.inserted]#4. Conflicting Reports Template#
+
+[.inserted]#Used when:#
+
+* [.inserted]#Multiple sources provide different information#
+
+=== [.inserted]#Template#
+
+----
+[.inserted]#Information Under Review#
+
+[.inserted]#We have received conflicting reports regarding <event>.#
+
+[.inserted]#Status: Verification in progress#
+
+[.inserted]#We will publish confirmed information once verified.#
+
+[.inserted]#Thank you for your understanding.#
+----
+
+---
+
+=== [.inserted]#Example#
+
+----
+[.inserted]#Information Under Review#
+
+[.inserted]#We have received conflicting reports regarding the match outcome.#
+
+[.inserted]#Status: Verification in progress#
+----
+
+---
+
+== [.inserted]#5. System Status / Technical Issue Template#
+
+[.inserted]#Used when:#
+
+* [.inserted]#The platform experiences technical problems#
+
+=== [.inserted]#Template#
+
+----
+[.inserted]#System Issue#
+
+[.inserted]#We are currently experiencing technical difficulties affecting <feature>.#
+
+[.inserted]#Impact: <what users cannot do>#
+
+[.inserted]#Our team is working to resolve the issue.#
+
+[.inserted]#Next update: <timeframe>#
+----
+
+---
+
+== [.inserted]#6. Resolution / Issue Resolved Template#
+
+[.inserted]#Used when:#
+
+* [.inserted]#A problem has been fixed#
+
+=== [.inserted]#Template#
+
+----
+[.inserted]#Issue Resolved#
+
+[.inserted]#The issue affecting <feature/event> has been resolved.#
+
+[.inserted]#Thank you for your patience.#
+----
+
+---
+
+== [.inserted]#Conclusion#
+
+[.inserted]#Standardized message templates ensure users receive:#
+
+* [.inserted]#Clear information#
+* [.inserted]#Consistent communication#
+* [.inserted]#Trustworthy updates#
+
+[.inserted]#By covering:#
+
+* [.inserted]#Routine updates#
+* [.inserted]#Emergencies#
+* [.inserted]#Delays#
+* [.inserted]#Conflicting reports#
+
+[.inserted]#the platform can:#
+
+* [.inserted]#Maintain transparency#
+* [.inserted]#Reduce confusion#
+* [.inserted]#Improve user confidence#

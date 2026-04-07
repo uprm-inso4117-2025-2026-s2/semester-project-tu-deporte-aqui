@@ -1,0 +1,178 @@
+= [.inserted]#Event Comment Section Feasibility Analysis#
+[.inserted]#Project: Tu Deporte Aquí#
+
+== [.inserted]#Objective#
+
+[.inserted]#The objective of this issue is to analyze the impact of adding a comment section to individual event pages (e.g., BSN games or local league events) and determine whether this feature provides sufficient value relative to its implementation cost.#
+
+---
+
+== [.inserted]#Benefits#
+
+=== [.inserted]#Increased User Engagement#
+
+[.inserted]#A comment section allows users to interact during or after games. Instead of only viewing information, users can share opinions, reactions, and feedback.#
+
+[.inserted]#This can:#
+
+* [.inserted]#Increase time spent in the app#
+* [.inserted]#Encourage users to return#
+* [.inserted]#Create a sense of community around events#
+
+---
+
+=== [.inserted]#Platform Differentiation#
+
+[.inserted]#Many sports platforms only display scores and event details. A comment section adds an interactive layer that makes the platform more dynamic and community-focused.#
+
+[.inserted]#This is especially valuable for local sports, where fans are highly connected to their teams.#
+
+---
+
+=== [.inserted]#Independence from External Data#
+
+[.inserted]#Comments are user-generated content.#
+
+[.inserted]#This means:#
+
+* [.inserted]#No dependency on external APIs#
+* [.inserted]#No reliance on scraping#
+* [.inserted]#No risk of external data failures affecting this feature#
+
+---
+
+== [.inserted]#Risks#
+
+=== [.inserted]#Moderation Requirements#
+
+[.inserted]#Comment systems may introduce:#
+
+* [.inserted]#Spam#
+* [.inserted]#Offensive language#
+* [.inserted]#Misinformation#
+
+[.inserted]#Even a basic system would require:#
+
+* [.inserted]#Basic content rules#
+* [.inserted]#A simple report or delete mechanism#
+
+---
+
+=== [.inserted]#Scope Expansion Risk#
+
+[.inserted]#If not controlled, this feature could expand into:#
+
+* [.inserted]#Replies#
+* [.inserted]#Reactions#
+* [.inserted]#Notifications#
+* [.inserted]#Real-time live chat#
+
+[.inserted]#For the current milestone, the feature must remain simple.#
+
+---
+
+== [.inserted]#Technical Requirements#
+
+=== [.inserted]#Database#
+
+[.inserted]#Table: `comments`#
+
+[source]
+----
+[.inserted]#comment_id#
+[.inserted]#event_id#
+[.inserted]#user_id#
+[.inserted]#content#
+[.inserted]#timestamp#
+----
+
+---
+
+=== [.inserted]#Backend#
+
+* [.inserted]#POST endpoint to create comment#
+* [.inserted]#GET endpoint to retrieve comments per event#
+* [.inserted]#Basic validation#
+
+---
+
+=== [.inserted]#Frontend#
+
+* [.inserted]#Comment input form#
+* [.inserted]#Chronological display#
+* [.inserted]#Manual refresh#
+
+---
+
+== [.inserted]#Implementation Comparison#
+
+=== [.inserted]#Static Comment Section#
+
+==== [.inserted]#Pros#
+
+* [.inserted]#Low complexity#
+* [.inserted]#Easy to implement#
+* [.inserted]#Minimal infrastructure#
+
+==== [.inserted]#Cons#
+
+* [.inserted]#Not real-time#
+
+---
+
+=== [.inserted]#Automatic Refresh (Polling)#
+
+==== [.inserted]#Pros#
+
+* [.inserted]#More dynamic experience#
+
+==== [.inserted]#Cons#
+
+* [.inserted]#Slightly higher backend load#
+
+IMPORTANT::
+
+[.inserted]#Full real-time implementation (WebSockets) is *not recommended* for this milestone due to increased complexity.#
+
+---
+
+== [.inserted]#Viability Assessment#
+
+=== [.inserted]#Technical Viability#
+
+[.inserted]#A Reddit/Instagram-style comment section is straightforward to implement using a standard REST architecture.#
+
+---
+
+=== [.inserted]#Infrastructure Viability#
+
+[.inserted]#No additional infrastructure is required.#
+
+---
+
+== [.inserted]#Final Recommendation#
+
+[.inserted]#It is recommended to implement event-based comment threads in a Reddit/Instagram-style *asynchronous format*, not as a live discussion system.#
+
+[.inserted]#This approach:#
+
+* [.inserted]#Adds engagement#
+* [.inserted]#Keeps implementation simple#
+* [.inserted]#Avoids unnecessary real-time complexity#
+* [.inserted]#Aligns with the current milestone scope#
+
+---
+
+== [.inserted]#Conclusion#
+
+[.inserted]#A simplified, non-live comment section per event is viable and appropriate for this project.#
+
+---
+
+== [.inserted]#References#
+
+* [.inserted]#COOL.co. (2023). *Why Comment Sections Are Imperative for Today’s Websites*  #
+[.inserted]#  https://cool.co/publisher-experiences/2023/02/27/why-comment-sections-are-imperative-for-todays-websites/#
+
+* [.inserted]#Ably. (2023). *WebSockets vs Long Polling: What’s the difference?*  #
+[.inserted]#  https://ably.com/blog/websockets-vs-long-polling#

@@ -1,0 +1,109 @@
+= [.inserted]#Feed Ranking Logic System: “How is this prioritized?”#
+[.inserted]#Author: Diego A. Rios Morales#
+[.inserted]#Date: February 27, 2026#
+
+== [.inserted]#1. Objective#
+
+[.inserted]#Define a ranking logic system that determines how news items are prioritized and displayed to users in the feed.#
+
+== [.inserted]#2. Problem#
+
+[.inserted]#Users often perceive their feed as random, when in reality it is driven by an algorithm.#
+
+[.inserted]#This research aims to:#
+
+* [.inserted]#Reduce confusion#
+* [.inserted]#Provide clarity on prioritization#
+* [.inserted]#Improve trust in the system#
+
+== [.inserted]#3. UX Principles#
+
+* [.inserted]#*Fair*: Prevent a single source or team from dominating the feed#
+* [.inserted]#*Fresh*: Prioritize timely updates (scores, injuries, live events)#
+* [.inserted]#*Controllable*: Allow users to tune their interests#
+
+== [.inserted]#4. Prioritization Factors#
+
+[.inserted]#Each story receives a score based on multiple factors:#
+
+=== [.inserted]#A. Breaking / Urgent Signal#
+
+* [.inserted]#League or team flagged breaking update#
+* [.inserted]#Game-time events (kickoff, halftime, final)#
+* [.inserted]#Injury or roster changes#
+
+=== [.inserted]#B. Recency / Time Decay#
+
+* [.inserted]#Newer items are prioritized#
+* [.inserted]#Updates to existing items resurface with an “Updated” label#
+
+=== [.inserted]#C. Importance / Impact#
+
+* [.inserted]#Events affecting standings, playoffs, or finals#
+* [.inserted]#Major trades or announcements#
+* [.inserted]#High-impact injuries or suspensions#
+
+=== [.inserted]#D. Personalized Relevance#
+
+* [.inserted]#Followed teams or leagues#
+* [.inserted]#User-selected topics (transfers, injuries, local teams)#
+* [.inserted]#Similar-interest clusters (privacy-safe)#
+
+=== [.inserted]#E. Popularity / Trend Signal#
+
+* [.inserted]#High engagement (clicks, shares, saves)#
+* [.inserted]#Regional trends (broad region only)#
+
+== [.inserted]#5. Ranking Buckets#
+
+[.inserted]#Each story is also assigned a primary bucket label for clarity:#
+
+* [.inserted]#Breaking#
+* [.inserted]#Game Update#
+* [.inserted]#Trending#
+* [.inserted]#For You (personalized)#
+* [.inserted]#Latest#
+* [.inserted]#Featured (admin)#
+
+[.inserted]#UI Example:#
+
+* [.inserted]#“Breaking”#
+* [.inserted]#“Trending”#
+* [.inserted]#“For You”#
+
+== [.inserted]#6. Admin Override Logic#
+
+[.inserted]#Administrators can modify ranking behavior when necessary.#
+
+=== [.inserted]#A. Featured / Pin#
+
+* [.inserted]#Pin a story to the top for a defined time window#
+* [.inserted]#Overrides normal ranking temporarily#
+* [.inserted]#Should not block all other content#
+
+=== [.inserted]#B. Boost / Suppress#
+
+* [.inserted]#Boost increases score using a multiplier for a limited time#
+* [.inserted]#Suppress reduces visibility or removes content from top sections#
+
+=== [.inserted]#C. Rules and Guardrails#
+
+* [.inserted]#Overrides must include:#
+[.inserted]#** Reason#
+[.inserted]#** Admin ID#
+[.inserted]#** Start and end time#
+
+* [.inserted]#Overrides must be logged in a transparency/audit log#
+* [.inserted]#Safety cap on maximum number of pinned items#
+
+== [.inserted]#7. Transparency Surface (User-Facing)#
+
+[.inserted]#Users should be able to understand *why* content appears.#
+
+[.inserted]#Examples:#
+
+* [.inserted]#“Breaking update”#
+* [.inserted]#“Trending in your region”#
+* [.inserted]#“Because you follow Team X”#
+* [.inserted]#“Recently updated”#
+* [.inserted]#“Featured by admins”#

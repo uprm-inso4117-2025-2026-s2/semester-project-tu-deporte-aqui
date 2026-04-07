@@ -1,0 +1,88 @@
+= [.inserted]#Retrieving Sports Data#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#What I Wanted to Find#
+
+* [.inserted]#Tools for acquiring sports data in real time#
+
+---
+
+== [.inserted]#What Was Found#
+
+* [.inserted]#Most sports media outlets rely on *in-person coverage* to acquire real-time data and obtain future event information directly from league management.#
+
+* [.inserted]#This approach is *not feasible* for our project due to:#
+- [.inserted]#Lack of direct contacts#
+- [.inserted]#Limited human resources#
+
+* [.inserted]#Many media organizations and sports leagues provide data through:#
+- [.inserted]#Websites#
+- [.inserted]#Mobile applications#
+
+* [.inserted]#These platforms can be used as *data sources* through web scraping.#
+
+* [.inserted]#Example sources:#
+
+- [.inserted]#BSN official website (in progress): https://bsnpr.com/#
+- [.inserted]#Flashscore standings page: https://www.flashscore.com/basketball/puerto-rico/bsn/#/4r3exuxU/standings/overall/#
+
+---
+
+== [.inserted]#Web Scraping#
+
+[.inserted]#According to https://www.softr.io/blog/tools-to-extract-data-from-website, web scraping can be implemented using *Python*, which provides built-in libraries for data extraction.#
+
+[.inserted]#Several tools are available for scraping data efficiently:#
+
+=== [.inserted]#Apify#
+
+* [.inserted]#Cloud-based platform#
+* [.inserted]#Automates scraping for multiple data types#
+* [.inserted]#Supports social media extraction#
+
+---
+
+=== [.inserted]#ParseHub#
+
+* [.inserted]#Allows downloading scraped data in multiple formats#
+* [.inserted]#Useful for extracting structured data from websites#
+
+---
+
+=== [.inserted]#Web Scraper#
+
+* [.inserted]#Designed for dynamic websites#
+* [.inserted]#Uses a modular selector system#
+* [.inserted]#Supports export formats:#
+- [.inserted]#CSV#
+- [.inserted]#XLSX#
+- [.inserted]#JSON#
+
+---
+
+=== [.inserted]#Hevo Data#
+
+* [.inserted]#No-code data extraction tool#
+* [.inserted]#Works in three steps#
+* [.inserted]#Supports databases and streaming services#
+
+---
+
+=== [.inserted]#ScrapingBot#
+
+* [.inserted]#Extracts data directly from URLs#
+* [.inserted]#Supports:#
+- [.inserted]#Images#
+- [.inserted]#Product information#
+* [.inserted]#Applicable for extracting game scores#
+
+---
+
+== [.inserted]#References#
+
+* [.inserted]#https://www.softr.io/blog/tools-to-extract-data-from-website#
+* [.inserted]#https://www.scrapingbee.com/blog/how-to-extract-data-from-a-website/#
+* [.inserted]#https://www.flashscore.com/basketball/puerto-rico/bsn/#/4r3exuxU/standings/overall/#
+* [.inserted]#https://bsnpr.com/#

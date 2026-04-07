@@ -1,0 +1,79 @@
+=== [.inserted]#3.2.2 System Testing Perspectives#
+
+===== [.inserted]#Purpose#
+
+[.inserted]#This section describes testing strategies that will be applied during#
+[.inserted]#future development stages of the Tu Deporte Aquí platform. This section outlines#
+[.inserted]#testing approaches that will evaluate the behavior of the #
+[.inserted]#system once implementation begins.#
+
+[.inserted]#These testing strategies focus on ensuring that the platform remains#
+[.inserted]#reliable, responsive, and easy to use for sports fans accessing#
+[.inserted]#information such as teams, athletes, standings, game schedules, and#
+[.inserted]#sports news.#
+
+===== [.inserted]#Testing Approach#
+
+[.inserted]#Testing for Tu Deporte Aquí focuses on evaluating both the technical#
+[.inserted]#performance of the system and the usability of the user interface.#
+[.inserted]#These testing perspectives help ensure that users can access sports#
+[.inserted]#information quickly and interact with the platform without difficulty.#
+
+====== [.inserted]#Performance Testing#
+
+[.inserted]#Performance testing evaluates how the system behaves when multiple#
+[.inserted]#users access the platform simultaneously.#
+
+[.inserted]#The goal of this testing approach is to verify that the system remains#
+[.inserted]#responsive when users request sports information such as team standings,#
+[.inserted]#athlete statistics, or upcoming game schedules.#
+
+[.inserted]#Performance testing helps determine whether the system:#
+
+* [.inserted]#Maintains acceptable response times when multiple users access the system#
+* [.inserted]#Handles concurrent requests for sports data without delays#
+* [.inserted]#Avoids server overload during moderate traffic conditions#
+* [.inserted]#Provides stable access to sports information pages#
+
+[.inserted]#Representative scenarios include:#
+
+* [.inserted]#Multiple users checking standings at the same time#
+* [.inserted]#Several users accessing team or athlete pages simultaneously#
+* [.inserted]#Users viewing game schedules during sports events#
+
+====== [.inserted]#Usability Testing#
+
+[.inserted]#Usability testing evaluates how easily users can navigate and interact#
+[.inserted]#with the platform.#
+
+[.inserted]#Since the primary users of Tu Deporte Aquí are sports fans looking for#
+[.inserted]#quick access to match results, standings, and athlete information, the#
+[.inserted]#system interface must allow users to find information efficiently and#
+[.inserted]#without confusion.#
+
+[.inserted]#Usability testing focuses on verifying whether the platform:#
+
+* [.inserted]#Allows users to locate sports information quickly#
+* [.inserted]#Presents data in a clear and understandable format#
+* [.inserted]#Provides intuitive navigation between sections of the platform#
+* [.inserted]#Supports efficient user interaction without unnecessary complexity#
+
+[.inserted]#Typical usability scenarios include:#
+
+* [.inserted]#Finding the standings for a specific team#
+* [.inserted]#Viewing the schedule of upcoming games#
+* [.inserted]#Accessing athlete statistics#
+* [.inserted]#Navigating between teams, standings, and news sections#
+
+====== [.inserted]#Expected Outcomes#
+
+[.inserted]#By applying performance and usability testing during later development#
+[.inserted]#phases, the project aims to ensure that the Tu Deporte Aquí platform#
+[.inserted]#provides reliable and user-friendly access to sports information.#
+
+[.inserted]#These testing approaches help establish:#
+
+* [.inserted]#Responsive system behavior under normal user activity#
+* [.inserted]#Clear and intuitive navigation for sports fans#
+* [.inserted]#Consistent access to teams, athletes, schedules, and standings#
+* [.inserted]#A positive overall user experience#

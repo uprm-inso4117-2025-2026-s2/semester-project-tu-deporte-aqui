@@ -1,0 +1,236 @@
+= [.inserted]#Handling Unverified, Delayed, and Conflicting Reports#
+[.inserted]#Author: Lianette Alberto#
+[.inserted]#Date: February 2026#
+[.inserted]#Project: Tu Deporte Aquí#
+
+== [.inserted]#Goal#
+
+[.inserted]#Define how the platform should handle *uncertain information*:#
+
+* [.inserted]#Unverified reports#
+* [.inserted]#Delayed reports#
+* [.inserted]#Conflicting reports#
+
+[.inserted]#while maintaining:#
+
+* [.inserted]#User trust#
+* [.inserted]#Transparency#
+
+[.inserted]#This research focuses on:#
+
+* [.inserted]#Communication strategy#
+* [.inserted]#System-state messaging#
+
+---
+
+== [.inserted]#1. Industry Research Overview#
+
+[.inserted]#Breaking news reporting typically follows a *three-phase model*:#
+
+=== [.inserted]#Initial Report (Unverified)#
+
+* [.inserted]#Marked as "Developing"#
+* [.inserted]#Uses cautious language#
+* [.inserted]#Avoids definitive claims#
+
+=== [.inserted]#Confirmation Phase#
+
+* [.inserted]#Updated with official sources#
+* [.inserted]#Clearly states confirmed details#
+* [.inserted]#Includes timestamp#
+
+=== [.inserted]#Correction / Clarification#
+
+* [.inserted]#Explicit correction notice#
+* [.inserted]#Previous version preserved#
+* [.inserted]#Discrepancies explained#
+
+[.inserted]#IMPORTANT:#
+
+[.inserted]#Credible platforms prioritize *speed*, but clearly label uncertainty.#
+
+---
+
+== [.inserted]#2. Report Classification Model (Proposed)#
+
+[.inserted]#Each report should include a visible *verification state*:#
+
+* [.inserted]#Confirmed#
+* [.inserted]#Unverified#
+* [.inserted]#Developing#
+* [.inserted]#Conflicting#
+* [.inserted]#Delayed#
+* [.inserted]#Corrected#
+
+---
+
+== [.inserted]#3. Handling Unverified Reports#
+
+=== [.inserted]#Criteria#
+
+* [.inserted]#Single source#
+* [.inserted]#No official confirmation#
+* [.inserted]#Time-sensitive context#
+
+=== [.inserted]#User-Facing Label#
+
+[.inserted]#"Developing – Information not yet confirmed."#
+
+=== [.inserted]#UI Indicators#
+
+* [.inserted]#Yellow badge#
+* [.inserted]#"Last updated" timestamp#
+* [.inserted]#Source label#
+
+=== [.inserted]#System Behavior#
+
+* [.inserted]#Allow publication#
+* [.inserted]#Assign lower confidence score#
+* [.inserted]#Trigger periodic re-validation#
+
+---
+
+== [.inserted]#4. Handling Delayed Reports#
+
+=== [.inserted]#Definition#
+
+[.inserted]#Report submitted significantly after event occurrence#
+
+=== [.inserted]#Criteria#
+
+[.inserted]#If:#
+
+[.inserted]#(current_time - event_time) > threshold_hours#
+
+[.inserted]#Then:#
+
+* [.inserted]#Mark as Delayed#
+
+=== [.inserted]#User Message#
+
+[.inserted]#"This report was submitted after the event occurred."#
+
+=== [.inserted]#Transparency#
+
+[.inserted]#Show:#
+
+* [.inserted]#Event time#
+* [.inserted]#Submission time#
+* [.inserted]#Time difference#
+
+---
+
+== [.inserted]#5. Handling Conflicting Reports#
+
+=== [.inserted]#Definition#
+
+[.inserted]#Reports about the same event contradict each other#
+
+=== [.inserted]#Triggers#
+
+* [.inserted]#Same event ID#
+* [.inserted]#Opposing status values#
+* [.inserted]#Major field mismatch#
+
+=== [.inserted]#User Message#
+
+[.inserted]#"Conflicting reports detected. Information may change."#
+
+=== [.inserted]#System Actions#
+
+* [.inserted]#Highlight discrepancies#
+* [.inserted]#Display both sources#
+* [.inserted]#Show reliability level#
+
+---
+
+== [.inserted]#6. Transparency Indicators#
+
+[.inserted]#The system should expose:#
+
+* [.inserted]#Last updated time#
+* [.inserted]#Original publish time#
+* [.inserted]#Verification state#
+* [.inserted]#Source type (Official / Reporter / Community)#
+* [.inserted]#Confidence level (Low / Medium / High)#
+
+=== [.inserted]#Confidence Calculation (MVP)#
+
+* [.inserted]#High → Official source + no conflicts#
+* [.inserted]#Medium → Multiple agreeing non-official sources#
+* [.inserted]#Low → Single unverified source OR conflicting data#
+
+---
+
+== [.inserted]#7. User-Facing System State Messages#
+
+* [.inserted]#Data Degraded  #
+[.inserted]#  "Some information may be delayed due to system synchronization."#
+
+* [.inserted]#Uncertain Data  #
+[.inserted]#  "This information is still being verified."#
+
+* [.inserted]#Conflicting Data  #
+[.inserted]#  "Multiple sources report different information. Updates pending."#
+
+---
+
+== [.inserted]#8. Recommended Publishing Criteria#
+
+* [.inserted]#Publish as *News* if:#
+- [.inserted]#Confirmed#
+- [.inserted]#Not urgent#
+- [.inserted]#Informational#
+
+* [.inserted]#Publish as *Alert* if:#
+- [.inserted]#Time-sensitive#
+- [.inserted]#High impact#
+- [.inserted]#Requires immediate action#
+
+[.inserted]#IMPORTANT:#
+
+[.inserted]#Alerts require:#
+
+* [.inserted]#Higher verification threshold#
+* [.inserted]#Stronger visual emphasis#
+
+---
+
+== [.inserted]#9. Risk Mitigation Strategy#
+
+* [.inserted]#Always show timestamps#
+* [.inserted]#Never silently overwrite conflicting data#
+* [.inserted]#Log corrections#
+* [.inserted]#Preserve revision history#
+* [.inserted]#Allow visible correction notes#
+
+---
+
+== [.inserted]#10. Implementation Notes (MVP)#
+
+[.inserted]#Add fields:#
+
+* [.inserted]#verification_status#
+* [.inserted]#confidence_level#
+* [.inserted]#last_updated_at#
+* [.inserted]#source_type#
+* [.inserted]#conflict_flag#
+
+[.inserted]#System behavior:#
+
+* [.inserted]#Trigger re-validation periodically for Unverified reports#
+* [.inserted]#Re-validate when new related reports are submitted#
+
+---
+
+== [.inserted]#Conclusion#
+
+[.inserted]#Handling uncertainty *transparently* increases user trust.#
+
+[.inserted]#Key principles:#
+
+* [.inserted]#Label uncertainty clearly#
+* [.inserted]#Show timestamps#
+* [.inserted]#Avoid silent corrections#
+* [.inserted]#Distinguish alerts from news#
+* [.inserted]#Surface confidence level visibly#

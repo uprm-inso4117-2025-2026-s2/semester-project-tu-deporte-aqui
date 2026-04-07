@@ -1,0 +1,138 @@
+= [.inserted]#Frontend Technology Selection for Live Sports Score Application#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#1. Project Requirements#
+
+[.inserted]#The live sports score web application requires:#
+
+* [.inserted]#Real-time score updates#
+* [.inserted]#Dynamic UI updates without full page reloads#
+* [.inserted]#Responsive design (mobile + desktop) (optional)#
+* [.inserted]#Scalable component structure#
+* [.inserted]#Maintainable and modular codebase#
+
+[.inserted]#Because the application depends heavily on frequent data updates, the frontend technology must efficiently handle dynamic state changes.#
+
+---
+
+== [.inserted]#2. Core Web Technologies#
+
+=== [.inserted]#HTML#
+
+* [.inserted]#Provides the structural foundation of the application#
+* [.inserted]#Organizes content such as:#
+* [.inserted]#Scoreboards#
+* [.inserted]#Team profiles#
+* [.inserted]#Navigation#
+
+---
+
+=== [.inserted]#CSS#
+
+* [.inserted]#Responsible for styling and layout#
+* [.inserted]#Enables responsive design using:#
+* [.inserted]#Flexbox#
+* [.inserted]#Grid#
+* [.inserted]#Supports mobile-first design for live score viewing#
+
+IMPORTANT::
+
+[.inserted]#HTML and CSS are essential regardless of the framework chosen.#
+
+---
+
+== [.inserted]#3. React as Frontend Framework#
+
+[.inserted]#React is a JavaScript library used to build dynamic user interfaces.#
+
+=== [.inserted]#Advantages for This Project#
+
+* [.inserted]#Component-based architecture#
+* [.inserted]#Examples: `ScoreCard`, `TeamCard`, `MatchList`#
+* [.inserted]#Efficient re-rendering using the *Virtual DOM*#
+* [.inserted]#Strong state management for live updates#
+* [.inserted]#Easy integration with APIs#
+* [.inserted]#Large ecosystem and community support#
+
+---
+
+=== [.inserted]#Use Cases in This Project#
+
+[.inserted]#React is particularly useful for:#
+
+* [.inserted]#Updating scores without refreshing the page#
+* [.inserted]#Managing match states:#
+* [.inserted]#Live#
+* [.inserted]#Final#
+* [.inserted]#Upcoming#
+* [.inserted]#Filtering games by league or team#
+
+---
+
+== [.inserted]#4. Alternative Options Considered#
+
+=== [.inserted]#Vanilla JavaScript#
+
+* [.inserted]#Simpler setup#
+* [.inserted]#Harder to scale and maintain for complex UI updates#
+
+---
+
+=== [.inserted]#Vue.js#
+
+* [.inserted]#Lightweight and reactive#
+* [.inserted]#React has broader adoption and resources#
+
+---
+
+=== [.inserted]#Angular#
+
+* [.inserted]#More structured#
+* [.inserted]#Heavier and potentially unnecessary for this project scope#
+
+---
+
+== [.inserted]#5. Real-Time Update Compatibility#
+
+[.inserted]#React integrates well with:#
+
+* [.inserted]#REST APIs (polling for updates)#
+* [.inserted]#WebSockets (real-time data streams)#
+* [.inserted]#Third-party sports data APIs#
+
+[.inserted]#This makes it well-suited for handling frequent score updates.#
+
+---
+
+== [.inserted]#6. Recommended Frontend Stack#
+
+=== [.inserted]#Core Stack#
+
+* [.inserted]#HTML (structure)#
+* [.inserted]#CSS (styling and responsiveness)#
+* [.inserted]#React (dynamic UI and state management)#
+
+---
+
+=== [.inserted]#Optional Enhancements#
+
+* [.inserted]#Tailwind CSS or Bootstrap → faster UI styling#
+* [.inserted]#Axios → API communication#
+* [.inserted]#React Router → navigation#
+
+---
+
+== [.inserted]#7. Conclusion#
+
+[.inserted]#Based on the project requirements, React combined with HTML and CSS provides the best balance of:#
+
+* [.inserted]#Performance#
+* [.inserted]#Scalability#
+* [.inserted]#Maintainability#
+
+[.inserted]#Its component-based structure and efficient state management make it well-suited for:#
+
+* [.inserted]#Real-time UI updates#
+* [.inserted]#Future feature expansion#

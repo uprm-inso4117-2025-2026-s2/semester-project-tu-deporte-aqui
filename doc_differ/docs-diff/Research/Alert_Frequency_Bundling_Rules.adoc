@@ -1,0 +1,248 @@
+= [.inserted]#Alert Frequency + Bundling Rules (Reduce Alert Fatigue)#
+
+== [.inserted]#1) Decision Checklist: Send Now vs Bundle vs Suppress#
+
+[.inserted]#This framework helps the product team decide the fate of every potential alert.#
+
+[cols="3,2,5", options="header"]
+[.inserted]#|===#
+[.inserted]#|Trigger |Decision |Rationale#
+
+[.inserted]#|Critical Event (game delay, postponement, final score, major injury)#
+[.inserted]#|Send Now#
+[.inserted]#|These are high-stakes, time-sensitive alerts that users expect immediately. Research from leading sports platforms confirms that users want real-time delivery for major moments [7][8][10].#
+
+[.inserted]#|Duplicate Update (same event from multiple sources)#
+[.inserted]#|Suppress#
+[.inserted]#|Sending multiple alerts for the same event creates noise. Our system should detect duplicates and send a single master alert. This aligns with industry best practices for related update bundling [8].#
+
+[.inserted]#|Routine Update (score change, substitution, quarter ending)#
+[.inserted]#|Bundle#
+[.inserted]#|Group routine updates from the same game within a 10–15 minute window. Time-based bundling keeps notifications digestible [7][10].#
+
+[.inserted]#|Frequency Cap Reached (5 per game / 2 per hour)#
+[.inserted]#|Bundle or Suppress#
+[.inserted]#|If the user has reached their limit, hold the update and either bundle it with the next allowed alert or suppress if obsolete. Limiting notifications per hour during live events prevents overwhelming users [8][10].#
+[.inserted]#|===#
+
+== [.inserted]#2) Summary of Patterns from Sports Media & Platforms#
+
+=== [.inserted]#A) The High Cost of Alert Fatigue#
+
+[.inserted]#The Reuters Institute Digital News Report 2025 reveals a critical challenge for digital publishers: while the percentage of users engaging with mobile news alerts has grown significantly, a large portion are actively rejecting them. Across all countries surveyed, 43% of those who do not get alerts have actively disabled them, citing reasons like "too many" or "not useful." One respondent explicitly stated, "They annoyed me so I turned them off," while another cited the emotionally distressing nature of the news [5].#
+
+[.inserted]#The Press Gazette analysis of this data highlights that the vast majority of survey respondents (79% in aggregate) say they do not get any news alerts during an average week. Publishers are extremely conscious of the tightrope they are walking when sending alerts. Most have strict limits on the number they send each day and clear criteria about the type of alerts as well as the best time to send them [8].#
+
+[.inserted]#User tolerance is remarkably low. Research indicates that users who receive too many notifications will simply stop using a service or unsubscribe entirely [8].#
+
+=== [.inserted]#B) Platform-Level Changes#
+
+[.inserted]#For a web platform, we must consider how browsers are evolving. Major browsers like Chrome, Safari, and Firefox now include built-in notification controls that:#
+
+* [.inserted]#Group notifications from the same site#
+* [.inserted]#Allow users to pause notifications from a site entirely#
+* [.inserted]#Surface "quiet permission prompts" that discourage sites from asking for notification access#
+
+[.inserted]#According to Braze, with Apple Intelligence in iOS 18 and Notification Organizer in Android 16, operating systems now use AI to prioritize, summarize, and even group notifications on the user's behalf. The key insight: "You're no longer marketing just to customers; you're marketing to the systems that decide which customers hear from you at all." If we send too many non-urgent messages, users can easily mute all notifications from Tu Deporte Aquí at the browser level, completely bypassing our carefully designed controls [7].#
+
+=== [.inserted]#C) Specific Strategies from Sports & News Platforms#
+
+[cols="2,3,4", options="header"]
+[.inserted]#|===#
+[.inserted]#|Platform |Strategy |Key Takeaway#
+
+[.inserted]#|ESPN#
+[.inserted]#|Toggle alert types, frequency caps, quiet hours preferences#
+[.inserted]#|Users want granular control over what they receive and when. ESPN allows registered users to set favorites and preferences to get personalized sports, teams, scores and news [1][9].#
+
+[.inserted]#|Yahoo Sports#
+[.inserted]#|Frequency caps, "Do Not Disturb," related update bundling#
+[.inserted]#|Bundling related updates reduces redundancy and clutter. Yahoo allows users to customize notifications for specific teams, games, and leagues with granular toggles [2][8][10].#
+
+[.inserted]#|The Athletic#
+[.inserted]#|"Daily Recap" feature — single daily summary of major events#
+[.inserted]#|Some users prefer a once-a-day digest over real-time updates. The Athletic allows users to manage feed preferences, email preferences, and notification settings [3].#
+
+[.inserted]#|Newsbreak#
+[.inserted]#|AI-driven personalization model#
+[.inserted]#|Moving from "broadcast" to "personalized" alerts increases relevance. Newsbreak lets users enable notifications and choose what and how often they'd like to be alerted [4].#
+
+[.inserted]#|The Times (London)#
+[.inserted]#|Strict limit of no more than 4 alerts per day#
+[.inserted]#|Data showed exceeding this limit led to a "spike of those unsubscribing." Restraint builds loyalty [8].#
+[.inserted]#|===#
+
+=== [.inserted]#D) The Core Principle#
+
+[.inserted]#The goal is not to maximize the number of notifications sent, but to maximize the value of each notification received [7][8].#
+
+== [.inserted]#3) Key Definitions (User-Friendly & Clear)#
+
+[.inserted]#Using consistent, plain-language definitions builds trust and sets clear expectations.#
+
+[cols="2,3,5", options="header"]
+[.inserted]#|===#
+[.inserted]#|Term |Definition |User-Friendly Description#
+
+[.inserted]#|Bundle (Agrupar)#
+[.inserted]#|Grouping multiple related updates into a single notification#
+[.inserted]#|"Instead of 5 pings for 5 different scores, you get one alert: 'Game Update: 2 goals & 1 substitution in the last 10 minutes.' This respects your focus."#
+
+[.inserted]#|Suppress (Suprimir)#
+[.inserted]#|Automatically hiding duplicate alerts from multiple sources#
+[.inserted]#|"If both the league's official feed and a major sports outlet report the same injury, you'll only see it once. It's not about hiding news, but about removing noise."#
+
+[.inserted]#|Digest (Resumen)#
+[.inserted]#|A scheduled summary of top events delivered at a set time#
+[.inserted]#|"Your personal sports summary, delivered at your convenience. Perfect for staying informed without being interrupted."#
+
+[.inserted]#|Quiet Hours (Horas de Silencio)#
+[.inserted]#|A user-defined period during which notifications are silenced#
+[.inserted]#|"We respect your downtime. Set a schedule so we never disturb you."#
+[.inserted]#|===#
+
+== [.inserted]#4) User-Facing Setting Descriptions#
+
+[.inserted]#These descriptions are designed to be clear, non-technical, and reassuring. For a web platform, settings should be accessible from a user profile or preferences page.#
+
+=== [.inserted]#1. Alert Frequency (Frecuencia de Alertas)#
+
+[.inserted]#*Description:* "How much do you want to hear from us during a game? We recommend 'Essential' to stay informed without the buzz."#
+
+[.inserted]#*Options:*#
+
+* [.inserted]#Essential (Recomendado): Get alerts for the biggest moments only (goals, red cards, final score).#
+* [.inserted]#Detailed: Receive play-by-play updates (every score, quarter breakdowns, substitutions).#
+* [.inserted]#Custom: Set your own limits.#
+
+=== [.inserted]#2. Game-Only Mode (Modo Solo Partido)#
+
+[.inserted]#*Description:* "Prefer a clean experience? Turn this on to receive alerts only for the games you're actively following, and nothing else."#
+
+=== [.inserted]#3. Breaking News Only (Solo Noticias de Última Hora)#
+
+[.inserted]#*Description:* "Skip the noise. Get notified only for major, unmissable events like trades, injuries to your favorite stars, or game postponements."#
+
+=== [.inserted]#4. Daily Recap (Resumen Diario)#
+
+[.inserted]#*Description:* "Your daily briefing. Receive a single summary every evening with all the key scores and headlines from the day."#
+
+=== [.inserted]#5. Quiet Hours (Horas de Silencio)#
+
+[.inserted]#*Description:* "We respect your downtime. Set a schedule to automatically silence all notifications so we never disturb you."#
+
+[.inserted]#*Example:* "Rest Period: No alerts from 10:00 PM to 8:00 AM."#
+
+=== [.inserted]#6. Duplicate Alert Filter (Filtro de Alertas Duplicadas)#
+
+[.inserted]#*Description:* "We'll automatically clean up your notifications. If multiple sources report the same news, we bundle them into one clear alert."#
+
+=== [.inserted]#7. My Teams Only (Solo Mis Equipos)#
+
+[.inserted]#*Description:* "Focus on what you love. Receive updates exclusively for the teams you've favorited. No other scores, no general news."#
+
+=== [.inserted]#8. In-Game Frequency Cap (Límite por Partido)#
+
+[.inserted]#*Description:* "Choose how often we update you during a live match."#
+
+[.inserted]#*Options:* "Relaxed (~2 alerts/game)", "Balanced (~5 alerts/game)", "Intense (~10 alerts/game)."#
+
+=== [.inserted]#9. Smart Summary (Resumen Inteligente)#
+
+[.inserted]#*Description:* "Let us do the grouping for you. We'll bundle routine game updates (like scores and subs) into a single alert every 10–15 minutes so your notification feed stays clean."#
+
+== [.inserted]#5) Recommended Default Configuration#
+
+[.inserted]#The "out of the box" experience is critical for user retention. Based on the research, we recommend defaulting to settings that prioritize user experience to build long-term trust.#
+
+[cols="2,2,4", options="header"]
+[.inserted]#|===#
+[.inserted]#|Setting |Default |Rationale#
+
+[.inserted]#|Alerts#
+[.inserted]#|ON (after user grants permission)#
+[.inserted]#|Core functionality requires alerts to be enabled. Browser prompts should clearly explain value.#
+
+[.inserted]#|Frequency#
+[.inserted]#|Essential#
+[.inserted]#|Aligns with research showing users prefer fewer, higher-value notifications [5][7][8].#
+
+[.inserted]#|My Teams Only#
+[.inserted]#|ON#
+[.inserted]#|Only send alerts for teams explicitly favorited during onboarding. Personalization increases relevance [1][2][4].#
+
+[.inserted]#|Breaking News Only#
+[.inserted]#|OFF#
+[.inserted]#|This is an opt-in mode for users who want minimal interruptions.#
+
+[.inserted]#|Daily Recap#
+[.inserted]#|OFF#
+[.inserted]#|Best offered as a suggestion after the user has experienced live alerts.#
+
+[.inserted]#|Duplicate Alert Filter#
+[.inserted]#|ON (Always enabled)#
+[.inserted]#|Essential for reducing noise and building trust [2][8].#
+
+[.inserted]#|Smart Summary (Bundling)#
+[.inserted]#|ON (Always enabled)#
+[.inserted]#|Keeps the notification stream clean and prevents browser-level grouping [7][8].#
+
+[.inserted]#|Quiet Hours#
+[.inserted]#|Suggested, not auto-enabled#
+[.inserted]#|During onboarding, ask: "When are your quiet hours? We recommend 10 PM to 8 AM to protect your rest." This prompts the user to actively set them [1][7].#
+[.inserted]#|===#
+
+== [.inserted]#6) Testing Plan (Paper Scenarios)#
+
+=== [.inserted]#Scenario 1: Live Game Score Swings Every Minute#
+
+[.inserted]#*User Setting:* Default (Essential Frequency, Bundling ON)#
+
+[.inserted]#*Expected Behavior:* Routine score updates are bundled into a single notification every 10–15 minutes. Critical events (red cards, injuries) are sent immediately.#
+
+[.inserted]#*Success Metric:* User receives ~5 alerts per game instead of 20+.#
+
+=== [.inserted]#Scenario 2: Multiple Sources Post the Same Breaking Update#
+
+[.inserted]#*User Setting:* Default (Duplicate Filter ON)#
+
+[.inserted]#*Expected Behavior:* System detects identical update from two sources and sends a single, master alert.#
+
+[.inserted]#*Success Metric:* User sees one notification instead of two for the same event.#
+
+=== [.inserted]#Scenario 3: User Enabled Breaking Only + Quiet Hours#
+
+[.inserted]#*User Setting:* Breaking News Only = ON, Quiet Hours = 10 PM – 8 AM#
+
+[.inserted]#*Expected Behavior:* During quiet hours, all notifications are silenced. Outside quiet hours, only breaking news alerts are delivered.#
+
+[.inserted]#*Success Metric:* User receives zero notifications during quiet hours, and only urgent alerts outside those hours.#
+
+== [.inserted]#References#
+
+[.inserted]#. *ESPN.* (2025). _How do I personalize my account on ESPN.com?_ ESPN Support. Retrieved from  #
+[.inserted]#https://support.espn.com/hc/en-us/articles/360035075172-How-do-I-personalize-my-account-on-ESPN-com#
+
+[.inserted]#. *Yahoo Sports.* (2025). _Manage Team, Game, or League notifications in the Yahoo Sports app._ Yahoo Help. Retrieved from  #
+[.inserted]#https://help.yahoo.com/kb/sports-app-for-ios/turn-alerts-push-notification-teams-activities-sln7118.html#
+
+[.inserted]#. *The Athletic / The New York Times.* (2025). _Navigating The Athletic._ NYT Help. Retrieved from  #
+[.inserted]#https://help.nytimes.com/the-athletic/navigating-the-athletic#
+
+[.inserted]#. *Newsbreak.* (2021). _How to turn on or turn off notifications?_ Newsbreak Help Center. Retrieved from  #
+[.inserted]#https://help.newsbreak.com/hc/en-us/articles/4417461918093-How-to-turn-on-or-turn-off-notifications#
+
+[.inserted]#. *Reuters Institute for the Study of Journalism.* (2025). _Digital News Report 2025._ University of Oxford. Retrieved from  #
+[.inserted]#https://ora.ox.ac.uk/objects/uuid:24de5b16-d5bb-40da-a55c-4e7c28ab6dff#
+
+[.inserted]#. *Press Gazette.* (2025, June 17). _Walking the mobile notification tightrope: How to engage audiences while avoiding overload._ Press Gazette. Retrieved from  #
+[.inserted]#https://pressgazette.co.uk/publishers/digital-journalism/mobile-news-alerts-push-notifications-digital-news-report-2025/#
+
+[.inserted]#. *Braze.* (2026, February 6). _The OS and inbox as intermediary: How AI is (literally) rewriting customer engagement._ Braze Resources. Retrieved from  #
+[.inserted]#https://www.braze.com/resources/articles/ai-intermediaries-customer-engagement#
+
+[.inserted]#. *Yahoo Sports.* (2025). _Get notifications on your favorite teams and scores in Yahoo Sports News._ Yahoo Help. Retrieved from  #
+[.inserted]#https://help.yahoo.com/kb/SLN24274.html#
+
+[.inserted]#. *GetHuman.* (2025). _How do I manage my ESPN+ account settings?_ GetHuman. Retrieved from  #
+[.inserted]#https://gethuman.com/customer-service/ESPN/faq/How-do-I-manage-my-ESPN-account-settings/31gxtF#

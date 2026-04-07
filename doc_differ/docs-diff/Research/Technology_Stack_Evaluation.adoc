@@ -1,0 +1,145 @@
+= [.inserted]#Technology Stack Evaluation#
+[.inserted]#Focus: Maintainable and Practical Technology Stack Selection#
+
+== [.inserted]#Purpose#
+
+[.inserted]#This research evaluates suitable technology stack options for developing *Tu Deporte Aquí*, a centralized platform for local sports events.#
+
+[.inserted]#The goal is to identify a stack that supports:#
+
+* [.inserted]#Structured event data#
+* [.inserted]#Clear backend logic for aggregation#
+* [.inserted]#Maintainable development workflows#
+
+[.inserted]#The evaluation focuses on:#
+
+* [.inserted]#Simplicity#
+* [.inserted]#Flexibility#
+* [.inserted]#Ease of deployment#
+* [.inserted]#Long-term maintainability#
+
+== [.inserted]#Stack Options Analyzed#
+
+=== [.inserted]#1. React + Node.js + PostgreSQL/MySQL + Railway#
+
+[.inserted]#Frontend:: React  #
+[.inserted]#Backend:: Node.js (Express)  #
+[.inserted]#Database:: PostgreSQL or MySQL  #
+[.inserted]#Hosting:: Railway  #
+
+==== [.inserted]#Pros#
+
+* [.inserted]#Clear architectural separation  #
+[.inserted]#Frontend and backend are independent, improving maintainability and modularity.#
+
+* [.inserted]#Flexible backend logic  #
+[.inserted]#Node.js allows full control over how sports data is processed, transformed, and stored.#
+
+* [.inserted]#Strong ecosystem  #
+[.inserted]#Large community support, extensive documentation, and many available libraries.#
+
+* [.inserted]#Relational database compatibility  #
+[.inserted]#PostgreSQL or MySQL fits structured sports data (teams, leagues, schedules, results).#
+
+* [.inserted]#Simple deployment with Railway  #
+[.inserted]#Railway provides database provisioning, environment variable management, and deployment pipelines with minimal DevOps complexity.#
+
+* [.inserted]#Industry relevance  #
+[.inserted]#Commonly used in modern web development and valuable for learning.#
+
+==== [.inserted]#Cons#
+
+* [.inserted]#More components to manage  #
+[.inserted]#Requires separate frontend, backend, and database configuration.#
+
+* [.inserted]#API development required  #
+[.inserted]#Team must design and implement REST endpoints.#
+
+* [.inserted]#Slightly more setup  #
+[.inserted]#Compared to backend-as-a-service solutions.#
+
+---
+
+=== [.inserted]#2. React + Supabase (Managed Backend)#
+
+[.inserted]#Frontend:: React  #
+[.inserted]#Backend/Database:: Supabase (PostgreSQL-based managed backend)  #
+
+==== [.inserted]#Pros#
+
+* [.inserted]#Minimal backend setup  #
+[.inserted]#Built-in authentication and database access reduce development time.#
+
+* [.inserted]#Automatic database management  #
+[.inserted]#No need to configure infrastructure manually.#
+
+* [.inserted]#Simplified deployment  #
+[.inserted]#Reduces operational complexity.#
+
+==== [.inserted]#Cons#
+
+* [.inserted]#Less backend control  #
+[.inserted]#Custom aggregation logic may be constrained.#
+
+* [.inserted]#Vendor dependency  #
+[.inserted]#System becomes tightly coupled to Supabase services.#
+
+---
+
+=== [.inserted]#3. Next.js (Full-Stack) + PostgreSQL#
+
+[.inserted]#Unified frontend and backend in one framework.#
+
+==== [.inserted]#Pros#
+
+* [.inserted]#Streamlined development  #
+[.inserted]#API routes and frontend exist in the same project.#
+
+* [.inserted]#Reduced architectural fragmentation  #
+[.inserted]#Simpler structure for small teams.#
+
+* [.inserted]#Modern performance optimizations  #
+[.inserted]#Supports server-side rendering.#
+
+==== [.inserted]#Cons#
+
+* [.inserted]#Tighter coupling  #
+[.inserted]#Harder to separate backend logic as system grows.#
+
+* [.inserted]#Less explicit architecture  #
+[.inserted]#Frontend and backend boundaries may blur.#
+
+== [.inserted]#Key Considerations for the Project#
+
+* [.inserted]#Sports data is structured and relational#
+* [.inserted]#Clear separation between presentation and data processing improves maintainability#
+* [.inserted]#System should be simple to deploy and manage#
+* [.inserted]#Stack should allow custom aggregation logic#
+* [.inserted]#Educational value and architectural clarity are important#
+* [.inserted]#A relational database (PostgreSQL or MySQL) is appropriate#
+
+== [.inserted]#Recommendation#
+
+[.inserted]#Recommended stack:#
+
+[.inserted]#*React (Frontend) + Node.js (Backend) + PostgreSQL or MySQL (Database) + Railway (Hosting)*#
+
+[.inserted]#This combination provides:#
+
+* [.inserted]#Clear separation of concerns#
+* [.inserted]#Flexible backend logic#
+* [.inserted]#Structured relational data modeling#
+* [.inserted]#Manageable deployment complexity#
+
+[.inserted]#NOTE: PostgreSQL is slightly preferred for its advanced relational features and cloud compatibility. However, MySQL remains a valid alternative.#
+
+[.inserted]#IMPORTANT: This recommendation is personal. All evaluated stacks are valid options and should be discussed with the team.#
+
+== [.inserted]#References#
+
+* [.inserted]#https://nodejs.org/en/about#
+* [.inserted]#https://react.dev/#
+* [.inserted]#https://www.oracle.com/mysql/what-is-mysql/#
+* [.inserted]#https://www.postgresql.org/docs/#
+* [.inserted]#https://docs.railway.com#
+* [.inserted]#https://nextjs.org#

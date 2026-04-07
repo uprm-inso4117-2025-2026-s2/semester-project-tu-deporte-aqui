@@ -1,0 +1,127 @@
+= [.inserted]#Data Source Attribution UI#
+[.inserted]#Author: Diego A. Rios Morales#
+[.inserted]#Date: February 27, 2026#
+
+== [.inserted]#1. Objective#
+
+[.inserted]#The objective of this research is to design a clear UI system that shows where each news item comes from, allowing users to quickly understand the origin of information.#
+
+== [.inserted]#2. Problem#
+
+[.inserted]#If users cannot determine whether content comes from an official league site, a verified social post, or a data feed, trust decreases.#
+
+[.inserted]#Clear source attribution:#
+
+* [.inserted]#Reduces confusion#
+* [.inserted]#Improves credibility#
+
+== [.inserted]#3. UX Principles#
+
+* [.inserted]#*Consistent*: Same badge style across the entire application#
+* [.inserted]#*Non-intrusive*: Minimal clutter on the UI card#
+* [.inserted]#*Actionable*: Source should be clickable and easily viewable#
+
+== [.inserted]#4. Source Categories#
+
+[.inserted]#Each story should include:#
+
+* [.inserted]#1 primary source category (always shown)#
+* [.inserted]#Optional secondary sources (if aggregated)#
+
+=== [.inserted]#A. Official Source#
+
+* [.inserted]#League or team website#
+* [.inserted]#Official press release#
+* [.inserted]#Official schedule or injury report page#
+
+=== [.inserted]#B. Verified Social#
+
+* [.inserted]#Scraped from verified league or team accounts#
+
+=== [.inserted]#C. API / Structured Feed#
+
+* [.inserted]#Machine-readable provider (scores, stats, schedules)#
+* [.inserted]#Example: “Sports Data Feed Provider”#
+
+=== [.inserted]#D. Trusted Media#
+
+* [.inserted]#Editorial news outlet reporting the story#
+* [.inserted]#Example: ESPN or local sports media#
+
+=== [.inserted]#E. Community / User Report (Optional)#
+
+* [.inserted]#User-submitted information (non-official, non-media)#
+
+=== [.inserted]#F. Aggregated#
+
+* [.inserted]#Combined data from multiple sources#
+* [.inserted]#Must list all underlying sources in details view#
+
+== [.inserted]#5. UI Placement Options#
+
+=== [.inserted]#Source Badge Near Headline / Time#
+
+[.inserted]#Place a small badge (icon + label) on the top row of the card, next to time/source metadata.#
+
+==== [.inserted]#Pros#
+
+* [.inserted]#Always visible#
+* [.inserted]#Easy to scan#
+
+==== [.inserted]#Cons#
+
+* [.inserted]#Adds an additional UI element to each card#
+
+== [.inserted]#6. Interaction Behavior#
+
+=== [.inserted]#Default Behavior#
+
+* [.inserted]#Show primary source badge on every card#
+* [.inserted]#Badge includes:#
+[.inserted]#** Small icon#
+[.inserted]#** Short label#
+
+=== [.inserted]#On Hover (Desktop)#
+
+* [.inserted]#Display tooltip or popover#
+
+=== [.inserted]#Details Panel Content (Example)#
+
+* [.inserted]#*Title:* Source information#
+* [.inserted]#*Category:* Official Source#
+* [.inserted]#*Source name:* NBA.com#
+* [.inserted]#*Last fetched:* Feb 27, 2026 – 2:10 PM#
+* [.inserted]#*Link:* Open source#
+
+== [.inserted]#7. Copy and Transparency Rules#
+
+* [.inserted]#Keep labels short:#
+[.inserted]#** “Official”#
+[.inserted]#** “Verified Social”#
+[.inserted]#** “API”#
+[.inserted]#** “Media”#
+
+* [.inserted]#Always show source name in details (not only category)#
+* [.inserted]#Always provide a direct link to the original source#
+
+== [.inserted]#8. Edge Cases#
+
+=== [.inserted]#Unknown Source#
+
+* [.inserted]#Show “Unknown” badge#
+* [.inserted]#Flag for QA review#
+
+=== [.inserted]#Multiple Sources#
+
+* [.inserted]#Show primary badge#
+* [.inserted]#Include “+1” indicator for additional sources#
+
+=== [.inserted]#Conflicting Sources#
+
+* [.inserted]#Mark as “Aggregated”#
+* [.inserted]#Display all sources in details panel#
+
+=== [.inserted]#Broken Link#
+
+* [.inserted]#Show “Source unavailable”#
+* [.inserted]#Keep category visible#

@@ -1,0 +1,238 @@
+[.removed]#==#[.inserted]#===# 1.1 Team
+
+===== Project Organization
+
+Tu Deporte Aquí is organized into five specialized teams [.removed]#to# [.inserted]#that# support [.removed]#structured documentation, research,# [.inserted]#both documentation# and [.removed]#feature preparation during Milestone 1.#
+
+[.removed]#Milestone 1 does not involve# implementation [.removed]#or source code development. The# [.inserted]#across project milestones.#
+
+[.inserted]#During Milestone 1, the# focus [.removed]#is# [.inserted]#was# on [.removed]#defining scope, system behavior, reliability expectations,# [.inserted]#documentation# and [.removed]#transparency requirements# [.inserted]#system definition. In the current milestone, the project has transitioned into implementation, where teams are responsible# for [.removed]#a mobile-first platform serving local Puerto Rico sports.# [.inserted]#building and integrating system components.#
+
+Each team is [.removed]#responsible for# [.inserted]#assigned# a [.removed]#clearly defined# [.inserted]#specific# domain [.removed]#area# [.inserted]#area. This allows work# to [.removed]#ensure full coverage of system expectations before development begins.# [.inserted]#be distributed while still maintaining coordination across the system.#
+
+===== Team Structure
+
+====== Team 1 – [.removed]#Core# Documentation & [.removed]#Project# Standards
+
+Responsible for [.removed]#establishing the official documentation foundation:#
+
+- [.removed]#Expanding the A3 into a structured project overview#
+- [.removed]#Defining scope boundaries (local leagues only)#
+- [.removed]#Documenting assumptions (limited or no official APIs; reliance on informal sources)# [.inserted]#maintaining consistency and supporting integration across teams:#
+
+- [.removed]#Maintaining the main# [.inserted]#Updating# README and [.inserted]#project# documentation [.removed]#index#
+- Defining [.removed]#shared glossary# [.inserted]#folder structure# and [.removed]#documentation# [.inserted]#coding# standards
+- [.removed]#Configuring AsciiDoc build automation#
+- [.removed]#Preparing the final compiled Milestone 1# [.inserted]#Documenting API endpoints created by feature teams#
+- [.inserted]#Supporting deployment setup#
+- [.inserted]#Applying professor feedback to# documentation
+
+This team [.inserted]#does not implement features, but# ensures [.removed]#documentation consistency, structure,# [.inserted]#that the work produced by other teams remains consistent# and [.removed]#governance.# [.inserted]#properly documented.#
+
+*Team Members:*
+
+- Alberto J. Rodríguez Nogueras (Lead)
+- Gerald L. Rodríguez Rodríguez
+- Jafet Hernández Arroyo
+- Ángel L. Ramos Rodríguez
+- Daniel C. Colón Rivera
+- Alex M. Vázquez Galiano
+
+====== Team 2 – [.removed]#Live Games# [.inserted]#Supabase Core# & [.removed]#Match Coverage#
+
+[.removed]#Defines how live game information is displayed# [.inserted]#Platform#
+
+[.inserted]#Responsible for backend foundation# and [.removed]#trusted:#
+
+- [.removed]#What# data [.removed]#is shown (scores, time, league, status)# [.inserted]#management:#
+
+- [.inserted]#Setting up Supabase project#
+- [.removed]#Handling delayed updates# [.inserted]#Designing database schema (users, games, standings, teams, athletes, news)#
+- [.removed]#Resolving conflicting score reports# [.inserted]#Inserting seed data#
+- [.removed]#Behavior when information is missing# [.inserted]#Implementing basic Row-Level Security#
+- [.removed]#Mobile-first UI messaging for provisional# [.inserted]#Supporting other teams with# data [.inserted]#access#
+
+This team [.removed]#focuses on reliability under real-world uncertainty.# [.inserted]#acts as the central point for database-related decisions.#
+
+*Team Members:*
+
+- Ángel Villegas (Lead)
+- Luis X. Sorrentini Renta
+- Noel A. Colón Mena
+- Joaquín E. Arraiza Morales
+- Ian G. Ramos Villafañe
+- Cristian J. Massini Perez
+
+====== Team 3 – [.removed]#Standings# [.inserted]#Live Games# & [.removed]#Tournament Progress#
+
+[.removed]#Defines how standings are calculated# [.inserted]#Standings#
+
+[.inserted]#Responsible for implementing game# and [.removed]#communicated:#
+
+- [.removed]#Representation of local league# standings [.inserted]#views:#
+
+- [.removed]#Handling inconsistencies across informal sources# [.inserted]#Building /games and /standings pages#
+- [.removed]#Resolving or flagging conflicting standings# [.inserted]#Implementing API routes#
+- [.inserted]#Fetching data from Supabase#
+- Displaying [.removed]#provisional or uncertain rankings# [.inserted]#scores, teams, and status#
+- [.removed]#Managing edge cases (postponements, incomplete data)# [.inserted]#Handling loading and error states#
+
+This team [.removed]#ensures structural integrity of league progression information.# [.inserted]#focuses on presenting structured sports data through working UI pages.#
+
+*Team Members:*
+
+- Naedra J. Feliciano (Lead)
+- Natanael Massallo Soto
+- Christopher J. Perez Rodríguez
+- Yandiel Hernandez Otero
+- Javier A. Ventosa Maldonado
+
+====== Team 4 – [.removed]#Teams & Athletes# [.inserted]#News,# Profiles [.inserted]#& Alerts#
+
+[.inserted]#Responsible#
+
+[.removed]#Defines expectations# for [.removed]#profile information accuracy:# [.inserted]#content and profile-related pages:#
+
+- [.removed]#Required# [.inserted]#Building /news, /teams/[id],# and [.removed]#optional profile fields# [.inserted]#/athletes/[id]#
+- [.removed]#Acceptable levels of staleness# [.inserted]#Implementing API routes#
+- [.removed]#Handling incomplete or outdated# [.inserted]#Displaying content and profile# data
+- [.removed]#Mobile-friendly indicators for uncertain information# [.inserted]#Handling loading and error states#
+
+This team focuses on [.removed]#data completeness and freshness constraints.# [.inserted]#making informational content accessible through the UI.#
+
+*Team Members:*
+
+- Sebastian A. Santiago Perez (Lead)
+- Edward J. Carde Velazquez
+- Diego A. Hernandez Sanchez
+- Pedro M. Cortes Ramos
+- Edgar J. Gonzalez Vargas
+
+====== Team 5 – [.removed]#News, Alerts# [.inserted]#Authentication# & [.inserted]#User# System [.removed]#Transparency#
+
+[.removed]#Defines how system updates#
+
+[.inserted]#Responsible for user authentication# and [.removed]#uncertainty are communicated:# [.inserted]#session management:#
+
+- [.removed]#Criteria for publishing news vs urgent alerts# [.inserted]#Implementing login and signup#
+- [.removed]#Handling unverified or conflicting reports# [.inserted]#Managing user sessions#
+- [.inserted]#Protecting routes#
+- [.removed]#Transparency indicators (last update time, confidence level)# [.inserted]#Handling authentication errors#
+- [.removed]#Messaging during degraded or uncertain states# [.inserted]#Displaying user state in UI#
+
+This team ensures [.removed]#user trust and system transparency.# [.inserted]#that user-specific functionality works correctly.#
+
+*Team Members:*
+
+- Juan R. Rivera Rodríguez (Lead)
+- Diego A. Ríos Morales
+- Lianette Alberto Muñoz
+- Marcos F. Arraiza Aviles
+- Ojiani S. Figueroa Cruz
+
+====== [.inserted]#UI Strike Team#
+
+[.inserted]#A cross-team group responsible for shared UI components and layout consistency.#
+
+[.inserted]#Responsibilities include:#
+
+- [.inserted]#Building homepage#
+- [.inserted]#Creating shared layout components (navbar, layout wrapper, navigation)#
+- [.inserted]#Ensuring consistent styling across pages#
+- [.inserted]#Supporting mobile-first design#
+
+[.inserted]#This group coordinates UI decisions across feature teams.#
+
+===== Roles and Responsibilities
+
+====== Developers
+
+Developers are responsible for:
+
+- [.removed]#Creating and completing GitHub# [.inserted]#Completing assigned# issues
+- [.removed]#Conducting research aligned with team goals# [.inserted]#Implementing features or documentation updates#
+- Writing [.removed]#structured# [.inserted]#code or# documentation [.inserted]#depending on their team#
+- [.removed]#Following the Issue Creation Guidelines#
+- Submitting work through pull requests
+- [.removed]#Ensuring acceptance criteria are satisfied#
+
+All work must be [.removed]#issue-based and documented.# [.inserted]#tracked through GitHub issues.#
+
+====== Team Leads
+
+Team Leads are responsible for:
+
+- Coordinating work within their [.removed]#assigned# team
+- [.removed]#Conducting first-level review of completed issues# [.inserted]#Reviewing work before it is merged#
+- Ensuring [.removed]#alignment with Milestone 1 objectives#
+- [.removed]#Tracking participation and progress#
+
+[.removed]#Team Leads help maintain quality and consistency before escalation# [.inserted]#tasks are completed according# to [.removed]#managers.#
+
+[.removed]#*Managers:*# [.inserted]#requirements#
+- [.inserted]#Communicating with other teams when needed#
+
+[.inserted]#This role helps reduce integration issues between teams.#
+
+====== [.inserted]#Managers#
+
+[.inserted]#Managers:#
+
+- Anthony Martínez
+- Fernando Torres
+
+Managers are responsible for:
+
+- Reviewing [.removed]#issue clarity# [.inserted]#issues# and [.removed]#completeness# [.inserted]#pull requests#
+- Assigning urgency and difficulty [.removed]#levels#
+- [.removed]#Approving pull requests after review#
+- [.removed]#Closing issues upon satisfactory completion#
+- Ensuring milestone [.removed]#alignment and fairness# [.inserted]#progress#
+- [.inserted]#Resolving cross-team issues#
+
+Managers ensure [.removed]#governance and structured progression of# [.inserted]#that# the [.removed]#project.# [.inserted]#project stays aligned with milestone goals.#
+
+===== Workflow and Governance
+
+The project follows an issue-driven [.removed]#and PR-only# workflow with [.removed]#branch protection enabled.#
+
+[.removed]#All work must begin with a GitHub Issue created using the standardized Issue Creation Guidelines. Issues must:#
+
+- [.removed]#Follow the approved title format#
+- [.removed]#Use the required content template#
+- [.removed]#Include clearly defined acceptance criteria#
+- [.removed]#Specify urgency and difficulty#
+
+[.removed]#Issues may involve documentation, research, feature definition, lecture topic tasks, or coordination work.#
+
+[.removed]#For documentation scaffold sections specifically, issues must reference the master documentation scaffold issue (#53) to ensure traceability within the single compiled document structure.# [.inserted]#pull request review.#
+
+Workflow:
+
+1. Issue is created [.removed]#following the standardized template# [.inserted]#and assigned#
+2. Developer [.removed]#creates# [.inserted]#works on# a feature [.removed]#branch# [.inserted]#or update#
+3. [.removed]#Developer modifies only the assigned scope#
+[.removed]#4. Pull# [.inserted]#Changes are submitted through a pull# request [.removed]#references#
+[.inserted]#4. CI runs to validate# the [.removed]#corresponding issue# [.inserted]#project#
+5. [.removed]#CI workflow builds documentation artifacts automatically#
+[.removed]#6.# Team Lead [.removed]#performs review#
+[.removed]#7.# [.inserted]#reviews#
+[.inserted]#6.# Manager approves and merges
+
+[.removed]#No direct pushes to protected branches# [.inserted]#This process ensures that changes# are [.removed]#permitted for non-admin users.# [.inserted]#reviewed and integrated consistently.#
+
+===== [.inserted]#Current# Milestone [.removed]#1# Focus
+
+[.removed]#Milestone 1 emphasizes:# [.inserted]#The project is currently focused on implementation.#
+
+[.inserted]#This includes:#
+
+- [.removed]#Clear scope definition (local Puerto Rico sports only)# [.inserted]#Building UI pages using Next.js#
+- [.removed]#Explicit documentation of uncertainty and failure scenarios# [.inserted]#Implementing API routes#
+- [.removed]#Mobile-first user interface expectations# [.inserted]#Integrating Supabase#
+- [.removed]#Transparency in data reliability# [.inserted]#Connecting frontend# and [.removed]#freshness# [.inserted]#backend#
+- [.removed]#Structured documentation before implementation#
+
+[.removed]#This structured# [.inserted]#Implementing authentication#
+
+[.inserted]#The# team [.removed]#model ensures# [.inserted]#structure supports this by distributing responsibility across features while maintaining coordination through# shared [.removed]#ownership, accountability, and disciplined engineering practices prior to any system development.# [.inserted]#workflows.#

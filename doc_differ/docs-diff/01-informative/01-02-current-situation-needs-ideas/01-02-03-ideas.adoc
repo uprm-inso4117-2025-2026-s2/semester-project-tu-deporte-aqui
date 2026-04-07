@@ -1,0 +1,92 @@
+
+==== 1.2.3 Ideas
+
+===== Purpose
+
+This section [.removed]#explains# [.inserted]#outlines# the main ideas [.removed]#that guide# [.inserted]#for# Tu Deporte Aquí. These ideas [.removed]#build on# [.inserted]#respond to# the [.removed]#conditions and# needs [.removed]#identified# [.inserted]#described# in [.removed]#Milestone 1# [.inserted]#Section 1.2.2# and [.removed]#describe# [.inserted]#give a high-level view of the kind of system the team intends to build.#
+
+===== [.inserted]#A Sports Information Platform for Local Puerto Rico Coverage#
+
+[.inserted]#One central idea is to build a platform focused on local Puerto Rico sports. The platform is meant to bring together scores, schedules, standings, and related updates that are currently spread across league websites, social media posts, news outlets, and other reporting channels.#
+
+[.inserted]#This idea follows from the fragmented situation described earlier. Rather than expecting followers to check many sources on their own,# the [.removed]#direction# [.inserted]#system-to-be would gather relevant information into one place.#
+
+===== [.inserted]#Open Handling of Uncertainty#
+
+[.inserted]#Another main idea is that# the platform should [.removed]#take, without defining specific technical solutions.#
+
+===== [.removed]#Cross-Source Validation and Source Weighting#
+
+[.removed]#Tu Deporte Aquí collects data from multiple informal sources, where disagreements are common.#
+
+Comparison before display::
+[.removed]#When different sources report different values for# [.inserted]#treat uncertainty as normal rather than exceptional. Since local sports information may be delayed, incomplete, or contradictory,# the [.removed]#same data point, the system# [.inserted]#platform# should [.removed]#compare them before showing# [.inserted]#not present all data as equally settled.#
+
+[.inserted]#At# a [.removed]#result. If values match, confidence increases. If they conflict,# [.inserted]#high level, this means# the [.removed]#system# [.inserted]#system-to-be# should [.removed]#flag the issue# [.inserted]#separate information that appears stable from information that is still uncertain, and it should make conflicts or missing information visible# instead of [.removed]#silently choosing one.#
+
+Source trust levels::
+[.removed]#Not all sources are equally reliable.# [.inserted]#hiding them.#
+
+===== [.inserted]#Source-Aware Presentation#
+
+The platform should [.removed]#assign trust levels to different# [.inserted]#present sports information together with enough# source [.removed]#types—for example, an official league website should carry more weight than# [.inserted]#context for people to judge it. The main idea is not only to show# a [.removed]#social media post. This weighting should be intentional# [.inserted]#score or status, but also to show where that information came from# and [.removed]#documented.#
+
+Conflict visibility::
+[.removed]#Conflicts should be logged internally# [.inserted]#how recent it is.#
+
+[.inserted]#This idea follows from the need# for [.removed]#debugging. When relevant, they# [.inserted]#dependability described in Section 1.2.2. If information comes from sources with different levels of authority or different update timing, the platform# should [.removed]#also be shown to users through clear indicators,# [.inserted]#preserve that context# instead of presenting [.inserted]#all updates in# the [.removed]#data as if it were fully certain.# [.inserted]#same way.#
+
+===== [.removed]#Data Freshness# [.inserted]#Support for Corrections# and [.removed]#Provenance#
+
+[.removed]#Users need to understand how recent the information is and where it came from.#
+
+Timestamps and source labels::
+[.removed]#Key data elements scores, standings, profiles, schedules should display when they were last updated and which source provided them (for example, "via BSN official site"). This allows users to judge reliability on their own.#
+
+Update frequency expectations:: [.inserted]#Change Over Time#
+
+The platform should [.removed]#communicate realistic refresh rates# [.inserted]#allow# for [.removed]#each data type. Live scores# [.inserted]#the fact that sports information can change after it is first reported. Scores# may [.removed]#have small delays, while standings# [.inserted]#be corrected, schedules# may [.removed]#update only after games are finalized. Making this clear helps reduce confusion.#
+
+===== [.removed]#Provisional# [.inserted]#shift,# and [.removed]#Confidence Indicators#
+
+[.removed]#Since much of the data comes from informal channels, the system must clearly separate confirmed# [.inserted]#previously incomplete# information [.removed]#from unverified data.#
+
+Provisional labeling::
+[.removed]#Information that has not been confirmed by a trusted source such as early live scores from social media—should# [.inserted]#may later# be [.removed]#clearly marked as provisional.#
+
+Confidence progression:: [.inserted]#filled in.#
+
+The [.removed]#platform should use simple labels ("Confirmed," "Provisional," "Unverified") or visual cues (badges, muted styles) to show reliability. As more sources confirm a value,# [.inserted]#idea here is that# the [.removed]#confidence level# [.inserted]#system-to-be# should [.removed]#update visibly so users can see how# [.inserted]#not assume that# the [.removed]#data stabilizes over time.#
+
+===== [.removed]#Handling Uncertainty and Missing Data#
+
+[.removed]#Uncertainty# [.inserted]#first reported value# is [.removed]#part of# [.inserted]#always# the [.removed]#platform’s environment and# [.inserted]#final one. It# should [.removed]#be handled openly.#
+
+Standardized messaging::
+[.removed]#Delayed scores, incomplete standings, and outdated profiles should follow a consistent visual# [.inserted]#make room for updates, corrections,# and [.removed]#textual format so users can quickly understand what# [.inserted]#later clarification.#
+
+===== [.inserted]#Mobile-First Access#
+
+[.inserted]#Another idea# is [.removed]#happening.#
+
+Degraded and no-data states::
+[.removed]#If the system has limited data, it should show# [.inserted]#to treat# the [.removed]#last known value with an "as of" indicator. If# [.inserted]#platform as mobile-first. Many followers check sports# information [.removed]#is completely unavailable,# [.inserted]#from their phones during games or while moving between activities, so# the [.removed]#platform# [.inserted]#system# should [.removed]#display a clear "not available" state instead of leaving empty spaces or unclear placeholders.#
+
+===== [.removed]#Mobile-First Display#
+
+[.removed]#As# [.inserted]#be designed with small-screen access in mind.#
+
+[.inserted]#At# a [.removed]#mobile-first web platform, all of# [.inserted]#high level, this means# the [.removed]#ideas above must work within small screen constraints.#
+
+Information hierarchy::
+[.removed]#Essential details score, game status, league, time should appear first. Supporting details such as source labels, timestamps, and confidence indicators# [.inserted]#most important information# should [.removed]#appear in secondary# [.inserted]#be easy to reach quickly, without depending on large layouts# or [.removed]#expandable views.#
+
+Compact indicators::
+[.removed]#Icons, color coding, and short labels are preferred over# long explanations. [.removed]#The same visual language for freshness, confidence, and provisional states should be used consistently across live scores, standings, and profiles to reduce cognitive load.#
+
+===== Scope of This Section
+
+This section [.removed]#defines the conceptual direction# [.inserted]#gives a high-level view# of [.inserted]#how the team intends to address# the [.removed]#platform.# [.inserted]#needs from Section 1.2.2.# It [.inserted]#states the main ideas behind the system-to-be, but it# does not [.removed]#include# [.inserted]#define detailed behavior,# technical [.removed]#implementation# [.inserted]#mechanisms,# or [.removed]#architectural details, which are covered later in the documentation.# [.inserted]#formal requirements.#
+
+
+

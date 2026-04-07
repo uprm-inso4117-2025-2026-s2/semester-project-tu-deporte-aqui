@@ -1,0 +1,89 @@
+==== 2.1.1 Domain Rough Sketch
+
+[.removed]#While shaping# [.inserted]##This section keeps# the [.removed]#idea for *Tu Deporte Aquí*, we kept running into the same real-world constraint: sports information# [.inserted]#early discussion# in [.removed]#Puerto Rico# [.inserted]#a rough form. It# does not [.removed]#live in one# [.inserted]#try to#
+clean [.removed]#database. It# [.inserted]#everything up yet. The point# is [.removed]#scattered across league sites, news outlets, social media, and informal sources, and those channels often disagree or update at different speeds. Because of that, the A3 treats reliability as the main lens for# [.inserted]#to leave# the [.removed]#domain, not just “having features.” The platform has# [.inserted]#original concerns visible#
+[.inserted]#so later sections can trace their concepts back# to [.removed]#consistently show accurate standings, results, and athlete updates, while staying understandable when# [.inserted]#them.##
+
+[.inserted]##A lot of# the [.removed]#underlying inputs are messy.#
+
+Distributed sources and conflicting information::
+[.removed]#A central theme is that# [.inserted]#early conversation kept circling around# the [.removed]#platform must ingest data from multiple leagues and informal reporting channels, which naturally increases# [.inserted]#same frustration:#
+[.inserted]#people want to follow local sports in Puerto Rico, but# the [.removed]#chance of incorrect or outdated information appearing. The domain therefore includes disagreement as a normal scenario, where two sources may report conflicting# information [.removed]#and the system must still behave predictably.#
+
+Delays and missing updates::
+[.removed]#We also focused on the fact that updates can arrive late or# [.inserted]#does#
+[.inserted]#not come from one place, does# not arrive at [.removed]#all, especially for local events. The platform must handle incomplete, delayed, or missing inputs without turning that uncertainty into user confusion.#
+
+High demand moments::
+[.removed]#Another part# [.inserted]#one speed, and does not always#
+[.inserted]#match across sources.##
+
+[.inserted]##Some# of the [.removed]#domain# [.inserted]#statements and situations that came up were close to the#
+[.inserted]#following:##
+
+[.inserted]##* "I saw one score on Instagram and a different one in a group chat."##
+[.inserted]##* "Sometimes the reporter posts first, but later the league page says#
+[.inserted]#something else."##
+[.inserted]##* "A game can look live in one place and finished in another."##
+[.inserted]##* "During playoffs everybody starts checking at once, and that is exactly#
+[.inserted]#when pages get slow or updates stop."##
+[.inserted]##* "If nothing new has been posted, I still want to know what the last known#
+[.inserted]#score was and when it was last changed."##
+[.inserted]##* "A blank space# is [.inserted]#worse than saying# that [.removed]#reliability# [.inserted]#the information is missing."##
+[.inserted]##* "If a result# gets [.removed]#stress tested when# [.inserted]#corrected later,# people [.removed]#care# [.inserted]#start arguing about which version#
+[.inserted]#was# the [.removed]#most, such as playoffs, major tournaments, and breaking news. These moments create high traffic pressure, so availability# [.inserted]#real one."##
+[.inserted]##* "Not every local league posts with the same format,# and [.removed]#performance under load are part# [.inserted]#some barely post at#
+[.inserted]#all."##
+[.inserted]##* "Sometimes you only get a screenshot, a short post, or a message from#
+[.inserted]#someone who was there."##
+[.inserted]##* "When information changes, I want to know whether it was corrected,#
+[.inserted]#confirmed, or just replaced."##
+
+[.inserted]##Another thing that kept coming up was that people were not only asking for#
+[.inserted]#scores. They were also trying to figure out whether the information in front#
+of [.inserted]#them deserved trust. In practice, that meant questions like these:##
+
+[.inserted]##* "Who posted this first?"##
+[.inserted]##* "Was this posted by the league, a reporter, or just a community page?"##
+[.inserted]##* "How old is this update?"##
+[.inserted]##* "Is this final, still developing, or just# the [.removed]#core domain expectations.#
+
+[.removed]#Clear behavior# [.inserted]#only thing anyone has posted#
+[.inserted]#so far?"##
+
+[.inserted]##There were also rough discussion points that were not settled yet and were#
+[.inserted]#left open on purpose:##
+
+[.inserted]##* If an official source posts late and a reporter posts earlier, which one#
+[.inserted]#should people follow in the meantime?##
+[.inserted]##* If two sources disagree, should one be shown, should both be shown, or#
+[.inserted]#should the result be held back?##
+[.inserted]##* How old can a live update be before people stop treating it as live?##
+[.inserted]##* What is the minimum amount of information needed before a game should be#
+[.inserted]#shown as in progress?##
+[.inserted]##* If all sources go quiet# during degraded states::
+[.removed]#We identified# [.inserted]#a game, should people see the last known#
+[.inserted]#value, a warning, or both?##
+
+[.inserted]##A recurring tension in these discussions was# that [.removed]#failures are# [.inserted]#failure is# not only
+technical [.removed]#events, they are user-facing experiences.# [.inserted]#here.# If [.removed]#fallback strategies and error handling are weak, failures surface directly to users. In this domain, the platform needs to communicate uncertainty and degraded states clearly, and still keep user messages informative even when dependencies fail# [.inserted]#a source is late, disappears,# or [.inserted]#disagrees with another#
+[.inserted]#source, people experience that as confusion right away. The problem is not#
+[.inserted]#just "the# data is [.removed]#unreliable.#
+
+Trust as the main outcome::
+[.removed]#All of these concerns tie back# [.inserted]#messy." The problem is that fans, coaches, reporters, and#
+[.inserted]#organizers still need# to [.inserted]#make sense of what is happening while# the [.removed]#end result the A3 prioritizes: long term user trust. When# information
+is [.removed]#wrong, late,# [.inserted]#incomplete, delayed,# or [.removed]#unclear during important events, users lose confidence quickly and# [.inserted]#contradictory.##
+
+[.inserted]##Another recurring point was that# the [.removed]#platform becomes perceived as unreliable over time.#
+
+[.removed]#Overall,# [.inserted]#hardest moments are usually the ones#
+[.inserted]#people care about most. Playoffs, tournaments, rivalry games, and late-game#
+[.inserted]#updates were brought up more than once because those are the moments when more#
+[.inserted]#people are checking, more posts are appearing, and mistakes become visible#
+[.inserted]#fast.##
+
+[.inserted]##At this stage,# the [.removed]#domain# rough sketch [.removed]#describes# [.inserted]#is not meant to explain the domain neatly. It#
+[.inserted]#is# a [.removed]#reliability driven platform that remains available during peak demand, stays consistent when sources conflict or arrive late,# [.inserted]#record of the situations, phrases,# and [.removed]#communicates reliability status# [.inserted]#unresolved questions that kept#
+[.inserted]#appearing# in [.removed]#a way users# [.inserted]#early discussion. Later sections# can [.removed]#understand, supported by testing that targets stress# [.inserted]#organize these into#
+[.inserted]#terminology, actions, requirements,# and [.removed]#failure conditions rather than only normal operation.# [.inserted]#validation steps.##

@@ -1,0 +1,141 @@
+= [.inserted]#Local League Live Updates Sources#
+[.inserted]#Author: Angel Villegas Colón#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#1. Official League Websites#
+
+=== [.inserted]#Platform Type#
+
+[.inserted]#Official website#
+
+---
+
+=== [.inserted]#Type of Data Provided#
+
+* [.inserted]#Live score#
+* [.inserted]#Game clock / quarter#
+* [.inserted]#Team stats#
+* [.inserted]#Results#
+* [.inserted]#Game status (Scheduled, Live, Final)#
+
+---
+
+=== [.inserted]#Expected Update Frequency#
+
+* [.inserted]#Near real-time (5–30 second delay typical)#
+* [.inserted]#Final scores updated immediately after game ends#
+
+---
+
+=== [.inserted]#Limitations & Reliability Concerns#
+
+* [.inserted]#Smaller leagues may be updated manually#
+* [.inserted]#Delays during high-traffic events#
+* [.inserted]#No public API in some local leagues#
+* [.inserted]#Sometimes limited play-by-play detail#
+
+---
+
+== [.inserted]#2. Social Media Platforms#
+
+=== [.inserted]#Platform Type#
+
+[.inserted]#Social media#
+
+---
+
+=== [.inserted]#Type of Data Provided#
+
+* [.inserted]#Score updates#
+* [.inserted]#Big play highlights#
+* [.inserted]#Quarter results#
+* [.inserted]#Final scores#
+
+---
+
+=== [.inserted]#Expected Update Frequency#
+
+* [.inserted]#Manual updates (varies)#
+* [.inserted]#Often delayed by several minutes#
+* [.inserted]#May skip intermediate updates#
+
+---
+
+=== [.inserted]#Limitations & Reliability Concerns#
+
+* [.inserted]#Human error possible#
+* [.inserted]#Posts may be delayed#
+* [.inserted]#No structured data format#
+* [.inserted]#Hard to automate extraction#
+
+---
+
+== [.inserted]#3. Third-Party Sports Platforms#
+
+=== [.inserted]#Platform Type#
+
+[.inserted]#Sports aggregator / app#
+
+---
+
+=== [.inserted]#Type of Data Provided#
+
+* [.inserted]#Live scores#
+* [.inserted]#Game clock#
+* [.inserted]#Play-by-play (in major leagues)#
+* [.inserted]#Player stats#
+* [.inserted]#Standings#
+
+---
+
+=== [.inserted]#Expected Update Frequency#
+
+* [.inserted]#Near real-time (often 5–15 seconds)#
+* [.inserted]#Some lag depending on data partnerships#
+
+---
+
+=== [.inserted]#Limitations & Reliability Concerns#
+
+* [.inserted]#Data source not always transparent#
+* [.inserted]#Possible sync delay vs official league#
+* [.inserted]#API access may require licensing#
+
+---
+
+== [.inserted]#Table 1: Source Comparison#
+
+[cols="2,2,2,2,1", options="header"]
+[.inserted]#|===#
+[.inserted]#| Source Type | Reliability | Structure | Automation Friendly | Risk Level#
+
+[.inserted]#| Official Website#
+[.inserted]#| High#
+[.inserted]#| Structured#
+[.inserted]#| Medium#
+[.inserted]#| Low#
+
+[.inserted]#| Social Media#
+[.inserted]#| Medium#
+[.inserted]#| Unstructured#
+[.inserted]#| Low#
+[.inserted]#| Medium#
+
+[.inserted]#| Third-Party Apps#
+[.inserted]#| High (major leagues)#
+[.inserted]#| Structured#
+[.inserted]#| High#
+[.inserted]#| Medium#
+[.inserted]#|===#
+
+---
+
+== [.inserted]#4. Key Findings#
+
+* [.inserted]#Official league websites are the most trustworthy source#
+* [.inserted]#Social media is useful for confirmation but unreliable as a primary source#
+* [.inserted]#Third-party aggregators often provide faster updates but may not consistently cover smaller leagues#
+* [.inserted]#Local leagues may lack APIs, making automation challenging#
+* [.inserted]#Combining sources increases reliability but introduces conflict resolution needs#

@@ -1,0 +1,97 @@
+= [.inserted]#Real-Time Event Status Consistency and Data Freshness Strategy#
+[.inserted]#Tu Deporte Aquí – Research Report#
+
+== [.inserted]#1. Introduction#
+
+[.inserted]#Tu Deporte Aquí integrates sports event data from leagues, organizers, and external sources. Since event details such as time, location, availability, and cancellation status frequently change, the system must ensure that information remains fresh and consistent across backend storage and frontend display.#
+
+[.inserted]#Without a defined strategy, the platform risks:#
+
+* [.inserted]#Displaying outdated event information#
+* [.inserted]#Showing conflicting statuses across views#
+* [.inserted]#Losing user trust due to incorrect availability#
+
+== [.inserted]#2. Current Challenges#
+
+[.inserted]#Inconsistencies may occur between:#
+
+* [.inserted]#Backend stored data#
+* [.inserted]#External source updates#
+* [.inserted]#Frontend displayed information#
+
+== [.inserted]#3. Methods Evaluated#
+
+=== [.inserted]#I. Time-Based Refresh (Polling)#
+
+[.inserted]#*Description:* Periodic synchronization at fixed intervals.#
+
+[.inserted]#*Pros:*#
+
+[.inserted]#. Simple to implement#
+[.inserted]#. Predictable update cycles#
+
+[.inserted]#*Cons:*#
+
+[.inserted]#. May allow stale data between intervals#
+[.inserted]#. Higher resource usage if interval is too short#
+
+---
+
+=== [.inserted]#II. Event-Driven Updates (Webhooks)#
+
+[.inserted]#*Description:* External sources push updates when changes occur.#
+
+[.inserted]#*Pros:*#
+
+[.inserted]#. Near real-time updates#
+[.inserted]#. Reduced unnecessary polling#
+
+[.inserted]#*Cons:*#
+
+[.inserted]#. Depends on external provider support#
+[.inserted]#. More complex integration#
+
+---
+
+=== [.inserted]#III. Versioning and Timestamp Validation#
+
+[.inserted]#*Description:* Compare timestamps or version numbers before overwriting data.#
+
+[.inserted]#*Pros:*#
+
+[.inserted]#. Prevents outdated overwrites#
+[.inserted]#. Improves conflict resolution#
+
+[.inserted]#*Cons:*#
+
+[.inserted]#. Requires reliable metadata#
+[.inserted]#. Additional implementation logic#
+
+== [.inserted]#4. Strategy Comparison#
+
+[.inserted]#*Time-Based Refresh:* Moderate freshness, low complexity.  #
+[.inserted]#*Event-Driven Updates:* High freshness, higher complexity.  #
+[.inserted]#*Versioning/Timestamps:* High consistency, moderate complexity.#
+
+== [.inserted]#5. Recommended Strategy#
+
+[.inserted]#The recommended approach is a hybrid strategy combining time-based refresh, timestamp validation, and conflict-resolution rules.#
+
+[.inserted]#The strategy should include:#
+
+* [.inserted]#Define refresh intervals (e.g., every 5–15 minutes depending on event proximity)#
+* [.inserted]#Implement timestamp or version comparison before updating records#
+* [.inserted]#Establish source priority rules when conflicts occur#
+* [.inserted]#Define maximum acceptable data staleness window (e.g., 15 minutes)#
+* [.inserted]#Display "Last Updated" indicator to users#
+
+== [.inserted]#6. Testing Plan#
+
+* [.inserted]#Simulate conflicting updates from two sources#
+* [.inserted]#Simulate delayed data arrival#
+* [.inserted]#Test rapid event status changes#
+* [.inserted]#Validate frontend reflects updates consistently#
+
+== [.inserted]#7. Conclusion#
+
+[.inserted]#Implementing a structured data freshness and consistency strategy ensures reliability, reduces user confusion, and strengthens trust in the Tu Deporte Aquí platform.#

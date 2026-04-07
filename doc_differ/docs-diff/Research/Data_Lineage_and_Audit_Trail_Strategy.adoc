@@ -1,0 +1,283 @@
+= [.inserted]#Data Lineage and Audit Trail Strategy – Tu Deporte Aquí#
+
+== [.inserted]#Purpose#
+
+[.inserted]#Tu Deporte Aquí aggregates sports data from multiple informal and semi-structured sources (websites, social media, league pages).#
+
+[.inserted]#Because data may:#
+
+* [.inserted]#Conflict#
+* [.inserted]#Be delayed#
+* [.inserted]#Be corrected later#
+
+[.inserted]#The system must support *traceability* of how information:#
+
+* [.inserted]#Enters the system#
+* [.inserted]#Changes over time#
+* [.inserted]#Stabilizes#
+
+[.inserted]#This document defines a *lightweight but structured* strategy for:#
+
+* [.inserted]#Data lineage#
+* [.inserted]#Audit trail tracking#
+
+[.inserted]#without introducing excessive system complexity.#
+
+---
+
+== [.inserted]#1. Key Concepts#
+
+=== [.inserted]#Data Lineage#
+
+[.inserted]#Data lineage refers to the ability to trace:#
+
+* [.inserted]#Where a data point originated#
+* [.inserted]#When it was received#
+* [.inserted]#How it was transformed#
+* [.inserted]#Whether it was overridden or corrected#
+
+[.inserted]#In this project, lineage is critical for:#
+
+* [.inserted]#Resolving conflicting reports#
+* [.inserted]#Explaining corrections#
+* [.inserted]#Supporting transparency indicators#
+* [.inserted]#Debugging reliability issues#
+
+---
+
+=== [.inserted]#Audit Trail#
+
+[.inserted]#An audit trail is a chronological record of data changes.#
+
+[.inserted]#It captures:#
+
+* [.inserted]#Previous values#
+* [.inserted]#New values#
+* [.inserted]#Time of change#
+* [.inserted]#Reason for change#
+* [.inserted]#Source responsible for change#
+
+[.inserted]#Audit trails improve:#
+
+* [.inserted]#Accountability#
+* [.inserted]#Transparency#
+* [.inserted]#Debugging capability#
+* [.inserted]#Post-event analysis#
+
+---
+
+== [.inserted]#2. Traceability Requirements#
+
+=== [.inserted]#Requirement 1 – Source Attribution#
+
+[.inserted]#The system must record which source provided each data point.#
+
+[.inserted]#Examples:#
+
+* [.inserted]#League website#
+* [.inserted]#Reporter#
+* [.inserted]#Social media#
+
+Purpose::
+
+[.inserted]#Supports trust-tier resolution and transparency messaging.#
+
+---
+
+=== [.inserted]#Requirement 2 – Timestamp Recording#
+
+[.inserted]#The system must record:#
+
+* [.inserted]#Ingest timestamp (when the system received the data)#
+* [.inserted]#Event timestamp (when the event occurred, if available)#
+
+Purpose::
+
+[.inserted]#Supports freshness detection and stale data indicators.#
+
+---
+
+=== [.inserted]#Requirement 3 – Change History Tracking#
+
+[.inserted]#The system must maintain version history for critical fields:#
+
+* [.inserted]#Score#
+* [.inserted]#Game status#
+* [.inserted]#Standings#
+* [.inserted]#Final results#
+
+[.inserted]#Each change must include:#
+
+* [.inserted]#Previous value#
+* [.inserted]#New value#
+* [.inserted]#Source responsible#
+* [.inserted]#Timestamp#
+
+Purpose::
+
+[.inserted]#Supports reconstruction of conflict resolution decisions.#
+
+---
+
+=== [.inserted]#Requirement 4 – Correction Classification#
+
+[.inserted]#The system must classify updates as:#
+
+* [.inserted]#New update#
+* [.inserted]#Conflict override#
+* [.inserted]#Official correction#
+* [.inserted]#Manual review adjustment#
+
+Purpose::
+
+[.inserted]#Distinguishes between natural updates and corrective actions.#
+
+---
+
+== [.inserted]#3. Proposed Lightweight Audit Model#
+
+[.inserted]#To avoid excessive complexity, each audit record should include:#
+
+* [.inserted]#`entity_id` (game, standing, profile)#
+* [.inserted]#`field_name` (score, status, ranking, etc.)#
+* [.inserted]#`previous_value`#
+* [.inserted]#`new_value`#
+* [.inserted]#`source_id`#
+* [.inserted]#`trust_tier`#
+* [.inserted]#`ingest_timestamp`#
+* [.inserted]#`event_timestamp` (if available)#
+* [.inserted]#`change_type` (update, conflict, correction)#
+* [.inserted]#`resolved_by` (automatic rule or manual review)#
+
+[.inserted]#This model enables:#
+
+* [.inserted]#Full reconstruction of change history#
+* [.inserted]#Explanation of system decisions#
+* [.inserted]#Debugging of incorrect outcomes#
+
+---
+
+== [.inserted]#4. Trade-Offs: Simplicity vs Traceability#
+
+=== [.inserted]#Simplicity Approach#
+
+* [.inserted]#Store only current value#
+* [.inserted]#Minimal metadata#
+* [.inserted]#Lower storage overhead#
+
+Risk::
+
+[.inserted]#No ability to reconstruct conflicts or justify corrections.#
+
+---
+
+=== [.inserted]#Full Traceability Approach#
+
+* [.inserted]#Store full version history#
+* [.inserted]#Maintain structured audit records#
+* [.inserted]#Log every change event#
+
+Cost::
+
+[.inserted]#Increased storage and logging complexity.#
+
+---
+
+=== [.inserted]#Recommended Balance#
+
+[.inserted]#Adopt a *lightweight structured audit model*:#
+
+* [.inserted]#Track history only for critical fields (score, status, standings)#
+* [.inserted]#Do not audit cosmetic fields#
+* [.inserted]#Retain audit history for a defined time window (e.g., season duration)#
+* [.inserted]#Automate conflict classification when possible#
+
+[.inserted]#This balances:#
+
+* [.inserted]#Reliability#
+* [.inserted]#Simplicity#
+
+---
+
+== [.inserted]#5. Failure Scenario Mapping#
+
+[cols="1,1,1", options="header"]
+[.inserted]#|===#
+[.inserted]#| Scenario | Required Metadata | Reconstruction Capability#
+
+[.inserted]#| Conflicting scores#
+[.inserted]#| source_id, trust_tier, timestamps#
+[.inserted]#| Identify which source overrode the other#
+
+[.inserted]#| Corrected final result#
+[.inserted]#| change_type, previous_value, new_value#
+[.inserted]#| Explain correction reason#
+
+[.inserted]#| Delayed update#
+[.inserted]#| ingest_timestamp vs event_timestamp#
+[.inserted]#| Detect staleness#
+
+[.inserted]#| Source outage#
+[.inserted]#| missing ingest entries#
+[.inserted]#| Identify unavailable provider#
+[.inserted]#|===#
+
+---
+
+== [.inserted]#6. Recommendations for Implementation#
+
+[.inserted]#. Implement source attribution for all ingested data#
+[.inserted]#. Track ingest timestamps universally#
+[.inserted]#. Enable version history only for reliability-critical fields#
+[.inserted]#. Introduce structured change classification (update vs correction vs conflict)#
+[.inserted]#. Design audit storage as append-only to preserve history integrity#
+
+[.inserted]#This supports:#
+
+* [.inserted]#Transparency indicators#
+* [.inserted]#Reliability validation#
+* [.inserted]#Debugging#
+* [.inserted]#Conflict resolution verification#
+
+---
+
+== [.inserted]#Conclusion#
+
+[.inserted]#A structured but lightweight data lineage and audit trail strategy is essential for *Tu Deporte Aquí* due to its reliance on informal and potentially conflicting data sources.#
+
+[.inserted]#By storing minimal but meaningful metadata per update, the system can:#
+
+* [.inserted]#Maintain transparency#
+* [.inserted]#Support validation and debugging#
+* [.inserted]#Explain corrections#
+* [.inserted]#Improve user trust#
+
+[.inserted]#This approach aligns with:#
+
+* [.inserted]#Milestone 1 goals#
+* [.inserted]#Reliability-first system design#
+* [.inserted]#Structured documentation practices#
+
+---
+
+== [.inserted]#References#
+
+[.inserted]#. DeCandia, G. et al. (2007). *Dynamo: Amazon’s Highly Available Key-value Store*. ACM SOSP.#
+[.inserted]#+#
+[.inserted]#Introduces replication, versioning, and reconciliation strategies relevant to conflict resolution and traceability.#
+
+[.inserted]#. Fowler, M. (2005). *Event Sourcing*.#
+[.inserted]#+#
+[.inserted]#Describes storing state changes as a sequence of events to preserve full history.#
+
+[.inserted]#. Kimball, R. & Ross, M. (2013). *The Data Warehouse Toolkit (3rd ed.)*.#
+[.inserted]#+#
+[.inserted]#Defines data lineage and audit tracking concepts.#
+
+[.inserted]#. NIST SP 800-92 (2006). *Guide to Computer Security Log Management*.#
+[.inserted]#+#
+[.inserted]#Principles for structured logging and audit trails.#
+
+[.inserted]#. Amazon Web Services. *Best Practices for Database Logging and Monitoring*.#
+[.inserted]#+#
+[.inserted]#Industry best practices for structured change logs and traceability.#

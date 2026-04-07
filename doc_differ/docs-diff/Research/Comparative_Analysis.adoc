@@ -1,0 +1,226 @@
+= [.inserted]#Comparative Analysis – Live Game UI Patterns#
+[.inserted]#Project: Tu Deporte Aquí#
+
+== [.inserted]#Platforms Analyzed#
+
+* [.inserted]#Real#
+* [.inserted]#NBA Official App#
+* [.inserted]#ESPN#
+
+---
+
+== [.inserted]#1. Size Hierarchy (Visual Dominance)#
+
+[.inserted]#Across all analyzed platforms, the *score* is the most visually dominant element in the game card.#
+
+[.inserted]#Scores are significantly larger than:#
+
+* [.inserted]#Team names#
+* [.inserted]#Records#
+* [.inserted]#Broadcast information#
+
+=== [.inserted]#Observed Pattern#
+
+* [.inserted]#Score is always central or near-central#
+* [.inserted]#Logos are secondary in size#
+* [.inserted]#Team records are visually minimized#
+
+[.inserted]#IMPORTANT:  #
+[.inserted]#All platforms prioritize *instant score recognition* over contextual details.#
+
+---
+
+== [.inserted]#2. Bold Typography#
+
+=== [.inserted]#During Live Games#
+
+* [.inserted]#Both teams’ scores are bold#
+* [.inserted]#Typography weight is equal#
+* [.inserted]#Emphasis is on numerical comparison#
+
+=== [.inserted]#After Game Ends#
+
+* [.inserted]#Winning team remains bold#
+* [.inserted]#Losing team becomes visually de-emphasized#
+
+UX Implication::
+
+[.inserted]#The interface communicates the result *without needing labels*.#
+
+---
+
+== [.inserted]#3. Placement of Score#
+
+* [.inserted]#Real → Center-left, highly dominant#
+* [.inserted]#NBA App → Centered horizontally#
+* [.inserted]#ESPN → Centered between team names#
+
+=== [.inserted]#Common Pattern#
+
+* [.inserted]#Score placed between teams#
+* [.inserted]#Avoid edges#
+* [.inserted]#Maintain symmetry for comparison#
+
+---
+
+== [.inserted]#4. LIVE Badge Styling#
+
+=== [.inserted]#NBA App#
+
+* [.inserted]#Small red dot#
+* [.inserted]#Placed beside quarter/time#
+* [.inserted]#Minimal but noticeable#
+
+=== [.inserted]#Real#
+
+* [.inserted]#Green dot#
+* [.inserted]#Dark highlight border around card#
+* [.inserted]#Strong visual emphasis#
+
+=== [.inserted]#ESPN#
+
+* [.inserted]#No explicit LIVE badge#
+* [.inserted]#Status inferred via game time (e.g., Q3 6:53)#
+
+=== [.inserted]#Pattern#
+
+* [.inserted]#Dots preferred over text#
+* [.inserted]#Color indicates urgency#
+* [.inserted]#Some apps rely on context instead of badges#
+
+---
+
+== [.inserted]#5. Use of Color to Indicate Status#
+
+=== [.inserted]#Real App#
+
+* [.inserted]#Dark border highlight#
+* [.inserted]#Green accent reinforces LIVE#
+
+=== [.inserted]#NBA App#
+
+* [.inserted]#Red dot only#
+* [.inserted]#No background changes#
+
+=== [.inserted]#ESPN#
+
+* [.inserted]#Minimal color usage#
+* [.inserted]#Relies on text#
+
+=== [.inserted]#Observation#
+
+* [.inserted]#Real → Strong signaling#
+* [.inserted]#NBA → Subtle signaling#
+* [.inserted]#ESPN → Minimal signaling#
+
+---
+
+== [.inserted]#6. Information Density#
+
+[.inserted]#Across all platforms:#
+
+[.inserted]#Displayed elements:#
+
+* [.inserted]#Team logos#
+* [.inserted]#Team names#
+* [.inserted]#Score#
+* [.inserted]#Game status (quarter/time or final)#
+* [.inserted]#Broadcast information#
+
+[.inserted]#Not included:#
+
+* [.inserted]#Advanced stats#
+* [.inserted]#Player stats#
+
+[.inserted]#All platforms follow:#
+
+* [.inserted]#Minimalist card design#
+* [.inserted]#Optimized for fast scanning#
+
+---
+
+
+---
+
+== [.inserted]#7. Comparative Summary Table#
+
+[cols="1,1,1,1,1", options="header"]
+[.inserted]#|===#
+[.inserted]#| Platform | Largest Element | Live Indicator | Color Signaling | Density#
+
+[.inserted]#| Real#
+[.inserted]#| Score#
+[.inserted]#| Green dot + border#
+[.inserted]#| Strong#
+[.inserted]#| Minimal#
+
+[.inserted]#| NBA#
+[.inserted]#| Score#
+[.inserted]#| Red dot#
+[.inserted]#| Subtle#
+[.inserted]#| Minimal#
+
+[.inserted]#| ESPN#
+[.inserted]#| Score#
+[.inserted]#| None (text only)#
+[.inserted]#| Very minimal#
+[.inserted]#| Minimal#
+[.inserted]#|===#
+
+---
+
+== [.inserted]#8. Key Insights#
+
+[.inserted]#The analysis reveals strong consistency across platforms:#
+
+* [.inserted]#Score is always the dominant element#
+* [.inserted]#Live status is communicated with subtle cues#
+* [.inserted]#Winning team remains emphasized after game ends#
+
+---
+
+== [.inserted]#9. Design Implications for Tu Deporte Aquí#
+
+[.inserted]#For this project, the UI should:#
+
+* [.inserted]#Follow a *score-first hierarchy*#
+* [.inserted]#Use *minimal live indicators*#
+* [.inserted]#Maintain a *clean, low-density layout*#
+
+[.inserted]#Benefits:#
+
+* [.inserted]#Faster scanning#
+* [.inserted]#Improved clarity#
+* [.inserted]#Increased user trust#
+
+[.inserted]#Aligning with established UX patterns while maintaining simplicity ensures:#
+
+* [.inserted]#Professional appearance#
+* [.inserted]#Intuitive user experience#
+* [.inserted]#Effective local sports coverage#
+
+---
+
+== [.inserted]#10. Screenshots#
+
+=== [.inserted]#NBA Official App#
+
+[.inserted]#image::images/nba-app.png[NBA App Screenshot]#
+
+[.inserted]#NBA – NBA Official App, mobile application. Observed February 22, 2026.#
+
+---
+
+=== [.inserted]#Real App#
+
+[.inserted]#image::images/real-app.png[Real App Screenshot]#
+
+[.inserted]#Real – Real Sports App, mobile application. Observed February 22, 2026.#
+
+---
+
+=== [.inserted]#ESPN App#
+
+[.inserted]#image::images/espn_app_example.png[ESPN App Screenshot]#
+
+[.inserted]#ESPN – ESPN Mobile Application. Observed February 22, 2026.#

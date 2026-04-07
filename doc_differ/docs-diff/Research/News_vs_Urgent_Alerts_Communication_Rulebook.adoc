@@ -1,0 +1,335 @@
+= [.inserted]#News vs Urgent Alerts Communication Rulebook#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#Objective#
+
+[.inserted]#Set clear rules and user-facing wording for when Tu Deporte Aquí posts:#
+
+* [.inserted]#Regular sports news#
+* [.inserted]#Urgent alerts#
+
+[.inserted]#and how to communicate:#
+
+* [.inserted]#Freshness#
+* [.inserted]#Uncertainty#
+
+[.inserted]#in a calm and transparent way.#
+
+---
+
+== [.inserted]#1. Decision Checklist: News vs Urgent Alert#
+
+=== [.inserted]#Post as NEWS (routine) when…#
+
+* [.inserted]#It is a normal update (preview, recap, highlights, quotes, standings)#
+* [.inserted]#Timing is not critical#
+* [.inserted]#Information is stable or confirmed#
+* [.inserted]#No immediate user action is required#
+
+---
+
+=== [.inserted]#Post as URGENT ALERT when…#
+
+* [.inserted]#Immediate impact:#
+* [.inserted]#Postponement or suspension#
+* [.inserted]#Venue change#
+* [.inserted]#Start time change#
+* [.inserted]#Weather disruption#
+* [.inserted]#High impact + time-sensitive:#
+* [.inserted]#Playoff implications#
+* [.inserted]#Official corrections affecting current games#
+* [.inserted]#User action required:#
+* [.inserted]#Travel changes#
+* [.inserted]#Game delays#
+* [.inserted]#Stream changes#
+* [.inserted]#Rapidly evolving situations:#
+* [.inserted]#"Under review"#
+* [.inserted]#"Developing"#
+* [.inserted]#"Awaiting confirmation"#
+
+---
+
+=== [.inserted]#Reliability-First Rule#
+
+[.inserted]#If information is urgent but unverified:#
+
+* [.inserted]#It may still be posted#
+* [.inserted]#Must be labeled clearly as:#
+* [.inserted]#Unverified#
+* [.inserted]#Developing#
+* [.inserted]#Tone must remain neutral#
+* [.inserted]#Clearly distinguish:#
+* [.inserted]#What is known#
+* [.inserted]#What is not confirmed#
+
+---
+
+== [.inserted]#2. Local PR Patterns (Reference Behavior)#
+
+=== [.inserted]#A) Official League / Team Social Media#
+
+* [.inserted]#Uses strong labels:#
+* [.inserted]#OFICIAL#
+* [.inserted]#COMUNICADO OFICIAL#
+* [.inserted]#Includes:#
+* [.inserted]#What happened#
+* [.inserted]#Why#
+* [.inserted]#What happens next#
+
+Reference::
+[.inserted]#https://www.instagram.com/p/DIhMETyz6sh/#
+
+---
+
+=== [.inserted]#B) Sports Media (El Nuevo Día / Primera Hora)#
+
+* [.inserted]#Uses definitive tone for confirmed results#
+* [.inserted]#Separates breaking news from routine coverage#
+
+References::
+
+[.inserted]#https://www.elnuevodia.com/deportes/beisbol/notas/puerto-rico-sufre-su-primera-derrota-en-la-serie-del-caribe-ante-leones-del-escogido/#
+
+[.inserted]#https://www.primerahora.com/deportes/#
+
+---
+
+=== [.inserted]#C) TV / Social Pages (WAPA Deportes)#
+
+* [.inserted]#Short, fast messages:#
+* [.inserted]#"FINAL"#
+* [.inserted]#Score#
+* [.inserted]#Outcome#
+
+Reference::
+[.inserted]#https://www.facebook.com/WapaDeportes/videos/final-puerto-rico-vence-65-61-a-canad%C3%A1-y-est%C3%A1-por-primera-vez-en-su-historia-en-/602117657431444/#
+
+---
+
+=== [.inserted]#Key Takeaway#
+
+[.inserted]#Local trust cues are consistent:#
+
+* [.inserted]#OFICIAL → confirmed#
+* [.inserted]#FINAL → result#
+
+[.inserted]#These should be mirrored in the platform UI.#
+
+---
+
+== [.inserted]#3. Definitions#
+
+=== [.inserted]#Unverified#
+
+* [.inserted]#Only one source or non-official source#
+* [.inserted]#Not confirmed by official or multiple reliable sources#
+
+---
+
+=== [.inserted]#Delayed#
+
+* [.inserted]#Official data not yet available#
+* [.inserted]#Feeds are lagging or unavailable#
+
+---
+
+=== [.inserted]#Conflicting#
+
+* [.inserted]#Multiple credible sources disagree#
+* [.inserted]#Key data differs:#
+* [.inserted]#Score#
+* [.inserted]#Status#
+* [.inserted]#Timing#
+
+---
+
+== [.inserted]#4. User-Facing Message Templates#
+
+[.inserted]#Brackets indicate dynamic system values.#
+
+---
+
+=== [.inserted]#A) Routine News#
+
+==== [.inserted]#Recap Posted#
+
+----
+[.inserted]#Final: [TEAM A] [A]–[B] [TEAM B]. Recap and key plays are live.#
+----
+
+---
+
+==== [.inserted]#Standings Update#
+
+----
+[.inserted]#Standings updated at [TIME]. [TEAM] is now [POSITION] in [LEAGUE].#
+----
+
+---
+
+==== [.inserted]#Player Status#
+
+----
+[PLAYER] status: Confirmed [IN/OUT] for today.
+----
+
+---
+
+=== [.inserted]#B) Urgent Alerts (Confirmed)#
+
+==== [.inserted]#OFFICIAL Postponement#
+
+----
+[.inserted]#OFFICIAL: [GAME] is postponed. Reason: [REASON]. Next update: [EXPECTED TIME].#
+----
+
+---
+
+==== [.inserted]#Time Change#
+
+----
+[.inserted]#Update: [GAME] new start time is [NEW TIME]. Previous: [OLD TIME].#
+----
+
+---
+
+==== [.inserted]#Discipline#
+
+----
+[.inserted]#OFFICIAL: [PLAYER/TEAM] disciplinary decision posted. Summary: [SHORT SUMMARY].#
+----
+
+---
+
+=== [.inserted]#C) Uncertainty / Degraded States#
+
+==== [.inserted]#Developing (Unverified)#
+
+----
+[.inserted]#Developing: Reports say [CLAIM]. Not yet confirmed by official sources. Last checked: [TIME].#
+----
+
+---
+
+==== [.inserted]#Conflicting Reports#
+
+----
+[.inserted]#Conflicting reports:#
+[.inserted]#• Source A: [CLAIM A]#
+[.inserted]#• Source B: [CLAIM B]#
+[.inserted]#Waiting for official confirmation. Next check: [TIME].#
+----
+
+---
+
+==== [.inserted]#Delayed Data#
+
+----
+[.inserted]#Standings are delayed (source update pending). Showing last confirmed standings from [TIME].#
+----
+
+---
+
+==== [.inserted]#Correction#
+
+----
+[.inserted]#Correction: Previously [OLD INFO]. Confirmed now: [NEW INFO]. Updated at [TIME].#
+----
+
+---
+
+==== [.inserted]#Degraded Mode#
+
+----
+[.inserted]#Some updates may be slower than usual. We are tracking official posts and refreshing as feeds stabilize. Last update: [TIME].#
+----
+
+---
+
+==== [.inserted]#Reassurance Message#
+
+----
+[.inserted]#This is moving fast. We will only mark it OFFICIAL once it is confirmed.#
+----
+
+---
+
+== [.inserted]#5. Transparency Indicators#
+
+=== [.inserted]#Core (Minimum)#
+
+* [.inserted]#Last updated:#
+* [.inserted]#"Updated [hh:mm] AST"#
+* [.inserted]#Confidence labels:#
+* [.inserted]#OFFICIAL#
+* [.inserted]#Confirmed#
+* [.inserted]#Reported#
+* [.inserted]#Unverified#
+
+---
+
+=== [.inserted]#Extra (Recommended)#
+
+* [.inserted]#Source type:#
+* [.inserted]#Official League / Team#
+* [.inserted]#Sports Media#
+* [.inserted]#TV / Social#
+* [.inserted]#Source count:#
+* [.inserted]#"Confirmed by 2 sources"#
+* [.inserted]#Conflict flag:#
+* [.inserted]#"Conflicting"#
+* [.inserted]#Freshness note:#
+* [.inserted]#"Showing last confirmed from [TIME]"#
+* [.inserted]#Next check:#
+* [.inserted]#"Next update check at [TIME]"#
+
+---
+
+== [.inserted]#6. Testing Plan (Review-Only)#
+
+[cols="1,2", options="header"]
+[.inserted]#|===#
+[.inserted]#| Failure Scenario | Expected Behavior#
+
+[.inserted]#| Conflicting score reports#
+[.inserted]#| Mark as Conflicting; show both claims; do not label "Final"; include Last updated and Next check.#
+
+[.inserted]#| Unverified breaking update#
+[.inserted]#| Label as Unverified / Developing; maintain neutral tone; include Last checked.#
+
+[.inserted]#| Delayed standings/stats#
+[.inserted]#| Mark as Delayed; show last confirmed data; include timestamp.#
+
+[.inserted]#| Source outage#
+[.inserted]#| Enter Degraded mode; show cached data; indicate slower updates.#
+
+[.inserted]#| Missing final status#
+[.inserted]#| Keep Unconfirmed; do not mark Final; include Next check.#
+
+[.inserted]#| Partial data#
+[.inserted]#| Show available data; hide missing sections; label as Partial.#
+
+[.inserted]#| Late correction#
+[.inserted]#| Publish Correction; show old vs new; update timestamp.#
+
+[.inserted]#| Load spike#
+[.inserted]#| Throttle updates; prioritize core data; show Updating… and last confirmed state.#
+[.inserted]#|===#
+
+---
+
+== [.inserted]#References#
+
+[1] Instagram — Official-style postponement messaging  
+[.inserted]#https://www.instagram.com/p/DIhMETyz6sh/#
+
+[2] El Nuevo Día — Confirmed reporting style  
+[.inserted]#https://www.elnuevodia.com/deportes/beisbol/notas/puerto-rico-sufre-su-primera-derrota-en-la-serie-del-caribe-ante-leones-del-escogido/#
+
+[3] Primera Hora — Sports coverage structure  
+[.inserted]#https://www.primerahora.com/deportes/#
+
+[4] WAPA Deportes — "FINAL" style posts  
+[.inserted]#https://www.facebook.com/WapaDeportes/videos/final-puerto-rico-vence-65-61-a-canad%C3%A1-y-est%C3%A1-por-primera-vez-en-su-historia-en-/602117657431444/#

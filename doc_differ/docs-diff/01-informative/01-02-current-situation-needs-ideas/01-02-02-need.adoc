@@ -1,0 +1,113 @@
+
+==== 1.2.2 Needs
+
+===== Purpose
+
+This section explains the [.removed]#main# needs [.removed]#that justify building Tu Deporte Aquí. These needs come# [.inserted]#identified# from the [.removed]#constraints, assumptions, and real-world conditions identified throughout Milestone 1.# [.inserted]#current situation in Section 1.2.1.# The [.removed]#needs are organized into three categories: user needs,# [.inserted]#focus is on what people involved in local Puerto Rico sports need, not yet on how a# system [.removed]#needs, and data reliability# [.inserted]#would address those# needs.
+
+===== [.removed]#User Needs#
+
+[.removed]#In Puerto Rico,# [.inserted]#Stakeholder Context#
+
+[.inserted]#The current situation shows that# sports [.removed]#fans, coaches, reporters, and community members depend on# [.inserted]#information in Puerto Rico is spread across# league websites, social [.removed]#media,# [.inserted]#media posts,# news outlets, and [.removed]#other# informal [.inserted]#reporting channels. Those# sources [.removed]#to follow local sports. Because this information is spread across many platforms, several clear needs arise:#
+
+Centralized access to local sports information::
+[.removed]#Users need a single, mobile-first platform that brings together game scores, standings, schedules, and athlete updates from local Puerto Rico leagues. Currently, staying informed usually means checking multiple sources that# update at different [.removed]#times—or sometimes not at all.#
+
+Clarity during uncertainty::
+[.removed]#When information is# [.inserted]#times, use different formats, and may be# delayed, incomplete, or [.removed]#conflicting, users need the platform# [.inserted]#in conflict with one another.#
+
+[.inserted]#Under those conditions, several groups are affected. Sports followers want# to [.removed]#clearly indicate# [.inserted]#know# what is [.removed]#confirmed, what# [.inserted]#happening now and whether the information they found# is [.removed]#still uncertain,# [.inserted]#dependable. Reporters, organizers,# and [.removed]#what# [.inserted]#other information originators want updates and corrections to reach the public without losing their source or context. These needs arise before any decision# is [.removed]#missing. For example, during a live BSN playoff game, users# [.inserted]#made about what kind of system# should be [.removed]#able# [.inserted]#built.#
+
+===== [.inserted]#Needs of Sports Followers#
+
+Accessible local sports information::
+[.inserted]#People who follow local sports need# to [.removed]#distinguish between a confirmed final score# [.inserted]#find current scores, schedules, standings,# and [.removed]#a provisional update taken# [.inserted]#related updates without searching across many unrelated channels. This need follows# from [.removed]#social media.#
+
+[.removed]#Trustworthy# [.inserted]#the fragmented# information [.inserted]#environment described in Section 1.2.1.#
+
+Timely awareness of what is happening::
+[.inserted]#Followers need information early enough to remain useful while events are still relevant. When updates arrive too late, people can no longer follow a game as it unfolds or react to changes that matter to them.#
+
+Clarity when information is incomplete or disputed::
+[.inserted]#Followers need to understand when available information is missing details, when reports disagree, and when a situation is still unresolved. Without that clarity, they are left to guess which version is most believable.#
+
+[.inserted]#Confidence# during [.removed]#high-demand# [.inserted]#high-interest# moments::
+[.removed]#Playoffs,# [.inserted]#During playoffs,# tournaments, and [.removed]#breaking news events are when users rely# [.inserted]#other heavily followed events, followers depend more# on [.removed]#the platform the most—and when data sources# [.inserted]#sports information and# are [.inserted]#affected# more [.removed]#likely# [.inserted]#by delays or contradictions. At those moments, they need# to [.removed]#lag# [.inserted]#know whether the available information is stable# or [.removed]#disagree. The platform must remain accessible# [.inserted]#still subject to change.#
+
+===== [.inserted]#Needs of Reporters, Organizers,# and [.removed]#transparent during these peak moments, instead# [.inserted]#Information Originators#
+
+[.inserted]#Faithful transmission# of [.removed]#failing silently# updates::
+[.inserted]#People who publish# or [.removed]#presenting unverified# [.inserted]#relay sports# information [.removed]#as final.#
+
+Source attribution and freshness indicators::
+[.removed]#Users# need [.removed]#visibility into# [.inserted]#their updates to remain connected to what they actually reported. If scores, schedules, or status changes are repeated without context, the public can no longer tell# where [.removed]#each update comes# [.inserted]#the information came# from [.removed]#and when# [.inserted]#or whether# it was [.removed]#last refreshed. Without this context, it is difficult to determine whether a score reflects a live update, a delayed post,# [.inserted]#altered later.#
+
+Visible corrections and revisions::
+[.inserted]#When reporters, leagues,# or [.removed]#outdated cached data.#
+
+===== [.removed]#System Needs#
+
+[.removed]#Tu Deporte Aquí operates# [.inserted]#organizers correct previously shared information, they need those corrections to remain visible as corrections rather than disappear through silent replacement. This matters# in an environment where [.removed]#official APIs are limited or unavailable, and many data sources are informal. The system must be designed around this reality:#
+
+Conflict detection and resolution::
+[.removed]#The system needs a way to detect when different sources report conflicting values for# [.inserted]#historical changes may occur without a formal correction workflow.#
+
+Recognition of differing source authority::
+[.inserted]#Not all originators play# the same [.removed]#data point (such as different scores for a single game) and apply clear policies to resolve or flag those conflicts. Disagreement between sources should be treated as an expected condition, not a rare exception.#
+
+Graceful degradation under partial failure::
+[.removed]#If one or more data sources become unavailable, delayed, or unreliable,# [.inserted]#role in# the [.removed]#system should continue serving previously validated# [.inserted]#sports# information [.removed]#instead of showing errors or empty states. Fallback behavior should be consistent and predictable.#
+
+Scalability during peak traffic::
+[.removed]#The system must handle traffic spikes during major events like playoffs and championship games, when demand is highest and reliability is critical. Core information—scores, standings,# [.inserted]#ecosystem. Official league channels, institutional pages, journalists, and informal observers contribute differently, so those differences in authority# and [.removed]#game status—should# [.inserted]#responsibility need to# remain [.removed]#prioritized under heavy load.#
+
+Standardized transparency messaging::
+[.removed]#The system needs a consistent way# [.inserted]#visible.#
+
+===== [.inserted]#Cross-Cutting Need: Dependability of Information#
+
+[.inserted]#Across all stakeholder groups, people need# to [.removed]#communicate degraded states, stale data, and uncertainty. Error messages, loading indicators, and missing-data notices should be clear and uniform across# [.inserted]#judge how dependable sports information is.#
+
+[.inserted]#In# the [.removed]#platform.#
+
+===== [.removed]#Data Reliability Needs#
+
+[.removed]#Since Tu Deporte Aquí aggregates data from# [.inserted]#current situation, dependability is difficult to assess because# sources [.removed]#that vary in structure, timeliness,# [.inserted]#are fragmented, update frequencies are inconsistent,# and [.removed]#accuracy, reliability is# [.inserted]#some reports are delayed, incomplete, or contradictory. People therefore need enough context to interpret the status of the information they encounter.#
+
+[.inserted]#That context includes:#
+
+- [.inserted]#where# a [.removed]#central concern:#
+
+Provenance and traceability::
+[.removed]#Every# piece of [.removed]#displayed# information [.removed]#must have a traceable origin. The system should record which source provided each update,# [.inserted]#came from#
+[.inserted]#-# when it was [.removed]#received, and# [.inserted]#last known to be updated#
+[.inserted]#-# whether it [.inserted]#appears settled, still provisional, or openly disputed#
+- [.inserted]#whether a later correction# has [.removed]#been modified since ingestion. This supports user trust and simplifies internal debugging.#
+
+[.removed]#Handling of# [.inserted]#changed the earlier picture#
+
+[.inserted]#Source attribution, freshness,# provisional [.inserted]#status,# and unverified data::
+[.removed]#The system must clearly differentiate between confirmed information and data that is still preliminary or unverified. Provisional updates should be labeled appropriately rather than presented with# [.inserted]#traceability are treated here as parts of# the same [.removed]#level# [.inserted]#need: helping people judge the dependability# of [.removed]#confidence as confirmed results.#
+
+Staleness awareness::
+[.removed]#Standings, profiles, and schedules become outdated at different rates. The system needs defined thresholds for acceptable staleness and a mechanism to flag or hide# [.inserted]#the# information [.removed]#that exceeds those limits.#
+
+Correction and revision tracking::
+[.removed]#Local leagues may revise scores, standings, or schedules after initial publication, sometimes without formal notice. The system should support basic revision tracking so corrections are recorded and previous values remain# available [.removed]#for audit purposes.# [.inserted]#to them.#
+
+===== Assumptions [.inserted]#and Plausibility#
+
+The following assumptions [.removed]#support the needs described# [.inserted]#are used# in this [.removed]#section:# [.inserted]#section. They are plausible because they match the conditions already documented in Section 1.2.1 and the research collected during Milestone 1:#
+
+- [.removed]#Most local# [.inserted]#Local# Puerto Rico [.removed]#leagues do not provide# [.inserted]#sports information is often encountered through a mix of# official [.removed]#APIs or machine-readable data feeds.#
+- [.removed]#Data sources include league websites, university athletic department pages, social media posts,# and [.removed]#informal reporting channels.# [.inserted]#unofficial channels rather than through one uniform publication mechanism.#
+- [.removed]#Reporting formats, update frequency,# [.inserted]#The timing, structure,# and completeness [.inserted]#of updates# vary [.removed]#significantly across# [.inserted]#noticeably between leagues and# sources.
+- [.removed]#Historical corrections may occur without formal announcements.#
+- [.removed]#The platform is mobile-first# [.inserted]#Corrections# and [.removed]#web-based; native mobile applications# [.inserted]#late revisions# are [.removed]#not included in Phase 1.# [.inserted]#possible, especially when reporting depends on manual publication or informal communication channels.#
+- [.removed]#No implementation# [.inserted]#Different stakeholder groups share an interest in current sports information, but they do not all approach it from the same role, level of authority,# or [.removed]#source code is produced during Milestone 1; this section documents needs based only on research and analysis.# [.inserted]#immediate goal.#
+
+===== Scope of This Section
+
+This section defines [.removed]#_what_ is needed and _why_, without going into implementation details. Technical solutions, architectural decisions,# [.inserted]#the needs that arise from the current situation# and [.removed]#feature-level specifications are addressed# [.inserted]#explains why those needs matter. It does not choose a solution, define features, or state requirements. High-level ideas for addressing these needs appear# in [.inserted]#Section 1.2.3, while requirements are specified# later [.removed]#sections of the documentation.# [.inserted]#in Section 2.#
+
