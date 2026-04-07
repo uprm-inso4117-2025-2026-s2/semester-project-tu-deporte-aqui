@@ -44,7 +44,8 @@ include::02-descriptive/02-03-implementation/02-03-01-selected-fragments.adoc[]
 
 == 3 Analytic part
 include::03-analytic/03-01-concept-analysis.adoc[]
-include::03-analytic/03-02-validation-verification.adoc[]
+include::03-analytic/03-02-validation-verification/03-02-01validation-verification.adoc[]
+include::03-analytic/03-02-validation-verification/03-02-02-system-perspective-testing.adoc[]
 
 == 4 Specific class topics
 include::04-class-topics/04-01-tdd.adoc[]
