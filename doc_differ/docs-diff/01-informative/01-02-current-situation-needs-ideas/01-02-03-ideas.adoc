@@ -5,17 +5,17 @@
 
 This section [.removed]#explains# [.inserted]#outlines# the main ideas [.removed]#that guide# [.inserted]#for# Tu Deporte Aquí. These ideas [.removed]#build on# [.inserted]#respond to# the [.removed]#conditions and# needs [.removed]#identified# [.inserted]#described# in [.removed]#Milestone 1# [.inserted]#Section 1.2.2# and [.removed]#describe# [.inserted]#give a high-level view of# the [.removed]#direction# [.inserted]#kind of system the team intends to build.#
 
-===== [.inserted]#A Sports Information Platform for Local Puerto Rico Coverage#
+===== A Sports Information Platform for Local Puerto Rico Coverage
 
 [.inserted]#One central idea is to build a platform focused on local Puerto Rico sports. The platform is meant to bring together scores, schedules, standings, and related updates that are currently spread across league websites, social media posts, news outlets, and other reporting channels.#
 
 [.inserted]#This idea follows from the fragmented situation described earlier. Rather than expecting followers to check many sources on their own, the system-to-be would gather relevant information into one place.#
 
-===== [.inserted]#Open Handling of Uncertainty#
+===== Open Handling of Uncertainty
 
 [.inserted]#Another main idea is that# the platform should [.removed]#take, without defining specific technical solutions.#
 
-===== [.removed]#Cross-Source Validation and Source Weighting#
+===== Cross-Source Validation and Source Weighting#
 
 [.removed]#Tu Deporte Aquí collects data from multiple informal sources, where disagreements are common.#
 
@@ -27,7 +27,7 @@ Comparison before display::
 Source trust levels::
 [.removed]#Not all sources are equally reliable.# [.inserted]#hiding them.#
 
-===== [.inserted]#Source-Aware Presentation#
+===== Source-Aware Presentation
 
 The platform should [.removed]#assign trust levels to different# [.inserted]#present sports information together with enough# source [.removed]#types—for example, an official league website should carry more weight than# [.inserted]#context for people to judge it. The main idea is not only to show# a [.removed]#social media post. This weighting should be intentional# [.inserted]#score or status, but also to show where that information came from# and [.removed]#documented.#
 
@@ -36,7 +36,7 @@ Conflict visibility::
 
 [.inserted]#This idea follows from the need# for [.removed]#debugging. When relevant, they# [.inserted]#dependability described in Section 1.2.2. If information comes from sources with different levels of authority or different update timing, the platform# should [.removed]#also be shown to users through clear indicators,# [.inserted]#preserve that context# instead of presenting [.inserted]#all updates in# the [.removed]#data as if it were fully certain.# [.inserted]#same way.#
 
-===== [.removed]#Data Freshness and Provenance#
+===== Data Freshness and Provenance
 
 [.removed]#Users need to understand how recent the information is and where it came from.#
 
@@ -46,7 +46,7 @@ Timestamps and source labels::
 Update frequency expectations::
 [.removed]#The platform should communicate realistic refresh rates# [.inserted]#Support# for [.removed]#each data type. Live scores may have small delays, while standings may update only after games are finalized. Making this clear helps reduce confusion.#
 
-===== [.removed]#Provisional# [.inserted]#Corrections# and [.removed]#Confidence Indicators#
+===== Provisional# [.inserted]#Corrections# and [.removed]#Confidence Indicators#
 
 [.removed]#Since much of the data comes from informal channels, the system must clearly separate confirmed information from unverified data.#
 
@@ -57,7 +57,7 @@ Confidence progression:: [.inserted]#Change Over Time#
 
 The platform should [.removed]#use simple labels ("Confirmed," "Provisional," "Unverified") or visual cues (badges, muted styles) to show reliability. As more sources confirm a value,# [.inserted]#allow for# the [.removed]#confidence level should update visibly so users# [.inserted]#fact that sports information# can [.removed]#see how the data stabilizes over time.#
 
-===== [.removed]#Handling Uncertainty and Missing Data#
+===== Handling Uncertainty and Missing Data#
 
 [.removed]#Uncertainty# [.inserted]#change after it# is [.removed]#part of the platform’s environment and should# [.inserted]#first reported. Scores may# be [.removed]#handled openly.#
 

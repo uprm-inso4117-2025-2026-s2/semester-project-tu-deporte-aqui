@@ -20,7 +20,7 @@ The system scope [.removed]#for Milestone 1# includes:
 
 This [.removed]#focus ensures realistic alignment with data# [.inserted]#constraint reflects the# availability and [.removed]#milestone constraints.# [.inserted]#reliability of data sources.#
 
-===== [.removed]#Reliability Modeling# [.inserted]#Data Handling Under Uncertainty#
+===== Reliability Modeling# [.inserted]#Data Handling Under Uncertainty#
 
 The system [.removed]#will define expected behavior under:# [.inserted]#must handle:#
 
@@ -44,7 +44,7 @@ This includes:
 - Prioritization of essential game data
 - [.inserted]#Responsive layout across devices#
 
-===== [.removed]#Documentation-First Engineering#
+===== Documentation-First Engineering#
 
 [.removed]#Milestone 1# [.inserted]#Core Implementation Scope#
 

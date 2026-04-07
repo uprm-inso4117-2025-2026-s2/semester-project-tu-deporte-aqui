@@ -1,6 +1,6 @@
 ==== 1.3.2
 
-[.inserted]#=====# Synopsis
+===== Synopsis
 
 Tu Deporte Aquí [.removed]#is a mobile-first, web-based platform designed to centralize# [.inserted]#addresses the problem of following local# sports information [.removed]#for local# [.inserted]#in# Puerto Rico [.removed]#leagues and collegiate teams.#
 

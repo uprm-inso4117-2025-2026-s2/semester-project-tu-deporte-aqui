@@ -1,10 +1,10 @@
 ==== 1.2.1
 
-[.inserted]#=====# Current Situation
+===== Current Situation
 
 This section describes [.removed]#the current state of# [.inserted]#how# sports information [.removed]#availability in# [.inserted]#about local# Puerto Rico [.removed]#prior to the implementation of Tu Deporte Aquí.#
 
-====== [.removed]#Overview#
+====== Overview
 
 [.removed]#Sports# [.inserted]#events is currently produced, shared, and consulted, without assuming any particular system.#
 
@@ -12,7 +12,7 @@ This section describes [.removed]#the current state of# [.inserted]#how# sports 
 
 [.inserted]#This description# is [.removed]#no centralized or standardized system for accessing this data.# [.inserted]#based on project research into how local leagues publish updates, how people discover events, and how standings, scores, and live data are communicated.#
 
-====== [.removed]#Data Distribution Environment#
+====== Data Distribution Environment
 
 Information [.removed]#is typically published through:#
 - [.removed]#League# [.inserted]#Sources in the Current Environment#
@@ -28,7 +28,7 @@ Information [.removed]#is typically published through:#
 
 These sources [.removed]#often operate independently, with no synchronization or standardization.#
 
-====== [.removed]#Key Limitations#
+====== Key Limitations
 
 [.removed]#The current environment presents several limitations:#
 - [.removed]#Data fragmentation across multiple platforms#
@@ -36,7 +36,7 @@ These sources [.removed]#often operate independently, with no synchronization or
 - [.removed]#Inconsistent update frequencies#
 - [.removed]#Limited standardization in reporting formats# [.inserted]#immediate awareness.#
 
-====== [.removed]#Reliability Challenges#
+====== Reliability Challenges
 
 [.removed]#Sports data in Puerto Rico# [.inserted]#Fragmentation of Information#
 
@@ -51,7 +51,7 @@ These sources [.removed]#often operate independently, with no synchronization or
 
 [.inserted]#To understand a single event, a person may need# to [.inserted]#consult several sources.#
 
-====== [.inserted]#Irregular Timing and Delay#
+====== Irregular Timing and Delay
 
 [.inserted]#Updates are not synchronized across sources.#
 
@@ -67,7 +67,7 @@ These sources [.removed]#often operate independently, with no synchronization or
 
 [.inserted]#Two# sources [.inserted]#checked at the same moment may show different versions of the same event.#
 
-====== [.inserted]#Inconsistency and Incompleteness#
+====== Inconsistency and Incompleteness
 
 [.inserted]#Information may differ in both content and completeness.#
 
@@ -82,7 +82,7 @@ These sources [.removed]#often operate independently, with no synchronization or
 
 [.inserted]#These differences often result from manual entry, different publication practices, and lack of coordination between sources.#
 
-====== [.removed]#Impact on Users#
+====== Impact on Users
 
 [.removed]#Users face several challenges:#
 - [.removed]#Difficulty determining# [.inserted]#Consequences for People in the Domain#
