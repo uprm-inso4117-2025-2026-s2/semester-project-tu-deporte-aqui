@@ -31,6 +31,7 @@ Feature: User Interface - Transparency Indicators and Messaging
     And Sebastian can expand the indicator to see both reported values
     And Sebastian can see source attribution for each conflicting value
     And the system should not present any single score as definitive
+    
 
   Scenario: Handle missing data gracefully
     Given no source has provided a score for this game
@@ -39,14 +40,14 @@ Feature: User Interface - Transparency Indicators and Messaging
     And Sebastian should not see an empty or "0-0" value
     And Sebastian should not see any error messages
 
-  Scenario: Label provisional data from unverified sources
+  Scenario: Label unverified data from unverified sources
     Given the only available data comes from social media
     And the source is unverified
     And the source attribution is "Twitter"
     When Sebastian views the game details page
-    Then Sebastian should see a "Provisional" tag next to the score
+    Then Sebastian should see an "Unverified" tag next to the score
     And Sebastian should see the source attribution with unverified indicator
-    And the provisional tag should use a distinct visual style
+    And the unverified tag should use a distinct visual style
 
   Scenario: Display source attribution in standings
     Given Sebastian navigates to league standings

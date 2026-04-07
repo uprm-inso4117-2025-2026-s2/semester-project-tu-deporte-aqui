@@ -21,15 +21,15 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     And the conflicting social media report is recorded as unofficial
     And fans should be made aware that a discrepancy existed
 
-  Scenario: Provisional report becomes confirmed
+  Scenario: Unverified report becomes confirmed
     Given a game has ended
     And a reporter posts an unverified score of "80-75" on social media
     And no official source has published yet
-    Then the score is considered provisional
+    Then the score is considered unverified
     When the league officially publishes the score as "82-75"
-    Then the provisional score is replaced by the official one
+    Then the unverified score is replaced by the official one
     And the official score becomes the record
-    And the earlier provisional report is marked as superseded
+    And the earlier unverified report is marked as superseded
 
   Scenario: Official correction after publication
     Given the league published a final score of "90-88" for a game
@@ -73,5 +73,5 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     And many fans are following games closely
     When a score is reported by any source
     Then extra scrutiny is applied: only confirmed official scores are treated as final
-    And provisional reports are clearly labeled as such
+    And unverified reports are clearly labeled as such
     And corrections are communicated rapidly to avoid confusion
