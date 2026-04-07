@@ -1,17 +1,17 @@
 = Tu Deporte Aquí
-[.removed]#==# Project Documentation
-[.inserted]#:doctype: book#
+== Project Documentation
+:doctype: book
 :title-page:
-:toc: [.inserted]#macro#
+:toc: macro
 :toclevels: 4
-[.inserted]#:author: INSO 4117 - Software Reliability Testing#
-[.inserted]#:revnumber: Spring 2026#
-[.inserted]#:revdate: April 7, 2026#
-[.inserted]#:revremark: Professor: Marko Schütz-Schmuck | Milestone #2 | Repository: https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui#
+:author: INSO 4117 - Software Reliability Testing
+:revnumber: Spring 2026
+:revdate: April 7, 2026
+:revremark: Professor: Marko Schütz-Schmuck | Milestone #2 | Repository: https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui#
 
 <<<
 
-[.inserted]#toc::[]#
+toc::[]
 == 1 Informative part
 include::01-informative/01-01-team.adoc[]
 === 1.2 Current situation, needs, ideas
