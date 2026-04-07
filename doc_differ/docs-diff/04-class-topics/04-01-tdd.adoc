@@ -177,6 +177,6 @@ This preparation reduces future development risk and supports structured system 
 
 [.inserted]#At each step, the function was modified minimally to pass the new test while keeping all previous tests passing.#
 
-[.inserted]#=====# Conclusion
+#=====# Conclusion
 
 Test-Driven Development supports the core goals of Tu Deporte Aquí by promoting reliability, transparency, and predictable system behavior. Establishing TDD principles early ensures that future implementation remains aligned with documented expectations and real-world data constraints.
