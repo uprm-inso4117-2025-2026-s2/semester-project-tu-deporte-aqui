@@ -1,6 +1,5 @@
-==== 2.1.5
 
-===== Events, Actions, and Composite Behaviors
+==== 2.1.5 Events, Actions, and Composite Behaviors
 
 This section describes events and actions related to how sports information is produced, compared, and updated.
 
