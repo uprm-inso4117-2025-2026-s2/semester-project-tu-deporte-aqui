@@ -113,27 +113,27 @@ The following matrix traces every scenario in our feature files to the requireme
 |===
 | Scenario (exact title from feature file) | Feature File | Requirement IDs | User Story / Persona
 | "Conflicting scores from different sources" | `domain_requirements.feature` | R-DOM-2, R-DOM-3, R-DOM-1 | Sebastian: flag when two sources disagree on a score
-| "Provisional report becomes confirmed" | `domain_requirements.feature` | R-DOM-4, R-DOM-1 | Andres: mark updates as preliminary or confirmed
+| "Unverified report becomes confirmed" | `domain_requirements.feature` | R-DOM-4, R-DOM-1, R-DOM-1a | Andres: mark updates as preliminary or confirmed
 | "Official correction after publication" | `domain_requirements.feature` | R-DOM-6, R-DOM-10 | Abiel: prioritize verified league results
 | "Multiple unofficial sources agree" | `domain_requirements.feature` | R-DOM-5, R-DOM-4 | Chris: configurable validation rules for ingestion
 | "Outdated game information" | `domain_requirements.feature` | R-DOM-7 | Sebastian: see when each item was last updated
 | "Source becomes unavailable" | `domain_requirements.feature` | R-DOM-8 | Chris: standardized fallback behavior
-| "Correction without formal announcement" | `domain_requirements.feature` | R-DOM-2, R-DOM-1, R-DOM-3 | Sebastian: flag conflicting scores
+| "Correction without formal announcement" | `domain_requirements.feature` | R-DOM-2, R-DOM-1, R-DOM-1a, R-DOM-3 | Sebastian: flag conflicting scores
 | "High demand for accurate information during playoffs" | `domain_requirements.feature` | R-MAC-3, R-MAC-4 | Sebastian: score pages load reliably during playoffs
 | "Show when data was last updated" | `interface_requirements.feature` | R-INT-5, R-MAC-5 | Sebastian: see when each item was last updated
 | "Indicate stale data to the user" | `interface_requirements.feature` | R-DOM-7, R-MAC-9 | Sebastian: know if information might be outdated
 | "Show conflicting reports from different sources" | `interface_requirements.feature` | R-DOM-2, R-DOM-3 | Sebastian: platform flags conflicting scores
 | "Handle missing data gracefully" | `interface_requirements.feature` | R-MAC-9 | Sebastian: explanation when update is missing
-| "Label provisional data from unverified sources" | `interface_requirements.feature` | R-DOM-4, R-INT-9 | Andres: avoid presenting uncertain info as definitive
-| "Display source attribution in standings" | `interface_requirements.feature` | R-DOM-1, R-INT-9 | Sebastian: each score shows its source
+| "Label unverified data from unverified sources" | `interface_requirements.feature` | R-DOM-4, R-INT-9, R-DOM-12 | Andres: avoid presenting uncertain info as definitive
+| "Display source attribution in standings" | `interface_requirements.feature` | R-DOM-1, R-DOM-1a, R-DOM-12 | Sebastian: each score shows its source
 | "Communicate system-wide degraded state" | `interface_requirements.feature` | R-MAC-9 | Sebastian: clear messages when data is missing; Chris: standardized fallback behavior
 | "Show confidence level for uncertain data" | `interface_requirements.feature` | R-DOM-5 | Sebastian: simple reliability cue during major events
 | "Continue operating when a source fails" | `machine_requirements.feature` | R-MAC-9, R-MAC-7 | Chris: standardized fallback behavior
 | "Fall back to cached data during source unavailability" | `machine_requirements.feature` | R-MAC-9, R-MAC-5 | Chris: standardized fallback behavior
-| "Log conflicts for debugging and analysis" | `machine_requirements.feature` | R-MAC-6 | Chris: automated tests that simulate conflicting data; dashboards for consistency
+| "Log conflicts for debugging and analysis" | `machine_requirements.feature` | R-DOM-11 | Chris: automated tests that simulate conflicting data; dashboards for consistency
 | "Prioritize critical endpoints under high traffic" | `machine_requirements.feature` | R-MAC-3, R-MAC-4 | Sebastian: score pages load reliably during playoffs; Chris: load and stress tests
-| "Resume normal operation after source recovery" | `machine_requirements.feature` | R-MAC-8, R-MAC-9 | Chris: measure availability and recovery time
-| "Expose reliability metrics for monitoring" | `machine_requirements.feature` | R-MAC-8 | Chris: dashboards for accuracy, consistency, availability
+| "Resume normal operation after source recovery" | `machine_requirements.feature` | R-MAC-7, R-MAC-9, R-INT-8 | Chris: measure availability and recovery time
+| "Expose reliability metrics for monitoring" | `machine_requirements.feature` | R-INT-8 | Chris: dashboards for accuracy, consistency, availability
 | "Retain correction history for audit purposes" | `machine_requirements.feature` | R-MAC-10, R-DOM-10 | Chris: audit trail for corrections
 | "Handle malformed data from a source" | `machine_requirements.feature` | R-MAC-7, R-MAC-9 | Chris: fault injection tests
 | "Recover from database connection failure" | `machine_requirements.feature` | R-MAC-12, R-MAC-9 | Chris: measure availability and recovery time
