@@ -3,21 +3,23 @@
 
 ===== Purpose
 
-This section outlines the expected debugging practices that will support reliability and transparency in Tu Deporte Aquí. Debugging will help verify that the system correctly handles conflicting data, delayed updates, and source failures—key reliability concerns identified in our prior A3 submission. These scenarios represent the types of debugging sessions we expect to conduct during implementation.
+This section outlines the expected debugging practices that will support reliability and transparency in Tu Deporte Aquí. Debugging will help verify that the system correctly handles conflicting data, stale updates, and source failures—key reliability concerns identified in our prior A3 submission. These scenarios represent the types of debugging sessions we expect to conduct during implementation.
 
 ===== Role of Debugging
 
 Debugging provides visibility into data flows, especially when sources disagree or updates arrive late. It allows us to examine failure paths before they reach users.
 
 Key contributions:
-- Verify conflict detection logic
-- Confirm staleness thresholds trigger transparency indicators
-- Inspect state during partial source failures
-- Validate degraded mode messaging
+
+- Verify conflict detection logic: ensures inconsistent scores don't confuse fans.
+- Confirm staleness thresholds trigger transparency indicators: shows users how fresh the data is.
+- Inspect state during partial source failures: helps maintain service even if some sources fail.
+- Validate degraded mode messaging: informs users when data is limited or unavailable.
 
 ===== Debugging Environment
 
 All scenarios use:
+
 - **Browser DevTools** for frontend inspection and network analysis
 - **IDE debugger** for backend code examination
 - **Debug console** for expression evaluation during breakpoints
@@ -26,47 +28,63 @@ All scenarios use:
 
 The following scenarios represent examples of debugging sessions we plan to conduct during implementation to validate core system behaviors. Each scenario identifies a reliability concern, describes the hypothesis we will test, and outlines which debugging techniques will help us verify the behavior.
 
-===== Scenario 1: Conflict Detection in Score Merging
+===== Scenario 1: Score Display with Missing Data
 
-*Hypothesis*: `mergeGameData` might overwrite conflicting scores without flagging the disagreement.
+*Hypothesis*: When one of the scores is missing, the system should display "Score unavailable" instead of an incorrect score, making sure fans are not mislead by incomplete data.
 
-*Planned Session*:
-- Set breakpoint inside `mergeGameData` at source comparison logic.
-- Create test case: official site (21–14) vs social media (24–14).
-- Use **watch panel** to monitor `existingGame.score`, `newSourceData.score`, `sourcePriority`.
-- Step through to verify whether merging correctly stores conflicting values or silently overwrites.
+*Debugging Session*:
 
-*Expected Outcome*: This debugging will confirm whether conflict detection logic is correctly implemented. If conflicts are being silently overwritten, we will need to implement a separate conflict tracking queue.
+- A breakpoint was set inside `buildDisplayGame` before the return statement.
+- A test case was executed with `homeScore = null` and `awayScore = 75`.
+- The debugger was stepped into `isScoreComplete` to verify how completeness was evaluated.
+- The **watch panel** was used to inspect `homeScore`, `awayScore`, and `scoreComplete`.
+- Execution continued into `formatScore` to confirm whether it was called.
+
+*Observed Outcome*:
+
+- It was observed that `isScoreComplete` returned `false` when `homeScore` was `null`.
+- As a result, `formatScore` was not executed.
+- The value `"Score unavailable"` was correctly assigned to `displayScore`.
 
 ===== Scenario 2: Staleness Threshold Behavior
 
-*Hypothesis*: Data older than 15 minutes during live play should be marked `Delayed` and shown in UI.
+*Hypothesis*: Data older than 10 minutes during live play should be marked `Stale` and shown in UI. fans want fresh data, older information should be marked stale.
 
-*Planned Session*:
-- Set conditional breakpoint in `evaluateFreshness` (only when `game.status === "Live"`).
-- Simulate 18‑minute data freeze using browser DevTools network throttling.
-- Use **debug console** to evaluate `Date.now() - game.lastUpdated.getTime()` and verify it exceeds 900,000 ms.
-- Step into helper function to confirm `StalenessLevel.DELAYED` is returned.
-- Check API response contains `freshness: "Delayed"` and verify UI badge renders correctly.
+*Debugging Session*:
 
-*Expected Outcome*: This debugging will verify that staleness detection works end-to-end across backend evaluation, API response, and frontend rendering. If any layer fails to communicate staleness, we will identify the breakpoint and fix it.
+- A breakpoint was set inside `isStaleTimestamp`.
+- A test case was executed with a timestamp older than 20 minutes.
+- The **watch panel** was used to monitor `lastUpdatedDate`, `now`, and `diffMinutes`.
+- Step through to verify that `diffMinutes` exceeds `thresholdMinutes`.
+- The **debug console** was used to evaluate `now - lastUpdatedDate` in milliseconds.
 
-===== Scenario 3: Source Outage and Degraded Mode
+*Observed Outcome*:
 
-*Hypothesis*: When a source times out, the system falls back to cached data and updates status board without crashing.
+- The calculated `diffMinutes` exceeded the threshold value.
+- The function returned `true`, indicating stale data.
 
-*Planned Session*:
-- Set breakpoint in source fetcher `catch` block.
-- Inject 30‑second timeout fault to simulate source outage.
-- Use **call stack inspection** to trace propagation to coordinator and verify `getCachedGames` is invoked.
-- Use **watch panel** to confirm `sourceHealthStatus` and `fallbackTriggered` are updated correctly.
-- Verify `setSystemStatus` is called with `DegradedState.SOURCE_UNAVAILABLE`.
+===== Scenario 3: Full Workflow Integration
 
-*Expected Outcome*: This debugging will confirm that degraded mode activates cleanly without crashes and that cached data is served with transparency messaging. If any error handling is missing, we will identify the gap in the source fetcher or coordinator.
+*Hypothesis*: `buildDisplayGame` correctly integrates all utility functions to produce a consistent UI-ready object.
+
+*Debugging Session*:
+
+- A breakpoint was set at the beginning of `buildDisplayGame`.
+- A complete game object was passed with valid scores, status, and timestamp.
+- The debugger stepped into each helper function: `mapGameStatus`, `isScoreComplete`, and `isStaleTimestamp`.
+- The **call stack** was inspected to trace execution flow across functions.
+- The **watch panel** was used to monitor intermediate values.
+
+*Observed Outcome*:
+
+- Each helper function returned expected values.
+- `scoreComplete` was `true`, and `formatScore` produced the correct formatted score.
+- The final object contained consistent and expected values for all fields.
 
 ===== Integration with Testing
 
 Debugging will complement automated tests during implementation:
+
 - When reliability tests fail, we will debug to inspect intermediate state.
 - We will explore edge cases difficult to capture in tests.
 - We will validate behavior before writing acceptance tests.
