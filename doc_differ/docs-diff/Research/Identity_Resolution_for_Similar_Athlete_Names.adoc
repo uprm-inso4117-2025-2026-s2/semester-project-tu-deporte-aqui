@@ -1,0 +1,155 @@
+= [.inserted]#Identity Resolution for Similar Athlete Names#
+[.inserted]#Author: Noel Colón Mena#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#1. Introduction#
+
+[.inserted]#Tu Deporte Aquí combines sports information from multiple leagues, reporters, and informal sources in Puerto Rico.#
+
+[.inserted]#Because athlete names may appear:#
+
+* [.inserted]#Duplicated#
+* [.inserted]#Misspelled#
+* [.inserted]#Formatted differently#
+* [.inserted]#Incomplete#
+
+[.inserted]#the system faces a significant *identity resolution problem*.#
+
+[.inserted]#Without a structured strategy, the platform risks:#
+
+* [.inserted]#Merging two different athletes into one profile#
+* [.inserted]#Creating duplicate profiles#
+* [.inserted]#Misattributing statistics#
+
+[.inserted]#The purpose of this document is to evaluate identity resolution strategies and recommend a reliable approach.#
+
+---
+
+== [.inserted]#2. Current Problems#
+
+[.inserted]#Common issues when merging athlete data include:#
+
+* [.inserted]#Accent differences#
+* [.inserted]#Nicknames#
+* [.inserted]#Abbreviations#
+
+---
+
+== [.inserted]#3. Methods Evaluated#
+
+=== [.inserted]#I. Exact Matching / Strict Matching#
+
+[.inserted]#Records are linked only if all attributes match exactly.#
+
+==== [.inserted]#Pros#
+
+* [.inserted]#Low risk of false matches#
+* [.inserted]#Easy to implement#
+* [.inserted]#Low computational cost#
+
+==== [.inserted]#Cons#
+
+* [.inserted]#High rate of duplicate profiles#
+* [.inserted]#Cannot handle misspellings or nicknames#
+
+---
+
+=== [.inserted]#II. Fuzzy Matching#
+
+[.inserted]#Records are linked if they match within a certain tolerance (similarity threshold).#
+
+==== [.inserted]#Pros#
+
+* [.inserted]#Reduces duplicate profiles#
+* [.inserted]#Handles small variations (misspellings, accents)#
+
+==== [.inserted]#Cons#
+
+* [.inserted]#Risk of false merges#
+
+---
+
+=== [.inserted]#III. Metadata Identifier Matching#
+
+[.inserted]#Records are linked using additional identifying attributes (metadata).#
+
+==== [.inserted]#Pros#
+
+* [.inserted]#Lower risk of false merges#
+* [.inserted]#More reliable than name-only approaches#
+
+==== [.inserted]#Cons#
+
+* [.inserted]#Depends on metadata quality#
+* [.inserted]#Slightly more complex to implement#
+
+---
+
+== [.inserted]#4. Strategy Comparison#
+
+[cols="1,1,1,1", options="header"]
+[.inserted]#|===#
+[.inserted]#| Method | Duplicates | False Merges | Missed Merges#
+
+[.inserted]#| Exact Matching#
+[.inserted]#| High#
+[.inserted]#| None#
+[.inserted]#| High#
+
+[.inserted]#| Fuzzy Matching#
+[.inserted]#| Medium#
+[.inserted]#| Medium#
+[.inserted]#| Low#
+
+[.inserted]#| Metadata Matching#
+[.inserted]#| Very Low#
+[.inserted]#| Low#
+[.inserted]#| Low#
+[.inserted]#|===#
+
+---
+
+== [.inserted]#5. Recommended Strategy#
+
+[.inserted]#The most effective approach is a *layered strategy combining Metadata and Fuzzy Matching*.#
+
+=== [.inserted]#Proposed Algorithm#
+
+[.inserted]#1. Group athletes using metadata (e.g., team, league, position).#
+[.inserted]#2. Within each group, apply fuzzy matching to detect duplicates.#
+[.inserted]#3. Merge only when similarity exceeds a defined threshold.#
+
+=== [.inserted]#Benefits#
+
+* [.inserted]#Reduces duplicate profiles#
+* [.inserted]#Minimizes false merges#
+* [.inserted]#Handles real-world inconsistencies in naming#
+
+---
+
+== [.inserted]#Conclusion#
+
+[.inserted]#A hybrid identity resolution strategy is essential for maintaining data integrity in Tu Deporte Aquí.#
+
+[.inserted]#By combining metadata grouping with fuzzy matching, the system can:#
+
+* [.inserted]#Improve accuracy#
+* [.inserted]#Reduce duplication#
+* [.inserted]#Prevent incorrect data associations#
+
+[.inserted]#This approach balances reliability and practicality for a multi-source sports data platform.#
+
+---
+
+== [.inserted]#References#
+
+* [.inserted]#Strict Matching:#
+[.inserted]#  https://www.science.org/doi/10.1126/sciadv.abi8021#
+
+* [.inserted]#Fuzzy Matching:#
+[.inserted]#  https://www.tandfonline.com/doi/abs/10.1080/01621459.1969.10501049#
+
+* [.inserted]#Metadata Matching:#
+[.inserted]#  https://www.crossref.org/community/special-programs/metadata-matching/#

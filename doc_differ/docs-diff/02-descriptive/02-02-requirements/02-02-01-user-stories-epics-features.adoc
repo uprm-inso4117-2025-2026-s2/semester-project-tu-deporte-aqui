@@ -1,0 +1,225 @@
+==== 2.2.1 User Stories, Epics, Features
+
+[.inserted]##This section organizes the main requirements-driving stories for Tu Deporte Aquí.#
+[.inserted]#To avoid dropping unexplained persona names on the reader, each story names the#
+[.inserted]#role first and then identifies the corresponding persona in parentheses. The#
+[.inserted]#full persona descriptions appear in Section 2.2.2.##
+
+===== Epic 1: Consolidated Puerto Rico Sports Information Feed
+
+[.removed]#As# [.inserted]##As# a [.removed]#Puerto Rico sports fan,# [.inserted]#local-sports follower,# I want [.removed]#a centralized view of games,# [.inserted]#one place to check scores,# standings,
+[.inserted]#schedules,# and athlete updates so that I [.removed]#can follow local sports without chasing multiple sources.#
+
+Key features::
+* [.removed]#Aggregated# [.inserted]#do not have to chase scattered#
+[.inserted]#posts, league pages, and chats.##
+
+[.inserted]##Features##
+
+[.inserted]##Consolidated# results, standings, [.inserted]#schedules,# and athlete [.removed]#updates# [.inserted]#updates##
+[.inserted]##The platform groups the most consulted local-sports information# in one [.removed]#platform#
+* [.removed]#Source# [.inserted]#place#
+[.inserted]#so that a fan or coach can check the current state of a league without jumping#
+[.inserted]#between unrelated pages and posts.##
+
+[.inserted]##Source# attribution for each [.removed]#update#
+* [.removed]#Visible# [.inserted]#displayed update##
+[.inserted]##Each important data item should show where it came from so that readers can#
+[.inserted]#tell whether they are looking at an official publication, a reporter update,#
+[.inserted]#or a community post.##
+
+[.inserted]##Visible# freshness [.removed]#indicators (last# [.inserted]#indicators##
+[.inserted]##Each important item should show when it was last# updated [.removed]#timestamps)#
+
+User stories:: [.inserted]#so that readers can#
+[.inserted]#judge whether the information is still recent enough to trust during a live#
+[.inserted]#event or playoff run.##
+
+[.inserted]##User stories##
+
+* [.removed]#As Sebastian,# [.inserted]##As a fast-checking fan (Sebastian),# I want to view the latest scores and
+final results for selected leagues so that I can stay updated without
+switching between [.removed]#websites.# [.inserted]#websites and social media posts.##
+
+* [.removed]#As Sebastian,# [.inserted]##As a fast-checking fan (Sebastian),# I want each [.removed]#score and# [.inserted]#displayed score, result,#
+[.inserted]#or# update to show its source so that I can judge credibility [.inserted]#quickly# when
+multiple channels [.removed]#exist.# [.inserted]#are posting different things.##
+
+* [.removed]#As Abiel,# [.inserted]##As an organizing coach (Abiel),# I want to view schedules and standings for
+my league so that I can [.removed]#plan# [.inserted]#plan, communicate,# and [.removed]#communicate accurately with my team.# [.inserted]#verify information without#
+[.inserted]#having to piece it together manually.##
+
+* [.removed]#As Sebastian,# [.inserted]##As a fast-checking fan (Sebastian),# I want to see when each item was last
+updated so that I can tell [.removed]#if information might be outdated during# [.inserted]#whether a page reflects a# live [.removed]#events.# [.inserted]#update, a delayed#
+[.inserted]#post, or stale information.##
+
+===== [.removed]#Epic# [.inserted]##Epic# 2: Conflict [.removed]#Detection# [.inserted]#Handling, Uncertainty,# and [.removed]#Consistency Controls#
+[.removed]#As# [.inserted]#User Trust Signals##
+
+[.inserted]##As# a [.inserted]#person who depends on local# sports [.removed]#fan,# [.inserted]#information,# I want the platform to [.removed]#detect and handle conflicting reports#
+[.inserted]#show when information is conflicting, incomplete, delayed, or still developing#
+so that I do not [.removed]#get misled by incorrect# [.inserted]#mistake uncertain information for a final answer.##
+
+[.inserted]##Features##
+
+[.inserted]##Conflict flagging and conflict visibility##
+[.inserted]##When two# or [.removed]#inconsistent information.#
+
+Key features::
+* [.removed]#Conflict detection when# [.inserted]#more# sources disagree [.inserted]#about a score, status, result, or standing,#
+[.inserted]#the platform should mark the disagreement clearly instead of silently choosing#
+[.inserted]#one value#
+* [.removed]#Validation# and [.removed]#synchronization rules# [.inserted]#hiding the rest.##
+
+[.inserted]##Verified, developing, and provisional indicators##
+[.inserted]##The platform should distinguish between information that has already been#
+[.inserted]#confirmed and information that is still developing, provisional, or waiting#
+for [.removed]#ingestion#
+* [.removed]#Clear presentation# [.inserted]#confirmation from a stronger source.##
+
+[.inserted]##Missing-data and degraded-state messaging##
+[.inserted]##When a value is unavailable, delayed, or affected by a source problem, the#
+[.inserted]#platform should explain what is missing and what is still known instead# of
+[.inserted]#showing blank space or a confusing generic error.##
+
+[.inserted]##Trusted-source prioritization##
+[.inserted]##When an official or clearly stronger source exists, the platform should treat#
+[.inserted]#that source as the primary reference while still making# conflicts and [.removed]#resolution outcomes#
+
+User stories:: [.inserted]#revision#
+[.inserted]#history visible when needed.##
+
+[.inserted]##User stories##
+
+* [.removed]#As Sebastian,# [.inserted]##As a fast-checking fan (Sebastian),# I want the platform to flag when two
+sources disagree on a score [.inserted]#or result# so that I [.removed]#know the result may# [.inserted]#do# not [.removed]#be final.#
+* [.removed]#As Andres, I want to mark updates as preliminary or confirmed so that# [.inserted]#assume# the [.removed]#platform can represent uncertainty responsibly.# [.inserted]#first number#
+[.inserted]#I see is already final.##
+
+* [.removed]#As Abiel,# [.inserted]##As an organizing coach (Abiel),# I want the platform to prioritize verified
+league results when [.removed]#available# [.inserted]#they exist# so that standings [.inserted]#and schedules# do not [.removed]#change due to# [.inserted]#shift#
+[.inserted]#because of# unreliable [.removed]#posts.#
+* [.removed]#As Chris, I want configurable validation rules for ingestion so that consistency checks can be improved as we observe real failures.#
+
+===== [.removed]#Epic 3: Graceful Degradation and User Trust Signals#
+[.removed]#As a user, I want clear, informative messages when data is missing# or [.removed]#the system is degraded so that I understand what is happening and can still make decisions.#
+
+Key features::
+* [.removed]#Degraded mode behavior for partial outages#
+* [.removed]#Informative user-facing messaging that explains uncertainty#
+* [.removed]#Reliability and status cues (data availability, source health)#
+
+User stories:: [.inserted]#early posts.##
+
+* [.removed]#As Sebastian,# [.inserted]##As a deadline reporter (Andres),# I want to [.removed]#see# [.inserted]#label# an [.inserted]#update as developing,#
+[.inserted]#provisional, or confirmed so that I can communicate uncertainty without#
+[.inserted]#spreading misinformation.##
+
+* [.inserted]##As a fast-checking fan (Sebastian), I want a clear# explanation when an
+update is missing so that I know whether [.removed]#it# [.inserted]#the information# is [.removed]#unavailable,# delayed,
+[.inserted]#unavailable,# or still being [.removed]#confirmed.# [.inserted]#checked.##
+
+* [.removed]#As Sebastian, I want the platform to show# [.inserted]##As# a [.removed]#simple reliability cue for key pages during major events so that I can trust what I am seeing.#
+* [.removed]#As Andres,# [.inserted]#deadline reporter (Andres),# I want the platform to avoid presenting
+uncertain [.removed]#info# [.inserted]#information# as definitive so that [.removed]#users are# [.inserted]#breaking updates do# not [.removed]#misled by breaking-news updates.# [.inserted]#mislead#
+[.inserted]#the public.##
+
+* [.removed]#As Chris,# [.inserted]##As a reliability-focused engineer (Chris),# I want standardized fallback
+behavior when an external source fails so that [.removed]#failures# [.inserted]#outages# do not [.removed]#surface as confusing errors# [.inserted]#appear# to [.removed]#users.# [.inserted]#users#
+[.inserted]#as random or inconsistent errors.##
+
+===== Epic [.removed]#4:# [.inserted]#3:# High-Traffic Availability During Major Events
+
+[.removed]#As# [.inserted]##As# a [.removed]#sports fan,# [.inserted]#local-sports follower,# I want the platform to remain [.removed]#responsive# [.inserted]#usable# during [.removed]#playoffs#
+[.inserted]#playoffs, tournaments,# and [.removed]#breaking news# [.inserted]#breaking-news moments# so that I can [.removed]#access# [.inserted]#still get the#
+[.inserted]#most important# information when demand [.removed]#is highest.#
+
+Key features::
+* [.removed]#Load handling# [.inserted]#spikes.##
+
+[.inserted]##Features##
+
+[.inserted]##Peak-event responsiveness##
+[.inserted]##Core pages# for [.removed]#peak events#
+* [.removed]#Performance baselines# [.inserted]#scores, standings,# and [.removed]#scalability targets#
+* [.removed]#Prioritized# [.inserted]#game status should remain responsive#
+[.inserted]#during periods of unusually high traffic.##
+
+[.inserted]##Prioritized# delivery of [.removed]#critical info (scores, standings, status)#
+
+User stories:: [.inserted]#essential information##
+[.inserted]##When load is high, the platform should keep the most important information#
+[.inserted]#available first, even if less important details need to wait.##
+
+[.inserted]##Recovery visibility during stressed conditions##
+[.inserted]##The platform should make it possible to measure whether it stays available,#
+[.inserted]#how fast it recovers, and what information remains accessible during stress.##
+
+[.inserted]##User stories##
+
+* [.removed]#As Sebastian,# [.inserted]##As a fast-checking fan (Sebastian),# I want score and standings pages to
+load reliably during playoffs so that I can follow games [.removed]#in real time.#
+* [.removed]#As Chris, I want load and stress tests that model playoff traffic so that we can identify bottlenecks before major events.# [.inserted]#while the event is#
+[.inserted]#still happening.##
+
+* [.removed]#As Sebastian,# [.inserted]##As a fast-checking fan (Sebastian),# I want the platform to [.removed]#still show# [.inserted]#keep showing# the
+most essential information when traffic is extreme so that I am not blocked
+from updates [.removed]#entirely.# [.inserted]#entirely.##
+
+* [.removed]#As Chris,# [.inserted]##As a deadline reporter (Andres), I want the platform to stay understandable#
+[.inserted]#during major events so that source delays, outages, or traffic spikes do not#
+[.inserted]#turn live coverage into confusion.##
+
+* [.inserted]##As a reliability-focused engineer (Chris),# I want to measure availability
+and recovery time during peak-event simulations so that reliability [.removed]#improvements are measurable.# [.inserted]#work can#
+[.inserted]#be judged with actual evidence rather than guesswork.##
+
+===== Epic [.removed]#5:# [.inserted]#4:# Reliability Testing Automation and Observability
+
+[.removed]#As# [.inserted]##As# a platform engineer, I want reliability testing and monitoring [.removed]#integrated# [.inserted]#tied# into
+[.inserted]#the# development [.removed]#workflows# [.inserted]#workflow# so that [.removed]#failures# [.inserted]#conflict handling, degraded behavior,# and [.removed]#regressions#
+[.inserted]#recovery logic# are [.removed]#caught# [.inserted]#checked# before users [.removed]#experience them.#
+
+Key features::
+* [.removed]#Automated tests# [.inserted]#run into them.##
+
+[.inserted]##Features##
+
+[.inserted]##Automated reliability test coverage##
+[.inserted]##The project should include automated checks# for [.removed]#conflict, delay,# [.inserted]#conflicting data, delayed#
+[.inserted]#updates, missing fields,# and [.removed]#missing-data scenarios#
+* [.removed]#Fault# [.inserted]#other situations that are common in this domain.##
+
+[.inserted]##Fault# injection for external [.removed]#dependencies#
+* [.removed]#Metrics# [.inserted]#dependency failure##
+[.inserted]##The team should be able to simulate source failures# and [.removed]#dashboards for# [.inserted]#unstable conditions#
+[.inserted]#to verify that fallback behavior still matches the documented expectations.##
+
+[.inserted]##Operational metrics and monitoring views##
+[.inserted]##The project should track reliability-related measures such as# availability,
+accuracy, [.inserted]#consistency,# and recovery [.inserted]#time so that improvements and regressions#
+[.inserted]#can be seen over time.##
+
+[.inserted]##User stories##
+
+User stories::
+
+* [.removed]#As Chris,# [.inserted]##As a reliability-focused engineer (Chris),# I want automated tests that
+simulate conflicting data sources so that system behavior stays predictable
+when sources [.removed]#disagree.# [.inserted]#disagree.##
+
+* [.removed]#As Chris,# [.inserted]##As a reliability-focused engineer (Chris),# I want automated tests that
+simulate delayed updates and missing data so that user-facing behavior [.removed]#remains# [.inserted]#stays#
+clear [.removed]#and informative.# [.inserted]#when the incoming information is incomplete.##
+
+* [.removed]#As Chris,# [.inserted]##As a reliability-focused engineer (Chris),# I want fault injection tests
+against external dependencies so that we can verify fallback strategies and
+error-handling [.removed]#logic.# [.inserted]#logic before real outages happen.##
+
+* [.removed]#As Chris,# [.inserted]##As a reliability-focused engineer (Chris),# I want CI workflows to run
+reliability tests regularly so that [.removed]#testing covers# [.inserted]#coverage includes# stress and failure
+conditions, not only normal [.removed]#operation.# [.inserted]#operation.##
+
+* [.removed]#As Chris,# [.inserted]##As a reliability-focused engineer (Chris),# I want dashboards for accuracy,
+consistency, availability, and recovery time so that we can [.removed]#track reliability improvements over time.# [.inserted]#see whether the#
+[.inserted]#system is actually improving.##

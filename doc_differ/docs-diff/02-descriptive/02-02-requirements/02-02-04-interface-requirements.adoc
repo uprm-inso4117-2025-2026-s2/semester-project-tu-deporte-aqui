@@ -1,0 +1,38 @@
+
+==== 2.2.4 Interface Requirements
+
+===== Purpose
+
+This section defines the interface requirements for *Tu Deporte Aquí*. These requirements specify how the system interacts with the external world to acquire, initialize, and update the representation of domain phenomena. They cover both automated data ingestion from external sources and manual input by authorized users.
+
+===== Shared Phenomena
+
+The following domain phenomena must be represented inside the system and kept synchronized with the outside world:
+
+* Game scores, statuses, and schedules reported by various sources (league websites, social media, news outlets, direct reports)
+* Corrections issued by official leagues
+* Source availability and health
+* User-initiated updates (e.g., by reporters or league officials)
+
+===== Interface Requirements
+
+[horizontal]
+R-INT-1 (Automated Ingestion):: The system shall provide means to periodically fetch data from configured external sources (e.g., league websites, RSS feeds, APIs, social media streams). The fetching mechanism shall respect source-specific constraints such as rate limits and update frequencies.
+
+R-INT-2 (Manual Data Entry):: The system shall provide an interface for authorized users [.removed]#(e.g., reporters, league representatives)# to manually enter or update game information, including scores, statuses, and corrections. Manual entries shall be attributed to the user and timestamped. [.inserted]#Trust levels for manual entries shall follow R-DOM-1a based on user role (league representative, reporter, etc.).#
+
+R-INT-3 (Source Configuration):: The system shall provide [.removed]#means# [.inserted]#a user interface# for administrators to configure data [.removed]#sources, including their# [.inserted]#sources. Configuration data (source# type, trust level, fetch [.removed]#schedule, and access# [.inserted]#schedule) shall be persistently stored in the database. Access# credentials [.removed]#(if any). Changes to source# [.inserted]#shall be securely encrypted. All# configuration [.inserted]#changes# shall be [.removed]#logged.# [.inserted]#logged with timestamp and user attribution.#
+
+R-INT-4 (Data Initialization):: [.removed]#When a new league, team, or game is added to the system, the# [.inserted]#The# system shall provide [.removed]#means# [.inserted]#an interface# to initialize [.removed]#its representation# [.inserted]#data for new leagues, teams, or games. Initial data loaded# from [.removed]#existing# sources or manual [.removed]#entry. Initial data# [.inserted]#entry# shall [.removed]#include at least# [.inserted]#be persistently stored in# the [.inserted]#database. Required initial data includes# teams, scheduled dates, and [.removed]#any# available historical results.
+
+R-INT-5 (Update on Domain Event):: When a domain event occurs (e.g., a game ends, a score changes), the system must be updated [.removed]#accordingly. This can happen# through [.inserted]#either# automated detection [.removed]#via source polling# [.inserted]#(polling# or [.removed]#webhooks,# [.inserted]#webhooks)# or manual input by authorized users. [.removed]#The system# [.inserted]#Updates# shall [.removed]#ensure that updates are reflected# [.inserted]#be persistently recorded# in the canonical [.inserted]#data# store with [.removed]#appropriate# provenance metadata (source, [.removed]#timestamp).#
+
+[.removed]#R-INT-6 (Correction Handling):: When a correction is identified (either through automated detection of a discrepancy or manual notification), the system shall provide means to apply the correction, preserving the previous value in the audit trail. The correction shall be attributed to the source (e.g., official league, user) and timestamped.# [.inserted]#timestamp, event time per R-DOM-3).#
+
+R-INT-7 (Conflict Notification):: When the system detects conflicting reports, it shall provide means to notify appropriate personnel [.removed]#(e.g.,# via [.inserted]#dashboard, browser alerts, and mobile notifications (if installed as# a [.removed]#dashboard or alerts)# [.inserted]#PWA, see R-MAC-14)# so that manual resolution can occur if automated resolution policies are insufficient.
+
+R-INT-8 (Source Health Monitoring):: (Status Dashboard):: The system shall [.removed]#monitor the availability and responsiveness of configured sources. It shall log failures and# provide [.removed]#visibility into# [.inserted]#an administrative dashboard displaying real-time status information:# source health [.removed]#(e.g., via a status dashboard) for administrators.#
+
+[.removed]#R-INT-9 (User Attribution):: All manual changes to domain data# [.inserted]#(success/failure counts, response times, last success timestamp), request rates and response times per endpoint, conflict counts and resolution status, and system resource usage (CPU, memory, disk). The dashboard# shall be [.removed]#attributed to the authenticated user who performed the change.# [.inserted]#updated at least every 30 seconds.#
+
+R-INT-9 (Unverified Data Display):: The system shall [.removed]#record the user ID along# [.inserted]#display unverified data (from non-high-authority sources)# with [.removed]#the# [.inserted]#a clear visual indicator distinguishing it from confirmed data. Unverified data shall include visible source attribution and indicate that it may# change [.removed]#in the audit trail.# [.inserted]#when official confirmation arrives.#

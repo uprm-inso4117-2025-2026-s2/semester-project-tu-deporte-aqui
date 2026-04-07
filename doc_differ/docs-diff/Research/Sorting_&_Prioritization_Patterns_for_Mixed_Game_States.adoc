@@ -1,0 +1,140 @@
+= [.inserted]#Sorting & Prioritization Patterns for Mixed Game States#
+
+== [.inserted]#Key Structural Difference#
+
+=== [.inserted]#ESPN#
+
+[.inserted]#Ordering Pattern:#
+
+[.inserted]#. Live Games#
+[.inserted]#. Final Scores#
+[.inserted]#. Scheduled Games#
+
+[.inserted]#Observations:#
+
+* [.inserted]#Live games always appear at the top.#
+* [.inserted]#Recently completed games (Final) appear immediately after Live games.#
+* [.inserted]#Scheduled games appear last.#
+* [.inserted]#The structure prioritizes recent relevance (what just happened) over upcoming events.#
+
+[.inserted]#ESPN follows a recency-oriented ordering model.#
+
+=== [.inserted]#NBA App#
+
+[.inserted]#Ordering Pattern:#
+
+[.inserted]#. Live Games#
+[.inserted]#. Scheduled Games#
+[.inserted]#. Final Scores#
+
+[.inserted]#Observations:#
+
+* [.inserted]#Live games are consistently prioritized.#
+* [.inserted]#Upcoming games follow in chronological order.#
+* [.inserted]#Final games are placed at the bottom.#
+* [.inserted]#Emphasis is placed on current and future events.#
+
+[.inserted]#NBA follows a forward-looking ordering model.#
+
+=== [.inserted]#Real App#
+
+[.inserted]#Ordering Pattern:#
+
+[.inserted]#. Live Games#
+[.inserted]#. Scheduled Games#
+[.inserted]#. Final Scores#
+
+[.inserted]#Observations:#
+
+* [.inserted]#Same structural pattern as NBA.#
+* [.inserted]#Live games receive clear visual emphasis.#
+* [.inserted]#Scheduled games appear before completed games.#
+
+[.inserted]#Real also follows a forward-looking ordering model.#
+
+== [.inserted]#Comparative Pattern Summary#
+
+[cols="1,1,1,1,2", options="header"]
+[.inserted]#|===#
+[.inserted]#|App |Live |Scheduled |Final |Model Type#
+
+[.inserted]#|ESPN#
+[.inserted]#|1#
+[.inserted]#|3#
+[.inserted]#|2#
+[.inserted]#|Recency-Oriented#
+
+[.inserted]#|NBA#
+[.inserted]#|1#
+[.inserted]#|2#
+[.inserted]#|3#
+[.inserted]#|Forward-Looking#
+
+[.inserted]#|Real#
+[.inserted]#|1#
+[.inserted]#|2#
+[.inserted]#|3#
+[.inserted]#|Forward-Looking#
+[.inserted]#|===#
+
+[.inserted]#The table shows how different apps manage how different game states appear on screen by order of priority.#
+
+== [.inserted]#Key Patterns Identified#
+
+[.inserted]#All applications prioritize Live games at the top of the list.#
+
+[.inserted]#However, they differ in how they prioritize:#
+
+* [.inserted]#What has just finished (Final)#
+* [.inserted]#What is upcoming (Scheduled)#
+
+[.inserted]#Two dominant models emerge:#
+
+=== [.inserted]#1. Recency-Oriented (ESPN)#
+
+[.inserted]#Live → Final → Scheduled#
+
+[.inserted]#Focuses on what is happening now and what just happened.#
+
+=== [.inserted]#2. Forward-Looking (NBA & Real)#
+
+[.inserted]#Live → Scheduled → Final#
+
+[.inserted]#Focuses on what is happening now and what comes next.#
+
+== [.inserted]#Recommendation for this Project#
+
+[.inserted]#Adopt the forward-looking model:#
+
+[.inserted]#. Live games#
+[.inserted]#. Scheduled games (chronological order)#
+[.inserted]#. Final games (most recent first)#
+
+[.inserted]#Live → Scheduled → Final#
+
+[.inserted]#Rationale:#
+
+* [.inserted]#Aligns with the majority pattern (NBA and Real).#
+* [.inserted]#Keeps user attention on current and upcoming events.#
+* [.inserted]#Improves scan-ability and anticipation.#
+* [.inserted]#Reduces cognitive load by separating active, future, and completed states clearly.#
+
+== [.inserted]#Observational Evidence#
+
+=== [.inserted]#NBA#
+
+[.inserted]#NBA – NBA Official App, Mobile application, Observed February 25, 2026.#
+
+[.inserted]#image::images/nba_app_example.png[NBA App Game Ordering Example, width=300]#
+
+=== [.inserted]#Real#
+
+[.inserted]#Real – Real Sports App, Mobile application, Observed February 25, 2026.#
+
+[.inserted]#image::images/real_app_example.png[Real App Game Ordering Example, width=300]#
+
+=== [.inserted]#ESPN#
+
+[.inserted]#ESPN – ESPN Mobile Application, Mobile application, Observed February 25, 2026.#
+
+[.inserted]#image::images/espn_app_example.png[ESPN App Game Ordering Example, width=300]#

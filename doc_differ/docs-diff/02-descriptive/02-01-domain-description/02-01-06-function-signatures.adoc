@@ -1,0 +1,217 @@
+
+==== [.removed]#2.1.6# [.inserted]##2.1.6# Function [.removed]#Signatures (Pseudocode at the moment, Not Event-Tied)#
+
+[.removed]#These# [.inserted]#Signatures##
+
+[.inserted]##These function# signatures [.removed]#describe what information is needed# [.inserted]#are tied directly# to [.removed]#perform key actions# [.inserted]#the action groups described# in [.removed]#*Tu Deporte Aquí*#
+[.inserted]#Section 2.1.5. They stay at the domain level# and [.removed]#what state is produced# [.inserted]#use the concepts already#
+[.inserted]#present in the document, rather than storage-oriented# or [.removed]#changed. The design is intentionally modular so it can be extended later without committing to a specific architecture since we don't have one decided yet.#
+
+===== [.removed]#Core Records (state holders)#
+
+* [.removed]#SourceRegistry: configured sources and basic health metadata#
+* [.removed]#RawArchive: stored raw snapshots from sources (for traceability)#
+* [.removed]#UpdateStore: stored normalized updates with provenance#
+* [.removed]#CanonicalStore: current best-known# [.inserted]#architecture-specific#
+[.inserted]#types.##
+
+[.inserted]#Notation uses the form:#
+
+[.inserted]#functionName : InputTypes -> OutputTypes#
+
+[.inserted]#Where multiple outputs indicate updated# state [.removed]#(games, standings, athlete updates)#
+* [.removed]#ConflictQueue: unresolved conflicts that need resolution#
+* [.removed]#StatusBoard: user-facing status# and [.removed]#reliability messages# [.inserted]#produced results.#
+
+===== [.inserted]##E1 Actions (Report Received)##
+
+[.inserted]##buildReliabilityMetadata :##
+[.inserted]###    Source [.removed]#Configuration#
+
+[.removed]#registerSource(SourceRegistry, SourceConfig) -> SourceRegistry#
+
+[.removed]#updateSourceConfig(SourceRegistry, SourceId, SourceConfig) -> SourceRegistry#
+
+[.removed]#removeSource(SourceRegistry, SourceId) -> SourceRegistry#
+
+[.removed]#listSources(SourceRegistry)# [.inserted]#Type >< Publish Time >< Last Updated Time##
+[.inserted]###    -> [.removed]#List<SourceConfig>#
+
+===== [.removed]#Fetching and Snapshot Storage#
+
+[.removed]#fetchSnapshot(SourceRegistry, SourceId, FetchOptions)# [.inserted]#Reliability Metadata##
+
+[.inserted]##Creates the reliability metadata attached to a newly received report.##
+
+[.inserted]##classifyVerificationStatus :##
+[.inserted]##    Source Type >< Reliability Metadata##
+[.inserted]###    -> [.removed]#(SourceRegistry, Snapshot# [.inserted]#Confirmed# or [.removed]#FetchError)#
+
+[.removed]#storeSnapshot(RawArchive, Snapshot) -> (RawArchive, SnapshotId)#
+
+[.removed]#getSnapshot(RawArchive, SnapshotId)# [.inserted]#Unverified or Developing##
+
+[.inserted]##Determines the initial verification status of the reported information.##
+
+[.inserted]##assignConfidenceLevel :##
+[.inserted]##    Source Type >< Confirmed or Unverified or Developing##
+[.inserted]###    -> [.removed]#Snapshot# [.inserted]#High Confidence# or [.removed]#None# [.inserted]#Medium Confidence or Low Confidence##
+
+[.inserted]##Determines the initial confidence level of the reported information.##
+
+===== [.removed]#Parsing and Normalization#
+
+[.removed]#normalizeSnapshot(Snapshot, ParseOptions) -> (List<NormalizedUpdate>, Diagnostics)#
+
+[.removed]#storeUpdates(UpdateStore, List<NormalizedUpdate>)# [.inserted]##E2 Actions (Live Match State Updated)##
+
+[.inserted]##recordLiveStateUpdate :##
+[.inserted]##    Source Type >< Last Updated Time >< Reliability Metadata##
+[.inserted]###    -> [.removed]#(UpdateStore, List<UpdateId>)#
+
+[.removed]#getUpdate(UpdateStore, UpdateId)# [.inserted]#Reliability Metadata##
+
+[.inserted]##Records the reliability context of a live-match state update.##
+
+[.inserted]##recordManualOverride :##
+[.inserted]##    Source Type >< Publish Time >< Last Updated Time >< Reliability Metadata##
+[.inserted]###    -> [.removed]#NormalizedUpdate# [.inserted]#Corrected >< Reliability Metadata##
+
+[.inserted]##Records a manual override as a traced correction when local updates are#
+[.inserted]#irregular# or [.removed]#None# [.inserted]#late.##
+
+===== [.removed]#Canonical Merge (best-known current state)#
+
+[.removed]#applyUpdate(CanonicalStore, NormalizedUpdate, MergePolicy) -> (CanonicalStore, Conflict# [.inserted]##E3 Actions (Data Missing# or [.removed]#None, Diagnostics)#
+
+[.removed]#applyUpdateBatch(CanonicalStore, List<NormalizedUpdate>, MergePolicy) -> (CanonicalStore, List<Conflict>, Diagnostics)#
+
+[.removed]#getCanonical(CanonicalStore, EntityKey)# [.inserted]#Partial Coverage Detected)##
+
+[.inserted]##classifyPartialCoverage :##
+[.inserted]##    Reliability Metadata >< Last Updated Time##
+[.inserted]###    -> [.removed]#CanonicalEntity# [.inserted]#Developing# or [.removed]#None#
+
+[.removed]#storeCanonical(CanonicalStore, CanonicalEntity)# [.inserted]#Delayed##
+
+[.inserted]##Determines whether incomplete coverage should be treated as still developing#
+[.inserted]#or already delayed.##
+
+[.inserted]##preserveLastKnownMetadata :##
+[.inserted]##    Reliability Metadata##
+[.inserted]###    -> [.removed]#CanonicalStore# [.inserted]#Reliability Metadata##
+
+[.inserted]##Preserves the last known reliability context when current coverage is partial#
+[.inserted]#or incomplete.##
+
+===== [.removed]#Conflict Handling#
+
+[.removed]#enqueueConflicts(ConflictQueue, List<Conflict>)# [.inserted]##E4 Actions (Conflict Detected)##
+
+[.inserted]##detectConflict :##
+[.inserted]##    Reliability Metadata >< Reliability Metadata##
+[.inserted]###    -> [.removed]#ConflictQueue#
+
+[.removed]#listConflicts(ConflictQueue)# [.inserted]#Conflicting or Confirmed##
+
+[.inserted]##Determines whether two reported values remain mutually consistent or enter a#
+[.inserted]#conflicting state.##
+
+[.inserted]##lowerConfidenceAfterConflict :##
+[.inserted]##    Conflicting##
+[.inserted]###    -> [.removed]#List<Conflict>#
+
+[.removed]#resolveConflictAuto(ConflictQueue, CanonicalStore, ConflictId, MergePolicy)# [.inserted]#Low Confidence##
+
+[.inserted]##Lowers confidence when a conflict remains unresolved.##
+
+[.inserted]##revalidateConflictingInformation :##
+[.inserted]##    Conflicting >< Source Type##
+[.inserted]###    -> [.removed]#(ConflictQueue, CanonicalStore, CanonicalEntity# [.inserted]#Confirmed# or [.removed]#ResolveError, Diagnostics)#
+
+[.removed]#resolveConflictManual(ConflictQueue, CanonicalStore, ConflictId, ResolutionDecision)#
+[.removed]#  -> (ConflictQueue, CanonicalStore, CanonicalEntity)# [.inserted]#Conflicting or Unverified##
+
+[.inserted]##Re-evaluates a conflicting report when further source information arrives.##
+
+===== [.inserted]##E5 Actions (Data Becomes Stale)##
+
+[.inserted]##markAsDelayed :##
+[.inserted]###    Reliability [.removed]#Indicators and Degraded Messaging#
+
+[.removed]#computeReliability(CanonicalStore, UpdateStore, EntityKey, ReliabilityPolicy)# [.inserted]#Metadata >< Last Updated Time##
+[.inserted]###    -> [.removed]#(ReliabilityIndicator, Diagnostics)#
+
+[.removed]#setSystemStatus(StatusBoard, SystemStatus)# [.inserted]#Delayed >< Reliability Metadata##
+
+[.inserted]##Marks information as delayed when the freshness threshold has been exceeded.##
+
+[.inserted]##preserveLastKnownReliabilityMetadata :##
+[.inserted]##    Delayed >< Reliability Metadata##
+[.inserted]###    -> [.removed]#StatusBoard#
+
+[.removed]#annotateEntityStatus(StatusBoard, EntityKey, ReliabilityIndicator)# [.inserted]#Reliability Metadata##
+
+[.inserted]##Keeps the last known reliability context visible after data becomes stale.##
+
+===== [.inserted]##E6 Actions (Correction Published)##
+
+[.inserted]##recordCorrection :##
+[.inserted]##    Reliability Metadata >< Publish Time >< Last Updated Time##
+[.inserted]###    -> [.removed]#StatusBoard#
+
+[.removed]#buildPublicView(CanonicalStore, StatusBoard, EntityKey)# [.inserted]#Corrected >< Reliability Metadata##
+
+[.inserted]##Records that previously published information has been corrected and updates#
+[.inserted]#its reliability metadata.##
+
+[.inserted]##explainCorrection :##
+[.inserted]##    Corrected##
+[.inserted]###    -> [.removed]#PublicView or None# [.inserted]#Reliability Metadata##
+
+[.inserted]##Associates correction status with the metadata shown to users.##
+
+===== [.removed]#User-Facing Queries#
+
+[.removed]#getGame(CanonicalStore, GameId) -> GameView or None#
+
+[.removed]#getStandings(CanonicalStore, StandingsKey)# [.inserted]##E7 Actions (Source Outage / Unavailable Source)##
+
+[.inserted]##enterDegradedState :##
+[.inserted]##    Reliability Metadata##
+[.inserted]###    -> [.removed]#StandingsView or None#
+
+[.removed]#getAthleteUpdates(CanonicalStore, AthleteId)# [.inserted]#Degraded State##
+
+[.inserted]##Records that the system has entered a degraded state because source support#
+[.inserted]#is insufficient.##
+
+[.inserted]##maintainGracefulDegradation :##
+[.inserted]##    Degraded State >< Reliability Metadata##
+[.inserted]###    -> [.removed]#List<AthleteUpdateView>#
+
+[.removed]#searchCanonical(CanonicalStore, SearchQuery)# [.inserted]#Graceful Degradation##
+
+[.inserted]##Keeps the system usable by preserving the last known reliability context#
+[.inserted]#under partial failure.##
+
+[.inserted]##avoidSilentFailure :##
+[.inserted]##    Degraded State >< Reliability Metadata##
+[.inserted]###    -> [.removed]#List<PublicView># [.inserted]#Graceful Degradation##
+
+[.inserted]##Requires failure to be communicated through visible degraded behavior rather#
+[.inserted]#than silent omission.##
+
+===== [.removed]#Maintenance# [.inserted]##Note on Scope##
+
+[.inserted]##These signatures stay with the actions described in Section 2.1.5# and [.removed]#Extensibility Hooks#
+
+[.removed]#recomputeAllReliability(CanonicalStore, UpdateStore, StatusBoard, ReliabilityPolicy)#
+[.removed]#  -> (StatusBoard, Diagnostics)#
+
+[.removed]#rebuildCanonicalFromUpdates(CanonicalStore, UpdateStore, MergePolicy)#
+[.removed]#  -> (CanonicalStore, Diagnostics)# [.inserted]#focus#
+[.inserted]#on the conceptual relationship each action creates or changes. Storage#
+[.inserted]#structures, archives, queues, and other implementation-oriented records were#
+[.inserted]#removed from this section because they belong to implementation, not to the#
+[.inserted]#domain-level action view.##

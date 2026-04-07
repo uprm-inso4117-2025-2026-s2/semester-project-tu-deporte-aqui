@@ -1,0 +1,51 @@
+== [.inserted]#Verification vs Validation#
+
+=== [.inserted]#Overview#
+
+[.inserted]#Verification checks whether the system's data is correct and consistent. Validation checks whether that data is reliable enough to show to users.#
+
+=== [.inserted]#Importance#
+
+[.inserted]#In Tu Deporte Aqui, both matter because sports data can be delayed, incomplete, or conflicting. A score can match across sources and still be too old or too uncertain to show as reliable information.#
+
+=== [.inserted]#Common Cases#
+
+- [.inserted]#Two sources report the same score, but the update is old#
+- [.inserted]#Team names match, but the record points to the wrong game#
+- [.inserted]#A game status is shown, but it does not match the current state#
+- [.inserted]#Data appears complete, but the source is unclear#
+
+=== [.inserted]#Application to Tu Deporte Aqui#
+
+[.inserted]#The system should:#
+
+- [.inserted]#Verify that scores, teams, and game states are consistent across records#
+- [.inserted]#Detect missing, duplicated, or conflicting data values#
+- [.inserted]#Validate that shown information is current enough to use#
+- [.inserted]#Mark uncertain information before presenting it as confirmed#
+
+=== [.inserted]#Example Scenario#
+
+[cols="1,2,2,2"]
+[.inserted]#|===#
+[.inserted]#| Scenario | Verification Check | Validation Check | Expected Behavior#
+
+[.inserted]#| Live score update#
+[.inserted]#| Confirm both sources report the same score#
+[.inserted]#| Confirm the update is recent enough to use#
+[.inserted]#| Show the score with its latest timestamp#
+
+[.inserted]#| Scheduled match listing#
+[.inserted]#| Confirm teams and date match across records#
+[.inserted]#| Confirm the listing refers to the correct event for users#
+[.inserted]#| Show the match only when identity is clear#
+
+[.inserted]#| Final result report#
+[.inserted]#| Confirm result values are consistent#
+[.inserted]#| Confirm the report before marking it final#
+[.inserted]#| Flag uncertainty instead of showing a final result too early#
+[.inserted]#|===#
+
+=== [.inserted]#Conclusion#
+
+[.inserted]#Verification checks the data itself. Validation checks whether the data is ready to present to users. Tu Deporte Aqui needs both checks before showing sports information as reliable.#

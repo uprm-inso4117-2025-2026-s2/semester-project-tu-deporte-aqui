@@ -1,0 +1,147 @@
+=== 1.5 Derived Goals
+
+===== Purpose
+
+The following goals are derived from the [.removed]#identified# current situation, [.removed]#system# [.inserted]#identified# needs, and proposed ideas for Tu Deporte Aquí. These goals [.removed]#translate contextual analysis into structured and actionable objectives that guide documentation, reliability modeling, and future implementation.#
+
+[.removed]#These goals serve as a bridge between# [.inserted]#represent intended directions for# the [.removed]#Informative Part# [.inserted]#system rather than strict requirements.#
+
+[.inserted]#They help guide design decisions# and [.inserted]#ensure that implementation remains aligned with# the [.removed]#Descriptive and Analytic sections# [.inserted]#realities# of [.removed]#the document.# [.inserted]#local sports data.#
+
+===== Reliability Goals
+
+====== G1 – Conflict-Aware Data Handling
+
+The system [.removed]#shall explicitly detect and manage# [.inserted]#is expected to handle# conflicting sports data [.removed]#received# from multiple sources.
+
+This [.removed]#includes:# [.inserted]#involves:#
+
+- [.removed]#Identifying# [.inserted]#Detecting# inconsistencies across sources
+- [.removed]#Flagging# [.inserted]#Distinguishing between confirmed and# provisional values
+- [.removed]#Preserving traceability of overrides# [.inserted]#Allowing updates to replace earlier information when needed#
+
+This goal [.removed]#ensures reliability under# [.inserted]#reflects the nature of# informal [.removed]#and semi-structured# data [.removed]#conditions.# [.inserted]#sources where discrepancies are common.#
+
+====== G2 – Correction Transparency
+
+The system [.removed]#shall support traceability of corrections# [.inserted]#should make it possible# to [.removed]#scores, standings,# [.inserted]#understand how# and [.removed]#game statuses.# [.inserted]#why data changes over time.#
+
+This includes:
+
+- [.removed]#Tracking# [.inserted]#Identifying the# source [.removed]#attribution# [.inserted]#of updates#
+- Recording [.removed]#update timestamps# [.inserted]#when changes occur#
+- Maintaining [.removed]#lightweight audit# [.inserted]#a simple# history [.removed]#for critical# [.inserted]#of important# fields
+
+This [.removed]#goal enables reconstruction of data changes and improves accountability.# [.inserted]#supports traceability without requiring complex tracking systems.#
+
+===== Transparency Goals
+
+====== G3 – User-Facing Uncertainty Indicators
+
+The system [.removed]#shall clearly# [.inserted]#should# communicate when information [.removed]#is provisional, stale, incomplete, or unverified.# [.inserted]#may not be fully reliable.#
+
+This includes:
+
+- [.removed]#Displaying# [.inserted]#Showing# last update [.removed]#time# [.inserted]#times#
+- [.removed]#Showing# [.inserted]#Indicating when# data [.removed]#confidence indicators# [.inserted]#may be outdated or provisional#
+- Providing context [.removed]#for conflicting information# [.inserted]#when sources conflict#
+
+This [.removed]#goal strengthens user trust and informed interpretation# [.inserted]#helps users interpret the information instead# of [.removed]#data.# [.inserted]#assuming it is always correct.#
+
+====== G4 – Explicit Assumption [.removed]#Documentation# [.inserted]#Awareness#
+
+The system [.removed]#shall clearly document operational assumptions, including:# [.inserted]#is expected to operate under known limitations, such as:#
+
+- [.removed]#Limited or no# [.inserted]#Lack of# official APIs
+- Reliance on [.removed]#websites and social media# [.inserted]#informal sources#
+- [.removed]#Potential delays# [.inserted]#Delays# in [.removed]#live# updates
+
+[.removed]#This goal prevents# [.inserted]#Making these assumptions visible helps avoid# unrealistic [.removed]#expectations and scope ambiguity.# [.inserted]#expectations.#
+
+===== Availability Goals
+
+====== G5 – Graceful Degradation
+
+The system [.removed]#shall remain operational# [.inserted]#should continue to function# even when [.removed]#one or more# data [.removed]#sources are unavailable.# [.inserted]#is incomplete or delayed.#
+
+This includes:
+
+- [.removed]#Serving cached or# [.inserted]#Displaying# previously [.removed]#validated# [.inserted]#available# data [.inserted]#when updates fail#
+- Avoiding [.removed]#complete# [.inserted]#full# system failure due to [.removed]#partial outages# [.inserted]#missing information#
+- [.removed]#Providing transparency# [.inserted]#Informing users# when [.removed]#updates are delayed# [.inserted]#data may not be current#
+
+This goal [.removed]#ensures resilience in a low-structure data environment.# [.inserted]#prioritizes usability over completeness.#
+
+===== Scope and Boundary Goals
+
+====== G6 – Local League Focus
+
+The system [.removed]#shall# [.inserted]#is intended to# focus [.removed]#exclusively# on local Puerto Rico sports [.removed]#leagues during initial development phases.#
+
+[.removed]#National and international leagues are explicitly out of scope.# [.inserted]#leagues.#
+
+This [.removed]#goal prevents# [.inserted]#keeps the# scope [.removed]#creep# [.inserted]#manageable# and [.removed]#ensures realistic milestone alignment.# [.inserted]#aligned with available data.#
+
+====== G7 – Mobile-First Design Alignment
+
+[.removed]#All documentation and feature definitions shall assume# [.inserted]#The system is expected to prioritize# a mobile-first [.removed]#user# experience.
+
+This includes:
+
+- [.removed]#Compact UI messaging#
+- [.removed]#Clear visual indicators#
+- [.removed]#Prioritized# [.inserted]#Presenting# essential information [.inserted]#clearly#
+- [.inserted]#Keeping layouts simple and readable#
+- [.inserted]#Ensuring#
+
+[.removed]#This goal ensures# usability [.removed]#consistency# across [.removed]#teams.# [.inserted]#different screen sizes#
+
+[.inserted]#This reflects how users are likely to access the platform.#
+
+===== Trust and Governance Goals
+
+====== G8 – Structured [.removed]#Documentation Before Implementation# [.inserted]#Development Approach#
+
+The project [.removed]#shall fully define system behavior, constraints,# [.inserted]#aims to maintain clear structure in both documentation# and [.removed]#uncertainty scenarios before any code is written.# [.inserted]#implementation.#
+
+This includes:
+
+- [.removed]#Explicit failure scenario modeling# [.inserted]#Keeping system behavior well-defined#
+- [.removed]#Defined# [.inserted]#Maintaining# traceability [.removed]#strategies# [.inserted]#of changes#
+- [.removed]#Clearly structured# [.inserted]#Updating# documentation [.removed]#scaffold# [.inserted]#alongside development#
+
+This [.removed]#goal aligns with Milestone 1’s emphasis on documentation-first engineering.# [.inserted]#supports consistency as the system evolves.#
+
+====== G9 – PR-Driven [.removed]#Accountability#
+
+[.removed]#All contributions shall be# [.inserted]#Collaboration#
+
+[.inserted]#The team is expected to continue using# issue-based [.inserted]#work# and [.removed]#integrated through# pull request [.removed]#review with CI validation.# [.inserted]#review.#
+
+This [.removed]#ensures:# [.inserted]#helps:#
+
+- [.removed]#Traceability of# [.inserted]#Track# changes [.inserted]#over time#
+- [.removed]#Quality control# [.inserted]#Ensure work is reviewed before merging#
+- [.removed]#Structured collaboration# [.inserted]#Maintain coordination across teams#
+
+===== [.removed]#Measurability and Verification# Considerations
+
+[.inserted]#These goals are not strict requirements but reference points that guide development decisions.#
+
+[.inserted]#As implementation progresses, some of these goals may be refined or translated into more specific requirements.#
+
+===== [.inserted]#Conclusion#
+
+These derived goals [.removed]#are conceptually verifiable through:#
+
+- [.removed]#Documentation completeness review#
+- [.removed]#Explicit modeling of failure scenarios#
+- [.removed]#Inclusion of uncertainty indicators in design descriptions#
+- [.removed]#Defined traceability metadata models#
+- [.removed]#Milestone alignment checks#
+
+[.removed]#Future implementation phases will operationalize these goals through structured requirements and validation strategies.#
+
+===== [.removed]#Conclusion#
+
+[.removed]#The derived goals formalize# [.inserted]#provide direction for# Tu Deporte [.removed]#Aquí’s commitment to reliability, transparency, scope discipline, and structured engineering practices.# [.inserted]#Aquí while allowing flexibility during implementation.# They [.removed]#ensure that system design decisions remain aligned with real-world# [.inserted]#reflect the# constraints of local sports data and [.removed]#the Milestone 1 requirement of documentation-first development.# [.inserted]#help keep development aligned with realistic expectations.#

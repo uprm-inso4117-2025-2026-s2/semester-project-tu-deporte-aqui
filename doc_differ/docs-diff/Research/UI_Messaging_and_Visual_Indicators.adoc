@@ -1,0 +1,177 @@
+= [.inserted]#UI Messaging and Visual Indicators for Unverified or Provisional Live Data#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#1. Analysis of Sports Apps#
+
+[.inserted]#Three sports apps were analyzed to understand how they display provisional or live data:#
+
+* [.inserted]#ESPN#
+* [.inserted]#Flashscore#
+* [.inserted]#CBS Sports#
+
+---
+
+=== [.inserted]#ESPN#
+
+* Live Games::
+[.inserted]#  Red font in a box on the right side shows time remaining in the quarter or half.#
+
+* Final Games::
+[.inserted]#  Box displays "Final" in white font.#
+
+* Delayed/Upcoming Games::
+[.inserted]#  Gray font shows scheduled start time.#
+
+* Last Updated Features::
+[.inserted]#  No explicit timestamp, but page auto-refreshes (e.g., football/soccer game updates from minute 90+3 to Final).#
+
+* Data Source::
+[.inserted]#  Not explicitly shown; likely internal system.#
+
+---
+
+=== [.inserted]#Flashscore#
+
+* Live Games::
+[.inserted]#  Red rectangle with time remaining and score.#
+
+* Final Games::
+[.inserted]#  Score displayed in white font.#
+
+* Delayed/Upcoming Games::
+[.inserted]#  Start time shown in gray font.#
+
+* Last Updated Features::
+[.inserted]#  No explicit timestamp, but live data auto-refreshes (time decreases and score updates).#
+
+* Data Source::
+[.inserted]#  Not displayed.#
+
+---
+
+=== [.inserted]#CBS Sports#
+
+* Live Games::
+[.inserted]#  Blue font (top-left corner) shows time remaining.#
+
+* Final Games::
+[.inserted]#  "Final" displayed in white font in the same position.#
+
+* Upcoming Games::
+[.inserted]#  Scheduled start time in gray font.#
+
+* Last Updated Features::
+[.inserted]#  No live game observed during research; auto-refresh could not be tested.#
+
+* Data Source::
+[.inserted]#  Not displayed.#
+
+---
+
+== [.inserted]#2. UI Patterns for Unverified / Delayed Data#
+
+=== [.inserted]#Pattern 1: Status Badge / Tag#
+
+* Description::
+[.inserted]#  Small colored label or chip next to the score indicating reliability (e.g., "Provisional", "Delayed").#
+
+* Use Case::
+[.inserted]#  Used when data comes from unconfirmed or secondary sources.#
+
+* Source::
+[.inserted]#  https://www.smashingmagazine.com/2025/09/ux-strategies-real-time-dashboards#
+
+---
+
+=== [.inserted]#Pattern 2: Last Updated Timestamp#
+
+* Description::
+[.inserted]#  Displays time of last update (e.g., "Updated 2 min ago").#
+
+* Use Case::
+[.inserted]#  Helps users understand data freshness and detect delays.#
+
+* Source::
+[.inserted]#  https://www.smashingmagazine.com/2025/09/ux-strategies-real-time-dashboards#
+
+---
+
+=== [.inserted]#Pattern 3: Visual State Indicator (Color + Icon)#
+
+* Description::
+[.inserted]#  Color-coded indicators to represent data confidence:#
+
+* [.inserted]#Green ✔ → Verified#
+* [.inserted]#Yellow ⚠ → Provisional#
+* [.inserted]#Red ! → Conflicted#
+
+* Use Case::
+[.inserted]#  Allows users to quickly interpret reliability.#
+
+* Source::
+[.inserted]#  https://medium.com/design-group-italia/building-user-trust-in-data-d6b943e2c00f#
+
+---
+
+== [.inserted]#3. Conflict Handling Strategy#
+
+* Trigger::
+[.inserted]#  When multiple sources report conflicting scores or game data.#
+
+* User Message::
+[.inserted]#  "Scores from multiple sources are inconsistent. Awaiting official confirmation."#
+
+* Visual Indicator::
+[.inserted]#  Warning icon (yellow/red) + "Conflicted" badge.#
+
+* System Behavior::
+* [.inserted]#Freeze displayed score#
+* [.inserted]#Continue polling all sources#
+* [.inserted]#Update automatically once confirmed#
+
+* Source Insight::
+[.inserted]#  https://medium.com/design-group-italia/building-user-trust-in-data-d6b943e2c00f#
+
+---
+
+== [.inserted]#4. Source Attribution Standard (Mobile-First)#
+
+* Placement::
+[.inserted]#  Below score in small readable text.#
+
+* Format::
+[.inserted]#  "Data Source: @ProviderName"#
+
+* Behavior Rules::
+* [.inserted]#Always visible for live games#
+* [.inserted]#Append "(Provisional)" if unverified#
+* [.inserted]#If multiple sources exist → show primary source only#
+
+* Source Insight::
+[.inserted]#  https://medium.com/design-group-italia/building-user-trust-in-data-d6b943e2c00f#
+
+---
+
+== [.inserted]#5. Screenshots#
+
+=== [.inserted]#ESPN Screenshot#
+
+[.inserted]#image::images/espn-1.png[ESPN Screenshot]#
+[.inserted]#image::images/espn-2.png[ESPN Screenshot]#
+
+---
+
+=== [.inserted]#Flashscore Screenshot#
+
+[.inserted]#image::images/flashscore-1.png[Flashscore Screenshot]#
+[.inserted]#image::images/flashscore-2.png[Flashscore Screenshot]#
+[.inserted]#image::images/flashscore-3.png[Flashscore Screenshot]#
+
+---
+
+=== [.inserted]#CBS Sports Screenshot#
+
+[.inserted]#image::images/cbs-1.png[CBS Sports Screenshot]#
+[.inserted]#image::images/cbs-2.png[CBS Sports Screenshot]#

@@ -1,0 +1,112 @@
+
+=== 4.3 Use of Debugging
+
+===== Purpose
+
+This section outlines the expected debugging practices that will support reliability and transparency in Tu Deporte Aquí. Debugging will help verify that the system correctly handles conflicting data, [.removed]#delayed# [.inserted]#stale# updates, and source failures—key reliability concerns identified in our prior A3 submission. These scenarios represent the types of debugging sessions we expect to conduct during implementation.
+
+===== Role of Debugging
+
+Debugging provides visibility into data flows, especially when sources disagree or updates arrive late. It allows us to examine failure paths before they reach users.
+
+Key contributions:
+
+- Verify conflict detection [.removed]#logic# [.inserted]#logic: ensures inconsistent scores don't confuse fans.#
+- Confirm staleness thresholds trigger transparency [.removed]#indicators# [.inserted]#indicators: shows users how fresh the data is.#
+- Inspect state during partial source [.removed]#failures# [.inserted]#failures: helps maintain service even if some sources fail.#
+- Validate degraded mode [.removed]#messaging# [.inserted]#messaging: informs users when data is limited or unavailable.#
+
+===== Debugging Environment
+
+All scenarios use:
+
+- **Browser DevTools** for frontend inspection and network analysis
+- **IDE debugger** for backend code examination
+- **Debug console** for expression evaluation during breakpoints
+
+===== Expected Debugging Scenarios
+
+The following scenarios represent examples of debugging sessions we plan to conduct during implementation to validate core system behaviors. Each scenario identifies a reliability concern, describes the hypothesis we will test, and outlines which debugging techniques will help us verify the behavior.
+
+===== Scenario 1: [.removed]#Conflict Detection in# Score [.removed]#Merging# [.inserted]#Display with Missing Data#
+
+*Hypothesis*: [.removed]#`mergeGameData` might overwrite conflicting# [.inserted]#When one of the# scores [.removed]#without flagging# [.inserted]#is missing,# the [.removed]#disagreement.#
+
+[.removed]#*Planned# [.inserted]#system should display "Score unavailable" instead of an incorrect score, making sure fans are not mislead by incomplete data.#
+
+[.inserted]#*Debugging# Session*:
+
+- [.removed]#Set# [.inserted]#A# breakpoint [.inserted]#was set# inside [.removed]#`mergeGameData` at source comparison logic.# [.inserted]#`buildDisplayGame` before the return statement.#
+- [.removed]#Create# [.inserted]#A# test [.removed]#case: official site (21–14) vs social media (24–14).# [.inserted]#case was executed with `homeScore = null` and `awayScore = 75`.#
+- [.removed]#Use# [.inserted]#The debugger was stepped into `isScoreComplete` to verify how completeness was evaluated.#
+- [.inserted]#The# **watch panel** [.inserted]#was used# to [.removed]#monitor `existingGame.score`, `newSourceData.score`, `sourcePriority`.# [.inserted]#inspect `homeScore`, `awayScore`, and `scoreComplete`.#
+- [.removed]#Step through# [.inserted]#Execution continued into `formatScore`# to [.removed]#verify whether merging correctly stores conflicting values or silently overwrites.#
+
+[.removed]#*Expected Outcome*: This debugging will# confirm whether [.removed]#conflict detection logic is# [.inserted]#it was called.#
+
+[.inserted]#*Observed Outcome*:#
+
+- [.inserted]#It was observed that `isScoreComplete` returned `false` when `homeScore` was `null`.#
+- [.inserted]#As a result, `formatScore` was not executed.#
+- [.inserted]#The value `"Score unavailable"` was# correctly [.removed]#implemented. If conflicts are being silently overwritten, we will need# [.inserted]#assigned# to [.removed]#implement a separate conflict tracking queue.# [.inserted]#`displayScore`.#
+
+===== Scenario 2: Staleness Threshold Behavior
+
+*Hypothesis*: Data older than [.removed]#15# [.inserted]#10# minutes during live play should be marked [.removed]#`Delayed`# [.inserted]#`Stale`# and shown in UI. [.inserted]#fans want fresh data, older information should be marked stale.#
+
+[.inserted]#*Debugging#
+
+[.removed]#*Planned# Session*:
+
+- [.removed]#Set conditional# [.inserted]#A# breakpoint [.removed]#in `evaluateFreshness` (only when `game.status === "Live"`).# [.inserted]#was set inside `isStaleTimestamp`.#
+- [.removed]#Simulate 18‑minute data freeze using browser DevTools network throttling.# [.inserted]#A test case was executed with a timestamp older than 20 minutes.#
+- [.removed]#Use **debug console**# [.inserted]#The **watch panel** was used# to [.removed]#evaluate `Date.now() - game.lastUpdated.getTime()`# [.inserted]#monitor `lastUpdatedDate`, `now`,# and [.removed]#verify it exceeds 900,000 ms.# [.inserted]#`diffMinutes`.#
+- Step [.removed]#into helper function# [.inserted]#through# to [.removed]#confirm `StalenessLevel.DELAYED` is returned.#
+- [.removed]#Check API response contains `freshness: "Delayed"` and verify UI badge renders correctly.#
+
+[.removed]#*Expected Outcome*: This debugging will# verify that [.removed]#staleness detection works end-to-end across backend evaluation, API response, and frontend rendering. If any layer fails# [.inserted]#`diffMinutes` exceeds `thresholdMinutes`.#
+- [.inserted]#The **debug console** was used# to [.removed]#communicate staleness, we will identify# [.inserted]#evaluate `now - lastUpdatedDate` in milliseconds.#
+
+[.inserted]#*Observed Outcome*:#
+
+- [.inserted]#The calculated `diffMinutes` exceeded# the [.removed]#breakpoint and fix it.# [.inserted]#threshold value.#
+- [.inserted]#The function returned `true`, indicating stale data.#
+
+===== Scenario 3: [.removed]#Source Outage and Degraded Mode# [.inserted]#Full Workflow Integration#
+
+*Hypothesis*: [.removed]#When a source times out, the system falls back# [.inserted]#`buildDisplayGame` correctly integrates all utility functions# to [.removed]#cached data and updates status board without crashing.#
+
+[.removed]#*Planned# [.inserted]#produce a consistent UI-ready object.#
+
+[.inserted]#*Debugging# Session*:
+
+- [.removed]#Set# [.inserted]#A# breakpoint [.removed]#in source fetcher `catch` block.# [.inserted]#was set at the beginning of `buildDisplayGame`.#
+- [.removed]#Inject 30‑second timeout fault to simulate source outage.# [.inserted]#A complete game object was passed with valid scores, status, and timestamp.#
+- [.removed]#Use# [.inserted]#The debugger stepped into each helper function: `mapGameStatus`, `isScoreComplete`, and `isStaleTimestamp`.#
+- [.inserted]#The# **call [.removed]#stack inspection**# [.inserted]#stack** was inspected# to trace [.removed]#propagation to coordinator and verify `getCachedGames` is invoked.# [.inserted]#execution flow across functions.#
+- [.removed]#Use# [.inserted]#The# **watch panel** [.inserted]#was used# to [.removed]#confirm `sourceHealthStatus` and `fallbackTriggered` are updated correctly.#
+- [.removed]#Verify `setSystemStatus` is called with `DegradedState.SOURCE_UNAVAILABLE`.#
+
+[.removed]#*Expected# [.inserted]#monitor intermediate values.#
+
+[.inserted]#*Observed# Outcome*: [.removed]#This debugging will confirm that degraded mode activates cleanly without crashes#
+
+- [.inserted]#Each helper function returned expected values.#
+- [.inserted]#`scoreComplete` was `true`,# and [.removed]#that cached data is served with transparency messaging. If any error handling is missing, we will identify the gap in# [.inserted]#`formatScore` produced# the [.removed]#source fetcher or coordinator.# [.inserted]#correct formatted score.#
+- [.inserted]#The final object contained consistent and expected values for all fields.#
+
+===== Integration with Testing
+
+Debugging will complement automated tests during implementation:
+
+- When reliability tests fail, we will debug to inspect intermediate state.
+- We will explore edge cases difficult to capture in tests.
+- We will validate behavior before writing acceptance tests.
+
+===== Alignment with Project Goals
+
+Defining debugging practices early establishes clear expectations for behavior examination during development. These scenarios directly support the reliability and transparency focus of our A3, enabling us to systematically verify that fault-injection and stress-testing practices are working as intended.
+
+===== Conclusion
+
+Debugging will be a critical tool for ensuring Tu Deporte Aquí behaves predictably under uncertainty. By examining conflict detection, staleness, and degraded mode during implementation, we will build confidence that reliability requirements are verifiable and reducible to testable code behavior.

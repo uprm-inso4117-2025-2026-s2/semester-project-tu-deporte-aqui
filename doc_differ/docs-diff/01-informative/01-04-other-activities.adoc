@@ -1,0 +1,118 @@
+=== 1.4 Other Activities than Development
+
+===== Purpose
+
+[.removed]#Milestone 1 of Tu Deporte Aquí emphasizes documentation, research, and structured system preparation rather than implementation.# This section describes the non-development activities that [.removed]#contribute to system reliability, transparency, and organized collaboration.#
+
+[.removed]#These activities ensure that# [.inserted]#support# the [.removed]#project evolves through disciplined engineering practices before any source code is written.#
+
+===== [.removed]#Research Activities#
+
+[.removed]#Research plays a central role in# [.inserted]#implementation of Tu Deporte Aquí.#
+
+[.inserted]#While# Milestone [.removed]#1. Key# [.inserted]#1 focused on# research [.removed]#efforts include:#
+
+- [.removed]#Investigating reliability strategies for conflicting# and [.removed]#delayed sports data#
+- [.removed]#Defining scope boundaries# [.inserted]#documentation, the current milestone emphasizes implementation. However, supporting activities such as documentation, coordination,# and [.removed]#out-of-scope conditions#
+- [.removed]#Exploring data lineage# [.inserted]#workflow management remain necessary to ensure consistency# and [.removed]#audit trail strategies#
+- [.removed]#Studying transparency indicators for uncertain information#
+- [.removed]#Analyzing requirements classification (functional vs non-functional)# [.inserted]#integration across teams.#
+
+These [.removed]#research tasks ensure that system behavior is well-defined under real-world constraints.# [.inserted]#activities help maintain structure and reduce errors during development.#
+
+===== Documentation-as-Code
+
+The project [.removed]#adopts# [.inserted]#continues to use# a documentation-as-code model using AsciiDoc and GitHub.
+
+This includes:
+
+- Structured folder hierarchy under /docs
+- Modular section files linked through include:: directives
+- Version-controlled documentation
+- Pull-request-based [.removed]#content integration# [.inserted]#updates#
+- Automated HTML/PDF [.removed]#build via# [.inserted]#builds through# CI [.removed]#workflow#
+
+[.removed]#This approach ensures traceability, consistency,#
+
+[.inserted]#Documentation is updated alongside implementation to reflect system behavior# and [.removed]#reproducibility of documentation.# [.inserted]#design decisions.#
+
+===== Pull Request and Review Process
+
+All contributions are integrated through a [.removed]#PR-only# [.inserted]#PR-based# workflow.
+
+The process includes:
+
+1. Issue creation using the standardized template
+2. Feature branch creation
+3. [.removed]#Focused modification of assigned section# [.inserted]#Implementation or documentation update#
+4. Pull request submission
+5. [.removed]#Automated# CI build verification
+6. Team Lead review
+7. Manager approval and merge
+
+This [.removed]#structured# process ensures [.removed]#quality control# [.inserted]#that changes are reviewed before being integrated# and [.removed]#accountability.# [.inserted]#reduces inconsistencies between teams.#
+
+===== CI/CD and Build Automation
+
+The project [.removed]#includes# [.inserted]#uses# a GitHub Actions workflow that:
+
+- [.removed]#Compiles# [.inserted]#Builds# the [.removed]#master AsciiDoc document# [.inserted]#project and documentation#
+- Verifies [.removed]#include# structure
+- [.removed]#Generates HTML# and [.removed]#PDF artifacts# [.inserted]#formatting#
+- Detects [.removed]#build or formatting# errors [.inserted]#before merging#
+
+This [.removed]#automation# [.inserted]#helps prevent broken builds and# ensures [.removed]#documentation integrity before approval.# [.inserted]#that changes do not introduce issues.#
+
+===== Task Tracking and Governance
+
+All work is tracked through GitHub Issues.
+
+Each issue includes:
+
+- [.removed]#Clear# [.inserted]#Defined# objective
+- [.removed]#Defined acceptance# [.inserted]#Acceptance# criteria
+- [.removed]#Urgency and difficulty rating#
+- Assigned contributor
+- Milestone [.removed]#linkage#
+
+[.removed]#Documentation scaffold sections# [.inserted]#association#
+
+[.inserted]#Documentation-related issues# reference the master [.inserted]#scaffold# issue (#53) to maintain [.removed]#structural traceability.# [.inserted]#structure.#
+
+This [.removed]#governance structure prevents duplication and supports milestone compliance.# [.inserted]#allows work to be distributed while still keeping visibility across teams.#
+
+===== Team Coordination
+
+Collaboration is supported through:
+
+- Team-based [.removed]#specialization (five domain-focused teams)#
+- [.removed]#Regular coordination discussions# [.inserted]#responsibilities#
+- [.removed]#Milestone planning# [.inserted]#Cross-team communication when dependencies exist#
+- [.removed]#Alignment on scope# [.inserted]#Coordination between frontend, backend,# and [.removed]#assumptions# [.inserted]#data teams#
+- Shared [.removed]#responsibility for reliability modeling#
+
+[.removed]#These coordination practices ensure consistent interpretation# [.inserted]#use# of [.removed]#requirements across teams.# [.inserted]#components and APIs#
+
+[.inserted]#Coordination is necessary because features depend on shared data and structure.#
+
+===== Milestone Planning and [.removed]#Retrospectives#
+
+[.removed]#Milestone 1# [.inserted]#Iteration#
+
+[.inserted]#The project follows milestone-based development.#
+
+[.inserted]#This# includes:
+
+- [.removed]#Clear completion criteria#
+[.removed]#-# Defined [.removed]#deliverables (compiled documentation)#
+- [.removed]#Explicit failure and uncertainty modeling# [.inserted]#implementation goals#
+- Iterative [.removed]#refinement through# [.inserted]#updates based on# feedback
+[.removed]#Retrospective reflection ensures continuous improvement in# - [.inserted]#Adjustments to# documentation [.removed]#quality# and [.removed]#team workflow.# [.inserted]#structure as the system evolves#
+
+[.inserted]#Unlike Milestone 1, changes now reflect actual system behavior rather than planned behavior.#
+
+===== Conclusion
+
+Tu Deporte Aquí [.removed]#extends# [.inserted]#includes activities# beyond [.removed]#software implementation. Research,# [.inserted]#writing code. Documentation, coordination, and# structured [.removed]#documentation, governance modeling,# [.inserted]#workflows support implementation# and [.removed]#automated validation form the foundation of the project.# [.inserted]#reduce integration issues.#
+
+These [.removed]#non-development# activities [.inserted]#help# ensure that [.removed]#when implementation begins, it# [.inserted]#the system# is [.removed]#grounded in clearly defined scope, reliability expectations,# [.inserted]#built consistently# and [.removed]#transparent engineering practices.# [.inserted]#that changes remain traceable across milestones.#

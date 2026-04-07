@@ -1,0 +1,227 @@
+= [.inserted]#Assumptions for Resolving or Flagging Conflicting Standings#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#1. Context#
+
+[.inserted]#This document defines assumptions for handling conflicting standings data by either:#
+
+* [.inserted]#Resolving differences automatically#
+* [.inserted]#Flagging discrepancies for review or user awareness#
+
+---
+
+== [.inserted]#2. Common Conflicting Scenarios#
+
+=== [.inserted]#2.1 Points or Record Totals Do Not Match#
+
+* [.inserted]#One data feed updates earlier than others (latency)#
+* [.inserted]#Matches may be amended due to:#
+- [.inserted]#Forfeits#
+- [.inserted]#Administrative decisions#
+
+---
+
+=== [.inserted]#2.2 Ranking Order Differs (Same Points)#
+
+* [.inserted]#Different sources may apply *different tiebreaker rules*#
+* [.inserted]#Tiebreakers may include:#
+- [.inserted]#Goal difference#
+- [.inserted]#Goals scored#
+- [.inserted]#Head-to-head#
+- [.inserted]#Disciplinary points#
+
+[.inserted]#IMPORTANT:#
+
+[.inserted]#The order of these rules is *competition-specific*#
+
+---
+
+=== [.inserted]#2.3 Live vs Official Standings#
+
+* [.inserted]#Live standings use *provisional data*#
+* [.inserted]#Official standings are updated after league confirmation#
+
+Observation::
+
+[.inserted]#Platforms reconcile live data with official results after matches end#
+
+---
+
+=== [.inserted]#2.4 Partial Data or Missing Matches#
+
+* [.inserted]#A provider may not have ingested all matches#
+* [.inserted]#Postponed matches may be:#
+- [.inserted]#Incorrectly marked as played#
+- [.inserted]#Omitted entirely#
+
+---
+
+=== [.inserted]#2.5 Identity Mapping Issues#
+
+* [.inserted]#Team naming inconsistencies:#
+- [.inserted]#"Man United" vs "Manchester United"#
+* [.inserted]#League phase changes#
+* [.inserted]#Team relocation#
+
+Result::
+
+[.inserted]#Data may be associated with incorrect entities#
+
+---
+
+== [.inserted]#3. Data Validation Strategies (Industry Practices)#
+
+=== [.inserted]#3.1 Source Hierarchy#
+
+* [.inserted]#Official > Provider > Community#
+
+[.inserted]#Official sources are treated as the *final authority*#
+
+Example::
+
+[.inserted]#Platforms update results after official league corrections#
+
+---
+
+=== [.inserted]#3.2 Rule-Based Validation Checks#
+
+[.inserted]#Automated checks include:#
+
+* [.inserted]#Points consistency  #
+[.inserted]#  (e.g., points = 3W + 1D in soccer)#
+
+* [.inserted]#Matches played consistency  #
+[.inserted]#  (Played = W + D + L)#
+
+* [.inserted]#Goal difference validation  #
+[.inserted]#  (GD = goals for - goals against)#
+
+* [.inserted]#Ranking consistency  #
+[.inserted]#  (Higher points → higher rank unless rules differ)#
+
+---
+
+=== [.inserted]#3.3 Event Log (Event Sourcing)#
+
+* [.inserted]#Store raw match events and updates#
+* [.inserted]#Rebuild standings deterministically#
+
+Benefits::
+
+* [.inserted]#Traceability#
+* [.inserted]#Auditability#
+* [.inserted]#Ability to replay history#
+
+---
+
+=== [.inserted]#3.4 Dual-View Publishing#
+
+* [.inserted]#Live (unofficial, fast, may change)#
+* [.inserted]#Official (slower, stable)#
+
+---
+
+== [.inserted]#4. Assumptions and Resolution Rules#
+
+=== [.inserted]#Assumption 1 – Competition Rules Define Truth#
+
+* [.inserted]#Store competition-specific tiebreaker rules#
+* [.inserted]#Do NOT rely on provider ranking#
+
+Implementation::
+
+* [.inserted]#Compute ranking locally using official rules#
+
+---
+
+=== [.inserted]#Assumption 2 – Official Sources Override Live#
+
+[.inserted]#If conflict occurs:#
+
+* [.inserted]#Display both versions#
+* [.inserted]#Prioritize official source#
+
+UI Behavior::
+
+* [.inserted]#Official = primary#
+* [.inserted]#Provider/live = secondary#
+* [.inserted]#Include timestamps and labels#
+
+---
+
+=== [.inserted]#Assumption 3 – Resolve vs Flag Based on Severity#
+
+==== [.inserted]#Auto-Resolve (No User Impact)#
+
+* [.inserted]#Differences caused by latency#
+* [.inserted]#Differences within correction window after game end#
+
+---
+
+==== [.inserted]#Flag for Review (User Warning)#
+
+* [.inserted]#Point totals differ after official finalization#
+* [.inserted]#Ranking differs due to unclear tiebreak rules#
+
+---
+
+==== [.inserted]#Hard Block (Do Not Publish as Official)#
+
+* [.inserted]#Invalid data invariants:#
+
+- [.inserted]#Played ≠ W + D + L#
+- [.inserted]#Goal difference mismatch#
+- [.inserted]#Impossible point values#
+- [.inserted]#Missing teams#
+
+---
+
+=== [.inserted]#Assumption 4 – Always Explain Differences#
+
+[.inserted]#When conflicts are detected, display:#
+
+* [.inserted]#Reason for discrepancy:#
+- [.inserted]#Tiebreaker rule#
+- [.inserted]#Feed delay#
+- [.inserted]#Stat correction#
+
+* [.inserted]#Metadata:#
+- [.inserted]#Last updated time#
+- [.inserted]#Source#
+
+---
+
+== [.inserted]#5. Transparency Principle#
+
+[.inserted]#The system must clearly communicate:#
+
+* [.inserted]#Why standings differ#
+* [.inserted]#Which source is prioritized#
+* [.inserted]#When data was last updated#
+
+[.inserted]#This aligns with industry practices for:#
+
+* [.inserted]#Trust#
+* [.inserted]#Data reconciliation#
+* [.inserted]#User transparency#
+
+---
+
+== [.inserted]#References#
+
+* [.inserted]#UEFA. (2026). Champions League standings rules.#
+[.inserted]#  https://www.uefa.com/uefachampionsleague/news/0291-1bd88ae04870-e1e038c319e3-1000#
+
+* [.inserted]#DraftKings. Stat corrections and live scoring delays.#
+[.inserted]#  https://support.draftkings.com#
+
+* [.inserted]#ESPN. Stat Corrections.#
+[.inserted]#  https://support.espn.com#
+
+* [.inserted]#Kurrent. Event sourcing in sports systems.#
+[.inserted]#  https://www.kurrent.io#
+
+* [.inserted]#Sleeper. Stat corrections.#
+[.inserted]#  https://support.sleeper.com#

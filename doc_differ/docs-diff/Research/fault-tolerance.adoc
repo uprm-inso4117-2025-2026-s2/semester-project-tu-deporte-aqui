@@ -1,0 +1,48 @@
+== [.inserted]#Fault Tolerance#
+
+=== [.inserted]#Overview#
+
+[.inserted]#Fault tolerance is the ability of a system to continue operating correctly even when some components fail. Instead of crashing or producing incorrect results, the system detects failures and handles them in a controlled and predictable manner.#
+
+=== [.inserted]#Importance#
+
+[.inserted]#In the project, data may come from unreliable or inconsistent sources. This creates situations where information may be missing, delayed, or conflicting. Fault tolerance ensures that the system remains stable and usable even under these conditions.#
+
+=== [.inserted]#Common Failure Scenarios#
+
+- [.inserted]#Missing data from a source  #
+- [.inserted]#Delayed updates during live events  #
+- [.inserted]#Conflicting reports from multiple sources  #
+- [.inserted]#Temporary server or API unavailability  #
+
+=== [.inserted]#Application to Tu Deporte Aquí#
+
+[.inserted]#The system should:#
+
+- [.inserted]#Provide fallback values when data is missing  #
+- [.inserted]#Clearly indicate when data is unavailable  #
+- [.inserted]#Handle conflicting data without crashing  #
+- [.inserted]#Maintain stable behavior even with partial information  #
+
+=== [.inserted]#Example Scenario#
+
+[cols="1,2,2"]
+[.inserted]#|===#
+[.inserted]#| Scenario | Issue | Expected Behavior#
+
+[.inserted]#| Missing score update#
+[.inserted]#| No data from source#
+[.inserted]#| Show "Not available" instead of blank or error#
+
+[.inserted]#| Conflicting match result#
+[.inserted]#| Different values from sources#
+[.inserted]#| Display conflict indicator#
+
+[.inserted]#| Delayed data#
+[.inserted]#| Late updates#
+[.inserted]#| Show last known value with timestamp#
+[.inserted]#|===#
+
+=== [.inserted]#Conclusion#
+
+[.inserted]#Fault tolerance is essential for ensuring that Tu Deporte Aquí remains stable, predictable, and reliable even when external data sources fail or behave inconsistently.#

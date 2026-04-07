@@ -109,6 +109,7 @@ process_modified_file() {
         # Use simple markers with -R to repeat at line boundaries for each line's own role markers
         dwdiff -R -w '__DEL_START__' -x '__DEL_END__' \
                -y '__INS_START__' -z '__INS_END__' \
+               -A best \
                "$file2" "$file1" > /tmp/dwdiff_output.tmp
         
         # Post-process to apply roles to each block

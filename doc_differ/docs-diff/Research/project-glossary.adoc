@@ -1,0 +1,61 @@
+= Project Glossary & Shared Terminology
+
+== Purpose
+
+This glossary defines standardized terminology for Tu Deporte Aquí to ensure consistency across documentation, development, and testing. The goal is to eliminate ambiguity and support clear communication of system behavior, especially regarding reliability and data quality.
+
+== Glossary Terms
+
+=== Verified Data
+Data that has been confirmed by an official or highly trusted source and is considered accurate at the time of display.
+
+=== Unverified Data
+Data obtained from unofficial or secondary sources that has not been confirmed by an authoritative source.
+
+=== Delayed Data
+Data that is known to be outdated relative to real-world events due to slow updates or source latency.
+
+=== Stale Data
+Data that has exceeded an acceptable freshness threshold and may no longer reflect the current state.
+
+=== Conflicting Data
+Data for which multiple sources provide different values for the same attribute (e.g., different reported scores).
+
+=== Provisional Data
+Data that is temporarily displayed but subject to change as more reliable information becomes available.
+
+=== Missing Data
+Expected data that is not available from any source at the time of retrieval.
+
+=== Degraded State
+A system condition where full functionality is not available due to partial data availability, source failures, or system limitations.
+
+=== Partial Coverage
+A condition where only a subset of expected data is available due to incomplete source information.
+
+=== Reliability Level
+An internal or user-facing indicator that reflects the trustworthiness of the displayed data based on source quality and consistency.
+
+=== Data Source
+Any origin from which sports information is collected, including websites, social media, or informal reporting channels.
+
+=== Source Conflict
+A situation where multiple data sources disagree on the same piece of information.
+
+=== Last Updated Timestamp
+A visible indicator showing when a data item was most recently retrieved or updated by the system.
+
+=== Graceful Degradation
+The system’s ability to continue functioning with reduced capabilities while clearly communicating limitations to the user.
+
+=== Silent Failure
+A system failure where incorrect or missing data is presented without any indication of an issue.
+
+== Notes
+
+All teams must use these terms consistently across:
+* Documentation
+* Testing scenarios
+* User-facing messaging
+
+Terminology must align with the project’s reliability-first philosophy and support transparency in data quality.

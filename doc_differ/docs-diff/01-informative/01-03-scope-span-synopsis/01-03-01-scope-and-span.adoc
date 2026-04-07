@@ -1,0 +1,116 @@
+==== 1.3.1 Scope and Span
+
+===== Purpose
+
+This section defines the boundaries, coverage limits, and operational constraints of Tu Deporte [.removed]#Aquí during Milestone 1.# [.inserted]#Aquí.# Clearly defining scope prevents scope creep, ensures alignment across teams, and establishes realistic expectations [.removed]#before implementation begins.#
+
+[.removed]#Milestone 1# [.inserted]#during implementation.#
+
+[.inserted]#The project has transitioned from documentation and system definition into implementation. The scope now# focuses [.removed]#exclusively# on [.removed]#documentation, research, and structured# [.inserted]#building a working# system [.removed]#definition. No implementation or source code development is included in this milestone.# [.inserted]#while maintaining the constraints previously defined.#
+
+===== In-Scope Coverage
+
+The system scope [.removed]#for Milestone 1# includes:
+
+===== Local Puerto Rico Sports Leagues
+
+- Coverage is limited to local leagues within Puerto Rico.
+- National and international leagues are excluded.
+- Emphasis [.removed]#is placed# [.inserted]#remains# on leagues where official APIs may not exist.
+
+This [.removed]#focus ensures realistic alignment with data# [.inserted]#constraint reflects the# availability and [.removed]#milestone constraints.# [.inserted]#reliability of data sources.#
+
+===== [.removed]#Reliability Modeling# [.inserted]#Data Handling Under Uncertainty#
+
+The system [.removed]#will define expected behavior under:# [.inserted]#must handle:#
+
+- Delayed updates
+- Conflicting reports
+- Missing information
+- Corrected or revised results
+
+[.removed]#Explicit documentation of uncertainty handling is part of the defined scope.# [.inserted]#These cases are now considered during implementation, not only as documented scenarios.#
+
+===== Mobile-First Platform [.removed]#Assumption#
+
+[.removed]#All feature definitions and UI expectations assume#
+
+[.inserted]#The system is implemented as# a [.removed]#mobile-first, web-based experience.# [.inserted]#mobile-first web platform.#
+
+This includes:
+
+- Compact information display
+- Clear status indicators
+- Prioritization of essential game data
+- [.inserted]#Responsive layout across devices#
+
+===== [.removed]#Documentation-First Engineering#
+
+[.removed]#Milestone 1# [.inserted]#Core Implementation Scope#
+
+[.inserted]#The current milestone# includes:
+
+- [.removed]#Structured documentation scaffold# [.inserted]#UI implementation using Next.js#
+- [.removed]#Defined system behavior and assumptions# [.inserted]#Backend API routes#
+- [.removed]#Research-based reliability strategies# [.inserted]#Integration with Supabase#
+- [.removed]#Governance# [.inserted]#Authentication# and [.removed]#workflow# [.inserted]#protected routes#
+- [.inserted]#Display of real data in the frontend#
+
+[.inserted]#This defines the transition from system# definition [.inserted]#to a working application.#
+
+[.removed]#No backend, frontend, or database implementation is included at this stage.#
+
+===== Out-of-Scope Elements
+
+The following elements [.removed]#are explicitly excluded from Milestone 1:#
+
+- [.removed]#Implementation# [.inserted]#remain out# of [.removed]#application code# [.inserted]#scope:#
+
+- [.removed]#Integration with official league APIs# [.inserted]#Real-time data updates (e.g., polling or WebSockets)#
+- Automated [.removed]#web# [.inserted]#data# scraping mechanisms
+- National or international league coverage
+- [.removed]#Real-time# [.inserted]#Advanced# performance optimization
+- [.removed]#Production deployment# [.inserted]#Complex user roles# or [.removed]#hosting infrastructure# [.inserted]#admin systems#
+
+These exclusions [.removed]#ensure that Milestone 1 remains focused on# [.inserted]#limit# system [.removed]#definition rather than execution.# [.inserted]#complexity and keep the focus on core functionality.#
+
+===== Operational Constraints
+
+Tu Deporte Aquí operates under the following constraints:
+
+===== Informal Data Sources
+
+- Data may originate from websites, reporters, or social media.
+- Sources may conflict or provide delayed updates.
+- Official verification mechanisms may not exist.
+
+===== Limited Structure and Standardization
+
+- Local leagues may lack standardized reporting formats.
+- Inconsistent update timing must be expected.
+- Historical corrections may occur without formal notice.
+
+===== Transparency Requirement
+
+Because of data uncertainty, the system must:
+
+- Communicate provisional states
+- Display last update times
+- Indicate possible staleness
+- Support traceability of changes
+
+These constraints [.removed]#directly influence system design decisions# [.inserted]#affect how data is presented and interpreted# in [.removed]#later phases.# [.inserted]#the system.#
+
+==== Boundary Summary
+
+Tu Deporte [.removed]#Aquí, during Milestone 1,# [.inserted]#Aquí# is a [.removed]#documentation-driven project# [.inserted]#system# focused on:
+
+- Local Puerto Rico sports
+- [.removed]#Reliability modeling#
+- [.removed]#Transparency definition# [.inserted]#Handling unreliable or inconsistent data#
+- [.removed]#Scope discipline# [.inserted]#Providing transparent information to users#
+- [.removed]#Structured governance#
+
+[.removed]#By clearly defining these boundaries, the project ensures disciplined progress# [.inserted]#Maintaining clear scope boundaries during implementation#
+
+[.inserted]#These boundaries guide development decisions# and [.removed]#alignment# [.inserted]#help ensure consistent progress# across [.removed]#all teams prior to implementation.# [.inserted]#teams.#

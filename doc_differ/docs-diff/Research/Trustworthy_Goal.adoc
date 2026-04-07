@@ -1,0 +1,182 @@
+= [.inserted]#Trustworthy Data & Transparency Strategy#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#1. Trust Challenges in Sports Applications#
+
+[.inserted]#Sports applications commonly face trust issues due to the dynamic and uncertain nature of live data.#
+
+=== [.inserted]#Key Problems#
+
+* [.inserted]#Live statistics are often *provisional*:#
+* [.inserted]#Events may be reviewed later (e.g., fouls, disqualifications)#
+* [.inserted]#Real-time feeds cannot always be fully accurate#
+
+* [.inserted]#Post-game corrections:#
+* [.inserted]#Stats may change after the game ends#
+* [.inserted]#Can affect standings, leaderboards, and user expectations#
+
+* [.inserted]#Player status volatility:#
+* [.inserted]#Injuries and lineups change frequently#
+* [.inserted]#Requires continuous updates#
+
+---
+
+== [.inserted]#2. Trust-Building Mechanisms#
+
+[.inserted]#Platforms use the following strategies to improve user trust:#
+
+=== [.inserted]#1. Up-Front Disclosure + Current Content#
+
+* [.inserted]#Clearly distinguish between:#
+* [.inserted]#Live (Provisional)#
+* [.inserted]#Official (Final)#
+
+---
+
+=== [.inserted]#2. Provenance (Source Transparency)#
+
+* [.inserted]#Show where data comes from#
+* [.inserted]#Provide context panels with source information#
+
+---
+
+=== [.inserted]#3. Methodology Transparency#
+
+* [.inserted]#Define how data is calculated#
+* [.inserted]#Examples:#
+* [.inserted]#"Assist"#
+* [.inserted]#"Chance created"#
+* [.inserted]#"Pressure"#
+
+---
+
+== [.inserted]#3. Transparency Strategies#
+
+=== [.inserted]#1. Meaningful Timestamps#
+
+* [.inserted]#Display "Last updated at [time]" on all key data#
+
+---
+
+=== [.inserted]#2. Source Citations#
+
+[.inserted]#Examples:#
+
+* [.inserted]#Injury status → "Source: NBA Injury Report"#
+* [.inserted]#Scores → "Source: League Official Feed"#
+
+---
+
+=== [.inserted]#3. Change History#
+
+* [.inserted]#Maintain a history of:#
+* [.inserted]#Score updates#
+* [.inserted]#Stat corrections#
+
+---
+
+=== [.inserted]#4. Plain Language Communication#
+
+Example::
+
+[.inserted]#"Some live stats are delayed (provider latency). Showing last confirmed totals."#
+
+---
+
+== [.inserted]#4. Reliability Indicators in the UI#
+
+[.inserted]#Trust can be improved by separating *truth status* from *importance*.#
+
+=== [.inserted]#Key Indicators#
+
+* [.inserted]#Verification badges#
+* [.inserted]#Confidence score (simple and understandable)#
+* [.inserted]#Data freshness / latency indicators#
+* [.inserted]#Provisional vs Official state machine#
+
+---
+
+== [.inserted]#5. Features that Increase Credibility#
+
+=== [.inserted]#1. Easy Access to Data Details#
+
+* [.inserted]#One-click access to:#
+* [.inserted]#Timestamps#
+* [.inserted]#Sources#
+* [.inserted]#Data state#
+* [.inserted]#Definitions#
+
+---
+
+=== [.inserted]#2. Corrections Center + Notifications#
+
+* [.inserted]#Show updates since last view#
+* Example::
+
+[.inserted]#"Game stats corrected; your total changed by +2"#
+
+---
+
+=== [.inserted]#3. Provider Transparency#
+
+* [.inserted]#Always display the data provider#
+
+---
+
+=== [.inserted]#4. Incident / Status Page#
+
+* [.inserted]#Show system issues or delays#
+* [.inserted]#Prevent misinformation and confusion#
+
+---
+
+=== [.inserted]#5. Two-Source Confirmation Mode#
+
+* [.inserted]#Require confirmation from two sources for critical data#
+
+---
+
+=== [.inserted]#6. Definitions & Methodology Section#
+
+* [.inserted]#Searchable in-app explanations#
+* [.inserted]#Clarifies:#
+* [.inserted]#Metrics#
+* [.inserted]#Calculations#
+* [.inserted]#Uncertainty meaning#
+
+---
+
+== [.inserted]#Conclusion#
+
+[.inserted]#To build user trust, Tu Deporte Aquí must:#
+
+* [.inserted]#Clearly communicate uncertainty#
+* [.inserted]#Show data sources and updates#
+* [.inserted]#Maintain transparency in all system behavior#
+
+[.inserted]#By implementing these strategies, the platform can:#
+
+* [.inserted]#Reduce confusion#
+* [.inserted]#Improve credibility#
+* [.inserted]#Maintain user confidence even with imperfect data#
+
+---
+
+== [.inserted]#References#
+
+* [.inserted]#ESPN – Scoring & Stat Corrections  #
+[.inserted]#  https://support.espn.com/hc/en-us/articles/360000099732-Scoring-Stat-Corrections#
+
+* [.inserted]#NBA – Injury Report  #
+[.inserted]#  https://official.nba.com/nba-injury-report-2025-26-season/#
+
+* [.inserted]#Nielsen Norman Group – Trustworthiness in Web Design  #
+[.inserted]#  https://www.nngroup.com/articles/trustworthy-design/#
+
+* [.inserted]#Google – Evaluating Information Online  #
+[.inserted]#  https://www.google.com/intl/en_us/search/howsearchworks/information-quality/#
+
+* [.inserted]#Stats Perform – AI & Data FAQs  #
+[.inserted]#  https://www.statsperform.com/es/stats-perform-faqs-ai-innovation/#

@@ -1,0 +1,159 @@
+= [.inserted]#Good Frameworks for Web Design#
+
+== [.inserted]#1. React#
+
+[.inserted]#Type:: Frontend library  #
+[.inserted]#Used with:: Next.js  #
+
+[.inserted]#image::images/react_framework.png[React Framework, width=500]#
+
+=== [.inserted]#Pros#
+
+* [.inserted]#Massive ecosystem (UI kits, table libraries, charts)#
+* [.inserted]#Excellent for dynamic data (standings = perfect use case)#
+* [.inserted]#Huge community and tutorials#
+* [.inserted]#Strong hiring relevance#
+* [.inserted]#Works extremely well with APIs#
+
+=== [.inserted]#Cons#
+
+* [.inserted]#Requires choosing many tools#
+* [.inserted]#Learning curve for beginners#
+
+== [.inserted]#2. Next.js#
+
+[.inserted]#Type:: Full web framework built on React  #
+
+[.inserted]#image::images/nextjs_framework.png[Next.js Framework, width=500]#
+
+=== [.inserted]#Pros#
+
+* [.inserted]#Routing built-in#
+* [.inserted]#SEO friendly#
+* [.inserted]#Server + client rendering#
+* [.inserted]#API routes included#
+* [.inserted]#Great deployment (Vercel)#
+* [.inserted]#Perfect for portfolio projects#
+
+=== [.inserted]#Cons#
+
+* [.inserted]#Slight extra complexity vs plain React#
+
+== [.inserted]#3. Vue#
+
+[.inserted]#Type:: Frontend framework  #
+
+[.inserted]#image::images/vue_framework.png[Vue Framework, width=500]#
+
+=== [.inserted]#Pros#
+
+* [.inserted]#Simpler mental model#
+* [.inserted]#Very clean syntax#
+* [.inserted]#Good documentation#
+* [.inserted]#Strong UI libraries#
+
+=== [.inserted]#Cons#
+
+* [.inserted]#Smaller ecosystem than React#
+* [.inserted]#Fewer table libraries#
+
+== [.inserted]#4. Svelte / SvelteKit#
+
+[.inserted]#Type:: Modern framework  #
+
+[.inserted]#image::images/svelte_framework.png[Svelte Framework, width=500]#
+
+=== [.inserted]#Pros#
+
+* [.inserted]#Very fast#
+* [.inserted]#Less boilerplate#
+* [.inserted]#Great developer experience#
+* [.inserted]#Smaller bundle size#
+
+=== [.inserted]#Cons#
+
+* [.inserted]#Smaller ecosystem#
+* [.inserted]#Fewer enterprise libraries#
+* [.inserted]#Less common in industry#
+
+== [.inserted]#UI Frameworks#
+
+[.inserted]#These are component/design frameworks used together with frontend frameworks.#
+
+[.inserted]#Good options for standings UI:#
+
+* [.inserted]#Material UI (MUI) → Professional tables#
+* [.inserted]#Shadcn UI → Modern (very popular)#
+* [.inserted]#Chakra UI → Simple and clean#
+* [.inserted]#Tailwind CSS → Styling system (extremely popular)#
+
+== [.inserted]#Data Table Libraries (Critical for Standings)#
+
+[.inserted]#Best options:#
+
+* [.inserted]#TanStack Table (React)#
+* [.inserted]#AG Grid (powerful)#
+* [.inserted]#React Data Grid#
+* [.inserted]#Vuetify tables (Vue)#
+
+== [.inserted]#Recommendation#
+
+[.inserted]#Based on project requirements and the need for a clean, responsive standings UI:#
+
+[.inserted]#Primary recommendation:#
+
+* [.inserted]#Vue + Nuxt#
+
+[.inserted]#Reasons:#
+
+* [.inserted]#Simpler development experience#
+* [.inserted]#Clear project structure#
+* [.inserted]#Built-in routing and server capabilities#
+* [.inserted]#Faster development for limited timeline#
+
+[.inserted]#Backup option:#
+
+* [.inserted]#Next.js + Tailwind CSS + Shadcn UI + TanStack Table#
+
+[.inserted]#Reasons:#
+
+* [.inserted]#Industry-standard stack#
+* [.inserted]#Highly scalable#
+* [.inserted]#Strong support for complex data tables#
+
+=== [.inserted]#Proposed Stack (Primary Option)#
+
+* [.inserted]#Framework: Nuxt#
+* [.inserted]#UI Layer: Tailwind CSS (optional Vue UI library like Vuetify or Nuxt UI)#
+* [.inserted]#Tables: Vue table libraries or AG Grid#
+* [.inserted]#API: Nuxt server routes or external backend#
+* [.inserted]#Deployment: Vercel or Netlify#
+
+== [.inserted]#Conclusion#
+
+[.inserted]#The most suitable frameworks for this project are:#
+
+* [.inserted]#React#
+* [.inserted]#Next.js#
+* [.inserted]#Vue#
+
+[.inserted]#Decision trade-offs:#
+
+* [.inserted]#React / Next.js → Best for scalability and industry relevance#
+* [.inserted]#Vue → Best for faster development and ease of use#
+
+[.inserted]#Final decision should balance:#
+
+* [.inserted]#Development speed#
+* [.inserted]#Team familiarity#
+* [.inserted]#Long-term scalability#
+
+== [.inserted]#References#
+
+* [.inserted]#https://react.dev/#
+* [.inserted]#https://nextjs.org/#
+* [.inserted]#https://vuejs.org/#
+* [.inserted]#https://mui.com/#
+* [.inserted]#https://ui.shadcn.com/#
+* [.inserted]#https://chakra-ui.com/#
+* [.inserted]#https://tailwindcss.com/#

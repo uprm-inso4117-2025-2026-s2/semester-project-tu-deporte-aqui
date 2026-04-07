@@ -1,0 +1,166 @@
+= [.inserted]#Team 3: Standings and Tournament – Defining Next Steps for Milestone #2 Implementation (#107)#
+
+[.inserted]#This document summarizes the meetings held by Team 3 to plan and define the direction for Milestone #2 implementation.#
+
+[.inserted]#This issue also references previous work from:#
+* [.inserted]#Issue #58 – Standings and Tournament: Research, Planning and Goals#
+
+== [.inserted]#Meetings Information#
+
+* [.inserted]#Dates:#
+[.inserted]#** February 17, 2026#
+[.inserted]#** February 24, 2026#
+* [.inserted]#Time: 7:00 p.m.#
+* [.inserted]#Platform: Google Meet#
+
+== [.inserted]#Description#
+
+[.inserted]#During the meetings, the team discussed:#
+
+* [.inserted]#Findings from previous research issues#
+* [.inserted]#Peer feedback from team members#
+* [.inserted]#Identification of new required issues#
+* [.inserted]#Establishment of Team 3 goals for this phase#
+* [.inserted]#Testing approach#
+* [.inserted]#Initial planning for implementation#
+
+== [.inserted]#Decision on Standings UI Design#
+
+[.inserted]#(Based on research #37: Recommend How Standings should be displayed to Users (UI))#
+
+[.inserted]#After analyzing the different standings design types identified in research #37, the team agreed:#
+
+* [.inserted]#The selected design:#
+[.inserted]#** 4.3 Visual Ranking and Progress Indicators#
+
+* [.inserted]#Additional features incorporated from:#
+[.inserted]#** 4.2 Card-Based Standings UI#
+
+[.inserted]#NOTE: A team member created a Figma design to visualize the standings UI.#
+[.inserted]#This can be found in:#
+* [.inserted]#Issue #64 – Website designer tools for Team 3#
+
+== [.inserted]#Research Findings and Common Inconsistencies#
+
+[.inserted]#The team identified recurring issues affecting accuracy and consistency:#
+
+* [.inserted]#Temporary loss of data#
+* [.inserted]#Differences between scores from multiple data sources#
+* [.inserted]#Delays in updating live game results#
+* [.inserted]#Changes to scores after publication#
+
+[.inserted]#These inconsistencies will be actively managed during implementation.#
+
+== [.inserted]#Standings Goals#
+
+[.inserted]#The team agreed that the most important principle is:#
+
+[.inserted]#*Transparency*#
+
+[.inserted]#Goals:#
+
+* [.inserted]#Clearly inform users about any data issues#
+* [.inserted]#Communicate corrective actions promptly#
+* [.inserted]#Maintain user trust even when inconsistencies occur#
+
+== [.inserted]#Key Areas for Milestone Preparation#
+
+[.inserted]#Each team member is working on final issues to prepare for implementation.#
+
+[.inserted]#Current focus areas:#
+
+* [.inserted]#Update history implementation#
+* [.inserted]#Risk and failure scenarios + testing plan#
+* [.inserted]#Conflict resolution workflow#
+* [.inserted]#Framework recommendations#
+
+[.inserted]#These topics prepare the foundation for Milestone #2.#
+
+== [.inserted]#Testing Strategy#
+
+[.inserted]#The testing strategy was discussed with practical examples and success criteria.#
+
+[.inserted]#All team members agreed to follow this initial approach.#
+
+[.inserted]#Further details will be developed in:#
+
+* [.inserted]#Issue #74 – Risks, Failure Scenarios, Testing Plan and Rules for Standings#
+
+[.inserted]#Additionally:#
+
+* [.inserted]#A Lecture Topic Task (LTT) for the Test Plan will be created in Milestone #2#
+
+== [.inserted]#Approved Testing Scenarios#
+
+[.inserted]#NOTE: Success criteria are currently descriptive and will be refined into measurable metrics.#
+
+=== [.inserted]#Integration and System Tests#
+
+==== [.inserted]#Conflicting Data Scenario#
+
+[.inserted]#If two data sources provide conflicting information:#
+
+[.inserted]#Success criteria:#
+
+* [.inserted]#System detects inconsistency#
+* [.inserted]#UI displays message indicating:#
+[.inserted]#** Data is unofficial OR#
+[.inserted]#** Data is unverified OR#
+[.inserted]#** Data is pending confirmation#
+
+[.inserted]#NOTE: UI labels and exact implementation are still being defined.#
+
+==== [.inserted]#Updated or Modified Data Scenario#
+
+[.inserted]#If data changes after being published:#
+
+[.inserted]#Success criteria:#
+
+* [.inserted]#System displays update history#
+* [.inserted]#Timestamps are shown#
+* [.inserted]#Users can identify how data changed#
+
+=== [.inserted]#Performance Testing#
+
+==== [.inserted]#Smoke Test (Initial Load Test)#
+
+[.inserted]#Approach:#
+
+* [.inserted]#Test system with a minimal number of users#
+* [.inserted]#Validate early-stage stability#
+
+[.inserted]#Rationale:#
+
+* [.inserted]#Appropriate for initial implementation phase#
+* [.inserted]#Will scale to more complex testing later#
+
+=== [.inserted]#Unit Testing#
+
+==== [.inserted]#Conflicting Data Detection#
+
+[.inserted]#Example logic (Python reference):#
+
+[source,python]
+----
+[.inserted]#firstScore != secondScore#
+----
+
+[.inserted]#Success criteria:#
+
+* [.inserted]#Returns TRUE → conflicting data#
+* [.inserted]#Returns FALSE → consistent data#
+
+[.inserted]#NOTE: This is a simplified validation logic.#
+
+[.inserted]#More detailed test cases are currently being developed.#
+
+== [.inserted]#Summary#
+
+[.inserted]#This document establishes:#
+
+* [.inserted]#UI design decisions#
+* [.inserted]#Identified data inconsistencies#
+* [.inserted]#Core system goals (transparency)#
+* [.inserted]#Testing strategy foundations#
+
+[.inserted]#These elements support a structured transition into Milestone #2 implementation.#

@@ -1,0 +1,147 @@
+= [.inserted]#Sending Push Notifications From a Website#
+[.inserted]#Project: Tu Deporte Aquí#
+
+---
+
+== [.inserted]#1. Push API#
+
+[.inserted]#The Web Push API is a browser API that allows applications to request permission to send notifications.#
+
+* Desktop::
+[.inserted]#  Works by default.#
+
+* Mobile (iOS / Android)::
+[.inserted]#  Requires the user to install the application as a *Progressive Web App (PWA)*.#
+
+[.inserted]#Once permission is granted, a `PushSubscription` object is returned.#
+
+[.inserted]#This object includes:#
+
+* [.inserted]#`endpoint` → a unique HTTP endpoint for the user where notifications are sent.#
+
+---
+
+== [.inserted]#2. VAPID Keys#
+
+[.inserted]#A VAPID key is a public/private key pair used to verify the authenticity of push notifications.#
+
+* Private Key::
+* [.inserted]#Stored securely on the server#
+* [.inserted]#Used to sign notifications#
+
+* Public Key::
+* [.inserted]#Distributed to clients#
+* [.inserted]#Used to enable subscription#
+
+---
+
+== [.inserted]#3. Client-Side Requirements#
+
+[.inserted]#To receive notifications, the client must install a *Service Worker*.#
+
+=== [.inserted]#Service Worker#
+
+[.inserted]#A service worker:#
+
+* [.inserted]#Runs in the background#
+* [.inserted]#Receives push notifications#
+* [.inserted]#Displays notifications even when the app is closed#
+
+=== [.inserted]#Platform Behavior#
+
+* Desktop::
+[.inserted]#  Service worker can be installed without installing a PWA#
+
+* Mobile::
+[.inserted]#  Requires PWA installation#
+
+---
+
+=== [.inserted]#Subscription Flow#
+
+[.inserted]#1. User installs PWA (mobile requirement)#
+[.inserted]#2. User is prompted to allow notifications#
+[.inserted]#3. Client uses VAPID public key#
+[.inserted]#4. `PushSubscription` object is generated#
+
+---
+
+== [.inserted]#4. Backend Requirements#
+
+[.inserted]#To send notifications, the backend must:#
+
+* [.inserted]#Store the `endpoint` from the `PushSubscription`#
+* [.inserted]#Associate endpoints with users#
+
+IMPORTANT::
+
+[.inserted]#A user may subscribe from multiple devices.#
+
+[.inserted]#Therefore:#
+
+* [.inserted]#Each `PushSubscription` must be stored separately#
+* [.inserted]#Notifications must be sent to all stored endpoints#
+
+---
+
+== [.inserted]#5. Libraries#
+
+[.inserted]#Several backend libraries simplify push notification implementation.#
+
+=== [.inserted]#Node.js Option#
+
+* [.inserted]#`web-push`#
+
+[.inserted]#Capabilities:#
+
+* [.inserted]#Generate VAPID keys#
+* [.inserted]#Send notification payloads#
+* [.inserted]#Handle encryption and delivery#
+
+---
+
+== [.inserted]#6. Third-Party Services#
+
+[.inserted]#Some services manage push notifications externally.#
+
+=== [.inserted]#Example#
+
+* [.inserted]#Firebase Cloud Messaging (FCM)#
+
+=== [.inserted]#Trade-Off#
+
+* Pros::
+[.inserted]#  Simplifies infrastructure#
+
+* Cons::
+[.inserted]#  Adds dependency on third-party services#
+
+[.inserted]#In this case, implementation complexity may not justify relying on external providers.#
+
+---
+
+== [.inserted]#7. Recommended Implementation#
+
+[.inserted]#For Tu Deporte Aquí:#
+
+[.inserted]#1. Prompt users to subscribe after installing the PWA#
+[.inserted]#2. Capture and store their `PushSubscription.endpoint`#
+[.inserted]#3. Maintain a list of endpoints per user#
+[.inserted]#4. Use a backend library (e.g., `web-push`) to send notifications#
+
+---
+
+== [.inserted]#Conclusion#
+
+[.inserted]#A push notification system requires coordination between:#
+
+* [.inserted]#Browser APIs (Push API)#
+* [.inserted]#Client-side service workers#
+* [.inserted]#Backend endpoint storage#
+* [.inserted]#Secure VAPID key management#
+
+[.inserted]#By implementing this system, the platform can:#
+
+* [.inserted]#Notify users in real time#
+* [.inserted]#Improve engagement#
+* [.inserted]#Provide timely updates even when the app is closed#

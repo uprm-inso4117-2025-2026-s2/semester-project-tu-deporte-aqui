@@ -1,0 +1,51 @@
+
+==== 2.2.3 Domain Requirements
+
+===== Purpose
+
+This section defines the domain requirements for *Tu Deporte Aquí*. These requirements [.removed]#are derived from observations of the sports information domain in Puerto Rico and# capture the essential phenomena and concepts that the system must faithfully [.removed]#simulate. The domain properties listed below form the basis for these requirements.#
+
+===== [.removed]#Observed Domain Properties#
+
+[.removed]#The following properties have been observed# [.inserted]#simulate, grounded# in [.inserted]#observations from# the domain [.removed]#of local Puerto Rico sports information:#
+
+* [.removed]#DP-1: Official league sources (e.g., league websites, official announcements) are considered more authoritative than informal sources such as social media posts or news outlets.#
+* [.removed]#DP-2: When multiple independent unofficial sources report the same value (e.g., a game score), confidence in that value increases, but it remains unverified until confirmed by an official source.#
+* [.removed]#DP-3: Corrections to game results, standings, or athlete information occur# [.inserted]#description (section 2.1)# and [.removed]#must be reflected in historical records.#
+* [.removed]#DP-4: Information becomes less reliable over time; after a certain period without updates, it is considered stale.#
+* [.removed]#DP-5: Conflicts arise when different sources report different values for the same game attribute (score, status, etc.).#
+* [.removed]#DP-6: Sources may become temporarily or permanently unavailable, affecting# the [.removed]#reliability of data that depended on them.#
+* [.removed]#DP-7: Games progress through a set of states (scheduled, live, halftime, final, postponed, cancelled) that must be tracked.# [.inserted]#epics and user stories (section 1.2).#
+
+===== Domain Requirements
+
+[.removed]#The following requirements specify what the system must do to faithfully simulate the domain concepts and phenomena listed above. Each requirement is traceable to one or more domain properties.#
+
+[horizontal]
+R-DOM-1 (Source [.removed]#Authority):: The system# [.inserted]#Authority - Automated Sources):: External data sources# shall [.removed]#assign a# [.inserted]#be assigned# trust [.removed]#level to each configured source# [.inserted]#levels# based on [.removed]#its type (official, news, social).# [.inserted]#type:# Official [.inserted]#sources (league websites, official announcements) shall have high trust; News outlets and aggregators shall have medium trust; Social media and user-generated# sources shall have [.removed]#the highest# [.inserted]#low trust.#
+
+[.inserted]#R-DOM-1a (Source Authority - Manual Input):: Data manually entered by authorized users shall be assigned# trust [.removed]#level. (DP-1)# [.inserted]#levels based on role: League representatives and system administrators shall have high trust; Reporters and coaches/organizers shall have medium trust; Authorized community members shall have low trust. Manual entries shall be properly attributed and timestamped by role.#
+
+R-DOM-2 (Conflict Detection):: The system shall detect when two or more sources report different values for the same game attribute (e.g., score, status) and mark that attribute as conflicting. [.removed]#(DP-5)# [.inserted]#Multiple sources reporting the same value (even with different timestamps) do not constitute a conflict.#
+
+R-DOM-3 (Conflict Preservation):: Preservation and Resolution):: When a conflict is detected, the system shall preserve all reported values and their source attributions. [.removed]#The system# [.inserted]#Three timestamp types# shall [.removed]#not automatically overwrite# [.inserted]#be tracked: Event Time (when# the [.removed]#canonical value; resolution# [.inserted]#event occurred in the domain), Ingestion Time (when the data entered the system), and Reported Time (when the source reported it). All reported values# shall [.removed]#follow defined policies (e.g., official# [.inserted]#be visible together, with the highest-trust# source [.removed]#preference). (DP-1, DP-5)# [.inserted]#and most recent reported time emphasized. The canonical value shall not be automatically overwritten; all conflicting values are retained for manual or rule-based resolution.#
+
+R-DOM-4 [.removed]#(Provisional Data):: If only unofficial# [.inserted]#(Unverified Data State):: Data from non-high-authority# sources [.removed]#report a value, the system# shall [.removed]#mark that data as provisional. Provisional data may# be [.removed]#displayed but must# [.inserted]#placed in the unverified verification state, indicating it has not been confirmed by an official source. Unverified data shall# be [.removed]#clearly# distinguished from confirmed [.removed]#data. (DP-2)#
+
+R-DOM-5 (Confidence Building):: [.inserted]#data (See R-INT-9).# When [.removed]#multiple independent unofficial sources report the same value for a game attribute, the system may increase the confidence level associated with that data, but it shall remain marked as unverified until# an official source confirms [.removed]#it. (DP-2)# [.inserted]#such data, the verification state shall transition from unverified to confirmed.#
+
+[.inserted]#R-DOM-5 (Confidence Calculation):: Confidence levels for data shall be calculated from verification state, source type authority, and staleness according to the following rules: If an official source exists and there are no conflicts and data is not stale, confidence shall be High. If multiple unofficial sources agree and there are no conflicts and data is not stale, confidence shall be Medium. If data comes from a single unverified source, or if there are unresolved conflicts, or if all sources are inactive, or if data is stale, confidence shall be Low. Otherwise, confidence defaults to Low.#
+
+R-DOM-6 (Corrections):: (Corrections and Audit Trail):: When an official source issues a correction to a previously published value, the system shall update the canonical value and [.removed]#retain the previous value in# [.inserted]#create# an audit [.removed]#trail, along# [.inserted]#trail entry# with the [.inserted]#previous value,# reason (e.g., [.removed]#“official correction”)# [.inserted]#"official correction"), source,# and timestamp. [.removed]#(DP-3)#
+
+R-DOM-7 (Staleness):: The system shall track the last update time for each game [.removed]#attribute. If the time since# [.inserted]#attribute and mark data as stale according to# the [.removed]#last update exceeds a configurable freshness threshold (e.g., 30 minutes for# [.inserted]#following thresholds: For# live [.inserted]#game# scores, [.removed]#24 hours for standings),# [.inserted]#if no update is received within 15 minutes,# the data shall be marked as stale. [.removed]#(DP-4)# [.inserted]#For game state transitions (R-DOM-9), if no state change is received within 30 minutes past the scheduled game start time, or within 3 hours after the game is marked Live, the state shall be marked as stale. For standings, if no update is received within 24 hours, the data shall be marked as stale. For schedules, if no update is received within 48 hours, the data shall be marked as stale. When data transitions to stale state, it shall trigger confidence recalculation (R-DOM-5) and the stale status shall be communicated to dependent components via staleness indicators (see R-INT-9).#
+
+R-DOM-8 (Source Unavailability):: If a source ceases to provide updates (e.g., repeated fetch failures), the system shall [.removed]#consider# [.inserted]#mark# that source [.removed]#inactive and adjust the reliability# [.inserted]#as inactive. The confidence level# of data [.removed]#that depended solely on it. Data from inactive sources# shall [.removed]#be treated with lower confidence. (DP-6)# [.inserted]#reflect source availability via the staleness and confidence mechanisms defined in R-DOM-5 and R-DOM-7.#
+
+R-DOM-9 (Game State Transitions):: The system shall model game states (scheduled, live, halftime, [.inserted]#overtime, delayed, suspended,# final, postponed, cancelled) and [.removed]#record each# [.inserted]#enforce valid state transitions. Valid transitions are: Scheduled → Live (at start time); Live → Halftime (at regulation end); Halftime → Live (when break ends); Live → Overtime (if tied at regulation end); Live/Overtime → Final (at game completion); Live → Delayed (for technical interruptions); Live → Suspended (for indefinite pause); Suspended → Live (when resumed); Scheduled → Postponed (before starting); Scheduled → Cancelled (before starting); any state → Final (for corrections). Each# state transition [.inserted]#shall be recorded# with [.removed]#a timestamp# [.inserted]#timestamp, source,# and [.removed]#source. (DP-7)# [.inserted]#reason.#
+
+R-DOM-10 (Audit [.removed]#Trail):: The system shall maintain an audit trail# [.inserted]#Trail# for [.removed]#all# [.inserted]#Critical Data):: All# changes to critical game data (score, status, final result) [.removed]#including the# [.inserted]#must be recorded in an audit trail. Each entry shall include:# previous value, new value, [.removed]#source,# [.inserted]#source of the change (automated source or user),# timestamp, and reason [.inserted]#(e.g., "official correction", "user update").#
+
+[.inserted]#R-DOM-11 (Conflict Logging):: When the system detects conflicting reports from multiple sources, a conflict log entry shall be created with: both conflicting values, the sources reporting each, the timestamps of each report (event time), and whether the conflict has been manually resolved. Conflict logs shall be retained# for [.inserted]#audit and analysis purposes.#
+
+[.inserted]#R-DOM-12 (User Attribution):: All manual changes to domain data shall be attributed to the authenticated user who performed the change. The audit trail must record the user ID (or role if applicable) along with each manual# change. [.removed]#(DP-3)#

@@ -1,0 +1,223 @@
+
+==== 2.1.5 Events, Actions, and [.inserted]#Composite# Behaviors
+
+This section [.removed]#defines the key domain events, system actions, and expected behaviors for Tu Deporte Aquí. The focus is reliability# [.inserted]#describes events# and [.removed]#transparency when# [.inserted]#actions related to how# sports information is [.removed]#delayed, incomplete, unverified, or conflicting.#
+
+===== [.removed]#Domain# [.inserted]#produced, compared, and updated.#
+
+====== [.inserted]#Domain-Relevant# Events
+
+*E1: Report Received*:: *Report Arrival*::
+A new [.removed]#update is received from a data# source [.removed]#(league site, reporter, community post).#
+
+*E2: Live Match State Updated*::
+[.removed]#A match transitions between states such as Scheduled, Live, Halftime, Delayed, Suspended, Final, Postponed, or Canceled.#
+
+*E3: Data Missing or Partial Coverage Detected*::
+[.removed]#Expected fields (score, status, clock/segment, etc.) are missing or incomplete.#
+
+*E4: Conflict Detected*::
+[.removed]#Two or more sources disagree about a critical value (score, status, final result).#
+
+*E5: Data Becomes Stale*::
+[.removed]#The last update timestamp exceeds a defined freshness threshold.#
+
+*E6: Correction Published*:: [.inserted]#report becomes available.#
+
+*Conflict Emergence*::
+[.inserted]#Multiple reports provide incompatible values.#
+
+*Correction Arrival*::
+A [.removed]#previously published value is updated# [.inserted]#report indicates that previous information should be changed.#
+
+*Freshness Loss*::
+[.inserted]#Information becomes outdated# due to [.removed]#correction or reconciliation.#
+
+*E7: Source Outage / Unavailable Source*:: [.inserted]#lack of recent updates.#
+
+*Source Interruption*::
+A source [.removed]#fails,# stops [.removed]#updating, or becomes unreachable.#
+
+===== [.removed]#System Actions per Event#
+
+[.removed]#For each event, the system performs actions that preserve user trust and allow future validation.#
+
+[.removed]#*E1# [.inserted]#providing updates.#
+
+[.inserted]#======# Actions (Report Received)*::
+- [.removed]#Record#
+
+*Record Report*::
+[.inserted]#Consumes:#
+[.inserted]#*# source [.removed]#attribution and timestamps (publish time, ingest time,#
+* [.inserted]#source report#
+* [.inserted]#sporting# event [.removed]#time when available).#
+- [.removed]#Assign verification status and confidence level.#
+- [.removed]#Store reliability metadata required for transparency.#
+
+*E2 Actions (Live Match State Updated)*::
+- [.removed]#Apply a standardized game state model and log#
+
+[.inserted]#Produces:#
+* [.inserted]#stored report#
+* [.inserted]#associated timestamps#
+
+Purpose::
+[.inserted]#To make# the [.removed]#transition time.#
+- [.removed]#Support manual override and correction logging when local updates are irregular.#
+
+*E3 Actions (Missing/Partial Data)*::
+- [.removed]#Classify coverage# [.inserted]#report available for later use.#
+
+---
+
+*Assess Dependability*::
+[.inserted]#Consumes:#
+* [.inserted]#recorded report#
+* [.inserted]#source trust# level [.removed]#(Full Live, Live–Score Only, Live–Status Only, Live–Delayed).#
+- [.removed]#Preserve last known valid values when available.#
+
+*E4 Actions (Conflict Detected)*::
+- [.removed]#Set status to Conflicting and lower confidence level.#
+- [.removed]#Preserve both values and their sources to avoid silent overwrites.#
+- [.removed]#Trigger re-validation when new related#
+* [.inserted]#other# reports [.removed]#arrive.#
+
+*E5 Actions (Stale Data)*::
+- [.removed]#Mark data as Stale/Delayed and retain last confirmed values.#
+- [.removed]#Update transparency indicators so users can see recency clearly.#
+
+*E6 Actions (Correction Published)*::
+- [.removed]#Classify#
+
+[.inserted]#Produces:#
+* [.inserted]#verification state#
+* [.inserted]#confidence level#
+
+Purpose::
+[.inserted]#To evaluate how reliable# the [.removed]#change as Corrected and preserve lightweight change history for critical fields.#
+- [.removed]#Provide an explanation note (correction/override) where applicable.#
+
+*E7 Actions (Source Outage)*::
+- [.removed]#Enter Degraded State if one# [.inserted]#information is.#
+
+---
+
+*Compare Reports*::
+[.inserted]#Consumes:#
+* [.inserted]#multiple reports#
+
+[.inserted]#Produces:#
+* [.inserted]#consistency# or [.removed]#more key sources fail.#
+- [.removed]#Continue serving cached/last known data with clear messaging.#
+
+===== [.removed]#Expected System Behaviors#
+
+====== [.removed]#Normal Operation#
+- [.removed]#When# [.inserted]#conflict#
+
+Purpose::
+[.inserted]#To determine whether# reports [.removed]#are Confirmed and non-conflicting, display# [.inserted]#agree.#
+
+---
+
+*Update Event Record*::
+[.inserted]#Consumes:#
+* [.inserted]#assessed report#
+[.inserted]#*# current [.removed]#values with last# [.inserted]#record#
+
+[.inserted]#Produces:#
+[.inserted]#*# updated [.removed]#time and source type.#
+- [.removed]#Confidence remains High when an official source is present and no conflicts exist.# [.inserted]#record#
+* [.inserted]#updated timestamp#
+
+Purpose::
+[.inserted]#To reflect the latest known information.#
+
+---
+
+*Mark Unknown*::
+[.inserted]#Consumes:#
+* [.inserted]#incomplete event record#
+
+[.inserted]#Produces:#
+* [.inserted]#explicit unknown value#
+
+Purpose::
+[.inserted]#To avoid unsupported assumptions.#
+
+---
+
+*Preserve Change Trace*::
+[.inserted]#Consumes:#
+* [.inserted]#old value#
+* [.inserted]#new value#
+
+[.inserted]#Produces:#
+* [.inserted]#record of change#
+
+Purpose::
+[.inserted]#To maintain traceability.#
+
+====== [.removed]#Unverified / Developing Information#
+- [.removed]#Allow publication when time-sensitive, but label as Developing/Unverified.#
+- [.removed]#Confidence should be Low (single unverified) or Medium (multiple agreeing non-official sources).#
+- [.removed]#Periodically re-validate and# [.inserted]#Composite Behaviors#
+
+*Information Consolidation*::
+[.inserted]#Sequence of:#
+[.inserted]#report arrival → record report → assess dependability → update event record#
+
+---
+
+*Conflict Handling*::
+[.inserted]#Sequence of:#
+[.inserted]#conflict emergence → compare reports → assess dependability →# update [.removed]#status if confirmation arrives.#
+
+====== [.removed]#Conflicting Information#
+- [.removed]#Display Conflicting state and communicate that information may change.#
+- [.removed]#Do not silently overwrite values; preserve traceability to explain changes later.#
+
+====== [.removed]#Missing or Partial Live Data#
+- [.removed]#A match can be surfaced as live only if minimum live data exists (teams, league, in-progress status, and score OR clock, plus a last updated timestamp).#
+- [.removed]#When fields are missing, degrade coverage honestly (e.g., “Clock unavailable”# or [.removed]#“Score not available”) and keep timestamps visible.#
+
+====== [.removed]#Delayed / Stale Information#
+- [.removed]#If last# [.inserted]#mark unknown#
+
+---
+
+*Correction Handling*::
+[.inserted]#Sequence of:#
+[.inserted]#correction arrival → assess dependability → preserve change trace →# update [.removed]#exceeds# [.inserted]#event record#
+
+---
+
+*Freshness Management*::
+[.inserted]#Sequence of:#
+freshness [.removed]#threshold,# [.inserted]#loss → assess dependability →# mark [.removed]#as Live–Delayed# [.inserted]#unknown# or [.removed]#Stale.#
+- [.removed]#Prefer showing last known valid data# [.inserted]#retain# with [.removed]#a warning over showing potentially incorrect new values without context.#
+
+====== [.removed]#Source# [.inserted]#reduced confidence#
+
+---
+
+[.inserted]#*Source# Failure [.removed]#/ Degraded State#
+- [.removed]#If sources fail,# Handling*::
+[.inserted]#Sequence of:#
+[.inserted]#source interruption → freshness loss → assess dependability →# continue [.removed]#operating using cached values.#
+- [.removed]#Provide system-state messaging indicating synchronization delays or degraded coverage instead of blank screens.# [.inserted]#with reduced information#
+
+====== [.removed]#Corrections#
+- [.removed]#Publish corrections explicitly (Corrected status) and preserve revision history for critical fields.#
+- [.removed]#Users should be able to understand that a change occurred and why (correction vs conflict resolution).#
+
+===== [.removed]#Notes for Future Testing# [.inserted]#Remarks#
+
+These [.removed]#behaviors are designed to be testable through simulation in later milestones:#
+- [.removed]#Conflicting score scenario#
+- [.removed]#Unverified developing report scenario#
+- [.removed]#Delayed update / stale threshold scenario#
+- [.removed]#Partial live coverage scenario#
+- [.removed]#Source outage and degraded mode scenario#
+- [.removed]#Correction lifecycle scenario# [.inserted]#concepts describe the domain itself. Later sections define how the system must support or present them.#
