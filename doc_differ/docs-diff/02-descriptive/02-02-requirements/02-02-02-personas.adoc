@@ -5,7 +5,7 @@
 [.inserted]#to capture habits, pressure, context, and acceptable tradeoffs in this domain,#
 [.inserted]#not just a short list of goals and pain points.##
 
-[.inserted]#===# Sebastian [.inserted]#Rivera "The Superfan"#
+#===# Sebastian [.inserted]#Rivera "The Superfan"#
 
 [.inserted]##Background: Sebastian Rivera# is a [.inserted]#22-year-old# Puerto Rico sports fan [.inserted]#from#
 [.inserted]#Bayamón# who follows local leagues [.removed]#weekly and# [.inserted]#the way some people follow national teams.#
@@ -22,8 +22,7 @@ Goals::
 
 [.inserted]##Sebastian does not want deep analysis. He wants to know what happened, what#
 [.inserted]#is happening now, and whether the information in front of him deserves trust,#
-[.inserted]#especially when a big# game [.inserted]#is on and everyone around him is checking the same#
-[.inserted]#thing.##
+[.inserted]#especially when a big# game [.inserted]#is on and everyone around him is checking the same thing.##
 
 [.inserted]##Age: 22 years old.##
 [.inserted]##Role: College student and weekly local-sports follower.##
@@ -47,7 +46,7 @@ Pain points::
 ===== [.removed]#Persona B: Coach Abiel Rullan, the Team Organizer#
 [.removed]#Abiel manages a local team and cares about schedules, standings,# [.inserted]#live games# and [.removed]#accurate public reporting of results.# [.inserted]#playoffs.# He [.inserted]#also# wants the platform to [.removed]#reflect reality#
 [.inserted]#say clearly when something is uncertain, instead of leaving him to guess#
-[.inserted]#whether the problem is the source, the system, or the event itself.##
+[.inserted]#whether the problem is the source, the system, or the event itself.#
 
 [.inserted]##Problems: Puerto Rico sports updates are scattered across platforms# and [.removed]#avoid spreading incorrect information about teams# [.inserted]#often#
 [.inserted]#inconsistent. Sebastian runs into different sources reporting different scores,#
@@ -58,7 +57,7 @@ Goals::
 * [.removed]#Catch# [.inserted]#major events,#
 [.inserted]#the places he checks most often become slow or unreliable,# and [.removed]#correct errors quickly# when something [.removed]#looks wrong#
 * [.removed]#Share trustworthy#
-[.inserted]#is missing he cannot tell if it has not been posted yet or if something broke.##
+[.inserted]#is missing he cannot tell if it has not been posted yet or if something broke.#
 
 [.inserted]##Quotes:##
 [.inserted]##"I do not want to search five places just to confirm the score."##
@@ -74,7 +73,7 @@ Goals::
 
 === [.inserted]#Coach Abiel Rullan "The Team Organizer"#
 
-[.inserted]##Background: Abiel Rullan is a local coach and team organizer who manages#
+[.inserted]#Background: Abiel Rullan is a local coach and team organizer who manages#
 [.inserted]#schedules, communicates# with players and [.removed]#parents#
 
 Pain points::
@@ -108,10 +107,10 @@ to tell [.removed]#if# [.inserted]#whether something is verified, provisional, o
 [.inserted]#has to verify information manually because he cannot tell which source is#
 [.inserted]#authoritative or whether# a result is [.removed]#verified or provisional#
 
-===== [.removed]#Persona C: Andres Perez,# [.inserted]#final.##
+===== [.removed]#Persona C: Andres Perez,# [.inserted]#final.#
 
 [.inserted]##Quotes:##
-[.inserted]##"If# the [.removed]#Sports Reporter# [.inserted]#standings are wrong, I am the one who has to explain it to everyone."##
+[.inserted]##"If# the [.removed]#Sports Reporter standings are wrong, I am the one who has to explain it to everyone."##
 [.inserted]##"I just need a clear way to know what is confirmed and what is still pending."##
 
 [.inserted]##Solutions:##
@@ -122,19 +121,18 @@ to tell [.removed]#if# [.inserted]#whether something is verified, provisional, o
 [.inserted]##Feature - Prioritize Trusted Sources: When official league results exist,#
 [.inserted]#they should be treated as the strongest reference.##
 
-[.inserted]#===# Andres [.removed]#covers Puerto Rico# [.inserted]#Perez "The Deadline Reporter"#
+#===# Andres [.removed]#covers Puerto Rico# [.inserted]#Perez "The Deadline Reporter"#
 
 [.inserted]##Background: Andres Perez is a 26-year-old# sports [.inserted]#reporter# and [.inserted]#community#
 [.inserted]#updater who# posts rapid [.removed]#updates, especially# [.inserted]#updates# during tournaments and breaking [.removed]#news.# [.inserted]#moments.# He [.removed]#needs# [.inserted]#is#
 [.inserted]#used to working with incomplete information at first. Someone sends# a [.removed]#platform that can# [.inserted]#partial#
 [.inserted]#score, a post goes up without details, and corrections arrive later. Andres#
 [.inserted]#cares about speed, but he cares even more about not spreading misinformation.#
-[.inserted]#He wants a clean way to# represent uncertainty [.removed]#cleanly# [.inserted]#while the story is still moving.##
+[.inserted]#He wants a clean way to# represent uncertainty [.removed]#cleanly# #while the story is still moving.##
 
 [.inserted]##Andres also knows that the platform will get blamed for confusion even# when [.removed]#details#
 [.inserted]#the underlying sources# are [.inserted]#the real problem. If the platform becomes slow#
-[.inserted]#during major events or fails when a source goes down, the audience will blame#
-[.inserted]#the platform first.##
+[.inserted]#during major events or fails when a source goes down, the audience will blame the platform first.#
 
 [.inserted]##Age: 26 years old.##
 [.inserted]##Role: Sports reporter / community updater.##
@@ -155,9 +153,9 @@ is [.removed]#preliminary vs confirmed#
 during [.removed]#high-traffic moments#
 
 Pain points::
-[.removed]#*# [.inserted]#the most important events.##
+[.removed]#*# [.inserted]#the most important events.#
 
-[.inserted]##Problems:# Early reports [.removed]#may be# [.inserted]#are often# incomplete, but the public wants immediate [.removed]#updates#
+[.inserted]#Problems:# Early reports [.removed]#may be# [.inserted]#are often# incomplete, but the public wants immediate [.removed]#updates#
 * [.removed]#A single wrong post#
 [.inserted]#updates. Conflicting sources# can spread [.removed]#fast if the platform does not handle conflicts well#
 [.removed]#*# [.inserted]#misinformation quickly.# When systems
@@ -165,13 +163,13 @@ degrade, users [.removed]#often receive# [.inserted]#get# confusing [.removed]#o
 
 ====== [.removed]#Persona D: Chris Ramos,# [.inserted]#errors instead of clear explanations, and trust#
 [.inserted]#drops fast. During playoffs and high-traffic events, performance issues become#
-[.inserted]#visible immediately.##
+[.inserted]#visible immediately.#
 
-[.inserted]##Quotes:##
-[.inserted]##"I can post fast, but I need a way to show what is confirmed and what is#
-[.inserted]#still developing."##
-[.inserted]##"If# the [.inserted]#site goes down during the biggest game, people will not trust it#
-[.inserted]#again."##
+[.inserted]#Quotes:#
+[.inserted]#"I can post fast, but I need a way to show what is confirmed and what is#
+[.inserted]#still developing."#
+[.inserted]#"If# the [.inserted]#site goes down during the biggest game, people will not trust it#
+[.inserted]#again."#
 
 [.inserted]##Solutions:##
 [.inserted]##Feature - Preliminary vs Confirmed Updates: A way to represent developing#
@@ -237,4 +235,4 @@ failures [.inserted]#trigger the documented fallback behavior.##
 [.inserted]##Feature - Monitoring# and [.removed]#stress#
 * [.removed]#External sources fail or behave unpredictably#
 * [.removed]#It is hard to measure trust-impacting issues without good observability# [.inserted]#Reliability Metrics: Track availability, accuracy,#
-[.inserted]#consistency, and recovery time so changes can be judged with evidence.##
+[.inserted]#consistency, and recovery time so changes can be judged with evidence.#
