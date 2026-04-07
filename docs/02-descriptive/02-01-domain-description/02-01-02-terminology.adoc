@@ -1,6 +1,5 @@
-==== 2.1.2
 
-===== Terminology
+==== 2.1.2 Terminology
 
 This section defines terms used throughout the document to maintain consistent meaning.
 
