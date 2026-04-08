@@ -1,15 +1,40 @@
 "use client"
 
-import { useState } from "react"
+import { FormEvent, useState } from "react"
+import Link from "next/link"
 import { Eye, EyeOff } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { loginUser } from "@/lib/auth"
 
 export default function Page() {
+  const router = useRouter()
+
   const [showPassword, setShowPassword] = useState(false)
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [errorMessage, setErrorMessage] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setErrorMessage("")
+    setLoading(true)
+
+    const result = await loginUser(username, password)
+
+    if (result.error) {
+      setErrorMessage(result.error)
+      setLoading(false)
+      return
+    }
+
+    router.push("/home")
+  }
 
   return (
     <div className="flex min-h-svh items-center justify-center bg-muted/30 p-6">
@@ -19,18 +44,18 @@ export default function Page() {
         </CardHeader>
 
         <CardContent>
-          <form className="space-y-4">
-            {/* Username */}
+          <form className="space-y-4" onSubmit={handleLogin}>
             <div className="space-y-2">
               <Label htmlFor="username">Username</Label>
               <Input
                 id="username"
                 type="text"
                 placeholder="Enter your username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
 
-            {/* Password */}
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
 
@@ -40,6 +65,8 @@ export default function Page() {
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   className="pr-10"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
 
                 <button
@@ -47,19 +74,25 @@ export default function Page() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
                 >
-                  {showPassword ? (
-                    <EyeOff size={18} />
-                  ) : (
-                    <Eye size={18} />
-                  )}
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
             </div>
 
-            {/* Login Button */}
-            <Button type="submit" className="w-full">
-              Login
+            {errorMessage && (
+              <p className="text-sm font-medium text-red-600">{errorMessage}</p>
+            )}
+
+            <Button type="submit" className="w-full" disabled={loading}>
+              {loading ? "Logging in..." : "Login"}
             </Button>
+
+            <p className="text-center text-sm text-muted-foreground">
+              Don&apos;t have an account?{" "}
+              <Link href="/signup" className="font-medium text-primary hover:underline">
+                Sign up
+              </Link>
+            </p>
           </form>
         </CardContent>
       </Card>
