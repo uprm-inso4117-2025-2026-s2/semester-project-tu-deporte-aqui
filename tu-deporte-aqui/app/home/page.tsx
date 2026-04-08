@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import {
@@ -21,9 +21,9 @@ import {
   Youtube,
   Twitter,
   ChevronRight,
-  LogOut,
 } from "lucide-react"
-import { logoutUser } from "@/lib/auth"
+
+import { supabase } from "@/lib/supabaseClient"
 
 // ─── Mock Data ───────────────────────────────────────────────────────────────
 
@@ -79,27 +79,48 @@ function Navbar() {
   const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
   const [query, setQuery] = useState("")
-  const [isLoggingOut, setIsLoggingOut] = useState(false)
-  const [logoutError, setLogoutError] = useState("")
+  const [displayName, setDisplayName] = useState("")
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
+
+      if (!user) return
+
+      const meta = user.user_metadata ?? {}
+
+      let username =
+        meta.username ||
+        meta.display_name ||
+        meta.full_name ||
+        meta.name ||
+        ""
+
+      if (!username) {
+        const { data: profile } = await supabase
+          .from("profiles")
+          .select("display_name")
+          .eq("id", user.id)
+          .single()
+
+        username = profile?.display_name || ""
+      }
+
+      if (!username && user.email) {
+        username = user.email.split("@")[0]
+      }
+
+      setDisplayName(username)
+    }
+
+    loadUser()
+  }, [])
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (query.trim()) router.push(`/search?q=${encodeURIComponent(query.trim())}`)
-  }
-
-  const handleLogout = async () => {
-    setLogoutError("")
-    setIsLoggingOut(true)
-
-    const result = await logoutUser()
-
-    if (result.error) {
-      setLogoutError(result.error)
-      setIsLoggingOut(false)
-      return
-    }
-
-    router.push("/login")
+    if (query.trim()) router.push(/search?q=${encodeURIComponent(query.trim())})
   }
 
   return (
@@ -120,39 +141,37 @@ function Navbar() {
         </div>
 
         {/* Search + Menu */}
-        <div className="flex flex-col items-end gap-1">
-          <div className="flex items-center gap-3">
-            <form onSubmit={handleSearch} className="hidden md:flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1.5 text-sm">
-              <Search size={14} className="text-gray-400 shrink-0" />
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search..."
-                className="bg-transparent outline-none text-gray-700 placeholder-gray-400 w-28 focus:w-44 transition-all"
-              />
-            </form>
-            <button
-              type="button"
-              onClick={handleLogout}
-              disabled={isLoggingOut}
-              className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-gray-400 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              <LogOut size={14} />
-              {isLoggingOut ? "Logging out..." : "Log out"}
-            </button>
-            <button onClick={() => setMenuOpen(!menuOpen)} className="p-1 text-gray-600 hover:text-gray-900">
-              <Menu size={22} />
-            </button>
-          </div>
-          {logoutError ? (
-            <p className="text-xs font-medium text-red-600">{logoutError}</p>
-          ) : null}
+        <div className="flex items-center gap-3">
+          {displayName && (
+            <div className="hidden md:block text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1.5 rounded-full">
+              Signed in as {displayName}
+            </div>
+          )}
+
+          <form onSubmit={handleSearch} className="hidden md:flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1.5 text-sm">
+            <Search size={14} className="text-gray-400 shrink-0" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search..."
+              className="bg-transparent outline-none text-gray-700 placeholder-gray-400 w-28 focus:w-44 transition-all"
+            />
+          </form>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="p-1 text-gray-600 hover:text-gray-900">
+            <Menu size={22} />
+          </button>
         </div>
       </div>
 
       {/* Dropdown menu */}
       {menuOpen && (
         <div className="border-t border-gray-100 bg-white px-4 py-3 flex flex-col gap-1">
+          {displayName && (
+            <div className="py-2 text-sm font-medium text-gray-700 border-b border-gray-100">
+              Signed in as {displayName}
+            </div>
+          )}
+
           {NAV_LINKS.map(({ label, href, icon: Icon }) => (
             <a key={label} href={href} onClick={() => setMenuOpen(false)} className="flex items-center gap-2 py-2 text-sm font-medium text-gray-700 hover:text-gray-900">
               <Icon size={15} /> {label}
@@ -210,7 +229,7 @@ function HeroSection() {
         <div className="flex-1">
           <h2 className="text-xl font-bold mb-4">Your Go-To Sports Hub for Puerto Rico</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
-            Experience all your favorite sports in one place. From basketball to baseball, volleyball to boxing — we bring you live scores, standings, and the latest news from Puerto Rico&apos;s sports scene.
+            Experience all your favorite sports in one place. From basketball to baseball, volleyball to boxing — we bring you live scores, standings, and the latest news from Puerto Rico's sports scene.
           </p>
         </div>
       </div>
@@ -237,9 +256,9 @@ function LiveGamesSection() {
         {/* Cards */}
         <div className="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2 snap-x snap-mandatory">
           {LIVE_GAMES.map((game) => (
-            <a key={game.id} href={`/games/${game.id}`} className="min-w-[260px] max-w-[280px] snap-start rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex-shrink-0 hover:shadow-md hover:border-gray-300 transition-all cursor-pointer">
+            <a key={game.id} href={/games/${game.id}} className="min-w-[260px] max-w-[280px] snap-start rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex-shrink-0 hover:shadow-md hover:border-gray-300 transition-all cursor-pointer">
               {/* Image area */}
-              <div className={`relative h-40 bg-gradient-to-br ${game.color} flex items-center justify-center`}>
+              <div className={relative h-40 bg-gradient-to-br ${game.color} flex items-center justify-center}>
                 <span className="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">LIVE</span>
                 <span className="text-white/40 text-sm font-medium">[Image]</span>
                 <span className="absolute bottom-3 left-3 bg-white text-gray-800 text-xs font-semibold px-2 py-1 rounded-full">{game.sport}</span>
@@ -310,7 +329,7 @@ function StandingsSection() {
             <Trophy size={36} className="text-yellow-500" />
             <h2 className="text-4xl font-black text-gray-900">Team Standings</h2>
           </div>
-          <p className="text-gray-500">Track your favorite teams&apos; performance across different leagues</p>
+          <p className="text-gray-500">Track your favorite teams' performance across different leagues</p>
         </div>
 
         {/* Card */}
@@ -347,7 +366,7 @@ function StandingsSection() {
               </thead>
               <tbody>
                 {rows.map((row, i) => (
-                  <tr key={row.team} className="border-t border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors" onClick={() => window.location.href = `/standings/${active.toLowerCase()}/${encodeURIComponent(row.team)}`}>
+                  <tr key={row.team} className="border-t border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors" onClick={() => window.location.href = /standings/${active.toLowerCase()}/${encodeURIComponent(row.team)}}>
                     <td className="py-4 flex items-center justify-center">
                       <RankIcon rank={i + 1} />
                     </td>
@@ -394,9 +413,9 @@ function NewsSection() {
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {NEWS.map((item) => (
-            <a key={item.id} href={`/news/${item.id}`} className="rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md hover:border-gray-300 transition-all">
+            <a key={item.id} href={/news/${item.id}} className="rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md hover:border-gray-300 transition-all">
               {/* Image area */}
-              <div className={`relative h-44 ${item.color} flex items-center justify-center`}>
+              <div className={relative h-44 ${item.color} flex items-center justify-center}>
                 <div className="absolute top-3 left-3 flex gap-2">
                   {item.featured && (
                     <span className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">FEATURED</span>
