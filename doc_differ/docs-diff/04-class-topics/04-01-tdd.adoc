@@ -78,25 +78,25 @@ This preparation reduces future development risk and supports structured system 
 
 [source,javascript]
 ----
-[.inserted]#expect(formatScore(80, 75)).toBe("80 - 75");#
+expect(formatScore(80, 75)).toBe("80 - 75");
 ----
 
 [.inserted]#*Initial stub implementation (fails test):*#
 
 [source,javascript]
 ----
-[.inserted]#function formatScore() {#
-[.inserted]#  return "";#
-[.inserted]#}#
+function formatScore() {
+  return "";
+}
 ----
 
 [.inserted]#*Updated implementation (passes test):*#
 
 [source,javascript]
 ----
-[.inserted]#function formatScore(homeScore, awayScore) {#
-[.inserted]#  return `${homeScore} - ${awayScore}`;#
-[.inserted]#}#
+function formatScore(homeScore, awayScore) {
+  return `${homeScore} - ${awayScore}`;
+}
 ----
 
 ====== [.inserted]#Iteration 2: Handle Missing Home Score#
@@ -105,19 +105,19 @@ This preparation reduces future development risk and supports structured system 
 
 [source,javascript]
 ----
-[.inserted]#expect(formatScore(null, 75)).toBe("Score unavailable");#
+expect(formatScore(null, 75)).toBe("Score unavailable");
 ----
 
 [.inserted]#*Updated implementation:*#
 
 [source,javascript]
 ----
-[.inserted]#function formatScore(homeScore, awayScore) {#
-[.inserted]#  if (homeScore == null) {#
-[.inserted]#    return "Score unavailable";#
-[.inserted]#  }#
-[.inserted]#  return `${homeScore} - ${awayScore}`;#
-[.inserted]#}#
+function formatScore(homeScore, awayScore) {
+  if (homeScore == null) {
+    return "Score unavailable";
+  }
+  return `${homeScore} - ${awayScore}`;
+}
 ----
 
 ====== [.inserted]#Iteration 3: Handle Missing Away Score#
@@ -126,19 +126,19 @@ This preparation reduces future development risk and supports structured system 
 
 [source,javascript]
 ----
-[.inserted]#expect(formatScore(80, undefined)).toBe("Score unavailable");#
+expect(formatScore(80, undefined)).toBe("Score unavailable");
 ----
 
 [.inserted]#*Updated implementation:*#
 
 [source,javascript]
 ----
-[.inserted]#function formatScore(homeScore, awayScore) {#
-[.inserted]#  if (homeScore == null || awayScore == null) {#
-[.inserted]#    return "Score unavailable";#
-[.inserted]#  }#
-[.inserted]#  return `${homeScore} - ${awayScore}`;#
-[.inserted]#}#
+function formatScore(homeScore, awayScore) {
+  if (homeScore == null || awayScore == null) {
+    return "Score unavailable";
+  }
+  return `${homeScore} - ${awayScore}`;
+}
 ----
 
 ====== [.inserted]#Iteration 4: Handle Both Scores Missing#
@@ -147,18 +147,18 @@ This preparation reduces future development risk and supports structured system 
 
 [source,javascript]
 ----
-[.inserted]#expect(formatScore(null, null)).toBe("Score unavailable");#
+expect(formatScore(null, null)).toBe("Score unavailable");
 ----
 
 [.inserted]#*Result:* Test passes, no changes needed.#
 
 ====== [.inserted]#Iteration 5: Handle Zero Scores Correctly#
 
-[.inserted]#*Test 5:*#
+[.inserted]#*Test 5:*
 
 [source,javascript]
 ----
-[.inserted]#expect(formatScore(0, 0)).toBe("0 - 0");#
+expect(formatScore(0, 0)).toBe("0 - 0");
 ----
 
 [.inserted]#*Result:* Test passes, no changes needed.#
@@ -167,16 +167,16 @@ This preparation reduces future development risk and supports structured system 
 
 [source,javascript]
 ----
-[.inserted]#function formatScore(homeScore, awayScore) {#
-[.inserted]#  if (homeScore == null || awayScore == null) {#
-[.inserted]#    return "Score unavailable";#
-[.inserted]#  }#
-[.inserted]#  return `${homeScore} - ${awayScore}`;#
-[.inserted]#}#
+function formatScore(homeScore, awayScore) {
+  if (homeScore == null || awayScore == null) {
+    return "Score unavailable";
+  }
+  return `${homeScore} - ${awayScore}`;
+}
 ----
 
 [.inserted]#At each step, the function was modified minimally to pass the new test while keeping all previous tests passing.#
 
-#=====# Conclusion
+===== Conclusion
 
 Test-Driven Development supports the core goals of Tu Deporte Aquí by promoting reliability, transparency, and predictable system behavior. Establishing TDD principles early ensures that future implementation remains aligned with documented expectations and real-world data constraints.
