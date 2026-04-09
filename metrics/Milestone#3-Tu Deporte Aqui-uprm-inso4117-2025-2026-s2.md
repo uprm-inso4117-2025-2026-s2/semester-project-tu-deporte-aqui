@@ -1,6 +1,6 @@
 # Milestone Data
 
-## Date Generated: 2026-04-07
+## Date Generated: 2026-04-09
 | Developer | Points Closed | Percent Contribution | Indivudal Grade | Milestone Grade | Lecture Topic Tasks |
 | --------- | ------------- | -------------------- | --------------- | --------------- | ------------------- |
 | Ojani | 0.0 | 0.0% | 0.0% | 40.0% | 0 |
@@ -36,7 +36,7 @@
 
 ## Sprint Task Completion
 
-| Developer | Sprint 1 [current]<br>2026/04/06, 12:00 AM<br>2026/04/18, 11:59 AM | Sprint 2<br>2026/04/18, 11:59 AM<br>2026/04/30, 11:59 PM |
+| Developer | Sprint 1 [current]<br>2026/04/08, 12:00 AM<br>2026/04/19, 11:59 AM | Sprint 2<br>2026/04/19, 11:59 AM<br>2026/04/30, 11:59 PM |
 |---|---|---|
 | Ojani | 0/1 | 0/1 |
 | joaquin787 | 0/1 | 0/1 |
@@ -71,36 +71,36 @@
 
 | Developer | Week #1 | Week #2 | Week #3 | Week #4 | Penalty |
 |---|---|---|---|---|---|
-| pedrocortess | No | No | No | No | 14.0 |
-| JRRR0912 | No | No | No | No | 14.0 |
-| Edward20uprm | No | No | No | No | 14.0 |
-| Massinl | No | No | No | No | 14.0 |
-| dAninAd1248 | No | No | No | No | 14.0 |
-| luissorrentini | No | No | No | No | 14.0 |
-| Ojani | No | No | No | No | 14.0 |
-| angelvillegas1 | No | No | No | No | 14.0 |
-| Joaquin939 | No | No | No | No | 14.0 |
 | Dieg0Rios | No | No | No | No | 14.0 |
-| Edgar-glz | No | No | No | No | 14.0 |
-| AlbertoRodriguez10 | No | No | No | No | 14.0 |
-| Jafet160 | No | No | No | No | 14.0 |
-| yandielhernandez | No | No | No | No | 14.0 |
+| angelvillegas1 | No | No | No | No | 14.0 |
+| Christopher11Perez | No | No | No | No | 14.0 |
+| luissorrentini | No | No | No | No | 14.0 |
 | angelramos1 | No | No | No | No | 14.0 |
-| Fernando18Torres | No | No | No | No | 14.0 |
+| yandielhernandez | No | No | No | No | 14.0 |
+| Massinl | No | No | No | No | 14.0 |
+| anthonyharriel | No | No | No | No | 14.0 |
+| Edgar-glz | No | No | No | No | 14.0 |
 | joaquin787 | No | No | No | No | 14.0 |
-| igrv2003 | No | No | No | No | 14.0 |
+| pedrocortess | No | No | No | No | 14.0 |
+| Edward20uprm | No | No | No | No | 14.0 |
+| Fernando18Torres | No | No | No | No | 14.0 |
+| Naedra | No | No | No | No | 14.0 |
+| Jafet160 | No | No | No | No | 14.0 |
+| Joaquin939 | No | No | No | No | 14.0 |
+| diegohdnz11 | No | No | No | No | 14.0 |
+| LianetteAlberto | No | No | No | No | 14.0 |
 | marcosarraiza | No | No | No | No | 14.0 |
 | jventosa28 | No | No | No | No | 14.0 |
-| NatanaelMassallo | No | No | No | No | 14.0 |
-| Christopher11Perez | No | No | No | No | 14.0 |
-| Naedra | No | No | No | No | 14.0 |
-| anthonyharriel | No | No | No | No | 14.0 |
-| geraldrodriguez1 | No | No | No | No | 14.0 |
-| LianetteAlberto | No | No | No | No | 14.0 |
-| AlexitoUpr | No | No | No | No | 14.0 |
+| dAninAd1248 | No | No | No | No | 14.0 |
 | seba-15 | No | No | No | No | 14.0 |
+| Ojani | No | No | No | No | 14.0 |
+| AlexitoUpr | No | No | No | No | 14.0 |
+| geraldrodriguez1 | No | No | No | No | 14.0 |
+| JRRR0912 | No | No | No | No | 14.0 |
+| NatanaelMassallo | No | No | No | No | 14.0 |
+| igrv2003 | No | No | No | No | 14.0 |
+| AlbertoRodriguez10 | No | No | No | No | 14.0 |
 | noelcolon | No | No | No | No | 14.0 |
-| diegohdnz11 | No | No | No | No | 14.0 |
 
 ## Point Percent by Label
 
@@ -112,31 +112,31 @@ There are no labels assigned to any issue
 | WARNING: Milestone "Milestone #3" not found in any repo associated with the team |
 | INFO: Found Project(name='Tu Deporte Aqui', number=1, url='https://github.com/orgs/uprm-inso4117-2025-2026-s2/projects/1', public=False) |
 | WARNING: Project visibility is set to private. This can lead to issues not being found if the Personal Access Token doesn't have permissions for viewing private projects. |
-| WARNING: Ojani hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: joaquin787 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: Jafet160 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: JRRR0912 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: Naedra hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: igrv2003 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: marcosarraiza hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: NatanaelMassallo hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: seba-15 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: luissorrentini hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: dAninAd1248 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: Joaquin939 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: LianetteAlberto hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: pedrocortess hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: Edward20uprm hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: Massinl hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: angelramos1 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: Christopher11Perez hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: Edgar-glz hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: geraldrodriguez1 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: AlbertoRodriguez10 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: angelvillegas1 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: yandielhernandez hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: Dieg0Rios hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: jventosa28 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: noelcolon hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: diegohdnz11 hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
-| WARNING: AlexitoUpr hasn't completed the minimum 1 task(s) required for sprint 2026/04/06-2026/04/18 |
+| WARNING: Ojani hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: joaquin787 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: Jafet160 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: JRRR0912 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: Naedra hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: igrv2003 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: marcosarraiza hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: NatanaelMassallo hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: seba-15 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: luissorrentini hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: dAninAd1248 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: Joaquin939 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: LianetteAlberto hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: pedrocortess hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: Edward20uprm hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: Massinl hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: angelramos1 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: Christopher11Perez hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: Edgar-glz hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: geraldrodriguez1 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: AlbertoRodriguez10 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: angelvillegas1 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: yandielhernandez hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: Dieg0Rios hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: jventosa28 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: noelcolon hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: diegohdnz11 hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
+| WARNING: AlexitoUpr hasn't completed the minimum 1 task(s) required for sprint 2026/04/08-2026/04/19 |
