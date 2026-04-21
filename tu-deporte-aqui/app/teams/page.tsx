@@ -106,7 +106,7 @@ function TeamCard(props: {isLoading: boolean, teamInfo: TeamInfo, league: League
     )
   else 
     return (
-      <Link href={`teams/${props.league.toLowerCase()}-${props.teamInfo.name.toLowerCase().replace(/\s/g, '-')}`}>
+      <Link href={`teams/${props.league}-${encodeURI(props.teamInfo.name)}`}>
         <Card className="sm:w-100 h-22">
           <CardContent className="flex items-center gap-4">
             <Image width={100} height={100} className="h-12 w-12 rounded-full" alt="Team Image" src={props.teamInfo.image}/>
