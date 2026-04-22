@@ -101,7 +101,7 @@ export default function LocaleSwitcher() {
             {!teamInfo.socialLinks && <p>No data</p>}
             {teamInfo.socialLinks &&
               Object.entries(teamInfo.socialLinks)?.map(([platform, link]) =>
-                <Link target='_blank' className='text-blue-600' key={platform} href={link}>{platform}</Link>
+                <Link target='_blank' className='text-blue-700 dark:text-blue-400' key={platform} href={link}>{platform}</Link>
               )
             }
           </CardContent>

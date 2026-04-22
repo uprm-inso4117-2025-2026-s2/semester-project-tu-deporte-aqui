@@ -117,8 +117,8 @@ function TeamCard(props: {isLoading: boolean, teamInfo: TeamInfo, league: League
               </div>
             </div>
             <div className="flex flex-col justify-between ml-auto gap-2 ">
-              <p className="bg-green-300 px-3 rounded-sm">{props.teamInfo.wins}</p>
-              <p className="bg-red-300 px-3 rounded-sm">{props.teamInfo.losses}</p>
+              <p className="bg-green-300 dark:bg-green-600 px-3 rounded-sm">{props.teamInfo.wins}</p>
+              <p className="bg-red-300 dark:bg-red-600 px-3 rounded-sm">{props.teamInfo.losses}</p>
             </div>
           </CardContent>
         </Card>
