@@ -1,10 +1,10 @@
 
-==== #2.1.6 Function Signatures#
+==== 2.1.6 Function Signatures
 
-#These function signatures are tied directly to the action groups described in
+These function signatures are tied directly to the action groups described in
 Section 2.1.5. They stay at the domain level and use the concepts already
 present in the document, rather than storage-oriented or architecture-specific
-types.#
+types.
 
 Notation uses the form:
 
@@ -12,134 +12,134 @@ functionName : InputTypes -> OutputTypes
 
 Where multiple outputs indicate updated state and produced results.
 
-===== #E1 Actions (Report Received)#
+===== E1 Actions (Report Received)
 
-#buildReliabilityMetadata :#
-#    Source Type >< Publish Time >< Last Updated Time#
-#    -> Reliability Metadata#
+buildReliabilityMetadata :
+    Source Type >< Publish Time >< Last Updated Time
+    -> Reliability Metadata
 
-#Creates the reliability metadata attached to a newly received report.#
+Creates the reliability metadata attached to a newly received report.
 
-#classifyVerificationStatus :#
-#    Source Type >< Reliability Metadata#
-#    -> Confirmed or Unverified or Developing#
+classifyVerificationStatus :
+    Source Type >< Reliability Metadata
+    -> Confirmed or Unverified or Developing
 
-#Determines the initial verification status of the reported information.#
+Determines the initial verification status of the reported information.
 
-#assignConfidenceLevel :#
-#    Source Type >< Confirmed or Unverified or Developing#
-#    -> High Confidence or Medium Confidence or Low Confidence#
+assignConfidenceLevel :
+    Source Type >< Confirmed or Unverified or Developing
+    -> High Confidence or Medium Confidence or Low Confidence
 
-#Determines the initial confidence level of the reported information.#
+Determines the initial confidence level of the reported information.
 
-===== #E2 Actions (Live Match State Updated)#
+===== E2 Actions (Live Match State Updated)
 
-#recordLiveStateUpdate :#
-#    Source Type >< Last Updated Time >< Reliability Metadata#
-#    -> Reliability Metadata#
+recordLiveStateUpdate :
+    Source Type >< Last Updated Time >< Reliability Metadata
+    -> Reliability Metadata
 
-#Records the reliability context of a live-match state update.#
+Records the reliability context of a live-match state update.
 
-#recordManualOverride :#
-#    Source Type >< Publish Time >< Last Updated Time >< Reliability Metadata#
-#    -> Corrected >< Reliability Metadata#
+recordManualOverride :
+    Source Type >< Publish Time >< Last Updated Time >< Reliability Metadata
+    -> Corrected >< Reliability Metadata
 
-#Records a manual override as a traced correction when local updates are
-irregular or late.#
+Records a manual override as a traced correction when local updates are
+irregular or late.
 
-===== #E3 Actions (Data Missing or Partial Coverage Detected)#
+===== E3 Actions (Data Missing or Partial Coverage Detected)
 
-#classifyPartialCoverage :#
-#    Reliability Metadata >< Last Updated Time#
-#    -> Developing or Delayed#
+classifyPartialCoverage :
+    Reliability Metadata >< Last Updated Time
+    -> Developing or Delayed
 
-#Determines whether incomplete coverage should be treated as still developing
-or already delayed.#
+Determines whether incomplete coverage should be treated as still developing
+or already delayed.
 
-#preserveLastKnownMetadata :#
-#    Reliability Metadata#
-#    -> Reliability Metadata#
+preserveLastKnownMetadata :
+    Reliability Metadata
+    -> Reliability Metadata
 
-#Preserves the last known reliability context when current coverage is partial
-or incomplete.#
+Preserves the last known reliability context when current coverage is partial
+or incomplete.
 
-===== #E4 Actions (Conflict Detected)#
+===== E4 Actions (Conflict Detected)
 
-#detectConflict :#
-#    Reliability Metadata >< Reliability Metadata#
-#    -> Conflicting or Confirmed#
+detectConflict :
+    Reliability Metadata >< Reliability Metadata
+    -> Conflicting or Confirmed
 
-#Determines whether two reported values remain mutually consistent or enter a
-conflicting state.#
+Determines whether two reported values remain mutually consistent or enter a
+conflicting state.
 
-#lowerConfidenceAfterConflict :#
-#    Conflicting#
-#    -> Low Confidence#
+lowerConfidenceAfterConflict :
+    Conflicting
+    -> Low Confidence
 
-#Lowers confidence when a conflict remains unresolved.#
+Lowers confidence when a conflict remains unresolved.
 
-#revalidateConflictingInformation :#
-#    Conflicting >< Source Type#
-#    -> Confirmed or Conflicting or Unverified#
+revalidateConflictingInformation :
+    Conflicting >< Source Type
+    -> Confirmed or Conflicting or Unverified
 
-#Re-evaluates a conflicting report when further source information arrives.#
+Re-evaluates a conflicting report when further source information arrives.
 
-===== #E5 Actions (Data Becomes Stale)#
+===== E5 Actions (Data Becomes Stale)
 
-#markAsDelayed :#
-#    Reliability Metadata >< Last Updated Time#
-#    -> Delayed >< Reliability Metadata#
+markAsDelayed :
+    Reliability Metadata >< Last Updated Time
+    -> Delayed >< Reliability Metadata
 
-#Marks information as delayed when the freshness threshold has been exceeded.#
+Marks information as delayed when the freshness threshold has been exceeded.
 
-#preserveLastKnownReliabilityMetadata :#
-#    Delayed >< Reliability Metadata#
-#    -> Reliability Metadata#
+preserveLastKnownReliabilityMetadata :
+    Delayed >< Reliability Metadata
+    -> Reliability Metadata
 
-#Keeps the last known reliability context visible after data becomes stale.#
+Keeps the last known reliability context visible after data becomes stale.
 
-===== #E6 Actions (Correction Published)#
+===== E6 Actions (Correction Published)
 
-#recordCorrection :#
-#    Reliability Metadata >< Publish Time >< Last Updated Time#
-#    -> Corrected >< Reliability Metadata#
+recordCorrection :
+    Reliability Metadata >< Publish Time >< Last Updated Time
+    -> Corrected >< Reliability Metadata
 
-#Records that previously published information has been corrected and updates
-its reliability metadata.#
+Records that previously published information has been corrected and updates
+its reliability metadata.
 
-#explainCorrection :#
-#    Corrected#
-#    -> Reliability Metadata#
+explainCorrection :
+    Corrected
+    -> Reliability Metadata
 
-#Associates correction status with the metadata shown to users.#
+Associates correction status with the metadata shown to users.
 
-===== #E7 Actions (Source Outage / Unavailable Source)#
+===== E7 Actions (Source Outage / Unavailable Source)
 
-#enterDegradedState :#
-#    Reliability Metadata#
-#    -> Degraded State#
+enterDegradedState :
+    Reliability Metadata
+    -> Degraded State
 
-#Records that the system has entered a degraded state because source support
-is insufficient.#
+Records that the system has entered a degraded state because source support
+is insufficient.
 
-#maintainGracefulDegradation :#
-#    Degraded State >< Reliability Metadata#
-#    -> Graceful Degradation#
+maintainGracefulDegradation :
+    Degraded State >< Reliability Metadata
+    -> Graceful Degradation
 
-#Keeps the system usable by preserving the last known reliability context
-under partial failure.#
+Keeps the system usable by preserving the last known reliability context
+under partial failure.
 
-#avoidSilentFailure :#
-#    Degraded State >< Reliability Metadata#
-#    -> Graceful Degradation#
+avoidSilentFailure :
+    Degraded State >< Reliability Metadata
+    -> Graceful Degradation
 
-#Requires failure to be communicated through visible degraded behavior rather
-than silent omission.#
+Requires failure to be communicated through visible degraded behavior rather
+than silent omission.
 
-===== #Note on Scope#
+===== Note on Scope
 
-#These signatures stay with the actions described in Section 2.1.5 and focus
+These signatures stay with the actions described in Section 2.1.5 and focus
 on the conceptual relationship each action creates or changes. Storage
 structures, archives, queues, and other implementation-oriented records were
 removed from this section because they belong to implementation, not to the
-domain-level action view.#
+domain-level action view.
