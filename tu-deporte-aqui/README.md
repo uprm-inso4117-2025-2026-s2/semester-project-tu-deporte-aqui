@@ -2,6 +2,10 @@
 
 This is a Next.js template with shadcn/ui.
 
+If you dont have next installed try:
+
+npm install next react-dom
+
 ## Adding components
 
 To add components to your app, run the following command:
@@ -19,3 +23,17 @@ To use the components in your app, import them as follows:
 ```tsx
 import { Button } from "@/components/ui/button";
 ```
+
+## Supabase Setup
+
+1. Duplicate `.env.example` and rename it to `.env.local`.
+
+2. Replace the values with the real Supabase project credentials.
+
+3. Install dependencies:
+
+npm install
+
+4. Run the development server:
+
+npm run dev

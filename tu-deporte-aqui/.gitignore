@@ -20,6 +20,7 @@
 
 # misc
 .DS_Store
+jsondb.json
 *.pem
 
 # debug
@@ -29,8 +30,12 @@ yarn-error.log*
 pnpm-debug.log*
 
 # env files
-.env*.local
+.env
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+certificates
