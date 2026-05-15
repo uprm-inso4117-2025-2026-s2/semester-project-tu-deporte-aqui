@@ -54,6 +54,7 @@ GEM
     ttfunk (1.7.0)
 
 PLATFORMS
+  arm64-darwin-24
   x64-mingw-ucrt
 
 DEPENDENCIES
