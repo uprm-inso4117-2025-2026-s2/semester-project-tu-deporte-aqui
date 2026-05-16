@@ -1,0 +1,114 @@
+= Git Baselines Applied to Tu Deporte Aquí
+:doctype: article
+:toc: left
+:toclevels: 3
+:sectnums:
+
+== Introduction
+
+This document looks at how Git baseline concepts from the course lecture apply to the Tu Deporte Aquí repository. Rather than describing what the project intends to do, it focuses on what is actually happening right now using real pull request numbers and issue references that anyone can look up and verify. The goal is to identify where the project's current practices fall short of a proper baseline and to propose something realistic the team can actually adopt.
+
+== What Is a Git Baseline?
+
+A baseline is a snapshot of the codebase that satisfies two specific properties: it is gated, and it is invariant.
+
+Being *gated* means a commit cannot enter the baseline unless it meets a defined policy, and that policy has to be enforced automatically. A manual review process doesn't count as a gate because it can be skipped. The gate needs to be something that technically blocks the commit from going in if the requirements aren't met, like a pre-commit hook.
+
+Being *invariant* means the baseline always passes all tests. Every time someone checks out the baseline, they can trust the code is in a known good state. If a commit breaks a test, it doesn't belong in the baseline.
+
+These two properties depend on each other. A gate without an invariant requirement doesn't guarantee anything meaningful. An invariant that isn't enforced automatically is just a hope.
+
+=== Tests as Evidence of Progress
+
+One of the more important ideas in the lecture is what counts as a valid baseline commit. It's not enough for a commit to pass the existing tests. The commit needs to come with a new test, one that passes with the new code in place and fails without it. This is what the lecture calls tests as evidence of progress.
+
+The reasoning is straightforward. If someone adds a new feature but writes no test for it, there's no automated proof the feature actually works. The existing tests passing just means nothing broke, not that the new thing works. The new test is the evidence.
+
+=== Policy Decisions
+
+The lecture describes baseline policies as something you define per branch. A default policy might require every functional commit to include a new test. Certain commits like documentation-only changes can be exempted. You can also add a regression requirement that forces all existing tests to pass before a commit is accepted.
+
+The key point is that the policy is set at the team repository level and shouldn't be easy for individual developers to override. The whole point is consistency across the team, not just individual discipline.
+
+== What's Actually Happening in Tu Deporte Aquí
+
+Everything in this section is drawn from the real PR history and issue tracker. Each observation is tied to a specific PR or issue number.
+
+=== How the Team Is Organized
+
+The project runs across five sub-teams, each working on their own feature branches and submitting pull requests to integrate their work. The team labels on issues and PRs confirm this structure throughout the tracker.
+
+Pull requests are how work gets merged. Several PRs carry a `state: waiting-for-manager` label, for example #288, #296, and #278, which shows there's a manual review step before anything gets merged. That's a good instinct, but it's a manual process, not an automated gate, so it can be skipped.
+
+=== What PR Titles Actually Look Like
+
+Looking at the real PR titles tells you a lot about how consistently the team communicates what's changing:
+
+* PR #298 is titled *"Teams"*, with no mention of what changed, which issue it closes, or what state it's in.
+* PR #283 is titled *"added err messages issue num 194"*, which references an issue but is vague and informal.
+* PR #284 is titled *"Rate install"* and PR #281 is titled *"file completed"*, neither of which gives any useful information about what was done.
+* PR #280 is titled *"news page for issue #188"*, which is clearer since it names the feature and references the issue.
+* PR #294 is titled *"4.3: Update the debugging sessions with real scenarios"*, which is specific, references a documentation section, and describes the change.
+
+The range here is wide. Some PRs make it easy to understand what happened; others are essentially opaque. Without a consistent convention, it's hard to use the PR history to understand why the codebase is in its current state.
+
+=== Whether Features Come With Tests
+
+The clearest way to check the tests-as-evidence-of-progress principle is to look at whether feature PRs and test tasks get closed together. In several cases, they don't:
+
+* The athlete profile page was built across issues #166 and #167, both of which are still open with no linked test task.
+* The teams page (#277) is open and waiting for manager review with no test issue linked to it.
+* The login and home pages were submitted via PR #296, also open and waiting for manager review, with no linked test issue.
+* Logout was implemented and merged via PR #288 with no corresponding test task linked or closed.
+
+The project does have testing tasks (#226 covers test scripts for login and #209 covers scripted testing for sign-up), but these are standalone issues, not gates that block the feature PRs from merging. A feature can be merged without its tests being done.
+
+=== Pre-Commit Hooks
+
+The `.git/hooks/` folder in the repository contains only `.sample` files, which are the default inactive templates that Git includes automatically. None of them are active. There is no pre-commit hook running tests before commits are accepted. A developer can push broken code or code with no tests and nothing will stop it at the commit level.
+
+== Where the Gaps Are
+
+=== Gap 1: Nothing Blocks a Bad Commit
+
+The lecture says the baseline should be gated, meaning a commit that doesn't meet the policy gets rejected automatically. Right now, nothing does that. There are no active pre-commit hooks, and the only review step is the manual `waiting-for-manager` label on PRs, which operates at the PR level and can be bypassed. In a project with five sub-teams pushing code simultaneously, relying entirely on individual discipline isn't a sustainable approach.
+
+=== Gap 2: Features Ship Without Tests
+
+The tests-as-evidence-of-progress principle requires that every functional commit comes with a new test. Looking at the actual issue tracker, features like the athlete page, teams page, login page, and logout were all implemented and merged or are pending merge without a completed test task linked alongside them. The test tasks that exist are written as separate standalone issues, not as requirements that block the feature from being considered done. This means the team has no automated proof that these features actually work as intended.
+
+=== Gap 3: All Branches Are Treated the Same
+
+The lecture describes baseline policies as something you differentiate per branch, stricter on the main branch and more relaxed on feature branches. Right now there's no observable branch protection configuration making that distinction. The main branch and a developer's experimental feature branch operate under the same informal norms. That means there's no technical enforcement of the idea that code going into main should be held to a higher standard than code being actively worked on.
+
+== A Proposed Policy
+
+The following is a concrete policy proposal based directly on the lecture's framework. It's written to be realistic for where the project is right now.
+
+=== Default (All Branches)
+
+Every commit that changes source code should include at least one new test. That test needs to pass with the changes in place and fail without them. Commits that only touch documentation or configuration files are exempt. Commit messages should reference the issue they relate to, something like `fix standings rendering, closes #311`.
+
+=== Main Branch (Stricter)
+
+No one should be committing directly to main. Everything goes through a pull request, and at least one team member who didn't write the code needs to approve it before it merges. All existing tests need to pass. The PR needs to link to the issue it closes, and that issue needs a completed test task before the PR can be approved.
+
+=== Feature Branches (More Relaxed)
+
+The pre-commit hook runs the tests, but developers can bypass it locally with `git commit --no-verify` while they're actively working. Before opening a PR though, any test failures introduced by the branch need to be resolved, and the PR description should say what new tests were added and what they cover.
+
+=== The Pre-Commit Hook
+
+To actually implement the gate the lecture describes, the team needs an active pre-commit hook. For the current Next.js and TypeScript stack, this would run `npx vitest run` before each commit. If any test fails, the commit gets rejected with a message explaining what failed. The hook file goes in `.git/hooks/pre-commit` and can be shared across the team by committing it to a `bin/git/hooks/` directory in the repository, following the pattern from the lecture.
+
+== Why This Matters for the Project
+
+Tu Deporte Aquí is built around showing accurate sports information: correct standings, live scores, and reliable game status. The project's own documentation names data freshness and trustworthiness as core goals.
+
+A baseline policy connects to those goals in ways that are concrete, not abstract. When the standings logic gets changed without a test, there's no automated proof the change didn't break something. When the Supabase environment variable key was misnamed (the exact situation documented in issue #311), a pre-commit hook running the test suite would have caught the failure before it was pushed. When five sub-teams are working in parallel without branch-level enforcement, one team's broken change can quietly affect another team's work and nobody finds out until someone manually tests it.
+
+The baseline isn't a bureaucratic process. It's what makes the rest of the testing work actually mean something.
+
+== Conclusion
+
+The project has a reasonable foundation: a multi-team PR workflow, a manual review step, and dedicated testing tasks. But measured against the baseline concepts from the lecture, three concrete gaps exist: no automated gate at commit time, features being merged without accompanying tests, and no distinction between how the main branch and feature branches are treated. These aren't inferences, they're observable in the real repository right now. The proposed policy addresses each gap using the lecture's own framework and is realistic enough to adopt without overhauling how the team works.
