@@ -1,145 +1,199 @@
+==== Function Signatures
 
-==== 2.1.6 Function Signatures
-
-These function signatures are tied directly to the action groups described in
-Section 2.1.5. They stay at the domain level and use the concepts already
-present in the document, rather than storage-oriented or architecture-specific
-types.
+These function signatures are tied to the action groups described in Section 2.1.5. They describe domain behavior, not database tables, API routes, UI widgets, or implementation classes.
 
 Notation uses the form:
 
-functionName : InputTypes -> OutputTypes
+----
+functionName : InputTypes → OutputTypes
+----
 
-Where multiple outputs indicate updated state and produced results.
+The symbol `><` means that the function uses more than one domain value.
 
-===== E1 Actions (Report Received)
+===== Domain Types Used in These Signatures
 
-buildReliabilityMetadata :
-    Source Type >< Publish Time >< Last Updated Time
-    -> Reliability Metadata
+The signatures below use named domain types so that the reader can see what kind of information each function works with.
+
+[cols="1,3", options="header"]
+|===
+| Type
+| Meaning in this domain
+
+| `SourceType`
+| The kind of source that produced a report. Examples include league source, team page, reporter source, sports media source, third-party platform, or community source.
+
+| `SourceReport`
+| A specific reported value from one source, such as a score update, schedule change, standings update, or correction.
+
+| `EventRecord`
+| The current maintained representation of what is known about a sporting event.
+
+| `SourceTrustLevel`
+| A general assessment of how dependable a source tends to be.
+
+| `PublishTime`
+| The time when a source originally released the information.
+
+| `IngestTime`
+| The time when the information was recorded by the system.
+
+| `LastUpdatedTime`
+| The most recent time the event record changed.
+
+| `VerificationState`
+| The confirmation state of a reported value. Possible values include `Unverified`, `Confirmed`, and `Final`.
+
+| `InformationStatus`
+| The current condition of the information. Possible values include `Developing`, `Conflicting`, `Delayed`, `Corrected`, and `Unknown`.
+
+| `ConfidenceLevel`
+| The level of confidence assigned to a reported value. Possible values include `HighConfidence`, `MediumConfidence`, and `LowConfidence`.
+
+| `ReliabilityMetadata`
+| The domain information attached to a report or event record so that its source, timing, verification state, and confidence level can be understood together.
+
+| `DependabilityIndicator`
+| The visible dependability information that can be shown with a score, schedule, standings entry, or event update.
+
+| `ConflictAssessment`
+| The result of comparing reports that may disagree. It identifies whether the reports are consistent, conflicting, or still unresolved.
+
+| `CorrectionTrace`
+| A record of what changed when a correction replaces or updates previously reported information.
+
+| `DegradedState`
+| A system condition where the platform continues operating with missing, late, or incomplete source support.
+
+| `GracefulDegradation`
+| The behavior of continuing to show usable partial information while making the limitation visible.
+|===
+
+===== Typed Example: Assessing Dependability
+
+The following function is a non-trivial example of using types to explain domain behavior:
+
+----
+assessReportDependability : SourceReport >< SourceTrustLevel >< EventRecord → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
+----
+
+This signature shows that assessing a report is not a simple true/false decision. A report is judged using the report itself, the usual dependability of its source, and the current event record. The output separates `VerificationState` from `ConfidenceLevel`, so the documentation can describe cases such as an `Unverified` report with `LowConfidence` instead of hiding that distinction.
+
+===== E1 Actions: Report Received
+
+----
+buildReliabilityMetadata : SourceType >< PublishTime >< IngestTime >< LastUpdatedTime → ReliabilityMetadata
+----
 
 Creates the reliability metadata attached to a newly received report.
 
-classifyVerificationStatus :
-    Source Type >< Reliability Metadata
-    -> Confirmed or Unverified or Developing
+----
+assessReportDependability : SourceReport >< SourceTrustLevel >< EventRecord → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
+----
 
-Determines the initial verification status of the reported information.
+Assesses how dependable a received report is in relation to the current event record.
 
-assignConfidenceLevel :
-    Source Type >< Confirmed or Unverified or Developing
-    -> High Confidence or Medium Confidence or Low Confidence
+----
+attachDependabilityIndicator : SourceReport >< ReliabilityMetadata → DependabilityIndicator
+----
 
-Determines the initial confidence level of the reported information.
+Creates the dependability information that can be shown with the reported value.
 
-===== E2 Actions (Live Match State Updated)
+===== E2 Actions: Live Match State Updated
 
-recordLiveStateUpdate :
-    Source Type >< Last Updated Time >< Reliability Metadata
-    -> Reliability Metadata
+----
+recordLiveStateUpdate : SourceReport >< EventRecord >< LastUpdatedTime → EventRecord >< ReliabilityMetadata
+----
 
-Records the reliability context of a live-match state update.
+Updates the event record when a live-match report changes the current known state.
 
-recordManualOverride :
-    Source Type >< Publish Time >< Last Updated Time >< Reliability Metadata
-    -> Corrected >< Reliability Metadata
+----
+recordManualOverride : SourceReport >< Correction >< EventRecord >< ReliabilityMetadata → Corrected >< EventRecord >< CorrectionTrace >< ReliabilityMetadata
+----
 
-Records a manual override as a traced correction when local updates are
-irregular or late.
+Records a manual override as a correction when local updates are irregular, late, or inconsistent.
 
-===== E3 Actions (Data Missing or Partial Coverage Detected)
+===== E3 Actions: Data Missing or Partial Coverage Detected
 
-classifyPartialCoverage :
-    Reliability Metadata >< Last Updated Time
-    -> Developing or Delayed
+----
+classifyPartialCoverage : EventRecord >< LastUpdatedTime >< ReliabilityMetadata → InformationStatus
+----
 
-Determines whether incomplete coverage should be treated as still developing
-or already delayed.
+Classifies incomplete coverage as `Developing`, `Delayed`, or `Unknown` depending on timing and available source context.
 
-preserveLastKnownMetadata :
-    Reliability Metadata
-    -> Reliability Metadata
+----
+preserveLastKnownMetadata : EventRecord >< ReliabilityMetadata → EventRecord >< ReliabilityMetadata
+----
 
-Preserves the last known reliability context when current coverage is partial
-or incomplete.
+Keeps the last known reliability context attached to the event record when current coverage is partial.
 
-===== E4 Actions (Conflict Detected)
+===== E4 Actions: Conflict Detected
 
-detectConflict :
-    Reliability Metadata >< Reliability Metadata
-    -> Conflicting or Confirmed
+----
+detectConflict : SourceReport >< SourceReport >< EventRecord → ConflictAssessment
+----
 
-Determines whether two reported values remain mutually consistent or enter a
-conflicting state.
+Compares two reports about the same event record and determines whether their values can both be accepted.
 
-lowerConfidenceAfterConflict :
-    Conflicting
-    -> Low Confidence
+----
+lowerConfidenceAfterConflict : ConflictAssessment >< ReliabilityMetadata → LowConfidence >< ReliabilityMetadata
+----
 
-Lowers confidence when a conflict remains unresolved.
+Lowers confidence when the conflict is still unresolved.
 
-revalidateConflictingInformation :
-    Conflicting >< Source Type
-    -> Confirmed or Conflicting or Unverified
+----
+revalidateConflictingInformation : ConflictAssessment >< SourceReport >< SourceTrustLevel → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
+----
 
-Re-evaluates a conflicting report when further source information arrives.
+Re-evaluates conflicting information when another report or more dependable source becomes available.
 
-===== E5 Actions (Data Becomes Stale)
+===== E5 Actions: Data Becomes Stale
 
-markAsDelayed :
-    Reliability Metadata >< Last Updated Time
-    -> Delayed >< Reliability Metadata
+----
+markAsDelayed : EventRecord >< LastUpdatedTime >< ReliabilityMetadata → Delayed >< ReliabilityMetadata
+----
 
-Marks information as delayed when the freshness threshold has been exceeded.
+Marks information as delayed when it has not been updated recently enough for its context.
 
-preserveLastKnownReliabilityMetadata :
-    Delayed >< Reliability Metadata
-    -> Reliability Metadata
+----
+preserveLastKnownReliabilityMetadata : Delayed >< ReliabilityMetadata → DependabilityIndicator
+----
 
-Keeps the last known reliability context visible after data becomes stale.
+Keeps the previous reliability context visible instead of removing stale information without explanation.
 
-===== E6 Actions (Correction Published)
+===== E6 Actions: Correction Published
 
-recordCorrection :
-    Reliability Metadata >< Publish Time >< Last Updated Time
-    -> Corrected >< Reliability Metadata
+----
+recordCorrection : Correction >< EventRecord >< ReliabilityMetadata >< LastUpdatedTime → Corrected >< EventRecord >< CorrectionTrace >< ReliabilityMetadata
+----
 
-Records that previously published information has been corrected and updates
-its reliability metadata.
+Records that previously published information changed and keeps a trace of the correction.
 
-explainCorrection :
-    Corrected
-    -> Reliability Metadata
+----
+explainCorrection : CorrectionTrace >< ReliabilityMetadata → DependabilityIndicator
+----
 
-Associates correction status with the metadata shown to users.
+Connects the correction trace to the dependability information shown with the corrected value.
 
-===== E7 Actions (Source Outage / Unavailable Source)
+===== E7 Actions: Source Outage / Unavailable Source
 
-enterDegradedState :
-    Reliability Metadata
-    -> Degraded State
+----
+enterDegradedState : EventRecord >< ReliabilityMetadata → DegradedState
+----
 
-Records that the system has entered a degraded state because source support
-is insufficient.
+Records that source support is not enough for normal operation.
 
-maintainGracefulDegradation :
-    Degraded State >< Reliability Metadata
-    -> Graceful Degradation
+----
+maintainGracefulDegradation : DegradedState >< EventRecord >< ReliabilityMetadata → GracefulDegradation >< DependabilityIndicator
+----
 
-Keeps the system usable by preserving the last known reliability context
-under partial failure.
+Keeps partial information available while showing that the system is operating under degraded conditions.
 
-avoidSilentFailure :
-    Degraded State >< Reliability Metadata
-    -> Graceful Degradation
+----
+avoidSilentFailure : DegradedState >< EventRecord → GracefulDegradation
+----
 
-Requires failure to be communicated through visible degraded behavior rather
-than silent omission.
+Prevents missing or delayed information from being hidden as if nothing were wrong.
 
 ===== Note on Scope
 
-These signatures stay with the actions described in Section 2.1.5 and focus
-on the conceptual relationship each action creates or changes. Storage
-structures, archives, queues, and other implementation-oriented records were
-removed from this section because they belong to implementation, not to the
-domain-level action view.
+These signatures stay at the domain level. The types name concepts from the problem area: reports, sources, event records, verification, confidence, corrections, conflicts, and degraded operation. They do not define code classes, database records, storage queues, or UI components.
