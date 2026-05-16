@@ -1,0 +1,110 @@
+==== 4.4 LTT Requirement Traceability for Existing BDD Scenarios
+
+This table shows which requirement IDs each existing BDD scenario covers.
+Requirement IDs come from sections 2.2.3 (Domain), 2.2.4 (Interface), and 2.2.5 (Machine).
+
+[cols="3,2,2",options="header"]
+|===
+| Scenario | Feature File | Requirement IDs
+
+| Show when data was last updated
+| interface_requirements.feature
+| R-DOM-7, R-INT-9
+
+| Indicate stale data to the user
+| interface_requirements.feature
+| R-DOM-7, R-INT-9
+
+| Show conflicting reports from different sources
+| interface_requirements.feature
+| R-DOM-2, R-DOM-3, R-INT-9
+
+| Handle missing data gracefully
+| interface_requirements.feature
+| R-INT-9
+
+| Label unverified data from unverified sources
+| interface_requirements.feature
+| R-DOM-4, R-INT-9
+
+| Display source attribution in standings
+| interface_requirements.feature
+| R-INT-9, R-DOM-7
+
+| Communicate system-wide degraded state
+| interface_requirements.feature
+| R-MAC-9, R-INT-8
+
+| Show confidence level for uncertain data
+| interface_requirements.feature
+| R-DOM-5, R-DOM-4, R-INT-9
+
+| Conflicting scores from different sources
+| domain_requirements.feature
+| R-DOM-1, R-DOM-2, R-DOM-3
+
+| Unverified report becomes confirmed
+| domain_requirements.feature
+| R-DOM-4, R-DOM-1
+
+| Official correction after publication
+| domain_requirements.feature
+| R-DOM-6, R-DOM-10
+
+| Multiple unofficial sources agree
+| domain_requirements.feature
+| R-DOM-5, R-DOM-4
+
+| Outdated game information
+| domain_requirements.feature
+| R-DOM-7
+
+| Source becomes unavailable
+| domain_requirements.feature
+| R-DOM-8, R-DOM-5
+
+| Correction without formal announcement
+| domain_requirements.feature
+| R-DOM-2, R-DOM-1, R-DOM-3
+
+| High demand for accurate information during playoffs
+| domain_requirements.feature
+| R-DOM-1, R-DOM-4, R-DOM-6
+
+| Continue operating when a source fails
+| machine_requirements.feature
+| R-MAC-9, R-MAC-7
+
+| Fall back to cached data during source unavailability
+| machine_requirements.feature
+| R-MAC-9, R-DOM-7
+
+| Log conflicts for debugging and analysis
+| machine_requirements.feature
+| R-DOM-11, R-MAC-7
+
+| Prioritize critical endpoints under high traffic
+| machine_requirements.feature
+| R-MAC-3, R-MAC-4
+
+| Resume normal operation after source recovery
+| machine_requirements.feature
+| R-DOM-8, R-INT-8
+
+| Expose reliability metrics for monitoring
+| machine_requirements.feature
+| R-INT-8, R-MAC-7
+
+| Retain correction history for audit purposes
+| machine_requirements.feature
+| R-DOM-10, R-DOM-6, R-MAC-10
+
+| Handle malformed data from a source
+| machine_requirements.feature
+| R-MAC-7, R-MAC-9
+
+| Recover from database connection failure
+| machine_requirements.feature
+| R-MAC-1, R-MAC-7
+
+|===
