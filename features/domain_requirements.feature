@@ -12,6 +12,7 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     And official sources are considered the ultimate authority when available
     And multiple agreeing unofficial sources can build confidence
 
+  # Req: R-DOM-1, R-DOM-2, R-DOM-3
   Scenario: Conflicting scores from different sources
     Given a game between "Cangrejeros" and "Vaqueros" is being played
     And a social media post reports the score as "75-70" for Cangrejeros
@@ -21,6 +22,7 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     And the conflicting social media report is recorded as unofficial
     And fans should be made aware that a discrepancy existed
 
+  # Req: R-DOM-4, R-DOM-1
   Scenario: Unverified report becomes confirmed
     Given a game has ended
     And a reporter posts an unverified score of "80-75" on social media
@@ -31,6 +33,7 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     And the official score becomes the record
     And the earlier unverified report is marked as superseded
 
+  # Req: R-DOM-6, R-DOM-10
   Scenario: Official correction after publication
     Given the league published a final score of "90-88" for a game
     And the score is recorded in standings
@@ -39,6 +42,7 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     And the previous incorrect score is archived with a correction notice
     And the reason "official correction" is noted alongside the change
 
+  # Req: R-DOM-5, R-DOM-4
   Scenario: Multiple unofficial sources agree
     Given no official source has reported on a game
     And three different local news outlets all report the same score "65-60"
@@ -47,6 +51,7 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     But it is still marked as unverified until official confirmation
     And all three sources are cited as the basis
 
+  # Req: R-DOM-7
   Scenario: Outdated game information
     Given a game was played three days ago
     And no new reports have appeared since the initial score was posted
@@ -54,12 +59,14 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     And anyone consulting the record should be alerted that it may be outdated
     And a refresh should be attempted by checking official sources again
 
+  # Req: R-DOM-8, R-DOM-5
   Scenario: Source becomes unavailable
     Given a particular news outlet has stopped publishing sports updates
     Then that source is no longer considered active
     And any information that depended solely on that source becomes less reliable
     And other sources must be used to verify past records
 
+  # Req: R-DOM-2, R-DOM-1, R-DOM-3
   Scenario: Correction without formal announcement
     Given a score was reported as "77-76" in a local newspaper
     And days later the league website shows "78-76" with no correction notice
@@ -68,6 +75,7 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     And the newspaper's version is noted as a likely error
     But if no official source exists, the conflict remains unresolved
 
+  # Req: R-DOM-1, R-DOM-4, R-DOM-6
   Scenario: High demand for accurate information during playoffs
     Given it is playoff season
     And many fans are following games closely

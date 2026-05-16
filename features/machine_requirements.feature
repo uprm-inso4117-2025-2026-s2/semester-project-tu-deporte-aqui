@@ -11,6 +11,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
       | News Feed   | news     | 20s     |
     And the system has a timeout for each source fetch
 
+  # Req: R-MAC-9, R-MAC-7
   Scenario: Continue operating when a source fails
     Given source "BSN API" returns a 500 Internal Server Error
     When the system processes requests for data
@@ -20,6 +21,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And the system should log the error with source name and timestamp
     And the system should return HTTP 200 to the user with available data
 
+  # Req: R-MAC-9, R-DOM-7
   Scenario: Fall back to cached data during source unavailability
     Given source "Twitter API" has been unavailable for "2 minutes"
     And the last successful fetch from "Twitter API" returned valid data
@@ -29,6 +31,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And the system should check if the cached data exceeds staleness threshold
     And the system should mark the data appropriately based on staleness
 
+  # Req: R-DOM-11, R-MAC-7
   Scenario: Log conflicts for debugging and analysis
     Given a conflict is detected between source "BSN API" and source "Twitter API"
     And the conflict involves entity "GAME-123"
@@ -43,6 +46,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And the log entry should contain resolution status "pending"
     And the log entry should be available for later analysis
 
+  # Req: R-MAC-3, R-MAC-4
   Scenario: Prioritize critical endpoints under high traffic
     Given "1000" concurrent users request the same playoff game
     And the request rate exceeds the system's normal capacity
@@ -53,6 +57,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And response times for the game endpoint should remain within SLA
     And the game endpoint should return successfully for most requests
 
+  # Req: R-DOM-8, R-INT-8
   Scenario: Resume normal operation after source recovery
     Given source "News Feed" was marked "down" for "10 minutes"
     And source "News Feed" becomes responsive again
@@ -63,6 +68,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And the system should re-evaluate any pending conflicts involving source "News Feed"
     And the system should clear any source-down indicators for "News Feed"
 
+  # Req: R-INT-8, R-MAC-7
   Scenario: Expose reliability metrics for monitoring
     Given the system has been running for "1 hour"
     And sources have received requests during that time
@@ -74,6 +80,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And the metrics should include last successful fetch timestamp
     And the metrics should be available via a monitoring endpoint
 
+  # Req: R-DOM-10, R-DOM-6, R-MAC-10
   Scenario: Retain correction history for audit purposes
     Given a correction was applied to game "GAME-999"
     And the correction changed the score from "90-88" to "89-88"
@@ -88,6 +95,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And each change should include the source
     And the history should be retained according to data retention policy
 
+  # Req: R-MAC-7, R-MAC-9
   Scenario: Handle malformed data from a source
     Given source "Twitter API" returns malformed JSON;
     When the system attempts to parse the response
@@ -97,6 +105,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And the system should mark affected entities for re-validation
     And the system should alert operations team about the malformed response
 
+  # Req: R-MAC-1, R-MAC-7
   Scenario: Recover from database connection failure
     Given the database connection is lost
     When a user requests game data
