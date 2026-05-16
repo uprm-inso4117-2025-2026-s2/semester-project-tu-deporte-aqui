@@ -1,6 +1,6 @@
 # Milestone Data
 
-## Date Generated: 2026-05-15
+## Date Generated: 2026-05-16
 | Developer | Points Closed | Percent Contribution | Indivudal Grade | Milestone Grade | Lecture Topic Tasks |
 | --------- | ------------- | -------------------- | --------------- | --------------- | ------------------- |
 | Ojani | 0.0 | 0.0% | 0.0% | 40.0% | 0 |
@@ -71,36 +71,36 @@
 
 | Developer | Week #1 | Week #2 | Week #3 | Week #4 | Penalty |
 |---|---|---|---|---|---|
-| Christopher11Perez | No | No | No | No | 14.0 |
-| AlexitoUpr | Yes | No | No | No | 9.0 |
-| jventosa28 | No | No | No | No | 14.0 |
-| geraldrodriguez1 | Yes | No | No | No | 9.0 |
-| AlbertoRodriguez10 | No | No | No | No | 14.0 |
-| Dieg0Rios | Yes | No | No | No | 9.0 |
-| Naedra | Yes | No | No | No | 9.0 |
-| Jafet160 | No | No | No | No | 14.0 |
-| dAninAd1248 | Yes | No | No | No | 9.0 |
-| anthonyharriel | Yes | No | No | No | 9.0 |
-| Edgar-glz | Yes | No | No | No | 9.0 |
-| NatanaelMassallo | No | No | No | No | 14.0 |
-| angelramos1 | Yes | No | No | No | 9.0 |
-| LianetteAlberto | No | No | No | No | 14.0 |
-| angelvillegas1 | No | Yes | No | No | 7.0 |
-| Joaquin939 | Yes | No | No | No | 9.0 |
-| pedrocortess | Yes | No | No | No | 9.0 |
-| Ojani | No | No | No | No | 14.0 |
-| Fernando18Torres | Yes | No | No | No | 9.0 |
-| noelcolon | No | No | No | No | 14.0 |
+| marcosarraiza | Yes | Yes | No | No | 5.0 |
+| Naedra | Yes | Yes | No | No | 5.0 |
 | igrv2003 | Yes | No | No | No | 9.0 |
-| JRRR0912 | No | No | No | No | 14.0 |
-| yandielhernandez | Yes | No | No | No | 9.0 |
-| marcosarraiza | Yes | No | No | No | 9.0 |
-| Massinl | No | No | No | No | 14.0 |
-| seba-15 | No | No | No | No | 14.0 |
-| diegohdnz11 | Yes | No | No | No | 9.0 |
-| joaquin787 | No | No | No | No | 14.0 |
-| luissorrentini | Yes | No | No | No | 9.0 |
+| pedrocortess | Yes | Yes | No | No | 5.0 |
+| AlbertoRodriguez10 | No | No | No | No | 14.0 |
+| angelvillegas1 | No | Yes | No | No | 7.0 |
+| geraldrodriguez1 | Yes | Yes | No | No | 5.0 |
 | Edward20uprm | No | No | No | No | 14.0 |
+| dAninAd1248 | Yes | Yes | No | No | 5.0 |
+| Fernando18Torres | Yes | Yes | No | No | 5.0 |
+| anthonyharriel | Yes | Yes | No | No | 5.0 |
+| Massinl | No | No | No | No | 14.0 |
+| Edgar-glz | Yes | Yes | No | No | 5.0 |
+| Christopher11Perez | No | No | No | No | 14.0 |
+| jventosa28 | No | No | No | No | 14.0 |
+| Dieg0Rios | Yes | Yes | No | No | 5.0 |
+| diegohdnz11 | Yes | Yes | No | No | 5.0 |
+| noelcolon | No | No | No | No | 14.0 |
+| joaquin787 | No | No | No | No | 14.0 |
+| luissorrentini | Yes | Yes | No | No | 5.0 |
+| Joaquin939 | Yes | Yes | No | No | 5.0 |
+| angelramos1 | Yes | Yes | No | No | 5.0 |
+| NatanaelMassallo | No | No | No | No | 14.0 |
+| Jafet160 | No | No | No | No | 14.0 |
+| yandielhernandez | Yes | Yes | No | No | 5.0 |
+| Ojani | No | No | No | No | 14.0 |
+| AlexitoUpr | Yes | Yes | No | No | 5.0 |
+| seba-15 | No | Yes | No | No | 7.0 |
+| JRRR0912 | No | Yes | No | No | 7.0 |
+| LianetteAlberto | No | No | No | No | 14.0 |
 
 ## Point Percent by Label
 
@@ -114,16 +114,12 @@ There are no labels assigned to any issue
 | WARNING: [Issue #300](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/300) is not associated with a milestone. |
 | WARNING: [Issue #301](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/301) is not associated with a milestone. |
 | WARNING: [Issue #303](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/303) is not associated with a milestone. |
-| WARNING: [Issue #305](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/305) is not associated with a milestone. |
-| WARNING: [Issue #306](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/306) is not associated with a milestone. |
-| WARNING: [Issue #307](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/307) is not associated with a milestone. |
-| WARNING: [Issue #308](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/308) is not associated with a milestone. |
-| WARNING: [Issue #309](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/309) is not associated with a milestone. |
-| WARNING: [Issue #310](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/310) is not associated with a milestone. |
 | WARNING: [Issue #311](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/311) is not associated with a milestone. |
 | WARNING: [Issue #312](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/312) is not associated with a milestone. |
 | WARNING: [Issue #318](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/318) is not associated with a milestone. |
 | WARNING: [Issue #323](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/323) is not associated with a milestone. |
+| WARNING: [Issue #329](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/329) is not associated with a milestone. |
+| WARNING: [Issue #334](https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui/issues/334) is not associated with a milestone. |
 | WARNING: Ojani hasn't completed the minimum 1 task(s) required for sprint 2026/05/06-2026/05/16 |
 | WARNING: joaquin787 hasn't completed the minimum 1 task(s) required for sprint 2026/05/06-2026/05/16 |
 | WARNING: Jafet160 hasn't completed the minimum 1 task(s) required for sprint 2026/05/06-2026/05/16 |
