@@ -1,0 +1,135 @@
+=== Pre- and Postconditions for Reliable User Actions
+:Javier Ventosa: Team 5
+
+==== Introduction
+
+Preconditions and postconditions are useful concepts for defining correct program behavior. A precondition describes what must be true before an action, function, or feature is executed. A postcondition describes what must be true after the action finishes successfully.
+
+In the lecture, this idea is represented using a Hoare triple:
+
+----
+{ P } S { Q }
+----
+
+In this format, `P` is the precondition, `S` is the program statement or action, and `Q` is the postcondition. This means that if the program starts in a state where `P` is true, then after running `S`, the final result should satisfy `Q`.
+
+For the Tu Deporte Aquí project, preconditions and postconditions can help the team define how important user actions should behave. They can also help developers create better test cases because they clearly describe what must be checked before and after a feature runs.
+
+==== Objective
+
+Explain preconditions and postconditions and show how they help define correct behavior for key Tu Deporte Aquí actions, such as submitting reports, updating scores, and creating events.
+
+==== Description
+
+This Lecture Topic Task explains how preconditions and postconditions can be used to describe what must be true before and after a feature runs. The topic is applied to Tu Deporte Aquí actions such as submitting reports, updating scores, creating events, and changing report statuses.
+
+Using these conditions helps prevent invalid actions, clarify expected behavior, and improve software reliability.
+
+==== Lecture Topic Explanation
+
+A precondition is a required condition that must be true before a feature is allowed to execute. If the precondition is not satisfied, the system should reject the action or show an error message.
+
+A postcondition is a condition that should be true after the feature completes. It helps confirm that the system changed correctly and that the action produced the expected result.
+
+For example, if a user wants to update a game score, the system should first check that the game exists and that the user has permission to update it. These are preconditions. After the update, the system should confirm that the score changed and that the updated score is visible to users. These are postconditions.
+
+==== Project Example 1: Submitting a Sports Report
+
+----
+{ user is logged in AND report has required fields AND event exists }
+submitReport(report)
+{ report is stored AND report status is set to "Open" AND timestamp is recorded }
+----
+
+Before a user submits a sports report, the system should verify that the user is logged in, that the report includes all required fields, and that the related event exists. These checks prevent incomplete or anonymous reports from being submitted.
+
+After the report is submitted, the system should store the report, assign it the initial status of `"Open"`, and record a timestamp. This confirms that the report was saved correctly and can be reviewed later.
+
+==== Project Example 2: Updating a Game Score
+
+----
+{ user has permission AND game exists AND score values are valid numbers }
+updateScore(gameId, homeScore, awayScore)
+{ game score is updated AND lastUpdated timestamp changes AND users see the new score }
+----
+
+Before updating a game score, the system should verify that the user has permission to make the change, that the game exists, and that the score values are valid numbers. This prevents unauthorized users from changing scores and avoids invalid score data.
+
+After the score is updated, the system should show the new score, update the `lastUpdated` timestamp, and make the change visible to users. This confirms that the score update worked correctly.
+
+==== Project Example 3: Creating a Sports Event
+
+----
+{ event title is not empty AND date is valid AND location is provided AND sport type is selected }
+createEvent(eventData)
+{ event is created AND event appears in the event list AND event has a unique ID }
+----
+
+Before creating a sports event, the system should check that the event has a title, a valid date, a location, and a selected sport type. These preconditions make sure that users do not create incomplete events.
+
+After the event is created, the system should assign it a unique ID and display it in the event list. This confirms that the event was successfully added to the platform.
+
+==== Project Example 4: Changing a Report Status
+
+----
+{ report exists AND user has moderator permission AND new status is valid }
+changeReportStatus(reportId, newStatus)
+{ report status is updated AND status history records the change }
+----
+
+Before changing a report status, the system should check that the report exists, that the user has moderator permission, and that the new status is valid. This prevents invalid or unauthorized status changes.
+
+After the status is changed, the system should update the report and record the change in the status history. This makes the report lifecycle easier to track.
+
+==== Connection to Testing
+
+Preconditions and postconditions are useful for testing because they define what a test should check before and after a feature runs.
+
+For example, when testing the `submitReport(report)` feature, the team can create test cases for situations where:
+
+* The user is not logged in.
+* Required fields are missing.
+* The related event does not exist.
+* A valid report is submitted.
+* The report receives the correct initial status.
+* The timestamp is recorded correctly.
+
+This connects directly to functional testing because the test verifies that the feature behaves according to its expected requirements.
+
+==== Importance for Software Reliability
+
+Preconditions and postconditions improve software reliability because they make system behavior clearer. They help developers avoid invalid inputs, unauthorized actions, and incomplete system updates.
+
+In Tu Deporte Aquí, this is important because users depend on the platform for accurate sports information. If reports, scores, events, or statuses are not handled correctly, users may receive incorrect or outdated information.
+
+By defining preconditions and postconditions, the team can reduce errors and make the project easier to test, maintain, and improve.
+
+==== Acceptance Criteria
+
+* Explain what preconditions and postconditions are.
+* Include the `{ P } S { Q }` format.
+* Provide at least 3 examples from Tu Deporte Aquí.
+* Explain how these conditions help prevent invalid actions.
+* Connect the topic to testing and software reliability.
+* Add the completed work to the correct documentation folder.
+
+==== Testing Plan
+
+* Review the lecture material on preconditions and postconditions.
+* Identify at least 3 important actions in Tu Deporte Aquí.
+* Write a precondition and postcondition for each action.
+* Check that each condition clearly explains what must happen before and after the action.
+* Verify that the examples can be used to design future functional tests.
+* Confirm that the final documentation is clear, organized, and added to the correct folder.
+
+==== Conclusion
+
+Preconditions and postconditions are important because they help define correct behavior before and after a system action. In Tu Deporte Aquí, they can be applied to features such as submitting reports, updating scores, creating events, and changing report statuses.
+
+This topic helps the team improve reliability by making expected behavior easier to understand and test. It also gives developers a clearer way to prevent invalid actions and confirm that features work correctly.
+
+==== References
+
+* Hoare Pre- and Postconditions lecture material
+* INSO 4117 Software Reliability Testing lecture materials
+* Tu Deporte Aquí project documentation
