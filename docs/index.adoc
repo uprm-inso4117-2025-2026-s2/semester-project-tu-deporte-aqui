@@ -53,5 +53,8 @@ include::04-class-topics/04-02-bdd-tool-usage.adoc[]
 include::04-class-topics/04-03-debugging.adoc[]
 include::04-class-topics/04-04-usability-testing.adoc[]
 
-== 5 AI Disclosure
+== 5 Research / Lecture Topic Tasks
+include::Research/research-index.adoc[]
+
+== 6 AI Disclosure
 include::ai-disclosure.adoc[]
