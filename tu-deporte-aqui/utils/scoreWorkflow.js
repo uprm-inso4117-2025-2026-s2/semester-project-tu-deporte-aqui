@@ -3,7 +3,7 @@ import {
   mapGameStatus,
   isScoreComplete,
   isStaleTimestamp,
-} from "./scoreUtils";
+} from "./scoreUtils.js";
 
 /**
  * Transforms raw game data into a UI-ready game object.
