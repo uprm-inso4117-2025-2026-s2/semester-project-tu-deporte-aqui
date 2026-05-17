@@ -1,0 +1,13 @@
+$researchDir = "docs/Research"
+$outputFile = "$researchDir/research-index.adoc"
+
+Get-ChildItem $researchDir -Filter "*.adoc" |
+Where-Object {
+    $_.Name -ne "research-index.adoc" -and
+    $_.Name -ne "README.adoc"
+} |
+Sort-Object Name |
+ForEach-Object {
+    "include::$($_.Name)[]"
+    ""
+} | Set-Content $outputFile
