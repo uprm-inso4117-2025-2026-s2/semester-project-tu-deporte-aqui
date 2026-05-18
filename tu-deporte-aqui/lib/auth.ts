@@ -16,3 +16,13 @@ export async function loginUser(email: string, password: string) {
 
   return { success: true }
 }
+
+export async function logoutUser() {
+  const { error } = await supabase.auth.signOut()
+
+  if (error) {
+    return { error: "Unable to log out right now." }
+  }
+
+  return { success: true }
+}
