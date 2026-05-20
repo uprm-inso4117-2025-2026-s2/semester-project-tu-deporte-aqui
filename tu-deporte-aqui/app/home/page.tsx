@@ -1,6 +1,5 @@
 "use client"
-
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import {
@@ -24,6 +23,7 @@ import {
   LogOut,
 } from "lucide-react"
 import { logoutUser } from "@/lib/auth"
+import { supabase } from "@/lib/supabaseClient"
 
 // ─── Mock Data ───────────────────────────────────────────────────────────────
 
@@ -32,37 +32,6 @@ const LIVE_GAMES = [
   { id: 2, sport: "Baseball", team1: "Criollos", score1: 5, team2: "Indios", score2: 1, time: "Top 7", color: "from-blue-400 to-blue-600" },
   { id: 3, sport: "Volleyball", team1: "Mets", score1: 2, team2: "Cangrejeros", score2: 1, time: "Set 3", color: "from-purple-400 to-pink-500" },
   { id: 4, sport: "Soccer", team1: "Puerto Rico FC", score1: 1, team2: "Islanders", score2: 3, time: "75'", color: "from-green-400 to-green-600" },
-]
-
-const STANDINGS: Record<string, { team: string; points: number; w: number; l: number; trend: "up" | "down" | "neutral" }[]> = {
-  Basketball: [
-    { team: "Capitanes de Arecibo", points: 45, w: 18, l: 4, trend: "neutral" },
-    { team: "Vaqueros de Bayamón", points: 42, w: 17, l: 5, trend: "up" },
-    { team: "Criollos de Caguas", points: 41, w: 15, l: 7, trend: "down" },
-    { team: "Indios de Mayagüez", points: 38, w: 14, l: 8, trend: "neutral" },
-    { team: "Mets de Guaynabo", points: 33, w: 13, l: 9, trend: "up" },
-  ],
-  Baseball: [
-    { team: "Criollos de Caguas", points: 52, w: 22, l: 6, trend: "up" },
-    { team: "Indios de Mayagüez", points: 48, w: 20, l: 8, trend: "neutral" },
-    { team: "Senadores de San Juan", points: 44, w: 18, l: 10, trend: "down" },
-    { team: "Leones de Ponce", points: 40, w: 16, l: 12, trend: "up" },
-    { team: "Gigantes de Carolina", points: 36, w: 14, l: 14, trend: "neutral" },
-  ],
-  Soccer: [
-    { team: "Puerto Rico FC", points: 38, w: 12, l: 2, trend: "up" },
-    { team: "Islanders FC", points: 33, w: 10, l: 4, trend: "neutral" },
-    { team: "Bayamón FC", points: 28, w: 8, l: 6, trend: "down" },
-    { team: "Atletico de San Juan", points: 22, w: 6, l: 8, trend: "up" },
-    { team: "Caguas FC", points: 18, w: 5, l: 10, trend: "down" },
-  ],
-}
-
-const NEWS = [
-  { id: 1, sport: "Basketball", featured: true, live: false, title: "Capitanes de Arecibo Win Championship in Thrilling Overtime", excerpt: "In an electrifying finale, the Capitanes secured their title with a 98-95 victory, bringing Puerto Rico basketball fans to their feet.", time: "2 hours ago", color: "bg-red-500" },
-  { id: 2, sport: "Baseball", featured: false, live: false, title: "Criollos Sign Star Pitcher from MLB", excerpt: "The Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.", time: "5 hours ago", color: "bg-blue-500" },
-  { id: 3, sport: "Boxing", featured: true, live: true, title: "Local Boxing Champion Prepares for Title Defense", excerpt: 'Miguel "El Tornado" Torres begins training camp for his upcoming WBO title defense in San Juan this summer.', time: "1 day ago", color: "bg-red-500" },
-  { id: 4, sport: "Soccer", featured: false, live: false, title: "Puerto Rico FC Advances to Regional Finals", excerpt: "The soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.", time: "2 days ago", color: "bg-green-500" },
 ]
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -274,11 +243,115 @@ function LiveGamesSection() {
   )
 }
 
+type StandingsRow = {
+  team: string
+  points: number
+  w: number
+  l: number
+  trend: "up" | "down" | "neutral"
+}
+
+type NewsItem = {
+  id: string
+  sport: string
+  featured: boolean
+  live: boolean
+  title: string
+  excerpt: string
+  time: string
+  color: string
+}
+
+function getSportColor(sport: string) {
+  const normalized = sport?.toLowerCase()
+
+  if (normalized === "basketball") return "bg-red-500"
+  if (normalized === "baseball") return "bg-blue-500"
+  if (normalized === "soccer") return "bg-green-500"
+  if (normalized === "volleyball") return "bg-purple-500"
+
+  return "bg-[#043058]"
+}
+
+function getRelativeTime(dateString?: string) {
+  if (!dateString) return "Recently"
+
+  const date = new Date(dateString)
+  const now = new Date()
+  const diffMs = now.getTime() - date.getTime()
+  const diffHours = Math.floor(diffMs / (1000 * 60 * 60))
+  const diffDays = Math.floor(diffHours / 24)
+
+  if (diffHours < 1) return "Less than 1 hour ago"
+  if (diffHours < 24) return `${diffHours} hour${diffHours === 1 ? "" : "s"} ago`
+  return `${diffDays} day${diffDays === 1 ? "" : "s"} ago`
+}
+
+
 function StandingsSection() {
-  const tabs = ["Basketball", "Baseball", "Soccer"] as const
-  type Tab = typeof tabs[number]
-  const [active, setActive] = useState<Tab>("Basketball")
-  const rows = STANDINGS[active]
+  const [standingsByLeague, setStandingsByLeague] = useState<Record<string, StandingsRow[]>>({})
+  const [active, setActive] = useState("")
+  const [loading, setLoading] = useState(true)
+  const [errorMessage, setErrorMessage] = useState("")
+
+  useEffect(() => {
+    async function fetchStandings() {
+      setLoading(true)
+      setErrorMessage("")
+
+      const { data, error } = await supabase
+        .from("standings")
+        .select(`
+          id,
+          league,
+          season,
+          wins,
+          losses,
+          teams (
+            name,
+            city,
+            logo_url
+          )
+        `)
+        .order("wins", { ascending: false })
+
+      if (error) {
+        console.error("Error loading standings:", error)
+        setErrorMessage("Unable to load standings.")
+        setLoading(false)
+        return
+      }
+
+      const grouped: Record<string, StandingsRow[]> = {}
+
+      data?.forEach((row: any) => {
+        const league = row.league || "Other"
+        const team = Array.isArray(row.teams) ? row.teams[0] : row.teams
+
+        if (!grouped[league]) grouped[league] = []
+
+        grouped[league].push({
+          team: team?.city ? `${team.name} de ${team.city}` : team?.name || "Unknown Team",
+          points: row.wins * 2,
+          w: row.wins,
+          l: row.losses,
+          trend: "neutral",
+        })
+      })
+
+      setStandingsByLeague(grouped)
+
+      const firstLeague = Object.keys(grouped)[0]
+      if (firstLeague) setActive(firstLeague)
+
+      setLoading(false)
+    }
+
+    fetchStandings()
+  }, [])
+
+  const tabs = Object.keys(standingsByLeague)
+  const rows = active ? standingsByLeague[active] || [] : []
 
   const RankIcon = ({ rank }: { rank: number }) => {
     if (rank === 1) return <Trophy size={20} className="text-yellow-500" />
@@ -304,7 +377,6 @@ function StandingsSection() {
   return (
     <section id="standings" className="py-14 px-6 bg-gray-50 scroll-mt-20">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-2">
             <Trophy size={36} className="text-yellow-500" />
@@ -313,61 +385,75 @@ function StandingsSection() {
           <p className="text-gray-500">Track your favorite teams&apos; performance across different leagues</p>
         </div>
 
-        {/* Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
-          {/* Tabs */}
-          <div className="flex gap-3 mb-8">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActive(tab)}
-                className={`flex-1 py-3 rounded-xl font-semibold text-sm transition-colors ${
-                  active === tab
-                    ? "bg-[#043058] text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
+          {loading && <p className="text-center text-gray-500">Loading standings...</p>}
 
-          {/* Table */}
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="text-gray-500 text-sm">
-                  <th className="text-left pb-4 w-16">Rank</th>
-                  <th className="text-left pb-4">Team</th>
-                  <th className="text-center pb-4">Points</th>
-                  <th className="text-center pb-4">W</th>
-                  <th className="text-center pb-4">L</th>
-                  <th className="text-center pb-4">Trend</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, i) => (
-                  <tr key={row.team} className="border-t border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors" onClick={() => window.location.href = `/standings/${active.toLowerCase()}/${encodeURIComponent(row.team)}`}>
-                    <td className="py-4 flex items-center justify-center">
-                      <RankIcon rank={i + 1} />
-                    </td>
-                    <td className="py-4 font-medium text-gray-800">{row.team}</td>
-                    <td className="py-4 text-center font-bold text-[#043058]">{row.points}</td>
-                    <td className="py-4 text-center font-bold text-[#337F25]">{row.w}</td>
-                    <td className="py-4 text-center font-bold text-red-500">{row.l}</td>
-                    <td className="py-4 text-center">
-                      <div className="flex justify-center">
-                        <TrendIcon trend={row.trend} />
-                      </div>
-                    </td>
-                  </tr>
+          {!loading && errorMessage && (
+            <p className="text-center text-red-500 font-medium">{errorMessage}</p>
+          )}
+
+          {!loading && !errorMessage && tabs.length === 0 && (
+            <p className="text-center text-gray-500">No standings available.</p>
+          )}
+
+          {!loading && !errorMessage && tabs.length > 0 && (
+            <>
+              <div className="flex gap-3 mb-8">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActive(tab)}
+                    className={`flex-1 py-3 rounded-xl font-semibold text-sm transition-colors ${
+                      active === tab
+                        ? "bg-[#043058] text-white"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    }`}
+                  >
+                    {tab}
+                  </button>
                 ))}
-              </tbody>
-            </table>
-          </div>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="text-gray-500 text-sm">
+                      <th className="text-left pb-4 w-16">Rank</th>
+                      <th className="text-left pb-4">Team</th>
+                      <th className="text-center pb-4">Points</th>
+                      <th className="text-center pb-4">W</th>
+                      <th className="text-center pb-4">L</th>
+                      <th className="text-center pb-4">Trend</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((row, i) => (
+                      <tr
+                        key={row.team}
+                        className="border-t border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors"
+                        onClick={() => window.location.href = `/standings/${active.toLowerCase()}/${encodeURIComponent(row.team)}`}
+                      >
+                        <td className="py-4 flex items-center justify-center">
+                          <RankIcon rank={i + 1} />
+                        </td>
+                        <td className="py-4 font-medium text-gray-800">{row.team}</td>
+                        <td className="py-4 text-center font-bold text-[#043058]">{row.points}</td>
+                        <td className="py-4 text-center font-bold text-[#337F25]">{row.w}</td>
+                        <td className="py-4 text-center font-bold text-red-500">{row.l}</td>
+                        <td className="py-4 text-center">
+                          <div className="flex justify-center">
+                            <TrendIcon trend={row.trend} />
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
         </div>
 
-        {/* View All */}
         <div className="mt-8 text-center">
           <a href="/standings" className="inline-flex items-center gap-1.5 border-2 border-[#337F25] text-[#337F25] font-semibold px-6 py-2.5 rounded-xl hover:bg-[#337F25] hover:text-white transition-colors">
             View All Standings <ChevronRight size={16} />
@@ -379,10 +465,57 @@ function StandingsSection() {
 }
 
 function NewsSection() {
+  const [newsItems, setNewsItems] = useState<NewsItem[]>([])
+  const [loading, setLoading] = useState(true)
+  const [errorMessage, setErrorMessage] = useState("")
+
+  useEffect(() => {
+    async function fetchNews() {
+      setLoading(true)
+      setErrorMessage("")
+
+      const { data, error } = await supabase
+        .from("news")
+        .select(`
+          id,
+          league,
+          title,
+          content,
+          source,
+          published_at
+        `)
+        .order("published_at", { ascending: false })
+        .limit(4)
+      console.log("RAW NEWS DATA:", data)
+
+      if (error) {
+        console.error("Error loading news:", error)
+        setErrorMessage("Unable to load news.")
+        setLoading(false)
+        return
+      }
+
+      const formattedNews: NewsItem[] = (data || []).map((item: any, index: number) => ({
+      id: item.id,
+      sport: item.league || "Sports",
+      featured: index === 0,
+      live: false,
+      title: item.title,
+      excerpt: item.content,
+      time: getRelativeTime(item.published_at),
+      color: getSportColor(item.league || "Sports"),
+    }))
+
+      setNewsItems(formattedNews)
+      setLoading(false)
+    }
+
+    fetchNews()
+  }, [])
+
   return (
     <section id="news" className="py-14 px-6 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-2">
             <Newspaper size={36} className="text-[#337F25]" />
@@ -391,43 +524,49 @@ function NewsSection() {
           <p className="text-gray-500">Stay updated with the latest happenings in Puerto Rico sports</p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {NEWS.map((item) => (
-            <a key={item.id} href={`/news/${item.id}`} className="rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md hover:border-gray-300 transition-all">
-              {/* Image area */}
-              <div className={`relative h-44 ${item.color} flex items-center justify-center`}>
-                <div className="absolute top-3 left-3 flex gap-2">
-                  {item.featured && (
-                    <span className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">FEATURED</span>
-                  )}
-                  {item.live && (
-                    <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">LIVE</span>
-                  )}
-                  {!item.featured && (
-                    <span className="bg-[#043058] text-white text-xs font-bold px-2 py-1 rounded-full">{item.sport}</span>
-                  )}
-                  {item.featured && (
-                    <span className="bg-[#043058] text-white text-xs font-bold px-2 py-1 rounded-full">{item.sport}</span>
-                  )}
-                </div>
-                <span className="text-white/40 text-sm">[Image]</span>
-                <div className="absolute bottom-3 left-3 flex items-center gap-1 text-white/80 text-xs">
-                  <Clock size={11} />
-                  <span>{item.time}</span>
-                </div>
-              </div>
-              {/* Content */}
-              <div className="p-4 flex flex-col flex-1">
-                <h3 className="font-bold text-gray-900 text-sm mb-2 leading-snug">{item.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed flex-1">{item.excerpt}</p>
-                <span className="mt-3 text-[#337F25] text-xs font-semibold">Read More →</span>
-              </div>
-            </a>
-          ))}
-        </div>
+        {loading && <p className="text-center text-gray-500">Loading news...</p>}
 
-        {/* View All */}
+        {!loading && errorMessage && (
+          <p className="text-center text-red-500 font-medium">{errorMessage}</p>
+        )}
+
+        {!loading && !errorMessage && newsItems.length === 0 && (
+          <p className="text-center text-gray-500">No news available.</p>
+        )}
+
+        {!loading && !errorMessage && newsItems.length > 0 && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {newsItems.map((item) => (
+              <a key={item.id} href={`/news/${item.id}`} className="rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md hover:border-gray-300 transition-all">
+                <div className={`relative h-44 ${item.color} flex items-center justify-center`}>
+                  <div className="absolute top-3 left-3 flex gap-2">
+                    {item.featured && (
+                      <span className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">FEATURED</span>
+                    )}
+                    {item.live && (
+                      <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">LIVE</span>
+                    )}
+                    <span className="bg-[#043058] text-white text-xs font-bold px-2 py-1 rounded-full">{item.sport}</span>
+                  </div>
+
+                  <span className="text-white/40 text-sm">[Image]</span>
+
+                  <div className="absolute bottom-3 left-3 flex items-center gap-1 text-white/80 text-xs">
+                    <Clock size={11} />
+                    <span>{item.time}</span>
+                  </div>
+                </div>
+
+                <div className="p-4 flex flex-col flex-1">
+                  <h3 className="font-bold text-gray-900 text-sm mb-2 leading-snug">{item.title}</h3>
+                  <p className="text-gray-500 text-xs leading-relaxed flex-1">{item.excerpt}</p>
+                  <span className="mt-3 text-[#337F25] text-xs font-semibold">Read More →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+
         <div className="mt-10 text-center">
           <a href="/news" className="inline-flex items-center gap-1.5 border-2 border-[#337F25] text-[#337F25] font-semibold px-6 py-2.5 rounded-xl hover:bg-[#337F25] hover:text-white transition-colors">
             View All News <ChevronRight size={16} />
