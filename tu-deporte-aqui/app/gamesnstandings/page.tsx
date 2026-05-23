@@ -27,7 +27,8 @@ interface Standing {
 export default function GamesPage() {
   const TeamLogos : Record<string, string>  ={"Bay Titans": "/standingsImages/Tampa_Bay_Titans_Logo.png", 
     "Iron Wolves": "/standingsImages/IronWolves.jpg", 
-  "River Hawks": "/standingsImages/Riverhawks-Badge.png"};
+  "River Hawks": "/standingsImages/Riverhawks-Badge.png",
+   "Memphis Lions": "/standingsImages/MemphisLions.jpeg"};
   
 
   const [games, setGames] = useState<Game[]>([]);
@@ -73,6 +74,11 @@ export default function GamesPage() {
 
   // Encuentra el juego más reciente (puedes ajustar la lógica según tu modelo de datos)
   const mostRecentGame = games.length > 0 ? games[0] : null;
+
+  const homeTeamName = mostRecentGame?.home_team?.name === "River Hawks" ? "Memphis Lions":
+  mostRecentGame?.home_team?.name || "Equipo Local";
+
+
 
   const isFinalStatus = (status: string) => {
     const normalized = status.toLowerCase();
@@ -156,7 +162,7 @@ export default function GamesPage() {
             <span className="text-xs text-yellow-400 font-semibold flex items-center">
               <span className="mr-1">☀️</span> OFFICIAL STATS
             </span>
-            <span className="text-white text-sm font-semibold">Most Recent Game</span>
+            <span className="text-white text-sm font-semibold">Most Recent Game (League: TBL)</span>
           </div>
           <div className="flex justify-between items-center bg-neutral-800 rounded-lg p-4">
             {/* Equipo local */}
@@ -164,11 +170,13 @@ export default function GamesPage() {
               <div className="text-center text-sm text-green-400 mt-2">
                 {mostRecentGame ? getStatusLabel(mostRecentGame.status) : ""}
               </div>
-              <span className="text-4xl font-bold text-yellow-400">
-                {mostRecentGame?.home_team?.name?.charAt(0) || "-"}
-              </span>
+              <img
+              src ={TeamLogos[homeTeamName]}
+              alt ={homeTeamName}
+              className ="w-20 h-20 object-contain"
+              />
               <span className="text-xs text-white mt-1">
-                {mostRecentGame?.home_team?.name || "Equipo Local"}
+                {homeTeamName}
               </span>
             </div>
             <div className="flex flex-col items-center">
@@ -184,9 +192,12 @@ export default function GamesPage() {
             </div>
             {/* Equipo visitante */}
             <div className="flex flex-col items-center">
-              <span className="text-4xl font-bold text-red-700">
-                {mostRecentGame?.away_team?.name?.charAt(0) || "-"}
-              </span>
+              <img
+                src ={mostRecentGame?.away_team?.name?TeamLogos[mostRecentGame?.away_team?.name] : "/standingsImages/default.png"}
+                alt= {mostRecentGame?.away_team?.name || "Away Team"}
+                className = "w-20 h-20 object-contain"
+              />
+              
               <span className="text-xs text-white mt-1">
                 {mostRecentGame?.away_team?.name || "Equipo Visitante"}
               </span>
