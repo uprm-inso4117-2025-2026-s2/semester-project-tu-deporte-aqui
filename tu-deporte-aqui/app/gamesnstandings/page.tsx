@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { RefreshCw } from "lucide-react";
 import { getGameLabelStatus } from "../../lib/label_status";
 
+
 interface Game {
   id: number;
   home_team: { id: number; name: string } | null;
@@ -24,6 +25,11 @@ interface Standing {
 }
 
 export default function GamesPage() {
+  const TeamLogos : Record<string, string>  ={"Bay Titans": "/standingsImages/Tampa_Bay_Titans_Logo.png", 
+    "Iron Wolves": "/standingsImages/IronWolves.jpg", 
+  "River Hawks": "/standingsImages/Riverhawks-Badge.png"};
+  
+
   const [games, setGames] = useState<Game[]>([]);
   const [standings, setStandings] = useState<Standing[]>([]);
   const [loading, setLoading] = useState(true);
@@ -91,11 +97,11 @@ export default function GamesPage() {
       case "live":
       case "in_progress":
       case "ongoing":
-        return { icon: "●", text: "En vivo", className: "text-emerald-300" };
+        return { icon: "●", text: "Live", className: "text-emerald-300" };
       case "scheduled":
       case "upcoming":
       case "not_started":
-        return { icon: "…", text: "Programado", className: "text-amber-200" };
+        return { icon: "…", text: "Scheduled", className: "text-amber-200" };
       case "final":
       case "finished":
       case "complete":
@@ -104,11 +110,11 @@ export default function GamesPage() {
         return { icon: "✓", text: "Final", className: "text-emerald-300" };
       case "cancelled":
       case "canceled":
-        return { icon: "✕", text: "Cancelado", className: "text-rose-300" };
+        return { icon: "✕", text: "Canceled", className: "text-rose-300" };
       case "postponed":
-        return { icon: "⏸", text: "Pospuesto", className: "text-orange-300" };
+        return { icon: "⏸", text: "Postponed", className: "text-orange-300" };
       case "delayed":
-        return { icon: "⏳", text: "Retrasado", className: "text-orange-200" };
+        return { icon: "⏳", text: "Delayed", className: "text-orange-200" };
       default:
         return { icon: "?", text: getStatusLabel(status), className: "text-neutral-300" };
     }
@@ -116,14 +122,35 @@ export default function GamesPage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.14),_transparent_32%),linear-gradient(180deg,_#050505_0%,_#0b0b0b_45%,_#050505_100%)]">
+
+      
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(255,255,255,0.09)_1.4px,transparent_1.4px)] [background-size:22px_22px]"
       />
 
-      <div className="relative p-4 flex flex-col items-center">
+      
+      <div className="w-full h-14 bg-neutral-950 border-b border-neutral-800 flex items-center px-6 z-30 relative">
+        <div className="flex items-center gap-3">
+          <div className="h-2 w-10 bg-green-500 rounded-full" />
+          <h1 className="text-white text-xl font-bold tracking-widest uppercase">
+            Standings
+          </h1>
+        </div>
+      </div>
+
+      
+      <div className="relative p-4 flex flex-col items-center pt-6">
+        
 
         {/* Most Recent Game */}
+        <div>
+          <h1 className="text-2xl font-bold text-green-500 font['Inter']">
+            Most Recent Game 
+          </h1>
+
+          </div>
+          
         <div className="w-full max-w-xl bg-neutral-900 rounded-xl shadow-lg mb-8 p-4">
           <div className="flex justify-between items-center mb-2">
             <span className="text-xs text-yellow-400 font-semibold flex items-center">
@@ -168,7 +195,16 @@ export default function GamesPage() {
         </div>
 
         {/* Standings Table */}
+        <div className="mb-4 flex items-center justify-between">
+          <div>
+          <h1 className="text-2xl font-bold text-green-400">
+            2025-26 Regular Season Standings
+          </h1>
+
+          </div>
+          </div>
         <div className="w-full max-w-xl bg-neutral-800 rounded-xl shadow-lg p-4">
+          
           <table className="min-w-full">
             <thead>
               <tr className="text-white text-base">
@@ -176,7 +212,7 @@ export default function GamesPage() {
                 <th className="py-2 px-2">Games</th>
                 <th className="py-2 px-2">Wins</th>
                 <th className="py-2 px-2">Losts</th>
-                <th className="py-2 px-2">Percentaje</th>
+                <th className="py-2 px-2">WIN%</th>
               </tr>
             </thead>
             <tbody>
@@ -188,6 +224,7 @@ export default function GamesPage() {
                 </tr>
               ) : (
                 standings.map((team, idx) => {
+                  const teamName = team.teams?.name;
                   const games = team.wins + team.losses;
                   const pct = games > 0
                     ? (team.wins / games).toFixed(3).replace(/^0/, "")
@@ -201,20 +238,22 @@ export default function GamesPage() {
   </span>
 
   {/* Fake logo + name */}
-  {(() => {
-   const teamName = team.teams?.name || `Team ${team.team_id}`;
-    const initial = teamName.charAt(0);
+ 
 
-    return (
-      <>
-        <div className="w-8 h-8 rounded-full bg-green-700 flex items-center justify-center text-white font-bold">
-          {initial}
-        </div>
-        <span className="ml-2">{teamName}</span>
-      </>
-    );
-  })()}
-</td>
+ <img
+  src={
+    teamName
+      ? TeamLogos[teamName]
+      : "/standingsImages/.png"
+  }
+  className="w-8 h-8 object-contain"
+ />
+
+ <span className="ml-2">
+  {teamName || `Team ${team.team_id}`}
+ </span>
+
+      </td>
                       <td className="py-2 px-2 text-center">{games}</td>
                       <td className="py-2 px-2 text-center text-emerald-300 font-semibold">{team.wins}</td>
                       <td className="py-2 px-2 text-center text-rose-300">{team.losses}</td>
@@ -233,8 +272,8 @@ export default function GamesPage() {
         <div className="w-full max-w-5xl mt-8 rounded-xl bg-neutral-900 p-4 shadow-lg">
           <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-green-500">Juegos</h1>
-              <p className="text-sm text-neutral-400">Resultados y partidos programados del calendario actual.</p>
+              <h1 className="text-2xl font-bold text-green-500">Games</h1>
+              <p className="text-sm text-neutral-400">Results and scheduled matches for the current calendar.</p>
             </div>
             <button
               type="button"
@@ -250,10 +289,10 @@ export default function GamesPage() {
             <table className="min-w-full border border-gray-300 rounded">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="py-2 px-4 border text-green-700">Equipos</th>
-                  <th className="py-2 px-4 border text-green-700">Puntuación</th>
-                  <th className="py-2 px-4 border text-green-700">Status del Juego</th>
-                  <th className="py-2 px-4 border text-green-700">Status de Información</th>
+                  <th className="py-2 px-4 border text-green-700">Teams</th>
+                  <th className="py-2 px-4 border text-green-700">Scores</th>
+                  <th className="py-2 px-4 border text-green-700">Status</th>
+                  <th className="py-2 px-4 border text-green-700">Information Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -306,7 +345,11 @@ export default function GamesPage() {
                           <span>{statusView.text}</span>
                         </span>
                       </td>
-                      <td className="py-2 px-4 border text-neutral-100">{game.status || "-"}</td>
+                      <td className="py-2 px-4 border">
+                        <span className = {`font-medium ${statusView.className}` }>
+                        {game.status || "-"}
+                        </span>
+                        </td>
                     </tr>
                   );
                 })}
