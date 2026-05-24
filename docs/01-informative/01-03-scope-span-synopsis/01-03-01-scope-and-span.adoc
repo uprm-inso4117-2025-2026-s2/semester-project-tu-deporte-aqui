@@ -2,9 +2,9 @@
 
 ===== Purpose
 
-This section defines the boundaries, coverage limits, and operational constraints of Tu Deporte Aquí. Clearly defining scope prevents scope creep, ensures alignment across teams, and establishes realistic expectations during implementation.
+This section defines the boundaries, coverage limits, and operational constraints of Tu Deporte Aquí. Clearly defining scope prevents scope creep, keeps teams aligned, and establishes realistic expectations for final delivery.
 
-The project has transitioned from documentation and system definition into implementation. The scope now focuses on building a working system while maintaining the constraints previously defined.
+The project has moved from implementation into final integration and stabilization. The scope now focuses on completing the existing product, fixing issues, improving consistency, and preparing the application for the final presentation.
 
 ===== In-Scope Coverage
 
@@ -20,14 +20,16 @@ This constraint reflects the availability and reliability of data sources.
 
 ===== Data Handling Under Uncertainty
 
-The system must handle:
+The system must handle sports information that may be incomplete, delayed, or inconsistent.
+
+This includes:
 
 - Delayed updates
 - Conflicting reports
 - Missing information
 - Corrected or revised results
 
-These cases are now considered during implementation, not only as documented scenarios.
+In Milestone 3, the focus is on making sure these cases do not break the existing user interface or produce confusing output.
 
 ===== Mobile-First Platform
 
@@ -40,29 +42,37 @@ This includes:
 - Prioritization of essential game data
 - Responsive layout across devices
 
-===== Core Implementation Scope
+For the final milestone, mobile-first scope means fixing layout problems and improving consistency across existing pages rather than introducing new major UI patterns.
 
-The current milestone includes:
+===== Final Product Scope
 
-- UI implementation using Next.js
-- Backend API routes
-- Integration with Supabase
-- Authentication and protected routes
-- Display of real data in the frontend
+The current milestone includes finalizing and stabilizing the existing product.
 
-This defines the transition from system definition to a working application.
+This includes:
+
+- Existing UI pages built with Next.js
+- Existing backend API routes
+- Supabase database and authentication integration
+- Games, standings, news, teams, athletes, and authentication pages
+- Loading and error states
+- Responsive layout behavior
+- Final documentation and demo readiness
+
+This defines the transition from building a working application to preparing a stable final product.
 
 ===== Out-of-Scope Elements
 
 The following elements remain out of scope:
 
-- Real-time data updates (e.g., polling or WebSockets)
+- Real-time data updates, such as polling or WebSockets
 - Automated data scraping mechanisms
 - National or international league coverage
 - Advanced performance optimization
 - Complex user roles or admin systems
+- Major database schema redesigns
+- New large feature areas not already started in previous milestones
 
-These exclusions limit system complexity and keep the focus on core functionality.
+These exclusions limit system complexity and keep the focus on stability, completion, and final presentation readiness.
 
 ===== Operational Constraints
 
@@ -70,9 +80,11 @@ Tu Deporte Aquí operates under the following constraints:
 
 ===== Informal Data Sources
 
-- Data may originate from websites, reporters, or social media.
+- Data may originate from websites, reporters, social media, or manually inserted project data.
 - Sources may conflict or provide delayed updates.
 - Official verification mechanisms may not exist.
+
+Because of this, the system should avoid presenting uncertain information as fully official when that cannot be supported.
 
 ===== Limited Structure and Standardization
 
@@ -80,24 +92,46 @@ Tu Deporte Aquí operates under the following constraints:
 - Inconsistent update timing must be expected.
 - Historical corrections may occur without formal notice.
 
+These limitations affect how data is displayed and how much confidence users should place in each update.
+
+===== Stability and Integration Requirement
+
+Because this is the final milestone, the system must prioritize stability over expansion.
+
+This means:
+
+- Main pages should not crash during normal use.
+- API routes should return valid data.
+- Supabase integration should remain stable.
+- Authentication should work after refresh and navigation.
+- Loading and error states should be visible.
+- Major console or runtime errors should be resolved.
+
+These constraints affect how teams decide what to fix, what to polish, and what to leave out.
+
 ===== Transparency Requirement
 
 Because of data uncertainty, the system must:
 
-- Communicate provisional states
-- Display last update times
-- Indicate possible staleness
-- Support traceability of changes
+- Communicate provisional or missing information clearly
+- Display last update times where applicable
+- Indicate possible staleness when data is incomplete
+- Avoid implying that unavailable data has been verified
 
-These constraints affect how data is presented and interpreted in the system.
+These constraints affect how data is presented and interpreted in the final product.
 
 ==== Boundary Summary
 
 Tu Deporte Aquí is a system focused on:
 
 - Local Puerto Rico sports
-- Handling unreliable or inconsistent data
-- Providing transparent information to users
-- Maintaining clear scope boundaries during implementation
+- Existing pages and routes
+- Supabase-backed data display
+- Basic authentication
+- Mobile-first usability
+- Handling unreliable or incomplete sports data
+- Final integration, stability, and demo readiness
 
-These boundaries guide development decisions and help ensure consistent progress across teams.
+The project is not focused on adding major new systems in the final milestone.
+
+These boundaries guide final development decisions and help ensure the team completes a stable, understandable product for presentation.
