@@ -23,7 +23,7 @@ The signatures below use named domain types so that the reader can see what kind
 | The kind of source that produced a report. Examples include league page, team page, reporter post, sports media post, third-party platform, or community-submitted report.
 
 | `SourcePattern`
-| The update pattern expected from a source. A `StreamingSource` is expected to provide repeated updates during an event. A `SpotSource` provides one report at a time, such as a final-score image, screenshot, or single social media post.
+| The update pattern expected from a source in the current situation. A `StreamingSource` provides repeated updates during an event. A `SpotSource` provides one report at a time, such as a final-score image, screenshot, article, or single social media post.
 
 | `SourceReport`
 | A specific piece of information received from one source. A `SourceReport` includes the reported value itself, such as a score, schedule change, venue change, standings update, game status, or correction. It also carries the source and available timing information.
@@ -211,8 +211,12 @@ Prevents missing or delayed information from being hidden as if nothing were wro
 
 ===== Scenario Walkthrough
 
-A team page posts a final score for a local game. The post is treated as a `SourceReport` because it contains the actual reported score, the source, and the available timing information. The system uses `classifySourcePattern` to decide whether the source is acting as a `StreamingSource` or a `SpotSource`. It then uses `buildReliabilityMetadata` to attach source and timing context to the report.
+A team page posts a final score for a local game. The post is treated as a `SourceReport` because it contains the actual reported score, the source, and the available timing information. The system uses `classifySourcePattern` to decide whether the source is acting as a streaming source or a spot source. It then uses `buildReliabilityMetadata` to attach source and timing context to the report.
 
 If a league page later posts a different final score for the same event, the second post is also treated as a `SourceReport`. The system uses `detectConflict` to compare both reports against the current `EventRecord`. If the values disagree, the result is a `ConflictAssessment`, and `lowerConfidenceAfterConflict` adjusts the reliability metadata instead of presenting either score as final without explanation.
 
 If a later source publishes a correction, `recordCorrection` updates the `EventRecord` and creates a `CorrectionTrace`. The trace keeps the earlier value, the corrected value, the report that caused the change, and the time when the change was recorded.
+
+===== Note on Scope
+
+These signatures stay at the domain level. The types name concepts from the problem area: reports, sources, reported values, event records, verification, confidence, corrections, conflicts, and degraded operation. They do not define database records, storage queues, routes, or UI components.
