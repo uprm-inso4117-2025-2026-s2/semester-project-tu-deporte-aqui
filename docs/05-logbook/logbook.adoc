@@ -1,0 +1,13 @@
+== Logbook
+
+=== Purpose
+
+This logbook records relevant activities, decisions, updates, and progress throughout the development and documentation process.
+
+=== Entries
+
+* Created the logbook structure.
+* Added documentation support for Lecture Topic Tasks.
+* Updated documentation hierarchy.
+
+'''
