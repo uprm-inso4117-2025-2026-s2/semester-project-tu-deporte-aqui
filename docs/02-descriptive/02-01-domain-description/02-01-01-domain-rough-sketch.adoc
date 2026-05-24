@@ -1,72 +1,67 @@
 ==== 2.1.1 Domain Rough Sketch
 
-This section keeps the early discussion in a rough form. It does not try to
-clean everything up yet. The point is to leave the original concerns visible
-so later sections can trace their concepts back to them.
+This rough sketch records concrete situations observed around local Puerto Rico sports information. The purpose here is not to standardize terms yet. Standardized terms are introduced later in the terminology and concept analysis sections.
 
-A lot of the early conversation kept circling around the same frustration:
-people want to follow local sports in Puerto Rico, but the information does
-not come from one place, does not arrive at one speed, and does not always
-match across sources.
+=== Raw observations about local sports updates
 
-Some of the statements and situations that came up were close to the
-following:
+During review of local sports information sources, the team saw that game information is often posted in different places and in different forms.
 
-"I saw one score on Instagram and a different one in a group chat."
-"Sometimes the reporter posts first, but later the league page says
-something else."
-"A game can look live in one place and finished in another."
-"During playoffs everybody starts checking at once, and that is exactly
-when pages get slow or updates stop."
-"If nothing new has been posted, I still want to know what the last known
-score was and when it was last changed."
-"A blank space is worse than saying that the information is missing."
-"If a result gets corrected later, people start arguing about which version
-was the real one."
-"Not every local league posts with the same format, and some barely post at
-all."
-"Sometimes you only get a screenshot, a short post, or a message from
-someone who was there."
-"When information changes, I want to know whether it was corrected,
-confirmed, or just replaced."
+* A team account posted a final score as an Instagram story. The post showed the two teams and the score, but it did not show the game date. After the story expired, the score was no longer easy to find.
+* A league page posted a Facebook image with several scores in one graphic. The image listed team names and final scores, but the text was embedded in the image instead of written as structured data.
+* A sports media account posted a score update during a game, but the league page did not post an update until much later.
+* A fan shared a screenshot of a score in a group chat before the official page posted anything.
+* One source listed a match as completed, while another still showed the same match as upcoming.
+* In some posts, the home and away teams were clear. In others, only abbreviations or logos were shown, so the reader had to infer which team was which.
+* Some updates showed only the final score. Others included quarter-by-quarter or inning-by-inning information.
+* Some posts were edited or replaced later without a visible explanation of what changed.
 
-Another thing that kept coming up was that people were not only asking for
-scores. They were also trying to figure out whether the information in front
-of them deserved trust. In practice, that meant questions like these:
+These observations show that the raw material for the project is not a clean data feed. It is a set of scattered reports, posts, screenshots, and updates that may arrive at different times and may not use the same format.
 
-"Who posted this first?"
-"Was this posted by the league, a reporter, or just a community page?"
-"How old is this update?"
-"Is this final, still developing, or just the only thing anyone has posted
-so far?"
+=== Raw observations about missing or late information
 
-There were also rough discussion points that were not settled yet and were
-left open on purpose:
+The team also observed cases where a person trying to follow a game would not know whether the information was unavailable, late, or simply not posted yet.
 
-If an official source posts late and a reporter posts earlier, which one
-should people follow in the meantime?
-If two sources disagree, should one be shown, should both be shown, or
-should the result be held back?
-How old can a live update be before people stop treating it as live?
-What is the minimum amount of information needed before a game should be
-shown as in progress?
-If all sources go quiet during a game, should people see the last known
-value, a warning, or both?
+* A schedule post listed the game time, but no later post confirmed whether the game had started.
+* A score was available for one game in a league, while another game from the same date had no visible result.
+* A team page posted a result, but the standings page did not reflect the result yet.
+* A source showed an old score without a visible last-updated time.
+* A user checking from a phone would have to open several pages before knowing whether a missing score was truly missing or just posted somewhere else.
 
-A recurring tension in these discussions was that failure is not only
-technical here. If a source is late, disappears, or disagrees with another
-source, people experience that as confusion right away. The problem is not
-just "the data is messy." The problem is that fans, coaches, reporters, and
-organizers still need to make sense of what is happening while the information
-is incomplete, delayed, or contradictory.
+These situations create a specific problem for the project: missing information should not be treated as if it were confirmed information. A blank score, an old score, and an unverified score mean different things to the user.
 
-Another recurring point was that the hardest moments are usually the ones
-people care about most. Playoffs, tournaments, rivalry games, and late-game
-updates were brought up more than once because those are the moments when more
-people are checking, more posts are appearing, and mistakes become visible
-fast.
+=== Raw observations about conflicting information
 
-At this stage, the rough sketch is not meant to explain the domain neatly. It
-is a record of the situations, phrases, and unresolved questions that kept
-appearing in early discussion. Later sections can organize these into
-terminology, actions, requirements, and validation steps.
+The team found that conflict is not only a technical issue. It can happen in ordinary use when two sources describe the same event differently.
+
+* One source posted a final score, then another source posted a different final score for the same teams.
+* A social media post used team nicknames, while a standings page used official names, making it unclear whether both posts referred to the same team.
+* A game was described as postponed in one place, but still appeared on a schedule somewhere else.
+* A correction appeared later, but the earlier incorrect post remained visible.
+* A user could see two values and have no simple way to know which one should be trusted.
+
+This means the system should not assume that a single value is always enough. For some events, the system may need to preserve the fact that reports disagree.
+
+=== Raw observations about users
+
+The team considered several kinds of people who would encounter these situations.
+
+* A fan checking scores from a phone wants to know the current result quickly, especially during or right after a game.
+* A coach or team organizer wants to know whether a schedule, venue, or result has changed.
+* A reporter needs to avoid repeating a wrong score when sources disagree.
+* A platform maintainer needs enough structure to store a report, compare it with other reports, and update a displayed event record later.
+
+These users do not all need the same screen, but they all depend on the same domain facts: who played, what was reported, who reported it, when it was reported, and whether another report says something different.
+
+=== Team interpretation
+
+From the raw observations, the team identified the following domain concerns for later concept formation:
+
+* A sports update should be treated as a report from a source, not automatically as final truth.
+* A report needs the actual reported value, not only source metadata.
+* A report can arrive before, during, or after a game.
+* Two reports about the same event may conflict.
+* A later report may correct an earlier value.
+* Missing information should be visible instead of silently displayed as if nothing is wrong.
+* The system should distinguish a continuous stream of updates from a one-time or spot update.
+
+These points are interpretations of the observations above. The terminology section standardizes the names used for them.
