@@ -2,69 +2,79 @@
 
 ===== Current Situation
 
-This section describes how sports information about local Puerto Rico events is currently produced, shared, and consulted, without assuming any particular system.
+This section describes how information about local sports events in Puerto Rico is currently produced, circulated, and consulted before assuming the existence of any centralized coordination mechanism.
 
-Local sports information is not provided through a single coordinated source. Instead, it appears across multiple channels. In practice, people rely on a combination of league websites, team pages, social media posts, sports media, third-party platforms, and informal community reporting to follow schedules, scores, standings, and event updates.
+People who follow local sports commonly depend on multiple independent information sources at the same time. Information about schedules, scores, standings, postponements, and live game developments is distributed across league websites, social media pages, sports reporters, livestream comment sections, community accounts, and informal reposts.
 
-This description is based on project research into how local leagues publish updates, how people discover events, and how standings, scores, and live data are communicated.
+The information environment varies significantly between leagues, schools, municipalities, and sports categories. Some organizations publish structured updates regularly, while others rely almost entirely on manual posts through social media.
+
+This description is based on project research involving observation of local league pages, social media updates, standings publications, and score-reporting practices.
 
 ====== Information Sources in the Current Environment
 
-Sports information appears through several types of sources:
+Sports information is commonly encountered through:
 
 * official league websites
-* team and league social media pages
-* sports media outlets
-* independent reporters and community pages
+* school athletic program pages
+* Facebook and Instagram posts
+* livestream descriptions and comments
+* sports reporters and photographers
+* community sports pages
+* reposted score graphics
 * third-party sports platforms
 
-These sources differ in format, timing, and level of detail. Some provide structured data, while others provide short updates intended for immediate awareness.
+Different sources often prioritize different goals. Some focus on rapid updates during games, while others focus on publishing finalized results after review.
 
 ====== Fragmentation of Information
 
-Information about the same event is often split across multiple sources.
+Information related to the same sporting event is frequently divided across several independent locations.
 
-For example:
+Observed situations include:
 
-* a league page may publish an official result after a reporter at the venue
-* a team account may post a score without additional context
-* a media outlet may summarize standings without showing the full table
+* a league page publishing the final score hours after spectators already discussed the result on social media
+* team accounts posting score graphics without game time or venue information
+* standings images being uploaded separately from game results
+* reporters publishing inning-by-inning updates while official pages remain inactive
+* livestream chats reporting score changes before any official publication occurs
 
-To understand a single event, a person may need to consult several sources.
+A person following a single event may therefore need to switch repeatedly between platforms in order to understand what is currently happening.
 
 ====== Irregular Timing and Delay
 
-Updates are not synchronized across sources.
+Update timing differs significantly between sources.
 
 Observed patterns include:
 
-* manual posting of scores
-* gaps between updates during active games
-* delayed publication of final results or standings
-* sources reflecting different points in time
+* scores being entered manually several minutes after they occur
+* halftime and final statuses appearing long after users already know the outcome
+* standings tables updated only once every several days
+* social media stories disappearing before later verification is possible
+* game postponements communicated through comments instead of official announcements
 
-Two sources checked at the same moment may show different versions of the same event.
+As a result, two sources consulted simultaneously may describe different states of the same sporting event.
 
 ====== Inconsistency and Incompleteness
 
-Information may differ in both content and completeness.
+Information may also vary in accuracy, detail, and completeness.
 
-Examples include:
+Examples observed during project research include:
 
-* different scores reported for the same game
-* inconsistent standings or rankings
-* missing time indicators or status labels
-* updates that do not indicate whether they are live or final
+* conflicting scores reported by different pages
+* missing opponent names in score posts
+* standings tables without update timestamps
+* posts identifying games as final while additional play was still occurring
+* score graphics without indication of sport category, league, or season
+* schedule posts edited after publication without explanation
 
-These differences often result from manual entry, different publication practices, and lack of coordination between sources.
+These inconsistencies often arise from manual reporting practices, differing publication priorities, delayed corrections, and lack of synchronized reporting procedures.
 
 ====== Consequences for People in the Domain
 
-The current situation affects different roles:
+The current information environment affects different groups differently.
 
-* fans and families may have difficulty deciding which information to trust
-* players and coaches may need to verify schedules and results across sources
-* leagues and organizers may see outdated or partial information circulate
-* reporters and community contributors often publish quickly without full confirmation
+* fans and families may struggle to determine which updates are dependable during active games
+* players and coaches may verify schedules and standings through multiple sources before relying on them
+* leagues and organizers may find outdated information continuing to circulate after corrections occur
+* reporters and community contributors may prioritize speed over confirmation during live events
 
-Following local sports often requires comparing multiple sources rather than relying on a single consistent view.
+Following local sports therefore frequently requires interpretation, comparison, and repeated cross-checking instead of consultation of a single dependable source.
