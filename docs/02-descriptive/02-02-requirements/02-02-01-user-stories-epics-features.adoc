@@ -1,182 +1,132 @@
-==== 2.2.1 User Stories, Epics, Features
+=== 2.2.1 User Stories, Epics, Features
 
-This section organizes the main requirements-driving stories for Tu Deporte Aquí.
-To avoid dropping unexplained persona names on the reader, each story names the
-role first and then identifies the corresponding persona in parentheses. The
-full persona descriptions appear in Section 2.2.2.
+Epics group related areas of work. They are not written as user stories because they cover several features and several user needs at once. User stories are written under each epic where the specific user goal is clearer.
 
-===== Epic 1: Consolidated Puerto Rico Sports Information Feed
+==== Epic 1: Local Sports Information Feed
 
-As a local-sports follower, I want one place to check scores, standings,
-schedules, and athlete updates so that I do not have to chase scattered
-posts, league pages, and chats.
+This epic covers the basic sports information that users expect to find when following local Puerto Rico leagues. It focuses on scores, schedules, standings, teams, game status, and basic event records. The main problem is that this information often exists across Instagram stories, Facebook posts, screenshots, league pages, team pages, and group chats instead of one consistent source.
 
-Features
+Features:
 
-Consolidated results, standings, schedules, and athlete updates#
-#The platform groups the most consulted local-sports information in one place
-so that a fan or coach can check the current state of a league without jumping
-between unrelated pages and posts.
+* Recent local game list.
+* Upcoming game list.
+* Score and game-status view.
+* Team and league filtering.
+* Basic standings view.
+* Game detail page with available source and update information.
+* Last-updated information for scores or game status.
+* Mobile-friendly score and schedule layout.
 
-Source attribution for each displayed update
-Each important data item should show where it came from so that readers can
-tell whether they are looking at an official publication, a reporter update,
-or a community post.
+User stories:
 
-Visible freshness indicators
-Each important item should show when it was last updated so that readers can
-judge whether the information is still recent enough to trust during a live
-event or playoff run.
+* As a local sports fan, I want to see recent scores for Puerto Rico leagues so that I do not have to check several team and league pages one by one.
+* As a score-checking fan like Sebastian, I want to filter scores by team, sport, or league so that I can quickly find the game I care about.
+* As a fan checking from my phone between classes, I want the game status to show whether a game is upcoming, live, delayed, postponed, or final so that I know what kind of information I am reading.
+* As a parent following a local team, I want schedules and venue information in one place so that I do not have to rely only on forwarded screenshots.
+* As a player checking my own team, I want to see previous results and upcoming games so that I can confirm what happened and what is next.
+* As a casual user, I want the score view to avoid unnecessary clutter so that the main score, teams, and game status are visible right away.
+* As a fan who follows more than one sport, I want team and league filters so that baseball, basketball, volleyball, and other sports do not get mixed into one long list.
+* As a user checking an old game, I want final scores to stay available after social media stories expire so that results are not lost after one day.
 
-User stories
+==== Epic 2: Source-Aware Information and Uncertainty
 
-* As a fast-checking fan (Sebastian), I want to view the latest scores and
-final results for selected leagues so that I can stay updated without
-switching between websites and social media posts.
+This epic covers how the platform handles sports information that may be incomplete, late, conflicting, provisional, stale, or corrected. The system should not present every value as equally final. A score from an official league page, a team story, a reporter post, and a fan screenshot may all be useful, but they do not carry the same weight.
 
-* As a fast-checking fan (Sebastian), I want each displayed score, result,
-or update to show its source so that I can judge credibility quickly when
-multiple channels are posting different things.
+Features:
 
-* As an organizing coach (Abiel), I want to view schedules and standings for
-my league so that I can plan, communicate, and verify information without
-having to piece it together manually.
+* Source label for reported information.
+* Last-updated time for game records.
+* Confirmation status for scores, schedules, and game status.
+* Stale or delayed indicator when information has not been updated.
+* Conflict indicator when sources disagree.
+* Unknown or unavailable state for missing information.
+* Correction indicator when a value replaces an earlier value.
+* Basic reliability metadata attached to event records.
 
-* As a fast-checking fan (Sebastian), I want to see when each item was last
-updated so that I can tell whether a page reflects a live update, a delayed
-post, or stale information.
+User stories:
 
-===== Epic 2: Conflict Handling, Uncertainty, and User Trust Signals
+* As Sebastian, I want to see when a score was last updated so that I can tell whether it may be old.
+* As a fan checking a live game, I want a provisional score to be marked differently from a final score so that I do not share it as confirmed too early.
+* As Andres, I want conflicting scores to be marked clearly so that I do not repeat a value as final when sources disagree.
+* As Abiel, I want schedule changes to show their source so that I can decide whether to notify players and parents.
+* As a user, I want missing scores to appear as unknown or unavailable so that I do not mistake a blank value for a confirmed result.
+* As a reporter, I want to see whether a value came from a league page, team page, reporter post, or community source so that I can judge how much checking is still needed.
+* As a maintainer, I want source and timing information stored with the report so that later corrections can be understood.
+* As a user checking standings, I want to know whether standings may be delayed so that I do not assume they already include the latest game.
 
-As a person who depends on local sports information, I want the platform to
-show when information is conflicting, incomplete, delayed, or still developing
-so that I do not mistake uncertain information for a final answer.
+==== Epic 3: Corrections and Change History
 
-Features
+This epic covers what happens after sports information changes. Local sports information can change because a first post was wrong, a later source corrected the value, a schedule changed, or a game status was updated after a delay. The system should keep enough context to explain the change.
 
-Conflict flagging and conflict visibility
-When two or more sources disagree about a score, status, result, or standing,
-the platform should mark the disagreement clearly instead of silently choosing
-one value and hiding the rest.
+Features:
 
-Verified, developing, and provisional indicators
-The platform should distinguish between information that has already been
-confirmed and information that is still developing, provisional, or waiting
-for confirmation from a stronger source.
+* Correction recording.
+* Old value and new value preservation for meaningful changes.
+* Correction source tracking.
+* Corrected status shown to users.
+* Recent change review for maintainers.
+* Manual correction support for irregular local data.
+* Correction trace connected to reliability metadata.
 
-Missing-data and degraded-state messaging
-When a value is unavailable, delayed, or affected by a source problem, the
-platform should explain what is missing and what is still known instead of
-showing blank space or a confusing generic error.
+User stories:
 
-Trusted-source prioritization
-When an official or clearly stronger source exists, the platform should treat
-that source as the primary reference while still making conflicts and revision
-history visible when needed.
+* As a platform maintainer, I want to record the source of a correction so that later reviewers can see why a value changed.
+* As Andres, I want to know whether a score was corrected after first publication so that I do not cite the wrong value.
+* As Abiel, I want corrected schedule information to be visible so that I do not send players to the wrong time or place.
+* As Sebastian, I want corrected scores to be marked simply so that I know why a score changed from what I saw earlier.
+* As a league organizer, I want a correction to replace the outdated value while still keeping a trace of what changed.
+* As a developer, I want correction behavior to be consistent so that score corrections, schedule corrections, and status corrections are not handled three different ways.
+* As a user, I want the corrected value to be easier to see than the old value so that the correction does not create more confusion.
+* As a maintainer, I want manual overrides to create a correction trace so that manual changes do not appear without explanation.
 
-User stories
+==== Epic 4: Mobile-First Access for Game Information
 
-* As a fast-checking fan (Sebastian), I want the platform to flag when two
-sources disagree on a score or result so that I do not assume the first number
-I see is already final.
+This epic covers the way most users will check local sports information: quickly, from a phone, often while doing something else. The mobile view should support quick checking without hiding uncertainty indicators.
 
-* As an organizing coach (Abiel), I want the platform to prioritize verified
-league results when they exist so that standings and schedules do not shift
-because of unreliable or early posts.
+Features:
 
-* As a deadline reporter (Andres), I want to label an update as developing,
-provisional, or confirmed so that I can communicate uncertainty without
-spreading misinformation.
+* Compact game cards.
+* Mobile score layout.
+* Team and league shortcuts.
+* Clear game-status label.
+* Readable source and update indicators.
+* Quick access to team schedule.
+* Reduced navigation for common score-checking tasks.
+* Mobile-friendly correction and conflict indicators.
 
-* As a fast-checking fan (Sebastian), I want a clear explanation when an
-update is missing so that I know whether the information is delayed,
-unavailable, or still being checked.
+User stories:
 
-* As a deadline reporter (Andres), I want the platform to avoid presenting
-uncertain information as definitive so that breaking updates do not mislead
-the public.
+* As Sebastian, I want to check a score from my phone in a few seconds so that I can answer friends without opening several apps.
+* As a spectator at a venue, I want the score and game status to be clear on a small screen so that I can compare the app with what I am seeing.
+* As Abiel, I want schedule and venue changes to be readable from my phone so that I can notify the team quickly.
+* As a parent following a team, I want upcoming games and recent results to be easy to find from a phone so that I do not need to search through social media posts.
+* As a casual user, I want the app to show the score, teams, and status before secondary details so that the page does not feel crowded.
+* As Andres, I want source and update information to still be visible on mobile so that quick access does not remove important context.
+* As a user with poor signal at a venue, I want the page to avoid heavy unnecessary content so that score information can load more easily.
+* As a maintainer reviewing a reported issue from a phone, I want the game record to show enough source context to understand what may be wrong.
 
-* As a reliability-focused engineer (Chris), I want standardized fallback
-behavior when an external source fails so that outages do not appear to users
-as random or inconsistent errors.
+==== Epic 5: Reliability Testing and Maintainability
 
-===== Epic 3: High-Traffic Availability During Major Events
+This epic covers implementation support for the parts of the system that handle scores, missing values, conflicting reports, corrections, and stale data. The goal is to keep responsibility clear so that formatting, validation, and display logic do not drift across unrelated functions.
 
-As a local-sports follower, I want the platform to remain usable during
-playoffs, tournaments, and breaking-news moments so that I can still get the
-most important information when demand spikes.
+Features:
 
-Features
+* Unit tests for score formatting.
+* Tests for missing-score behavior.
+* Tests for conflict detection.
+* Tests for stale or delayed indicators.
+* Tests for correction handling.
+* Review of function responsibility boundaries.
+* Implementation fragments tied to actual code.
+* BDD scenarios for selected local sports data cases.
 
-Peak-event responsiveness
-Core pages for scores, standings, and game status should remain responsive
-during periods of unusually high traffic.
+User stories:
 
-Prioritized delivery of essential information
-When load is high, the platform should keep the most important information
-available first, even if less important details need to wait.
-
-Recovery visibility during stressed conditions
-The platform should make it possible to measure whether it stays available,
-how fast it recovers, and what information remains accessible during stress.
-
-User stories
-
-* As a fast-checking fan (Sebastian), I want score and standings pages to
-load reliably during playoffs so that I can follow games while the event is
-still happening.
-
-* As a fast-checking fan (Sebastian), I want the platform to keep showing the
-most essential information when traffic is extreme so that I am not blocked
-from updates entirely.
-
-* As a deadline reporter (Andres), I want the platform to stay understandable
-during major events so that source delays, outages, or traffic spikes do not
-turn live coverage into confusion.
-
-* As a reliability-focused engineer (Chris), I want to measure availability
-and recovery time during peak-event simulations so that reliability work can
-be judged with actual evidence rather than guesswork.
-
-===== Epic 4: Reliability Testing Automation and Observability
-
-As a platform engineer, I want reliability testing and monitoring tied into
-the development workflow so that conflict handling, degraded behavior, and
-recovery logic are checked before users run into them.
-
-Features
-
-Automated reliability test coverage
-The project should include automated checks for conflicting data, delayed
-updates, missing fields, and other situations that are common in this domain.
-
-Fault injection for external dependency failure
-The team should be able to simulate source failures and unstable conditions
-to verify that fallback behavior still matches the documented expectations.
-
-Operational metrics and monitoring views
-The project should track reliability-related measures such as availability,
-accuracy, consistency, and recovery time so that improvements and regressions
-can be seen over time.
-
-User stories
-
-* As a reliability-focused engineer (Chris), I want automated tests that
-simulate conflicting data sources so that system behavior stays predictable
-when sources disagree.
-
-* As a reliability-focused engineer (Chris), I want automated tests that
-simulate delayed updates and missing data so that user-facing behavior stays
-clear when the incoming information is incomplete.
-
-* As a reliability-focused engineer (Chris), I want fault injection tests
-against external dependencies so that we can verify fallback strategies and
-error-handling logic before real outages happen.
-
-* As a reliability-focused engineer (Chris), I want CI workflows to run
-reliability tests regularly so that coverage includes stress and failure
-conditions, not only normal operation.
-
-* As a reliability-focused engineer (Chris), I want dashboards for accuracy,
-consistency, availability, and recovery time so that we can see whether the
-system is actually improving.
+* As Chris, I want score formatting behavior to be handled through one clear function so that null, undefined, or incomplete scores are not checked differently in several places.
+* As a developer, I want missing-score cases to have tests so that blank values are not accidentally displayed as real scores.
+* As a developer, I want conflict cases to be covered by tests so that future changes do not hide disagreement between sources.
+* As a maintainer, I want correction behavior to be documented and tested so that updated scores do not erase useful change context.
+* As a reviewer, I want implementation fragments in the documentation to come from real code so that the documentation is worth checking during review.
+* As a developer, I want BDD scenarios for at least the main score-checking and conflict-handling cases so that behavior is described in user-level terms before or alongside implementation.
+* As Chris, I want function responsibilities to be separated clearly so that display builders do not duplicate checks owned by score-formatting or score-completeness functions.
+* As a project maintainer, I want tests tied to specific reliability behavior so that the system does not only test happy-path score display.
