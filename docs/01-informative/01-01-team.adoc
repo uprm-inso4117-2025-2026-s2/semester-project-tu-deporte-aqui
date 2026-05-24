@@ -2,25 +2,27 @@
 
 ===== Project Organization
 
-Tu Deporte Aquí is organized into five specialized teams that support both documentation and implementation across project milestones.
+Tu Deporte Aquí is organized into five specialized teams that support documentation, implementation, integration, and final delivery across project milestones.
 
-During Milestone 1, the focus was on documentation and system definition. In the current milestone, the project has transitioned into implementation, where teams are responsible for building and integrating system components.
+During Milestone 1, the focus was documentation and system definition. During Milestone 2, the project moved into implementation. In Milestone 3, the focus shifts to integration, stability, bug fixing, UI polish, and preparing the product for the final presentation.
 
-Each team is assigned a specific domain area. This allows work to be distributed while still maintaining coordination across the system.
+Each team is assigned a specific domain area. This keeps ownership clear while still requiring coordination across teams, since the final product depends on shared data, API routes, authentication, and common UI behavior.
 
 ===== Team Structure
 
-====== Team 1 – Documentation & Standards
+====== Team 1 – Documentation & Final Delivery
 
-Responsible for maintaining consistency and supporting integration across teams:
+Responsible for final documentation and delivery support:
 
-- Updating README and project documentation
-- Defining folder structure and coding standards
-- Documenting API endpoints created by feature teams
-- Supporting deployment setup
-- Applying professor feedback to documentation
+- Finalizing the README
+- Updating setup and installation instructions
+- Documenting API routes
+- Documenting the database schema
+- Preparing final project documentation
+- Cleaning up repository structure explanations
+- Applying professor feedback and documentation corrections
 
-This team does not implement features, but ensures that the work produced by other teams remains consistent and properly documented.
+This team does not implement features, but ensures that the final project is understandable, reviewable, and ready for presentation.
 
 *Team Members:*
 
@@ -31,17 +33,18 @@ This team does not implement features, but ensures that the work produced by oth
 - Daniel C. Colón Rivera
 - Alex M. Vázquez Galiano
 
-====== Team 2 – Supabase Core & Platform
+====== Team 2 – Supabase Core & Platform Stability
 
-Responsible for backend foundation and data management:
+Responsible for backend and database stability:
 
-- Setting up Supabase project
-- Designing database schema (users, games, standings, teams, athletes, news)
-- Inserting seed data
-- Implementing basic Row-Level Security
-- Supporting other teams with data access
+- Resolving database inconsistencies
+- Fixing broken API integrations
+- Validating database relationships
+- Maintaining data integrity
+- Supporting feature teams with backend issues
+- Avoiding major schema redesigns during the final milestone
 
-This team acts as the central point for database-related decisions.
+This team acts as the central point for Supabase-related stability issues.
 
 *Team Members:*
 
@@ -52,17 +55,18 @@ This team acts as the central point for database-related decisions.
 - Ian G. Ramos Villafañe
 - Cristian J. Massini Perez
 
-====== Team 3 – Live Games & Standings
+====== Team 3 – Live Games & Standings Finalization
 
-Responsible for implementing game and standings views:
+Responsible for polishing and stabilizing games and standings features:
 
-- Building /games and /standings pages
-- Implementing API routes
-- Fetching data from Supabase
-- Displaying scores, teams, and status
-- Handling loading and error states
+- Fixing bugs in /games and /standings
+- Improving loading and error states
+- Checking responsive behavior across devices
+- Ensuring standings display correctly
+- Validating API responses and frontend rendering
+- Resolving Supabase integration issues related to games and standings
 
-This team focuses on presenting structured sports data through working UI pages.
+This team focuses on completing and stabilizing existing features rather than adding new major functionality.
 
 *Team Members:*
 
@@ -72,16 +76,19 @@ This team focuses on presenting structured sports data through working UI pages.
 - Yandiel Hernandez Otero
 - Javier A. Ventosa Maldonado
 
-====== Team 4 – News, Profiles & Alerts
+====== Team 4 – News, Profiles & Alerts Finalization
 
-Responsible for content and profile-related pages:
+Responsible for completing and stabilizing news, profiles, and alerts:
 
-- Building /news, /teams/[id], and /athletes/[id]
-- Implementing API routes
-- Displaying content and profile data
-- Handling loading and error states
+- Fixing bugs in /news, /teams/[id], and /athletes/[id]
+- Improving layout responsiveness
+- Improving loading and error states
+- Ensuring profile pages display correct information
+- Ensuring news pages render properly
+- Resolving API and data inconsistencies
+- Aligning pages with shared UI components
 
-This team focuses on making informational content accessible through the UI.
+This team focuses on stability, completion, and consistency.
 
 *Team Members:*
 
@@ -91,17 +98,18 @@ This team focuses on making informational content accessible through the UI.
 - Pedro M. Cortes Ramos
 - Edgar J. Gonzalez Vargas
 
-====== Team 5 – Authentication & User System
+====== Team 5 – Authentication & User System Finalization
 
-Responsible for user authentication and session management:
+Responsible for finalizing authentication and session behavior:
 
-- Implementing login and signup
-- Managing user sessions
-- Protecting routes
-- Handling authentication errors
-- Displaying user state in UI
+- Fixing authentication and session bugs
+- Improving protected route handling
+- Ensuring login, logout, and signup flows work consistently
+- Improving authentication error messages
+- Ensuring navbar user state updates correctly
+- Validating authentication behavior after refresh or navigation
 
-This team ensures that user-specific functionality works correctly.
+This team focuses on making authentication reliable and usable for the final product.
 
 *Team Members:*
 
@@ -111,18 +119,19 @@ This team ensures that user-specific functionality works correctly.
 - Marcos F. Arraiza Aviles
 - Ojiani S. Figueroa Cruz
 
-====== UI Strike Team
+====== UI / Homepage Strike Team
 
-A cross-team group responsible for shared UI components and layout consistency.
+A cross-team group responsible for visual consistency and final demo readiness.
 
 Responsibilities include:
 
-- Building homepage
-- Creating shared layout components (navbar, layout wrapper, navigation)
-- Ensuring consistent styling across pages
-- Supporting mobile-first design
+- Polishing the homepage UI
+- Ensuring consistency across all pages
+- Fixing responsive and mobile layout issues
+- Aligning shared components such as navigation and layout wrappers
+- Removing obvious UI inconsistencies before the final presentation
 
-This group coordinates UI decisions across feature teams.
+This group coordinates UI polish across feature teams.
 
 ===== Roles and Responsibilities
 
@@ -131,8 +140,9 @@ This group coordinates UI decisions across feature teams.
 Developers are responsible for:
 
 - Completing assigned issues
-- Implementing features or documentation updates
-- Writing code or documentation depending on their team
+- Fixing bugs or improving assigned features
+- Updating documentation when required
+- Testing their own pages, routes, or components
 - Submitting work through pull requests
 
 All work must be tracked through GitHub issues.
@@ -143,10 +153,11 @@ Team Leads are responsible for:
 
 - Coordinating work within their team
 - Reviewing work before it is merged
-- Ensuring tasks are completed according to requirements
-- Communicating with other teams when needed
+- Ensuring tasks match Milestone 3 goals
+- Communicating blockers or dependencies with other teams
+- Helping identify unfinished or unstable work before the final deadline
 
-This role helps reduce integration issues between teams.
+This role helps reduce integration problems between teams.
 
 ====== Managers
 
@@ -159,10 +170,11 @@ Managers are responsible for:
 
 - Reviewing issues and pull requests
 - Assigning urgency and difficulty
-- Ensuring milestone progress
+- Tracking final milestone progress
 - Resolving cross-team issues
+- Ensuring the project remains focused on final delivery
 
-Managers ensure that the project stays aligned with milestone goals.
+Managers ensure that the project stays aligned with the final milestone goals.
 
 ===== Workflow and Governance
 
@@ -170,25 +182,28 @@ The project follows an issue-driven workflow with pull request review.
 
 Workflow:
 
-1. Issue is created and assigned
-2. Developer works on a feature or update
+1. Issue is created or updated
+2. Developer works on a bug fix, documentation update, or feature completion task
 3. Changes are submitted through a pull request
 4. CI runs to validate the project
 5. Team Lead reviews
 6. Manager approves and merges
 
-This process ensures that changes are reviewed and integrated consistently.
+This process helps keep the repository stable while multiple teams complete final integration work.
 
 ===== Current Milestone Focus
 
-The project is currently focused on implementation.
+The project is currently focused on integration, stability, and final product completion.
 
 This includes:
 
-- Building UI pages using Next.js
-- Implementing API routes
-- Integrating Supabase
-- Connecting frontend and backend
-- Implementing authentication
+- Fixing bugs and unstable behavior
+- Improving loading and error states
+- Stabilizing Supabase integration
+- Ensuring authentication works consistently
+- Improving responsive behavior across pages
+- Removing major console or runtime errors
+- Polishing UI for final demo readiness
+- Finalizing documentation for delivery
 
-The team structure supports this by distributing responsibility across features while maintaining coordination through shared workflows.
+The team structure supports this by keeping ownership clear while requiring communication across teams where data, routes, authentication, and UI components overlap.
