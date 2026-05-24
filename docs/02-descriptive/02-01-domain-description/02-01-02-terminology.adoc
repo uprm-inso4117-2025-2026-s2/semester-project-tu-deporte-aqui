@@ -1,92 +1,99 @@
-
 ==== 2.1.2 Terminology
 
-This section defines terms used throughout the document to maintain consistent meaning.
+This section defines terminology used throughout the document in order to maintain consistent meaning across the domain description, requirements discussion, and behavioral analysis.
+
+The terminology reflects concepts identified during analysis of how local sports information is produced, communicated, corrected, interpreted, and trusted.
 
 ====== Core Domain Terms
 
 *Sporting Event*::
-A game, match, or competition that people may follow.
+A bounded sports occurrence such as a game, match, or competition that people may follow, discuss, report on, or reference through updates and standings.
 
 *Source*::
-An origin of information about a sporting event.
-Examples include league websites, team pages, sports media, reporters, and third-party platforms.
+An origin from which information about a sporting event is obtained.
+Sources may include official league pages, school athletic programs, reporters, community accounts, livestream updates, social media posts, and third-party sports platforms.
 
 *Source Report*::
-A specific piece of information produced by a source, such as a score update, status, or correction.
+A communicated piece of information produced by a source regarding a sporting event.
+Examples include score updates, game-status declarations, postponement notices, standings updates, corrections, or schedule publications.
 
 *Event Record*::
-The maintained representation of what is currently known about a sporting event.
+The maintained representation of what is currently known about a sporting event after considering available reports, corrections, and updates.
 
 *Standings Snapshot*::
-A reported ordering or ranking of teams at a specific time.
+A reported representation of team ordering, ranking, or records at a particular moment in time.
 
 *Correction*::
-A change to previously reported information based on new or updated data.
+A later modification to previously communicated information caused by reconciliation, review, or newly available information.
 
 ====== Dependability and Verification Terms
 
 *Source Trust Level*::
-A general assessment of how dependable a source tends to be.
+A relatively stable assessment of how dependable a source is generally considered to be within the domain.
+This concerns the source itself rather than a specific reported value.
 
 *Verification State*::
-The level of confirmation of a reported value.
+The current state of confirmation associated with a reported value or maintained event record.
 
-Defined states:
+Defined verification states are:
 
-* *Unverified* — not yet confirmed
-* *Confirmed* — supported by corroborating or authoritative sources
-* *Final* — not expected to change under normal conditions
+* *Unverified* — information has not yet been sufficiently corroborated
+* *Confirmed* — information is supported by corroborating or authoritative reports
+* *Final* — information is considered stable and not normally expected to change further
 
 *Provisional*::
-Information that is available but may still change.
+A condition in which information may already be useful while still remaining subject to later correction, clarification, or confirmation.
 
-NOTE: Provisional describes a condition, not a verification state.
+NOTE: Provisional is not itself a verification state. It describes the current condition of dependability.
 
 *Conflict*::
-A situation where multiple reports provide incompatible information.
+A situation in which two or more source reports communicate incompatible values regarding the same relevant aspect of a sporting event.
 
 *Confidence Level*::
-An assessment of how dependable a specific value is in context.
+An assessment of how dependable a particular reported value is considered within its current context.
 
-Defined levels:
+Defined confidence levels are:
 
-* *High Confidence*
-* *Medium Confidence*
-* *Low Confidence*
+* *High Confidence* — strong supporting basis exists for dependability
+* *Medium Confidence* — information appears plausible but uncertainty remains
+* *Low Confidence* — substantial uncertainty or inconsistency remains unresolved
 
-NOTE: Confidence depends on factors such as source, recency, and consistency.
+NOTE: Confidence level depends on factors such as source trust, recency, corroboration, and unresolved conflicts.
 
 ====== Freshness and Transparency Terms
 
 *Publish Time*::
-When a source originally released the information.
+The time at which a source originally made information available.
 
 *Ingest Time*::
-When the information was recorded by the system.
+The time at which information becomes recorded or incorporated into the maintained event record.
 
 *Last Updated Time*::
-The most recent change to the event record.
+The most recent time at which the maintained event record changed.
 
 *Staleness*::
-A condition where information is no longer current enough for its context.
+A condition in which information can no longer be treated as sufficiently current for its context because too much time has passed since the last dependable update.
 
 *Dependability Indicator*::
-A marker that helps explain how reliable the information is.
+A visible marker, label, or explanation intended to help people understand the dependability condition of displayed information.
 
 *Source Attribution*::
-Identification of where the information originated.
+The explicit identification of where displayed information originated.
+
+*Reliability Metadata*::
+Associated contextual information that helps explain the dependability, freshness, status, or origin of a reported value.
+Examples may include timestamps, verification states, confidence levels, and attribution references.
 
 ====== System Condition Terms
 
 *Degraded State*::
-Operation continues, but information is missing, delayed, or incomplete.
+A condition in which operation continues while expected information remains delayed, incomplete, inconsistent, or partially unavailable.
 
 *Graceful Degradation*::
-Providing partial information with clear limitations instead of failing completely.
+Continued provision of partial but clearly qualified information instead of abrupt absence or misleading certainty.
 
 *Silent Overwrite*::
-Replacing information without preserving previous values or indicating change.
+Replacement of previously communicated information without preserving visible indication that a change or conflict occurred.
 
 *Unknown*::
-A value is not available and should not be inferred.
+An explicit indication that a relevant value is presently not known and must not be inferred.
