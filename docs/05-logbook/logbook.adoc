@@ -14,3 +14,4 @@ This logbook records relevant activities, decisions, updates, and progress throu
 | Name | Section | Added/Modified
 
 | Alex M. Vazquez Galiano | 2.1.1, 2.2.2, 2.1.1, 2.1.6 | Modified/Added
+| Gerald Rodríguez | 1.3.2 Project Synopsis | Modified
