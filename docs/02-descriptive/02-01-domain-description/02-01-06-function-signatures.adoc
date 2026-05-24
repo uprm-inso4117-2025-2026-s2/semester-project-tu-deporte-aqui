@@ -20,19 +20,25 @@ The signatures below use named domain types so that the reader can see what kind
 | Meaning in this domain
 
 | `SourceType`
-| The kind of source that produced a report. Examples include league source, team page, reporter source, sports media source, third-party platform, or community source.
+| The kind of source that produced a report. Examples include league page, team page, reporter post, sports media post, third-party platform, or community-submitted report.
+
+| `SourcePattern`
+| The update pattern expected from a source in the current situation. A `StreamingSource` provides repeated updates during an event. A `SpotSource` provides one report at a time, such as a final-score image, screenshot, article, or single social media post.
 
 | `SourceReport`
-| A specific reported value from one source, such as a score update, schedule change, standings update, or correction.
+| A specific piece of information received from one source. A `SourceReport` includes the reported value itself, such as a score, schedule change, venue change, standings update, game status, or correction. It also carries the source and available timing information.
+
+| `ReportedValue`
+| The actual value claimed by a report. Examples include a score, game status, schedule time, venue, standings value, or correction.
 
 | `EventRecord`
 | The current maintained representation of what is known about a sporting event.
 
 | `SourceTrustLevel`
-| A general assessment of how dependable a source tends to be.
+| A general assessment of how dependable a source tends to be for the kind of report being handled.
 
 | `PublishTime`
-| The time when a source originally released the information.
+| The time when a source originally released the information, when that time is available.
 
 | `IngestTime`
 | The time when the information was recorded by the system.
@@ -44,13 +50,13 @@ The signatures below use named domain types so that the reader can see what kind
 | The confirmation state of a reported value. Possible values include `Unverified`, `Confirmed`, and `Final`.
 
 | `InformationStatus`
-| The current condition of the information. Possible values include `Developing`, `Conflicting`, `Delayed`, `Corrected`, and `Unknown`.
+| The current condition of the information. Possible values include `Developing`, `Conflicting`, `Delayed`, `Corrected`, `Unknown`, and `Unavailable`.
 
 | `ConfidenceLevel`
 | The level of confidence assigned to a reported value. Possible values include `HighConfidence`, `MediumConfidence`, and `LowConfidence`.
 
 | `ReliabilityMetadata`
-| The domain information attached to a report or event record so that its source, timing, verification state, and confidence level can be understood together.
+| The source, timing, verification, and confidence information attached to a report or event record.
 
 | `DependabilityIndicator`
 | The visible dependability information that can be shown with a score, schedule, standings entry, or event update.
@@ -58,11 +64,14 @@ The signatures below use named domain types so that the reader can see what kind
 | `ConflictAssessment`
 | The result of comparing reports that may disagree. It identifies whether the reports are consistent, conflicting, or still unresolved.
 
+| `Correction`
+| A report or update that replaces, fixes, or clarifies previously recorded information.
+
 | `CorrectionTrace`
-| A record of what changed when a correction replaces or updates previously reported information.
+| A record of what changed when a correction replaces or updates previously reported information. It keeps the previous value, the corrected value, the source report that caused the change, and the time of the change.
 
 | `DegradedState`
-| A system condition where the platform continues operating with missing, late, or incomplete source support.
+| A system condition where the platform continues operating with missing, late, unavailable, or incomplete source support.
 
 | `GracefulDegradation`
 | The behavior of continuing to show usable partial information while making the limitation visible.
@@ -76,15 +85,21 @@ The following function is a non-trivial example of using types to explain domain
 assessReportDependability : SourceReport >< SourceTrustLevel >< EventRecord → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
 ----
 
-This signature shows that assessing a report is not a simple true/false decision. A report is judged using the report itself, the usual dependability of its source, and the current event record. The output separates `VerificationState` from `ConfidenceLevel`, so the documentation can describe cases such as an `Unverified` report with `LowConfidence` instead of hiding that distinction.
+This signature shows that assessing a report is not a simple true/false decision. A report is judged using the report itself, the usual dependability of its source, and the current event record. The output separates `VerificationState` from `ConfidenceLevel`, so the documentation can describe cases such as an `Unverified` report with `LowConfidence`.
 
 ===== E1 Actions: Report Received
 
 ----
-buildReliabilityMetadata : SourceType >< PublishTime >< IngestTime >< LastUpdatedTime → ReliabilityMetadata
+classifySourcePattern : SourceType >< SourceReport → SourcePattern
 ----
 
-Creates the reliability metadata attached to a newly received report.
+Classifies whether the source is acting as a repeated update stream or as a one-time report source for this report.
+
+----
+buildReliabilityMetadata : SourceReport >< SourceType >< SourcePattern >< PublishTime >< IngestTime >< LastUpdatedTime → ReliabilityMetadata
+----
+
+Creates the reliability metadata attached to a newly received report. The `SourceReport` is included because reliability metadata only makes sense when it is tied to the actual value that was reported.
 
 ----
 assessReportDependability : SourceReport >< SourceTrustLevel >< EventRecord → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
@@ -104,10 +119,10 @@ Creates the dependability information that can be shown with the reported value.
 recordLiveStateUpdate : SourceReport >< EventRecord >< LastUpdatedTime → EventRecord >< ReliabilityMetadata
 ----
 
-Updates the event record when a live-match report changes the current known state.
+Updates the event record when a live-match report changes the current known state. The update uses the reported value inside the `SourceReport`.
 
 ----
-recordManualOverride : SourceReport >< Correction >< EventRecord >< ReliabilityMetadata → Corrected >< EventRecord >< CorrectionTrace >< ReliabilityMetadata
+recordManualOverride : SourceReport >< Correction >< EventRecord >< ReliabilityMetadata → EventRecord >< CorrectionTrace >< ReliabilityMetadata
 ----
 
 Records a manual override as a correction when local updates are irregular, late, or inconsistent.
@@ -118,7 +133,7 @@ Records a manual override as a correction when local updates are irregular, late
 classifyPartialCoverage : EventRecord >< LastUpdatedTime >< ReliabilityMetadata → InformationStatus
 ----
 
-Classifies incomplete coverage as `Developing`, `Delayed`, or `Unknown` depending on timing and available source context.
+Classifies incomplete coverage as `Developing`, `Delayed`, `Unknown`, or `Unavailable` depending on timing and available source context.
 
 ----
 preserveLastKnownMetadata : EventRecord >< ReliabilityMetadata → EventRecord >< ReliabilityMetadata
@@ -132,41 +147,41 @@ Keeps the last known reliability context attached to the event record when curre
 detectConflict : SourceReport >< SourceReport >< EventRecord → ConflictAssessment
 ----
 
-Compares two reports about the same event record and determines whether their values can both be accepted.
+Compares two reports about the same event record and determines whether their reported values can both be accepted.
 
 ----
-lowerConfidenceAfterConflict : ConflictAssessment >< ReliabilityMetadata → LowConfidence >< ReliabilityMetadata
+lowerConfidenceAfterConflict : ConflictAssessment >< ReliabilityMetadata → ConfidenceLevel >< ReliabilityMetadata
 ----
 
-Lowers confidence when the conflict is still unresolved.
+Lowers confidence when the conflict is still unresolved. The lowered confidence level may be `LowConfidence`, but `LowConfidence` is treated as a possible value of `ConfidenceLevel`, not as a separate return type.
 
 ----
-revalidateConflictingInformation : ConflictAssessment >< SourceReport >< SourceTrustLevel → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
+revalidateConflictingInformation : ConflictAssessment >< SourceReport >< SourceTrustLevel >< EventRecord → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
 ----
 
-Re-evaluates conflicting information when another report or more dependable source becomes available.
+Re-evaluates conflicting information when another report or a more dependable source becomes available.
 
 ===== E5 Actions: Data Becomes Stale
 
 ----
-markAsDelayed : EventRecord >< LastUpdatedTime >< ReliabilityMetadata → Delayed >< ReliabilityMetadata
+markAsDelayed : EventRecord >< LastUpdatedTime >< ReliabilityMetadata → InformationStatus >< ReliabilityMetadata
 ----
 
-Marks information as delayed when it has not been updated recently enough for its context.
+Marks information as delayed when it has not been updated recently enough for its context. The delayed condition is represented as an `InformationStatus`, not as a separate type.
 
 ----
-preserveLastKnownReliabilityMetadata : Delayed >< ReliabilityMetadata → DependabilityIndicator
+preserveLastKnownReliabilityMetadata : InformationStatus >< ReliabilityMetadata → DependabilityIndicator
 ----
 
-Keeps the previous reliability context visible instead of removing stale information without explanation.
+Keeps the previous reliability context visible instead of removing stale or delayed information without explanation.
 
 ===== E6 Actions: Correction Published
 
 ----
-recordCorrection : Correction >< EventRecord >< ReliabilityMetadata >< LastUpdatedTime → Corrected >< EventRecord >< CorrectionTrace >< ReliabilityMetadata
+recordCorrection : Correction >< SourceReport >< EventRecord >< ReliabilityMetadata >< LastUpdatedTime → EventRecord >< CorrectionTrace >< ReliabilityMetadata
 ----
 
-Records that previously published information changed and keeps a trace of the correction.
+Records that previously published information changed and keeps a trace of the correction. The `SourceReport` is included so the correction remains connected to the report that introduced the corrected value.
 
 ----
 explainCorrection : CorrectionTrace >< ReliabilityMetadata → DependabilityIndicator
@@ -177,7 +192,7 @@ Connects the correction trace to the dependability information shown with the co
 ===== E7 Actions: Source Outage / Unavailable Source
 
 ----
-enterDegradedState : EventRecord >< ReliabilityMetadata → DegradedState
+enterDegradedState : EventRecord >< ReliabilityMetadata >< SourceType → DegradedState
 ----
 
 Records that source support is not enough for normal operation.
@@ -194,6 +209,14 @@ avoidSilentFailure : DegradedState >< EventRecord → GracefulDegradation
 
 Prevents missing or delayed information from being hidden as if nothing were wrong.
 
+===== Scenario Walkthrough
+
+A team page posts a final score for a local game. The post is treated as a `SourceReport` because it contains the actual reported score, the source, and the available timing information. The system uses `classifySourcePattern` to decide whether the source is acting as a streaming source or a spot source. It then uses `buildReliabilityMetadata` to attach source and timing context to the report.
+
+If a league page later posts a different final score for the same event, the second post is also treated as a `SourceReport`. The system uses `detectConflict` to compare both reports against the current `EventRecord`. If the values disagree, the result is a `ConflictAssessment`, and `lowerConfidenceAfterConflict` adjusts the reliability metadata instead of presenting either score as final without explanation.
+
+If a later source publishes a correction, `recordCorrection` updates the `EventRecord` and creates a `CorrectionTrace`. The trace keeps the earlier value, the corrected value, the report that caused the change, and the time when the change was recorded.
+
 ===== Note on Scope
 
-These signatures stay at the domain level. The types name concepts from the problem area: reports, sources, event records, verification, confidence, corrections, conflicts, and degraded operation. They do not define code classes, database records, storage queues, or UI components.
+These signatures stay at the domain level. The types name concepts from the problem area: reports, sources, reported values, event records, verification, confidence, corrections, conflicts, and degraded operation. They do not define database records, storage queues, routes, or UI components.
