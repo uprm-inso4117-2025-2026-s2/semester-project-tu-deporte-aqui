@@ -14,4 +14,6 @@ This logbook records relevant activities, decisions, updates, and progress throu
 | Name | Section | Added/Modified
 
 | Alex M. Vazquez Galiano | 2.1.1, 2.2.2, 2.1.1, 2.1.6 | Modified/Added
-| Gerald Rodríguez | 2.1.2 Terminology | Modified
+| Gerald Rodríguez | 1.2.1, 1.3.2, 2.1.2, 2.1.5 | Modified
+| Gerald Rodríguez | Lecture Topic Task – Shift-Left Testing and Static Analysis for Tu Deporte Aquí | Added
+| Gerald Rodríguez | Lecture Topic Task – Risk-Oriented Test Prioritization for Live Sports Information Systems | Added
