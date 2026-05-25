@@ -1,0 +1,2 @@
+To run the Property Based Tests:
+Firts install Vtest by using the following command: npm install -D vitest fast-check
