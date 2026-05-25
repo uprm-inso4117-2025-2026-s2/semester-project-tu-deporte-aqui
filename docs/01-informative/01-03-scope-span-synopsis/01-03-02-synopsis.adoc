@@ -2,12 +2,12 @@
 
 ===== Synopsis
 
-Tu Deporte Aquí addresses the problem of following local sports information in Puerto Rico when updates are spread across multiple sources and may differ in timing, detail, and reliability.
+Tu Deporte Aquí addresses the difficulty of following local sports information in Puerto Rico when relevant updates are distributed across many independent sources with different levels of detail, timing, and dependability.
 
-Scores, standings, schedules, and event updates are commonly published through league pages, social media accounts, sports media, reporters, and third-party platforms. Because of this, it can be difficult to determine what information is current, what is uncertain, and how much confidence can be placed in a given update.
+People who follow local sports frequently encounter situations in which schedules, standings, scores, postponements, and live updates appear in different places and may not agree with one another. Information may be delayed, incomplete, corrected later, or communicated without sufficient context.
 
-The project focuses on local Puerto Rico sports. National and international coverage is outside its scope.
+The project focuses specifically on local Puerto Rico sports environments, including leagues, school programs, and community-level sporting events. National and international coverage are outside the intended scope.
 
-The system does not assume that all available information is complete or consistent. Updates may be delayed, partial, conflicting, or later corrected. For that reason, the project places attention on how information is presented, including its state, timing, and level of confirmation.
+A central concern of the project is not only access to sports information, but also communication of the condition of that information. The project therefore treats uncertainty, delay, incompleteness, and conflicting reports as normal conditions that must be represented clearly instead of hidden.
 
-The goal is to improve how local sports information is organized and interpreted in situations where sources differ and conditions are imperfect.
+The project aims to improve how local sports information is organized, interpreted, and consulted under conditions where reporting practices, update timing, and source dependability vary significantly between organizations and contributors.
