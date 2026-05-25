@@ -1,0 +1,56 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^python utils/fuzzing/test_gui\\.py 2>&1 \\| head -100$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 30 python utils/fuzzing/test_gui\\.py 2>&1 \\| head -80$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 60 python utils/fuzzing/test_gui\\.py 2>&1 \\| tail -100$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 60 python utils/fuzzing/test_gui\\.py 2>&1 \\| tail -80$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 60 python utils/fuzzing/test_gui\\.py 2>&1 \\| head -100$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 60 python utils/fuzzing/test_gui\\.py 2>&1 \\| head -150$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 90 python utils/fuzzing/test_gui\\.py 2>&1$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 60 python -u utils/fuzzing/test_gui\\.py 2>&1 \\| head -200$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 60 python -u utils/fuzzing/test_gui\\.py 2>&1 \\| head -100$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 300 python utils/fuzzing/test_gui\\.py 2>&1 \\| tail -50$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 300 python utils/fuzzing/test_gui\\.py 2>&1 \\| tail -80$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 300 python utils/fuzzing/test_gui\\.py 2>&1 \\| tail -30$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^timeout 60 python -u utils/fuzzing/test_gui\\.py 2>&1 \\| head -150$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

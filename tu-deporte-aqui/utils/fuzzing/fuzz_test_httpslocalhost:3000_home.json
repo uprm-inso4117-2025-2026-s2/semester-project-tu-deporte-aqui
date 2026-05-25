@@ -1,0 +1,802 @@
+[
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Our Mission']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Basketball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Privacy Policy']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='About Us']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('//a[normalize-space()=\"LIVE[Image]SoccerPuerto Rico FC1Islanders375\\'\"]')\n",
+            "url": "https://localhost:3000/games/4",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Privacy Policy']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Cookie Policy']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('//a[normalize-space()=\\'FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel \"El Tornado\" Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192\\']')\n",
+            "url": "https://localhost:3000/news/3",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='View All News']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/4",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('//a[normalize-space()=\\'FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel \"El Tornado\" Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192\\']')\n",
+            "url": "https://localhost:3000/news/3",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Basketball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('//a[1]')\nclick(\"//a[normalize-space()='Contact Us']\")\n",
+            "url": "https://localhost:3000/home#",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Privacy Policy']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('//a[normalize-space()=\"LIVE[Image]SoccerPuerto Rico FC1Islanders375\\'\"]')\n",
+            "url": "https://localhost:3000/games/4",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('//a[normalize-space()=\"LIVE[Image]SoccerPuerto Rico FC1Islanders375\\'\"]')\n",
+            "url": "https://localhost:3000/games/4",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Careers']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Terms of Service']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/4",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('//a[1]')\nclick('//a[normalize-space()=\"LIVE[Image]SoccerPuerto Rico FC1Islanders375\\'\"]')\n",
+            "url": "https://localhost:3000/games/4",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "fill(\"//input[@placeholder='Search...']\", 'value')\nfill(\"//input[@placeholder='Enter your email']\", 'value')\nsubmit(\"//button[normalize-space()='Subscribe']\")\nclick('//a[1]')\nclick(\"//a[normalize-space()='Disclaimer']\")\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Contact Us']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='View All Standings']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Cookie Policy']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Contact Us']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='View All Games']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Terms of Service']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/2",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Privacy Policy']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/4",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/4",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/2",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Careers']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Soccer']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Our Mission']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Disclaimer']\")\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/2",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/2",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='FEATUREDBasketball[Image]2 hours agoCapitanes de Arecibo Win Championship in Thrilling OvertimeIn an electrifying finale, the Capitanes secured their title with a 98-95 victory, bringing Puerto Rico basketball fans to their feet.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/1",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4']\")\n",
+            "url": "https://localhost:3000/games/1",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Volleyball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Careers']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/4",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Careers']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4']\")\n",
+            "url": "https://localhost:3000/games/1",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Terms of Service']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Careers']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='View All Standings']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Volleyball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='View All News']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/2",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='View All News']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4']\")\n",
+            "url": "https://localhost:3000/games/1",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Careers']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Disclaimer']\")\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Cookie Policy']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "fill(\"//input[@placeholder='Search...']\", 'value')\nfill(\"//input[@placeholder='Enter your email']\", 'value')\nsubmit(\"//button[normalize-space()='Subscribe']\")\nclick(\"//a[normalize-space()='Baseball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Privacy Policy']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='FEATUREDBasketball[Image]2 hours agoCapitanes de Arecibo Win Championship in Thrilling OvertimeIn an electrifying finale, the Capitanes secured their title with a 98-95 victory, bringing Puerto Rico basketball fans to their feet.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/1",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Terms of Service']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('//a[normalize-space()=\\'FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel \"El Tornado\" Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192\\']')\n",
+            "url": "https://localhost:3000/news/3",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='LIVE[Image]BaseballCriollos5Indios1Top 7']\")\n",
+            "url": "https://localhost:3000/games/2",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Careers']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('//a[normalize-space()=\\'FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel \"El Tornado\" Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192\\']')\n",
+            "url": "https://localhost:3000/news/3",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "fill(\"//input[@placeholder='Search...']\", 'value')\nfill(\"//input[@placeholder='Enter your email']\", 'value')\nsubmit(\"//button[normalize-space()='Subscribe']\")\nclick(\"//a[normalize-space()='Disclaimer']\")\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('//a[normalize-space()=\\'FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel \"El Tornado\" Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192\\']')\n",
+            "url": "https://localhost:3000/news/3",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Contact Us']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Terms of Service']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/2",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "fill(\"//input[@placeholder='Search...']\", 'value')\nfill(\"//input[@placeholder='Enter your email']\", 'value')\nsubmit(\"//button[normalize-space()='Subscribe']\")\nclick(\"//a[normalize-space()='About Us']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='View All News']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Privacy Policy']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='LIVE[Image]VolleyballMets2Cangrejeros1Set 3']\")\n",
+            "url": "https://localhost:3000/games/3",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "fill(\"//input[@placeholder='Search...']\", 'value')\nfill(\"//input[@placeholder='Enter your email']\", 'value')\nsubmit(\"//button[normalize-space()='Subscribe']\")\nclick(\"//a[normalize-space()='Contact Us']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Soccer']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='LIVE[Image]BaseballCriollos5Indios1Top 7']\")\n",
+            "url": "https://localhost:3000/games/2",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192']\")\n",
+            "url": "https://localhost:3000/news/2",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Contact Us']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Soccer']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Our Mission']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Careers']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('//a[normalize-space()=\"LIVE[Image]SoccerPuerto Rico FC1Islanders375\\'\"]')\n",
+            "url": "https://localhost:3000/games/4",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Soccer']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='About Us']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "fill(\"//input[@placeholder='Search...']\", 'value')\nfill(\"//input[@placeholder='Enter your email']\", 'value')\nsubmit(\"//button[normalize-space()='Subscribe']\")\nclick(\"//a[normalize-space()='Soccer']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='LIVE[Image]VolleyballMets2Cangrejeros1Set 3']\")\n",
+            "url": "https://localhost:3000/games/3",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='LIVE[Image]BaseballCriollos5Indios1Top 7']\")\n",
+            "url": "https://localhost:3000/games/2",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Volleyball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Our Mission']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='About Us']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Volleyball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Baseball']\")\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Disclaimer']\")\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ]
+]
