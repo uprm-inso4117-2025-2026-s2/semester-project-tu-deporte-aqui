@@ -17,10 +17,10 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
     Given a game between "Cangrejeros" and "Vaqueros" is being played
     And a social media post reports the score as "75-70" for Cangrejeros
     And the official league website later reports the score as "76-70" for Cangrejeros
-    Then the two reports are considered conflicting
+    Then the two reports are considered conflicting reports
     And the official league report takes precedence
     And the conflicting social media report is recorded as unofficial
-    And fans should be made aware that a discrepancy existed
+    And fans should be made aware that conflicting reports existed
 
   # Req: R-DOM-4, R-DOM-1
   Scenario: Unverified report becomes confirmed
@@ -46,34 +46,34 @@ Feature: Domain Rules - Sports Information Reliability and Transparency
   Scenario: Multiple unofficial sources agree
     Given no official source has reported on a game
     And three different local news outlets all report the same score "65-60"
-    Then the score is considered likely accurate
+    Then the score is considered provisional
     And it may be treated as having medium confidence
-    But it is still marked as unverified until official confirmation
+    But it is still marked as provisional until official confirmation
     And all three sources are cited as the basis
 
   # Req: R-DOM-7
-  Scenario: Outdated game information
+  Scenario: Stale game information
     Given a game was played three days ago
     And no new reports have appeared since the initial score was posted
     Then that score is considered stale
-    And anyone consulting the record should be alerted that it may be outdated
+    And anyone consulting the record should be alerted that it may be stale
     And a refresh should be attempted by checking official sources again
 
   # Req: R-DOM-8, R-DOM-5
-  Scenario: Source becomes unavailable
+  Scenario: Source is marked as source down
     Given a particular news outlet has stopped publishing sports updates
-    Then that source is no longer considered active
-    And any information that depended solely on that source becomes less reliable
+    Then that source is considered source down
+    And any information that depended solely on that source becomes partial data
     And other sources must be used to verify past records
 
   # Req: R-DOM-2, R-DOM-1, R-DOM-3
   Scenario: Correction without formal announcement
     Given a score was reported as "77-76" in a local newspaper
     And days later the league website shows "78-76" with no correction notice
-    Then a conflict exists between the newspaper and the league
+    Then conflicting reports exist between the newspaper and the league
     And the league's version is considered authoritative
     And the newspaper's version is noted as a likely error
-    But if no official source exists, the conflict remains unresolved
+    But if no official source exists, the conflicting reports remain unresolved
 
   # Req: R-DOM-1, R-DOM-4, R-DOM-6
   Scenario: High demand for accurate information during playoffs
