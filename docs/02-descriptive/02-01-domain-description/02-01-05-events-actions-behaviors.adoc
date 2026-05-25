@@ -1,24 +1,24 @@
-
 ==== 2.1.5 Events, Actions, and Composite Behaviors
 
-This section describes events and actions related to how sports information is produced, compared, and updated.
+This section describes domain-relevant events, actions, and composite behaviors related to how sports information becomes available, changes over time, conflicts with other reports, and remains interpretable under uncertain conditions.
 
 ====== Domain-Relevant Events
 
 *Report Arrival*::
-A new source report becomes available.
+A source makes new information about a sporting event available.
+Examples include publication of a score update, standings change, postponement notice, or status update.
 
 *Conflict Emergence*::
-Multiple reports provide incompatible values.
+A newly arrived source report introduces information that is incompatible with information already associated with the same sporting event.
 
 *Correction Arrival*::
-A report indicates that previous information should be changed.
+A source communicates that previously reported information should be revised, replaced, or clarified.
 
 *Freshness Loss*::
-Information becomes outdated due to lack of recent updates.
+A maintained event record remains without sufficiently recent dependable updates long enough that its currentness becomes questionable for its context.
 
 *Source Interruption*::
-A source stops providing updates.
+A source that had been providing expected updates ceases communication, becomes unreachable, or stops publishing information.
 
 ====== Actions
 
@@ -26,111 +26,149 @@ A source stops providing updates.
 Consumes:
 * source
 * source report
-* sporting event
+* sporting event reference
 
 Produces:
-* stored report
-* associated timestamps
+* recorded source report
+* associated report content
+* timestamps and attribution references when available
 
 Purpose::
-To make the report available for later use.
+To preserve incoming information for later interpretation, comparison, and traceability.
 
 ---
 
 *Assess Dependability*::
 Consumes:
-* recorded report
+* recorded source report
 * source trust level
-* other reports
+* other related reports
+* timing and contextual information
 
 Produces:
 * verification state
 * confidence level
+* possible provisional condition
 
 Purpose::
-To evaluate how reliable the information is.
+To evaluate how dependable currently available information appears within its context.
 
 ---
 
 *Compare Reports*::
 Consumes:
-* multiple reports
+* multiple recorded source reports regarding the same sporting event
 
 Produces:
-* consistency or conflict
+* consistency finding
+* or conflict identification
 
 Purpose::
-To determine whether reports agree.
+To determine whether available reports can be treated as mutually supportive or whether incompatibilities remain unresolved.
 
 ---
 
 *Update Event Record*::
 Consumes:
 * assessed report
-* current record
+* current event record
 
 Produces:
-* updated record
-* updated timestamp
+* revised event record
+* updated timestamps
+* updated dependability condition
 
 Purpose::
-To reflect the latest known information.
+To revise the maintained representation of what is currently known about the sporting event.
 
 ---
 
 *Mark Unknown*::
 Consumes:
-* incomplete event record
+* event record lacking sufficiently dependable information regarding a relevant value
 
 Produces:
-* explicit unknown value
+* explicit unknown indication
 
 Purpose::
-To avoid unsupported assumptions.
+To avoid presentation of unsupported assumptions or misleading certainty.
 
 ---
 
 *Preserve Change Trace*::
 Consumes:
-* old value
-* new value
+* replaced information
+* replacement information
+* available explanation for the change
 
 Produces:
-* record of change
+* traceable record of the revision
 
 Purpose::
-To maintain traceability.
+To preserve explainability when information changes through correction, reconciliation, or later confirmation.
 
 ====== Composite Behaviors
 
 *Information Consolidation*::
-Sequence of:
-report arrival → record report → assess dependability → update event record
+This behavior combines:
+
+* report arrival
+* record report
+* assess dependability
+* update event record
+
+It describes how incoming information becomes incorporated into the maintained understanding of a sporting event.
 
 ---
 
 *Conflict Handling*::
-Sequence of:
-conflict emergence → compare reports → assess dependability → update or mark unknown
+This behavior combines:
+
+* conflict emergence
+* compare reports
+* assess dependability
+* preserve change trace
+* update event record or mark unknown
+
+It describes how incompatible information is managed without silently collapsing differences.
 
 ---
 
 *Correction Handling*::
-Sequence of:
-correction arrival → assess dependability → preserve change trace → update event record
+This behavior combines:
+
+* correction arrival
+* assess dependability
+* preserve change trace
+* update event record
+
+It describes how previously communicated information may later be revised while preserving interpretability.
 
 ---
 
 *Freshness Management*::
-Sequence of:
-freshness loss → assess dependability → mark unknown or retain with reduced confidence
+This behavior combines:
+
+* freshness loss
+* assess dependability
+* mark unknown or retain older information with reduced confidence
+
+It describes how information changes condition when dependable updates stop arriving.
 
 ---
 
 *Source Failure Handling*::
-Sequence of:
-source interruption → freshness loss → assess dependability → continue with reduced information
+This behavior combines:
+
+* source interruption
+* freshness loss
+* assess dependability
+* continue operation under degraded conditions
+
+It describes how interpretation continues when expected information flows become impaired.
 
 ====== Remarks
 
-These concepts describe the domain itself. Later sections define how the system must support or present them.
+These concepts belong to the domain description itself rather than to a specific implementation strategy.
+
+Later sections may define requirements concerning how systems present, preserve, or process these concepts, but the concepts themselves describe behaviors already present within the domain.
