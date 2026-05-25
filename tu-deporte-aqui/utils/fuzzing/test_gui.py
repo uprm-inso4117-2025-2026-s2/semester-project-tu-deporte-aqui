@@ -12,8 +12,8 @@ ACTIONS = 5
 TRIALS = 100
 URLS = [
     "https://localhost:3000/teams",
-    "https://localhost:3000/home",
     "https://localhost:3000/login",
+    "https://localhost:3000/home",
     "https://localhost:3000/risk-dashboard",
     "https://localhost:3000/notifications"
 ]
@@ -78,15 +78,25 @@ def generate_element_xpath(elem) -> str:
 # GUIGrammarMiner: Generate XPath for all elements
 class GUIGrammarMinerFixed(GUIGrammarMiner):
     def mine_input_element_actions(self) -> Set[str]:
-        """Mine input elements and return fill actions with XPath"""
+        """Mine input elements and return fill actions with XPath using grammar nonterminals"""
         actions = set()
         for elem in self.driver.find_elements(By.TAG_NAME, "input"):
             try:
                 xpath = generate_element_xpath(elem)
                 input_type = elem.get_attribute("type") or "text"
-                if input_type in {"text", "email", "password", "number"}:
-                    # Use repr to properly escape the xpath for Python string
-                    actions.add(f"fill({repr(xpath)}, 'value')")
+                input_name = elem.get_attribute("name") or ""
+                
+                if input_type in {"checkbox", "radio"}:
+                    # Use boolean grammar for checkboxes/radios
+                    actions.add(f"check({repr(xpath)}, '<boolean>')")
+                elif input_type in {"text", "number", "email", "password"}:
+                    # Use grammar nonterminal based on input type
+                    # The fuzzer will expand <email>, <text>, <password>, <number> using GUI_GRAMMAR
+                    grammar_type = input_type if input_type != "text" else "text"
+                    actions.add(f"fill({repr(xpath)}, '<{grammar_type}>')")
+                elif input_type in {"button", "submit"}:
+                    actions.add(f"submit({repr(xpath)})")
+                # Skip "hidden" and other types
             except StaleElementReferenceException:
                 pass
         return actions

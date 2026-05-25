@@ -1,95 +1,7 @@
 [
     [
         {
-            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
-            "url": "https://localhost:3000/teams/BSN-Mets%20de%20Guaynabo",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
+            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -105,31 +17,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -138,46 +26,6 @@
     [
         {
             "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
-            "url": "https://localhost:3000/teams/BSN-Atleticos%20de%20San%20German",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
-            "url": "https://localhost:3000/teams/BSN-Vaqueros%20de%20Bayam%C3%B3n",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -193,15 +41,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams/BSN-Gigantes%20de%20Carolina",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
+            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -209,15 +49,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
+            "input": "",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -233,8 +65,56 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams/BSN-Gigantes%20de%20Carolina",
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nsubmit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
+            "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
         "PASS"
@@ -242,14 +122,46 @@
     [
         {
             "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams/BSN-Gigantes%20de%20Carolina",
+            "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
         "PASS"
     ],
     [
         {
-            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Leones de PonceGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Leones de PonceGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -258,6 +170,286 @@
     [
         {
             "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Leones de PonceGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -281,102 +473,6 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Leones de PonceGames: 202']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
             "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
@@ -393,55 +489,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
+            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -465,39 +513,15 @@
     ],
     [
         {
+            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
             "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -513,7 +537,15 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
+            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -522,7 +554,79 @@
     [
         {
             "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
-            "url": "https://localhost:3000/teams/BSN-Mets%20de%20Guaynabo",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
+            "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
         "PASS"
@@ -530,6 +634,22 @@
     [
         {
             "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -545,127 +665,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Leones de PonceGames: 202']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
             "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Gigantes de CarolinaGames: 413']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -681,7 +681,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -689,7 +689,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
+            "input": "",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -697,7 +697,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -705,7 +705,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
+            "input": "click(\"//a[normalize-space()='Capitanes de AreciboGames: 532']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -713,15 +713,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Criollos de CaguasGames: 422']\")\n",
+            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -738,22 +730,6 @@
     [
         {
             "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
-            "url": "https://localhost:3000/teams",
-            "title": "Tu Deporte Aqui"
-        },
-        "PASS"
-    ],
-    [
-        {
-            "input": "click(\"//a[normalize-space()='Mets de GuaynaboGames: 523']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -769,6 +745,14 @@
     ],
     [
         {
+            "input": "click(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
             "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
@@ -777,7 +761,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
+            "input": "",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -785,7 +769,7 @@
     ],
     [
         {
-            "input": "click(\"//a[normalize-space()='Osos de Manat\u00edGames: 541']\")\n",
+            "input": "click(\"//a[normalize-space()='Vaqueros de Bayam\u00f3nGames: 202']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
@@ -793,7 +777,23 @@
     ],
     [
         {
-            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Atleticos de San GermanGames: 633']\")\n",
+            "input": "click(\"//a[normalize-space()='Santeros de AguadaGames: 330']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "submit(\"//button[normalize-space()='BSN (Baloncesto Superior Nacional)']\")\nclick(\"//a[normalize-space()='Indios de Mayag\u00fcezGames: 211']\")\n",
+            "url": "https://localhost:3000/teams",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(\"//a[normalize-space()='Leones de PonceGames: 202']\")\n",
             "url": "https://localhost:3000/teams",
             "title": "Tu Deporte Aqui"
         },
