@@ -120,7 +120,7 @@ function Navbar() {
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (query.trim()) router.push(/search?q=${encodeURIComponent(query.trim())})
+    if (query.trim()) router.push(`/search?q=${encodeURIComponent(query.trim())}`)
   }
 
   return (
@@ -229,7 +229,7 @@ function HeroSection() {
         <div className="flex-1">
           <h2 className="text-xl font-bold mb-4">Your Go-To Sports Hub for Puerto Rico</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
-            Experience all your favorite sports in one place. From basketball to baseball, volleyball to boxing — we bring you live scores, standings, and the latest news from Puerto Rico's sports scene.
+            Experience all your favorite sports in one place. From basketball to baseball, volleyball to boxing — we bring you live scores, standings, and the latest news from Puerto Rico&apos;s sports scene.
           </p>
         </div>
       </div>
@@ -256,9 +256,9 @@ function LiveGamesSection() {
         {/* Cards */}
         <div className="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2 snap-x snap-mandatory">
           {LIVE_GAMES.map((game) => (
-            <a key={game.id} href={/games/${game.id}} className="min-w-[260px] max-w-[280px] snap-start rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex-shrink-0 hover:shadow-md hover:border-gray-300 transition-all cursor-pointer">
+            <a key={game.id} href={`/games/${game.id}`} className="min-w-[260px] max-w-[280px] snap-start rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex-shrink-0 hover:shadow-md hover:border-gray-300 transition-all cursor-pointer">
               {/* Image area */}
-              <div className={relative h-40 bg-gradient-to-br ${game.color} flex items-center justify-center}>
+              <div className={`relative h-40 bg-gradient-to-br ${game.color} flex items-center justify-center`}>
                 <span className="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">LIVE</span>
                 <span className="text-white/40 text-sm font-medium">[Image]</span>
                 <span className="absolute bottom-3 left-3 bg-white text-gray-800 text-xs font-semibold px-2 py-1 rounded-full">{game.sport}</span>
@@ -329,7 +329,7 @@ function StandingsSection() {
             <Trophy size={36} className="text-yellow-500" />
             <h2 className="text-4xl font-black text-gray-900">Team Standings</h2>
           </div>
-          <p className="text-gray-500">Track your favorite teams' performance across different leagues</p>
+          <p className="text-gray-500">Track your favorite teams&apos; performance across different leagues</p>
         </div>
 
         {/* Card */}
@@ -366,7 +366,7 @@ function StandingsSection() {
               </thead>
               <tbody>
                 {rows.map((row, i) => (
-                  <tr key={row.team} className="border-t border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors" onClick={() => window.location.href = /standings/${active.toLowerCase()}/${encodeURIComponent(row.team)}}>
+                  <tr key={row.team} className="border-t border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors" onClick={() => window.location.href = `/standings/${active.toLowerCase()}/${encodeURIComponent(row.team)}`}>
                     <td className="py-4 flex items-center justify-center">
                       <RankIcon rank={i + 1} />
                     </td>
@@ -413,9 +413,9 @@ function NewsSection() {
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {NEWS.map((item) => (
-            <a key={item.id} href={/news/${item.id}} className="rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md hover:border-gray-300 transition-all">
+            <a key={item.id} href={`/news/${item.id}`} className="rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md hover:border-gray-300 transition-all">
               {/* Image area */}
-              <div className={relative h-44 ${item.color} flex items-center justify-center}>
+              <div className={`relative h-44 ${item.color} flex items-center justify-center`}>
                 <div className="absolute top-3 left-3 flex gap-2">
                   {item.featured && (
                     <span className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">FEATURED</span>
