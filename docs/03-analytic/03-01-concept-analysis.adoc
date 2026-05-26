@@ -3,100 +3,210 @@
 
 ===== Purpose
 
-This section analyzes the key conceptual elements that define the behavior,
-structure, and reliability characteristics of Tu Deporte Aquí.
+This section analyzes the conceptual structures that emerge from the observed
+sports information environment described in the descriptive part.
 
-The analysis focuses on how uncertainty, conflicting information, and informal
-data sources influence system design decisions.
+Rather than introducing implementation details, this section identifies and
+standardizes the concepts needed to describe how sports information is created,
+distributed, interpreted, and trusted inside Tu Deporte Aquí.
 
-===== Core Concepts
+The analysis focuses particularly on uncertainty, conflicting reports, temporal
+variation, and differences between information sources.
 
-====== Sports Information Entity
+===== From Domain Observations to Concepts
 
-Sports information represents data related to games, teams, leagues, standings,
-scores, schedules, and events.
+The domain rough sketch identified recurring situations in local Puerto Rico
+sports coverage.
 
-This information may originate from multiple sources with varying reliability
-levels.
+Observed situations included:
 
-===== Data Sources
+* identical events being reported by different sources
+* delays between event occurrence and publication
+* conflicting score reports
+* corrections appearing after initial publication
+* information becoming unavailable over time
+* incomplete game status updates
 
-Data sources include:
+These observations are transformed into stable concepts that can later be used
+consistently throughout requirements, implementation, and validation.
 
-* League websites
-* Social media updates
-* News outlets
-* Community reports
+[cols="2,2"]
+|===
+|Observed Situation |Resulting Concept
 
-Sources may differ in accuracy, timeliness, and structure.
+|Multiple pages describe the same event differently
+|Information Conflict
 
-===== Reliability State
+|Updates appear at different times
+|Freshness
 
-The reliability state represents the confidence level of a piece of data.
+|Original information source matters
+|Source Context
+
+|Information changes after publication
+|Traceability
+
+|Users must judge credibility
+|Reliability State
+
+|Information may disappear or become outdated
+|Staleness
+|===
+
+===== Concept Definitions
+
+====== Sports Information
+
+Sports Information refers to structured information describing sporting events,
+including schedules, scores, standings, game states, announcements, and related
+context.
+
+Sports information is treated as a representation of observed events rather
+than as guaranteed objective truth.
+
+====== Data Source
+
+A Data Source is any origin from which sports information becomes available.
+
+Examples include:
+
+* official league pages
+* school athletic accounts
+* social media publications
+* reporters and journalists
+* livestream updates
+* community reports
+
+Different sources may vary in authority, update frequency, completeness, and
+consistency.
+
+====== Reliability State
+
+Reliability State represents the current interpretation of how dependable a
+piece of information appears within its available context.
 
 Possible states include:
 
-* Confirmed
-* Provisional
-* Conflicting
-* Missing
-* Stale
+* Confirmed — multiple indicators support consistency
+* Provisional — information exists but remains unsettled
+* Conflicting — multiple incompatible reports exist
+* Missing — expected information is unavailable
+* Stale — information has exceeded expected update expectations
 
-===== Timestamp and Freshness
+Reliability State is not absolute truth but a representation of current
+confidence.
 
-Each data element includes temporal metadata indicating when the information
-was last updated.
+====== Freshness
 
-Freshness indicators help users interpret reliability.
+Freshness describes how recently information was known to be updated.
+
+Freshness exists independently from correctness.
+
+Recent information may still be inaccurate, while older information may remain
+correct.
+
+====== Traceability
+
+Traceability describes the ability to understand:
+
+* where information originated
+* when information was obtained
+* whether later corrections occurred
+* how the current representation evolved
+
+Traceability supports interpretation under uncertainty.
 
 ===== Concept Relationships
 
-====== Source to Data Relationship
+The concepts identified in this section interact rather than operate
+independently.
 
-Multiple sources may provide information about the same event.
+[cols="1,3"]
+|===
+|Concept |Relationship
 
-The system must support:
+|Data Source
+|Produces Sports Information
 
-* Source attribution
-* Conflict detection
-* Priority rules
+|Sports Information
+|Receives Reliability State
+
+|Timestamp
+|Supports Freshness evaluation
+
+|Freshness
+|Influences Reliability State
+
+|Traceability
+|Explains information changes
+
+|Reliability State
+|Supports user interpretation
+|===
+
+Information therefore becomes interpretable not only through content itself,
+but through surrounding context.
 
 ===== Reliability Interpretation
 
-Reliability states influence:
+Reliability is treated as an interpretive concept rather than a guarantee of
+correctness.
 
-* User interface indicators
-* System decision logic
-* Validation behavior
+Two reports may describe the same event differently while both remain visible
+to users.
 
-===== User Trust Impact
+The system therefore emphasizes communication of uncertainty instead of hiding
+ambiguity.
 
-Transparent communication of uncertainty improves user trust and reduces
-misinterpretation of data.
+This approach supports informed interpretation rather than automated authority.
+
+===== User Trust and Transparency
+
+Trust is influenced not only by whether information is correct, but also by
+whether users understand the conditions under which information was obtained.
+
+Users are therefore expected to benefit from visibility of:
+
+* source attribution
+* update timing
+* conflicting reports
+* correction history
+* reliability indicators
+
+Transparency supports confidence even when certainty cannot be guaranteed.
 
 ===== Conceptual Constraints
 
-====== Informal Data Environment
+The conceptual model operates under constraints observed in the domain.
 
-Tu Deporte Aquí operates in an environment where:
+These constraints include:
 
-* Official APIs may not exist
-* Data may be delayed
-* Conflicts are common
+* lack of standardized publication formats
+* inconsistent reporting schedules
+* absence of official APIs
+* temporary information availability
+* manual update processes
 
-System concepts must accommodate these constraints.
+The conceptual model therefore prioritizes interpretation and transparency over
+complete automation.
 
-===== Mobile-First Context
+===== Mobile-First Considerations
 
-Concept design must prioritize:
+Since most users are expected to access the platform through mobile devices,
+concept presentation must remain concise and quickly interpretable.
 
-* Compact information display
-* Clear status indicators
-* Fast interpretation
+Concept communication should emphasize:
+
+* minimal visual overload
+* compact status indicators
+* immediate understanding of reliability context
 
 ===== Summary
 
-Concept analysis provides a structured understanding of the domain elements
-that influence system reliability, transparency, and behavior.
+Concept Analysis transforms observed domain situations into reusable concepts
+that guide requirements, implementation decisions, and later validation
+activities.
 
-These concepts guide later modeling and validation activities.
+The resulting concepts provide a shared language for describing uncertainty,
+source behavior, information reliability, and interpretation inside Tu Deporte
+Aquí.
