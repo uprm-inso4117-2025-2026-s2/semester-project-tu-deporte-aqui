@@ -17,3 +17,4 @@ This logbook records relevant activities, decisions, updates, and progress throu
 | Gerald Rodríguez | 1.2.1, 1.3.2, 2.1.2, 2.1.5 | Modified
 | Gerald Rodríguez | Lecture Topic Task – Shift-Left Testing and Static Analysis for Tu Deporte Aquí | Added
 | Gerald Rodríguez | Lecture Topic Task – Risk-Oriented Test Prioritization for Live Sports Information Systems | Added
+| Daniel Colón | 4.9 | Added
