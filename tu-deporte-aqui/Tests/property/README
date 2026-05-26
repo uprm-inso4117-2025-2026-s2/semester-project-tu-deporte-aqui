@@ -1,2 +1,27 @@
-To run the Property Based Tests:
-Firts install Vtest by using the following command: npm install -D vitest fast-check
+*Property-Based Testing: Live games and Standings*
+
+The project uses Vitest(as a testing tool) and Fast-check to perform property based testing.
+
+- Running the Property Based Tests:
+1) Install Dependencies:
+a)First install Vitest and fast-check by using the following command:
+ npm install -D vitest fast-check
+
+
+2) To run the tests:
+Run the following command:
+npx vitest --watch
+
+or run the tests once: 
+npx vitest
+
+
+*Test Results* 
+Output:
+"Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  03:46:06
+   Duration  831ms" 
+
+The property based tests validate the game status implementation against a wide range of generated inputs to ensure the expected behavior and invariants are maintained across many possible scenarios. 
+
