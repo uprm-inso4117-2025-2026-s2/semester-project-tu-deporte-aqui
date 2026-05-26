@@ -1,0 +1,21 @@
+#Hoare Logic for 
+
+Hoare Logic Verification Tool: Dafny
+Dafny Version: v4.11.0
+---
+
+The verification focuses on the 'normalizeGameStatus' function from the games and standings implementation.
+The goal is to formally specify the correctness of the function for all supported game status inputs, aliases, normalized values and unknown cases.
+
+
+##Running the Dafny verification tests:
+
+### a)To install Dafny you could use the following command:
+dotnet tool install --global dafny --version 4.11.0
+
+
+### b) To run the verification test run the following command:
+dafny verify "Tests/Hoare Logic/HoareLogicFullTest.dfy"
+
+
+

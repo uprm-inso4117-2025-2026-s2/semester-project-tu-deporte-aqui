@@ -5,7 +5,10 @@ method normalizeGameStatus(input: string) returns (output: string)
     ensures input == "live" || input == "active" || input=="in_progress" || input == "ongoing"  ==> output == "live"
     ensures input == "delayed"|| input == "postponed" || input == "suspended" || input == "rain_delay" ==> output == "delayed"
     ensures input == "final" || input == "finished" || input == "complete" || input == "completed" || input == "ended" ==> output == "final"
-
+    ensures (input != "" && input != "scheduled" && input != "upcoming" && input != "not_started"&& input != "pregame" && input != "pending"
+    && input != "live" && input != "active" && input != "in_progress" && input != "ongoing" && input != "delayed"
+    && input != "postponed" && input != "suspended" && input != "rain_delay" && input != "final" && input != "finished"
+    && input != "complete" && input != "completed" && input != "ended") ==> output == "unknown"
 
 
 {
@@ -112,3 +115,12 @@ method TestCase18() {
     assert output18 == "final";
 }
  
+ method TestCase19() {
+    var output19 := normalizeGameStatus("completed");
+    assert output19 == "final";
+}
+
+method TestCase20() {
+    var output20 := normalizeGameStatus("random_status");
+    assert output20 == "unknown";
+}
