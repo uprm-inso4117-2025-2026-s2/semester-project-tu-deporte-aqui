@@ -39,8 +39,8 @@ const COMPONENTS: ComponentRisk[] = [
     coverage: 62,
     severity12: 2,
     owner: "Ana (QA)",
-    notes: "Relies on third‑party  API; (data is incomplete; missing live data).",
-    testFocus: "Make tests against score providers",
+    notes: "Relies on third‑party API; data is incomplete .",
+    testFocus: "Test score feed updates, transition handling",
   },
   {
     id: "standings",
@@ -127,16 +127,21 @@ export default function RiskDashboardPage() {
               </div>
             </CardContent>
           </Card>
-
-
           <Card className="lg:col-span-2 bg-white text-black">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Gauge className="h-5 w-5 text-slate-700" /> Entry / Exit gates
+                <ClipboardList className="h-5 w-5 text-slate-700" /> Live Game Transitions
               </CardTitle>
-              <CardDescription>Risk Managed Levels.</CardDescription>
+              <CardDescription>Document live game progressions and  test coverage.</CardDescription>
             </CardHeader>
-        
+            <CardContent className="space-y-3 text-sm text-slate-700">
+              <ul className="list-disc space-y-1 pl-5 text-slate-700">
+                <li>Scheduled → Live</li>
+                <li>Live → Final</li>
+                <li className="text-slate-600">Invalid transitions: Scheduled → Final, Final → Live</li>
+              </ul>
+    
+            </CardContent>
           </Card>
         </section>
 
