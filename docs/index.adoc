@@ -58,3 +58,6 @@ include::Research/research-index.adoc[]
 
 == 6 AI Disclosure
 include::ai-disclosure.adoc[]
+
+== 7 Logbook
+include::05-logbook/logbook.adoc[]
