@@ -11,9 +11,6 @@ A Relational Gherkin Mapping strategy applies the Declarative Gherkin Syntax Str
 |===
 | Criterion | Status
 
-| Completed AsciiDoc File
-| This standalone document is saved in the repository and contains all research sections using correct AsciiDoc text formatting headers. All five required sections — Acceptance Criteria, Database Schema Reference, User Scenario to Table Mapping, Gherkin Scenarios, and Plain-Text Evaluation — are present and structured with proper `===` subsection headers.
-
 | Schema and Table Mapping
 | All seven tables (`teams`, `athletes`, `games`, `standings`, `news`, `profiles`, `comments`) are documented in the Database Schema Reference section. The User Scenario to Table Mapping section provides a structured AsciiDoc table connecting `games`, `standings`, and `news` to all nine active project user scenarios derived from `home/page.tsx` and `supabase/validation/validation-script.sql`.
 
