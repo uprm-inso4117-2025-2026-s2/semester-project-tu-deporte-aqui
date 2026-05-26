@@ -1,162 +1,88 @@
-
 === 4.2 BDD and BDD Tool Usage
 
 ===== Purpose
 
-This section describes how the *Tu Deporte Aquí* team currently applies Behavior-Driven Development (BDD) to define, validate, and test system behavior. Unlike Milestone 1, where BDD was primarily used for planning, in this milestone BDD is actively used to guide implementation and verify behavior through automated tests.
+This section documents how Behavior-Driven Development (BDD) is applied in the *Tu Deporte Aquí* project to connect requirements (Section 2) with implementation and testing. It describes the artifacts that capture behavioral specifications, the current state of automated validation, and the trajectory for further integration.
 
+===== BDD in the Project
 
-===== From User Stories to Acceptance Criteria
+BDD is a collaborative practice that uses concrete, plain‑language examples—written in Gherkin—to define expected system behavior before implementation. These examples serve simultaneously as specifications, acceptance criteria, and executable tests. In this project, BDD artifacts are organized into three layers:
 
-We continue to derive acceptance criteria from user stories (Section 2.2.1) and refine them into concrete behavioral scenarios. These scenarios are expressed using the Given–When–Then structure and stored in `.feature` files within the codebase.
+* High‑level scenarios linked to functional and non‑functional requirements.
+* Step definitions that bridge natural language to application code.
+* A test runner (Cucumber) that executes scenarios and reports results.
 
+===== Specification Artifacts
 
-Consider the following user story from Epic 1:
+The repository contains three sets of `.feature` files, each serving a distinct purpose.
 
-[quote]
-____
-As Sebastian, I want each score and update to show its source so that I can judge credibility when multiple channels exist.
-____
+====== `features/` – Refined Requirements-Level Specifications
 
-We define scenarios such as:
+The directory `features/` at the repository root holds the most precise and up‑to‑date behavioral specifications. Three files cover the main requirement areas:
 
-[source,gherkin]
-----
-Scenario: Display valid score for live game
-  Given a live game with home score 80 and away score 75
-  When the game is processed
-  Then the display should show "80 - 75"
-----
+* `domain_requirements.feature` – domain rules for conflict detection, source authority, corrections, and data staleness.
+* `interface_requirements.feature` – user‑visible indicators: timestamps, stale badges, missing‑data placeholders, source attribution, confidence displays.
+* `machine_requirements.feature` – system behavior under load, failures, caching, logging, and recovery.
 
-These scenarios represent concrete, testable examples of expected system behavior.
+Every scenario in these files uses a consistent, domain‑specific vocabulary (e.g., “stale”, “conflicting reports”, “source down”, “partial data”) and is annotated with the requirement IDs it validates (e.g., `# Req: R-DOM-2, R-DOM-3`). These files constitute the canonical specification for the system’s behavior.
 
+====== `tu-deporte-aqui/features/` – Intermediate Versions
 
+The subdirectory `tu-deporte-aqui/features/` contains earlier versions of the same three feature files. The scenarios are substantially equivalent, but the terminology was less refined (e.g., “Continue operating when a source fails” rather than the current “Continue operating when a source is down”). These files were used to bootstrap the initial step‑definition stubs in `stepdefs.js`. They are retained for historical reference; the `features/` versions supersede them.
 
-===== Current BDD Workflow in the Project
+====== `tu-deporte-aqui/utils/.feature` – Utility‑Level Specification
 
-Our current BDD workflow follows three steps:
+The file `tu-deporte-aqui/utils/.feature` is an implementation‑oriented specification that directly reflects the existing score‑utility functions (`formatScore`, `mapGameStatus`, `isGameStale`). It contains numeric, concrete examples (e.g., “home score 80 and away score 75”, “timestamp older than threshold”) and tests the narrow slice of behavior that is already implemented. This file is not a replacement for the high‑level requirements scenarios; it documents the capabilities currently present in the utility layer.
 
-====== 1. Scenario Definition (Specification Layer)
+===== Automation and Execution
 
-We define system behavior using Gherkin-style scenarios stored in the repository. These scenarios:
+Step definitions are maintained in `features/step_definitions/stepdefs.js`. Every Gherkin step from the requirements‑level feature files has a corresponding function. Steps for which the underlying logic has not yet been built return `'pending'`, so the Cucumber runner reports them explicitly as not yet implemented. Steps backed by existing code contain real assertions and are reported as passed or failed.
 
-* describe behavior in domain language
-* are understandable by developers and stakeholders
-* serve as a reference for implementation
-
-Example scenarios cover:
-
-* score formatting
-* missing score handling
-* game status mapping (live, final, scheduled)
-* stale data detection
-
-====== 2. Implementation (Application Layer)
-
-The behavior described in scenarios is implemented in the application code. For example:
-
-* `formatScore()` handles score formatting
-* `mapGameStatus()` determines game state
-* `isGameStale()` evaluates data freshness
-
-These functions represent the system behavior defined in the scenarios.
-
-====== 3. Automated Validation (Test Layer)
-
-Instead of using a dedicated BDD runner at this stage, we validate behavior using *Vitest*, a JavaScript testing framework.
-
-Each scenario is translated into automated tests located in:
-
-* `utils/scoreUtils.test.js`
-* `utils/scoreIntegration.test.js`
-
-Example test:
-
-[source,javascript]
-----
-expect(formatScore(80, 75)).toBe("80 - 75");
-----
-
-These tests directly verify the outcomes described in the BDD scenarios.
-
-===== Mapping Between Scenarios and Tests
-
-The following table illustrates how BDD scenarios map to implementation and automated tests:
-
-[options="header"]
-|===
-| BDD Scenario | Implementation | Test Verification
-| Display valid score | `formatScore()` | score formatting test
-| Missing score fallback | `formatScore()` | returns "Score unavailable"
-| Map game status | `mapGameStatus()` | status mapping tests
-| Detect stale data | `isGameStale()` | timestamp validation tests
-|===
-
-This mapping ensures that each scenario is both implemented and verifiable.
-
-===== Tool Usage
-
-====== Gherkin (Specification)
-
-We use Gherkin syntax to define behavior in `.feature` files. These files serve as:
-
-* living documentation
-* a shared understanding of expected behavior
-* a bridge between requirements and implementation
-
-====== Vitest (Execution)
-
-We use *Vitest* to execute tests that validate the behavior described in scenarios.
-
-Tests are executed using:
+The Cucumber suite is executed with:
 
 [source,bash]
 ----
-npm run test
+npm run test-cucumber
 ----
 
-Vitest runs all test files and reports pass/fail results for each behavior.
+At the time of writing, the full suite yields two passing scenarios and all others marked as pending.
 
-===== Current Limitations
+===== Scenarios Validated as Passing
 
-At this stage, we do not yet use a dedicated BDD tool such as Cucumber to directly execute `.feature` files. Instead:
-
-* `.feature` files define behavior
-* Vitest tests validate that behavior programmatically
-
-This approach allows us to maintain BDD principles while keeping the testing setup simple during early implementation.
-
-===== Example: End-to-End Behavior Validation
-
-The following scenario:
+Only two high‑level scenarios currently pass, both from `features/interface_requirements.feature`. Their Gherkin is:
 
 [source,gherkin]
 ----
-Scenario: Display score unavailable when score is missing
-  Given a live game with no score data
-  When the game is processed
-  Then the display should show "Score unavailable"
+Scenario: Indicate stale data to the user
+  Given the game data is "35 minutes" old
+  And the staleness threshold for live games is "30 minutes"
+  When Sebastian views the game details page
+  Then Sebastian should see a "Stale" badge next to the score
+  And Sebastian should see an explanation about possible stale data
+  And the stale indicator should use a muted color scheme
+
+Scenario: Handle missing data gracefully
+  Given no source has provided a score for this game
+  When Sebastian views the game details page
+  Then Sebastian should see a placeholder indicating score is not reported
+  And Sebastian should not see an empty or "0-0" value
+  And Sebastian should not see any error messages
 ----
 
-Is implemented and validated through:
+These scenarios are fulfilled by the existing staleness‑detection and score‑formatting utilities. All remaining scenarios—including those for conflict resolution, source attribution, caching, metrics, and audit trails—remain in the pending state.
 
-* logic in `formatScore()`
-* automated test asserting fallback behavior
+===== Current Implementation Coverage
 
-This demonstrates how behavior flows from specification → implementation → validation.
+The automated test results show that the majority of the behavioral specification is not yet implemented. Consequently, most functional and non‑functional requirements are unmet. This reflects the project’s scope relative to a single‑semester development cycle: the BDD infrastructure has been established, but the application logic needed to satisfy the full set of scenarios is incomplete.
 
-===== Conclusion
+===== Next Steps
 
-In Milestone 2, BDD is no longer only a planning tool but an active part of development. The team uses:
+Further adoption of BDD is planned by doing the following:
 
-* Gherkin scenarios to define expected behavior
-* application logic to implement that behavior
-* Vitest tests to verify correctness
+* *Scenario‑completion enforcement* – Institute a pull‑request policy requiring that every merged PR either adds a new Gherkin scenario or converts an existing pending scenario to passing. This ensures that code changes are always accompanied by corresponding behavioral specifications.
+* *Automated reporting* – Develop a CI bot that comments on pull requests with the list of scenarios that changed status (pending → passing or passing → failing), making BDD progress visible to reviewers.
+* *Step‑definition implementation* – Extend the step‑definition layer to cover the remaining scenarios as the underlying domain services (conflict detection, source reliability, caching, audit logs) are built.
 
-This approach ensures that system behavior remains:
+===== Summary
 
-* clear
-* testable
-* aligned with user needs
-
-As the project evolves, these scenarios can be further integrated with dedicated BDD tools for direct execution, but they already serve as a strong foundation for behavior-driven testing in the current system.
+The project uses BDD to maintain a direct link from requirements to executable specifications. The authoritative feature files reside in `features/`, while older versions and utility‑level specifications support the transition. Two interface‑related scenarios have been automated and pass; all others are pending.
