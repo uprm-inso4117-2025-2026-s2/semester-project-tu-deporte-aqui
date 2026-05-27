@@ -12,6 +12,12 @@ interface Game {
   away_score: number;
   status: string;
   info_status?: string;
+
+  league?: string;
+  season?: string;
+  game_date?: string;
+  start_time?: string;
+  venue?: string;
 }
 
 interface Standing {
@@ -28,19 +34,45 @@ export default function GamesPage() {
   const TeamLogos : Record<string, string>  ={"Bay Titans": "/standingsImages/Tampa_Bay_Titans_Logo.png", 
     "Iron Wolves": "/standingsImages/IronWolves.jpg", 
   "River Hawks": "/standingsImages/Riverhawks-Badge.png",
-   "Memphis Lions": "/standingsImages/MemphisLions.jpeg"};
+   "Memphis Lions": "/standingsImages/MemphisLions.jpeg",
+  "Cangrejeros de Santurce":"/standingsImages/CangrejerosSanturce.png",
+  "Leones de Ponce" : "/standingsImages/LeonesPonce.png",
+  "Gigantes de Carolina" : "/standingsImages/GigantesdeCarolina.png",
+  "Criollos de Caguas" : "/standingsImages/CriollosCaguas.jpeg",
+  "Indios de Mayagüez" : "/standingsImages/IndiosMayaguez.png",
+  "Senadores de San Juan" : "/standingsImages/SenadoresSanJuan.jpg"
+
+ };
   
 
   const [games, setGames] = useState<Game[]>([]);
   const [standings, setStandings] = useState<Standing[]>([]);
+  const [selectedLeague, setSelectedLeague] = useState("LBPRC");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
 
   console.log("live =>", getGameLabelStatus("live"));
   console.log("scheduled =>", getGameLabelStatus("scheduled"));
   console.log("final =>", getGameLabelStatus("final"));
   console.log("cancelled =>", getGameLabelStatus("cancelled"));
   console.log("random =>", getGameLabelStatus("random"));
+
+  const lbprcStandings = [
+  { name: "Cangrejeros de Santurce", wins: 26 },
+  { name: "Leones de Ponce", wins: 23 },
+  { name: "Gigantes de Carolina", wins: 20 },
+  { name: "Criollos de Caguas", wins: 20 },
+  { name: "Indios de Mayagüez", wins: 21 },
+  { name: "Senadores de San Juan", wins: 28 },
+].map((team, idx) => ({
+  ...team,
+  games: 40,
+  losses: 40 - team.wins,
+  id: idx + 1,
+}))
+const dataToRender =
+  selectedLeague === "LBPRC" ? lbprcStandings : standings;
 
   async function loadGames() {
     setLoading(true);
@@ -162,7 +194,7 @@ export default function GamesPage() {
             <span className="text-xs text-yellow-400 font-semibold flex items-center">
               <span className="mr-1">☀️</span> OFFICIAL STATS
             </span>
-            <span className="text-white text-sm font-semibold">Most Recent Game (League: TBL)</span>
+            <span className="text-white text-lg font-semibold"> League: TBL</span>
           </div>
           <div className="flex justify-between items-center bg-neutral-800 rounded-lg p-4">
             {/* Equipo local */}
@@ -175,7 +207,7 @@ export default function GamesPage() {
               alt ={homeTeamName}
               className ="w-20 h-20 object-contain"
               />
-              <span className="text-xs text-white mt-1">
+              <span className="text-lg text-white mt-1">
                 {homeTeamName}
               </span>
             </div>
@@ -198,120 +230,145 @@ export default function GamesPage() {
                 className = "w-20 h-20 object-contain"
               />
               
-              <span className="text-xs text-white mt-1">
+              <span className="text-lg text-white mt-1">
                 {mostRecentGame?.away_team?.name || "Equipo Visitante"}
               </span>
             </div>
           </div>
         </div>
 
-        {/* Standings Table */}
-        <div className="mb-4 flex items-center justify-between">
-          <div>
+        <div className="mb-4 flex items-center justify-between w-full max-w-xl">
           <h1 className="text-2xl font-bold text-green-400">
             2025-26 Regular Season Standings
           </h1>
 
-          </div>
-          </div>
-        <div className="w-full max-w-xl bg-neutral-800 rounded-xl shadow-lg p-4">
-          
-          <table className="min-w-full">
+          <select
+            value={selectedLeague}
+            onChange={(e) => setSelectedLeague(e.target.value)}
+            className="bg-neutral-900 text-white border border-green-500 px-3 py-1 rounded"
+          >
+            <option value="LBPRC">LBPRC</option>
+            <option value="TBL">TBL</option>
+          </select>
+        </div>
+
+        {/* TABLE */}
+        <div className="w-full max-w-4xl bg-neutral-800 rounded-xl p-4">
+          <table className="min-w-full text-xl">
             <thead>
-              <tr className="text-white text-base">
-                <th className="py-2 px-2 text-left">Team</th>
-                <th className="py-2 px-2">Games</th>
-                <th className="py-2 px-2">Wins</th>
-                <th className="py-2 px-2">Losts</th>
-                <th className="py-2 px-2">WIN%</th>
+              <tr className="text-white">
+                <th className="text-left">Team</th>
+                <th>Games</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <th>WIN%</th>
               </tr>
             </thead>
+
             <tbody>
-              {standings.length === 0 ? (
-                <tr>
-                  <td colSpan={5} className="py-6 text-center text-neutral-400 text-sm">
-                    No standings available.
-                  </td>
-                </tr>
-              ) : (
-                standings.map((team, idx) => {
-                  const teamName = team.teams?.name;
-                  const games = team.wins + team.losses;
-                  const pct = games > 0
-                    ? (team.wins / games).toFixed(3).replace(/^0/, "")
+              {dataToRender.map((team: any, idx: number) => {
+                const teamName =
+                  selectedLeague === "LBPRC"
+                    ? team.name
+                    : team.teams?.name;
+
+                const games =
+                  selectedLeague === "LBPRC"
+                    ? team.games
+                    : team.wins + team.losses;
+
+                const wins = team.wins;
+                const losses = team.losses;
+
+                const pct =
+                  games > 0
+                    ? (wins / games).toFixed(3).replace(/^0/, "")
                     : "—";
-                  return (
-                    <tr key={team.id} className="text-white text-base border-t border-neutral-700">
-                      <td className="py-2 px-2 flex items-center gap-2">
-  {/* Ranking number */}
-  <span className="w-6 h-6 bg-neutral-700 rounded-full inline-flex items-center justify-center text-xs font-bold text-neutral-300">
-    {idx + 1}
-  </span>
 
-  {/* Fake logo + name */}
- 
+                return (
+                  <tr key={team.id} className="text-white border-t">
+                    <td className="py-2 flex items-center gap-2">
+                      <div className="w-6 h-6 bg-green-700 rounded-full flex items-center justify-center text-lg">
+                        {idx + 1}
+                      </div>
+                      <img
+                        src={TeamLogos[teamName] || "/standingsImages/default.png"}
+                        alt={teamName}
+                          width={32}
+                                height={32}
+                                className="object-contain"
+/>
+                      <span className="text-xl font-bold tracking-wide" >
+                        {teamName}</span>
+                    </td>
 
- <img
-  src={
-    teamName
-      ? TeamLogos[teamName]
-      : "/standingsImages/.png"
-  }
-  className="w-8 h-8 object-contain"
- />
-
- <span className="ml-2">
-  {teamName || `Team ${team.team_id}`}
- </span>
-
-      </td>
-                      <td className="py-2 px-2 text-center">{games}</td>
-                      <td className="py-2 px-2 text-center text-emerald-300 font-semibold">{team.wins}</td>
-                      <td className="py-2 px-2 text-center text-rose-300">{team.losses}</td>
-                      <td className="py-2 px-2 text-center font-mono">{pct}</td>
-                    </tr>
-                  );
-                })
-              )}
+                    <td className="text-center">{games}</td>
+                    <td className="text-center text-emerald-300">{wins}</td>
+                    <td className="text-center text-rose-300">{losses}</td>
+                    <td className="text-center font-mono">{pct}</td>
+                  </tr>
+                );
+              })}
             </tbody>
+
           </table>
         </div>
       </div>
 
-      {/* Games Table */}
+      
+      <div className="w-full h-14 bg-neutral-950 border-b border-neutral-800 flex items-center px-6 z-30 relative">
+        <div className="flex items-center gap-3">
+          <div className="h-2 w-10 bg-green-500 rounded-full" />
+          <h1 className="text-white text-xl font-bold tracking-widest uppercase">
+            Live Games
+          </h1>
+        </div>
+      </div>
+
       <div className="relative w-full flex justify-center px-4 pb-8">
         <div className="w-full max-w-5xl mt-8 rounded-xl bg-neutral-900 p-4 shadow-lg">
+
+        
           <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h1 className="text-2xl font-bold text-green-500">Games</h1>
-              <p className="text-sm text-neutral-400">Results and scheduled matches for the current calendar.</p>
+              <p className="text-lg text-neutral-400">
+                Results and scheduled matches for the current calendar.
+              </p>
             </div>
+
             <button
               type="button"
               onClick={() => void loadGames()}
-              aria-label="Refresh games"
-              title="Refresh games"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-green-500/40 bg-green-500/10 text-green-300 transition hover:bg-green-500/20"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-green-500/40 bg-green-500/10 text-green-300 hover:bg-green-500/20"
             >
               <RefreshCw size={18} />
             </button>
           </div>
+
+          {/* TABLE */}
           <div className="overflow-x-auto rounded-lg">
             <table className="min-w-full border border-gray-300 rounded">
+
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="py-2 px-4 border text-green-700">Teams</th>
-                  <th className="py-2 px-4 border text-green-700">Scores</th>
-                  <th className="py-2 px-4 border text-green-700">Status</th>
-                  <th className="py-2 px-4 border text-green-700">Information Status</th>
+                  <th className="py-2 px-4 border text-green-700 text-xl font-bold">Teams</th>
+                  <th className="py-2 px-4 border text-green-700 text-xl font-bold">Scores</th>
+                  <th className="py-2 px-4 border text-green-700 text-xl font-bold">Status</th>
                 </tr>
               </thead>
+
               <tbody>
                 {games.map((game) => {
                   const homeTeam = game.home_team?.name || "Equipo Local";
                   const awayTeam = game.away_team?.name || "Equipo Visitante";
+
                   const statusView = getStatusPresentation(game.status);
-                  const hasScores = typeof game.home_score === "number" && typeof game.away_score === "number";
+
+                  const hasScores =
+                    typeof game.home_score === "number" &&
+                    typeof game.away_score === "number";
+
                   const isFinal = isFinalStatus(game.status);
 
                   let homeTeamColor = "text-neutral-100";
@@ -340,31 +397,47 @@ export default function GamesPage() {
 
                   return (
                     <tr key={game.id} className="text-center">
+
+                     
                       <td className="py-2 px-4 border font-medium">
-                        <span className={homeTeamColor}>{homeTeam}</span>
-                        <span className="mx-1 text-neutral-400">vs</span>
-                        <span className={awayTeamColor}>{awayTeam}</span>
+                        <div>
+                          <span className={`${homeTeamColor} text-xl`}>{homeTeam}</span>
+                          <span className="mx-1 text-neutral-400">vs</span>
+                          <span className={`${awayTeamColor} text-xl`}>{awayTeam}</span>
+                        </div>
+
+                        
+                        <div className="text-lg text-neutral-400 mt-1 ">
+                          {game.league ?? "League"} • {game.venue ?? "Venue"}
+                        </div>
                       </td>
+
+                      
                       <td className="py-2 px-4 border font-semibold">
-                        <span className={homeScoreColor}>{game.home_score ?? "-"}</span>
+                        <span className={`${homeScoreColor} text-xl`}>
+                          {game.home_score ?? "-"}
+                        </span>
                         <span className="mx-2 text-neutral-400">-</span>
-                        <span className={awayScoreColor}>{game.away_score ?? "-"}</span>
+                        <span className={`${awayScoreColor}text-xl`}>
+                          {game.away_score ?? "-"}
+                        </span>
                       </td>
+
+                      
                       <td className="py-2 px-4 border">
-                        <span className={`inline-flex items-center gap-2 font-medium ${statusView.className}`}>
-                          <span aria-hidden>{statusView.icon}</span>
+                        <span
+                          className={`inline-flex items-center gap-2 font-medium text-xl ${statusView.className}`}
+                        >
+                          <span>{statusView.icon}</span>
                           <span>{statusView.text}</span>
                         </span>
                       </td>
-                      <td className="py-2 px-4 border">
-                        <span className = {`font-medium ${statusView.className}` }>
-                        {game.status || "-"}
-                        </span>
-                        </td>
+
                     </tr>
                   );
                 })}
               </tbody>
+
             </table>
           </div>
         </div>

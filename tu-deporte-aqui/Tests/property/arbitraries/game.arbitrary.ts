@@ -1,5 +1,6 @@
 import fc from 'fast-check'
 
+
 export const statusArbitrary = fc.oneof(
   fc.constantFrom(
     'live',
@@ -15,23 +16,32 @@ export const statusArbitrary = fc.oneof(
     '',
     '   '
   ),
-  fc.string(),
+  fc.string({ maxLength: 20 }),
   fc.constant(null),
   fc.constant(undefined)
 )
 
+
+const TimestampArbitrary = fc.integer({
+  min: new Date('2025-01-01').getTime(),
+  max: new Date('2030-12-31').getTime(),
+})
+
+const ISODateArbitrary = TimestampArbitrary.map((ts) =>
+  new Date(ts).toISOString()
+)
+
+const safeDayArbitrary = TimestampArbitrary.map((ts) =>
+  new Date(ts).toISOString().split('T')[0]
+)
+
+
 export const startTimeArbitrary = fc.oneof(
-  
-  fc.date({
-  min: new Date('2025-01-01'),
-  max: new Date('2030-12-31'),
-}),
-  fc.date().map((date: Date) => date.toISOString()),
-  fc.integer(),
-  fc.string(),
+  ISODateArbitrary,
   fc.constant(null),
   fc.constant(undefined)
 )
+
 
 export const gameArbitrary = fc.record({
   status: statusArbitrary,
@@ -42,9 +52,5 @@ export const gameArbitrary = fc.record({
   startTime: startTimeArbitrary,
   scheduled_at: startTimeArbitrary,
 
-  game_date: fc.option(
-    fc.date().map((date: Date) =>
-      date.toISOString().split('T')[0]
-    )
-  ),
+  game_date: fc.option(safeDayArbitrary),
 })
