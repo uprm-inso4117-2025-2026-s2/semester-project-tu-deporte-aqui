@@ -1,0 +1,43 @@
+
+==== 1.2.3 Ideas
+
+===== Purpose
+
+This section outlines the main ideas for Tu Deporte Aquí. These ideas respond to the needs described in Section 1.2.2 and give a high-level view of the kind of system the team intends to build.
+
+===== A Sports Information Platform for Local Puerto Rico Coverage
+
+One central idea is to build a platform focused on local Puerto Rico sports. The platform is meant to bring together scores, schedules, standings, and related updates that are currently spread across league websites, social media posts, news outlets, and other reporting channels.
+
+This idea follows from the fragmented situation described earlier. Rather than expecting followers to check many sources on their own, the system-to-be would gather relevant information into one place.
+
+===== Open Handling of Uncertainty
+
+Another main idea is that the platform should treat uncertainty as normal rather than exceptional. Since local sports information may be delayed, incomplete, or contradictory, the platform should not present all data as equally settled.
+
+At a high level, this means the system-to-be should separate information that appears stable from information that is still uncertain, and it should make conflicts or missing information visible instead of hiding them.
+
+===== Source-Aware Presentation
+
+The platform should present sports information together with enough source context for people to judge it. The main idea is not only to show a score or status, but also to show where that information came from and how recent it is.
+
+This idea follows from the need for dependability described in Section 1.2.2. If information comes from sources with different levels of authority or different update timing, the platform should preserve that context instead of presenting all updates in the same way.
+
+===== Support for Corrections and Change Over Time
+
+The platform should allow for the fact that sports information can change after it is first reported. Scores may be corrected, schedules may shift, and previously incomplete information may later be filled in.
+
+The idea here is that the system-to-be should not assume that the first reported value is always the final one. It should make room for updates, corrections, and later clarification.
+
+===== Mobile-First Access
+
+Another idea is to treat the platform as mobile-first. Many followers check sports information from their phones during games or while moving between activities, so the system should be designed with small-screen access in mind.
+
+At a high level, this means the most important information should be easy to reach quickly, without depending on large layouts or long explanations.
+
+===== Scope of This Section
+
+This section gives a high-level view of how the team intends to address the needs from Section 1.2.2. It states the main ideas behind the system-to-be, but it does not define detailed behavior, technical mechanisms, or formal requirements.
+
+
+

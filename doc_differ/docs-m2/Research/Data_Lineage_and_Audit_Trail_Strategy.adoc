@@ -1,0 +1,283 @@
+= Data Lineage and Audit Trail Strategy – Tu Deporte Aquí
+
+== Purpose
+
+Tu Deporte Aquí aggregates sports data from multiple informal and semi-structured sources (websites, social media, league pages).
+
+Because data may:
+
+* Conflict
+* Be delayed
+* Be corrected later
+
+The system must support *traceability* of how information:
+
+* Enters the system
+* Changes over time
+* Stabilizes
+
+This document defines a *lightweight but structured* strategy for:
+
+* Data lineage
+* Audit trail tracking
+
+without introducing excessive system complexity.
+
+---
+
+== 1. Key Concepts
+
+=== Data Lineage
+
+Data lineage refers to the ability to trace:
+
+* Where a data point originated
+* When it was received
+* How it was transformed
+* Whether it was overridden or corrected
+
+In this project, lineage is critical for:
+
+* Resolving conflicting reports
+* Explaining corrections
+* Supporting transparency indicators
+* Debugging reliability issues
+
+---
+
+=== Audit Trail
+
+An audit trail is a chronological record of data changes.
+
+It captures:
+
+* Previous values
+* New values
+* Time of change
+* Reason for change
+* Source responsible for change
+
+Audit trails improve:
+
+* Accountability
+* Transparency
+* Debugging capability
+* Post-event analysis
+
+---
+
+== 2. Traceability Requirements
+
+=== Requirement 1 – Source Attribution
+
+The system must record which source provided each data point.
+
+Examples:
+
+* League website
+* Reporter
+* Social media
+
+Purpose::
+
+Supports trust-tier resolution and transparency messaging.
+
+---
+
+=== Requirement 2 – Timestamp Recording
+
+The system must record:
+
+* Ingest timestamp (when the system received the data)
+* Event timestamp (when the event occurred, if available)
+
+Purpose::
+
+Supports freshness detection and stale data indicators.
+
+---
+
+=== Requirement 3 – Change History Tracking
+
+The system must maintain version history for critical fields:
+
+* Score
+* Game status
+* Standings
+* Final results
+
+Each change must include:
+
+* Previous value
+* New value
+* Source responsible
+* Timestamp
+
+Purpose::
+
+Supports reconstruction of conflict resolution decisions.
+
+---
+
+=== Requirement 4 – Correction Classification
+
+The system must classify updates as:
+
+* New update
+* Conflict override
+* Official correction
+* Manual review adjustment
+
+Purpose::
+
+Distinguishes between natural updates and corrective actions.
+
+---
+
+== 3. Proposed Lightweight Audit Model
+
+To avoid excessive complexity, each audit record should include:
+
+* `entity_id` (game, standing, profile)
+* `field_name` (score, status, ranking, etc.)
+* `previous_value`
+* `new_value`
+* `source_id`
+* `trust_tier`
+* `ingest_timestamp`
+* `event_timestamp` (if available)
+* `change_type` (update, conflict, correction)
+* `resolved_by` (automatic rule or manual review)
+
+This model enables:
+
+* Full reconstruction of change history
+* Explanation of system decisions
+* Debugging of incorrect outcomes
+
+---
+
+== 4. Trade-Offs: Simplicity vs Traceability
+
+=== Simplicity Approach
+
+* Store only current value
+* Minimal metadata
+* Lower storage overhead
+
+Risk::
+
+No ability to reconstruct conflicts or justify corrections.
+
+---
+
+=== Full Traceability Approach
+
+* Store full version history
+* Maintain structured audit records
+* Log every change event
+
+Cost::
+
+Increased storage and logging complexity.
+
+---
+
+=== Recommended Balance
+
+Adopt a *lightweight structured audit model*:
+
+* Track history only for critical fields (score, status, standings)
+* Do not audit cosmetic fields
+* Retain audit history for a defined time window (e.g., season duration)
+* Automate conflict classification when possible
+
+This balances:
+
+* Reliability
+* Simplicity
+
+---
+
+== 5. Failure Scenario Mapping
+
+[cols="1,1,1", options="header"]
+|===
+| Scenario | Required Metadata | Reconstruction Capability
+
+| Conflicting scores
+| source_id, trust_tier, timestamps
+| Identify which source overrode the other
+
+| Corrected final result
+| change_type, previous_value, new_value
+| Explain correction reason
+
+| Delayed update
+| ingest_timestamp vs event_timestamp
+| Detect staleness
+
+| Source outage
+| missing ingest entries
+| Identify unavailable provider
+|===
+
+---
+
+== 6. Recommendations for Implementation
+
+. Implement source attribution for all ingested data
+. Track ingest timestamps universally
+. Enable version history only for reliability-critical fields
+. Introduce structured change classification (update vs correction vs conflict)
+. Design audit storage as append-only to preserve history integrity
+
+This supports:
+
+* Transparency indicators
+* Reliability validation
+* Debugging
+* Conflict resolution verification
+
+---
+
+== Conclusion
+
+A structured but lightweight data lineage and audit trail strategy is essential for *Tu Deporte Aquí* due to its reliance on informal and potentially conflicting data sources.
+
+By storing minimal but meaningful metadata per update, the system can:
+
+* Maintain transparency
+* Support validation and debugging
+* Explain corrections
+* Improve user trust
+
+This approach aligns with:
+
+* Milestone 1 goals
+* Reliability-first system design
+* Structured documentation practices
+
+---
+
+== References
+
+. DeCandia, G. et al. (2007). *Dynamo: Amazon’s Highly Available Key-value Store*. ACM SOSP.
++
+Introduces replication, versioning, and reconciliation strategies relevant to conflict resolution and traceability.
+
+. Fowler, M. (2005). *Event Sourcing*.
++
+Describes storing state changes as a sequence of events to preserve full history.
+
+. Kimball, R. & Ross, M. (2013). *The Data Warehouse Toolkit (3rd ed.)*.
++
+Defines data lineage and audit tracking concepts.
+
+. NIST SP 800-92 (2006). *Guide to Computer Security Log Management*.
++
+Principles for structured logging and audit trails.
+
+. Amazon Web Services. *Best Practices for Database Logging and Monitoring*.
++
+Industry best practices for structured change logs and traceability.

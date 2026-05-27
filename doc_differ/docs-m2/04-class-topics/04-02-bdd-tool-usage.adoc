@@ -1,0 +1,162 @@
+
+=== 4.2 BDD and BDD Tool Usage
+
+===== Purpose
+
+This section describes how the *Tu Deporte Aquí* team currently applies Behavior-Driven Development (BDD) to define, validate, and test system behavior. Unlike Milestone 1, where BDD was primarily used for planning, in this milestone BDD is actively used to guide implementation and verify behavior through automated tests.
+
+
+===== From User Stories to Acceptance Criteria
+
+We continue to derive acceptance criteria from user stories (Section 2.2.1) and refine them into concrete behavioral scenarios. These scenarios are expressed using the Given–When–Then structure and stored in `.feature` files within the codebase.
+
+
+Consider the following user story from Epic 1:
+
+[quote]
+____
+As Sebastian, I want each score and update to show its source so that I can judge credibility when multiple channels exist.
+____
+
+We define scenarios such as:
+
+[source,gherkin]
+----
+Scenario: Display valid score for live game
+  Given a live game with home score 80 and away score 75
+  When the game is processed
+  Then the display should show "80 - 75"
+----
+
+These scenarios represent concrete, testable examples of expected system behavior.
+
+
+
+===== Current BDD Workflow in the Project
+
+Our current BDD workflow follows three steps:
+
+====== 1. Scenario Definition (Specification Layer)
+
+We define system behavior using Gherkin-style scenarios stored in the repository. These scenarios:
+
+* describe behavior in domain language
+* are understandable by developers and stakeholders
+* serve as a reference for implementation
+
+Example scenarios cover:
+
+* score formatting
+* missing score handling
+* game status mapping (live, final, scheduled)
+* stale data detection
+
+====== 2. Implementation (Application Layer)
+
+The behavior described in scenarios is implemented in the application code. For example:
+
+* `formatScore()` handles score formatting
+* `mapGameStatus()` determines game state
+* `isGameStale()` evaluates data freshness
+
+These functions represent the system behavior defined in the scenarios.
+
+====== 3. Automated Validation (Test Layer)
+
+Instead of using a dedicated BDD runner at this stage, we validate behavior using *Vitest*, a JavaScript testing framework.
+
+Each scenario is translated into automated tests located in:
+
+* `utils/scoreUtils.test.js`
+* `utils/scoreIntegration.test.js`
+
+Example test:
+
+[source,javascript]
+----
+expect(formatScore(80, 75)).toBe("80 - 75");
+----
+
+These tests directly verify the outcomes described in the BDD scenarios.
+
+===== Mapping Between Scenarios and Tests
+
+The following table illustrates how BDD scenarios map to implementation and automated tests:
+
+[options="header"]
+|===
+| BDD Scenario | Implementation | Test Verification
+| Display valid score | `formatScore()` | score formatting test
+| Missing score fallback | `formatScore()` | returns "Score unavailable"
+| Map game status | `mapGameStatus()` | status mapping tests
+| Detect stale data | `isGameStale()` | timestamp validation tests
+|===
+
+This mapping ensures that each scenario is both implemented and verifiable.
+
+===== Tool Usage
+
+====== Gherkin (Specification)
+
+We use Gherkin syntax to define behavior in `.feature` files. These files serve as:
+
+* living documentation
+* a shared understanding of expected behavior
+* a bridge between requirements and implementation
+
+====== Vitest (Execution)
+
+We use *Vitest* to execute tests that validate the behavior described in scenarios.
+
+Tests are executed using:
+
+[source,bash]
+----
+npm run test
+----
+
+Vitest runs all test files and reports pass/fail results for each behavior.
+
+===== Current Limitations
+
+At this stage, we do not yet use a dedicated BDD tool such as Cucumber to directly execute `.feature` files. Instead:
+
+* `.feature` files define behavior
+* Vitest tests validate that behavior programmatically
+
+This approach allows us to maintain BDD principles while keeping the testing setup simple during early implementation.
+
+===== Example: End-to-End Behavior Validation
+
+The following scenario:
+
+[source,gherkin]
+----
+Scenario: Display score unavailable when score is missing
+  Given a live game with no score data
+  When the game is processed
+  Then the display should show "Score unavailable"
+----
+
+Is implemented and validated through:
+
+* logic in `formatScore()`
+* automated test asserting fallback behavior
+
+This demonstrates how behavior flows from specification → implementation → validation.
+
+===== Conclusion
+
+In Milestone 2, BDD is no longer only a planning tool but an active part of development. The team uses:
+
+* Gherkin scenarios to define expected behavior
+* application logic to implement that behavior
+* Vitest tests to verify correctness
+
+This approach ensures that system behavior remains:
+
+* clear
+* testable
+* aligned with user needs
+
+As the project evolves, these scenarios can be further integrated with dedicated BDD tools for direct execution, but they already serve as a strong foundation for behavior-driven testing in the current system.

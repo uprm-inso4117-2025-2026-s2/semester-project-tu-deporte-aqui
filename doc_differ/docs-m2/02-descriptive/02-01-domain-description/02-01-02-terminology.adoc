@@ -1,0 +1,92 @@
+
+==== 2.1.2 Terminology
+
+This section defines terms used throughout the document to maintain consistent meaning.
+
+====== Core Domain Terms
+
+*Sporting Event*::
+A game, match, or competition that people may follow.
+
+*Source*::
+An origin of information about a sporting event.
+Examples include league websites, team pages, sports media, reporters, and third-party platforms.
+
+*Source Report*::
+A specific piece of information produced by a source, such as a score update, status, or correction.
+
+*Event Record*::
+The maintained representation of what is currently known about a sporting event.
+
+*Standings Snapshot*::
+A reported ordering or ranking of teams at a specific time.
+
+*Correction*::
+A change to previously reported information based on new or updated data.
+
+====== Dependability and Verification Terms
+
+*Source Trust Level*::
+A general assessment of how dependable a source tends to be.
+
+*Verification State*::
+The level of confirmation of a reported value.
+
+Defined states:
+
+* *Unverified* — not yet confirmed
+* *Confirmed* — supported by corroborating or authoritative sources
+* *Final* — not expected to change under normal conditions
+
+*Provisional*::
+Information that is available but may still change.
+
+NOTE: Provisional describes a condition, not a verification state.
+
+*Conflict*::
+A situation where multiple reports provide incompatible information.
+
+*Confidence Level*::
+An assessment of how dependable a specific value is in context.
+
+Defined levels:
+
+* *High Confidence*
+* *Medium Confidence*
+* *Low Confidence*
+
+NOTE: Confidence depends on factors such as source, recency, and consistency.
+
+====== Freshness and Transparency Terms
+
+*Publish Time*::
+When a source originally released the information.
+
+*Ingest Time*::
+When the information was recorded by the system.
+
+*Last Updated Time*::
+The most recent change to the event record.
+
+*Staleness*::
+A condition where information is no longer current enough for its context.
+
+*Dependability Indicator*::
+A marker that helps explain how reliable the information is.
+
+*Source Attribution*::
+Identification of where the information originated.
+
+====== System Condition Terms
+
+*Degraded State*::
+Operation continues, but information is missing, delayed, or incomplete.
+
+*Graceful Degradation*::
+Providing partial information with clear limitations instead of failing completely.
+
+*Silent Overwrite*::
+Replacing information without preserving previous values or indicating change.
+
+*Unknown*::
+A value is not available and should not be inferred.

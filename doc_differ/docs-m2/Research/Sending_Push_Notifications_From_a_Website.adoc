@@ -1,0 +1,147 @@
+= Sending Push Notifications From a Website
+Project: Tu Deporte Aquí
+
+---
+
+== 1. Push API
+
+The Web Push API is a browser API that allows applications to request permission to send notifications.
+
+* Desktop::
+  Works by default.
+
+* Mobile (iOS / Android)::
+  Requires the user to install the application as a *Progressive Web App (PWA)*.
+
+Once permission is granted, a `PushSubscription` object is returned.
+
+This object includes:
+
+* `endpoint` → a unique HTTP endpoint for the user where notifications are sent.
+
+---
+
+== 2. VAPID Keys
+
+A VAPID key is a public/private key pair used to verify the authenticity of push notifications.
+
+* Private Key::
+  * Stored securely on the server
+  * Used to sign notifications
+
+* Public Key::
+  * Distributed to clients
+  * Used to enable subscription
+
+---
+
+== 3. Client-Side Requirements
+
+To receive notifications, the client must install a *Service Worker*.
+
+=== Service Worker
+
+A service worker:
+
+* Runs in the background
+* Receives push notifications
+* Displays notifications even when the app is closed
+
+=== Platform Behavior
+
+* Desktop::
+  Service worker can be installed without installing a PWA
+
+* Mobile::
+  Requires PWA installation
+
+---
+
+=== Subscription Flow
+
+1. User installs PWA (mobile requirement)
+2. User is prompted to allow notifications
+3. Client uses VAPID public key
+4. `PushSubscription` object is generated
+
+---
+
+== 4. Backend Requirements
+
+To send notifications, the backend must:
+
+* Store the `endpoint` from the `PushSubscription`
+* Associate endpoints with users
+
+IMPORTANT::
+
+A user may subscribe from multiple devices.
+
+Therefore:
+
+* Each `PushSubscription` must be stored separately
+* Notifications must be sent to all stored endpoints
+
+---
+
+== 5. Libraries
+
+Several backend libraries simplify push notification implementation.
+
+=== Node.js Option
+
+* `web-push`
+
+Capabilities:
+
+* Generate VAPID keys
+* Send notification payloads
+* Handle encryption and delivery
+
+---
+
+== 6. Third-Party Services
+
+Some services manage push notifications externally.
+
+=== Example
+
+* Firebase Cloud Messaging (FCM)
+
+=== Trade-Off
+
+* Pros::
+  Simplifies infrastructure
+
+* Cons::
+  Adds dependency on third-party services
+
+In this case, implementation complexity may not justify relying on external providers.
+
+---
+
+== 7. Recommended Implementation
+
+For Tu Deporte Aquí:
+
+1. Prompt users to subscribe after installing the PWA
+2. Capture and store their `PushSubscription.endpoint`
+3. Maintain a list of endpoints per user
+4. Use a backend library (e.g., `web-push`) to send notifications
+
+---
+
+== Conclusion
+
+A push notification system requires coordination between:
+
+* Browser APIs (Push API)
+* Client-side service workers
+* Backend endpoint storage
+* Secure VAPID key management
+
+By implementing this system, the platform can:
+
+* Notify users in real time
+* Improve engagement
+* Provide timely updates even when the app is closed

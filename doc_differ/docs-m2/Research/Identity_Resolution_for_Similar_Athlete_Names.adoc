@@ -1,0 +1,155 @@
+= Identity Resolution for Similar Athlete Names
+Author: Noel Colón Mena
+Project: Tu Deporte Aquí
+
+---
+
+== 1. Introduction
+
+Tu Deporte Aquí combines sports information from multiple leagues, reporters, and informal sources in Puerto Rico.
+
+Because athlete names may appear:
+
+* Duplicated
+* Misspelled
+* Formatted differently
+* Incomplete
+
+the system faces a significant *identity resolution problem*.
+
+Without a structured strategy, the platform risks:
+
+* Merging two different athletes into one profile
+* Creating duplicate profiles
+* Misattributing statistics
+
+The purpose of this document is to evaluate identity resolution strategies and recommend a reliable approach.
+
+---
+
+== 2. Current Problems
+
+Common issues when merging athlete data include:
+
+* Accent differences
+* Nicknames
+* Abbreviations
+
+---
+
+== 3. Methods Evaluated
+
+=== I. Exact Matching / Strict Matching
+
+Records are linked only if all attributes match exactly.
+
+==== Pros
+
+* Low risk of false matches
+* Easy to implement
+* Low computational cost
+
+==== Cons
+
+* High rate of duplicate profiles
+* Cannot handle misspellings or nicknames
+
+---
+
+=== II. Fuzzy Matching
+
+Records are linked if they match within a certain tolerance (similarity threshold).
+
+==== Pros
+
+* Reduces duplicate profiles
+* Handles small variations (misspellings, accents)
+
+==== Cons
+
+* Risk of false merges
+
+---
+
+=== III. Metadata Identifier Matching
+
+Records are linked using additional identifying attributes (metadata).
+
+==== Pros
+
+* Lower risk of false merges
+* More reliable than name-only approaches
+
+==== Cons
+
+* Depends on metadata quality
+* Slightly more complex to implement
+
+---
+
+== 4. Strategy Comparison
+
+[cols="1,1,1,1", options="header"]
+|===
+| Method | Duplicates | False Merges | Missed Merges
+
+| Exact Matching
+| High
+| None
+| High
+
+| Fuzzy Matching
+| Medium
+| Medium
+| Low
+
+| Metadata Matching
+| Very Low
+| Low
+| Low
+|===
+
+---
+
+== 5. Recommended Strategy
+
+The most effective approach is a *layered strategy combining Metadata and Fuzzy Matching*.
+
+=== Proposed Algorithm
+
+1. Group athletes using metadata (e.g., team, league, position).
+2. Within each group, apply fuzzy matching to detect duplicates.
+3. Merge only when similarity exceeds a defined threshold.
+
+=== Benefits
+
+* Reduces duplicate profiles
+* Minimizes false merges
+* Handles real-world inconsistencies in naming
+
+---
+
+== Conclusion
+
+A hybrid identity resolution strategy is essential for maintaining data integrity in Tu Deporte Aquí.
+
+By combining metadata grouping with fuzzy matching, the system can:
+
+* Improve accuracy
+* Reduce duplication
+* Prevent incorrect data associations
+
+This approach balances reliability and practicality for a multi-source sports data platform.
+
+---
+
+== References
+
+* Strict Matching:
+  https://www.science.org/doi/10.1126/sciadv.abi8021
+
+* Fuzzy Matching:
+  https://www.tandfonline.com/doi/abs/10.1080/01621459.1969.10501049
+
+* Metadata Matching:
+  https://www.crossref.org/community/special-programs/metadata-matching/

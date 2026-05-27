@@ -1,0 +1,48 @@
+== Usability Testing
+
+=== Overview
+
+Usability testing checks whether users can complete tasks in the interface without getting lost, slowed down, or confused. It looks at task flow, navigation, labels, readability, and screen layout.
+
+=== Importance
+
+In Tu Deporte Aqui, this matters because the platform is mobile-first. Users may open it during a game to check scores, schedules, or standings, often for only a few seconds. If those actions take too many taps or the screen feels crowded, the interface fails the main use case.
+
+=== Common User Scenarios
+
+- A user opens the app to check a live score quickly
+- A user looks for a team's next game on a phone
+- A user checks league standings on a small screen
+- A user looks for the latest update during an active match
+
+=== Application to Tu Deporte Aqui
+
+The system should:
+
+- Make scores, schedules, and standings easy to locate
+- Keep navigation simple on mobile
+- Keep text readable on small screens
+- Avoid crowded screens that hide important information
+
+=== Example Scenario
+
+[cols="1,2,2"]
+|===
+| Scenario | Issue | Expected Behavior
+
+| Checking live scores quickly
+| Score is buried under too many elements
+| Show the current score prominently on the main event view
+
+| Finding a schedule
+| Navigation is unclear on mobile
+| Let users reach schedules in a few simple taps
+
+| Reading standings
+| Table is hard to read on a small screen
+| Present standings in a readable mobile-friendly layout
+|===
+
+=== Conclusion
+
+Usability testing is useful here because the product depends on fast, clear access to sports information on a phone. If users cannot find key data quickly, the interface needs to change.

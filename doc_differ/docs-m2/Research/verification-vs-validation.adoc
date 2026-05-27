@@ -1,0 +1,51 @@
+== Verification vs Validation
+
+=== Overview
+
+Verification checks whether the system's data is correct and consistent. Validation checks whether that data is reliable enough to show to users.
+
+=== Importance
+
+In Tu Deporte Aqui, both matter because sports data can be delayed, incomplete, or conflicting. A score can match across sources and still be too old or too uncertain to show as reliable information.
+
+=== Common Cases
+
+- Two sources report the same score, but the update is old
+- Team names match, but the record points to the wrong game
+- A game status is shown, but it does not match the current state
+- Data appears complete, but the source is unclear
+
+=== Application to Tu Deporte Aqui
+
+The system should:
+
+- Verify that scores, teams, and game states are consistent across records
+- Detect missing, duplicated, or conflicting data values
+- Validate that shown information is current enough to use
+- Mark uncertain information before presenting it as confirmed
+
+=== Example Scenario
+
+[cols="1,2,2,2"]
+|===
+| Scenario | Verification Check | Validation Check | Expected Behavior
+
+| Live score update
+| Confirm both sources report the same score
+| Confirm the update is recent enough to use
+| Show the score with its latest timestamp
+
+| Scheduled match listing
+| Confirm teams and date match across records
+| Confirm the listing refers to the correct event for users
+| Show the match only when identity is clear
+
+| Final result report
+| Confirm result values are consistent
+| Confirm the report before marking it final
+| Flag uncertainty instead of showing a final result too early
+|===
+
+=== Conclusion
+
+Verification checks the data itself. Validation checks whether the data is ready to present to users. Tu Deporte Aqui needs both checks before showing sports information as reliable.

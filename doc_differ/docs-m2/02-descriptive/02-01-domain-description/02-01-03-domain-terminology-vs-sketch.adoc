@@ -1,0 +1,61 @@
+
+==== 2.1.3 Domain Terminology in Relation to Domain Rough Sketch
+
+===== Purpose
+
+This section explains how the terminology from Section 2.1.2 is used after the rough sketch in Section 2.1.1. The rough sketch names the main concerns of the domain in broad terms. The terminology section then gives fixed terms for those concerns so the rest of the document can describe them more precisely and consistently.
+
+===== From Broad Concerns to Fixed Terms
+
+The rough sketch uses plain-language descriptions such as conflicting reports, delayed updates, degraded states, and trust. Section 2.1.2 introduces fixed terms for those conditions so later sections do not have to redefine them each time.
+
+In that sense, Section 2.1.2 does not replace the rough sketch. It provides a controlled vocabulary for discussing the same domain concerns in a more exact way.
+
+===== Terminology Used for Information Status
+
+When the document discusses the status of sports information, it uses the verification terms from Section 2.1.2:
+
+- *Confirmed*
+- *Unverified*
+- *Developing*
+- *Conflicting*
+- *Delayed*
+- *Corrected*
+
+These terms are used to describe how information stands at a given moment, especially when reports differ, arrive late, or change over time.
+
+===== Terminology Used for Degree of Confidence
+
+When the document needs to distinguish stronger from weaker support for a reported value, it uses the confidence terms from Section 2.1.2:
+
+- *High Confidence*
+- *Medium Confidence*
+- *Low Confidence*
+
+These terms do not replace verification status. They are used alongside it when the documentation needs to express how strongly available reports support a value.
+
+===== Terminology Used for Source and Freshness Context
+
+When the document needs to state where information came from or how recent it is, it uses:
+
+- *Publish Time*
+- *Last Updated Time*
+- *Source Type*
+- *Reliability Metadata*
+
+These terms are used whenever the documentation refers to source attribution, freshness, or the contextual data attached to a report.
+
+===== Terminology Used for System Conditions
+
+When the document discusses conditions affecting the platform as a whole rather than a single report, it uses:
+
+- *Degraded State*
+- *Graceful Degradation*
+- *Silent Failure*
+
+These terms are used to describe what happens when the platform cannot operate under normal conditions.
+
+===== Relation to the Rough Sketch
+
+The rough sketch remains the broad description of the domain. The terminology section remains the source of truth for the defined terms used afterward. This section only states that relationship. It does not introduce new concepts beyond those already defined in Section 2.1.2.
+

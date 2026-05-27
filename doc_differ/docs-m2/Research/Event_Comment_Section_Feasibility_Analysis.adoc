@@ -1,0 +1,178 @@
+= Event Comment Section Feasibility Analysis
+Project: Tu Deporte Aquí
+
+== Objective
+
+The objective of this issue is to analyze the impact of adding a comment section to individual event pages (e.g., BSN games or local league events) and determine whether this feature provides sufficient value relative to its implementation cost.
+
+---
+
+== Benefits
+
+=== Increased User Engagement
+
+A comment section allows users to interact during or after games. Instead of only viewing information, users can share opinions, reactions, and feedback.
+
+This can:
+
+* Increase time spent in the app
+* Encourage users to return
+* Create a sense of community around events
+
+---
+
+=== Platform Differentiation
+
+Many sports platforms only display scores and event details. A comment section adds an interactive layer that makes the platform more dynamic and community-focused.
+
+This is especially valuable for local sports, where fans are highly connected to their teams.
+
+---
+
+=== Independence from External Data
+
+Comments are user-generated content.
+
+This means:
+
+* No dependency on external APIs
+* No reliance on scraping
+* No risk of external data failures affecting this feature
+
+---
+
+== Risks
+
+=== Moderation Requirements
+
+Comment systems may introduce:
+
+* Spam
+* Offensive language
+* Misinformation
+
+Even a basic system would require:
+
+* Basic content rules
+* A simple report or delete mechanism
+
+---
+
+=== Scope Expansion Risk
+
+If not controlled, this feature could expand into:
+
+* Replies
+* Reactions
+* Notifications
+* Real-time live chat
+
+For the current milestone, the feature must remain simple.
+
+---
+
+== Technical Requirements
+
+=== Database
+
+Table: `comments`
+
+[source]
+----
+comment_id
+event_id
+user_id
+content
+timestamp
+----
+
+---
+
+=== Backend
+
+* POST endpoint to create comment
+* GET endpoint to retrieve comments per event
+* Basic validation
+
+---
+
+=== Frontend
+
+* Comment input form
+* Chronological display
+* Manual refresh
+
+---
+
+== Implementation Comparison
+
+=== Static Comment Section
+
+==== Pros
+
+* Low complexity
+* Easy to implement
+* Minimal infrastructure
+
+==== Cons
+
+* Not real-time
+
+---
+
+=== Automatic Refresh (Polling)
+
+==== Pros
+
+* More dynamic experience
+
+==== Cons
+
+* Slightly higher backend load
+
+IMPORTANT::
+
+Full real-time implementation (WebSockets) is *not recommended* for this milestone due to increased complexity.
+
+---
+
+== Viability Assessment
+
+=== Technical Viability
+
+A Reddit/Instagram-style comment section is straightforward to implement using a standard REST architecture.
+
+---
+
+=== Infrastructure Viability
+
+No additional infrastructure is required.
+
+---
+
+== Final Recommendation
+
+It is recommended to implement event-based comment threads in a Reddit/Instagram-style *asynchronous format*, not as a live discussion system.
+
+This approach:
+
+* Adds engagement
+* Keeps implementation simple
+* Avoids unnecessary real-time complexity
+* Aligns with the current milestone scope
+
+---
+
+== Conclusion
+
+A simplified, non-live comment section per event is viable and appropriate for this project.
+
+---
+
+== References
+
+* COOL.co. (2023). *Why Comment Sections Are Imperative for Today’s Websites*  
+  https://cool.co/publisher-experiences/2023/02/27/why-comment-sections-are-imperative-for-todays-websites/
+
+* Ably. (2023). *WebSockets vs Long Polling: What’s the difference?*  
+  https://ably.com/blog/websockets-vs-long-polling

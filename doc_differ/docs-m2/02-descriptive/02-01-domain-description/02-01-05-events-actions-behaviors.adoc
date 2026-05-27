@@ -1,0 +1,136 @@
+
+==== 2.1.5 Events, Actions, and Composite Behaviors
+
+This section describes events and actions related to how sports information is produced, compared, and updated.
+
+====== Domain-Relevant Events
+
+*Report Arrival*::
+A new source report becomes available.
+
+*Conflict Emergence*::
+Multiple reports provide incompatible values.
+
+*Correction Arrival*::
+A report indicates that previous information should be changed.
+
+*Freshness Loss*::
+Information becomes outdated due to lack of recent updates.
+
+*Source Interruption*::
+A source stops providing updates.
+
+====== Actions
+
+*Record Report*::
+Consumes:
+* source
+* source report
+* sporting event
+
+Produces:
+* stored report
+* associated timestamps
+
+Purpose::
+To make the report available for later use.
+
+---
+
+*Assess Dependability*::
+Consumes:
+* recorded report
+* source trust level
+* other reports
+
+Produces:
+* verification state
+* confidence level
+
+Purpose::
+To evaluate how reliable the information is.
+
+---
+
+*Compare Reports*::
+Consumes:
+* multiple reports
+
+Produces:
+* consistency or conflict
+
+Purpose::
+To determine whether reports agree.
+
+---
+
+*Update Event Record*::
+Consumes:
+* assessed report
+* current record
+
+Produces:
+* updated record
+* updated timestamp
+
+Purpose::
+To reflect the latest known information.
+
+---
+
+*Mark Unknown*::
+Consumes:
+* incomplete event record
+
+Produces:
+* explicit unknown value
+
+Purpose::
+To avoid unsupported assumptions.
+
+---
+
+*Preserve Change Trace*::
+Consumes:
+* old value
+* new value
+
+Produces:
+* record of change
+
+Purpose::
+To maintain traceability.
+
+====== Composite Behaviors
+
+*Information Consolidation*::
+Sequence of:
+report arrival → record report → assess dependability → update event record
+
+---
+
+*Conflict Handling*::
+Sequence of:
+conflict emergence → compare reports → assess dependability → update or mark unknown
+
+---
+
+*Correction Handling*::
+Sequence of:
+correction arrival → assess dependability → preserve change trace → update event record
+
+---
+
+*Freshness Management*::
+Sequence of:
+freshness loss → assess dependability → mark unknown or retain with reduced confidence
+
+---
+
+*Source Failure Handling*::
+Sequence of:
+source interruption → freshness loss → assess dependability → continue with reduced information
+
+====== Remarks
+
+These concepts describe the domain itself. Later sections define how the system must support or present them.

@@ -1,0 +1,150 @@
+= Standardized Communication Templates Research
+Author: Javier Ventosa
+Project: Tu Deporte Aquí
+
+---
+
+== 1. Introduction
+
+Tu Deporte Aquí provides sports information such as:
+
+* Event schedules
+* Registrations
+* Cancellations
+* Organizer updates
+
+Because data may:
+
+* Come from multiple sources
+* Change frequently
+
+Inconsistent system messages can:
+
+* Confuse users
+* Reduce trust
+
+Without a standardized communication structure, the platform risks:
+
+* Misleading users about event status
+* Creating uncertainty during delays
+* Displaying technical or unclear messages
+* Inconsistent tone across notifications
+
+Purpose::
+
+Evaluate communication strategies and recommend a standardized messaging structure.
+
+---
+
+== 2. Current Problems
+
+Potential communication issues include:
+
+* Overly technical system messages
+* Inconsistent tone across notifications
+* Missing guidance for user actions
+* Inconsistent formatting
+* Confusing wording during delays or conflicts
+
+---
+
+== 3. Methods Evaluated
+
+=== 3.1 Minimal System Alerts (Basic Status Only)
+
+Description::
+
+Messages display only a short status (e.g., "Cancelled", "Full")
+
+==== Pros
+
+* Easy to implement
+* Very short and simple
+
+==== Cons
+
+* Lacks context
+* No user guidance
+* May cause confusion
+
+---
+
+=== 3.2 Detailed Technical Messaging
+
+Description::
+
+Messages include backend/system-level explanations  
+(e.g., sync errors, data conflicts)
+
+==== Pros
+
+* High transparency
+* Useful for debugging
+
+==== Cons
+
+* Confusing for non-technical users
+* Reduces readability
+* May reduce trust
+
+---
+
+=== 3.3 Structured User-Centered Templates
+
+Description::
+
+Messages follow a standardized format:
+
+* Title
+* Short Description
+* Action Guidance (optional)
+
+==== Pros
+
+* Clear and consistent
+* Non-technical language
+* Improves user trust
+* Scales easily
+
+==== Cons
+
+* Requires initial standardization effort
+* Requires coordination with frontend
+
+---
+
+== 4. Strategy Comparison
+
+* Minimal Alerts → Medium clarity, low trust, very low complexity
+* Technical Messaging → Low clarity, low trust, medium complexity
+* Structured Templates → High clarity, high trust, moderate complexity
+
+---
+
+== 5. Recommended Strategy
+
+The recommended approach is:
+
+*Structured User-Centered Templates*
+
+All notifications should follow:
+
+=== Message Structure
+
+* Title  
+  Clear status (e.g., "Event Cancelled")
+
+* Short Description  
+  Brief explanation of what happened
+
+* Action Guidance  
+  What the user should do next (if applicable)
+
+---
+
+=== Benefits
+
+* Ensures consistency
+* Improves readability
+* Reduces confusion
+* Simplifies frontend integration

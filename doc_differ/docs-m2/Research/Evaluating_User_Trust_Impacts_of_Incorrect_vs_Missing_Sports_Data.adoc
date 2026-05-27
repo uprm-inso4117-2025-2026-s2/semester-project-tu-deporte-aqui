@@ -1,0 +1,189 @@
+= Evaluating User Trust Impacts of Incorrect vs Missing Sports Data
+Project: Tu Deporte Aquí
+Issue: #31
+
+---
+
+== Objective
+
+The objective of this research is to evaluate how different user-facing strategies—such as displaying incorrect data, hiding data, or showing fallback information—affect user trust in sports platforms.
+
+The findings aim to guide UI and product decisions for Tu Deporte Aquí when live sports data is unreliable.
+
+---
+
+== Background
+
+Sports platforms frequently operate in environments where live data is not always accurate or immediately available.
+
+Common challenges include:
+
+* Delays in reporting
+* Data inaccuracies
+* Partial outages
+* Dependence on informal or semi-official sources
+
+In these situations, platforms must decide how to present information without damaging user trust.
+
+* Showing incorrect data may mislead users
+* Hiding data may cause confusion or frustration
+
+Understanding these tradeoffs is essential for designing reliable and transparent systems.
+
+---
+
+== Research Scope and Approach
+
+This research focuses on user perception and trust impact rather than backend conflict resolution mechanisms.
+
+The analysis compares three common strategies:
+
+* Displaying potentially incorrect or outdated information
+* Hiding data until confirmation is available
+* Displaying last known valid data with warnings or disclaimers
+
+The goal is to determine which approach best preserves user trust and clarity.
+
+---
+
+== Platforms and UX Case Studies Reviewed
+
+The following patterns were analyzed:
+
+* Major sports platforms (e.g., ESPN-style scoreboards)
+  ** Continue displaying live data with timestamps or disclaimers
+* Local/regional platforms
+  ** Temporarily hide or delay updates when confirmation is unavailable
+
+These represent common real-world approaches to handling uncertain data.
+
+---
+
+== Incorrect Data vs Missing Data
+
+Two key concepts:
+
+* *Incorrect Data*
+  ** Information displayed but later proven wrong (e.g., wrong score)
+
+* *Missing Data*
+  ** Information intentionally hidden until verified
+
+IMPORTANT::
+
+User trust is more negatively impacted by incorrect data than by missing data,
+especially during high-stakes moments (e.g., close games, playoffs).
+
+---
+
+== Common User-Facing Strategies and Their Impact
+
+=== 1. Displaying Potentially Incorrect or Outdated Data
+
+Some platforms prioritize continuous updates even when accuracy is uncertain.
+
+Impact on user trust:
+
+* High risk of confusion
+* Users may perceive the system as unreliable
+* Corrections reduce long-term trust
+
+---
+
+=== 2. Hiding Data Until Confirmation Is Available
+
+This strategy prioritizes accuracy over immediacy.
+
+Impact on user trust:
+
+* Preserves accuracy
+* May cause short-term frustration
+* Generally accepted if clearly communicated
+
+---
+
+=== 3. Displaying Last Known Valid Data with Warnings
+
+A balanced approach combining continuity and transparency.
+
+Impact on user trust:
+
+* Maintains continuity
+* Sets clear expectations
+* Perceived as transparent and reliable
+
+---
+
+== Summary of Strategy Tradeoffs
+
+[cols="2,1,1,2", options="header"]
+|===
+| Strategy | Accuracy | Transparency | Trust Impact
+
+| Show incorrect data
+| Low
+| Low
+| Negative
+
+| Hide data
+| High
+| Medium
+| Neutral / Positive
+
+| Show last valid data with warning
+| High
+| Medium
+| Positive
+|===
+
+---
+
+== Practical Recommendations for Tu Deporte Aquí
+
+* Avoid displaying unverified or incorrect data without warnings
+* Prefer hiding data or showing “pending update” messages when needed
+* Use fallback strategies (last known valid data + disclaimers)
+* Clearly communicate status using:
+  ** Timestamps
+  ** Labels
+  ** Icons
+
+These align with transparency-first design principles.
+
+---
+
+== Testing Scenarios Derived from Findings
+
+The research supports defining realistic scenarios such as:
+
+* Conflicting scores across sources
+* Temporary loss of data from providers
+* Delayed live updates
+
+Each scenario should map to a specific user-facing strategy and be validated through testing.
+
+---
+
+== Conclusion
+
+When sports data becomes unreliable, user trust depends more on how uncertainty is communicated than on update speed.
+
+Key insight:
+
+*Displaying incorrect data is more harmful than temporarily hiding information.*
+
+By prioritizing transparency and clear communication, Tu Deporte Aquí can:
+
+* Maintain user confidence
+* Reduce confusion
+* Handle delayed or conflicting data effectively
+
+---
+
+== References
+
+* ESPN – Live Scores and Update Handling  
+  https://www.espn.com
+
+* Nielsen Norman Group – Error Messages and User Trust  
+  https://www.nngroup.com/articles/error-message-guidelines/

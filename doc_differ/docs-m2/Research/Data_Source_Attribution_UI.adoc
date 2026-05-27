@@ -1,0 +1,127 @@
+= Data Source Attribution UI
+Author: Diego A. Rios Morales
+Date: February 27, 2026
+
+== 1. Objective
+
+The objective of this research is to design a clear UI system that shows where each news item comes from, allowing users to quickly understand the origin of information.
+
+== 2. Problem
+
+If users cannot determine whether content comes from an official league site, a verified social post, or a data feed, trust decreases.
+
+Clear source attribution:
+
+* Reduces confusion
+* Improves credibility
+
+== 3. UX Principles
+
+* *Consistent*: Same badge style across the entire application
+* *Non-intrusive*: Minimal clutter on the UI card
+* *Actionable*: Source should be clickable and easily viewable
+
+== 4. Source Categories
+
+Each story should include:
+
+* 1 primary source category (always shown)
+* Optional secondary sources (if aggregated)
+
+=== A. Official Source
+
+* League or team website
+* Official press release
+* Official schedule or injury report page
+
+=== B. Verified Social
+
+* Scraped from verified league or team accounts
+
+=== C. API / Structured Feed
+
+* Machine-readable provider (scores, stats, schedules)
+* Example: “Sports Data Feed Provider”
+
+=== D. Trusted Media
+
+* Editorial news outlet reporting the story
+* Example: ESPN or local sports media
+
+=== E. Community / User Report (Optional)
+
+* User-submitted information (non-official, non-media)
+
+=== F. Aggregated
+
+* Combined data from multiple sources
+* Must list all underlying sources in details view
+
+== 5. UI Placement Options
+
+=== Source Badge Near Headline / Time
+
+Place a small badge (icon + label) on the top row of the card, next to time/source metadata.
+
+==== Pros
+
+* Always visible
+* Easy to scan
+
+==== Cons
+
+* Adds an additional UI element to each card
+
+== 6. Interaction Behavior
+
+=== Default Behavior
+
+* Show primary source badge on every card
+* Badge includes:
+** Small icon
+** Short label
+
+=== On Hover (Desktop)
+
+* Display tooltip or popover
+
+=== Details Panel Content (Example)
+
+* *Title:* Source information
+* *Category:* Official Source
+* *Source name:* NBA.com
+* *Last fetched:* Feb 27, 2026 – 2:10 PM
+* *Link:* Open source
+
+== 7. Copy and Transparency Rules
+
+* Keep labels short:
+** “Official”
+** “Verified Social”
+** “API”
+** “Media”
+
+* Always show source name in details (not only category)
+* Always provide a direct link to the original source
+
+== 8. Edge Cases
+
+=== Unknown Source
+
+* Show “Unknown” badge
+* Flag for QA review
+
+=== Multiple Sources
+
+* Show primary badge
+* Include “+1” indicator for additional sources
+
+=== Conflicting Sources
+
+* Mark as “Aggregated”
+* Display all sources in details panel
+
+=== Broken Link
+
+* Show “Source unavailable”
+* Keep category visible
