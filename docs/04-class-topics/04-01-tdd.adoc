@@ -3,180 +3,129 @@
 
 ===== Purpose
 
-This section describes how Test-Driven Development (TDD) principles support the reliability and transparency goals of Tu Deporte Aquí. TDD provides a structured approach to validating expected system behavior before implementation, aligning with the documentation-first philosophy of Milestone 1.
+This section documents a representative application of Test-Driven Development
+(TDD) concepts within Tu Deporte Aquí.
 
-===== Role of TDD in the Project
+Rather than claiming project-wide adoption of TDD, this section illustrates
+how test-first thinking can support reliability, predictable behavior, and
+incremental refinement.
 
-TDD helps ensure that system behavior is clearly defined and verifiable before development begins. Since Tu Deporte Aquí operates with uncertain and potentially conflicting data sources, predictable behavior under different conditions is critical.
+The goal is to demonstrate the Red–Green–Refactor cycle using a limited and
+representative example.
 
-Key benefits include:
+===== Representative TDD Workflow
 
-* Early clarification of expected behavior
-* Reduced ambiguity in system logic
-* Improved reliability through automated validation
-* Safer future refactoring and iteration
-* Alignment between documentation and implementation
+TDD organizes development into three stages:
 
-===== Application to Tu Deporte Aquí
+[cols="1,3"]
+|===
+|Stage |Description
 
-In this project, TDD would be particularly useful for validating:
+|Red
+|Define expected behavior through a failing test.
 
-====== Data Reliability Logic
+|Green
+|Implement the minimum logic required to satisfy the test.
 
-* Conflict detection between multiple sources
-* Timestamp freshness evaluation
-* Handling of delayed or missing updates
-* Confidence indicator behavior
+|Refactor
+|Improve structure while preserving passing behavior.
+|===
 
-====== System Behavior Under Uncertainty
+===== Example Application
 
-* Graceful degradation when sources fail (example, displaying "Score unavailable" instead of partial data)
-* Fallback behavior when data is incomplete
-* Transparency messaging to users (example, marking games as "stale" when data cannot be guaranteed)
-* Consistent handling of provisional states
+To illustrate TDD principles, a representative formatting behavior was
+selected.
 
-====== User-Facing Behavior
-
-* Correct display of reliability indicators
-* Mobile-first information prioritization
-* Status messaging consistency
-* Error and degraded state communication
-
-===== Example TDD Workflow
-
-A typical workflow would include:
-
-1. Define expected behavior in documentation.
-2. Write a failing test describing the behavior.
-3. Implement the minimal logic required to pass the test.
-4. Refactor while keeping tests passing.
-5. Expand coverage for edge cases and reliability scenarios.
-
-This approach ensures that behavior remains predictable even as the system evolves.
-
-===== Alignment with Milestone 1
-
-During Milestone 1, no production code is implemented. However, defining TDD strategy early provides:
-
-* Clear behavioral expectations
-* Testable requirements
-* Validation planning for later milestones
-* Stronger reliability modeling
-
-This preparation reduces future development risk and supports structured system evolution.
-
-===== TDD Walkthrough Example
-
-To illustrate the practical application of TDD, this section presents a step by step evolution of a simple function called  `formatScore`.
-This function converts raw score data into an user friendly display format while handling incomplete or invalid data.
-
-The following iterations show how tests were written first, failing initially, and then the function was updated to pass each test sequentially.
-
-====== Iteration 1: Basic Formatting
-
-*Test 1: Expected behavior:*
+Behavior under evaluation:
 
 [source,javascript]
 ----
-expect(formatScore(80, 75)).toBe("80 - 75");
+formatScore(homeScore, awayScore)
 ----
 
-*Initial stub implementation (fails test):*
+Expected outcomes:
+
+[cols="2,2"]
+|===
+|Input |Expected Output
+
+|(80,75)
+|"80 - 75"
+
+|(null,75)
+|"Score unavailable"
+
+|(80,null)
+|"Score unavailable"
+
+|(0,0)
+|"0 - 0"
+|===
+
+===== Red Phase
+
+Expected behavior is expressed before implementation.
 
 [source,javascript]
 ----
-function formatScore() {
-  return "";
-}
+expect(formatScore(null,75))
+.toBe("Score unavailable");
 ----
 
-*Updated implementation (passes test):*
+The initial implementation does not satisfy all conditions.
+
+===== Green Phase
+
+Only the minimum logic required to satisfy the documented behavior is added.
 
 [source,javascript]
 ----
 function formatScore(homeScore, awayScore) {
-  return `${homeScore} - ${awayScore}`;
+    if (homeScore == null || awayScore == null)
+        return "Score unavailable";
+
+    return `${homeScore} - ${awayScore}`;
 }
 ----
 
-====== Iteration 2: Handle Missing Home Score
+===== Refactor Phase
 
-*Test 2:*
+After behavior becomes stable, implementation may be simplified while
+preserving successful outcomes.
 
-[source,javascript]
-----
-expect(formatScore(null, 75)).toBe("Score unavailable");
-----
+Refactoring focuses on:
 
-*Updated implementation:*
+* reducing unnecessary conditions
+* improving readability
+* preserving existing behavior
+* maintaining test consistency
 
-[source,javascript]
-----
-function formatScore(homeScore, awayScore) {
-  if (homeScore == null) {
-    return "Score unavailable";
-  }
-  return `${homeScore} - ${awayScore}`;
-}
-----
+===== Observed Limitations
 
-====== Iteration 3: Handle Missing Away Score
+This example illustrates selective application of TDD concepts.
 
-*Test 3:*
+Current limitations include:
 
-[source,javascript]
-----
-expect(formatScore(80, undefined)).toBe("Score unavailable");
-----
+* not all project functionality follows TDD
+* examples remain representative rather than exhaustive
+* testing coverage is still evolving
 
-*Updated implementation:*
+This section therefore does not claim complete adoption of TDD across the
+project.
 
-[source,javascript]
-----
-function formatScore(homeScore, awayScore) {
-  if (homeScore == null || awayScore == null) {
-    return "Score unavailable";
-  }
-  return `${homeScore} - ${awayScore}`;
-}
-----
+===== Relationship to Project Goals
 
-====== Iteration 4: Handle Both Scores Missing
+Selective use of TDD concepts supports:
 
-*Test 4:*
+* clearer behavioral expectations
+* lower ambiguity
+* improved maintainability
+* stronger alignment between expected and documented behavior
 
-[source,javascript]
-----
-expect(formatScore(null, null)).toBe("Score unavailable");
-----
+===== Summary
 
-*Result:* Test passes, no changes needed.
+This section demonstrates how Test-Driven Development concepts can support
+incremental and reliable development inside Tu Deporte Aquí.
 
-====== Iteration 5: Handle Zero Scores Correctly
-
-*Test 5:*
-
-[source,javascript]
-----
-expect(formatScore(0, 0)).toBe("0 - 0");
-----
-
-*Result:* Test passes, no changes needed.
-
-====== Final Implementation
-
-[source,javascript]
-----
-function formatScore(homeScore, awayScore) {
-  if (homeScore == null || awayScore == null) {
-    return "Score unavailable";
-  }
-  return `${homeScore} - ${awayScore}`;
-}
-----
-
-At each step, the function was modified minimally to pass the new test while keeping all previous tests passing.
-
-===== Conclusion
-
-Test-Driven Development supports the core goals of Tu Deporte Aquí by promoting reliability, transparency, and predictable system behavior. Establishing TDD principles early ensures that future implementation remains aligned with documented expectations and real-world data constraints.
+The example is intended to illustrate the workflow itself rather than to
+represent complete project testing practices.
