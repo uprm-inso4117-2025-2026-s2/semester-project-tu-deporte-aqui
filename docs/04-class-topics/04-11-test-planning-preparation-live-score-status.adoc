@@ -1,0 +1,161 @@
+
+=== 4.11 Test Planning and Test Preparation for Live Score and Status Features
+
+===== Purpose
+
+This section defines a lightweight test planning and test preparation package
+for the project's live score and game-status features. The goal is to
+prepare reliable and repeatable testing around the platform's most important
+sports-information behaviors before broader implementation and automation are
+expanded.
+
+===== Role in the Project
+
+Tu Deporte Aquí depends on information that may be delayed, incomplete, or
+inconsistent across sources. Because of that, test preparation must identify
+which score and status behaviors matter most, what data conditions should be
+simulated, and how expected outcomes should be evaluated.
+
+This planning work supports:
+
+* clearer test scope for live score behavior
+* earlier identification of high-risk scenarios
+* more consistent future test execution
+* better alignment between documented requirements and testing effort
+
+===== Test Objectives
+
+The preparation effort focuses on these objectives:
+
+* Verify that scheduled, live, and final game states are represented clearly.
+* Verify that incomplete score data does not appear as confirmed information.
+* Verify that stale live information is distinguishable from fresh updates.
+* Verify that core score and status behavior remains understandable to users.
+* Prepare reusable test conditions for future unit, integration, and system tests.
+
+===== Test Scope and Priorities
+
+The scope of this LTT is limited to planning and preparing tests for
+high-priority game information behaviors.
+
+[cols="2,3,1", options="header"]
+|===
+| Area | Focus | Priority
+
+| Game status
+| Scheduled, Live, and Final state representation
+| High
+
+| Score visibility
+| When scores should be shown, hidden, or replaced with fallback text
+| High
+
+| Freshness indicators
+| Detection and communication of stale live information
+| High
+
+| Partial data handling
+| Missing score fields, missing timestamps, or incomplete updates
+| High
+
+| Extended reliability concerns
+| Multi-source conflict handling and correction history
+| Medium
+|===
+
+===== Test Preparation Assumptions
+
+The following assumptions guide the prepared scenarios:
+
+* Live game data may arrive late or stop updating unexpectedly.
+* Some games may have status information but incomplete score values.
+* Final games must be distinguishable from currently live games.
+* Users need direct status language instead of relying only on layout context.
+* Test scenarios should reflect mobile-friendly information access whenever possible.
+
+===== Required Test Data Preparation
+
+To support later test execution, the following representative data conditions
+should be prepared:
+
+* A scheduled game with teams and start time, but no score
+* A live game with complete score and recent update timestamp
+* A live game with complete score but stale timestamp
+* A final game with confirmed score
+* A game with missing or partial score information
+
+These data conditions provide a compact but useful baseline for validating
+score formatting, status labeling, and fallback behavior.
+
+===== Representative Planned Test Scenarios
+
+[cols="1,2,2,2", options="header"]
+|===
+| ID | Scenario | Prepared Input Condition | Expected Result
+
+| TP-01
+| Scheduled game display
+| Status is Scheduled, teams are known, no score exists
+| The interface shows game time and scheduled status without inventing a score
+
+| TP-02
+| Live game with fresh data
+| Status is Live, both scores exist, timestamp is recent
+| The interface shows score, live status, and no stale warning
+
+| TP-03
+| Live game with stale data
+| Status is Live, both scores exist, timestamp exceeds live freshness threshold
+| The interface shows the score but marks the information as stale or delayed
+
+| TP-04
+| Final game with confirmed result
+| Status is Final, both scores exist, game is completed
+| The interface shows the completed result with final-state clarity
+
+| TP-05
+| Incomplete score data
+| Status exists but one score is missing or null
+| The interface shows fallback messaging such as "Score unavailable" instead of partial confirmed data
+|===
+
+===== Test Design Notes
+
+The scenarios above were selected because they cover the most important
+behavior boundaries for score and status interpretation:
+
+* pre-game information without a score
+* active games with fresh information
+* active games with stale information
+* completed games with final results
+* incomplete data that requires graceful fallback behavior
+
+Together, these scenarios create a practical base for later automated and
+manual testing.
+
+===== Preparation Artifacts
+
+This LTT prepares the following artifacts for future testing work:
+
+* a focused list of test objectives
+* a prioritized scope for live score and status behavior
+* prepared input-condition categories
+* a representative scenario set with expected outcomes
+
+These artifacts reduce ambiguity when later tests are implemented in code or
+executed through walkthroughs.
+
+===== Alignment with Project Goals
+
+The project emphasizes reliability, transparency, and quick access to Puerto
+Rico sports information. Preparing tests around score and status behavior
+directly supports those goals because these are the behaviors most likely to
+shape user trust during real use.
+
+===== Conclusion
+
+This test planning and test preparation package establishes a clear starting
+point for evaluating live score and game-status behavior in Tu Deporte Aquí.
+By identifying objectives, defining scope, and preparing representative
+scenarios, the project gains a lightweight but structured basis for future
+verification work.
