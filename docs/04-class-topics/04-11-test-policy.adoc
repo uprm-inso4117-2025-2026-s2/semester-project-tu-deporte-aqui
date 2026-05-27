@@ -1,0 +1,54 @@
+=== 4.11 Test Policy
+
+===== Purpose
+
+This section defines the test policy for Tu Deporte Aquí. A test policy is a high-level document that establishes the objectives, standards, and rules that govern all testing activity across the project. It is distinct from a test plan, which describes what and how to test for a specific feature or milestone. The test policy defines *why* testing is done and *what standards* must be met across the entire project.
+
+===== Testing Objectives
+
+The primary objective of testing in Tu Deporte Aquí is to build confidence that the platform reliably delivers accurate, timely, and accessible sports information to its users. Specifically, testing aims to:
+
+- Verify that sports data (scores, standings, and game statuses) is displayed correctly and consistently across all supported sports.
+- Ensure that the platform handles unreliable or delayed external data sources gracefully, maintaining transparency with users.
+- Validate that core user-facing features behave as expected under normal and edge case conditions.
+- Detect defects early in the development cycle, reducing the cost and effort of fixing them later.
+
+===== Testing Strategy
+
+Tu Deporte Aquí follows a *methodical testing strategy*, where testing is planned and structured around the project's features and risk areas. Testing is not performed randomly or only reactively. Instead, test cases are designed ahead of time based on requirements and expected system behavior, and executed systematically as features are developed.
+
+This strategy is complemented by *risk-oriented prioritization*, where higher-risk areas such as live game data display, standings calculations, and external API integration receive greater testing attention than lower-risk, stable components.
+
+===== Testing Levels
+
+The following testing levels are applied across the project:
+
+- *Unit Testing*: Individual functions and utilities are tested in isolation to verify their correctness. This is the baseline level of testing required for all logic-bearing code. Currently, unit test coverage in the project is limited, with most existing tests concentrated around the game sorting utilities. Expanding unit test coverage across remaining logic-bearing functions is an ongoing effort.
+- *Integration Testing*: Interactions between components such as data fetching, transformation, and display are tested to ensure they work correctly together. Integration testing is not yet formally established in the project and represents an area for growth as the codebase matures.
+- *Acceptance Testing*: Features are validated against user stories and acceptance criteria to confirm they meet the requirements defined by the team. Acceptance criteria are defined per issue but are currently validated manually rather than through automated acceptance tests.
+- *Property-Based Testing*: For data-processing functions, property-based tests are used to verify that key invariants hold across a wide range of automatically generated inputs. This is the most established form of automated testing in the project, with property tests in place for the game sorting logic using `fast-check`.
+
+===== Testing Standards
+
+All testing activity in the project must meet the following standards:
+
+- Test cases must have clearly defined inputs, expected outputs, and pass/fail criteria before execution.
+- All new logic-bearing functions must have at least one corresponding unit test before a pull request is merged.
+- Test results must be documented, whether passing or failing, so that the team can track coverage and identify gaps.
+- Testing must be performed on a branch before it is merged into the `documentation` or `main` branch.
+
+===== Exception Criteria
+
+Exceptions to the testing standards above may be permitted in the following cases:
+
+- UI-only components with no logic (e.g. layout wrappers, static display components) may be merged without unit tests, provided the component has been manually reviewed.
+- Documentation-only changes (e.g. `.adoc` files, `README` updates) do not require testing.
+- In time-constrained milestone situations, a team lead may approve a merge with reduced test coverage, provided the gap is documented as a follow-up issue.
+
+===== Alignment with Project Goals
+
+This test policy supports the overall reliability and transparency goals of Tu Deporte Aquí. By establishing clear testing objectives, a consistent strategy, and explicit standards, the team ensures that quality is a shared responsibility and that testing decisions are made deliberately rather than arbitrarily. While the project is still building toward full coverage across all testing levels, this policy sets the direction and standards the team is working toward. Adhering to it helps the project deliver a platform that fans can trust to provide accurate and timely sports information.
+
+===== Conclusion
+
+The test policy for Tu Deporte Aquí establishes the foundation for all testing activity in the project. It defines what the team is testing for, how testing is approached, which levels are required, and what standards must be met. All team members are expected to follow this policy throughout the development lifecycle.
