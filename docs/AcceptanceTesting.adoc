@@ -1,0 +1,93 @@
+= Acceptance Testing
+
+From the "Tu Deporte Aqui" documentation, User stories and requirements were extracted to create the acceptance tests.
+
+== 1) User Stories:
+=== a)" As a fast-checking fan (Sebastian), I want a clear explanation when an update is missing so that
+I know whether the information is delayed, unavailable, or still being checked."
+
+b) " As a deadline reporter (Andres), I want to label an update as developing, provisional, or
+confirmed so that I can communicate uncertainty without spreading misinformation."
+
+== 2) Requirement:
+=== a) "R-DOM-9 (Game State Transitions) The system shall model game states (scheduled,
+live, halftime, overtime, delayed, suspended,
+final, postponed, cancelled) and enforce valid
+state transitions. Valid transitions are: Scheduled
+→ Live (at start time); Live → Halftime (at
+regulation end); Halftime → Live (when break
+ends); Live → Overtime (if tied at regulation end);
+Live/Overtime → Final (at game completion); Live
+→ Delayed (for technical interruptions); Live →
+Suspended (for indefinite pause); Suspended →
+Live (when resumed); Scheduled → Postponed
+(before starting); Scheduled → Cancelled (before
+starting); any state → Final (for corrections). Each
+state transition shall be recorded with timestamp,
+source, and reason."
+
+
+== 3) Acceptance criteria:
+
+=== a) Acceptance Criteria 1:
+Live, upcoming, and delayed games must display the label:
+“Provisional”
+
+=== b) Acceptance Criteria 2:
+Finalized games must display the label:
+“Confirmed"
+
+=== c) Acceptance Criteria 3:
+The system correctly normalizes different game status values into standardized internal statuses.
+
+=== d) Acceptance Criteria 4:
+Canceled or unknown game states must display the label:
+“Non oficial”
+
+=== e) Acceptance Criteria 5:
+Different aliases of the same state (example: finished, completed, ended) must map to the same normalized value.
+
+=== f) Acceptance Criteria 6:
+if the system receives an unknown or empty status, it must safely return:
+normalized status = unknown
+label = Non oficial
+
+=== g) Acceptance Criteria 7:
+Delayed or live matches must not be treated as final standings data.
+
+
+== 4) Acceptance Test Cases:
+
+
+== 5) Results Obtained: Acceptance test Cases Implemented
+Note: The acceptance tets can be found on tu-deporte-aqui/Tests/Acceptance Test
+Second Note" AT3 and AT5 are general test of the implementation as a whole
+|===
+|*Test Case ID* | *Scenario*| *Expected Result (Returns) * | *Test Status*
+|AT1| Normalize upcoming aliases| Label "Provisional"| Passed
+|AT2| Normalize Finalized games aliases| Label "Final/final" | Passed
+|AT3| Normalize aliases(in general)| Different labels | Passed
+|AT4| Normalize canceled games | Label "Non official" | Passed
+|AT5| Different aliases of the same state| Normalized values| Passed
+|AT6| Normalize unknown or empty status| Label "Non oficial" | Passed
+|AT7| Normalize Delayed or live to not appear as final | Label "provisional" | Passed
+
+|===
+
+== Conclusion
+The results obtained from the acceptance tests confirms that the system correctly implements the expected 
+behavior defined(and expected) in the Users stories and Requirement(R-DOM-9).
+All acceptance test cases were executed succesfully, validating that:
+
+- Game statused(and aliases) are consistently normalized
+- Labels correctly reflect the level of certainty:
+ * "Provisional" used for live, delayed and upcoming games
+ * "Confirmed" used for final games (Finalized games// Official scores)
+ * "Non oficial" used for cancelled or unknown states and scores
+
+- The system correctly handles invalid or missing inputs 
+- Different aliases of the same game state are correctly mapped to a single normalized value.
+- Live and delayed games are not incorrectly treated as final data for standings calculations.
+
+The implementation satifies all acceptance criteria, ensuring clarity and consistency  in game state representation. This improves transparency 
+and provides a reliable interpretation of game information for users.
