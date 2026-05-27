@@ -53,6 +53,7 @@ include::04-class-topics/04-02-bdd-tool-usage.adoc[]
 include::04-class-topics/04-03-debugging.adoc[]
 include::04-class-topics/04-04-usability-testing.adoc[]
 include::04-class-topics/04-10-error-handling-testing.adoc[]
+include::04-class-topics/04-11-manual-testing.adoc[]
 
 == 5 Research / Lecture Topic Tasks
 include::Research/research-index.adoc[]
