@@ -1,0 +1,802 @@
+[
+    [
+        {
+            "input": "click('')\nclick(' News')\nclick('View All Games ')\nfill('', 't')\nfill('', 'nR@TIQZ')\nsubmit('')\nfill('', 'g')\nfill('', 'U@xS')\nsubmit('')\nfill('', 'W')\nfill('', 'i@MY')\nsubmit('')\nfill('', 'o')\nfill('', 'C@K')\nsubmit('')\n",
+            "url": "https://localhost:3000/home#",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "fill('', 'de')\nfill('', 'OG@F')\nsubmit('')\nfill('', 'N')\nfill('', 'k@u')\nsubmit('')\nfill('', 'l')\nfill('', 'b@q')\nsubmit('')\n",
+            "url": "https://localhost:3000/home#",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "fill('', '9')\nfill('', 'JXE@j')\nsubmit('')\nfill('', '2')\nfill('', 'Dhm@p')\nsubmit('')\nfill('', '08')\nfill('', 'UH@O')\nsubmit('')\nfill('', '1')\nfill('', 'F@o')\nsubmit('')\nfill('', '6')\nfill('', 'F@g')\nsubmit('')\n",
+            "url": "https://localhost:3000/home#",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "fill('', ' 47')\nfill('', 'h@p')\nsubmit('')\nfill('', '3')\nfill('', 'G@g')\nsubmit('')\nfill('', '!')\nfill('', 'V@J')\nsubmit('')\n",
+            "url": "https://localhost:3000/home#",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('')\nclick('Contact Us')\n",
+            "url": "https://localhost:3000/contact",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]SoccerPuerto Rico FC1Islanders375&#x27;')\nclick('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('About Us')\n",
+            "url": "https://localhost:3000/about",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Baseball')\n",
+            "url": "https://localhost:3000/sports/baseball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]VolleyballMets2Cangrejeros1Set 3')\nclick(' About')\nclick('View All Standings ')\nclick('Soccer')\n",
+            "url": "https://localhost:3000/sports/soccer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192')\nclick('Our Mission')\n",
+            "url": "https://localhost:3000/about#mission",
+            "title": "404: This page could not be found."
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel &quot;El Tornado&quot; Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192')\nclick('Contact Us')\n",
+            "url": "https://localhost:3000/contact",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' Live Games')\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('')\nclick('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick('Terms of Service')\n",
+            "url": "https://localhost:3000/legal/terms",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Terms of Service')\n",
+            "url": "https://localhost:3000/legal/terms",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "fill('', 'c')\nfill('', 'F@Y')\nsubmit('')\nclick('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick('Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192')\nclick('Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192')\nclick('Cookie Policy')\n",
+            "url": "https://localhost:3000/legal/cookies",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' Live Games')\nclick('View All News ')\nclick('View All News ')\nclick('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BaseballCriollos5Indios1Top 7')\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192')\nclick('FEATUREDBasketball[Image]2 hours agoCapitanes de Arecibo Win Championship in Thrilling OvertimeIn an electrifying finale, the Capitanes secured their title with a 98-95 victory, bringing Puerto Rico basketball fans to their feet.Read More \u2192')\nclick('Soccer')\n",
+            "url": "https://localhost:3000/sports/soccer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' Home')\nclick(' Home')\nclick('Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192')\nclick('Privacy Policy')\n",
+            "url": "https://localhost:3000/legal/privacy",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All Games ')\nclick('LIVE[Image]VolleyballMets2Cangrejeros1Set 3')\nclick('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick('View All Standings ')\nclick('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All Standings ')\nclick('LIVE[Image]SoccerPuerto Rico FC1Islanders375&#x27;')\nclick(' Home')\nclick('Our Mission')\n",
+            "url": "https://localhost:3000/about#mission",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192')\nclick(' News')\nclick(' About')\nclick('Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192')\nclick('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Contact Us')\n",
+            "url": "https://localhost:3000/contact",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Cookie Policy')\n",
+            "url": "https://localhost:3000/legal/cookies",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('FEATUREDBasketball[Image]2 hours agoCapitanes de Arecibo Win Championship in Thrilling OvertimeIn an electrifying finale, the Capitanes secured their title with a 98-95 victory, bringing Puerto Rico basketball fans to their feet.Read More \u2192')\nfill('', 's')\nfill('', 'aciZ@b')\nsubmit('')\nclick('')\nclick('Soccer')\n",
+            "url": "https://localhost:3000/sports/soccer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Careers')\n",
+            "url": "https://localhost:3000/careers",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' About')\nclick('')\nclick('Baseball')\n",
+            "url": "https://localhost:3000/sports/baseball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' Standings')\nclick('FEATUREDBasketball[Image]2 hours agoCapitanes de Arecibo Win Championship in Thrilling OvertimeIn an electrifying finale, the Capitanes secured their title with a 98-95 victory, bringing Puerto Rico basketball fans to their feet.Read More \u2192')\nclick('Disclaimer')\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4')\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "fill('', 'V1. ')\nfill('', 'DYxn@K')\nsubmit('')\nclick(' Standings')\nclick(' Live Games')\nclick('View All News ')\nclick('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192')\nclick(' News')\nclick('Soccer')\n",
+            "url": "https://localhost:3000/sports/soccer",
+            "title": "404: This page could not be found."
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(' Standings')\nclick('View All News ')\nclick('Our Mission')\n",
+            "url": "https://localhost:3000/about#mission",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All Standings ')\nfill('', ' B')\nfill('', 'X@g')\nsubmit('')\nclick('View All Standings ')\nclick('View All Standings ')\nclick('View All Games ')\nclick('')\nclick(' Standings')\n",
+            "url": "https://localhost:3000/home#",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' News')\nclick('Privacy Policy')\n",
+            "url": "https://localhost:3000/legal/privacy",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click(' Standings')\nclick('LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4')\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Disclaimer')\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' Live Games')\nclick('View All News ')\nclick('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick('Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192')\nclick('FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel &quot;El Tornado&quot; Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192')\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4')\nclick('Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192')\nclick('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192')\nfill('', 'F')\nfill('', 'CHsVrx@r')\nsubmit('')\n",
+            "url": "https://localhost:3000/home#",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]VolleyballMets2Cangrejeros1Set 3')\nclick('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' Live Games')\nclick(' About')\nclick('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4')\nfill('', 'O4')\nfill('', 'p@o')\nsubmit('')\nclick('Disclaimer')\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Privacy Policy')\n",
+            "url": "https://localhost:3000/legal/privacy",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' About')\nclick('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All Games ')\nclick(' Standings')\nclick('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Soccer')\n",
+            "url": "https://localhost:3000/sports/soccer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('About Us')\n",
+            "url": "https://localhost:3000/about",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' Live Games')\nclick(' Home')\nclick('Baseball')\n",
+            "url": "https://localhost:3000/sports/baseball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4')\nclick('Contact Us')\n",
+            "url": "https://localhost:3000/contact",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Disclaimer')\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Privacy Policy')\n",
+            "url": "https://localhost:3000/legal/privacy",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All Games ')\nfill('', '.')\nfill('', 'VN@zL')\nsubmit('')\nclick('Cookie Policy')\n",
+            "url": "https://localhost:3000/legal/cookies",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]SoccerPuerto Rico FC1Islanders375&#x27;')\nclick('LIVE[Image]SoccerPuerto Rico FC1Islanders375&#x27;')\nclick('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick('About Us')\n",
+            "url": "https://localhost:3000/about",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "fill('', '!Q')\nfill('', 'jJSy@Y')\nsubmit('')\nclick('FEATUREDBasketball[Image]2 hours agoCapitanes de Arecibo Win Championship in Thrilling OvertimeIn an electrifying finale, the Capitanes secured their title with a 98-95 victory, bringing Puerto Rico basketball fans to their feet.Read More \u2192')\nclick('View All Standings ')\nclick('Terms of Service')\n",
+            "url": "https://localhost:3000/legal/terms",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All News ')\nclick('Contact Us')\n",
+            "url": "https://localhost:3000/contact",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Cookie Policy')\n",
+            "url": "https://localhost:3000/legal/cookies",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192')\nclick('Privacy Policy')\n",
+            "url": "https://localhost:3000/legal/privacy",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]SoccerPuerto Rico FC1Islanders375&#x27;')\nclick('Privacy Policy')\n",
+            "url": "https://localhost:3000/legal/privacy",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Soccer')\n",
+            "url": "https://localhost:3000/sports/soccer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('')\nclick(' About')\nclick('Disclaimer')\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4')\nclick('Privacy Policy')\n",
+            "url": "https://localhost:3000/legal/privacy",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Our Mission')\n",
+            "url": "https://localhost:3000/about#mission",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick(' About')\nclick('Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192')\nclick('View All Games ')\nclick(' Live Games')\nclick('Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192')\nclick('Disclaimer')\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]VolleyballMets2Cangrejeros1Set 3')\nclick('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick(' Standings')\nclick('Careers')\n",
+            "url": "https://localhost:3000/careers",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192')\nclick('View All Standings ')\n",
+            "url": "https://localhost:3000/home",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('Terms of Service')\n",
+            "url": "https://localhost:3000/legal/terms",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' Live Games')\nclick('About Us')\n",
+            "url": "https://localhost:3000/about",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Contact Us')\n",
+            "url": "https://localhost:3000/contact",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All News ')\nclick('')\nclick('')\n",
+            "url": "https://localhost:3000/home#",
+            "title": "Tu Deporte Aqui"
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('Careers')\n",
+            "url": "https://localhost:3000/careers",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "fill('', '6')\nfill('', 't@n')\nsubmit('')\nclick(' Live Games')\nclick('FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel &quot;El Tornado&quot; Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192')\nclick('LIVE[Image]VolleyballMets2Cangrejeros1Set 3')\nclick('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Cookie Policy')\n",
+            "url": "https://localhost:3000/legal/cookies",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' Home')\nclick('Privacy Policy')\n",
+            "url": "https://localhost:3000/legal/privacy",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Careers')\n",
+            "url": "https://localhost:3000/careers",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4')\nclick(' Home')\nclick(' About')\nclick(' Home')\nclick('View All News ')\nclick('Soccer')\n",
+            "url": "https://localhost:3000/sports/soccer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4')\nclick('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick('Careers')\n",
+            "url": "https://localhost:3000/careers",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Contact Us')\n",
+            "url": "https://localhost:3000/contact",
+            "title": "404: This page could not be found."
+        },
+        "PASS"
+    ],
+    [
+        {
+            "input": "click('About Us')\n",
+            "url": "https://localhost:3000/about",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('About Us')\n",
+            "url": "https://localhost:3000/about",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Volleyball')\n",
+            "url": "https://localhost:3000/sports/volleyball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click(' About')\nclick('View All News ')\nclick('Baseball[Image]5 hours agoCriollos Sign Star Pitcher from MLBThe Caguas team makes a major move by signing veteran pitcher Carlos Rivera to strengthen their rotation for the upcoming season.Read More \u2192')\nclick('Soccer')\n",
+            "url": "https://localhost:3000/sports/soccer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BaseballCriollos5Indios1Top 7')\nclick(' Standings')\nclick('LIVE[Image]SoccerPuerto Rico FC1Islanders375&#x27;')\nclick('LIVE[Image]VolleyballMets2Cangrejeros1Set 3')\nclick('FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel &quot;El Tornado&quot; Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192')\nclick('Terms of Service')\n",
+            "url": "https://localhost:3000/legal/terms",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All News ')\nclick('Disclaimer')\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('LIVE[Image]BaseballCriollos5Indios1Top 7')\nfill('', 'n')\nfill('', 'HiavzvyLI@RBDm')\nsubmit('')\nclick(' Live Games')\nclick('FEATUREDLIVEBoxing[Image]1 day agoLocal Boxing Champion Prepares for Title DefenseMiguel &quot;El Tornado&quot; Torres begins training camp for his upcoming WBO title defense in San Juan this summer.Read More \u2192')\nclick('LIVE[Image]BasketballCapitanes75Vaqueros753:45 Q4')\nclick('')\nclick('Soccer[Image]2 days agoPuerto Rico FC Advances to Regional FinalsThe soccer club dominated with a 3-0 victory, earning their spot in the Caribbean Cup finals next month.Read More \u2192')\nclick('Disclaimer')\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "fill('', 'R96.')\nfill('', 'QFu@o')\nsubmit('')\nclick('Disclaimer')\n",
+            "url": "https://localhost:3000/legal/disclaimer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('Baseball')\n",
+            "url": "https://localhost:3000/sports/baseball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All Games ')\nclick('LIVE[Image]SoccerPuerto Rico FC1Islanders375&#x27;')\nclick('LIVE[Image]SoccerPuerto Rico FC1Islanders375&#x27;')\nclick('Soccer')\n",
+            "url": "https://localhost:3000/sports/soccer",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ],
+    [
+        {
+            "input": "click('View All Standings ')\nclick(' About')\nclick('Basketball')\n",
+            "url": "https://localhost:3000/sports/basketball",
+            "title": "404: This page could not be found."
+        },
+        "FAIL"
+    ]
+]

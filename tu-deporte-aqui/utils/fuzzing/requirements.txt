@@ -1,0 +1,4 @@
+# GraphViz must be downloaded, else pygraphviz will result in an error.
+# https://pygraphviz.github.io/documentation/stable/install.html
+pygraphviz
+fuzzingbook
