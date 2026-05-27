@@ -1,0 +1,215 @@
+=== Behavior-Driven Development for Sports Report Features
+:author: Javier Ventosa
+
+==== Introduction
+
+Behavior-Driven Development, also known as BDD, is a software development approach that helps teams describe system behavior from the user's point of view. Instead of only focusing on code or technical implementation, BDD focuses on what the user wants to do and what result the system should produce.
+
+In the lecture, BDD is presented as a way to generate automated acceptance tests from user stories. It also helps the client, domain expert, and developers understand, formulate, validate, and manage requirements together. This creates a shared understanding of the expected behavior of the system. 
+
+For the Tu Deporte Aquí project, BDD can help define clear behavior for sports report features. These features may include submitting a report, updating a report status, viewing reports, or notifying users about event changes.
+
+==== Objective
+
+Explain Behavior-Driven Development and show how it can help define clear user-centered behavior for Tu Deporte Aquí features, especially sports reports and event updates.
+
+==== Description
+
+This Lecture Topic Task explains how BDD connects user stories, expected behavior, and acceptance tests. The task applies BDD concepts to Tu Deporte Aquí by creating example scenarios for features such as submitting a sports report, updating an event, and viewing report status.
+
+BDD is useful because it helps developers think in terms of user value, domain behavior, and shared understanding between users, clients, and developers. This is important for Tu Deporte Aquí because users need the platform to behave clearly and reliably when dealing with sports information.
+
+==== Lecture Topic Explanation
+
+BDD starts with the expected behavior of a feature. A common way to describe this behavior is through scenarios written in a simple format:
+
+----
+Given some initial condition
+When the user performs an action
+Then the system should produce an expected result
+----
+
+The `Given` part describes the starting situation or precondition. The `When` part describes the action performed by the user. The `Then` part describes the expected result.
+
+This format is useful because it is easy for both technical and non-technical team members to understand. It can also be used later to create acceptance tests.
+
+==== Importance of BDD in Tu Deporte Aquí
+
+Tu Deporte Aquí depends on user interaction. Users may submit reports, check event information, view standings, or follow updates about sports events. If the expected behavior of these features is unclear, developers may implement them differently from what users actually need.
+
+BDD helps prevent this problem by describing expected behavior before or during implementation. This makes the requirements easier to understand and easier to test.
+
+For example, instead of only saying “users can submit reports,” BDD describes exactly what should happen when a user submits a valid report or an incomplete report.
+
+==== Project Example 1: Submitting a Valid Sports Report
+
+.User Story
+----
+As a user,
+I want to submit a sports report,
+so that the platform can track and review event information.
+----
+
+.BDD Scenario
+----
+Given the user is logged in
+And the user fills in all required report fields
+And the related sports event exists
+When the user submits the report
+Then the system should save the report
+And the report status should be set to "Open"
+And the system should record the submission timestamp
+----
+
+.Explanation
+
+This scenario defines what should happen when a user submits a valid sports report. It helps the team confirm that reports are saved correctly, assigned an initial status, and tracked with a timestamp.
+
+==== Project Example 2: Submitting an Incomplete Sports Report
+
+.User Story
+----
+As a user,
+I want to know when my report is incomplete,
+so that I can correct the missing information before submitting it.
+----
+
+.BDD Scenario
+----
+Given the user is logged in
+And the user leaves one or more required report fields empty
+When the user tries to submit the report
+Then the system should reject the submission
+And the system should display an error message explaining what information is missing
+And the report should not be saved
+----
+
+.Explanation
+
+This scenario helps prevent invalid reports from entering the system. It also improves usability because the user receives clear feedback about what needs to be fixed.
+
+==== Project Example 3: Updating a Report Status
+
+.User Story
+----
+As a moderator,
+I want to update the status of a sports report,
+so that the report lifecycle stays accurate.
+----
+
+.BDD Scenario
+----
+Given the report exists
+And the user has moderator permission
+And the new status is valid
+When the moderator changes the report status
+Then the system should update the report status
+And the system should record who made the change
+And the system should store the time of the update
+----
+
+.Explanation
+
+This scenario defines the expected behavior for changing a report status. It ensures that only authorized users can update reports and that the system keeps a traceable history of the change.
+
+==== Project Example 4: Viewing Report Status
+
+.User Story
+----
+As a user,
+I want to view the status of my submitted report,
+so that I know whether it is still open, matched, resolved, or archived.
+----
+
+.BDD Scenario
+----
+Given the user has submitted a report
+And the report exists in the system
+When the user opens the report details page
+Then the system should display the current report status
+And the system should display the last updated time
+----
+
+.Explanation
+
+This scenario improves transparency for users. It helps users understand what is happening with their reports and reduces confusion about whether a report has been reviewed.
+
+==== Project Example 5: Event Update Notification
+
+.User Story
+----
+As a user,
+I want to receive clear updates when a sports event changes,
+so that I can stay informed about schedule or status changes.
+----
+
+.BDD Scenario
+----
+Given a sports event exists
+And the event time or status changes
+When the system updates the event information
+Then users viewing the event should see the updated information
+And the system should display a last updated indicator
+----
+
+.Explanation
+
+This scenario connects BDD to event updates. It ensures that users receive updated event information and can see when the information was last changed.
+
+==== Connection to Acceptance Testing
+
+BDD scenarios can be used as the basis for acceptance tests. Acceptance tests check whether the system satisfies the expected behavior from the user's point of view.
+
+For example, the scenario for submitting an incomplete report can become an acceptance test. The test would check that the system rejects the report, shows an error message, and does not save invalid data.
+
+This makes BDD useful because the same scenario can help with requirements, communication, and testing.
+
+==== Connection to Software Reliability
+
+BDD improves software reliability by making expected behavior clear before implementation. When developers understand what the system should do, they are less likely to create features that behave incorrectly or inconsistently.
+
+For Tu Deporte Aquí, reliability is important because users depend on the platform for accurate sports information. If reports, event updates, or statuses behave incorrectly, users may receive confusing or outdated information.
+
+BDD helps reduce this risk by defining expected behavior in a clear and testable way.
+
+==== Benefits of Using BDD
+
+BDD provides several benefits for the project:
+
+* It helps developers understand features from the user's perspective.
+* It improves communication between team members.
+* It makes requirements easier to validate.
+* It creates scenarios that can be converted into acceptance tests.
+* It helps prevent misunderstandings about how a feature should behave.
+* It supports software reliability by defining expected results clearly.
+
+==== Acceptance Criteria
+
+* Explain what Behavior-Driven Development is.
+* Explain how BDD connects user stories with acceptance tests.
+* Include at least 3 BDD-style examples using Tu Deporte Aquí features.
+* Use a clear Given/When/Then format.
+* Explain how BDD improves communication between developers and users.
+* Connect the topic to software reliability and testing.
+* Add the completed work to the correct documentation folder.
+
+==== Testing Plan
+
+* Review the BDD lecture material.
+* Identify at least 3 user actions in Tu Deporte Aquí.
+* Write one Given/When/Then scenario for each action.
+* Check that each scenario has a clear starting condition, user action, and expected result.
+* Verify that the scenarios could be converted into acceptance tests.
+* Confirm that the documentation is clear, organized, and placed in the correct folder.
+
+==== Conclusion
+
+Behavior-Driven Development is useful because it helps teams describe software behavior from the user's perspective. In Tu Deporte Aquí, BDD can be applied to sports report features, report status updates, and event updates.
+
+By using Given/When/Then scenarios, the team can create clearer requirements and better acceptance tests. This helps improve communication, reduce misunderstandings, and increase confidence that the system behaves correctly.
+
+==== References
+
+* Behavior Driven Development lecture material
+* INSO 4117 Software Reliability Testing lecture materials
+* Tu Deporte Aquí project documentation
