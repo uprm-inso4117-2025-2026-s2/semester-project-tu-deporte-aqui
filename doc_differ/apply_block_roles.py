@@ -1,150 +1,133 @@
 #!/usr/bin/env python3
-"""
-Post-process dwdiff markers to apply inline roles.
-With dwdiff -R flag, each line has its own complete markers: __INS_START__text__INS_END__
-Convert these to AsciiDoc inline role syntax: [.inserted]##text##
-Skip structural elements that shouldn't be highlighted:
-- Headings (lines starting with =, ==, ===, etc.)
-- Block attributes (lines starting with [)
-- Empty/whitespace-only lines
-"""
-
 import sys
 import re
 
-def extract_leading_syntax(text):
-    """
-    Extract leading AsciiDoc syntax from a line.
-    Returns (leading_syntax, remaining_content) tuple.
-    
-    Examples:
-      "* bullet" → ("*", "bullet")
-      "=== Heading" → ("===", "Heading")
-      "** bold text" → ("", "** bold text")
-      ": term" → ("", ": term")
-    """
-    stripped = text.lstrip()
-    
-    # Match leading markers followed by space
-    # Headings: = == === etc with space
-    heading_match = re.match(r'^(=+)\s+', stripped)
-    if heading_match:
-        marker = heading_match.group(1)
-        remainder = stripped[len(marker):].lstrip()
-        return marker + ' ', remainder
-    
-    # List items: * + - followed by space
-    list_match = re.match(r'^([\*\+\-])\s+', stripped)
-    if list_match:
-        marker = list_match.group(1)
-        remainder = stripped[len(marker):].lstrip()
-        return marker + ' ', remainder
-    
-    # No leading syntax
-    return '', stripped
+DEBUG = True
 
-def should_skip_role(text):
-    """Check if this line should skip role markers due to AsciiDoc syntax."""
-    stripped = text.strip()
-    
-    # Skip empty lines
-    if not stripped:
-        return True
-    
-    # Skip comments (lines starting with //)
-    if stripped.startswith('//'):
-        return True
-    
-    # Skip block attributes/macros (e.g., [.role], [source], [#id])
-    if stripped.startswith('['):
-        return True
-    
-    # Skip document attributes (e.g., :title-page:, :toc:, :doctype: book)
-    if stripped.startswith(':') and stripped.endswith(':'):
-        return True
-    
-    # Skip include directives - these break if wrapped
-    if 'include::' in stripped:
-        return True
-    
-    # Skip labeled lists (term::)
-    if re.match(r'^.+::$', stripped):
-        return True
-    
-    # Skip horizontal rules
-    if re.match(r'^-{3,}$|^\*{3,}$|^_{3,}$', stripped):
-        return True
-    
-    # Skip that <<< thing
-    if '<<<' in stripped:
-        return True
-    
-    return False
+def debug_print(*args):
+    if DEBUG:
+        print(*args, file=sys.stderr)
 
-def apply_inline_roles(content):
-    """
-    Convert dwdiff markers to AsciiDoc inline roles.
-    - __INS_START__...content...__INS_END__ → [.inserted]##...content...##
-    - __DEL_START__...content...__DEL_END__ → [.removed]##...content...##
-    Skip empty lines and AsciiDoc structural elements.
-    Preserve leading AsciiDoc syntax (headings, lists) outside role markers.
-    """
-    # First pass: handle insertions
-    def replace_insert(match):
-        text = match.group(1)
-        if should_skip_role(text):
-            # Remove markers but don't apply role
-            return text
-        
-        # Extract leading syntax to keep it outside the role
-        leading_syntax, content_part = extract_leading_syntax(text)
-        
-        if leading_syntax and content_part:
-            # Preserve syntax outside role: "* [.inserted]#bullet#"
-            return f'{leading_syntax}[.inserted]#{content_part}#'
-        else:
-            # No leading syntax, wrap entire line
-            return f'[.inserted]#{text}#'
-    
-    content = re.sub(
-        r'__INS_START__(.*?)__INS_END__',
-        replace_insert,
-        content,
-        flags=re.DOTALL
-    )
-    
-    # Second pass: handle deletions
-    def replace_delete(match):
-        text = match.group(1)
-        if should_skip_role(text):
-            # Remove markers but don't apply role
-            return text
-        
-        # Extract leading syntax to keep it outside the role
-        leading_syntax, content_part = extract_leading_syntax(text)
-        
-        if leading_syntax and content_part:
-            # Preserve syntax outside role: "* [.removed]#bullet#"
-            return f'{leading_syntax}[.removed]#{content_part}#'
-        else:
-            # No leading syntax, wrap entire line
-            return f'[.removed]#{text}#'
-    
-    content = re.sub(
-        r'__DEL_START__(.*?)__DEL_END__',
-        replace_delete,
-        content,
-        flags=re.DOTALL
-    )
-    
-    return content
+def wrap_asciidoc_formatting_outside_roles(text):
+    # Keep common AsciiDoc formatting markers outside role wrappers.
+    # This is intentionally conservative and only handles list bullets at the
+    # start of a wrapped span.
+    text = re.sub(r'(?m)^([ \t]*)\[\.inserted\]#\*#(\s+\S.*)$', r'\1* [.inserted]#\2#', text)
+    text = re.sub(r'(?m)^([ \t]*)\[\.removed\]#\*#(\s+\S.*)$', r'\1* [.removed]#\2#', text)
+    text = re.sub(r'\[\.inserted\]#(\s*\*\s+)(.*?)#', r'\1[.inserted]#\2#', text)
+    text = re.sub(r'\[\.removed\]#(\s*\*\s+)(.*?)#', r'\1[.removed]#\2#', text)
+    text = re.sub(r'(?m)^([ \t]*)\[\.inserted\]#(-\s+)(.*?)#', r'\1- [.inserted]#\3#', text)
+    text = re.sub(r'(?m)^([ \t]*)\[\.removed\]#(-\s+)(.*?)#', r'\1- [.removed]#\3#', text)
+    text = re.sub(r'\[\.inserted\]#(.*?)\[\.inserted\]#(.*?)##', r'[.inserted]#\1\2#', text)
+    text = re.sub(r'\[\.inserted\]#(.*?)\[\.removed\]#.*?##', r'[.inserted]#\1#', text)
+    text = re.sub(r'\[\.removed\]#(.*?)\[\.inserted\]#(.*?)##', r'[.removed]#\1#', text)
+    text = re.sub(r'\[\.removed\]#(.*?)\[\.removed\]#.*?##', r'[.removed]#\1#', text)
+    text = re.sub(r'\[\.(inserted|removed)\]#\s+', r'[.\1]#', text)
+    text = re.sub(r'\s+#', r'#', text)
+    return text
 
-if __name__ == "__main__":
+def normalize_bullet_spacing(text):
+    lines = text.splitlines()
+    normalized = []
+    for line in lines:
+        stripped = line.lstrip()
+        is_bullet = stripped.startswith('- ') or stripped.startswith('* ')
+        if is_bullet and normalized:
+            prev = normalized[-1]
+            prev_stripped = prev.strip()
+            prev_is_bullet = prev_stripped.startswith('- ') or prev_stripped.startswith('* ')
+            if prev != '' and not prev_is_bullet:
+                normalized.append('')
+        normalized.append(line)
+    return '\n'.join(normalized)
+
+def main():
     if len(sys.argv) > 1:
-        with open(sys.argv[1], 'r') as f:
+        with open(sys.argv[1], 'r', encoding='utf-8') as f:
             content = f.read()
     else:
         content = sys.stdin.read()
-    
-    result = apply_inline_roles(content)
-    sys.stdout.write(result)
+
+    # Convert insertions and deletions conservatively - don't try to analyze
+    # AsciiDoc structure. Keep content intact and simply replace markers.
+    content = re.sub(r'__INS_START__(.*?)__INS_END__', r'[.inserted]#\1#', content, flags=re.DOTALL)
+    content = re.sub(r'__DEL_START__(.*?)__DEL_END__', r'[.removed]#\1#', content, flags=re.DOTALL)
+    content = wrap_asciidoc_formatting_outside_roles(content)
+    content = normalize_bullet_spacing(content)
+
+    # Post-process by line: if a line looks like a heading (starts with '=')
+    # after stripping role wrappers, remove any [.removed]#...# blocks from
+    # that line (drop the removed text entirely) to avoid corrupting heading
+    # delimiters or introducing stray fragments.
+    out_lines = []
+    in_code_block = False
+    for line in content.splitlines():
+        # create a simplified version removing role wrappers to test heading
+        simplified = re.sub(r'\[\.inserted\]#|\[\.removed\]#|#', '', line)
+        is_fence = '----' in simplified.strip()  # == is too strict
+        if is_fence:
+            if in_code_block:
+                line = f'{line} // DEBUG:code-block'
+            in_code_block = not in_code_block
+        if simplified.strip() == '':
+            out_lines.append('')
+            continue
+        if simplified.lstrip().startswith('include::'):
+            line = re.sub(r'\[\.removed\]#.*?#', '', line)
+            line = re.sub(r'\[\.inserted\]#(.*?)#', r'\1', line)
+            line = line.replace('[.removed]##', '')
+            if in_code_block:
+                line = f'{line} // DEBUG:code-block'
+            out_lines.append(line)
+            continue
+        if simplified.lstrip().startswith('='):
+            # remove any removed-role blocks from original line (drop the text)
+            line = re.sub(r'\[\.removed\]#.*?#', '', line)
+            # unwrap inserted-role blocks but keep their content
+            line = re.sub(r'\[\.inserted\]#(.*?)#', r'\1', line)
+            # also remove any empty removed-role artifacts
+            line = line.replace('[.removed]##', '')
+            # normalize heading indentation only when the heading already has text
+            if re.search(r'=\S', line.lstrip()):
+                line = line.lstrip()
+        if in_code_block:
+            line = f'{line} // DEBUG:code-block'
+        out_lines.append(line)
+
+    content = '\n'.join(out_lines)
+
+    # Remove any stray unmatched markers
+    content = content.replace('__INS_START__', '').replace('__INS_END__', '')
+    content = content.replace('__DEL_START__', '').replace('__DEL_END__', '')
+
+    # Merge a heading marker line with the next indented text line when the
+    # heading has no text of its own.
+    lines = content.splitlines()
+    merged_lines = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+
+        if re.fullmatch(r'=+', stripped):
+            i += 1
+            continue
+
+        if re.fullmatch(r'=+', stripped):
+            if i + 1 < len(lines) and re.match(r'^\s+\S', lines[i + 1]):
+                next_text = lines[i + 1].lstrip()
+                merged_line = f'{stripped} {next_text}'
+                debug_print('merge heading:', repr(line), 'next:', repr(lines[i + 1]), 'trimmed:', repr(next_text), '=>', repr(merged_line))
+                merged_lines.append(merged_line)
+                i += 2
+                continue
+
+        merged_lines.append(line)
+        i += 1
+
+    content = '\n'.join(merged_lines)
+
+    sys.stdout.write(content)
+
+if __name__ == '__main__':
+    main()
