@@ -3,41 +3,55 @@
 
 ===== Purpose
 
-This section outlines the main ideas for Tu Deporte Aquí. These ideas respond to the needs described in Section 1.2.2 and give a high-level view of the kind of system the team intends to build.
+This section defines the core ideas that guide Tu Deporte Aquí. The ideas respond to Section 1.2.2 needs and explain how the project approaches reliability, transparency, and uncertain local sports data in Puerto Rico.
 
-===== A Sports Information Platform for Local Puerto Rico Coverage
+===== Context Driving These Ideas
 
-One central idea is to build a platform focused on local Puerto Rico sports. The platform is meant to bring together scores, schedules, standings, and related updates that are currently spread across league websites, social media posts, news outlets, and other reporting channels.
+Many local leagues and school programs do not provide a stable official API or a consistent structured feed. In practice, updates are often published through mixed channels such as social media posts, image graphics, manual standings tables, and delayed website updates.
 
-This idea follows from the fragmented situation described earlier. Rather than expecting followers to check many sources on their own, the system-to-be would gather relevant information into one place.
+Because this environment is fragmented and uneven, the project ideas below focus on making useful information available while preserving uncertainty and source context.
 
-===== Open Handling of Uncertainty
+===== Core Idea 1: Unified Access to Local Coverage
 
-Another main idea is that the platform should treat uncertainty as normal rather than exceptional. Since local sports information may be delayed, incomplete, or contradictory, the platform should not present all data as equally settled.
+Tu Deporte Aquí should provide one mobile-first place for local Puerto Rico sports updates, so users do not have to reconstruct event status by switching across multiple platforms.
 
-At a high level, this means the system-to-be should separate information that appears stable from information that is still uncertain, and it should make conflicts or missing information visible instead of hiding them.
+This idea is about reducing discovery friction for scores, schedules, standings, and status changes under local reporting conditions.
 
-===== Source-Aware Presentation
+===== Core Idea 2: Reliability by Design, Not by Assumption
 
-The platform should present sports information together with enough source context for people to judge it. The main idea is not only to show a score or status, but also to show where that information came from and how recent it is.
+The platform should treat incomplete, delayed, and conflicting information as expected conditions. It should not assume the first reported value is always final or authoritative.
 
-This idea follows from the need for dependability described in Section 1.2.2. If information comes from sources with different levels of authority or different update timing, the platform should preserve that context instead of presenting all updates in the same way.
+This idea drives a reliability-first presentation where uncertain data is explicitly qualified instead of shown with false certainty.
 
-===== Support for Corrections and Change Over Time
+===== Core Idea 3: Transparent Source and Freshness Context
 
-The platform should allow for the fact that sports information can change after it is first reported. Scores may be corrected, schedules may shift, and previously incomplete information may later be filled in.
+Every important value should be accompanied by enough context for interpretation: where it came from, when it was published or updated, and whether it is stable, provisional, or disputed.
 
-The idea here is that the system-to-be should not assume that the first reported value is always the final one. It should make room for updates, corrections, and later clarification.
+This idea connects directly to user trust: people can make better decisions when they understand origin and recency, not only the value itself.
 
-===== Mobile-First Access
+===== Core Idea 4: Explicit Conflict and Correction Handling
 
-Another idea is to treat the platform as mobile-first. Many followers check sports information from their phones during games or while moving between activities, so the system should be designed with small-screen access in mind.
+The platform should preserve evidence of disagreement and later correction rather than silently replacing prior information. If reports conflict, the conflict remains visible until resolved; if a correction occurs, the change remains traceable.
 
-At a high level, this means the most important information should be easy to reach quickly, without depending on large layouts or long explanations.
+This idea supports accountability for leagues, reporters, and community contributors while helping users understand why displayed values changed.
+
+===== Core Idea 5: Pragmatic Operation Under Limited Data Infrastructure
+
+Since structured local sports data can be limited, inconsistent, or delayed, the platform should still provide useful service under partial information conditions instead of failing closed.
+
+This idea means operational pragmatism: provide best-available qualified information, keep uncertainty visible, and continue updating as better data appears.
+
+===== How These Ideas Shape the Rest of the Document
+
+These ideas inform:
+
+* domain terminology for uncertainty and dependability (Section 2.1.2)
+* domain interpretation and concept formation (Section 2.1 and Section 3.1)
+* requirements on transparency, source attribution, correction traceability, and degraded operation (Section 2.2)
 
 ===== Scope of This Section
 
-This section gives a high-level view of how the team intends to address the needs from Section 1.2.2. It states the main ideas behind the system-to-be, but it does not define detailed behavior, technical mechanisms, or formal requirements.
+This section defines guiding ideas and rationale. It does not define implementation details, architecture, or formal requirements.
 
 
 
