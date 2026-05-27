@@ -55,7 +55,7 @@ include::04-class-topics/04-04-usability-testing.adoc[]
 include::04-class-topics/04-10-error-handling-testing.adoc[]
 
 == 5 Research / Lecture Topic Tasks
-include::Research/research-index.adoc[]
+include::05-research/research-index.adoc[]
 
 == 6 AI Disclosure
 include::ai-disclosure.adoc[]
