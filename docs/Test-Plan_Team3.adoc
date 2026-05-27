@@ -1,0 +1,241 @@
+This is the .adoc version, that will be added to the corresponding branch when the LTT folder is ready:
+
+= Test Plan
+
+== Tu Deporte Aquí: Team 3
+(IEEE 829-1998 Format)
+
+=== 1.TEST PLAN IDENTIFIER
+TP-TDA-TEAM3 [TEST PLAN- Tu Deporte Aqui- TEAM3]
+Version : 1
+
+=== 2.REFERENCES
+INSO4117: Professor lecture notes on testing: Lecure2_TestPlanning and Test Plans
+Tu Deporte Aquí: Documentation - Requirements and Specification
+IEEE Test Plan Outline
+
+=== 3.INTRODUCTION
+This test Plan ensures that the team#3 pages for viewing : games and standings, function correctly and meet the specified requirements.
+
+The team 3 pages will have the four levels of testing covered in class: Unit, Integration, System and Acceptance. The details for each proposed test will be addressed in the approach section.
+
+The tests proposed in this test plan will be developed and executed according to the project needs.
+
+It is important to note that, as the project progresses, additional tests beyond those listed in this plan may be added to cover new functionalities, have more in depth testing or to identify potential issues not anticipated initially.
+
+=== 4.TEST ITEMS
+The following is a list of the features that will be tested:
+
+Games pages
+Standings pages
+Data Retrieval(APIs)
+User Interface
+Games Sorting Logic
+Standings Sorting Logic
+Additional items may be added according to the project and team needs
+=== 5. FEATURES TO BE TESTED
+
+Page loads without errors
+UI games table is visible
+UI standings table is visible
+Tables show the correct columns
+Page shows loading state
+Data is retrieved from Supabase
+The API returns a valid JSON response
+Data is fetched correctly
+Sorting works correctly
+=== 6. FEATURES NOT TO BE TESTED
+User behaviour using the platform
+Administrative tools
+System performance under heavy traffic(at least for team 3 for now, not the entire project)
+Only the functionality of the games and standings pages will be tested.
+
+=== 7. APPROACH(STRATEGY)
+Tests will be conducted by focusing on revising critical features and functionality first for the games and standings pages. They will also be focused on the interaction of the pages with the backend API routes, and the correctness of the sorting logic implemented for displayed data.
+
+UNIT TESTING will be used to verify the correctness of isolated pieces of logic implemented in the system. The testing will be done by the developer responsible for the feature and will be approved by the team leader. Proof of unit testing must be provided by the developer such as: test case list, sample output (by a screenshot).
+
+Examples of components to be tested:
+
+Games sorting logic
+Standings sorting logic
+Mock data may be used to simulate different scenarios and validate the sorting behavior.
+INTEGRATION TESTING will be performed by the developer and will be approved by the team leader.
+
+Examples of components to be tested:
+
+The Api routes:
+
+api/games
+
+api/standings
+
+SYSTEM TESTING this test will be done by the team leader. It will be used to evaluate the behavior of the complete functionality once all components are integrated. This includes verifying that the games and standings pages work correctly from the users perspective.
+
+Additional Testing Techniques:
+The following techniques may also be used during the development:
+
+Use of the debugger
+Testing with mock data when backend data is unavailable
+Manual UI verification to ensure tables render correctly
+If a test results in a fail, it is expected to debug the code and retest the implementation. Test cases will still be recorded since it is needed to learn.
+
+=== 8. ITEM/PASS FAIL CRITERIA
+All core functionality of the systems should function as expected for the test to pass.
+
+A test case will be considered a PASS if the actual result matches the expected result defined in the test case.
+
+A test item will be considered as passed the test process if all the test cases are completed with zero to a minor number of defects.
+
+The end user must be able to see the games and standings pages and tables, without any error.
+
+The page shows the correct information and shows the loading/error messages properly
+
+There must be no critical defects found.
+
+A test case will be considered a FAIL if:
+
+The final result does not match the actual result
+The system produces an error
+The data retrieved from the API is incorrect or incomplete
+The page fails to render the expected tables or sorting behaviour
+If the test fails, it will be documented and debugging will be performed before retesting the functionality.
+=== 9. SUSPENSION CRITERIA
+Testing may be suspended if:
+
+The number of errors(bugs) reaches a point where the follow on testing has no value
+The backend API becomes unavailable
+The Supabase database is inaccessible
+Critical systems or tools required for testing are not working
+Testing will resume once some of the critical bugs are resolved or the required services are available again.
+
+=== 10. TEST DELIVERABLE
+During the testing process the following deliverables will be produced:
+
+Test Plan Document
+Test case List
+Bug report (If there are any)
+Test execution results (Pass/Fail)
+Screenshot/ Images and a mini testing report
+Test data will also be considered as a deliverable, as well as test tools used.
+=== 11. TESTING TASKS
+The following activities must be completed:
+
+Test Plan prepared
+Identify the testing features that require testing
+Define test cases for the games and standings pages
+Perform Unit test(where needed)
+Perform integration testing between frontend pages and API routes
+System testing to verify the complete functionality
+Perform the test
+Prepare test summary report
+Debug and correct any detected errors
+Retest corrected components to confirm proper functionality
+=== 12. ENVIRONMENTAL NEEDS
+
+HARDWARE.
+
+Personal computers used by the team
+SOFTWARE.
+
+GitHub
+
+Web Browser (Chrome, Firefox, Safari, etc)
+
+Development environment (VS code or any other environment used)
+
+Node.js runtime(environment)
+
+Supabase backend database
+
+The Supabase must be populated/seeded with data.
+
+OTHER
+Software tools used to facilitate the debugging and testing process
+Mock data when backend data is unavailable
+
+=== 13.RESPONSIBILITIES
+Testing responsibilities will be distributed among the members of Team#3
+
+[cols="1,1"]
+|===
+|ROLE
+|RESPONSIBILITY
+
+|Developers
+|Perform unit testing for the features they implemented
+
+|Developers
+|Perform Integration testing for API communication
+
+|Developers
+|Use debugging tools when needed
+
+|Developers
+|Implement any other test needed
+
+|Team Leader
+|Review test results and approve them
+
+|Team Leader
+|Perform System Testing of completed pages
+
+|Managers
+|Approve and review developers and team leaders tests and reports
+
+|===
+
+=== 14. SCHEDULE
+Most of the testing will occur during the development phase, since milestone 2 is the most implementation heavy, this milestone from March 3 to April 3 is expected to be the more testing heavy:
+
+[cols="1,1"]
+|===
+|Phase
+|Testing Activity
+
+|Milestone 2
+|
+
+|Development
+|Unit Test, debugging for games and standings sorting logic and validation
+
+|Integration
+|Testing API routes and data retrieval
+
+|System
+|UI and functional testing of standings and games pages
+
+|Final Review
+|Confirmation that all required features operates correctly
+
+|===
+
+=== 15. RISK AND CONTINGENCIES
+The overall potential risks for our project during the testing phase are:
+RIsk:
+API or Backend Unavailability
+Contingency:
+If Supabase services are unavailable, mock data will be used to continue testing.
+
+Risk:
+Incomplete features
+Contingency:
+-Test might be postponed until features are fully implemented or the test may be performed to chunks that already work(if possible)
+
+Risk:
+Unexpected Bugs
+
+Contingency:
+-Additional debugging and retesting will be required
+
+Risk:
+-Time constraints
+
+Contingency:
+The testing will be focused mainly on the core functionality and the established goals for the Team 3 for this second Milestone
+
+=== 16.APPROVALS
+This test plan must be reviewed and approved by:
+-Team 3 Team Leader
+
+Project Managers
