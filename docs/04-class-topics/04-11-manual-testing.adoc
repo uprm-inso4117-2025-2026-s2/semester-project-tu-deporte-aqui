@@ -1,0 +1,86 @@
+=== 4.11 Manual Testing Strategy for Tu Deporte Aquí
+
+===== Purpose
+
+This document describes a concise manual testing approach to validate core user-facing features before automation. It focuses on user interactions and acceptance checks that testers can execute quickly.
+
+===== Scope — Core Features
+
+- Teams list and team page
+- Athlete profile pages
+- Game schedule and game detail pages
+- Standings table and standings details
+- News list and article pages
+- Login / authentication flow
+- Notifications / alerts subscription
+
+===== Test Preparation
+
+- Testers should use the latest dev build or staging environment.
+- Have at least one test dataset with: 2 leagues, 4 teams per league, 1 ongoing game, 2 finished games, and 3 news items.
+- Record tester name, date, environment URL, and device (desktop/mobile).
+
+===== Test Approach
+
+- Exploratory first: navigate each feature and note obvious issues.
+- Follow structured scenarios below; for each step mark Pass / Fail / Blocked and capture a brief screenshot if failing.
+- Use realistic user actions (click, scroll, filter, search, refresh).
+
+===== User Interaction Scenarios
+
+1) Teams
+- Go to Teams page. Verify list loads and team names appear.
+- Click a team. Verify team page shows roster, recent games, and link to standings.
+- Filter by sport (if available) and verify list updates.
+
+2) Athlete profiles
+- From a team page, open an athlete. Verify photo, bio, stats, and links to team.
+- Edit (if authorized) or simulate profile view across devices.
+
+3) Game schedule & detail
+- On schedule, verify games show date/time, teams, and status (scheduled/live/finished).
+- Open a live game: verify score area, last-updated timestamp, and play-by-play (if present).
+- Open a finished game: verify final score, scoring summary, and source attribution.
+
+4) Standings
+- Open standings for a league. Verify team order, wins/losses, and games played.
+- Simulate partial data: confirm UI indicates missing teams or incomplete data.
+
+5) News & articles
+- From News page, open an article. Verify title, author, date, and content render correctly.
+- Click links inside articles; ensure navigation works and no 404s appear.
+
+6) Login & notifications
+- Login with valid/invalid credentials; observe error messages and success flow.
+- Subscribe/unsubscribe to notifications; verify subscription confirmation.
+
+===== Acceptance Criteria & Quick Checks
+
+- Pages load within acceptable time (< 3s on staging network).
+- No visible UI crashes or unhandled errors.
+- Data clearly labeled with timestamps and source attribution where relevant.
+- Missing data shows explicit messages (e.g., "Score unavailable") rather than placeholders.
+- Conflicting data is visibly flagged or attributed, not silently overwritten.
+
+===== Test Checklist (to record results)
+
+- [ ] Teams list: loads and team page details OK
+- [ ] Athlete profiles: display and links OK
+- [ ] Schedule: statuses and timestamps OK
+- [ ] Standings: ordering and completeness OK
+- [ ] News articles: content and links OK
+- [ ] Login flow: success/error messages OK
+- [ ] Notifications: subscribe/unsubscribe OK
+- [ ] Staleness & missing data: messages and indicators OK
+
+===== Reporting
+
+- For each failure capture: steps to reproduce, expected vs actual, screenshot, device/browser, and log URL.
+- Triage failures as: Bug / UX Issue / Data Issue / Blocker.
+- Assign critical regressions to backend or data teams, UI issues to frontend.
+
+===== Next Steps
+
+- Convert high-frequency scenarios into automated tests after manual validation.
+- Maintain the checklist as a short-runbook for release testing.
+
