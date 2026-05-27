@@ -40,7 +40,12 @@ export default function GamesPage() {
   "Gigantes de Carolina" : "/standingsImages/GigantesdeCarolina.png",
   "Criollos de Caguas" : "/standingsImages/CriollosCaguas.jpeg",
   "Indios de Mayagüez" : "/standingsImages/IndiosMayaguez.png",
-  "Senadores de San Juan" : "/standingsImages/SenadoresSanJuan.jpg"
+  "Senadores de San Juan" : "/standingsImages/SenadoresSanJuan.jpg",
+  "Storm United" : "/standingsImages/OrlandoStorm.jpg",
+  "Potawatomi Fire": "/standingsImages/Potawatomi.png",
+  "Kokomo Bobkats": "/standingsImages/Bokats.png",
+  "Peak Falcons": "/standingsImages/Falcons.jpeg",
+  "Iron Wolves B": "/standingsImages/IronBW.png" , 
 
  };
   
@@ -252,7 +257,7 @@ const dataToRender =
           </select>
         </div>
 
-        {/* TABLE */}
+        
         <div className="w-full max-w-4xl bg-neutral-800 rounded-xl p-4">
           <table className="min-w-full text-xl">
             <thead>
@@ -363,6 +368,19 @@ const dataToRender =
                   const homeTeam = game.home_team?.name || "Equipo Local";
                   const awayTeam = game.away_team?.name || "Equipo Visitante";
 
+                  const correctedHomeTeam =
+                    homeTeam === "River Hawks" ? "Memphis Lions" :
+                    
+                     
+                    homeTeam === "Storm United" ? "Potawatomi Fire" :
+                    homeTeam;
+
+                  const correctedAwayTeam =
+                    awayTeam === "Peak Falcons" ? "Kokomo Bobkats" :
+                     homeTeam === "Peak Falcons" && awayTeam === "Iron Wolves"
+                   ? "Iron Wolves B":
+                   awayTeam;
+
                   const statusView = getStatusPresentation(game.status);
 
                   const hasScores =
@@ -400,10 +418,30 @@ const dataToRender =
 
                      
                       <td className="py-2 px-4 border font-medium">
+                        <div className="flex justify-center gap-6 mb-2">
+      <img
+        src={TeamLogos[correctedHomeTeam] || "/standingsImages/default.png"}
+        className="w-20 h-20 object-contain"
+        alt={correctedHomeTeam}
+    />
+
+
+      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-700 text-white text-xs font-bold">
+        VS
+      </div>
+
+    <img
+    src={TeamLogos[correctedAwayTeam] || "/standingsImages/default.png"}
+    className="w-20 h-20 object-contain"
+    alt={correctedAwayTeam}
+  />
+  
+</div>
                         <div>
-                          <span className={`${homeTeamColor} text-xl`}>{homeTeam}</span>
+                          
+                          <span className={`${homeTeamColor} text-xl`}>{correctedHomeTeam}</span>
                           <span className="mx-1 text-neutral-400">vs</span>
-                          <span className={`${awayTeamColor} text-xl`}>{awayTeam}</span>
+                          <span className={`${awayTeamColor} text-xl`}>{correctedAwayTeam}</span>
                         </div>
 
                         
@@ -418,7 +456,7 @@ const dataToRender =
                           {game.home_score ?? "-"}
                         </span>
                         <span className="mx-2 text-neutral-400">-</span>
-                        <span className={`${awayScoreColor}text-xl`}>
+                        <span className={`${awayScoreColor} text-xl`}>
                           {game.away_score ?? "-"}
                         </span>
                       </td>
