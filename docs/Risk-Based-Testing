@@ -1,0 +1,317 @@
+=== Test Policy and Risk-Based Testing Strategy for Tu Deporte Aquí
+:author: Javier Ventosa
+
+==== Introduction
+
+A test policy defines the general goals, value, and direction of testing in a software project. It explains why testing is important, what the team wants to achieve through testing, and how testing supports the quality of the final product.
+
+In the Management of Testing lecture, test policy is described as the organization’s objectives in testing. These objectives may include risk reduction, brand confidence, business value, testing process improvement, and measuring the effectiveness of testing.
+
+For the Tu Deporte Aquí project, a test policy is useful because the platform depends on reliable sports information. Users need to trust that reports, events, scores, standings, and updates are accurate. If these features fail, users may receive incorrect or outdated information.
+
+==== Objective
+
+Explain test policy and risk-based testing, then apply them to Tu Deporte Aquí by identifying high-risk features and prioritizing them for testing.
+
+==== Description
+
+This Lecture Topic Task explains how a test policy guides the testing process and how risk-based testing helps a team decide what to test first.
+
+Since time and resources are limited, not every possible situation can be tested. Risk-based testing helps the team focus on the features that would cause the most serious problems if they failed.
+
+In Tu Deporte Aquí, high-risk features may include:
+
+* Sports report submission
+* Event creation
+* Score updates
+* User permissions
+* Report status changes
+* Event data freshness indicators
+
+==== Lecture Topic Explanation
+
+A test policy is a high-level guide for testing. It describes the purpose of testing and the value that testing brings to the project.
+
+A risk-based testing strategy focuses on prioritizing test cases based on risk. Risk can be understood as a combination of two ideas:
+
+* How likely a defect is to happen.
+* How serious the impact would be if the defect happens.
+
+A feature with a high probability of failure and a high impact should be tested before a feature with low impact.
+
+For example, if the score update feature fails, users may see incorrect game results. This would damage user trust, so score updates should receive high testing priority.
+
+==== Why Risk-Based Testing Matters
+
+Risk-based testing matters because software teams usually have limited time, people, and resources. The team cannot test every possible input, screen, user path, or edge case.
+
+Instead, the team should test the most important and risky features first. This helps the project discover serious defects earlier.
+
+For Tu Deporte Aquí, this is important because the platform handles public sports information. Incorrect reports, scores, events, or permissions can directly affect the usefulness and credibility of the system.
+
+==== Proposed Test Policy for Tu Deporte Aquí
+
+The test policy for Tu Deporte Aquí should focus on the following goals:
+
+* Reduce the risk of incorrect sports information.
+* Protect user trust in reports, scores, standings, and events.
+* Verify that important user actions behave correctly.
+* Prioritize testing for features that affect many users.
+* Prevent unauthorized users from modifying sensitive information.
+* Improve the reliability of event and report data.
+* Support continuous improvement of the testing process.
+
+This policy helps the team make better decisions about where to spend testing effort.
+
+==== Risk-Based Feature Priority Table
+
+[cols="1,1,1,1,2", options="header"]
+|===
+| Feature
+| Probability of Defect
+| Impact if Defect Happens
+| Priority
+| Reason
+
+| Sports report submission
+| Medium
+| High
+| High
+| If reports are not submitted correctly, important sports information may be missing or incorrect.
+
+| Score updates
+| Medium
+| High
+| High
+| Incorrect scores can mislead users and reduce trust in the platform.
+
+| User permissions
+| High
+| High
+| Critical
+| If permissions fail, unauthorized users may create, edit, or delete important information.
+
+| Event creation
+| Medium
+| High
+| High
+| Invalid or incomplete events can confuse users and make the event list unreliable.
+
+| Report status changes
+| Medium
+| Medium
+| Medium
+| Incorrect status changes can affect report tracking and moderation.
+
+| Event freshness indicator
+| Medium
+| Medium
+| Medium
+| If users cannot see when information was last updated, they may rely on outdated data.
+
+| Search and filtering
+| Low
+| Medium
+| Medium
+| Search issues may make information harder to find, but they may not corrupt the data itself.
+
+| UI layout
+| Low
+| Low
+| Low
+| Minor visual issues may affect usability but usually do not break core functionality.
+|===
+
+==== Highest Priority Areas
+
+The highest priority areas for testing should be:
+
+. User permissions
+. Score updates
+. Sports report submission
+. Event creation
+
+These features should be tested first because they have the highest impact on reliability, accuracy, and user trust.
+
+==== Example Test Strategy
+
+The team can organize the testing strategy using the following priorities:
+
+===== Priority 1: Critical Tests
+
+These tests should be performed first because failure would seriously affect the platform.
+
+Examples:
+
+* Verify that only authorized users can update scores.
+* Verify that only authorized users can change report statuses.
+* Verify that invalid users cannot access protected actions.
+* Verify that scores are saved and displayed correctly.
+
+===== Priority 2: High-Value Functional Tests
+
+These tests check important user-facing features.
+
+Examples:
+
+* Verify that users can submit valid reports.
+* Verify that incomplete reports are rejected.
+* Verify that valid events are created successfully.
+* Verify that event details are displayed correctly.
+
+===== Priority 3: Supporting Feature Tests
+
+These tests support usability and convenience.
+
+Examples:
+
+* Verify that users can search for events.
+* Verify that filters return correct results.
+* Verify that the interface displays clear error messages.
+* Verify that last updated indicators are shown when needed.
+
+==== Example Risk-Based Test Cases
+
+===== Test Case 1: Unauthorized Score Update
+
+.Precondition
+----
+A user is logged in without permission to update scores.
+----
+
+.Action
+----
+The user attempts to update the score of an existing game.
+----
+
+.Expected Result
+----
+The system rejects the update and displays an authorization error.
+----
+
+.Risk Addressed
+
+This test protects the platform from unauthorized score changes.
+
+===== Test Case 2: Valid Report Submission
+
+.Precondition
+----
+A logged-in user fills all required report fields.
+----
+
+.Action
+----
+The user submits the sports report.
+----
+
+.Expected Result
+----
+The report is saved, assigned an initial status, and shown in the report system.
+----
+
+.Risk Addressed
+
+This test checks that users can submit valid information successfully.
+
+===== Test Case 3: Invalid Event Creation
+
+.Precondition
+----
+A user attempts to create an event with missing required information.
+----
+
+.Action
+----
+The user submits the incomplete event form.
+----
+
+.Expected Result
+----
+The system rejects the event and shows a clear error message.
+----
+
+.Risk Addressed
+
+This test prevents incomplete or invalid event data from entering the platform.
+
+===== Test Case 4: Event Freshness Display
+
+.Precondition
+----
+An event has been updated recently.
+----
+
+.Action
+----
+A user views the event details.
+----
+
+.Expected Result
+----
+The system displays the updated event information and a last updated indicator.
+----
+
+.Risk Addressed
+
+This test helps users know whether event information is current.
+
+==== Connection to Software Reliability
+
+Test policy and risk-based testing support software reliability because they help the team focus on the most important parts of the system.
+
+A reliable system should behave correctly in the areas that matter most. For Tu Deporte Aquí, reliability means that users can trust the information they see about sports events, reports, scores, and standings.
+
+By testing high-risk features first, the team can reduce the chance of serious defects reaching users.
+
+==== Connection to User Trust
+
+User trust is important for Tu Deporte Aquí. If users see incorrect scores, outdated events, or unauthorized changes, they may stop trusting the platform.
+
+Risk-based testing helps protect user trust by focusing on the features that directly affect information accuracy and platform credibility.
+
+==== Benefits of This Strategy
+
+This strategy provides several benefits:
+
+* Helps the team use limited testing time wisely.
+* Identifies the most important features to test first.
+* Reduces the risk of serious defects.
+* Protects user trust in sports information.
+* Improves the reliability of reports, scores, and events.
+* Gives the team a clear testing direction.
+
+==== Acceptance Criteria
+
+* Explain what a test policy is.
+* Explain why testing goals matter in a software project.
+* Identify at least 4 high-risk Tu Deporte Aquí features.
+* Explain why those features should be tested first.
+* Include a simple risk-based testing priority table.
+* Connect the topic to software reliability and user trust.
+* Add the completed work to the correct documentation folder.
+
+==== Testing Plan
+
+* Review the test policy and test planning lecture material.
+* Identify important Tu Deporte Aquí features.
+* Classify each feature by risk level.
+* Explain the possible impact if each feature fails.
+* Prioritize the features from highest risk to lowest risk.
+* Verify that the final recommendations are realistic for the project.
+* Confirm that the documentation is clear, organized, and placed in the correct folder.
+
+==== Conclusion
+
+Test policy and risk-based testing help a software team decide what testing should accomplish and which features should be tested first.
+
+For Tu Deporte Aquí, this strategy is useful because the platform depends on accurate and trustworthy sports information. By focusing on high-risk features such as user permissions, score updates, sports report submission, and event creation, the team can improve reliability and reduce the chance of serious defects.
+
+This Lecture Topic Task shows how testing can be planned in a smarter way by focusing first on the features that matter most to users.
+
+==== References
+
+* Management of Testing lecture material
+* Test Planning lecture material
+* INSO 4117 Software Reliability Testing lecture materials
+* Tu Deporte Aquí project documentation
