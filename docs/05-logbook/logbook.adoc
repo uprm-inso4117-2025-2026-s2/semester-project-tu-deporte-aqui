@@ -19,4 +19,5 @@ This logbook records relevant activities, decisions, updates, and progress throu
 | Gerald Rodríguez | Lecture Topic Task – Risk-Oriented Test Prioritization for Live Sports Information Systems | Added
 | Daniel Colón | 4.9 | Added
 | Alberto Rodríguez | 3.1, 3.2.1, 3.2.2 | Modified
+| Ian Ramos | 2.1.3 Domain Terminology in Relation to Domain Rough Sketch | Modified
 | Ian Ramos | 1.2.3 Ideas | Modified
