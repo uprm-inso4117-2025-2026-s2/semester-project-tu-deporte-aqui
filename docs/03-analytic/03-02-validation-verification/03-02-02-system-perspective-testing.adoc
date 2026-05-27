@@ -3,78 +3,139 @@
 
 ===== Purpose
 
-This section describes testing strategies that will be applied during
-future development stages of the Tu Deporte Aquí platform. This section outlines
-testing approaches that will evaluate the behavior of the 
-system once implementation begins.
+This section describes the testing perspectives currently used to evaluate
+Tu Deporte Aquí and to identify areas that require additional stabilization.
 
-These testing strategies focus on ensuring that the platform remains
-reliable, responsive, and easy to use for sports fans accessing
-information such as teams, athletes, standings, game schedules, and
-sports news.
+Rather than defining future testing plans, this section explains how testing perspectives are currently used
+to assess responsiveness, usability, and system
+behavior under representative usage conditions.
 
-===== Testing Approach
+These perspectives complement validation and verification activities by
+focusing on observable interaction with the platform.
 
-Testing for Tu Deporte Aquí focuses on evaluating both the technical
-performance of the system and the usability of the user interface.
-These testing perspectives help ensure that users can access sports
-information quickly and interact with the platform without difficulty.
+===== Testing Perspectives
 
-====== Performance Testing
+Testing activities were organized around two complementary perspectives:
 
-Performance testing evaluates how the system behaves when multiple
-users access the platform simultaneously.
+* system performance under expected user activity
+* usability of information access and interaction
 
-The goal of this testing approach is to verify that the system remains
-responsive when users request sports information such as team standings,
-athlete statistics, or upcoming game schedules.
+These perspectives were selected because Tu Deporte Aquí depends heavily on
+rapid interpretation of changing sports information.
 
-Performance testing helps determine whether the system:
+===== Performance Perspective
 
-* Maintains acceptable response times when multiple users access the system
-* Handles concurrent requests for sports data without delays
-* Avoids server overload during moderate traffic conditions
-* Provides stable access to sports information pages
+Performance evaluation focuses on whether users can access information without
+unnecessary delay under normal usage conditions.
 
-Representative scenarios include:
+The objective is not to establish formal benchmark values but to identify
+conditions that negatively affect responsiveness and user experience.
 
-* Multiple users checking standings at the same time
-* Several users accessing team or athlete pages simultaneously
-* Users viewing game schedules during sports events
+Observed evaluation concerns included:
 
-====== Usability Testing
+* loading behavior across sports pages
+* repeated navigation between standings and teams
+* responsiveness during multiple simultaneous requests
+* rendering behavior when information updates occur
 
-Usability testing evaluates how easily users can navigate and interact
-with the platform.
+Representative evaluation situations included:
 
-Since the primary users of Tu Deporte Aquí are sports fans looking for
-quick access to match results, standings, and athlete information, the
-system interface must allow users to find information efficiently and
-without confusion.
+[cols="2,3"]
+|===
+|Scenario |Observed Focus
 
-Usability testing focuses on verifying whether the platform:
+|Users opening standings repeatedly
+|Page responsiveness and loading behavior
 
-* Allows users to locate sports information quickly
-* Presents data in a clear and understandable format
-* Provides intuitive navigation between sections of the platform
-* Supports efficient user interaction without unnecessary complexity
+|Multiple users accessing athlete pages
+|Concurrent request handling
 
-Typical usability scenarios include:
+|Navigation between teams and schedules
+|Route transition performance
 
-* Finding the standings for a specific team
-* Viewing the schedule of upcoming games
-* Accessing athlete statistics
-* Navigating between teams, standings, and news sections
+|Opening pages with incomplete data
+|Graceful degradation and recovery
+|===
 
-====== Expected Outcomes
+These evaluations helped identify situations that could reduce usability or
+system reliability.
 
-By applying performance and usability testing during later development
-phases, the project aims to ensure that the Tu Deporte Aquí platform
-provides reliable and user-friendly access to sports information.
+===== Usability Perspective
 
-These testing approaches help establish:
+Usability evaluation focuses on whether users can locate and interpret sports
+information efficiently.
 
-* Responsive system behavior under normal user activity
-* Clear and intuitive navigation for sports fans
-* Consistent access to teams, athletes, schedules, and standings
-* A positive overall user experience
+The evaluation emphasizes practical interaction rather than interface
+appearance alone.
+
+Observed usability concerns included:
+
+* discoverability of information
+* clarity of page organization
+* navigation consistency
+* interpretation of incomplete information
+
+Representative evaluation situations included:
+
+[cols="2,3"]
+|===
+|Scenario |Observed Focus
+
+|Finding standings for a selected team
+|Navigation clarity
+
+|Viewing upcoming schedules
+|Information accessibility
+
+|Accessing athlete information
+|Content organization
+
+|Moving across teams, standings, and news
+|Interaction consistency
+|===
+
+Special attention was given to minimizing interpretation effort during
+time-sensitive sports situations.
+
+===== Relationship to Reliability Goals
+
+System testing perspectives support the broader goals of the project.
+
+Performance contributes to:
+
+* timely access to information
+* reduction of interaction delays
+* dependable platform behavior
+
+Usability contributes to:
+
+* transparency
+* lower interpretation effort
+* improved user trust
+
+These perspectives reinforce the project objective of helping users understand
+sports information rather than simply displaying data.
+
+===== Current Limitations
+
+Testing activities remain exploratory and reflect the current state of project
+development.
+
+Current limitations include:
+
+* incomplete feature implementation
+* limited measurement-based performance evaluation
+* partial coverage of user interaction scenarios
+* evolving interface behavior
+
+These limitations define the current confidence boundary rather than indicate
+failure.
+
+===== Summary
+
+System testing perspectives provide a structured way to evaluate how users
+interact with Tu Deporte Aquí and how reliably information can be accessed and
+interpreted.
+
+The goal of these evaluations is to support iterative improvement rather than
+to claim complete verification of the final system.

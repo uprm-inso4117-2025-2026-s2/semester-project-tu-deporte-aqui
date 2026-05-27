@@ -1,64 +1,158 @@
 
-==== 3.2.1 Validation and Verification
+=== 3.2.1 Validation and Verification
 
 ===== Purpose
 
-This section defines how the concepts, assumptions, and reliability strategies proposed for Tu Deporte Aquí will be evaluated during Milestone 1. Since this milestone focuses on documentation rather than implementation, validation emphasizes conceptual correctness, clarity, and alignment with project goals rather than executable testing.
+This section evaluates whether the concepts, assumptions, and requirements
+proposed for Tu Deporte Aquí remain coherent with the observed domain and with
+the current state of project development.
 
-Validation ensures that the proposed system behavior addresses real-world conditions of local Puerto Rico sports data, including delayed updates, conflicting sources, and limited official APIs. Verification confirms that documentation artifacts are internally consistent and correctly structured.
+Validation focuses on determining whether the documented concepts address the
+actual problems identified in local Puerto Rico sports information practices.
 
-===== Validation Approach
+Verification focuses on confirming that documentation artifacts,
+requirements, and documented system descriptions remain internally consistent
+and structurally correct.
 
-Validation during Milestone 1 focuses on confirming that the proposed concepts meet stakeholder expectations and realistic operating conditions.
+Since the project has progressed beyond purely conceptual definition,
+validation and verification activities are limited to implemented and currently
+documented functionality rather than future development intentions.
 
-====== Concept Validation
+===== Validation Activities
 
-The reliability and transparency strategies are evaluated by analyzing whether they:
+Validation examines whether the concepts introduced throughout the project
+remain useful and meaningful under representative domain situations.
 
-* Address delayed, missing, and conflicting information scenarios
-* Reflect informal data environments common in Puerto Rico sports
-* Provide predictable and understandable system behavior
-* Align with user expectations for trust and clarity
+====== Validation of Domain Assumptions
 
-====== Scenario-Based Evaluation
+The project assumptions were reviewed against observations documented in the
+Current Situation and Narrative sections.
 
-Concepts are examined using representative scenarios such as:
+Validation focused on determining whether:
 
-* Conflicting scores reported by multiple sources
-* Missing updates during live events
-* Delayed standings publication
-* Partial data availability from unreliable sources
+* fragmented information environments remain represented
+* delayed publication scenarios are addressed
+* conflicting reports remain visible instead of hidden
+* source context supports interpretation
+* transparency contributes to user understanding
 
-These scenarios help determine whether the proposed behaviors remain consistent and reasonable.
+This review confirmed that the proposed conceptual model remains aligned with
+the conditions observed during domain exploration.
 
-===== Verification Approach
+====== Scenario-Based Validation
 
-Verification ensures the documentation itself is correct, complete, and internally consistent.
+Representative scenarios were used to evaluate conceptual behavior.
 
-====== Documentation Consistency
+Examples include:
 
-Verification activities include:
+[cols="2,3"]
+|===
+|Scenario |Validation Focus
 
-* Cross-checking terminology across sections
-* Ensuring alignment between needs, ideas, and concepts
-* Confirming traceability between sections of the A3 expansion
-* Reviewing structural correctness of AsciiDoc hierarchy
+|Conflicting scores reported simultaneously
+|Determine whether concepts support interpretation under disagreement
+
+|Standings updated significantly later than game reports
+|Evaluate freshness and reliability communication
+
+|Missing updates during active matches
+|Evaluate handling of incomplete information
+
+|Corrections published after earlier reports
+|Evaluate traceability and visibility of changes
+|===
+
+The scenarios were reviewed qualitatively to determine whether the documented
+concepts produced understandable and predictable outcomes.
+
+====== Requirements Alignment
+
+Validation also reviewed consistency between:
+
+* Current Situation
+* Needs
+* Ideas
+* Goals
+* Domain Concepts
+* Requirements
+
+This activity helped verify that later sections remained traceable to earlier
+observations rather than introducing unsupported assumptions.
+
+===== Verification Activities
+
+Verification focuses on confirming internal correctness of project artifacts.
+
+====== Documentation Verification
+
+Documentation verification included:
+
+* reviewing terminology consistency across sections
+* confirming concept usage remained stable
+* checking references between related sections
+* identifying duplicated or conflicting definitions
+* confirming alignment between concept analysis and requirements
+
+Special attention was given to preventing conceptual drift between descriptive
+and analytic sections.
 
 ====== Structural Verification
 
-The documentation structure is verified by:
+Structural verification included:
 
-* Confirming correct section and subsection levels
-* Ensuring files are placed in the correct repository folders
-* Validating successful compilation through the AsciiDoc workflow
+* confirming correct AsciiDoc heading hierarchy
+* validating successful documentation compilation
+* reviewing document navigation and organization
+* checking repository structure consistency
+* verifying integration of documentation files
 
-====== Expected Outcomes
+These activities ensured the documentation remained maintainable and usable.
 
-By completing validation and verification activities during Milestone 1, the project establishes:
+====== Traceability Verification
 
-* Confidence in conceptual correctness
-* Clear alignment with stakeholder needs
-* Reliable documentation foundation for implementation phases
-* Reduced risk of misunderstanding before development begins
+Traceability was reviewed by confirming relationships between:
 
-This approach supports a documentation-first engineering methodology and prepares the project for future technical validation stages.
+[cols="1,2"]
+|===
+|Artifact |Verified Against
+
+|Needs
+|Ideas and Goals
+
+|Concept Analysis
+|Domain Description
+
+|Requirements
+|Concept Definitions
+
+|Implementation Fragments
+|Requirements
+|===
+
+This review reduced inconsistencies between sections and improved document
+coherence.
+
+===== Observed Limitations
+
+Validation and verification activities remain constrained by the current level
+of implementation.
+
+Current limitations include:
+
+* incomplete feature coverage
+* limited execution-based verification
+* partial implementation of reliability mechanisms
+* evolving requirements and interface behavior
+
+These limitations do not invalidate the conceptual work but define the current
+boundary of confidence.
+
+===== Summary
+
+Validation and verification activities support confidence that Tu Deporte Aquí
+currently maintains conceptual consistency, traceability, and alignment with
+observed domain conditions.
+
+The purpose of these activities is not to prove final system correctness but
+to reduce misunderstanding and improve reliability of future development and
+testing efforts.

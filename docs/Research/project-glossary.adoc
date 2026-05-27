@@ -59,3 +59,30 @@ All teams must use these terms consistently across:
 * User-facing messaging
 
 Terminology must align with the project’s reliability-first philosophy and support transparency in data quality.
+
+== Reliability Terms for BDD Scenarios
+
+[cols="1,3,3",options="header"]
+|===
+| Canonical term | Meaning | Example usage in a scenario
+
+| stale
+| Data is older than the freshness threshold and may no longer match the current event state.
+| `Then Sebastian should see a "Stale" badge next to the score`
+
+| provisional
+| Data is shown for now while waiting for confirmation from a higher-authority source.
+| `Then the score is considered provisional`
+
+| conflicting reports
+| Two or more sources provide different values for the same field or event.
+| `Then conflicting reports exist between the newspaper and the league`
+
+| partial data
+| Only part of the expected data is available because one or more sources are unavailable or incomplete.
+| `And the system should set a "partial data" flag for affected entities`
+
+| source down
+| A source is currently unavailable and cannot provide fresh data.
+| `Given the primary data source for live games is source down`
+|===

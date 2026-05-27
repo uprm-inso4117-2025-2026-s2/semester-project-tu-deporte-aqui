@@ -12,7 +12,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And the system has a timeout for each source fetch
 
   # Req: R-MAC-9, R-MAC-7
-  Scenario: Continue operating when a source fails
+  Scenario: Continue operating when a source is down
     Given source "BSN API" returns a 500 Internal Server Error
     When the system processes requests for data
     Then the system should not crash
@@ -22,8 +22,8 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And the system should return HTTP 200 to the user with available data
 
   # Req: R-MAC-9, R-DOM-7
-  Scenario: Fall back to cached data during source unavailability
-    Given source "Twitter API" has been unavailable for "2 minutes"
+  Scenario: Fall back to cached data during source down
+    Given source "Twitter API" has been marked source down for "2 minutes"
     And the last successful fetch from "Twitter API" returned valid data
     When a request requires data from source "Twitter API"
     Then the system should return the last successfully fetched value
@@ -32,12 +32,12 @@ Feature: Machine-Level - Resilience, Logging, and Performance
     And the system should mark the data appropriately based on staleness
 
   # Req: R-DOM-11, R-MAC-7
-  Scenario: Log conflicts for debugging and analysis
-    Given a conflict is detected between source "BSN API" and source "Twitter API"
-    And the conflict involves entity "GAME-123"
+  Scenario: Log conflicting reports for debugging and analysis
+    Given conflicting reports are detected between source "BSN API" and source "Twitter API"
+    And the conflicting reports involve entity "GAME-123"
     And source "BSN API" reports "75-70"
     And source "Twitter API" reports "76-70"
-    When the system records the conflict
+    When the system records the conflicting reports
     Then the system should create a log entry
     And the log entry should contain the entity ID
     And the log entry should contain both reported values
@@ -59,7 +59,7 @@ Feature: Machine-Level - Resilience, Logging, and Performance
 
   # Req: R-DOM-8, R-INT-8
   Scenario: Resume normal operation after source recovery
-    Given source "News Feed" was marked "down" for "10 minutes"
+    Given source "News Feed" was marked "source down" for "10 minutes"
     And source "News Feed" becomes responsive again
     And the system successfully fetches data from it
     When the system updates source health status

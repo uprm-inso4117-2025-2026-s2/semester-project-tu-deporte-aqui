@@ -3,59 +3,80 @@
 
 ===== Purpose
 
-This section explains how the terminology from Section 2.1.2 is used after the rough sketch in Section 2.1.1. The rough sketch names the main concerns of the domain in broad terms. The terminology section then gives fixed terms for those concerns so the rest of the document can describe them more precisely and consistently.
+This section maps the observations in Section 2.1.1 to the standardized terms defined in Section 2.1.2. The goal is to keep one consistent vocabulary for domain description, requirements, and later analysis.
 
-===== From Broad Concerns to Fixed Terms
+===== Mapping Method
 
-The rough sketch uses plain-language descriptions such as conflicting reports, delayed updates, degraded states, and trust. Section 2.1.2 introduces fixed terms for those conditions so later sections do not have to redefine them each time.
+Section 2.1.1 records raw situations in plain language. Section 2.1.2 defines precise terms for those same situations. This section connects both, so each rough-sketch concern is linked to specific terminology and no additional terms are introduced here.
 
-In that sense, Section 2.1.2 does not replace the rough sketch. It provides a controlled vocabulary for discussing the same domain concerns in a more exact way.
+===== Rough-Sketch Concern to Terminology Mapping
 
-===== Terminology Used for Information Status
+The mapping below shows how the broad concerns from Section 2.1.1 are expressed with the fixed terms from Section 2.1.2.
 
-When the document discusses the status of sports information, it uses the verification terms from Section 2.1.2:
+====== Concern A: Information arrives as scattered reports, not one clean feed
 
-- *Confirmed*
-- *Unverified*
-- *Developing*
-- *Conflicting*
-- *Delayed*
-- *Corrected*
+The rough sketch describes posts, screenshots, and updates coming from different origins and formats. In terminology, this is represented by:
 
-These terms are used to describe how information stands at a given moment, especially when reports differ, arrive late, or change over time.
+* *Source*
+* *Source Report*
+* *Sporting Event*
+* *Event Record*
+* *Source Attribution*
+* *Reliability Metadata*
 
-===== Terminology Used for Degree of Confidence
+This mapping keeps a clear distinction between what is reported (*Source Report*) and what the system currently maintains (*Event Record*).
 
-When the document needs to distinguish stronger from weaker support for a reported value, it uses the confidence terms from Section 2.1.2:
+====== Concern B: Missing, stale, or late information must not look confirmed
 
-- *High Confidence*
-- *Medium Confidence*
-- *Low Confidence*
+The rough sketch notes that users often cannot tell if data is missing, outdated, or pending confirmation. In terminology, this is represented by:
 
-These terms do not replace verification status. They are used alongside it when the documentation needs to express how strongly available reports support a value.
+* *Verification State* (*Unverified*, *Confirmed*, *Final*)
+* *Provisional*
+* *Unknown*
+* *Publish Time*
+* *Ingest Time*
+* *Last Updated Time*
+* *Staleness*
 
-===== Terminology Used for Source and Freshness Context
+This mapping ensures missing or old values are described explicitly instead of being presented with misleading certainty.
 
-When the document needs to state where information came from or how recent it is, it uses:
+====== Concern C: Two or more reports can disagree
 
-- *Publish Time*
-- *Last Updated Time*
-- *Source Type*
-- *Reliability Metadata*
+The rough sketch includes cases where the same event is shown differently across sources. In terminology, this is represented by:
 
-These terms are used whenever the documentation refers to source attribution, freshness, or the contextual data attached to a report.
+* *Conflict*
+* *Correction*
+* *Verification State*
+* *Confidence Level* (*High Confidence*, *Medium Confidence*, *Low Confidence*)
+* *Silent Overwrite*
 
-===== Terminology Used for System Conditions
+This mapping supports documenting disagreement, later correction, and traceable changes instead of silently replacing values.
 
-When the document discusses conditions affecting the platform as a whole rather than a single report, it uses:
+====== Concern D: Dependability should be visible to users
 
-- *Degraded State*
-- *Graceful Degradation*
-- *Silent Failure*
+The rough sketch emphasizes user trust and the need to interpret uncertain information quickly. In terminology, this is represented by:
 
-These terms are used to describe what happens when the platform cannot operate under normal conditions.
+* *Dependability Indicator*
+* *Source Trust Level*
+* *Confidence Level*
+* *Source Attribution*
 
-===== Relation to the Rough Sketch
+This mapping formalizes how the system communicates certainty, uncertainty, and origin to users.
 
-The rough sketch remains the broad description of the domain. The terminology section remains the source of truth for the defined terms used afterward. This section only states that relationship. It does not introduce new concepts beyond those already defined in Section 2.1.2.
+====== Concern E: The system may continue operating under partial failure
+
+The rough sketch includes delayed updates, incomplete coverage, and inconsistent availability. In terminology, this is represented by:
+
+* *Degraded State*
+* *Graceful Degradation*
+
+This mapping states that the platform should continue providing qualified partial information instead of failing silently.
+
+===== Consistency Rules for Later Sections
+
+To keep terminology consistent across the document:
+
+* Later sections should use the terms from Section 2.1.2 exactly as defined.
+* Plain-language wording from Section 2.1.1 may be used for examples, but normative discussion should use standardized terms.
+* If a new domain term is needed in future milestones, it must first be defined in Section 2.1.2 before being used elsewhere.
 
