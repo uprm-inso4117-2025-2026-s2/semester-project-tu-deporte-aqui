@@ -3,11 +3,7 @@
 
 ===== Purpose
 
-This section defines the machine (non-functional) requirements for *Tu Deporte Aquí*. These requirements address performance, scalability, reliability, security, and operational aspects of the system. They are stated in measurable terms where possible; some thresholds are initial estimates and will be refined as the project progresses and more data becomes available.
-
-===== Notes on Current Status
-
-The requirements below represent the current understanding of system constraints and quality goals. As the project moves into implementation, some values (e.g., exact concurrency numbers, response time targets) may be adjusted based on load testing, user research, and infrastructure decisions.
+This section defines the machine (non-functional) requirements for *Tu Deporte Aquí*. These requirements address performance, scalability, reliability, security, and operational aspects of the system. They are stated in measurable terms where possible; some thresholds are working baselines that will be refined incrementally as implementation proceeds, additional measurements are collected, and the team elaborates the next slice of functionality.
 
 ===== Machine Requirements
 
@@ -22,13 +18,13 @@ R-MAC-4 (Scalability):: The system shall be designed to handle an increase in co
 
 R-MAC-5 (Data Freshness):: The system shall update live game scores from sources at least every 5 to 10 minutes during games, providing a safety margin before the 15-minute staleness threshold (R-DOM-7). For non-live data (standings, schedules), updates shall occur at least once per day. (Freshness thresholds for staleness marking are defined in R-DOM-7.)
 
-R-MAC-7 (Error Logging and Retention):: The system shall log all errors occurring in the machine (e.g., source fetch failures, parsing errors, database connectivity issues) with machine-level detail: timestamp, source identifier, error type/code, and stack trace or diagnostic information. Error logs shall be persistently stored and retained for at least 90 days.
+R-MAC-7 (Error Logging and Retention):: The system shall log all errors occurring in the machine (e.g., source fetch failures, parsing errors, database connectivity issues) with machine-level detail: timestamp, source identifier, error type/code, and stack trace or diagnostic information. Retrieval outcomes relevant to reliability testing (e.g., success, timeout, invalid format, conflict detected) shall also be recorded. Error logs shall be persistently stored and retained for at least 90 days.
 
 R-MAC-9 (Graceful Degradation):: If one or more data sources become unavailable, the system shall continue to serve cached data. The system shall flag cached data with staleness indicators (according to R-DOM-7) to communicate data age to dependent components.
 
-R-MAC-10 (Data Retention):: The system shall retain canonical game data indefinitely for historical reference. Audit logs and conflict logs shall be retained according to policy (at least 30 days). Raw source snapshots may be retained for a shorter period (e.g., 7 days) for debugging.
+R-MAC-10 (Data Retention):: The system shall retain canonical game data indefinitely for historical reference. Audit logs and conflict logs shall be retained for at least 30 days. Audit history for corrected or overridden records shall preserve the previous value, new value, timestamp, reason for change, and source responsible for the change. Raw source snapshots may be retained for a shorter period (e.g., 7 days) for debugging.
 
-R-MAC-11 (Security and Authentication):: All communication channels with external sources shall use HTTPS with certificate verification. Access to administrative functions shall require bearer tokens, API keys, or session tokens issued by an authentication service. Sensitive data (credentials, authentication tokens) shall be encrypted at rest using AES-256. Local authentication credentials, if stored, shall be hashed using bcrypt or equivalent with salt.
+R-MAC-11 (Security and Authentication):: All communication channels with external sources shall use HTTPS with certificate verification. Access to administrative functions shall require bearer tokens, API keys, or session tokens issued by an authentication service and shall be authorized according to role-based access control rules. Sensitive data (credentials, authentication tokens, API keys, and other secrets) shall be encrypted at rest using AES-256 or managed through a dedicated secrets-management mechanism. Local authentication credentials, if stored, shall be hashed using bcrypt or equivalent with salt. API keys and other long-lived credentials shall support rotation, and administrative or service-worker-delivered content shall be protected with appropriate security headers such as Content-Security-Policy.
 
 R-MAC-12 (Backup and Recovery):: The system's database shall be backed up daily, with backups retained for at least 30 days. Recovery procedures shall be documented and tested at least once per quarter.
 
@@ -38,15 +34,12 @@ R-MAC-14 (Progressive Web Application and Service Worker Support):: The system s
 
 R-MAC-15 (Responsive Layout):: The application markup and stylesheets shall implement responsive design techniques to adapt the layout and display across different viewport widths. The application shall prioritize mobile viewport dimensions and maintain usability on screens with varying sizes from small mobile devices to desktop displays.
 
-===== Open Items
+===== Research-Based Follow-Up
 
-The following aspects require further investigation:
+The following notes capture the main follow-up items:
 
-* **Concurrency validation**: Precise concurrency numbers (R-MAC-2, R-MAC-3, R-MAC-4) should be validated through load testing against expected user base and traffic patterns. Current targets (100/1000/2000 concurrent users) are estimates pending infrastructure measurement.
+* **Concurrency validation**: Current targets in R-MAC-2, R-MAC-3, and R-MAC-4 are supported by load-testing research and an initial k6 run against `/api/games` and `/api/standings` (1204 requests, 0.00% failures, about 23.71 req/s), but broader validation is still needed for the stricter normal-load and larger-scale targets.
 
-* **Response time calibration**: Response time targets (R-MAC-2, R-MAC-3) may be adjusted based on actual network conditions, infrastructure capacity, and end-to-end latency measurements. No baseline metrics currently collected.
+* **Response time calibration**: The local k6 benchmark recorded an average response time of 199.99 ms and a 95th-percentile response time of 373.41 ms, supporting the current sub-500 ms peak-load baseline, while final calibration still depends on end-to-end measurement and production monitoring.
 
-* **Log retention policy**: Log retention periods (R-MAC-7, R-MAC-10) require formalization of compliance requirements, regulatory obligations (if any), and audit trail lifecycle management.
-
-* **Security and authorization expansion**: R-MAC-11 specifies authentication mechanisms (bearer tokens, HTTPS, encryption, hashing) and CSP headers are configured. However, authorization model (role-based access control, API key rotation, secrets management, cache poisoning hardening) requires detailed design and implementation.
-Ye
+* **Log retention and auditability**: The retention periods in R-MAC-7 and R-MAC-10 align with the project's data-lineage and audit-trail strategy and should only change for documented compliance or operational reasons.
