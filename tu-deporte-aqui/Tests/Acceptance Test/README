@@ -1,0 +1,27 @@
+# Acceptance tests
+
+Tool used: Vitest
+
+For the status_label functionality, acceptance tests were created based on the "Tu Deporte Aqui" user stories and requirements documentation.
+
+## Running the test:
+
+1) Make sure to install dependencies:
+a)Install Vitest  using the following command:
+
+ npm install -D vitest
+
+ 2) To run the tests:
+Run the following command:
+npx vitest --watch
+
+or run the tests once: 
+npx vitest
+
+## Run only acceptance test:
+Note: By default both property-based tests and acceptance tests will run. 
+
+To run only the acceptance tests, use the following command:
+npx vitest run "Tests/Acceptance Test/AcceptanceTest.test.ts"
+
+

@@ -1,0 +1,110 @@
+= Load Testing Report: API Endpoints (/api/games and /api/standings)
+
+== Testing Purpose 
+'Tu Deporte Aqui" implements load testing using k6 to evaluate the behavior of the APIs under simulated concurrent traffic.
+The goal is to verify the performance of key API endpoints, the stability under increasing load and compliance with latency and error thresholds.
+
+
+== System under test
+The following backend endpoints were tested in a local environment:
+
+- /api/games
+- /api/standings
+
+== Expected Load and Real Usage Scenarios
+=== 1. Typical user behavior:
+In a real word scenario is expected that these endpoints would be frequently accessed by users who:
+
+- Check upcoming or live games
+- Review match results
+- Inspect league standings after game updates 
+- Navigate between standings and live game pages
+
+
+=== 2. Expected traffic
+The expected load is based on small to medium scale sports application/website:
+
+- 20 concurrent users during normal Usage
+- Up to 50 concurrent users during peak activity such as match days
+- Repeated requests due to page refreshes and navigation
+
+== Load Testing setup
+=== Tool used: 
+k6
+
+=== Load strategy
+
+[source,typescript]
+----
+stages: [
+        { duration: '10s', target: 20 },
+        { duration: '30s', target: 50 },
+        { duration: '10s', target: 0 },
+    ],
+----
+
+Stages explanation:
+a) 20 users: Simulates gradual increase in traffic as users begin accessing to the platform
+b) 50 users : Simulates maximum expected concurrent usage during high ativity periods
+c) 0 users: Simulates traffic decrease and system recovery behavior.
+
+=== Performance thresholds:
+[source,typescript]
+----
+thresholds: {
+        http_req_duration: ['p(95)<500'],
+        http_req_failed: ['rate<0.1'],
+    },
+----
+
+Explanation:
+
+- 95% of requests must complete in under 500 ms.  
+- Less than 10% requests failure rate is acceptable
+
+
+== Test Execution
+Each virtual user performs the following sequence:
+1. Sends a request to /api/games
+- verifies HTTP status 200
+- Ensures the response contains data
+
+2. Waits 1 Second
+3. Sends a request to /api/standings
+- verifies HTTP status 200 
+- Ensures the response contains data
+
+4. Waits 1 second before repeating 
+
+== Execution environment
+- Local development environment
+- Server running at : http://localhost:3000
+
+== Test Results:
+During the execution, the following results were observed:
+
+- Total HTTP requests : 1204
+- Throughput: ~ 23.71 requests/second
+- Request failure rate: 0%
+- 95th percentile response time (p95) : 373.41ms
+- All validation checks passed successfully
+
+== Results interpretation:
+The system demonstrated stable and consistent performance under simulated load conditions.
+
+=== Performance:
+
+- The p95 response time (373.41 ms) is below the defined threshold (500 ms)
+This indicates consistent response times even under peak load
+
+=== Reliability:
+
+- 0% request failure rate shows that both endpoints are highly stable
+- All HTTP checks (status 200 and valid responses) passed successfully
+
+-The API handles up to 50 concurrent users without noticeable degradation
+- Throughput remains stable at approximately 23 requests per Second
+
+
+== Conclusion
+The API meets the defined performance and Reliability requirements. 

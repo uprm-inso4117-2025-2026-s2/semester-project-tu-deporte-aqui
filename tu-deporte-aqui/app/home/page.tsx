@@ -197,7 +197,7 @@ function HeroSection() {
         <div className="flex-1">
           <h2 className="text-xl font-bold mb-4">Your Go-To Sports Hub for Puerto Rico</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
-            Experience all your favorite sports in one place. From basketball to baseball, volleyball to boxing — we bring you live scores, standings, and the latest news from Puerto Rico's sports scene.
+            Experience all your favorite sports in one place. From basketball to baseball, volleyball to boxing — we bring you live scores, standings, and the latest news from Puerto Rico&apos;s sports scene.
           </p>
         </div>
       </div>
@@ -400,7 +400,7 @@ function StandingsSection() {
             <Trophy size={36} className="text-yellow-500" />
             <h2 className="text-4xl font-black text-gray-900">Team Standings</h2>
           </div>
-          <p className="text-gray-500">Track your favorite teams' performance across different leagues</p>
+          <p className="text-gray-500">Track your favorite teams&apos; performance across different leagues</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
@@ -561,6 +561,7 @@ function NewsSection() {
                     {item.featured && (
                       <span className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">FEATURED</span>
                     )}
+
                     {item.live && (
                       <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">LIVE</span>
                     )}

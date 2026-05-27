@@ -4,7 +4,32 @@ import {
   mapGameStatus,
   isScoreComplete,
   isStaleTimestamp,
+  isValidGameTransition,
+  isValidGameData,
 } from "./scoreUtils";
+
+const VALID_GAME_STATUSES = ["FT", "FINAL", "LIVE", "IN_PROGRESS", "SCHED", "SCHEDULED"];
+const INVALID_GAME_STATUSES = ["PAUSED", "UNKNOWN", "POSTPONED", "", null, undefined];
+const TEAM_NAMES = ["Capitanes", "Mets", "Piratas", "Leones", "Indios", "Criollos"];
+
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomTeamName() {
+  return TEAM_NAMES[randomInt(0, TEAM_NAMES.length - 1)];
+}
+
+function randomValidGame() {
+  return {
+    homeTeam: randomTeamName(),
+    awayTeam: `${randomTeamName()} FC`,
+    homeScore: randomInt(0, 120),
+    awayScore: randomInt(0, 120),
+    status: VALID_GAME_STATUSES[randomInt(0, VALID_GAME_STATUSES.length - 1)],
+    lastUpdated: new Date(Date.now() - randomInt(0, 1000 * 60 * 60)).toISOString(),
+  };
+}
 
 describe("scoreUtils", () => {
   describe("formatScore", () => {
@@ -65,6 +90,50 @@ describe("scoreUtils", () => {
     });
   });
 
+  describe("randomized score validation", () => {
+    it("accepts valid random game payloads", () => {
+      for (let i = 0; i < 50; i += 1) {
+        expect(isValidGameData(randomValidGame())).toBe(true);
+      }
+    });
+
+    it("rejects invalid score values", () => {
+      const invalidScoreGame = {
+        ...randomValidGame(),
+        homeScore: -1,
+      };
+
+      expect(isValidGameData(invalidScoreGame)).toBe(false);
+    });
+
+    it("rejects invalid raw status values", () => {
+      const invalidStatusGame = {
+        ...randomValidGame(),
+        status: INVALID_GAME_STATUSES[randomInt(0, INVALID_GAME_STATUSES.length - 1)],
+      };
+
+      expect(isValidGameData(invalidStatusGame)).toBe(false);
+    });
+
+    it("rejects missing team names", () => {
+      const invalidTeamGame = {
+        ...randomValidGame(),
+        homeTeam: "",
+      };
+
+      expect(isValidGameData(invalidTeamGame)).toBe(false);
+    });
+
+    it("rejects invalid timestamps", () => {
+      const invalidTimestampGame = {
+        ...randomValidGame(),
+        lastUpdated: "not-a-date",
+      };
+
+      expect(isValidGameData(invalidTimestampGame)).toBe(false);
+    });
+  });
+
   describe("isStaleTimestamp", () => {
     beforeEach(() => {
       vi.useFakeTimers();
@@ -91,6 +160,29 @@ describe("scoreUtils", () => {
 
     it("returns true when timestamp is invalid", () => {
       expect(isStaleTimestamp("not-a-date", 10)).toBe(true);
+    });
+  });
+
+  describe("isValidGameTransition", () => {
+    it("allows Scheduled -> Live", () => {
+      expect(isValidGameTransition("SCHED", "LIVE")).toBe(true);
+    });
+
+    it("allows Live -> Final", () => {
+      expect(isValidGameTransition("LIVE", "FT")).toBe(true);
+    });
+
+    it("rejects Final -> Live", () => {
+      expect(isValidGameTransition("FT", "LIVE")).toBe(false);
+    });
+
+    it("rejects Scheduled -> Final", () => {
+      expect(isValidGameTransition("SCHED", "FT")).toBe(false);
+    });
+
+    it("rejects unknown status transitions", () => {
+      expect(isValidGameTransition("LIVE", "PAUSED_UNSUPPORTED")).toBe(false);
+      expect(isValidGameTransition("UNKNOWN", "FT")).toBe(false);
     });
   });
 });
