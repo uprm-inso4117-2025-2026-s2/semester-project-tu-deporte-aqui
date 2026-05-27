@@ -125,7 +125,7 @@ Selective use of TDD concepts supports:
 ===== Summary
 
 This section demonstrates how Test-Driven Development concepts can support
-incremental and reliable development inside Tu Deporte Aquí.
+incremental and reliable development.
 
 The example is intended to illustrate the workflow itself rather than to
 represent complete project testing practices.
