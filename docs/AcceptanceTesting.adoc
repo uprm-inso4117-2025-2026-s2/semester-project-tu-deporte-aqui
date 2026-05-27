@@ -1,3 +1,4 @@
+Acceptance Test Documentation:
 = Acceptance Testing
 
 From the "Tu Deporte Aqui" documentation, User stories and requirements were extracted to create the acceptance tests.
@@ -77,9 +78,9 @@ Second Note" AT3 and AT5 are general test of the implementation as a whole
 == Conclusion
 The results obtained from the acceptance tests confirms that the system correctly implements the expected 
 behavior defined(and expected) in the Users stories and Requirement(R-DOM-9).
-All acceptance test cases were executed succesfully, validating that:
+All acceptance test cases were executed successfully, validating that:
 
-- Game statused(and aliases) are consistently normalized
+- Game status (and aliases) are consistently normalized
 - Labels correctly reflect the level of certainty:
  * "Provisional" used for live, delayed and upcoming games
  * "Confirmed" used for final games (Finalized games// Official scores)
@@ -89,5 +90,5 @@ All acceptance test cases were executed succesfully, validating that:
 - Different aliases of the same game state are correctly mapped to a single normalized value.
 - Live and delayed games are not incorrectly treated as final data for standings calculations.
 
-The implementation satifies all acceptance criteria, ensuring clarity and consistency  in game state representation. This improves transparency 
+The implementation satisfies all acceptance criteria, ensuring clarity and consistency  in game state representation. This improves transparency 
 and provides a reliable interpretation of game information for users.
