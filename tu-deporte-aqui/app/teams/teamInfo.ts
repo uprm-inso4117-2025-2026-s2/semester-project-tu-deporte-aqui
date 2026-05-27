@@ -534,7 +534,7 @@ export const teamInfosLAI: TeamInfo[] = [
     losses: 7
   },
   {
-    name: "Atlanic University",
+    name: "Atlantic University",
     image: "/team-images/LAI/atlantic.jpeg",
     wins: 2,
     losses: 16
