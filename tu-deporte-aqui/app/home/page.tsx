@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import { logoutUser } from "@/lib/auth"
+import { buildSearchUrl, sortStandingsByPoints } from "@/lib/sportsDataUtils"
 import Image from "next/image"
 import {
   Trophy,
@@ -120,7 +122,12 @@ function Navbar() {
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (query.trim()) router.push(/search?q=${encodeURIComponent(query.trim())})
+
+    const searchUrl = buildSearchUrl(query)
+
+    if (searchUrl) {
+      router.push(searchUrl)
+    }
   }
 
   return (
@@ -297,7 +304,7 @@ function StandingsSection() {
   const tabs = ["Basketball", "Baseball", "Soccer"] as const
   type Tab = typeof tabs[number]
   const [active, setActive] = useState<Tab>("Basketball")
-  const rows = STANDINGS[active]
+  const rows = sortStandingsByPoints(STANDINGS[active])
 
   const RankIcon = ({ rank }: { rank: number }) => {
     if (rank === 1) return <Trophy size={20} className="text-yellow-500" />
