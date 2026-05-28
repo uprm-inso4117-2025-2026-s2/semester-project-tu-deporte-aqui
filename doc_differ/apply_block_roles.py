@@ -51,6 +51,12 @@ def strip_roles_keep_inserted_drop_removed(text):
 def strip_roles_keep_text(text):
     return re.sub(r'\[\.(inserted|removed)\]#(.*?)#', r'\2', text)
 
+def move_double_colons_outside_roles(text):
+    """Move :: from inside roles to outside (for definition list items)."""
+    # Pattern: [.role]#text::# -> [.role]#text#::
+    text = re.sub(r'\[\.(inserted|removed)\]#(.*?)::#+', r'[.\1]#\2#::', text)
+    return text
+
 def move_table_pipes_outside_roles(text):
     def split_role_pipes(match):
         role = match.group(1)
@@ -93,6 +99,7 @@ def main():
     content = re.sub(r'__INS_START__(.*?)__INS_END__', r'[.inserted]#\1#', content, flags=re.DOTALL)
     content = re.sub(r'__DEL_START__(.*?)__DEL_END__', r'[.removed]#\1#', content, flags=re.DOTALL)
     content = wrap_asciidoc_formatting_outside_roles(content)
+    content = move_double_colons_outside_roles(content)
     content = move_table_pipes_outside_roles(content)
     content = normalize_bullet_spacing(content)
 
@@ -123,6 +130,10 @@ def main():
             continue
         if simplified.lstrip().startswith('[cols=') or simplified.lstrip().startswith('[options='):
             line = strip_roles_keep_text(line)
+            out_lines.append(line)
+            continue
+        if simplified.lstrip().startswith('image::'):
+            line = strip_roles_keep_inserted_drop_removed(line)
             out_lines.append(line)
             continue
         if simplified.lstrip().startswith('|==='):
