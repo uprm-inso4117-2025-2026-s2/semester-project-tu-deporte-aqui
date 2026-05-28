@@ -50,6 +50,16 @@ during normal manually selected tests.
 This helps evaluate how stable the project remains under unpredictable input
 conditions.
 
+===== Evidence
+
+The following screenshots show examples of implemented fuzzing tests and successful execution results.
+
+.Fuzzing test implementation
+image::04-class-topics/images/fuzzing-test-code.png[]
+
+.Fuzzing execution results
+image::04-class-topics/images/fuzzing-test-results.png[]
+
 ===== Summary
 
 Fuzzing testing supports reliability goals by evaluating system behavior under
