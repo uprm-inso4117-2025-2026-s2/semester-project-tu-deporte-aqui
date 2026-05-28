@@ -48,7 +48,7 @@ image::04-class-topics/images/property-testing-code-1.png[width=700]
 
 image::04-class-topics/images/property-testing-code-2.png[width=700]
 
-image::04-class-topics/images/property-testing-results.png[width=500]
+image::04-class-topics/images/property-based-testing-results.png[width=500]
 
 ===== Observed Benefits
 
