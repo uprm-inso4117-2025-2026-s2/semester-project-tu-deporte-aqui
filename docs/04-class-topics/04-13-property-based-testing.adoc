@@ -45,9 +45,13 @@ combinations rather than relying only on manually selected examples.
 The following screenshots show portions of the implemented property-based tests
 and successful execution results.
 
+====== Tests
+
 image::04-class-topics/images/property-testing-code-1.png[width=700]
 
 image::04-class-topics/images/property-testing-code-2.png[width=700]
+
+====== Results
 
 image::04-class-topics/images/property-based-testing-results.png[width=500]
 
