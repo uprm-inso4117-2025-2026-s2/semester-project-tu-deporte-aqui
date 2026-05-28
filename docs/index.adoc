@@ -54,6 +54,8 @@ include::04-class-topics/04-03-debugging.adoc[]
 include::04-class-topics/04-04-usability-testing.adoc[]
 include::04-class-topics/04-10-error-handling-testing.adoc[]
 include::04-class-topics/04-11-manual-testing.adoc[]
+include::04-class-topics/04-13-property-based-testing.adoc[]
+include::04-class-topics/04-14-fuzzing-testing.adoc[]
 
 == 5 AI Disclosure
 include::ai-disclosure.adoc[]
