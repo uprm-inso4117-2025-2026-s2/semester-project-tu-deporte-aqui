@@ -1,0 +1,127 @@
+
+=== 4.15 Mutation Testing
+
+==== Purpose
+
+[.inserted]#Mutation testing evaluates the effectiveness of existing automated tests by introducing small intentional modifications (mutations) into the source code and verifying whether the implemented tests or observable system behavior detect the modified logic.#
+
+[.inserted]#This technique helps identify weak or incomplete testing scenarios that may still pass despite incorrect implementation behavior.#
+
+==== Relevance to the Project
+
+[.inserted]#In the project, mutation testing is relevant because the platform depends on reliable handling of sports data, status ordering, and source-aware information.#
+
+[.inserted]#Small unnoticed logic changes could produce:#
+
+
+* [.inserted]#incorrect standings#
+* [.inserted]#invalid score ordering#
+* [.inserted]#inconsistent UI behavior#
+* [.inserted]#incorrect API responses#
+* [.inserted]#stale or conflicting information display#
+
+[.inserted]#Mutation testing helps validate whether the implemented testing and validation strategies are capable of detecting these behavioral regressions.#
+
+==== Mutation Testing Approach
+
+[.inserted]#The mutation testing analysis focused on the `/api/games` route responsible for retrieving and processing sports data.#
+
+[.inserted]#Several intentional code mutations were introduced to simulate realistic implementation faults.#
+
+[.inserted]#The evaluation observed:#
+
+
+* [.inserted]#frontend behavior#
+* [.inserted]#API responses#
+* [.inserted]#terminal/server logs#
+* [.inserted]#visible UI inconsistencies#
+
+[.inserted]#A mutation was considered:#
+
+
+* [.inserted]#*Killed* if the fault produced observable incorrect behavior#
+* [.inserted]#*Survived* if the system behaved as if nothing was wrong#
+
+==== Mutation Summary
+
+[cols="1,3,2", options="header"]
+|===
+|[.inserted]#Mutation#
+|[.inserted]#Description#
+|[.inserted]#Result#
+
+|[.inserted]#M1#
+|[.inserted]#Invalid database table reference#
+|[.inserted]#Killed#
+
+|[.inserted]#M2#
+|[.inserted]#Inverted error condition logic#
+|[.inserted]#Killed#
+
+|[.inserted]#M3#
+|[.inserted]#Incorrect HTTP status response#
+|[.inserted]#Killed#
+
+|[.inserted]#M4#
+|[.inserted]#Removed required `status` field#
+|[.inserted]#Killed#
+
+|[.inserted]#M5#
+|[.inserted]#Modified error response structure#
+|[.inserted]#Killed#
+|===
+
+==== Observed Results
+
+[.inserted]#The implemented mutation scenarios successfully triggered detectable failures during execution.#
+
+[.inserted]#Observed failures included:#
+
+
+* [.inserted]#frontend error messages#
+* [.inserted]#invalid API responses#
+* [.inserted]#incorrect status handling#
+* [.inserted]#missing UI information#
+* [.inserted]#HTTP 500 responses#
+* [.inserted]#inconsistent rendering behavior#
+
+[.inserted]#These observations demonstrated that the implemented reliability mechanisms are capable of exposing several categories of implementation faults.#
+
+==== Mutation Score
+
+[.inserted]#Mutation Score = (Killed Mutants / Total Mutants) × 100#
+
+[.inserted]#Mutation Score = (5 / 5) × 100 = 100%#
+
+[.inserted]#All introduced mutations produced observable incorrect behavior and were successfully detected during evaluation.#
+
+==== Relationship to Existing Testing
+
+[.inserted]#Mutation testing complements:#
+
+
+* [.inserted]#property-based testing#
+* [.inserted]#manual testing#
+* [.inserted]#error-handling validation#
+* [.inserted]#TDD and BDD workflows#
+
+[.inserted]#While traditional tests verify expected behavior, mutation testing evaluates whether those tests are sufficiently strong to detect implementation defects.#
+
+==== Current Limitations
+
+[.inserted]#The project currently does not implement a fully automated mutation testing pipeline.#
+
+[.inserted]#Additionally:#
+
+
+* [.inserted]#testing focused on a single API route#
+* [.inserted]#only a limited number of mutations were evaluated#
+* [.inserted]#detection relied primarily on observable runtime behavior#
+
+[.inserted]#Future improvements could include automated mutation frameworks and broader system-wide mutation coverage.#
+
+==== Summary
+
+[.inserted]#Mutation testing strengthened confidence in the project’s reliability strategy by verifying that intentionally introduced faults produced visible and detectable failures.#
+
+[.inserted]#The performed evaluation demonstrated that the implemented validation and error-handling mechanisms are capable of detecting several categories of behavioral regressions and implementation defects.#

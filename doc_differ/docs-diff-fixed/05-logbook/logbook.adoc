@@ -16,9 +16,18 @@
 |[.inserted]#Alex M. Vazquez Galiano#|[.inserted]#2.1.1, 2.2.2, 2.1.1, 2.1.6#|[.inserted]#Modified/Added#
 |[.inserted]#Gerald Rodríguez#|[.inserted]#1.2.1, 1.3.2, 2.1.2, 2.1.5#|[.inserted]#Modified#
 |[.inserted]#Gerald Rodríguez#|[.inserted]#Lecture Topic Task – Shift-Left Testing and Static Analysis for Tu Deporte Aquí#|[.inserted]#Added#
-|[.inserted]#Gerald Rodríguez#|[.inserted]#Lecture Topic Task – Risk-Oriented Test Prioritization for Live Sports Information Systems#|[.inserted]#Added#
+|[.inserted]#Gerald Rodríguez#|[.inserted]#Lecture Topic Task – Risk-Oriented Test Prioritization for Live Sports Information Systems#|[.inserted]#Added'#
+|[.inserted]#Daniel Colón#|[.inserted]#Lecture Topic Task - Fuzzing Documentation#|[.inserted]#Added#
+|[.inserted]#Daniel Colón#|[.inserted]#Improve Machine Requirements Section#|[.inserted]#Modified#
 |[.inserted]#Daniel Colón#|[.inserted]#4.9#|[.inserted]#Added#
 |[.inserted]#Alberto Rodríguez#|[.inserted]#3.1, 3.2.1, 3.2.2#|[.inserted]#Modified#
-|[.inserted]#Ian Ramos#|[.inserted]#1.2.3, 2.1.3#|[.inserted]#Modified#
+|[.inserted]#Ian Ramos#|[.inserted]#1.2.2, 1.2.3, 2.1.3#|[.inserted]#Modified#
 |[.inserted]#Alberto Rodríguez#|[.inserted]#4.1#|[.inserted]#Modified#
 |[.inserted]#Daniel Colón#|[.inserted]#2.2.5, 4.2#|[.inserted]#Modified#
+|[.inserted]#Alberto Rodríguez#|[.inserted]#4.11, 4.12, 4.13#|[.inserted]#Modified#
+|[.inserted]#Alberto Rodríguez#|[.inserted]#4.14, 4.15, 4.16#|[.inserted]#Added#
+|[.inserted]#Alberto Rodríguez#|[.inserted]#Added property-based testing evidence and screenshots#|[.inserted]#Modified#
+|[.inserted]#Alberto Rodríguez#|[.inserted]#Added fuzzing testing evidence section#|[.inserted]#Modified#
+|[.inserted]#Alberto Rodríguez#|[.inserted]#Added mutation testing documentation based on Issue#276 | Added#
+|[.inserted]#Alberto Rodríguez#|[.inserted]#Added load testing documentation based on Issue#273 | Added#
+|[.inserted]#Alberto Rodríguez#|[.inserted]#Documentation structure and index integration updates#|[.inserted]#Modified#

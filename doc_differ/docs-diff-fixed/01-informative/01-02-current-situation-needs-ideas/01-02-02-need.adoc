@@ -3,64 +3,113 @@
 
 ===== Purpose
 
-This section explains the needs identified from the current situation in Section 1.2.1. The focus is on what people involved in local Puerto Rico sports need, not yet on how a system would address those needs.
+This section [.removed]#explains# [.inserted]#states# the [.inserted]#concrete# needs [.removed]#identified# [.inserted]#that follow# from the current situation in Section 1.2.1. The focus is on [.removed]#what people involved# [.inserted]#why Tu Deporte Aquí is needed# in [.inserted]#the# local Puerto Rico sports [.removed]#need, not yet on how a system would address those needs.# [.inserted]#context, before defining solution details.#
 
-===== Stakeholder Context
+=====  Context of Need
 
-The current situation shows that sports information in Puerto Rico is spread across league websites, social media posts, news outlets, and informal reporting channels. Those sources update at different times, use different formats, and may be delayed, incomplete, or in conflict with one another.
+[.inserted]#Local#
 
-Under those conditions, several groups are affected. Sports followers want to know what is happening now and whether the information they found is dependable. Reporters, organizers, and other information originators want updates and corrections to reach the public without losing their source or context. These needs arise before any decision is made about what kind of system should be built.
+[.removed]#The current situation shows that# sports information in Puerto Rico is [.removed]#spread# [.inserted]#commonly distributed# across league [.removed]#websites, social media# [.inserted]#pages, team accounts, reporter# posts, [.removed]#news outlets,# [.inserted]#livestream comments,# and [.removed]#informal reporting channels. Those sources update at# [.inserted]#community reposts. The same game may appear with# different [.removed]#times, use# [.inserted]#timing,# different [.removed]#formats, and may be delayed, incomplete,# [.inserted]#detail,# or [.removed]#in conflict with one another.#
 
-===== Needs of Sports Followers
+[.removed]#Under those conditions, several groups are affected. Sports followers want to know what is happening now and whether# [.inserted]#different reported values depending on# the [.inserted]#source consulted.#
 
-Accessible local sports information::
-People who follow local sports need to find current scores, schedules, standings, and related updates without searching across many unrelated channels. This need follows from the fragmented information environment described in Section 1.2.1.
+[.inserted]#Because of this, people must repeatedly cross-check# information [.removed]#they found# [.inserted]#instead of reading one dependable record. The platform need# is [.removed]#dependable. Reporters, organizers, and other information originators want updates and corrections to reach the public without losing their source or context. These needs arise before any decision# [.inserted]#therefore not generic "sports convenience"; it# is [.removed]#made about what kind of system should be built.# [.inserted]#the specific need to reduce fragmentation and make reliability visible for local Puerto Rico coverage.#
 
-Timely awareness of what is happening::
-Followers need information early enough to remain useful while events are still relevant. When updates arrive too late, people can no longer follow a game as it unfolds or react to changes that matter to them.
+===== User Needs 
 
-Clarity when information is incomplete or disputed::
-Followers need to understand when available information is missing details, when reports disagree, and when a situation is still unresolved. Without that clarity, they are left to guess which version is most believable.
+[.removed]#Accessible local sports information#::
+[.removed]#People who follow local sports#
 
-Confidence during high-interest moments::
-During playoffs, tournaments, and other heavily followed events, followers depend more on sports information and are affected more by delays or contradictions. At those moments, they need to know whether the available information is stable or still subject to change.
+[.inserted]#Fast access from mobile devices#::
+[.inserted]#Fans, families, players, and coaches# need to [.removed]#find current# [.inserted]#check# scores, schedules, standings, and [.removed]#related updates without searching across many unrelated channels. This need follows# [.inserted]#game status quickly# from [.removed]#the fragmented information environment described in Section 1.2.1.#
 
-===== Needs of Reporters, Organizers, and Information Originators
+[.removed]#Timely awareness of what is happening#::
+[.removed]#Followers# [.inserted]#phones during live events, commutes, and school/work breaks.#
 
-Faithful transmission of updates::
-People who publish or relay sports information need their updates to remain connected to what they actually reported. If scores, schedules, or status changes are repeated without context, the public can no longer tell where the information came from or whether it was altered later.
+[.inserted]#Reduced cross-platform searching#::
+[.inserted]#Users# need [.removed]#information early enough# [.inserted]#one place# to [.removed]#remain useful while events are still relevant. When# [.inserted]#consult local Puerto Rico# updates [.removed]#arrive too late, people can no longer follow a game as it unfolds or react to changes that matter# [.inserted]#without jumping between Instagram stories, Facebook images, league pages, and chat reposts# to [.removed]#them.#
 
-Visible corrections and revisions::
-When reporters, leagues, or organizers correct previously shared information, they need those corrections to remain visible as corrections rather than disappear through silent replacement. This matters in an environment where historical changes may occur without a formal correction workflow.
+[.removed]#Clarity when information is incomplete or disputed#::
+[.removed]#Followers# [.inserted]#reconstruct the same event.#
 
-Recognition of differing source authority::
-Not all originators play the same role in the sports information ecosystem. Official league channels, institutional pages, journalists, and informal observers contribute differently, so those differences in authority and responsibility need to remain visible.
+[.inserted]#Clear status visibility#::
+[.inserted]#Users# need [.removed]#to understand when available# [.inserted]#immediate clarity on whether# information is [.removed]#missing details, when reports disagree, and when a situation is still unresolved. Without that clarity,# [.inserted]#current, missing, disputed, or corrected so# they [.removed]#are left to guess which version is most believable.#
 
-===== Cross-Cutting Need: Dependability of Information
+[.removed]#Confidence# [.inserted]#do not mistake uncertain updates for settled results.#
 
-Across all stakeholder groups, people need to judge how dependable sports information is.
+[.inserted]#Usable information# during high-interest moments::
+During [.removed]#playoffs,# [.inserted]#playoffs and# tournaments, [.inserted]#users need dependable updates quickly because delays# and [.removed]#other heavily followed events, followers depend more# [.inserted]#conflicts have higher impact# on [.removed]#sports information# [.inserted]#decisions# and [.removed]#are affected more by delays or contradictions. At# [.inserted]#discussions.#
 
-In the current situation, dependability is difficult to assess because sources are fragmented, update frequencies are inconsistent, and some reports are delayed, incomplete, or contradictory. People therefore need enough context to interpret the status of the information they encounter.
+===== System Needs
 
-That context includes:
+[.inserted]#Aggregation across heterogeneous sources#::
+[.inserted]#The system needs to gather updates from sources that differ in format, timing, and authority without collapsing# those [.removed]#moments, they need# [.inserted]#differences into one opaque value.#
 
-- where a piece of information came from
-- when it was last known to be updated
-- whether it appears settled, still provisional, or openly disputed
-- whether a later correction has changed the earlier picture
+[.inserted]#Handling delayed and partial updates#::
+[.inserted]#The system needs# to [.removed]#know whether the available information is stable# [.inserted]#continue operating when some sources are late, incomplete,# or [.inserted]#temporarily unavailable, while# still [.removed]#subject# [.inserted]#presenting available information.#
 
-Source attribution, freshness, provisional status, and traceability are treated here as parts of the same need: helping people judge the dependability of the information available to them.
+[.inserted]#Support for revision history#::
+[.inserted]#The system needs# to [.removed]#change.#
 
-===== Assumptions and Plausibility
+ preserve corrections and 
 
-The following assumptions are used in this section. They are plausible because they match the conditions already documented in Section 1.2.1 and the research collected during Milestone 1:
+[.removed]#Faithful transmission# [.inserted]#update history so later changes are visible instead# of [.removed]#updates#::
+[.removed]#People who publish or relay sports information need their updates to remain connected# [.inserted]#silently overwriting prior reported values.#
+
+[.inserted]#Operational transparency#::
+[.inserted]#The system needs# to [.removed]#what they actually reported. If scores, schedules,# [.inserted]#communicate data condition explicitly (for example, partial availability# or [.removed]#status changes are repeated without context, the public# [.inserted]#unresolved conflict) so users understand what is known and what is still uncertain.#
+
+===== Data Reliability Needs
+
+[.inserted]#Source attribution#::
+[.inserted]#Each displayed value needs clear source identification so users# can [.removed]#no longer tell# [.inserted]#see# where [.removed]#the information came from or# [.inserted]#it originated.#
+
+[.inserted]#Freshness visibility#::
+[.inserted]#Each value needs clear timing context (publish/updated times) so users can judge# whether it [.removed]#was altered later.#
+
+[.removed]#Visible corrections and revisions#:: [.inserted]#is still current for its use.#
+
+[.inserted]#Conflict visibility#::
+When [.removed]#reporters, leagues, or organizers correct previously shared information, they need those corrections# [.inserted]#sources disagree, the disagreement needs# to remain visible [.removed]#as corrections# [.inserted]#and understandable,# rather than [.removed]#disappear through silent replacement. This matters in an environment where historical changes may occur without# [.inserted]#being hidden behind# a [.removed]#formal correction workflow.#
+
+[.removed]#Recognition of differing source authority#::
+[.removed]#Not all originators play the same role in the sports information ecosystem. Official league channels, institutional pages, journalists, and informal observers contribute differently, so those differences in authority and responsibility# [.inserted]#single unqualified value.#
+
+[.inserted]#Correction traceability#::
+[.inserted]#When a value changes, users# need to [.removed]#remain visible.#
+
+ know that a correction occurred and what changed.
+
+[.inserted]#Qualified confidence#::
+Information [.inserted]#needs#
+
+[.removed]#Across all stakeholder groups, people need# to [.removed]#judge how dependable sports information is.#
+
+[.removed]#In the current situation,# [.inserted]#be presented with explicit# dependability [.removed]#is difficult to assess because sources are fragmented, update frequencies are inconsistent, and some reports are delayed, incomplete,# [.inserted]#context so users can distinguish confirmed values from provisional# or [.removed]#contradictory. People therefore# [.inserted]#uncertain ones.#
+
+===== Why This Matters for Tu Deporte Aquí
+
+[.inserted]#Tu Deporte Aquí is motivated by this combined# need [.removed]#enough context to interpret the status of# [.inserted]#profile: local users need faster and clearer access,# the [.removed]#information they encounter.#
+
+[.removed]#That# [.inserted]#system needs to integrate fragmented reporting conditions, and reliability# context [.removed]#includes:#
+
+
+- [.removed]#where a piece of information came from#
+- [.removed]#when it was last known# [.inserted]#needs# to be [.removed]#updated#
+- [.removed]#whether it appears settled, still provisional, or openly disputed#
+- [.removed]#whether a later correction has changed# [.inserted]#visible by default. These needs directly shape# the [.removed]#earlier picture#
+
+[.removed]#Source attribution, freshness, provisional status,# [.inserted]#ideas in Section 1.2.3# and [.removed]#traceability are treated here as parts of the same need: helping people judge the dependability of the information available to them.# [.inserted]#later requirements in Section 2.#
+
+===== Assumptions 
+
+The following assumptions are [.removed]#used in this section. They are plausible because they match the conditions already documented in# [.inserted]#consistent with# Section 1.2.1 [.inserted]#observations# and [.removed]#the research collected during Milestone 1:# [.inserted]#project research:#
 
 - Local Puerto Rico sports information is often encountered through a mix of official and unofficial channels rather than through one uniform publication mechanism.
 - The timing, structure, and completeness of updates vary noticeably between leagues and sources.
 - Corrections and late revisions are possible, especially when reporting depends on manual publication or informal communication channels.
-- Different stakeholder groups share an interest in current sports information, but they do not all approach it from the same role, level of authority, or immediate goal.
+- [.removed]#Different stakeholder groups share an interest# [.inserted]#Users# in [.removed]#current sports# [.inserted]#different roles (fan, coach, reporter, organizer) share a need for dependable# information, but [.removed]#they do# not all [.removed]#approach it from# [.inserted]#need# the same [.removed]#role,# level of [.removed]#authority, or immediate goal.# [.inserted]#detail at the same moment.#
 
 ===== Scope of This Section
 
-This section defines the needs that arise from the current situation and explains why those needs matter. It does not choose a solution, define features, or state requirements. High-level ideas for addressing these needs appear in Section 1.2.3, while requirements are specified later in Section 2.
-
+This section defines [.removed]#the# needs [.removed]#that arise from the current situation# and [.removed]#explains why those needs matter.# [.inserted]#motivation only.# It does not [.removed]#choose a solution,# define [.removed]#features,# [.inserted]#implementation details# or [.removed]#state# [.inserted]#formal# requirements. [.removed]#High-level ideas for addressing these needs# [.inserted]#Those# appear in Section [.removed]#1.2.3, while requirements are specified later in# [.inserted]#1.2.3 (ideas) and# Section [.removed]#2.# [.inserted]#2 (requirements).#

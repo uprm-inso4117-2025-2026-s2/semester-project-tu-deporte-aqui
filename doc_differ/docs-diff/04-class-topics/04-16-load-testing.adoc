@@ -1,0 +1,69 @@
+=== 4.16 Load Testing
+
+==== Purpose
+
+[.inserted]#Load testing was performed to evaluate the stability and responsiveness of the platform API endpoints under concurrent traffic conditions.#
+
+[.inserted]#The objective was to verify that the system could continue serving valid sports data requests while maintaining acceptable response times and reliability.#
+
+==== Testing Environment
+
+[.inserted]#Load testing was executed locally on the `games-n-standings` branch using the `k6` load testing framework.#
+
+[.inserted]#The following endpoints were evaluated:#
+
+
+* [.inserted]#`/api/games`#
+* [.inserted]#`/api/standings`#
+
+==== Test Results
+
+[.inserted]#The executed load test completed successfully and all configured checks passed.#
+
+[.inserted]#Observed results included:#
+
+
+* [.inserted]#HTTP status `200` responses for all tested endpoints#
+* [.inserted]#successful response data retrieval#
+* [.inserted]#stable behavior during concurrent execution#
+* [.inserted]#zero request failures during the test session#
+
+[.inserted]#The test achieved:#
+
+
+* [.inserted]#p95 response time of `373.41 ms`#
+* [.inserted]#`0.00%` request failure rate#
+* [.inserted]#`1204` processed HTTP requests#
+* [.inserted]#approximately `23.71` requests per second#
+
+[.inserted]#These results indicate that the platform maintained stable performance during the executed load conditions.#
+
+==== Evidence
+
+[.inserted]#The following screenshots show the executed k6 load testing results and endpoint responses.#
+
+image::04-class-topics/images/load-testing-results-1.png[]
+
+image::04-class-topics/images/load-testing-results-2.png[]
+
+==== Reliability Contribution
+
+[.inserted]#Load testing contributes to reliability evaluation by validating that the platform remains stable during repeated and concurrent API requests.#
+
+[.inserted]#This helps identify possible performance bottlenecks, response degradation, or instability issues under increased workload conditions.#
+
+==== Limitations
+
+[.inserted]#The performed tests focused specifically on the `/api/games` and `/api/standings` endpoints under a local testing environment.#
+
+[.inserted]#Additional future improvements may include:#
+
+
+* [.inserted]#larger concurrent user simulations#
+* [.inserted]#long-duration stress testing#
+* [.inserted]#cloud-hosted execution environments#
+* [.inserted]#automated CI/CD performance testing integration#
+
+==== Summary
+
+[.inserted]#The performed load testing demonstrated stable endpoint behavior, successful request handling, and acceptable response times during concurrent traffic execution.#

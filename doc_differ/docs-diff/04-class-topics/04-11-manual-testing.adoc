@@ -84,6 +84,22 @@
 - [.inserted]#[ ] Notifications: subscribe/unsubscribe OK#
 - [.inserted]#[ ] Staleness & missing data: messages and indicators OK#
 
+===== Load Testing Expectations
+
+[.inserted]#Manual testing also considered situations involving repeated or simultaneous#
+[.inserted]#access to sports information pages.#
+
+[.inserted]#Representative expectations included:#
+
+
+* [.inserted]#multiple users refreshing standings pages#
+* [.inserted]#repeated navigation between schedules and team pages#
+* [.inserted]#simultaneous access to athlete information#
+* [.inserted]#continued page responsiveness during normal expected traffic#
+
+[.inserted]#These observations help identify situations where responsiveness or usability#
+[.inserted]#may degrade during periods of increased activity.#
+
 ===== Reporting
 
 

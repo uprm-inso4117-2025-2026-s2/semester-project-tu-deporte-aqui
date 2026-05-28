@@ -78,13 +78,13 @@ A condition [.removed]#where# [.inserted]#in which# information [.removed]#is# [
 *Dependability Indicator*::
 A [.removed]#marker# [.inserted]#visible marker, label, or explanation intended to help people understand the dependability condition of displayed information.#
 
-[.inserted]#*Source Attribution*::#
+[.inserted]#*Source Attribution*#::
 [.inserted]#The explicit identification of where displayed information originated.#
 
-[.inserted]#*Reliability Metadata*::#
+[.inserted]#*Reliability Metadata*#::
 [.inserted]#Associated contextual information# that helps explain [.removed]#how reliable# the [.removed]#information is.#
 
-[.removed]#*Source Attribution*::#
+[.removed]#*Source Attribution*#::
 [.removed]#Identification# [.inserted]#dependability, freshness, status, or origin# of [.removed]#where the information originated.# [.inserted]#a reported value.#
 [.inserted]#Examples may include timestamps, verification states, confidence levels, and attribution references.#
 

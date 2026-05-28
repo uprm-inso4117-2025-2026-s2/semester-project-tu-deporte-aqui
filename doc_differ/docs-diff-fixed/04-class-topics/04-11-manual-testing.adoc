@@ -75,14 +75,30 @@
 ===== Test Checklist (to record results)
 
 
-- [ ] [.inserted]# Teams list: loads and team page details OK#
-- [ ] [.inserted]# Athlete profiles: display and links OK#
-- [ ] [.inserted]# Schedule: statuses and timestamps OK#
-- [ ] [.inserted]# Standings: ordering and completeness OK#
-- [ ] [.inserted]# News articles: content and links OK#
-- [ ] [.inserted]# Login flow: success/error messages OK#
-- [ ] [.inserted]# Notifications: subscribe/unsubscribe OK#
-- [ ] [.inserted]# Staleness & missing data: messages and indicators OK#
+- [.inserted]#[ ] Teams list: loads and team page details OK#
+- [.inserted]#[ ] Athlete profiles: display and links OK#
+- [.inserted]#[ ] Schedule: statuses and timestamps OK#
+- [.inserted]#[ ] Standings: ordering and completeness OK#
+- [.inserted]#[ ] News articles: content and links OK#
+- [.inserted]#[ ] Login flow: success/error messages OK#
+- [.inserted]#[ ] Notifications: subscribe/unsubscribe OK#
+- [.inserted]#[ ] Staleness & missing data: messages and indicators OK#
+
+===== Load Testing Expectations
+
+[.inserted]#Manual testing also considered situations involving repeated or simultaneous#
+[.inserted]#access to sports information pages.#
+
+[.inserted]#Representative expectations included:#
+
+
+* [.inserted]#multiple users refreshing standings pages#
+* [.inserted]#repeated navigation between schedules and team pages#
+* [.inserted]#simultaneous access to athlete information#
+* [.inserted]#continued page responsiveness during normal expected traffic#
+
+[.inserted]#These observations help identify situations where responsiveness or usability#
+[.inserted]#may degrade during periods of increased activity.#
 
 ===== Reporting
 

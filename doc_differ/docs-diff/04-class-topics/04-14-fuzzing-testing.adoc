@@ -1,0 +1,69 @@
+
+=== 4.14 Fuzzing Testing
+
+===== Purpose
+
+[.inserted]#This section describes how fuzzing concepts relate to reliability testing in#
+[.inserted]#the project.#
+
+[.inserted]#Fuzzing testing evaluates system behavior when unexpected, malformed, or#
+[.inserted]#incomplete values are introduced as inputs.#
+
+===== Relevance to the project
+
+[.inserted]#Sports information may originate from informal or inconsistent sources.#
+
+[.inserted]#As a result, the project must tolerate situations such as:#
+
+
+* [.inserted]#missing scores#
+* [.inserted]#invalid timestamps#
+* [.inserted]#incomplete team information#
+* [.inserted]#unexpected status values#
+* [.inserted]#malformed source data#
+
+===== Example Fuzzing Inputs
+
+[.inserted]#Representative malformed inputs may include:#
+
+
+* [.inserted]#negative scores#
+* [.inserted]#empty team names#
+* [.inserted]#extremely long values#
+* [.inserted]#invalid dates#
+* [.inserted]#unknown game states#
+* [.inserted]#missing source identifiers#
+
+===== Expected Behavior
+
+[.inserted]#Under invalid or malformed inputs, the project should:#
+
+
+* [.inserted]#avoid crashes#
+* [.inserted]#preserve available valid information#
+* [.inserted]#display understandable fallback messages#
+* [.inserted]#isolate invalid values when possible#
+* [.inserted]#support later debugging and correction#
+
+===== Relationship to Reliability
+
+[.inserted]#Fuzzing contributes to reliability by exposing situations that may not appear#
+[.inserted]#during normal manually selected tests.#
+
+[.inserted]#This helps evaluate how stable the project remains under unpredictable input#
+[.inserted]#conditions.#
+
+===== Evidence
+
+[.inserted]#The following screenshots show examples of implemented fuzzing tests and successful execution results.#
+
+[.inserted]#.Fuzzing test implementation#
+image::04-class-topics/images/fuzzing-test-code.png[]
+
+[.inserted]#.Fuzzing execution results#
+image::04-class-topics/images/fuzzing-test-results.png[]
+
+===== Summary
+
+[.inserted]#Fuzzing testing supports reliability goals by evaluating system behavior under#
+[.inserted]#unexpected and malformed input scenarios.#
