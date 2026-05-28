@@ -1,3 +1,4 @@
+
 ==== 2.1.2 Terminology
 
 This section defines terminology used throughout the document in order to maintain consistent meaning across the domain description, requirements discussion, and behavioral analysis.
