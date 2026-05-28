@@ -15,10 +15,18 @@ This logbook records relevant activities, decisions, updates, and progress throu
 | Alex M. Vazquez Galiano | 2.1.1, 2.2.2, 2.1.1, 2.1.6 | Modified/Added
 | Gerald Rodríguez | 1.2.1, 1.3.2, 2.1.2, 2.1.5 | Modified
 | Gerald Rodríguez | Lecture Topic Task – Shift-Left Testing and Static Analysis for Tu Deporte Aquí | Added
-| Gerald Rodríguez | Lecture Topic Task – Risk-Oriented Test Prioritization for Live Sports Information Systems | Added
+| Gerald Rodríguez | Lecture Topic Task – Risk-Oriented Test Prioritization for Live Sports Information Systems | Added'
+| Daniel Colón | Lecture Topic Task - Fuzzing Documentation | Added
+| Daniel Colón | Improve Machine Requirements Section | Modified
 | Daniel Colón | 4.9 | Added
 | Alberto Rodríguez | 3.1, 3.2.1, 3.2.2 | Modified
 | Ian Ramos | 1.2.2, 1.2.3, 2.1.3 | Modified
-|===
 | Alberto Rodríguez | 4.1 | Modified
 | Daniel Colón | 2.2.5, 4.2 | Modified
+| Alberto Rodríguez | 4.11, 4.12, 4.13 | Modified
+| Alberto Rodríguez | 4.14, 4.15, 4.16 | Added
+| Alberto Rodríguez | Added property-based testing evidence and screenshots | Modified
+| Alberto Rodríguez | Added fuzzing testing evidence section | Modified
+| Alberto Rodríguez | Added mutation testing documentation based on Issue #276 | Added
+| Alberto Rodríguez | Added load testing documentation based on Issue #273 | Added
+| Alberto Rodríguez | Documentation structure and index integration updates | Modified

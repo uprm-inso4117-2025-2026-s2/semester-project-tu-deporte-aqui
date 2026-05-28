@@ -1,3 +1,4 @@
+
 ==== 2.1.5 Events, Actions, and Composite Behaviors
 
 This section describes domain-relevant events, actions, and composite behaviors related to how sports information becomes available, changes over time, conflicts with other reports, and remains interpretable under uncertain conditions.

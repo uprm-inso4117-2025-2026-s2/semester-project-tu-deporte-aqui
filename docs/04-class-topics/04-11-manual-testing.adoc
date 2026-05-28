@@ -73,6 +73,21 @@ This document describes a concise manual testing approach to validate core user-
 - [ ] Notifications: subscribe/unsubscribe OK
 - [ ] Staleness & missing data: messages and indicators OK
 
+===== Load Testing Expectations
+
+Manual testing also considered situations involving repeated or simultaneous
+access to sports information pages.
+
+Representative expectations included:
+
+* multiple users refreshing standings pages
+* repeated navigation between schedules and team pages
+* simultaneous access to athlete information
+* continued page responsiveness during normal expected traffic
+
+These observations help identify situations where responsiveness or usability
+may degrade during periods of increased activity.
+
 ===== Reporting
 
 - For each failure capture: steps to reproduce, expected vs actual, screenshot, device/browser, and log URL.

@@ -5,14 +5,15 @@
 :toclevels: 4
 :author: INSO 4117 - Software Reliability Testing
 :revnumber: Spring 2026
-:revdate: April 7, 2026
-:revremark: Professor: Marko Schütz-Schmuck | Milestone #2 | Repository: https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui
+:revdate: May 27, 2026
+:revremark: Professor: Marko Schütz-Schmuck | Milestone #3 | Repository: https://github.com/uprm-inso4117-2025-2026-s2/semester-project-tu-deporte-aqui
 
 <<<
 
 toc::[]
 == 1 Informative part
 include::01-informative/01-01-team.adoc[]
+
 === 1.2 Current situation, needs, ideas
 include::01-informative/01-02-current-situation-needs-ideas/01-02-01-current-situation.adoc[]
 include::01-informative/01-02-current-situation-needs-ideas/01-02-02-need.adoc[]
@@ -55,67 +56,14 @@ include::04-class-topics/04-04-usability-testing.adoc[]
 include::04-class-topics/04-10-error-handling-testing.adoc[]
 include::04-class-topics/04-11-manual-testing.adoc[]
 include::04-class-topics/04-12-test-planning-preparation-live-score-status.adoc[]
+include::04-class-topics/04-13-hoare-proof-rules.adoc[]
+include::04-class-topics/04-14-property-based-testing.adoc[]
+include::04-class-topics/04-15-fuzzing-testing.adoc[]
+include::04-class-topics/04-16-mutation-testing.adoc[]
+include::04-class-topics/04-17-load-testing.adoc[]
 
-
-== 5 Research / Lecture Topic Tasks
-include::Research/Alert_Frequency_Bundling_Rules.adoc[]
-include::Research/AsciiDoc_to_PDF_Research.adoc[]
-include::Research/Assumptions_for_Handling_Conflicting_Standings_Data.adoc[]
-include::Research/Assumptions_for_Resolving_or_Flagging_Conflicting_Standings.adoc[]
-include::Research/Common_Inconsistencies_in_Standings_Across_Informal_Sports_Sources.adoc[]
-include::Research/Comparative_Analysis.adoc[]
-include::Research/Data_Lineage_and_Audit_Trail_Strategy.adoc[]
-include::Research/Data_Source_Attribution_UI.adoc[]
-include::Research/Data_Staleness_Research.adoc[]
-include::Research/Define_Service_Level_Objectives.adoc[]
-include::Research/Evaluating_Load_Testing_Strategies.adoc[]
-include::Research/Evaluating_User_Trust_Impacts_of_Incorrect_vs_Missing_Sports_Data.adoc[]
-include::Research/Event_Comment_Section_Feasibility_Analysis.adoc[]
-include::Research/Event_Discovery_&_Browsing_Patterns_in_Sports_Platforms.adoc[]
-include::Research/Favorites_&_Personalized_Feed_Patterns.adoc[]
-include::Research/Feed_Ranking_Logic_System.adoc[]
-include::Research/Feed_Transparency.adoc[]
-include::Research/Frontend_Technology_Selection_or_Live_Sports_Score_Application.adoc[]
-include::Research/Good_Frameworks_For_Web_Design.adoc[]
-include::Research/Handling-delaying-conflicting-Missing-Data.adoc[]
-include::Research/Handling_Conflicting_Delayed_or_Incomplete_Sports_Data.adoc[]
-include::Research/Handling_Corrections.adoc[]
-include::Research/Handling_Delayed_Data.adoc[]
-include::Research/Handling_Unverified_Delayed_and_Conflicting_Reports.adoc[]
-include::Research/Identity_Resolution_for_Similar_Athlete_Names.adoc[]
-include::Research/LTT_Methodical_Regression_Strategy.adoc[]
-include::Research/League-Live-Data.adoc[]
-include::Research/Live_Game_State_Modeling_&_State_Transitions.adoc[]
-include::Research/Local_League_Live_Updates_Sources.adoc[]
-include::Research/Message_Templates_for_System_Updates_&_Alerts.adoc[]
-include::Research/Messaging_Style_Guide.adoc[]
-include::Research/Minimum_Live_Game_Data_Requirements_&_Coverage_Baseline.adoc[]
-include::Research/News_vs_Urgent_Alerts_Communication_Rulebook.adoc[]
-include::Research/Real_Time_Event_Status_Consistency_and_Data_Freshness_Strategy.adoc[]
-include::Research/Retrieving_Sports_Data.adoc[]
-include::Research/Risk_Analysis_of_Informal_Data_Sources_in_Local_Sports_Reporting.adoc[]
-include::Research/Risks_Failure_Scenarios_Testing_Plan_And_Rules_For_Standing.adoc[]
-include::Research/Sending_Push_Notifications_From_a_Website.adoc[]
-include::Research/Sorting_&_Prioritization_Patterns_for_Mixed_Game_States.adoc[]
-include::Research/Standardized_Communication_Templates_Research.adoc[]
-include::Research/Team_3_Standings_and_Tournament.adoc[]
-include::Research/Technology_Stack_Evaluation.adoc[]
-include::Research/Trustworthy_Goal.adoc[]
-include::Research/UI_Messaging_and_Visual_Indicators.adoc[]
-include::Research/fault-tolerance.adoc[]
-include::Research/lt-exploratory-vs-scripted-testing.adoc[]
-include::Research/mutation-testing.adoc[]
-include::Research/nfr-reliability-transparency.adoc[]
-include::Research/project-glossary.adoc[]
-include::Research/project-overview.adoc[]
-include::Research/risk-oriented-test-prioritization.adoc[]
-include::Research/shift-left-testing-static-analysis.adoc[]
-include::Research/system-scope-boundaries.adoc[]
-include::Research/usability-testing.adoc[]
-include::Research/verification-vs-validation.adoc[]
-
-== 6 AI Disclosure
+== 5 AI Disclosure
 include::ai-disclosure.adoc[]
 
-== 7 Logbook
+== 6 Logbook
 include::05-logbook/logbook.adoc[]
