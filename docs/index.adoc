@@ -57,6 +57,7 @@ include::04-class-topics/04-11-manual-testing.adoc[]
 include::04-class-topics/04-12-hoare-proof-rules.adoc[]
 include::04-class-topics/04-13-property-based-testing.adoc[]
 include::04-class-topics/04-14-fuzzing-testing.adoc[]
+include::04-class-topics/04-15-mutation-testing.adoc[]
 
 == 5 AI Disclosure
 include::ai-disclosure.adoc[]
