@@ -1,3 +1,4 @@
+
 = Common Inconsistencies in Standings Across Informal Sports Sources
 Project: Tu Deporte Aquí
 Issue: #35

@@ -1,3 +1,4 @@
+
 = Design Session-Based Exploratory Testing Charters for Database Inconsistencies
 
 [.inserted]#Author: Luis Sorrentini#

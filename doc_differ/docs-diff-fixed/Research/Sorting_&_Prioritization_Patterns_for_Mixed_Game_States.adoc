@@ -1,3 +1,4 @@
+
 = Sorting & Prioritization Patterns for Mixed Game States
 
 == Key Structural Difference

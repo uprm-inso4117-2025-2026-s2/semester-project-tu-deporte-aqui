@@ -1,3 +1,4 @@
+
 = Real-Time Event Status Consistency and Data Freshness Strategy
 Tu Deporte Aquí – Research Report
 

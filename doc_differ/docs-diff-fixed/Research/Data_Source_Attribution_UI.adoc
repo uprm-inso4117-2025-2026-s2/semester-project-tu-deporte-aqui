@@ -1,3 +1,4 @@
+
 = Data Source Attribution UI
 Author: Diego A. Rios Morales
 Date: February 27, 2026

@@ -1,3 +1,4 @@
+
 ==== 4.4 LTT Requirement Traceability for Existing BDD Scenarios
 
 [.inserted]#This table shows which requirement IDs each existing BDD scenario covers.#

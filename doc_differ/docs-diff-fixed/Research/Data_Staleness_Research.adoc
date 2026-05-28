@@ -1,3 +1,4 @@
+
 = Data Staleness Detection Strategies
 By Noel Colon
 

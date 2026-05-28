@@ -1,3 +1,4 @@
+
 = Assumptions for Handling Conflicting Standings Data
 Project: Tu Deporte Aquí
 Related Issue: #67

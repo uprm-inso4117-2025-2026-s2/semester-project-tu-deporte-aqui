@@ -1,3 +1,4 @@
+
 ====  Function Signatures
 
 These function signatures are tied [.removed]#directly# to the action groups described in Section 2.1.5. They [.removed]#stay at the# [.inserted]#describe# domain [.removed]#level and use the concepts already#

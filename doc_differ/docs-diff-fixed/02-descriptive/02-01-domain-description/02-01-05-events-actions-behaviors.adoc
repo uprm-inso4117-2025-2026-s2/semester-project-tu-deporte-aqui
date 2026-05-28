@@ -1,3 +1,4 @@
+
 ==== 2.1.5 Events, Actions, and Composite Behaviors
 
 This section describes [.removed]#events# [.inserted]#domain-relevant events, actions,# and [.removed]#actions# [.inserted]#composite behaviors# related to how sports information [.removed]#is produced, compared,# [.inserted]#becomes available, changes over time, conflicts with other reports,# and [.removed]#updated.# [.inserted]#remains interpretable under uncertain conditions.#

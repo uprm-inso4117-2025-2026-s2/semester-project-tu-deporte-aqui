@@ -1,3 +1,4 @@
+
 = Git Baselines Applied to Tu Deporte Aquí
 [.inserted]#:doctype: article#
 [.inserted]#:toc: left#

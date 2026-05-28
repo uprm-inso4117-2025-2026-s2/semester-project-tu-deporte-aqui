@@ -1,3 +1,4 @@
+
 = Lecture Topic Task: Shift-Left Testing and Static Analysis for Tu Deporte Aquí
 
 == Objective

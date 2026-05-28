@@ -1,3 +1,4 @@
+
 = Feed Transparency Feature: “Why am I seeing this?”
 Author: Diego A. Rios Morales
 Date: February 27, 2026

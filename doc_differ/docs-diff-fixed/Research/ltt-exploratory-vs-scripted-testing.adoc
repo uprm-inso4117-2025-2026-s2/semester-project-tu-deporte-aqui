@@ -1,3 +1,4 @@
+
 = Lecture Topic Task: Exploratory Testing vs Scripted Testing in Sports Platforms
 [.inserted]#:toc:#
 [.inserted]#:toclevels: 3#

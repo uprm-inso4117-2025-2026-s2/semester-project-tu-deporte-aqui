@@ -1,3 +1,4 @@
+
 === 4.11 Manual Testing Strategy for Tu Deporte Aquí
 
 ===== Purpose

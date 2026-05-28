@@ -1,3 +1,4 @@
+
 = Team 3: Standings and Tournament – Defining Next Steps for Milestone #2 Implementation (#107)
 
 This document summarizes the meetings held by Team 3 to plan and define the direction for Milestone #2 implementation.

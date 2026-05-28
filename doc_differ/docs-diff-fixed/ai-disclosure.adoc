@@ -1,4 +1,5 @@
 
+
 ===== Overview
 
 During the development of the Tu Deporte Aquí documentation, the team made limited and responsible use of generative artificial intelligence tools as supplementary support resources. These tools were used to assist with organization, drafting clarity, and conceptual exploration, but they did not replace the team’s own analysis, understanding, or decision-making. All final material included in this document reflects the work and judgment of the project members.

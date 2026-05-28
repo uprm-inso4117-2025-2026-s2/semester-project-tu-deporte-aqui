@@ -1,3 +1,4 @@
+
 ==== 2.1.1 Domain Rough Sketch
 
 This [.removed]#section keeps the early discussion in a# rough [.removed]#form. It does not try to#

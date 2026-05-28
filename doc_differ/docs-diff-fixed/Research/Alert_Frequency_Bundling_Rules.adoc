@@ -1,3 +1,4 @@
+
 = Alert Frequency + Bundling Rules (Reduce Alert Fatigue)
 
 == 1) Decision Checklist: Send Now vs Bundle vs Suppress

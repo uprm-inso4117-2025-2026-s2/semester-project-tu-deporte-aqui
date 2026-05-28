@@ -1,4 +1,5 @@
 
+
 === Purpose
 
 [.inserted]#This logbook records relevant activities, decisions, updates, and progress throughout the development and documentation process.#

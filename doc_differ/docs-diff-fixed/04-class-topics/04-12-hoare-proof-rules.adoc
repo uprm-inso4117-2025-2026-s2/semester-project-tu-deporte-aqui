@@ -1,3 +1,4 @@
+
 === 4.12 Applying Hoare Proof Rules to getGameLabelStatus
 
 ===== Purpose

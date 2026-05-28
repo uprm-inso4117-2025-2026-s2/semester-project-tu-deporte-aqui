@@ -1,4 +1,5 @@
 
+
 === 4.1 Test-Driven Development (TDD)
 
 ===== Purpose
@@ -237,7 +238,9 @@ function formatScore(homeScore, awayScore) {
 }
 ----
 
-[.removed]#At each step, the function was modified minimally to pass the new test# [.inserted]#===== Refactor Phase#
+[.removed]#At each step, the function was modified minimally to pass the new test
+
+===== Refactor Phase
 
 [.inserted]#After behavior becomes stable, implementation may be simplified# while [.removed]#keeping all previous tests passing.#
 [.inserted]#preserving successful outcomes.#
