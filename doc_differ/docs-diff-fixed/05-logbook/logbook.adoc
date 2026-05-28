@@ -29,6 +29,6 @@
 |[.inserted]#Alberto Rodríguez#|[.inserted]#4.14, 4.15, 4.16#|[.inserted]#Added#
 |[.inserted]#Alberto Rodríguez#|[.inserted]#Added property-based testing evidence and screenshots#|[.inserted]#Modified#
 |[.inserted]#Alberto Rodríguez#|[.inserted]#Added fuzzing testing evidence section#|[.inserted]#Modified#
-|[.inserted]#Alberto Rodríguez#|[.inserted]#Added mutation testing documentation based on Issue#276 | Added#
-|[.inserted]#Alberto Rodríguez#|[.inserted]#Added load testing documentation based on Issue#273 | Added#
+|[.inserted]#Alberto Rodríguez#|[.inserted]#Added mutation testing documentation based on Issue #276# | Added#
+|[.inserted]#Alberto Rodríguez#|[.inserted]#Added load testing documentation based on Issue #273# | Added#
 |[.inserted]#Alberto Rodríguez#|[.inserted]#Documentation structure and index integration updates#|[.inserted]#Modified#
