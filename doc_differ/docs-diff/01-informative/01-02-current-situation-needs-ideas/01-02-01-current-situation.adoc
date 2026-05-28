@@ -2,102 +2,89 @@
 
 ===== Current Situation
 
-This section describes [.removed]#the current state of# [.inserted]#how# sports information [.removed]#availability in# [.inserted]#about local# Puerto Rico [.removed]#prior to the implementation of Tu Deporte Aquí.#
+This section describes how [.removed]#sports# information about local [.inserted]#sports events in# Puerto Rico [.removed]#events# is currently produced, [.removed]#shared,# [.inserted]#circulated,# and [.removed]#consulted, without# [.inserted]#consulted before# assuming [.inserted]#the existence of# any [.removed]#particular system.#
 
-====== Overview
+[.removed]#Local# [.inserted]#centralized coordination mechanism.#
 
-[.removed]#Sports# [.inserted]#events is currently produced, shared, and consulted, without assuming any particular system.#
+[.inserted]#People who follow local# sports [.removed]#information is not provided through a single coordinated source. Instead, it appears across multiple channels. In practice, people rely# [.inserted]#commonly depend# on [.removed]#a combination of league websites, team pages, social media posts, sports media, third-party platforms, and informal community reporting to follow# [.inserted]#multiple independent information sources at the same time. Information about# schedules, scores, standings, [.inserted]#postponements,# and [.removed]#event updates.# [.inserted]#live game developments is distributed across league websites, social media pages, sports reporters, livestream comment sections, community accounts, and informal reposts.#
 
-[.inserted]#Local sports# information [.removed]#in Puerto Rico# is [.removed]#distributed# [.inserted]#not provided through a single coordinated source. Instead, it appears# across multiple [.removed]#independent platforms, including# [.inserted]#channels. In practice, people rely on a combination of# league websites, [.inserted]#team pages,# social [.inserted]#media posts, sports# media, [.removed]#news outlets,# [.inserted]#third-party platforms,# and informal [.inserted]#community# reporting [.removed]#channels. There# [.inserted]#to follow schedules, scores, standings, and event updates.#
+[.inserted]#The information environment varies significantly between leagues, schools, municipalities, and sports categories. Some organizations publish structured updates regularly, while others rely almost entirely on manual posts through social media.#
 
-[.inserted]#This description# is [.removed]#no centralized or standardized system for accessing this data.# [.inserted]#based on project research into how local leagues publish updates, how people discover events, and how standings, scores, and live data are communicated.#
+This description is based on project research [.removed]#into how# [.inserted]#involving observation of# local [.removed]#leagues publish# [.inserted]#league pages, social media# updates, [.removed]#how people discover events, and how standings, scores,# [.inserted]#standings publications,# and [.removed]#live data are communicated.# [.inserted]#score-reporting practices.#
 
-====== Data Distribution Environment
+====== Information Sources in the Current Environment
 
-Information [.removed]#is typically published through:#
-- [.removed]#League# [.inserted]#Sources in the Current Environment#
+Sports information [.removed]#appears through several types of sources:# [.inserted]#is commonly encountered through:#
 
-[.inserted]#Sports information appears through several types of sources:#
+* official league websites
+* [.removed]#team and league social media# [.inserted]#school athletic program# pages
+* [.removed]#sports media outlets# [.inserted]#Facebook and Instagram posts#
+* [.removed]#independent# [.inserted]#livestream descriptions and comments#
+* [.inserted]#sports# reporters and [.inserted]#photographers#
+* [.inserted]#community [.inserted]#sports# pages#
+* [.inserted]#reposted score graphics#
+* third-party sports platforms
 
-* [.inserted]#official league# websites
-- [.removed]#Social# * [.inserted]#team and league social media pages#
-* [.inserted]#sports# media [.removed]#posts (e.g., Twitter, Instagram)#
-- [.removed]#News# outlets
-- [.removed]#Independent# * [.inserted]#independent# reporters [.inserted]#and community pages#
-* [.inserted]#third-party sports platforms#
+[.removed]#These# [.inserted]#Different# sources [.removed]#differ in format, timing, and level of detail.# [.inserted]#often prioritize different goals.# Some [.removed]#provide structured data,# [.inserted]#focus on rapid updates during games,# while others [.removed]#provide short updates intended for immediate awareness.# [.inserted]#focus on publishing finalized results after review.#
 
-These sources [.removed]#often operate independently, with no synchronization or standardization.#
+====== Fragmentation of Information
 
-====== Key Limitations
+Information [.removed]#about# [.inserted]#related to# the same [.inserted]#sporting# event is [.removed]#often split# [.inserted]#frequently divided# across [.removed]#multiple sources.#
 
-[.removed]#The current environment presents several limitations:#
-- [.removed]#Data fragmentation across multiple platforms#
-- [.removed]#Lack# [.inserted]#differ in format, timing, and level# of [.removed]#official APIs# [.inserted]#detail. Some provide structured data, while others provide short updates intended# for [.removed]#many leagues#
-- [.removed]#Inconsistent update frequencies#
-- [.removed]#Limited standardization in reporting formats# [.inserted]#immediate awareness.#
+[.removed]#For example:# [.inserted]#several independent locations.#
 
-====== Reliability Challenges
+[.inserted]#Observed situations include:#
 
-[.removed]#Sports data in Puerto Rico# [.inserted]#Fragmentation of Information#
+* a league page [.removed]#may publish an official result# [.inserted]#publishing the final score hours# after [.removed]#a reporter at# [.inserted]#spectators already discussed# the [.removed]#venue# [.inserted]#result on social media#
+* [.removed]#a# team [.removed]#account may post a# [.inserted]#accounts posting# score [.inserted]#graphics# without [.removed]#additional context# [.inserted]#game time or venue information#
+* [.removed]#a media outlet may summarize# standings [.removed]#without showing the full table#
 
-[.inserted]#Information about the same event# is [.removed]#frequently:#
-- [.removed]#Delayed due# [.inserted]#often split across multiple sources.#
+[.removed]#To understand# [.inserted]#images being uploaded separately from game results#
 
-[.inserted]#For example:#
+* [.inserted]#reporters publishing inning-by-inning updates while official pages remain inactive#
+* [.inserted]#livestream chats reporting score changes before any official publication occurs#
 
-* [.inserted]#a league page may publish an official result after a reporter at the venue#
-* [.inserted]#a team account may post a score without additional context#
-* [.inserted]#a media outlet may summarize standings without showing the full table#
-
-[.inserted]#To understand a single event, a person may need# to [.inserted]#consult several sources.#
+[.inserted]#A person following# a single [.removed]#event, a person# [.inserted]#event# may [.inserted]#therefore# need to [.removed]#consult several sources.# [.inserted]#switch repeatedly between platforms in order to understand what is currently happening.#
 
 ====== Irregular Timing and Delay
 
-[.inserted]#Updates are not synchronized across sources.#
+[.removed]#Updates are not synchronized across# [.inserted]#Update timing differs significantly between# sources.
 
-[.inserted]#Observed patterns include:#
+Observed patterns include:
 
-[.inserted]#*# manual [.inserted]#posting of scores#
-* [.inserted]#gaps between# updates [.inserted]#during active games#
-* [.inserted]#delayed publication of final results# or [.removed]#slow reporting#
-- [.removed]#Conflicting when multiple# [.inserted]#standings#
-[.inserted]#*# sources [.removed]#provide# [.inserted]#reflecting# different [.removed]#values#
-- [.removed]#Incomplete when certain fields (score, time, status) are missing#
-- [.removed]#Unverified when information comes from informal# [.inserted]#points in time#
+* [.removed]#manual posting of# scores [.inserted]#being entered manually several minutes after they occur#
+* [.removed]#gaps between updates during active games#
+* [.removed]#delayed publication of# [.inserted]#halftime and# final [.removed]#results or# [.inserted]#statuses appearing long after users already know the outcome#
+* [.inserted]#standings tables updated only once every several days#
+* [.inserted]#social media stories disappearing before later verification is possible#
+* [.inserted]#game postponements communicated through comments instead of official announcements#
 
-[.inserted]#Two# sources [.inserted]#checked at the same moment may show different versions of the same event.#
+[.inserted]#As a result, two# sources [.removed]#reflecting different points in time#
+
+[.removed]#Two sources checked at the same moment# [.inserted]#consulted simultaneously# may [.removed]#show# [.inserted]#describe# different [.removed]#versions# [.inserted]#states# of the same [.inserted]#sporting# event.
 
 ====== Inconsistency and Incompleteness
 
-[.inserted]#Information may differ in both content and completeness.#
+Information may [.removed]#differ# [.inserted]#also vary# in [.removed]#both content# [.inserted]#accuracy, detail,# and completeness.
 
-[.inserted]#Examples include:#
+Examples [.inserted]#observed during project research# include:
 
-* [.inserted]#different scores reported for the same game#
-* [.inserted]#inconsistent standings or rankings#
-* [.inserted]#missing time indicators or status labels#
-* [.inserted]#updates that do not indicate whether they#
+* [.removed]#different# [.inserted]#conflicting# scores reported [.removed]#for the same game# [.inserted]#by different pages#
+* [.inserted]#missing opponent names in score posts#
+* [.removed]#inconsistent# standings [.removed]#or rankings# [.inserted]#tables without update timestamps#
+* [.removed]#missing time indicators or status labels# [.inserted]#posts identifying games as final while additional play was still occurring#
+* [.removed]#updates that do not indicate whether they are live# [.inserted]#score graphics without indication of sport category, league,# or [.removed]#final# [.inserted]#season#
+* [.inserted]#schedule posts edited after publication without explanation#
 
-[.removed]#These issues# are [.removed]#more noticeable during high-demand events such as playoffs.# [.inserted]#live or final#
+These [.removed]#differences# [.inserted]#inconsistencies# often [.removed]#result# [.inserted]#arise# from manual [.removed]#entry, different publication# [.inserted]#reporting# practices, [.inserted]#differing publication priorities, delayed corrections,# and lack of [.removed]#coordination between sources.# [.inserted]#synchronized reporting procedures.#
 
-[.inserted]#These differences often result from manual entry, different publication practices, and lack of coordination between sources.#
+====== Consequences for People in the Domain
 
-====== Impact on Users
+The current [.removed]#situation# [.inserted]#information environment# affects different [.removed]#roles:# [.inserted]#groups differently.#
 
-[.removed]#Users face several challenges:#
-- [.removed]#Difficulty determining# [.inserted]#Consequences for People in the Domain#
+* fans and families may [.removed]#have difficulty deciding which information# [.inserted]#struggle# to [.removed]#trust# [.inserted]#determine which updates are dependable during active games#
+* players and coaches may [.removed]#need to# verify schedules and [.removed]#results across# [.inserted]#standings through multiple# sources [.inserted]#before relying on them#
+* leagues and organizers may [.removed]#see# [.inserted]#find# outdated [.removed]#or partial# information [.inserted]#continuing to# circulate [.inserted]#after corrections occur#
+* reporters and community contributors [.removed]#often publish quickly without full# [.inserted]#may prioritize speed over# confirmation [.inserted]#during live events#
 
-[.inserted]#The current situation affects different roles:#
-
-* [.inserted]#fans and families may have difficulty deciding# which information [.removed]#is correct#
-- [.removed]#Need# to [.removed]#cross-check multiple# [.inserted]#trust#
-* [.inserted]#players and coaches may need to verify schedules and results across# sources
-- [.removed]#Confusion during conflicting# * [.inserted]#leagues and organizers may see outdated# or [.removed]#delayed updates#
-- [.removed]#Reduced trust in available information#
-
-[.removed]#In many cases, incorrect# [.inserted]#partial# information [.removed]#causes more harm to user trust# [.inserted]#circulate#
-* [.inserted]#reporters and community contributors often publish quickly without full confirmation#
-
-[.inserted]#Following local sports often requires comparing multiple sources rather# than [.removed]#clearly communicated missing information.#
-
-[.removed]#This situation highlights the need for# [.inserted]#relying on# a [.removed]#system that prioritizes transparency and reliability when handling uncertain data.# [.inserted]#single consistent view.#
+Following local sports [.removed]#often# [.inserted]#therefore frequently# requires [.removed]#comparing multiple sources rather than relying on# [.inserted]#interpretation, comparison, and repeated cross-checking instead of consultation of# a single [.removed]#consistent view.# [.inserted]#dependable source.#

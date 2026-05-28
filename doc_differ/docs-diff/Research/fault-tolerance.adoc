@@ -1,48 +1,48 @@
-== [.inserted]#Fault Tolerance#
+== Fault Tolerance
 
-=== [.inserted]#Overview#
+=== Overview
 
-[.inserted]#Fault tolerance is the ability of a system to continue operating correctly even when some components fail. Instead of crashing or producing incorrect results, the system detects failures and handles them in a controlled and predictable manner.#
+Fault tolerance is the ability of a system to continue operating correctly even when some components fail. Instead of crashing or producing incorrect results, the system detects failures and handles them in a controlled and predictable manner.
 
-=== [.inserted]#Importance#
+=== Importance
 
-[.inserted]#In the project, data may come from unreliable or inconsistent sources. This creates situations where information may be missing, delayed, or conflicting. Fault tolerance ensures that the system remains stable and usable even under these conditions.#
+In the project, data may come from unreliable or inconsistent sources. This creates situations where information may be missing, delayed, or conflicting. Fault tolerance ensures that the system remains stable and usable even under these conditions.
 
-=== [.inserted]#Common Failure Scenarios#
+=== Common Failure Scenarios
 
-- [.inserted]#Missing data from a source  #
-- [.inserted]#Delayed updates during live events  #
-- [.inserted]#Conflicting reports from multiple sources  #
-- [.inserted]#Temporary server or API unavailability  #
+- Missing data from a source  
+- Delayed updates during live events  
+- Conflicting reports from multiple sources  
+- Temporary server or API unavailability  
 
-=== [.inserted]#Application to Tu Deporte Aquí#
+=== Application to Tu Deporte Aquí
 
-[.inserted]#The system should:#
+The system should:
 
-- [.inserted]#Provide fallback values when data is missing  #
-- [.inserted]#Clearly indicate when data is unavailable  #
-- [.inserted]#Handle conflicting data without crashing  #
-- [.inserted]#Maintain stable behavior even with partial information  #
+- Provide fallback values when data is missing  
+- Clearly indicate when data is unavailable  
+- Handle conflicting data without crashing  
+- Maintain stable behavior even with partial information  
 
-=== [.inserted]#Example Scenario#
+=== Example Scenario
 
 [cols="1,2,2"]
-[.inserted]#|===#
-[.inserted]#| Scenario | Issue | Expected Behavior#
+|===
+| Scenario | Issue | Expected Behavior
 
-[.inserted]#| Missing score update#
-[.inserted]#| No data from source#
-[.inserted]#| Show "Not available" instead of blank or error#
+| Missing score update
+| No data from source
+| Show "Not available" instead of blank or error
 
-[.inserted]#| Conflicting match result#
-[.inserted]#| Different values from sources#
-[.inserted]#| Display conflict indicator#
+| Conflicting match result
+| Different values from sources
+| Display conflict indicator
 
-[.inserted]#| Delayed data#
-[.inserted]#| Late updates#
-[.inserted]#| Show last known value with timestamp#
-[.inserted]#|===#
+| Delayed data
+| Late updates
+| Show last known value with timestamp
+|===
 
-=== [.inserted]#Conclusion#
+=== Conclusion
 
-[.inserted]#Fault tolerance is essential for ensuring that Tu Deporte Aquí remains stable, predictable, and reliable even when external data sources fail or behave inconsistently.#
+Fault tolerance is essential for ensuring that Tu Deporte Aquí remains stable, predictable, and reliable even when external data sources fail or behave inconsistently.

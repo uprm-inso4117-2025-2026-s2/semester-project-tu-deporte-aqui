@@ -1,225 +1,225 @@
-= [.inserted]#Message Templates for System Updates & Alerts#
-[.inserted]#Author: Diego A Rios Morales#
-[.inserted]#Date: February 2026#
-[.inserted]#Project: Tu Deporte Aquí#
+= Message Templates for System Updates & Alerts
+Author: Diego A Rios Morales
+Date: February 2026
+Project: Tu Deporte Aquí
 
 ---
 
-== [.inserted]#Communication Principles#
+== Communication Principles
 
-[.inserted]#Effective system communication should:#
+Effective system communication should:
 
-* [.inserted]#Use simple, non-technical language#
-* [.inserted]#Clearly state what is happening#
-* [.inserted]#Explain who is affected#
-* [.inserted]#Provide next steps or expectations#
-* [.inserted]#Maintain consistent tone and structure#
-
----
-
-== [.inserted]#1. News Update Template#
-
-[.inserted]#Used for routine updates such as:#
-
-* [.inserted]#Match results#
-* [.inserted]#Schedule announcements#
-* [.inserted]#Player news#
-
-=== [.inserted]#Template#
-
-----
-[.inserted]#Update: <Title>#
-
-[.inserted]#<Brief summary of the update>#
-
-[.inserted]#Date: <date>#
-[.inserted]#Location/Event: <optional>#
-
-[.inserted]#More details: <link>#
-----
+* Use simple, non-technical language
+* Clearly state what is happening
+* Explain who is affected
+* Provide next steps or expectations
+* Maintain consistent tone and structure
 
 ---
 
-=== [.inserted]#Example#
+== 1. News Update Template
+
+Used for routine updates such as:
+
+* Match results
+* Schedule announcements
+* Player news
+
+=== Template
 
 ----
-[.inserted]#Update: Team A wins championship#
+Update: <Title>
 
-[.inserted]#Team A defeated Team B 3–1 in the finals.#
+<Brief summary of the update>
 
-[.inserted]#Date: Feb 15, 2026#
+Date: <date>
+Location/Event: <optional>
+
+More details: <link>
 ----
 
 ---
 
-== [.inserted]#2. Urgent Alert Template#
-
-[.inserted]#Used for:#
-
-* [.inserted]#Cancellations#
-* [.inserted]#Emergencies#
-* [.inserted]#Safety issues#
-* [.inserted]#Major disruptions#
-
-=== [.inserted]#Template#
+=== Example
 
 ----
-[.inserted]#URGENT ALERT#
+Update: Team A wins championship
 
-[.inserted]#<What happened>#
+Team A defeated Team B 3–1 in the finals.
 
-[.inserted]#Affected: <who/what is impacted>#
-
-[.inserted]#Action: <what users should do>#
-
-[.inserted]#We will provide updates as more information becomes available.#
+Date: Feb 15, 2026
 ----
 
 ---
 
-=== [.inserted]#Example#
+== 2. Urgent Alert Template
+
+Used for:
+
+* Cancellations
+* Emergencies
+* Safety issues
+* Major disruptions
+
+=== Template
 
 ----
-[.inserted]#URGENT ALERT#
+URGENT ALERT
 
-[.inserted]#Today’s match has been canceled due to severe weather.#
+<What happened>
 
-[.inserted]#Affected: All attendees and teams#
+Affected: <who/what is impacted>
 
-[.inserted]#Action: Do not travel to the venue.#
-----
+Action: <what users should do>
 
----
-
-== [.inserted]#3. Delayed Data / Pending Update Template#
-
-[.inserted]#Used when:#
-
-* [.inserted]#Results are delayed#
-* [.inserted]#Scores are pending#
-* [.inserted]#Information is not yet confirmed#
-
-=== [.inserted]#Template#
-
-----
-[.inserted]#Update Delayed#
-
-[.inserted]#We are currently waiting for official confirmation of <information>.#
-
-[.inserted]#Status: Pending verification#
-
-[.inserted]#Expected update: <time if known>#
-
-[.inserted]#Thank you for your patience.#
+We will provide updates as more information becomes available.
 ----
 
 ---
 
-=== [.inserted]#Example#
+=== Example
 
 ----
-[.inserted]#Update Delayed#
+URGENT ALERT
 
-[.inserted]#We are waiting for official confirmation of the final match score.#
+Today’s match has been canceled due to severe weather.
 
-[.inserted]#Status: Pending verification#
+Affected: All attendees and teams
 
-[.inserted]#Expected update: Shortly#
-----
-
----
-
-== [.inserted]#4. Conflicting Reports Template#
-
-[.inserted]#Used when:#
-
-* [.inserted]#Multiple sources provide different information#
-
-=== [.inserted]#Template#
-
-----
-[.inserted]#Information Under Review#
-
-[.inserted]#We have received conflicting reports regarding <event>.#
-
-[.inserted]#Status: Verification in progress#
-
-[.inserted]#We will publish confirmed information once verified.#
-
-[.inserted]#Thank you for your understanding.#
+Action: Do not travel to the venue.
 ----
 
 ---
 
-=== [.inserted]#Example#
+== 3. Delayed Data / Pending Update Template
+
+Used when:
+
+* Results are delayed
+* Scores are pending
+* Information is not yet confirmed
+
+=== Template
 
 ----
-[.inserted]#Information Under Review#
+Update Delayed
 
-[.inserted]#We have received conflicting reports regarding the match outcome.#
+We are currently waiting for official confirmation of <information>.
 
-[.inserted]#Status: Verification in progress#
-----
+Status: Pending verification
 
----
+Expected update: <time if known>
 
-== [.inserted]#5. System Status / Technical Issue Template#
-
-[.inserted]#Used when:#
-
-* [.inserted]#The platform experiences technical problems#
-
-=== [.inserted]#Template#
-
-----
-[.inserted]#System Issue#
-
-[.inserted]#We are currently experiencing technical difficulties affecting <feature>.#
-
-[.inserted]#Impact: <what users cannot do>#
-
-[.inserted]#Our team is working to resolve the issue.#
-
-[.inserted]#Next update: <timeframe>#
+Thank you for your patience.
 ----
 
 ---
 
-== [.inserted]#6. Resolution / Issue Resolved Template#
-
-[.inserted]#Used when:#
-
-* [.inserted]#A problem has been fixed#
-
-=== [.inserted]#Template#
+=== Example
 
 ----
-[.inserted]#Issue Resolved#
+Update Delayed
 
-[.inserted]#The issue affecting <feature/event> has been resolved.#
+We are waiting for official confirmation of the final match score.
 
-[.inserted]#Thank you for your patience.#
+Status: Pending verification
+
+Expected update: Shortly
 ----
 
 ---
 
-== [.inserted]#Conclusion#
+== 4. Conflicting Reports Template
 
-[.inserted]#Standardized message templates ensure users receive:#
+Used when:
 
-* [.inserted]#Clear information#
-* [.inserted]#Consistent communication#
-* [.inserted]#Trustworthy updates#
+* Multiple sources provide different information
 
-[.inserted]#By covering:#
+=== Template
 
-* [.inserted]#Routine updates#
-* [.inserted]#Emergencies#
-* [.inserted]#Delays#
-* [.inserted]#Conflicting reports#
+----
+Information Under Review
 
-[.inserted]#the platform can:#
+We have received conflicting reports regarding <event>.
 
-* [.inserted]#Maintain transparency#
-* [.inserted]#Reduce confusion#
-* [.inserted]#Improve user confidence#
+Status: Verification in progress
+
+We will publish confirmed information once verified.
+
+Thank you for your understanding.
+----
+
+---
+
+=== Example
+
+----
+Information Under Review
+
+We have received conflicting reports regarding the match outcome.
+
+Status: Verification in progress
+----
+
+---
+
+== 5. System Status / Technical Issue Template
+
+Used when:
+
+* The platform experiences technical problems
+
+=== Template
+
+----
+System Issue
+
+We are currently experiencing technical difficulties affecting <feature>.
+
+Impact: <what users cannot do>
+
+Our team is working to resolve the issue.
+
+Next update: <timeframe>
+----
+
+---
+
+== 6. Resolution / Issue Resolved Template
+
+Used when:
+
+* A problem has been fixed
+
+=== Template
+
+----
+Issue Resolved
+
+The issue affecting <feature/event> has been resolved.
+
+Thank you for your patience.
+----
+
+---
+
+== Conclusion
+
+Standardized message templates ensure users receive:
+
+* Clear information
+* Consistent communication
+* Trustworthy updates
+
+By covering:
+
+* Routine updates
+* Emergencies
+* Delays
+* Conflicting reports
+
+the platform can:
+
+* Maintain transparency
+* Reduce confusion
+* Improve user confidence

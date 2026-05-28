@@ -1,150 +1,150 @@
-= [.inserted]#Standardized Communication Templates Research#
-[.inserted]#Author: Javier Ventosa#
-[.inserted]#Project: Tu Deporte Aquí#
+= Standardized Communication Templates Research
+Author: Javier Ventosa
+Project: Tu Deporte Aquí
 
 ---
 
-== [.inserted]#1. Introduction#
+== 1. Introduction
 
-[.inserted]#Tu Deporte Aquí provides sports information such as:#
+Tu Deporte Aquí provides sports information such as:
 
-* [.inserted]#Event schedules#
-* [.inserted]#Registrations#
-* [.inserted]#Cancellations#
-* [.inserted]#Organizer updates#
+* Event schedules
+* Registrations
+* Cancellations
+* Organizer updates
 
-[.inserted]#Because data may:#
+Because data may:
 
-* [.inserted]#Come from multiple sources#
-* [.inserted]#Change frequently#
+* Come from multiple sources
+* Change frequently
 
-[.inserted]#Inconsistent system messages can:#
+Inconsistent system messages can:
 
-* [.inserted]#Confuse users#
-* [.inserted]#Reduce trust#
+* Confuse users
+* Reduce trust
 
-[.inserted]#Without a standardized communication structure, the platform risks:#
+Without a standardized communication structure, the platform risks:
 
-* [.inserted]#Misleading users about event status#
-* [.inserted]#Creating uncertainty during delays#
-* [.inserted]#Displaying technical or unclear messages#
-* [.inserted]#Inconsistent tone across notifications#
+* Misleading users about event status
+* Creating uncertainty during delays
+* Displaying technical or unclear messages
+* Inconsistent tone across notifications
 
 Purpose::
 
-[.inserted]#Evaluate communication strategies and recommend a standardized messaging structure.#
+Evaluate communication strategies and recommend a standardized messaging structure.
 
 ---
 
-== [.inserted]#2. Current Problems#
+== 2. Current Problems
 
-[.inserted]#Potential communication issues include:#
+Potential communication issues include:
 
-* [.inserted]#Overly technical system messages#
-* [.inserted]#Inconsistent tone across notifications#
-* [.inserted]#Missing guidance for user actions#
-* [.inserted]#Inconsistent formatting#
-* [.inserted]#Confusing wording during delays or conflicts#
+* Overly technical system messages
+* Inconsistent tone across notifications
+* Missing guidance for user actions
+* Inconsistent formatting
+* Confusing wording during delays or conflicts
 
 ---
 
-== [.inserted]#3. Methods Evaluated#
+== 3. Methods Evaluated
 
-=== [.inserted]#3.1 Minimal System Alerts (Basic Status Only)#
+=== 3.1 Minimal System Alerts (Basic Status Only)
 
 Description::
 
-[.inserted]#Messages display only a short status (e.g., "Cancelled", "Full")#
+Messages display only a short status (e.g., "Cancelled", "Full")
 
-==== [.inserted]#Pros#
+==== Pros
 
-* [.inserted]#Easy to implement#
-* [.inserted]#Very short and simple#
+* Easy to implement
+* Very short and simple
 
-==== [.inserted]#Cons#
+==== Cons
 
-* [.inserted]#Lacks context#
-* [.inserted]#No user guidance#
-* [.inserted]#May cause confusion#
+* Lacks context
+* No user guidance
+* May cause confusion
 
 ---
 
-=== [.inserted]#3.2 Detailed Technical Messaging#
+=== 3.2 Detailed Technical Messaging
 
 Description::
 
-[.inserted]#Messages include backend/system-level explanations  #
-[.inserted]#(e.g., sync errors, data conflicts)#
+Messages include backend/system-level explanations  
+(e.g., sync errors, data conflicts)
 
-==== [.inserted]#Pros#
+==== Pros
 
-* [.inserted]#High transparency#
-* [.inserted]#Useful for debugging#
+* High transparency
+* Useful for debugging
 
-==== [.inserted]#Cons#
+==== Cons
 
-* [.inserted]#Confusing for non-technical users#
-* [.inserted]#Reduces readability#
-* [.inserted]#May reduce trust#
+* Confusing for non-technical users
+* Reduces readability
+* May reduce trust
 
 ---
 
-=== [.inserted]#3.3 Structured User-Centered Templates#
+=== 3.3 Structured User-Centered Templates
 
 Description::
 
-[.inserted]#Messages follow a standardized format:#
+Messages follow a standardized format:
 
-* [.inserted]#Title#
-* [.inserted]#Short Description#
-* [.inserted]#Action Guidance (optional)#
+* Title
+* Short Description
+* Action Guidance (optional)
 
-==== [.inserted]#Pros#
+==== Pros
 
-* [.inserted]#Clear and consistent#
-* [.inserted]#Non-technical language#
-* [.inserted]#Improves user trust#
-* [.inserted]#Scales easily#
+* Clear and consistent
+* Non-technical language
+* Improves user trust
+* Scales easily
 
-==== [.inserted]#Cons#
+==== Cons
 
-* [.inserted]#Requires initial standardization effort#
-* [.inserted]#Requires coordination with frontend#
-
----
-
-== [.inserted]#4. Strategy Comparison#
-
-* [.inserted]#Minimal Alerts → Medium clarity, low trust, very low complexity#
-* [.inserted]#Technical Messaging → Low clarity, low trust, medium complexity#
-* [.inserted]#Structured Templates → High clarity, high trust, moderate complexity#
+* Requires initial standardization effort
+* Requires coordination with frontend
 
 ---
 
-== [.inserted]#5. Recommended Strategy#
+== 4. Strategy Comparison
 
-[.inserted]#The recommended approach is:#
-
-[.inserted]#*Structured User-Centered Templates*#
-
-[.inserted]#All notifications should follow:#
-
-=== [.inserted]#Message Structure#
-
-* [.inserted]#Title  #
-[.inserted]#  Clear status (e.g., "Event Cancelled")#
-
-* [.inserted]#Short Description  #
-[.inserted]#  Brief explanation of what happened#
-
-* [.inserted]#Action Guidance  #
-[.inserted]#  What the user should do next (if applicable)#
+* Minimal Alerts → Medium clarity, low trust, very low complexity
+* Technical Messaging → Low clarity, low trust, medium complexity
+* Structured Templates → High clarity, high trust, moderate complexity
 
 ---
 
-=== [.inserted]#Benefits#
+== 5. Recommended Strategy
 
-* [.inserted]#Ensures consistency#
-* [.inserted]#Improves readability#
-* [.inserted]#Reduces confusion#
-* [.inserted]#Simplifies frontend integration#
+The recommended approach is:
+
+*Structured User-Centered Templates*
+
+All notifications should follow:
+
+=== Message Structure
+
+* Title  
+  Clear status (e.g., "Event Cancelled")
+
+* Short Description  
+  Brief explanation of what happened
+
+* Action Guidance  
+  What the user should do next (if applicable)
+
+---
+
+=== Benefits
+
+* Ensures consistency
+* Improves readability
+* Reduces confusion
+* Simplifies frontend integration

@@ -2,7 +2,7 @@
 import sys
 import re
 
-DEBUG = True
+DEBUG = False
 
 def debug_print(*args):
     if DEBUG:
@@ -41,6 +41,46 @@ def normalize_bullet_spacing(text):
         normalized.append(line)
     return '\n'.join(normalized)
 
+def strip_roles_keep_inserted_drop_removed(text):
+    text = re.sub(r'\[\.removed\]#.*?#', '', text)
+    text = re.sub(r'\[\.inserted\]#(.*?)#', r'\1', text)
+    text = text.replace('[.removed]##', '')
+    text = text.replace('[.inserted]##', '')
+    return text
+
+def strip_roles_keep_text(text):
+    return re.sub(r'\[\.(inserted|removed)\]#(.*?)#', r'\2', text)
+
+def move_table_pipes_outside_roles(text):
+    def split_role_pipes(match):
+        role = match.group(1)
+        content = match.group(2)
+        parts = [part.strip() for part in content.split('|')]
+        wrapped = [f'[.{role}]#{part}#' for part in parts if part != '']
+        return '|'.join(wrapped)
+
+    def trim_table_role_spaces(line):
+        return re.sub(r'\[\.(inserted|removed)\]#(.*?)#',
+                      lambda m: f"[.{m.group(1)}]#{m.group(2).strip()}#",
+                      line)
+
+    def normalize_table_line(line):
+        line = re.sub(r'\[\.inserted\]#\|(.*?)#', r'|[.inserted]#\1#', line)
+        line = re.sub(r'\[\.removed\]#\|(.*?)#', r'|[.removed]#\1#', line)
+        line = re.sub(r'\[\.inserted\]#(.*?)\|#', r'[.inserted]#\1#|', line)
+        line = re.sub(r'\[\.removed\]#(.*?)\|#', r'[.removed]#\1#|', line)
+        line = re.sub(r'\[\.(inserted|removed)\]#(.*?)#', split_role_pipes, line)
+        return trim_table_role_spaces(line)
+
+    lines = text.splitlines()
+    normalized = []
+    for line in lines:
+        if '|' in line:
+            normalized.append(normalize_table_line(line))
+        else:
+            normalized.append(line)
+    return '\n'.join(normalized)
+
 def main():
     if len(sys.argv) > 1:
         with open(sys.argv[1], 'r', encoding='utf-8') as f:
@@ -53,6 +93,7 @@ def main():
     content = re.sub(r'__INS_START__(.*?)__INS_END__', r'[.inserted]#\1#', content, flags=re.DOTALL)
     content = re.sub(r'__DEL_START__(.*?)__DEL_END__', r'[.removed]#\1#', content, flags=re.DOTALL)
     content = wrap_asciidoc_formatting_outside_roles(content)
+    content = move_table_pipes_outside_roles(content)
     content = normalize_bullet_spacing(content)
 
     # Post-process by line: if a line looks like a heading (starts with '=')
@@ -61,37 +102,47 @@ def main():
     # delimiters or introducing stray fragments.
     out_lines = []
     in_code_block = False
+    in_code_block_end_marker = False
     for line in content.splitlines():
         # create a simplified version removing role wrappers to test heading
         simplified = re.sub(r'\[\.inserted\]#|\[\.removed\]#|#', '', line)
         is_fence = '----' in simplified.strip()  # == is too strict
         if is_fence:
             if in_code_block:
-                line = f'{line} // DEBUG:code-block'
-            in_code_block = not in_code_block
+                in_code_block_end_marker = True
+            else:
+                in_code_block = True
         if simplified.strip() == '':
             out_lines.append('')
             continue
         if simplified.lstrip().startswith('include::'):
-            line = re.sub(r'\[\.removed\]#.*?#', '', line)
-            line = re.sub(r'\[\.inserted\]#(.*?)#', r'\1', line)
-            line = line.replace('[.removed]##', '')
-            if in_code_block:
+            line = strip_roles_keep_inserted_drop_removed(line)
+            if in_code_block and DEBUG:
                 line = f'{line} // DEBUG:code-block'
             out_lines.append(line)
             continue
+        if simplified.lstrip().startswith('[cols=') or simplified.lstrip().startswith('[options='):
+            line = strip_roles_keep_text(line)
+            out_lines.append(line)
+            continue
+        if simplified.lstrip().startswith('|==='):
+            line = strip_roles_keep_text(line)
+            out_lines.append(line)
+            continue
+        if in_code_block:
+            line = strip_roles_keep_inserted_drop_removed(line)
         if simplified.lstrip().startswith('='):
             # remove any removed-role blocks from original line (drop the text)
-            line = re.sub(r'\[\.removed\]#.*?#', '', line)
-            # unwrap inserted-role blocks but keep their content
-            line = re.sub(r'\[\.inserted\]#(.*?)#', r'\1', line)
-            # also remove any empty removed-role artifacts
-            line = line.replace('[.removed]##', '')
+            line = strip_roles_keep_inserted_drop_removed(line)
             # normalize heading indentation only when the heading already has text
             if re.search(r'=\S', line.lstrip()):
                 line = line.lstrip()
-        if in_code_block:
+        if in_code_block and DEBUG:
             line = f'{line} // DEBUG:code-block'
+        if in_code_block_end_marker:
+            line = line.lstrip()
+            in_code_block = False
+            in_code_block_end_marker = False
         out_lines.append(line)
 
     content = '\n'.join(out_lines)

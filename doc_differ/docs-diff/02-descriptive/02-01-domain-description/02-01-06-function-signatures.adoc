@@ -1,217 +1,287 @@
+====  Function Signatures
 
-==== [.removed]#2.1.6# [.inserted]##2.1.6# Function [.removed]#Signatures (Pseudocode at the moment, Not Event-Tied)#
+These function signatures are tied [.removed]#directly# to the action groups described in Section 2.1.5. They [.removed]#stay at the# [.inserted]#describe# domain [.removed]#level and use the concepts already#
+[.removed]#present in the document, rather than storage-oriented# [.inserted]#behavior, not database tables, API routes, UI widgets,# or [.removed]#architecture-specific#
+[.removed]#types.# [.inserted]#implementation classes.#
 
-[.removed]#These# [.inserted]#Signatures##
+Notation uses the form:
 
-[.inserted]##These function# signatures [.removed]#describe what information is needed# [.inserted]#are tied directly# to [.removed]#perform key actions# [.inserted]#the action groups described# in [.removed]#*Tu Deporte Aquí*#
-[.inserted]#Section 2.1.5. They stay at the domain level# and [.removed]#what state is produced# [.inserted]#use the concepts already#
-[.inserted]#present in the document, rather than storage-oriented# or [.removed]#changed. The design is intentionally modular so it can be extended later without committing to a specific architecture since we don't have one decided yet.#
+----
+functionName : InputTypes  → OutputTypes
+----
 
-===== [.removed]#Core Records (state holders)#
+[.inserted]#The symbol `><` means that the function uses more than one domain value.#
 
-* [.removed]#SourceRegistry: configured sources and basic health metadata#
-* [.removed]#RawArchive: stored raw snapshots from sources (for traceability)#
-* [.removed]#UpdateStore: stored normalized updates with provenance#
-* [.removed]#CanonicalStore: current best-known# [.inserted]#architecture-specific#
-[.inserted]#types.##
+===== Domain Types Used in These Signatures
 
-[.inserted]#Notation uses the form:#
+[.inserted]#The signatures below use named domain types so that the reader can see what kind of information each function works with.#
 
-[.inserted]#functionName : InputTypes -> OutputTypes#
+[cols="1,3", options="header"]
+|===
+|[.inserted]#Type#
+|[.inserted]#Meaning in this domain#
 
-[.inserted]#Where multiple outputs indicate updated# state [.removed]#(games, standings, athlete updates)#
-* [.removed]#ConflictQueue: unresolved conflicts that need resolution#
-* [.removed]#StatusBoard: user-facing status# and [.removed]#reliability messages# [.inserted]#produced results.#
+|[.inserted]#`SourceType`#
+|[.inserted]#The kind of source that produced a report. Examples include league page, team page, reporter post, sports media post, third-party platform, or community-submitted report.#
 
-===== [.inserted]##E1 Actions (Report Received)##
+|[.inserted]#`SourcePattern`#
+|[.inserted]#The update pattern expected from a source in the current situation. A `StreamingSource` provides repeated updates during an event. A `SpotSource` provides one report at a time, such as a final-score image, screenshot, article, or single social media post.#
 
-[.inserted]##buildReliabilityMetadata :##
-[.inserted]###    Source [.removed]#Configuration#
+|[.inserted]#`SourceReport`#
+|[.inserted]#A specific piece of information received from one source. A `SourceReport` includes the reported value itself, such as a score, schedule change, venue change, standings update, game status, or correction. It also carries the source and available timing information.#
 
-[.removed]#registerSource(SourceRegistry, SourceConfig) -> SourceRegistry#
+|[.inserted]#`ReportedValue`#
+|[.inserted]#The actual value claimed by a report. Examples include a score, game status, schedule time, venue, standings value, or correction.#
 
-[.removed]#updateSourceConfig(SourceRegistry, SourceId, SourceConfig) -> SourceRegistry#
+|[.inserted]#`EventRecord`#
+|[.inserted]#The current maintained representation of what is known about a sporting event.#
 
-[.removed]#removeSource(SourceRegistry, SourceId) -> SourceRegistry#
+|[.inserted]#`SourceTrustLevel`#
+|[.inserted]#A general assessment of how dependable a source tends to be for the kind of report being handled.#
 
-[.removed]#listSources(SourceRegistry)# [.inserted]#Type >< Publish Time >< Last Updated Time##
-[.inserted]###    -> [.removed]#List<SourceConfig>#
+|[.inserted]#`PublishTime`#
+|[.inserted]#The time when a source originally released the information, when that time is available.#
 
-===== [.removed]#Fetching and Snapshot Storage#
+|[.inserted]#`IngestTime`#
+|[.inserted]#The time when the information was recorded by the system.#
 
-[.removed]#fetchSnapshot(SourceRegistry, SourceId, FetchOptions)# [.inserted]#Reliability Metadata##
+|[.inserted]#`LastUpdatedTime`#
+|[.inserted]#The most recent time the event record changed.#
 
-[.inserted]##Creates the reliability metadata attached to a newly received report.##
+|[.inserted]#`VerificationState`#
+|[.inserted]#The confirmation# state [.inserted]#of a reported value. Possible values include `Unverified`, `Confirmed`,# and [.removed]#produced results.# [.inserted]#`Final`.#
 
-[.inserted]##classifyVerificationStatus :##
-[.inserted]##    Source Type >< Reliability Metadata##
-[.inserted]###    -> [.removed]#(SourceRegistry, Snapshot# [.inserted]#Confirmed# or [.removed]#FetchError)#
+|[.inserted]#`InformationStatus`#
+|[.inserted]#The current condition of the information. Possible values include `Developing`, `Conflicting`, `Delayed`, `Corrected`, `Unknown`, and `Unavailable`.#
 
-[.removed]#storeSnapshot(RawArchive, Snapshot) -> (RawArchive, SnapshotId)#
+|[.inserted]#`ConfidenceLevel`#
+|[.inserted]#The level of confidence assigned to a reported value. Possible values include `HighConfidence`, `MediumConfidence`, and `LowConfidence`.#
 
-[.removed]#getSnapshot(RawArchive, SnapshotId)# [.inserted]#Unverified or Developing##
+|[.inserted]#`ReliabilityMetadata`#
+|[.inserted]#The source, timing, verification, and confidence information attached to a report or event record.#
 
-[.inserted]##Determines the initial verification status of the reported information.##
+|[.inserted]#`DependabilityIndicator`#
+|[.inserted]#The visible dependability information that can be shown with a score, schedule, standings entry, or event update.#
 
-[.inserted]##assignConfidenceLevel :##
-[.inserted]##    Source Type >< Confirmed or Unverified or Developing##
-[.inserted]###    -> [.removed]#Snapshot# [.inserted]#High Confidence# or [.removed]#None# [.inserted]#Medium Confidence or Low Confidence##
+|[.inserted]#`ConflictAssessment`#
+|[.inserted]#The result of comparing reports that may disagree. It identifies whether the reports are consistent, conflicting, or still unresolved.#
 
-[.inserted]##Determines the initial confidence level of the reported information.##
+|[.inserted]#`Correction`#
+|[.inserted]#A report or update that replaces, fixes, or clarifies previously recorded information.#
 
-===== [.removed]#Parsing and Normalization#
+|[.inserted]#`CorrectionTrace`#
+|[.inserted]#A record of what changed when a correction replaces or updates previously reported information. It keeps the previous value, the corrected value, the source report that caused the change, and the time of the change.#
 
-[.removed]#normalizeSnapshot(Snapshot, ParseOptions) -> (List<NormalizedUpdate>, Diagnostics)#
+|[.inserted]#`DegradedState`#
+|[.inserted]#A system condition where the platform continues operating with missing, late, unavailable, or incomplete source support.#
 
-[.removed]#storeUpdates(UpdateStore, List<NormalizedUpdate>)# [.inserted]##E2 Actions (Live Match State Updated)##
+|[.inserted]#`GracefulDegradation`#
+|[.inserted]#The behavior of continuing to show usable partial information while making the limitation visible.#
+|===
 
-[.inserted]##recordLiveStateUpdate :##
-[.inserted]##    Source Type >< Last Updated Time >< Reliability Metadata##
-[.inserted]###    -> [.removed]#(UpdateStore, List<UpdateId>)#
+===== Typed Example: Assessing Dependability
 
-[.removed]#getUpdate(UpdateStore, UpdateId)# [.inserted]#Reliability Metadata##
+[.inserted]#The following function is a non-trivial example of using types to explain domain behavior:#
 
-[.inserted]##Records the reliability context of a live-match state update.##
+----
+assessReportDependability : SourceReport >< SourceTrustLevel >< EventRecord → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
+----
 
-[.inserted]##recordManualOverride :##
-[.inserted]##    Source Type >< Publish Time >< Last Updated Time >< Reliability Metadata##
-[.inserted]###    -> [.removed]#NormalizedUpdate# [.inserted]#Corrected >< Reliability Metadata##
+[.inserted]#This signature shows that assessing a report is not a simple true/false decision. A report is judged using the report itself, the usual dependability of its source, and the current event record. The output separates `VerificationState` from `ConfidenceLevel`, so the documentation can describe cases such as an `Unverified` report with `LowConfidence`.#
 
-[.inserted]##Records a manual override as a traced correction when local updates are#
-[.inserted]#irregular# or [.removed]#None# [.inserted]#late.##
+===== E1  Actions: Report Received
 
-===== [.removed]#Canonical Merge (best-known current state)#
+----
+classifySourcePattern : SourceType >< SourceReport → SourcePattern
+----
 
-[.removed]#applyUpdate(CanonicalStore, NormalizedUpdate, MergePolicy) -> (CanonicalStore, Conflict# [.inserted]##E3 Actions (Data Missing# or [.removed]#None, Diagnostics)#
+[.inserted]#Classifies whether the source is acting as a repeated update stream or as a one-time report source for this report.#
 
-[.removed]#applyUpdateBatch(CanonicalStore, List<NormalizedUpdate>, MergePolicy) -> (CanonicalStore, List<Conflict>, Diagnostics)#
+----
+buildReliabilityMetadata : SourceReport
+     ><  SourceType >< 
+ SourcePattern >< PublishTime >< IngestTime >< LastUpdatedTime → ReliabilityMetadata
+----
 
-[.removed]#getCanonical(CanonicalStore, EntityKey)# [.inserted]#Partial Coverage Detected)##
+Creates the reliability metadata attached to a newly received report. [.inserted]#The `SourceReport` is included because reliability metadata only makes sense when it is tied to the actual value that was reported.#
 
-[.inserted]##classifyPartialCoverage :##
-[.inserted]##    Reliability Metadata >< Last Updated Time##
-[.inserted]###    -> [.removed]#CanonicalEntity# [.inserted]#Developing# or [.removed]#None#
+----
+assessReportDependability
 
-[.removed]#storeCanonical(CanonicalStore, CanonicalEntity)# [.inserted]#Delayed##
+ : SourceReport
+     >< 
 
-[.inserted]##Determines whether incomplete coverage should be treated as still developing#
-[.inserted]#or already delayed.##
 
-[.inserted]##preserveLastKnownMetadata :##
-[.inserted]##    Reliability Metadata##
-[.inserted]###    -> [.removed]#CanonicalStore# [.inserted]#Reliability Metadata##
+ SourceTrustLevel >< EventRecord → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
+----
 
-[.inserted]##Preserves the last known reliability context when current coverage is partial#
-[.inserted]#or incomplete.##
+[.inserted]#Assesses how dependable a received report is in relation to# the [.removed]#reported information.#
 
-===== [.removed]#Conflict Handling#
+[.removed]#assignConfidenceLevel# [.inserted]#current event record.#
 
-[.removed]#enqueueConflicts(ConflictQueue, List<Conflict>)# [.inserted]##E4 Actions (Conflict Detected)##
+----
+attachDependabilityIndicator : SourceReport
+     >< 
 
-[.inserted]##detectConflict :##
-[.inserted]##    Reliability Metadata >< Reliability Metadata##
-[.inserted]###    -> [.removed]#ConflictQueue#
 
-[.removed]#listConflicts(ConflictQueue)# [.inserted]#Conflicting or Confirmed##
+ ReliabilityMetadata → DependabilityIndicator
+----
 
-[.inserted]##Determines whether two reported values remain mutually consistent or enter a#
-[.inserted]#conflicting state.##
+[.inserted]#Creates# the [.removed]#initial confidence level of# [.inserted]#dependability information that can be shown with# the reported [.removed]#information.# [.inserted]#value.#
 
-[.inserted]##lowerConfidenceAfterConflict :##
-[.inserted]##    Conflicting##
-[.inserted]###    -> [.removed]#List<Conflict>#
+===== E2  Actions: Live Match State  Updated
 
-[.removed]#resolveConflictAuto(ConflictQueue, CanonicalStore, ConflictId, MergePolicy)# [.inserted]#Low Confidence##
+----
+recordLiveStateUpdate : SourceReport
+     ><  EventRecord >< 
 
-[.inserted]##Lowers confidence when a conflict remains unresolved.##
 
-[.inserted]##revalidateConflictingInformation :##
-[.inserted]##    Conflicting >< Source Type##
-[.inserted]###    -> [.removed]#(ConflictQueue, CanonicalStore, CanonicalEntity# [.inserted]#Confirmed# or [.removed]#ResolveError, Diagnostics)#
+ LastUpdatedTime → EventRecord >< ReliabilityMetadata
+----
 
-[.removed]#resolveConflictManual(ConflictQueue, CanonicalStore, ConflictId, ResolutionDecision)#
-[.removed]#  -> (ConflictQueue, CanonicalStore, CanonicalEntity)# [.inserted]#Conflicting or Unverified##
+[.inserted]#Updates# the [.removed]#reliability context of# [.inserted]#event record when# a live-match [.removed]#state update.# [.inserted]#report changes the current known state. The update uses the reported value inside the `SourceReport`.#
 
-[.inserted]##Re-evaluates a conflicting report when further source information arrives.##
+----
+recordManualOverride : SourceReport
+     ><  Correction ><  EventRecord >< 
+ ReliabilityMetadata → EventRecord ><  CorrectionTrace >< ReliabilityMetadata
+----
 
-===== [.inserted]##E5 Actions (Data Becomes Stale)##
+Records a manual override as a [.removed]#traced# correction when local updates are [.inserted]#irregular, late,#
+[.removed]#irregular# or [.removed]#late.# [.inserted]#inconsistent.#
 
-[.inserted]##markAsDelayed :##
-[.inserted]###    Reliability [.removed]#Indicators and Degraded Messaging#
+===== E3  Actions: Data Missing or Partial Coverage  Detected
 
-[.removed]#computeReliability(CanonicalStore, UpdateStore, EntityKey, ReliabilityPolicy)# [.inserted]#Metadata >< Last Updated Time##
-[.inserted]###    -> [.removed]#(ReliabilityIndicator, Diagnostics)#
+----
+classifyPartialCoverage : EventRecord
+     >< 
 
-[.removed]#setSystemStatus(StatusBoard, SystemStatus)# [.inserted]#Delayed >< Reliability Metadata##
 
-[.inserted]##Marks information as delayed when the freshness threshold has been exceeded.##
+ LastUpdatedTime >< ReliabilityMetadata → InformationStatus
+----
 
-[.inserted]##preserveLastKnownReliabilityMetadata :##
-[.inserted]##    Delayed >< Reliability Metadata##
-[.inserted]###    -> [.removed]#StatusBoard#
+[.inserted]#Classifies# incomplete coverage [.removed]#should be treated# as [.removed]#still developing# [.inserted]#`Developing`, `Delayed`, `Unknown`,# or [.removed]#already delayed.# [.inserted]#`Unavailable` depending on timing and available source context.#
 
-[.removed]#annotateEntityStatus(StatusBoard, EntityKey, ReliabilityIndicator)# [.inserted]#Reliability Metadata##
+----
+preserveLastKnownMetadata : EventRecord >< ReliabilityMetadata → EventRecord >< ReliabilityMetadata
+----
 
-[.inserted]##Keeps the last known reliability context visible after data becomes stale.##
+[.inserted]#Keeps#
+    [.removed]#Reliability Metadata#
+[.removed]#-> Reliability Metadata#
 
-===== [.inserted]##E6 Actions (Correction Published)##
+[.removed]#Preserves# the last known reliability context [.inserted]#attached to the event record# when current coverage is [.removed]#partial#
+[.removed]#or incomplete.# [.inserted]#partial.#
 
-[.inserted]##recordCorrection :##
-[.inserted]##    Reliability Metadata >< Publish Time >< Last Updated Time##
-[.inserted]###    -> [.removed]#StatusBoard#
+===== E4  Actions: Conflict Detected
 
-[.removed]#buildPublicView(CanonicalStore, StatusBoard, EntityKey)# [.inserted]#Corrected >< Reliability Metadata##
+----
+detectConflict : SourceReport
+     >< 
 
-[.inserted]##Records that previously published information has been corrected and updates#
-[.inserted]#its reliability metadata.##
 
-[.inserted]##explainCorrection :##
-[.inserted]##    Corrected##
-[.inserted]###    -> [.removed]#PublicView or None# [.inserted]#Reliability Metadata##
+ SourceReport >< EventRecord → ConflictAssessment
+----
 
-[.inserted]##Associates correction status with the metadata shown to users.##
+[.inserted]#Compares# two [.inserted]#reports about the same event record and determines whether their# reported values [.removed]#remain mutually consistent or enter a#
+[.removed]#conflicting state.# [.inserted]#can both be accepted.#
 
-===== [.removed]#User-Facing Queries#
+----
+lowerConfidenceAfterConflict : ConflictAssessment >< ReliabilityMetadata → ConfidenceLevel >< ReliabilityMetadata
+----
+    [.removed]#Conflicting#
+[.removed]#-> Low Confidence#
 
-[.removed]#getGame(CanonicalStore, GameId) -> GameView or None#
+Lowers confidence when [.removed]#a# [.inserted]#the# conflict [.removed]#remains# [.inserted]#is still# unresolved. [.inserted]#The lowered confidence level may be `LowConfidence`, but `LowConfidence` is treated as a possible value of `ConfidenceLevel`, not as a separate return type.#
 
-[.removed]#getStandings(CanonicalStore, StandingsKey)# [.inserted]##E7 Actions (Source Outage / Unavailable Source)##
+----
+revalidateConflictingInformation : ConflictAssessment
+     >< 
+ SourceReport >< SourceTrustLevel >< EventRecord → VerificationState >< ConfidenceLevel >< ReliabilityMetadata
+----
 
-[.inserted]##enterDegradedState :##
-[.inserted]##    Reliability Metadata##
-[.inserted]###    -> [.removed]#StandingsView or None#
+Re-evaluates [.removed]#a# conflicting [.removed]#report# [.inserted]#information# when [.removed]#further# [.inserted]#another report or a more dependable# source [.removed]#information arrives.# [.inserted]#becomes available.#
 
-[.removed]#getAthleteUpdates(CanonicalStore, AthleteId)# [.inserted]#Degraded State##
+===== E5  Actions: Data Becomes  Stale
 
-[.inserted]##Records that the system has entered a degraded state because source support#
-[.inserted]#is insufficient.##
+----
+markAsDelayed : EventRecord
+     >< 
+ LastUpdatedTime ><  ReliabilityMetadata → InformationStatus >< ReliabilityMetadata
+----
 
-[.inserted]##maintainGracefulDegradation :##
-[.inserted]##    Degraded State >< Reliability Metadata##
-[.inserted]###    -> [.removed]#List<AthleteUpdateView>#
+Marks information as delayed when [.removed]#the freshness threshold# [.inserted]#it# has [.inserted]#not# been [.removed]#exceeded.# [.inserted]#updated recently enough for its context. The delayed condition is represented as an `InformationStatus`, not as a separate type.#
 
-[.removed]#searchCanonical(CanonicalStore, SearchQuery)# [.inserted]#Graceful Degradation##
+----
+preserveLastKnownReliabilityMetadata : InformationStatus
+     >< 
+ ReliabilityMetadata → DependabilityIndicator
+----
 
-[.inserted]##Keeps the system usable by preserving the last known reliability context#
-[.inserted]#under partial failure.##
+Keeps the [.removed]#last known# [.inserted]#previous# reliability context visible [.removed]#after data becomes stale.# [.inserted]#instead of removing stale or delayed information without explanation.#
 
-[.inserted]##avoidSilentFailure :##
-[.inserted]##    Degraded State >< Reliability Metadata##
-[.inserted]###    -> [.removed]#List<PublicView># [.inserted]#Graceful Degradation##
+===== E6  Actions: Correction Published
 
-[.inserted]##Requires failure to be communicated through visible degraded behavior rather#
-[.inserted]#than silent omission.##
+----
+recordCorrection : Correction
+     ><  SourceReport >< 
+ EventRecord ><  ReliabilityMetadata >< LastUpdatedTime → EventRecord >< CorrectionTrace >< ReliabilityMetadata
+----
 
-===== [.removed]#Maintenance# [.inserted]##Note on Scope##
+Records that previously published information [.removed]#has been corrected# [.inserted]#changed# and [.removed]#updates#
+[.removed]#its reliability metadata.# [.inserted]#keeps a trace of the correction. The `SourceReport` is included so the correction remains connected to the report that introduced the corrected value.#
 
-[.inserted]##These signatures stay with the actions described in Section 2.1.5# and [.removed]#Extensibility Hooks#
+----
+explainCorrection : CorrectionTrace >< ReliabilityMetadata → DependabilityIndicator
+----
 
-[.removed]#recomputeAllReliability(CanonicalStore, UpdateStore, StatusBoard, ReliabilityPolicy)#
-[.removed]#  -> (StatusBoard, Diagnostics)#
+[.inserted]#Connects the#
+    [.removed]#Corrected#
+[.removed]#-> Reliability Metadata#
 
-[.removed]#rebuildCanonicalFromUpdates(CanonicalStore, UpdateStore, MergePolicy)#
-[.removed]#  -> (CanonicalStore, Diagnostics)# [.inserted]#focus#
-[.inserted]#on the conceptual relationship each action creates or changes. Storage#
-[.inserted]#structures, archives, queues, and other implementation-oriented records were#
-[.inserted]#removed from this section because they belong to implementation, not to the#
-[.inserted]#domain-level action view.##
+[.removed]#Associates# correction [.removed]#status with# [.inserted]#trace to# the [.removed]#metadata# [.inserted]#dependability information# shown [.removed]#to users.# [.inserted]#with the corrected value.#
+
+===== E7  Actions: Source Outage / Unavailable  Source
+
+----
+enterDegradedState : EventRecord >< ReliabilityMetadata >< SourceType → DegradedState
+----
+    [.removed]#Reliability Metadata#
+[.removed]#-> Degraded State#
+
+Records that [.removed]#the system has entered a degraded state because# source support is [.removed]#insufficient.# [.inserted]#not enough for normal operation.#
+
+----
+maintainGracefulDegradation : DegradedState
+     >< 
+ EventRecord >< ReliabilityMetadata → GracefulDegradation >< DependabilityIndicator
+----
+
+Keeps [.inserted]#partial information available while showing that# the system [.removed]#usable by preserving the last known reliability context# [.inserted]#is operating# under [.removed]#partial failure.# [.inserted]#degraded conditions.#
+
+----
+avoidSilentFailure : DegradedState
+     >< 
+
+
+ EventRecord → GracefulDegradation
+----
+
+[.inserted]#Prevents missing or delayed information from being hidden as if nothing were wrong.#
+
+===== Scenario Walkthrough
+
+[.inserted]#A team page posts a final score for a local game. The post is treated as a `SourceReport` because it contains the actual reported score, the source, and the available timing information. The system uses `classifySourcePattern`# to [.removed]#be communicated through visible degraded behavior rather#
+[.removed]#than silent omission.# [.inserted]#decide whether the source is acting as a streaming source or a spot source. It then uses `buildReliabilityMetadata` to attach source and timing context to the report.#
+
+[.inserted]#If a league page later posts a different final score for the same event, the second post is also treated as a `SourceReport`. The system uses `detectConflict` to compare both reports against the current `EventRecord`. If the values disagree, the result is a `ConflictAssessment`, and `lowerConfidenceAfterConflict` adjusts the reliability metadata instead of presenting either score as final without explanation.#
+
+[.inserted]#If a later source publishes a correction, `recordCorrection` updates the `EventRecord` and creates a `CorrectionTrace`. The trace keeps the earlier value, the corrected value, the report that caused the change, and the time when the change was recorded.#
+
+===== Note on Scope
+
+These signatures stay [.removed]#with# [.inserted]#at# the [.removed]#actions described in Section 2.1.5 and focus#
+[.removed]#on# [.inserted]#domain level. The types name concepts from# the [.removed]#conceptual relationship each action creates or changes. Storage#
+[.removed]#structures, archives, queues,# [.inserted]#problem area: reports, sources, reported values, event records, verification, confidence, corrections, conflicts,# and [.removed]#other implementation-oriented records were#
+[.removed]#removed from this section because they belong to implementation,# [.inserted]#degraded operation. They do# not [.removed]#to the#
+[.removed]#domain-level action view.# [.inserted]#define database records, storage queues, routes, or UI components.#

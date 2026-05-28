@@ -2,315 +2,229 @@
 
 ===== Purpose
 
-This section describes how the *Tu Deporte Aquí* team [.removed]#applied# [.inserted]#currently applies# Behavior-Driven Development (BDD) [.removed]#principles to derive acceptance criteria from user stories and personas, and how those acceptance criteria were transformed into specification examples using Gherkin. We document the process we followed during the planning phase# [.inserted]#to define, validate,# and [.removed]#outline our planned approach# [.inserted]#test system behavior. Unlike Milestone 1, where BDD was primarily used# for [.removed]#automating these examples using Cucumber# [.inserted]#planning,# in [.removed]#future milestones.# [.inserted]#this milestone BDD is actively used to guide implementation and verify behavior through automated tests.#
+This section [.removed]#describes# [.inserted]#documents# how [.inserted]#Behavior-Driven Development (BDD) is applied in# the *Tu Deporte Aquí* [.removed]#team currently applies Behavior-Driven Development (BDD)# [.inserted]#project# to [.removed]#define, validate,# [.inserted]#connect requirements (Section 2) with implementation# and [.removed]#test system behavior. Unlike Milestone 1, where BDD was primarily used# [.inserted]#testing. It describes the artifacts that capture behavioral specifications, the current state of automated validation, and the trajectory# for [.removed]#planning,# [.inserted]#further integration.#
+
+===== BDD in  the Project
+
+BDD is [.removed]#actively used to guide implementation and verify# [.inserted]#a collaborative practice that uses concrete, plain‑language examples—written in Gherkin—to define expected system# behavior [.removed]#through automated# [.inserted]#before implementation. These examples serve simultaneously as specifications, acceptance criteria, and executable# tests. [.inserted]#In this project, BDD artifacts are organized into three layers:#
 
 
-===== From User Stories to Acceptance Criteria
+* [.inserted]#High‑level scenarios linked#
 
-We [.removed]#began with the# [.inserted]#continue to derive acceptance criteria from# user stories [.removed]#documented in Section 2.2.1, which were written in the language of the domain and captured the needs of our personas: Sebastian (the superfan), Abiel (the coach), Andres (the reporter),# [.inserted]#(Section 2.2.1)# and [.removed]#Chris (the engineer).#
 
-[.removed]#For each user story, we analyzed it to extract# [.inserted]#refine them into# concrete [.removed]#examples of desired system behavior.# [.inserted]#behavioral scenarios.# These [.removed]#examples became acceptance criteria, still# [.inserted]#scenarios are# expressed [.removed]#in domain terms. We did this by asking questions such as:#
+ to 
 
-* [.removed]#What specific situations might this user encounter?#
-* [.removed]#What would# [.inserted]#using# the [.removed]#system need to show or do# [.inserted]#Given–When–Then structure and stored# in [.removed]#those situations?#
-* [.removed]#What would count as a successful outcome?# [.inserted]#`.feature` files within the codebase.#
+[.removed]#We continue# [.inserted]#functional and non‑functional requirements.#
 
-Consider the following user story from Epic 1:
+* [.inserted]#Step definitions that bridge natural language# to [.removed]#derive acceptance criteria from user stories (Section 2.2.1)# [.inserted]#application code.#
+* [.inserted]#A test runner (Cucumber) that executes scenarios# and [.removed]#refine them into concrete# [.inserted]#reports results.#
 
-[quote]
-____
-As Sebastian, I want each score and update to show its source so that I can judge credibility when multiple channels exist.
-____
+===== Specification Artifacts
 
-[.removed]#From this story, we derived the following acceptance criteria:#
+[.inserted]#The repository contains three sets of `.feature` files, each serving a distinct purpose.#
 
-* [.removed]#When a score comes from an official league source, it should be clearly labeled as such.#
-* [.removed]#When a score comes from a social media source, it should be labeled as "unverified" or "provisional".#
-* [.removed]#The source name (e.g., "BSN Official", "Twitter") should be visible next to the score.#
-* [.removed]#If multiple sources report the same score, the system may show multiple source attributions.#
+====== `features/` – Refined Requirements-Level Specifications
 
-[.inserted]#We define scenarios such as:#
+[.inserted]#The directory `features/` at the repository root holds the most precise and up‑to‑date# behavioral [.removed]#scenarios. These scenarios are expressed using# [.inserted]#specifications. Three files cover# the [.removed]#Given–When–Then structure# [.inserted]#main requirement areas:#
 
-[source,gherkin]
-----
-Scenario: Display valid score for live game
-  Given a live game with home score 80 and away score 75
-  When the game is processed
-  Then the display should show "80 - 75"
-----
 
-[.inserted]#These scenarios represent concrete, testable examples of expected system behavior.#
+* [.inserted]#`domain_requirements.feature` – domain rules for conflict detection, source authority, corrections,# and [.removed]#stored# [.inserted]#data staleness.#
+* [.inserted]#`interface_requirements.feature` – user‑visible indicators: timestamps, stale badges, missing‑data placeholders, source attribution, confidence displays.#
+* [.inserted]#`machine_requirements.feature` – system behavior under load, failures, caching, logging, and recovery.#
 
-===== [.removed]#From Acceptance Criteria to Specification Examples#
+[.inserted]#Every scenario# in [.removed]#`.feature`# [.inserted]#these# files [.removed]#within# [.inserted]#uses a consistent, domain‑specific vocabulary (e.g., “stale”, “conflicting reports”, “source down”, “partial data”) and is annotated with# the [.removed]#codebase.#
 
-[.removed]#We then refined the acceptance criteria into concrete specification examples. These examples illustrate the desired behavior with specific inputs and expected outputs. They form the foundation of our BDD# [.inserted]#Current BDD Workflow in the Project#
 
-[.removed]#scenarios and are captured in the `.feature` files located in the `features/` directory of our repository.##
+[.removed]#Consider# [.inserted]#requirement IDs it validates (e.g., `# Req: R-DOM-2, R-DOM-3`). These files constitute# the [.removed]#following user story from Epic 1:#
 
-[.removed]#For the story above, we created the following specification example:##
+[.removed]#[quote]#
+[.removed]#____#
+[.removed]#As Sebastian, I want each score and update to show its# [.inserted]#canonical specification for the system’s behavior.#
 
-Our [.inserted]#current BDD workflow follows three steps:#
+====== `tu-deporte-aqui/features/` – Intermediate Versions
 
-====== [.inserted]#1. Scenario Definition (Specification Layer)#
+[.inserted]#The subdirectory `tu-deporte-aqui/features/` contains earlier versions of the same three feature files. The scenarios are substantially equivalent, but the terminology was less refined (e.g., “Continue operating when a# source [.removed]#so that I can judge credibility# [.inserted]#fails” rather than the current “Continue operating# when [.removed]#multiple channels exist.#
+[.removed]#____#
 
-[.inserted]#We define system behavior using Gherkin-style scenarios stored in the repository. These scenarios:#
+[.removed]#We define scenarios such as:#
 
-* [.inserted]#describe behavior in domain language#
-* [.inserted]#are understandable by developers and stakeholders#
-* [.inserted]#serve as a reference for implementation#
+[.removed]#[source,gherkin]#
 
-[.inserted]#Example scenarios cover:#
 
-* [.inserted]#score formatting#
-* [.inserted]#missing score handling#
-* [.inserted]#game status mapping (live, final, scheduled)#
-* [.inserted]#stale data detection#
+ a  source is down”). These files were used to bootstrap the initial step‑definition stubs in `stepdefs.js`. They are retained for historical reference; the `features/` versions supersede them.
 
-====== [.inserted]#2. Implementation (Application Layer)#
+====== `tu-deporte-aqui/utils/.feature` – Utility‑Level Specification
 
-[.inserted]#The behavior described in scenarios is implemented in the application code. For example:#
+The file `tu-deporte-aqui/utils/.feature` is an implementation‑oriented specification that directly reflects the existing score‑utility functions (`formatScore`, `mapGameStatus`, `isGameStale`). It contains numeric, concrete examples (e.g., “home score 80 and away score 
 
-* [.inserted]#`formatScore()` handles score formatting#
-* [.inserted]#`mapGameStatus()` determines game state#
-* [.inserted]#`isGameStale()` evaluates data freshness#
+ 75”, “timestamp older than threshold”) and tests the 
 
-[.inserted]#These functions represent the system behavior defined in the scenarios.#
 
-====== [.inserted]#3. Automated Validation (Test Layer)#
+[.removed]#These scenarios represent concrete, testable examples# [.inserted]#narrow slice# of [.removed]#expected system behavior.#
 
-[.inserted]#Instead of using a dedicated BDD runner at this stage, we validate behavior using *Vitest*, a JavaScript testing framework.#
 
-[.inserted]#Each# scenario [.removed]#validates machine requirements R-MAC-9 (Graceful Degradation) and R-MAC-7 (Error Logging), and addresses# [.inserted]#is translated into automated tests located in:#
 
-* [.inserted]#`utils/scoreUtils.test.js`#
-* [.inserted]#`utils/scoreIntegration.test.js`#
 
-[.inserted]#Example test:#
 
-[source,javascript]
-----
-expect(formatScore(80, 75)).toBe("80 - 75");
-----
+[.removed]#Our current BDD workflow follows three steps:#
 
-[.inserted]#These tests directly verify# the [.removed]#needs of Chris,# [.inserted]#outcomes described in# the [.removed]#platform engineer.# [.inserted]#BDD scenarios.#
 
-===== [.removed]#From Acceptance Criteria to Specification Examples#
 
-[.removed]#We then refined the acceptance criteria into concrete specification examples. These examples illustrate the desired behavior with specific inputs and expected outputs. They form the foundation of our BDD scenarios and are captured in the `.feature` files located in the `features/` directory of our repository.#
+[.removed]#We define system behavior using Gherkin-style scenarios stored in the repository. These scenarios:#
 
-[.removed]#For the story above, we created the following specification example.#
 
-===== [.removed]#The Feature Files#
+* [.removed]#describe# behavior [.removed]#in domain language#
+* [.removed]#are understandable by developers and stakeholders#
+* [.removed]#serve as# [.inserted]#that is already implemented. This file is not# a [.removed]#reference# [.inserted]#replacement# for [.removed]#implementation#
 
-[.removed]#We organized our scenarios into three feature files, each corresponding to a requirement category.#
+[.removed]#Example scenarios cover:#
 
-====== [.removed]#Example: A Real Scenario from `domain_requirements.feature`#
 
-[.removed]#Here is a complete scenario from our domain requirements feature file.#
+* [.removed]#score formatting#
+* [.removed]#missing score handling#
+* [.removed]#game status mapping (live, final, scheduled)#
+* [.removed]#stale data detection#
 
-[source,gherkin]
-----
-Scenario: [.removed]#Display source attribution in standings# [.inserted]#Conflicting scores from different sources#
-  Given [.removed]#Sebastian navigates to league standings# [.inserted]#a game between "Cangrejeros" and "Vaqueros" is being played#
-  [.removed]#And the standings data was last updated "5 minutes ago"# 
-  [.removed]#And the source is "BSN Official"# 
-  [.inserted]#And a social media post reports the score as "75-70" for Cangrejeros#
-  [.inserted]#And the official league website later reports the score as "76-70" for Cangrejeros#
-  When [.removed]#the standings page loads# [.inserted]#Then the two reports are considered conflicting#
-  Then [.removed]#Sebastian should see a source icon next to each team's record# [.inserted]#And the official league report takes precedence#
-  [.removed]#And Sebastian can tap the icon to see the source and timestamp# 
-  [.removed]#And the source information should be consistent across all standings entries# [.inserted]#And the conflicting social media report is recorded as unofficial#
-  [.inserted]#And fans should be made aware that a discrepancy existed#
-----
 
-[.removed]#This example is concrete and unambiguous. It uses domain terminology (standings, source, timestamp) and references our persona (Sebastian) to keep the focus on user value.#
 
-[.removed]#This scenario traces directly to domain requirements R-DOM-2 (Conflict Detection) and R-DOM-3 (Conflict Preservation), and to user story "As Sebastian, I want the platform to flag when two sources disagree on a score".#
+[.removed]#The behavior described in scenarios is implemented in the application code. For example:#
 
-===== [.removed]#Example: A Real Scenario from `interface_requirements.feature`#
 
-[source,gherkin]
-----
-Scenario: Show when data was last updated
-  Given the game data was last updated "2 minutes ago"[.removed]# with away score 75#
-  When the game [.removed]#is processed# [.inserted]#details page loads#
-  Then [.removed]#the display should show "80 - 75"# [.inserted]#Sebastian should see a "Last updated" timestamp near the score#
-  [.inserted]#And the timestamp should show the time since last update#
-  [.inserted]#And the timestamp should be in a human-readable format#
-----
+* [.removed]#`formatScore()` handles score formatting#
+* [.removed]#`mapGameStatus()` determines game state#
+* [.removed]#`isGameStale()` evaluates data freshness#
 
-[.inserted]#This scenario validates interface requirement R-INT-5 (Update on Domain Event) and machine requirement R-MAC-5 (Data Freshness), and addresses the user story "As Sebastian, I want to see when each item was last updated".#
+[.removed]#These functions represent the system behavior defined in# the [.removed]#scenarios.#
 
-====== [.inserted]#Example: A Real Scenario from `machine_requirements.feature`#
 
-[source,gherkin]
-----
-Scenario: Continue operating when a source fails
-  Given source "BSN API" returns a 500 Internal Server Error
-  When the system processes requests for data
-  Then the system should not crash
-  And the system should continue serving data from remaining sources
-  And the system should set a "partial data" flag for affected entities
-  And the system should log the error with source name and timestamp
-  And the system should return HTTP 200 to the user with available data
-----
 
-[.inserted]#This scenario validates machine requirements R-MAC-9 (Graceful Degradation) and R-MAC-7 (Error Logging), and addresses the needs of Chris, the platform engineer.#
+[.removed]#Instead of using a dedicated BDD runner at this stage, we validate behavior using *Vitest*, a JavaScript testing framework.#
 
-===== [.removed]#Traceability Matrix# [.inserted]#Mapping Between Scenarios and Tests#
+[.removed]#Each scenario is translated into automated tests located in:#
 
-The following [.removed]#matrix traces every scenario in our feature files to the requirements it validates and the user stories that motivated it. This matrix is maintained in our documentation ensure coverage and to help assess impact when requirements change.# [.inserted]#table illustrates how BDD scenarios map to implementation and automated tests:#
+
+* [.removed]#`utils/scoreUtils.test.js`#
+* [.removed]#`utils/scoreIntegration.test.js`#
+
+[.removed]#Example test:#
+
+[.removed]#[source,javascript]#
+
+
+
+
+[.removed]#These tests directly verify# [.inserted]#high‑level requirements scenarios; it documents# the [.removed]#outcomes described# [.inserted]#capabilities currently present# in the [.removed]#BDD scenarios.# [.inserted]#utility layer.#
+
+
+[.removed]#The following table illustrates how BDD scenarios map to implementation and automated tests:#
 
 [options="header"]
 |===
-| [.removed]#BDD Scenario# | [.removed]#Feature File# | [.removed]#Requirement IDs# | [.removed]#User Story / Persona#
-| [.removed]#"Conflicting scores from different sources"# | [.removed]#`domain_requirements.feature`# | [.removed]#R-DOM-2, R-DOM-3, R-DOM-1# | [.removed]##
-| [.removed]#"Provisional report becomes confirmed"# | [.removed]#`domain_requirements.feature`# | [.removed]#R-DOM-4, R-DOM-1# | [.removed]##
-| [.removed]#"Official correction after publication"# | [.removed]#`domain_requirements.feature`# | [.removed]#R-DOM-6, R-DOM-10# | [.removed]#Abiel: prioritize verified league results#
-| [.removed]#"Outdated game information"# | [.removed]#`domain_requirements.feature`# | [.removed]#R-DOM-7# | [.removed]#Sebastian: see when each item was last updated#
-| [.removed]#"Source becomes unavailable"# | [.removed]#`domain_requirements.feature`# | [.removed]#R-DOM-8# | [.removed]#Chris: standardized fallback behavior#
-| [.removed]#"Correction without formal announcement"# | [.removed]#`domain_requirements.feature`# | [.removed]#R-DOM-2, R-DOM-1, R-DOM-3# | [.removed]#Sebastian: flag conflicting scores#
-| [.removed]#"High demand for accurate information during playoffs"# | [.removed]#`domain_requirements.feature`# | [.removed]#R-MAC-3, R-MAC-4# | [.removed]#Sebastian: score pages load reliably during playoffs#
-| [.removed]#"Show when data was last updated"# | [.removed]#`interface_requirements.feature`# | [.removed]#R-INT-5, R-MAC-5# | [.removed]#Sebastian: see when each item was last updated#
-| [.removed]#"Indicate stale data to the user"# | [.removed]#`interface_requirements.feature`# | [.removed]#R-DOM-7, R-MAC-9# | [.removed]#Sebastian: know if information might be outdated#
-| [.removed]#"Show conflicting reports from different sources"# | [.removed]#`interface_requirements.feature`# | [.removed]#R-DOM-2, R-DOM-3# | [.removed]#Sebastian: platform flags conflicting scores#
-| [.removed]#"Handle missing data gracefully"# | [.removed]#`interface_requirements.feature`# | [.removed]#R-MAC-9# | [.removed]#Sebastian: explanation when update is missing#
-| [.removed]#"Label provisional data from unverified sources"# | [.removed]#`interface_requirements.feature`# | [.removed]#R-DOM-4, R-INT-9# | [.removed]#Andres: avoid presenting uncertain info as definitive#
-| [.removed]#"Display source attribution in standings"# | [.removed]#`interface_requirements.feature`# | [.removed]#R-DOM-1, R-INT-9# | [.removed]#Sebastian: each score shows its source#
-| [.removed]#"Communicate system-wide degraded state"# | [.removed]#`interface_requirements.feature`# | [.removed]#R-MAC-9# | [.removed]#Sebastian: clear messages when data is missing; Chris: standardized fallback behavior#
-| [.removed]#"Show confidence level for uncertain data"# | [.removed]#`interface_requirements.feature`# | [.removed]#R-DOM-5# | [.removed]#Sebastian: simple reliability cue during major events#
-| [.removed]#"Continue operating when a source fails"# | [.removed]#`machine_requirements.feature`# | [.removed]#R-MAC-9, R-MAC-7# | [.removed]#Chris: standardized fallback behavior#
-| [.removed]#"Fall back to cached data during source unavailability"# | [.removed]#`machine_requirements.feature`# | [.removed]#R-MAC-9, R-MAC-5# | [.removed]#Chris: standardized fallback behavior#
-| [.removed]#"Log conflicts for debugging and analysis"# | [.removed]#`machine_requirements.feature`# | [.removed]#R-MAC-6# | [.removed]#Chris: automated tests that simulate conflicting data; dashboards for consistency#
-| [.removed]#"Prioritize critical endpoints under high traffic"# | [.removed]#`machine_requirements.feature`# | [.removed]#R-MAC-3, R-MAC-4# | [.removed]#Sebastian: score pages load reliably during playoffs; Chris: load and stress tests#
-| [.removed]#"Resume normal operation after source recovery"# | [.removed]#`machine_requirements.feature`# | [.removed]#R-MAC-8, R-MAC-9# | [.removed]#Chris: measure availability and recovery time#
-| [.removed]#"Expose reliability metrics for monitoring"# | [.removed]#`machine_requirements.feature`# | [.removed]#R-MAC-8# | [.removed]#Chris: dashboards for accuracy, consistency, availability#
-| [.removed]#"Retain correction history for audit purposes"# | [.removed]#`machine_requirements.feature`# | [.removed]#R-MAC-10, R-DOM-10# | [.removed]#Chris: audit trail for corrections#
-| [.removed]#"Handle malformed data from a source"# | [.removed]#`machine_requirements.feature`# | [.removed]#R-MAC-7, R-MAC-9# | [.removed]#Chris: fault injection tests#
-| [.removed]#"Recover from database connection failure"# | [.removed]#`machine_requirements.feature`# | [.removed]#R-MAC-12, R-MAC-9# | [.removed]#Chris: measure availability and recovery time#
+|[.removed]#BDD Scenario#|[.removed]#Implementation#|[.removed]#Test Verification#
+|[.removed]#Display valid score#|[.removed]#`formatScore()`#|[.removed]#score formatting test#
+|[.removed]#Missing score fallback#|[.removed]#`formatScore()`#|[.removed]#returns "Score unavailable"#
+|[.removed]#Map game status#|[.removed]#`mapGameStatus()`#|[.removed]#status mapping tests#
+|[.removed]#Detect stale data#|[.removed]#`isGameStale()`#|[.removed]#timestamp validation tests#
 |===
 
-[.removed]#Milestone 1 Traceability Matrix (detailed matrix above)#
+[.removed]#This mapping ensures that each scenario is both implemented# [.inserted]#Automation# and [.removed]#verifiable.#
 
-[options="header"]
-|===
-| [.inserted]#BDD Scenario# | [.inserted]#Implementation# | [.inserted]#Test Verification#
-| [.inserted]#Display valid score# | [.inserted]#`formatScore()`# | [.inserted]#score formatting test#
-| [.inserted]#Missing score fallback# | [.inserted]#`formatScore()`# | [.inserted]#returns "Score unavailable"#
-| [.inserted]#Map game status# | [.inserted]#`mapGameStatus()`# | [.inserted]#status mapping tests#
-| [.inserted]#Detect stale data# | [.inserted]#`isGameStale()`# | [.inserted]#timestamp validation tests#
-|===
 
-[.inserted]#Milestone 2 Mapping Between Scenarios and Tests (simplified focus on implementation)#
 
-[.inserted]#This mapping ensures that each scenario is both implemented and verifiable.#
 
-===== Tool Usage
 
-====== Gherkin (Specification)
+[.removed]#We use Gherkin syntax to define behavior# [.inserted]#Execution#
 
-[.inserted]#We use Gherkin syntax to define# behavior [.inserted]#in `.feature` files. These files serve as:#
+[.inserted]#Step definitions are maintained# in [.removed]#`.feature` files. These# [.inserted]#`features/step_definitions/stepdefs.js`. Every Gherkin step from the requirements‑level feature# files [.removed]#serve as:#
 
-* living documentation
-* [.inserted]#a# shared understanding of expected [.inserted]#behavior#
-* [.inserted]#a# bridge between requirements and implementation
 
-====== Vitest (Execution)
+* [.removed]#living documentation#
+* [.removed]#a shared understanding of expected behavior#
+* [.removed]#[.inserted]#has# a#
 
-[.inserted]#We use *Vitest* to execute# tests [.inserted]#that# validate the behavior described in scenarios.
 
-[.inserted]#Tests are executed using:#
+
+[.removed]#We use *Vitest* to execute tests that validate# [.inserted]#corresponding function. Steps for which# the [.removed]#behavior described in scenarios.#
+
+[.removed]#Tests# [.inserted]#underlying logic has not yet been built return `'pending'`, so the Cucumber runner reports them explicitly as not yet implemented. Steps backed by existing code contain real assertions and# are [.inserted]#reported as passed or failed.#
+
+[.inserted]#The Cucumber suite is# executed [.removed]#using:# [.inserted]#with:#
 
 [source,bash]
 ----
-npm run test
+npm run  test-cucumber
 ----
 
-[.inserted]#Vitest runs all test files# and [.inserted]#reports pass/fail results for# each behavior.
+[.removed]#Vitest runs all test files and reports pass/fail results for each behavior.#
 
-===== [.inserted]#Current Limitations#
 
-[.inserted]#At this stage,# we [.removed]#have designed our approach for automating these specification examples in future milestones.# [.inserted]#do not yet use a dedicated# BDD [.removed]#####tool.# [.inserted]#tool such as# Cucumber [.inserted]#to directly execute `.feature` files. Instead:#
 
-* [.inserted]#`.feature` files define behavior#
-* [.inserted]#Vitest tests validate that behavior programmatically#
+At [.removed]#this stage, we do not yet use a dedicated BDD tool such as Cucumber to directly execute `.feature` files. Instead:#
 
-[.inserted]#This approach# allows us to [.removed]#keep our scenarios in Gherkin format (plain text) and link them to step definitions written in the same programming language we will use for implementation. This keeps the scenarios readable by non-technical stakeholders while enabling automation.# [.inserted]#maintain BDD principles while keeping the testing setup simple during early implementation.#
 
-====== [.removed]#Planned Workflow#
+* [.removed]#`.feature` files define behavior#
+* [.removed]#Vitest tests validate that behavior programmatically#
 
-[.removed]#Once implementation begins, we plan to follow this workflow:#
+[.removed]#This approach allows us to maintain BDD principles while keeping# the [.removed]#testing setup simple during early implementation.# [.inserted]#time of writing, the full suite yields two passing scenarios and all others marked as pending.#
 
-[.removed]#1. **Feature files** (the `.feature` files we have already written, located in `features/`) will remain in the repository as living documentation.#
-[.removed]#2. **Step definitions** will be implemented as the corresponding functionality is developed. Each Gherkin step will be mapped to code that interacts with the system under test (via its API, UI, or directly with domain logic) and asserts expected outcomes.#
-[.removed]#3. **Test hooks** will be used to set up and tear down test data, ensuring scenarios are isolated and repeatable.#
-[.removed]#4. **Scenarios will be run** locally by developers during implementation, and also as part of the CI pipeline to catch regressions.#
 
-====== [.removed]#Planned CI/CD Integration#
+[.removed]#The following scenario:# [.inserted]#Scenarios Validated as Passing#
 
-[.removed]#We plan to integrate Cucumber into our CI/CD pipeline as follows:#
-
-[.removed]#* On every pull request, the full test suite (including all Cucumber scenarios) will be executed automatically.#
-[.removed]#* If any scenario fails, the build will be marked as failed, preventing merge until the issue is resolved.#
-[.removed]#* Test reports will be generated and made visible in the pull request, so reviewers can see which scenarios passed or failed.#
-[.removed]#* We will maintain a separate test environment where reliability scenarios (source failures, conflicting data) can be simulated safely.#
-
-====== [.removed]#Planned Test Data and Isolation#
-
-[.removed]#We recognize that many scenarios depend on specific data conditions (e.g., a game exists, a source reports a score). To keep scenarios reliable and independent, we plan to:#
-
-[.removed]#* Use a test database that is reset before each test run.#
-[.removed]#* Use factories or fixtures to create the necessary domain objects (games, sources, reports) for each scenario.#
-[.removed]#* For machine requirements (e.g., simulating source failures), we will use test doubles or mock servers that can be programmed to respond in specific ways.#
-
-===== [.removed]#Current Status and Next Steps#
-
-[.removed]#At this stage (Milestone 1), we have completed:#
-
-[.removed]#* Analysis of user stories to extract acceptance criteria#
-[.removed]#* Transformation of acceptance criteria into Gherkin scenarios#
-[.removed]#* Organization of scenarios into feature files in the `features/` directory#
-[.removed]#* Creation of a traceability matrix linking scenarios to requirements#
-[.removed]#* Planning of automation approach, tool selection, and CI/CD integration#
-
-[.removed]#In future milestones, we will:#
-
-[.removed]#* Implement step definitions as the corresponding features are developed#
-[.removed]#* Set up the Cucumber test harness and integrate it with the build system#
-[.removed]#* Run the scenarios against the evolving implementation#
-[.removed]#* Refine scenarios as requirements become better understood#
-
-===== [.inserted]#Example: End-to-End Behavior Validation#
-
-[.inserted]#The following scenario:#
+[.inserted]#Only two high‑level scenarios currently pass, both from `features/interface_requirements.feature`. Their Gherkin is:#
 
 [source,gherkin]
 ----
-Scenario: Display score unavailable when score is missing
-  Given a live game with no score data
-  When the game is processed
-  Then the display should show "Score unavailable"
+Scenario:  Indicate stale data to the user
+  Given  the game data is "35 minutes" old
+And the staleness threshold for live games is "30 minutes"
+When Sebastian views the game  details page
+Then Sebastian should see a "Stale" badge next to the score
+  And Sebastian should see an explanation about possible stale data
+  And the stale indicator should use a muted color scheme
+
+Scenario: Handle missing data gracefully
+Given no source has provided a score for this game
+  When Sebastian views the game  details page
+  Then  Sebastian should  see a placeholder indicating score is not reported
+And Sebastian should not see an empty or "0-0" value
+And Sebastian should not see any error messages
 ----
 
-[.inserted]#Is implemented# and [.inserted]#validated# through:
+[.removed]#Is implemented# [.inserted]#These scenarios are fulfilled by the existing staleness‑detection# and [.removed]#validated through:#
 
-* [.inserted]#logic in `formatScore()`#
-* [.inserted]#automated test asserting fallback behavior#
 
-[.inserted]#This demonstrates how behavior flows from specification → implementation → validation.#
+* [.removed]#logic# [.inserted]#score‑formatting utilities. All remaining scenarios—including those for conflict resolution, source attribution, caching, metrics, and audit trails—remain# in [.removed]#`formatScore()`#
+* [.removed]##
 
-===== Conclusion
+===== Current Implementation Coverage
 
-[.removed]#BDD provided a structured way to move from user stories to concrete, testable specifications while keeping the language of the domain throughout. Even in the planning phase, writing scenarios helped us clarify requirements and identify edge cases. The# [.inserted]#In Milestone 2, BDD is no longer only a planning tool but an active part of development. The# team [.removed]#feature files now serve as living documentation that bridges the gap between domain experts and developers. Once implementation begins, Cucumber will allow us to automate these scenarios, ensuring that# [.inserted]#uses:#
+[.inserted]#The# automated test [.removed]#asserting fallback behavior#
 
-* [.inserted]#Gherkin scenarios to define expected behavior#
-* [.inserted]#application logic to implement# that [.inserted]#behavior#
-* [.inserted]#Vitest tests# to [.inserted]#verify correctness#
+[.removed]#This demonstrates how behavior flows from# [.inserted]#results show that the majority of the behavioral# specification [.removed]#→ implementation → validation.#
 
-[.inserted]#This approach ensures# that the system [.removed]#we build# matches [.removed]#the needs identi# fied in our analysis and documented in our requirements.# [.inserted]#behavior remains:#
 
-* [.inserted]#clear#
-* [.inserted]#testable#
-* [.inserted]#aligned with user needs#
 
-[.inserted]#As the project evolves, these scenarios can be further integrated with dedicated BDD tools for direct execution, but they already serve as a strong foundation for behavior-driven testing in the current system.#
+[.removed]#In Milestone 2, BDD# is [.removed]#no longer only# [.inserted]#not yet implemented. Consequently, most functional and non‑functional requirements are unmet. This reflects the project’s scope relative to# a [.removed]#planning tool# [.inserted]#single‑semester development cycle: the BDD infrastructure has been established,# but [.removed]#an active part of development. The team uses:#
+
+
+* [.removed]#Gherkin scenarios to define expected behavior#
+* [.removed]#[.inserted]#the# application logic needed# to [.removed]#implement that behavior# [.inserted]#satisfy the full set of scenarios is incomplete.#
+
+===== Next Steps
+
+[.inserted]#Further adoption of BDD is planned by doing the following:#
+
+* [.removed]#Vitest tests# [.inserted]#*Scenario‑completion enforcement* – Institute a pull‑request policy requiring that every merged PR either adds a new Gherkin scenario or converts an existing pending scenario# to [.removed]#verify correctness# [.inserted]#passing.# This [.removed]#approach# ensures that [.removed]#system behavior remains:#
+
+
+* [.removed]#clear#
+* [.removed]#testable# [.inserted]#code changes are always accompanied by corresponding behavioral specifications.#
+* [.removed]#aligned# [.inserted]#*Automated reporting* – Develop a CI bot that comments on pull requests# with [.removed]#user needs#
+
+[.removed]#As# the [.removed]#project evolves, these# [.inserted]#list of# scenarios [.removed]#can be further integrated with dedicated# [.inserted]#that changed status (pending → passing or passing → failing), making# BDD [.removed]#tools for direct execution, but they already serve# [.inserted]#progress visible to reviewers.#
+
+* [.inserted]#*Step‑definition implementation* – Extend the step‑definition layer to cover the remaining scenarios# as [.inserted]#the underlying domain services (conflict detection, source reliability, caching, audit logs) are built.#
+
+===== Summary
+
+[.inserted]#The project uses BDD to maintain# a [.removed]#strong foundation for behavior-driven testing# [.inserted]#direct link from requirements to executable specifications. The authoritative feature files reside# in [.inserted]#`features/`, while older versions and utility‑level specifications support# the [.removed]#current system.# [.inserted]#transition. Two interface‑related scenarios have been automated and pass; all others are pending.#

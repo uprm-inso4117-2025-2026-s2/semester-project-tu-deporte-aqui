@@ -1,65 +1,65 @@
-= [.inserted]#Event Discovery & Browsing Patterns in Sports Platforms#
-[.inserted]#Project: Tu Deporte Aquí#
+= Event Discovery & Browsing Patterns in Sports Platforms
+Project: Tu Deporte Aquí
 
-== [.inserted]#Research Summary#
+== Research Summary
 
-[.inserted]#Focus: Event discovery, browsing, and information organization#
-
----
-
-== [.inserted]#Purpose#
-
-[.inserted]#This research was conducted to understand how existing sports information platforms structure and present event listings in a way that supports easy browsing and discovery.#
-
-[.inserted]#The goal is to identify common organizational patterns that help users quickly find relevant sports events without relying on complex search or prior context.#
+Focus: Event discovery, browsing, and information organization
 
 ---
 
-== [.inserted]#Platforms Analyzed#
+== Purpose
 
-[.inserted]#The following platforms were reviewed due to their relevance to sports event discovery and scheduling:#
+This research was conducted to understand how existing sports information platforms structure and present event listings in a way that supports easy browsing and discovery.
 
-* [.inserted]#*ESPN* – Broad sports coverage with structured league and event timelines#
-* [.inserted]#*Flashscore* – Live-score platform emphasizing chronological event browsing#
-* [.inserted]#*BSNF* – Regional event listings (Baloncesto Superior Nacional Femenino)#
+The goal is to identify common organizational patterns that help users quickly find relevant sports events without relying on complex search or prior context.
 
 ---
 
-== [.inserted]#Common Event Discovery Patterns Identified#
+== Platforms Analyzed
 
-[.inserted]#Across the analyzed platforms, several consistent patterns emerged:#
+The following platforms were reviewed due to their relevance to sports event discovery and scheduling:
 
-* [.inserted]#Chronological grouping of events (today, upcoming, completed)#
-* [.inserted]#Clear visual separation between scheduled, live, and finished events#
-* [.inserted]#League or sport-based categorization as a primary navigation method#
-* [.inserted]#Simple filtering mechanisms rather than advanced search#
-* [.inserted]#Consistent event cards showing essential information at a glance#
+* *ESPN* – Broad sports coverage with structured league and event timelines
+* *Flashscore* – Live-score platform emphasizing chronological event browsing
+* *BSNF* – Regional event listings (Baloncesto Superior Nacional Femenino)
 
 ---
 
-== [.inserted]#Usability Observations#
+== Common Event Discovery Patterns Identified
 
-* [.inserted]#Users tend to browse events chronologically rather than search by name#
-* [.inserted]#Separating upcoming and completed events reduces confusion#
-* [.inserted]#Simple layouts support casual sports fans better than dense dashboards#
-* [.inserted]#Overly detailed views distract from discovery and exploration#
+Across the analyzed platforms, several consistent patterns emerged:
 
----
-
-== [.inserted]#Key Takeaways for Project#
-
-[.inserted]#Based on these findings:#
-
-* [.inserted]#Chronological browsing should be the default discovery method#
-* [.inserted]#Event status should be clearly represented through structure, not messaging#
-* [.inserted]#League and sport grouping should guide navigation decisions#
-* [.inserted]#Event listings should remain lightweight and scannable#
-* [.inserted]#The platform should resemble a local sports bulletin rather than a statistics-heavy system#
-
-[.inserted]#These insights will guide navigation, structure, and content organization decisions in future milestones.#
+* Chronological grouping of events (today, upcoming, completed)
+* Clear visual separation between scheduled, live, and finished events
+* League or sport-based categorization as a primary navigation method
+* Simple filtering mechanisms rather than advanced search
+* Consistent event cards showing essential information at a glance
 
 ---
 
-== [.inserted]#Visual Example#
+== Usability Observations
 
-[.inserted]#image::images/event-discovery.png[Event Discovery UI Example]#
+* Users tend to browse events chronologically rather than search by name
+* Separating upcoming and completed events reduces confusion
+* Simple layouts support casual sports fans better than dense dashboards
+* Overly detailed views distract from discovery and exploration
+
+---
+
+== Key Takeaways for Project
+
+Based on these findings:
+
+* Chronological browsing should be the default discovery method
+* Event status should be clearly represented through structure, not messaging
+* League and sport grouping should guide navigation decisions
+* Event listings should remain lightweight and scannable
+* The platform should resemble a local sports bulletin rather than a statistics-heavy system
+
+These insights will guide navigation, structure, and content organization decisions in future milestones.
+
+---
+
+== Visual Example
+
+image::images/event-discovery.png[Event Discovery UI Example]

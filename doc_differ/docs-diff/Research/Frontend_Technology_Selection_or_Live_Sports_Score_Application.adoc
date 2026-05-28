@@ -1,138 +1,138 @@
-= [.inserted]#Frontend Technology Selection for Live Sports Score Application#
-[.inserted]#Project: Tu Deporte Aquí#
+= Frontend Technology Selection for Live Sports Score Application
+Project: Tu Deporte Aquí
 
 ---
 
-== [.inserted]#1. Project Requirements#
+== 1. Project Requirements
 
-[.inserted]#The live sports score web application requires:#
+The live sports score web application requires:
 
-* [.inserted]#Real-time score updates#
-* [.inserted]#Dynamic UI updates without full page reloads#
-* [.inserted]#Responsive design (mobile + desktop) (optional)#
-* [.inserted]#Scalable component structure#
-* [.inserted]#Maintainable and modular codebase#
+* Real-time score updates
+* Dynamic UI updates without full page reloads
+* Responsive design (mobile + desktop) (optional)
+* Scalable component structure
+* Maintainable and modular codebase
 
-[.inserted]#Because the application depends heavily on frequent data updates, the frontend technology must efficiently handle dynamic state changes.#
-
----
-
-== [.inserted]#2. Core Web Technologies#
-
-=== [.inserted]#HTML#
-
-* [.inserted]#Provides the structural foundation of the application#
-* [.inserted]#Organizes content such as:#
-* [.inserted]#Scoreboards#
-* [.inserted]#Team profiles#
-* [.inserted]#Navigation#
+Because the application depends heavily on frequent data updates, the frontend technology must efficiently handle dynamic state changes.
 
 ---
 
-=== [.inserted]#CSS#
+== 2. Core Web Technologies
 
-* [.inserted]#Responsible for styling and layout#
-* [.inserted]#Enables responsive design using:#
-* [.inserted]#Flexbox#
-* [.inserted]#Grid#
-* [.inserted]#Supports mobile-first design for live score viewing#
+=== HTML
+
+* Provides the structural foundation of the application
+* Organizes content such as:
+  * Scoreboards
+  * Team profiles
+  * Navigation
+
+---
+
+=== CSS
+
+* Responsible for styling and layout
+* Enables responsive design using:
+  * Flexbox
+  * Grid
+* Supports mobile-first design for live score viewing
 
 IMPORTANT::
 
-[.inserted]#HTML and CSS are essential regardless of the framework chosen.#
+HTML and CSS are essential regardless of the framework chosen.
 
 ---
 
-== [.inserted]#3. React as Frontend Framework#
+== 3. React as Frontend Framework
 
-[.inserted]#React is a JavaScript library used to build dynamic user interfaces.#
+React is a JavaScript library used to build dynamic user interfaces.
 
-=== [.inserted]#Advantages for This Project#
+=== Advantages for This Project
 
-* [.inserted]#Component-based architecture#
-* [.inserted]#Examples: `ScoreCard`, `TeamCard`, `MatchList`#
-* [.inserted]#Efficient re-rendering using the *Virtual DOM*#
-* [.inserted]#Strong state management for live updates#
-* [.inserted]#Easy integration with APIs#
-* [.inserted]#Large ecosystem and community support#
-
----
-
-=== [.inserted]#Use Cases in This Project#
-
-[.inserted]#React is particularly useful for:#
-
-* [.inserted]#Updating scores without refreshing the page#
-* [.inserted]#Managing match states:#
-* [.inserted]#Live#
-* [.inserted]#Final#
-* [.inserted]#Upcoming#
-* [.inserted]#Filtering games by league or team#
+* Component-based architecture
+  * Examples: `ScoreCard`, `TeamCard`, `MatchList`
+* Efficient re-rendering using the *Virtual DOM*
+* Strong state management for live updates
+* Easy integration with APIs
+* Large ecosystem and community support
 
 ---
 
-== [.inserted]#4. Alternative Options Considered#
+=== Use Cases in This Project
 
-=== [.inserted]#Vanilla JavaScript#
+React is particularly useful for:
 
-* [.inserted]#Simpler setup#
-* [.inserted]#Harder to scale and maintain for complex UI updates#
-
----
-
-=== [.inserted]#Vue.js#
-
-* [.inserted]#Lightweight and reactive#
-* [.inserted]#React has broader adoption and resources#
+* Updating scores without refreshing the page
+* Managing match states:
+  * Live
+  * Final
+  * Upcoming
+* Filtering games by league or team
 
 ---
 
-=== [.inserted]#Angular#
+== 4. Alternative Options Considered
 
-* [.inserted]#More structured#
-* [.inserted]#Heavier and potentially unnecessary for this project scope#
+=== Vanilla JavaScript
 
----
-
-== [.inserted]#5. Real-Time Update Compatibility#
-
-[.inserted]#React integrates well with:#
-
-* [.inserted]#REST APIs (polling for updates)#
-* [.inserted]#WebSockets (real-time data streams)#
-* [.inserted]#Third-party sports data APIs#
-
-[.inserted]#This makes it well-suited for handling frequent score updates.#
+* Simpler setup
+* Harder to scale and maintain for complex UI updates
 
 ---
 
-== [.inserted]#6. Recommended Frontend Stack#
+=== Vue.js
 
-=== [.inserted]#Core Stack#
-
-* [.inserted]#HTML (structure)#
-* [.inserted]#CSS (styling and responsiveness)#
-* [.inserted]#React (dynamic UI and state management)#
+* Lightweight and reactive
+* React has broader adoption and resources
 
 ---
 
-=== [.inserted]#Optional Enhancements#
+=== Angular
 
-* [.inserted]#Tailwind CSS or Bootstrap → faster UI styling#
-* [.inserted]#Axios → API communication#
-* [.inserted]#React Router → navigation#
+* More structured
+* Heavier and potentially unnecessary for this project scope
 
 ---
 
-== [.inserted]#7. Conclusion#
+== 5. Real-Time Update Compatibility
 
-[.inserted]#Based on the project requirements, React combined with HTML and CSS provides the best balance of:#
+React integrates well with:
 
-* [.inserted]#Performance#
-* [.inserted]#Scalability#
-* [.inserted]#Maintainability#
+* REST APIs (polling for updates)
+* WebSockets (real-time data streams)
+* Third-party sports data APIs
 
-[.inserted]#Its component-based structure and efficient state management make it well-suited for:#
+This makes it well-suited for handling frequent score updates.
 
-* [.inserted]#Real-time UI updates#
-* [.inserted]#Future feature expansion#
+---
+
+== 6. Recommended Frontend Stack
+
+=== Core Stack
+
+* HTML (structure)
+* CSS (styling and responsiveness)
+* React (dynamic UI and state management)
+
+---
+
+=== Optional Enhancements
+
+* Tailwind CSS or Bootstrap → faster UI styling
+* Axios → API communication
+* React Router → navigation
+
+---
+
+== 7. Conclusion
+
+Based on the project requirements, React combined with HTML and CSS provides the best balance of:
+
+* Performance
+* Scalability
+* Maintainability
+
+Its component-based structure and efficient state management make it well-suited for:
+
+* Real-time UI updates
+* Future feature expansion

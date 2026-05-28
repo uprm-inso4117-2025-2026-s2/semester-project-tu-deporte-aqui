@@ -1,121 +1,103 @@
-
 ==== 2.1.2 Terminology
 
-====== [.removed]#Verification Status Terms#
+This section defines [.removed]#terms# [.inserted]#terminology# used throughout the document [.inserted]#in order# to maintain consistent [.removed]#meaning.# [.inserted]#meaning across the domain description, requirements discussion, and behavioral analysis.#
 
-This section defines [.removed]#the official terminology used in Tu Deporte Aquí. These# terms [.removed]#must be# used [.removed]#consistently across documentation and future testing scenarios, especially when describing reliability, transparency,# [.inserted]#throughout the document to maintain consistent meaning.#
+[.inserted]#The terminology reflects concepts identified during analysis of how local sports information is produced, communicated, corrected, interpreted, and trusted.#
 
-====== [.inserted]#Core Domain Terms#
+====== Core Domain Terms
 
 *Sporting Event*::
-[.inserted]#A game, match, or competition that people may follow.#
+A [.inserted]#bounded sports occurrence such as a# game, match, or competition that people may [.removed]#follow.# [.inserted]#follow, discuss, report on, or reference through updates and standings.#
 
 *Source*::
-[.inserted]#An origin of information about a sporting event.#
-[.inserted]#Examples include league websites, team pages, sports media, reporters,# and [.removed]#uncertain# [.inserted]#third-party platforms.#
+An origin [.removed]#of# [.inserted]#from which# information about a sporting [.removed]#event.#
+[.removed]#Examples# [.inserted]#event is obtained.#
+[.inserted]#Sources may# include [.inserted]#official# league [.removed]#websites, team# pages, [.removed]#sports media,# [.inserted]#school athletic programs,# reporters, [.inserted]#community accounts, livestream updates, social media posts,# and third-party [.inserted]#sports# platforms.
 
 *Source Report*::
-[.inserted]#A specific piece of# information [.removed]#states.#
-
-*Confirmed*::
-[.removed]#Information validated# [.inserted]#produced# by [.removed]#an official# [.inserted]#a source, such as a score update, status,# or [.removed]#highly trusted source and considered accurate at the time# [.inserted]#correction.#
+A [.removed]#specific# [.inserted]#communicated# piece of information produced by a [.removed]#source, such as# [.inserted]#source regarding# a [.inserted]#sporting event.#
+[.inserted]#Examples include# score [.removed]#update, status,# [.inserted]#updates, game-status declarations, postponement notices, standings updates, corrections,# or [.removed]#correction.# [.inserted]#schedule publications.#
 
 *Event Record*::
-[.inserted]#The maintained representation# of [.removed]#display.#
-
-*Unverified*::
-[.removed]#Information# [.inserted]#what is currently known about a sporting event.#
+The maintained representation of what is currently known about a sporting [.removed]#event.# [.inserted]#event after considering available reports, corrections, and updates.#
 
 *Standings Snapshot*::
-[.inserted]#A# reported [.removed]#by# [.inserted]#ordering or ranking of teams at# a [.removed]#single source# [.inserted]#specific time.#
+A reported [.removed]#ordering or ranking# [.inserted]#representation# of [.removed]#teams# [.inserted]#team ordering, ranking, or records# at a [.removed]#specific# [.inserted]#particular moment in# time.
 
 *Correction*::
-[.inserted]#A change to previously reported information based on new# or [.removed]#informal# [.inserted]#updated data.#
+A [.removed]#change# [.inserted]#later modification# to previously [.removed]#reported# [.inserted]#communicated# information [.removed]#based on new# [.inserted]#caused by reconciliation, review,# or [.removed]#updated data.# [.inserted]#newly available information.#
 
-====== [.inserted]#Dependability and Verification Terms#
+====== Dependability and Verification Terms
 
 *Source Trust Level*::
-[.inserted]#A general assessment of how dependable a# source [.removed]#without# [.inserted]#tends to be.#
+A [.removed]#general# [.inserted]#relatively stable# assessment of how dependable a source [.removed]#tends# [.inserted]#is generally considered# to [.removed]#be.# [.inserted]#be within the domain.#
+[.inserted]#This concerns the source itself rather than a specific reported value.#
 
 *Verification State*::
-[.inserted]#The level of# confirmation [.removed]#from an# [.inserted]#of a reported value.#
+The [.removed]#level# [.inserted]#current state# of confirmation [.removed]#of# [.inserted]#associated with# a reported [.removed]#value.# [.inserted]#value or maintained event record.#
 
-[.inserted]#Defined states:#
+Defined [.removed]#states:# [.inserted]#verification states are:#
 
-* [.inserted]#*Unverified* — not yet confirmed#
-* [.inserted]#*Confirmed* — supported by corroborating or# authoritative [.removed]#provider.#
-
-*Developing*::
-[.removed]#Time-sensitive information that is still being verified and may change as more# sources [.removed]#publish updates.#
-
-*Conflicting*::
-[.removed]#A state where multiple sources report different values for the same event or field (e.g., score, status).#
-
-*Delayed*::
-[.removed]#Information submitted significantly after the event occurred or updated slower than#
-* [.inserted]#*Final* — not# expected [.removed]#due# to [.removed]#source latency.#
-
-*Corrected*:: [.inserted]#change under normal conditions#
+* *Unverified* — [.inserted]#information has# not yet [.removed]#confirmed# [.inserted]#been sufficiently corroborated#
+* *Confirmed* — [.inserted]#information is# supported by corroborating or authoritative [.removed]#sources# [.inserted]#reports#
+* *Final* — [.inserted]#information is considered stable and# not [.inserted]#normally# expected to change [.removed]#under normal conditions# [.inserted]#further#
 
 *Provisional*::
-Information that [.removed]#was previously published# [.inserted]#is available# but [.removed]#later changed due to an official correction or reconciliation# [.inserted]#may still change.#
+[.removed]#Information that is available but# [.inserted]#A condition in which information# may [.inserted]#already be useful while# still [.removed]#change.# [.inserted]#remaining subject to later correction, clarification, or confirmation.#
 
-[.inserted]#NOTE: Provisional describes a condition, not a verification state.#
+NOTE: Provisional [.removed]#describes a condition,# [.inserted]#is# not [.inserted]#itself# a verification state. [.inserted]#It describes the current condition of dependability.#
 
 *Conflict*::
-[.inserted]#A situation where multiple reports provide incompatible information.#
+A situation [.removed]#where multiple# [.inserted]#in which two or more source# reports [.removed]#provide# [.inserted]#communicate# incompatible [.removed]#information.# [.inserted]#values regarding the same relevant aspect of a sporting event.#
 
 *Confidence Level*::
-[.inserted]#An assessment# of [.removed]#conflicts.#
+An assessment of how dependable a [.removed]#specific# [.inserted]#particular reported# value is [.removed]#in# [.inserted]#considered within its current# context.
 
-====== [.removed]#Confidence Level Terms# [.inserted]#how dependable a specific value is in context.#
+Defined [.removed]#levels:# [.inserted]#confidence levels are:#
 
-[.inserted]#Defined levels:#
+* *High Confidence* [.inserted]#— strong supporting basis exists for dependability#
+* *Medium Confidence* [.inserted]#— information appears plausible but uncertainty remains#
+* *Low Confidence* [.inserted]#— substantial uncertainty or inconsistency remains unresolved#
 
-[.inserted]#*# *High Confidence*::
-[.removed]#Official source and no conflicts detected.# [.inserted]#Confidence*#
-[.inserted]#*# *Medium Confidence*::
-[.removed]#Multiple non-official sources agree, but no official confirmation exists.# [.inserted]#Confidence*#
-[.inserted]#*# *Low Confidence*::
-[.removed]#Single unverified source or conflicts detected between sources.# [.inserted]#Confidence*#
+NOTE: Confidence [.inserted]#level# depends on factors such as [.removed]#source,# [.inserted]#source trust,# recency, [.inserted]#corroboration,# and [.removed]#consistency.# [.inserted]#unresolved conflicts.#
 
-[.inserted]#NOTE: Confidence depends on factors such as source, recency, and consistency.#
-
-====== [.inserted]#Freshness and# Transparency [.removed]#Indicator# Terms
+====== Freshness and Transparency Terms
 
 *Publish Time*::
-[.removed]#The time# [.inserted]#When# a [.removed]#report# [.inserted]#source originally released the information.#
+[.removed]#When# [.inserted]#The time at which# a source originally [.removed]#released the information.# [.inserted]#made information available.#
 
 *Ingest Time*::
-[.inserted]#When the information# was [.removed]#first made visible to users.# [.inserted]#recorded by the system.#
+[.removed]#When the# [.inserted]#The time at which# information [.removed]#was# [.inserted]#becomes# recorded [.removed]#by# [.inserted]#or incorporated into# the [.removed]#system.# [.inserted]#maintained event record.#
 
 *Last Updated Time*::
-The most recent [.removed]#time# [.inserted]#change to# the [.removed]#system updated# [.inserted]#event record.#
+The most recent [.removed]#change to# [.inserted]#time at which# the [.inserted]#maintained# event [.removed]#record.# [.inserted]#record changed.#
 
 *Staleness*::
-[.inserted]#A condition where information is no longer current enough for its context.#
+A condition [.removed]#where# [.inserted]#in which# information [.removed]#is# [.inserted]#can# no longer [.inserted]#be treated as sufficiently# current [.removed]#enough# for its [.removed]#context.# [.inserted]#context because too much time has passed since the last dependable update.#
 
 *Dependability Indicator*::
-[.inserted]#A marker that helps explain how reliable# the [.removed]#displayed information.# [.inserted]#information is.#
+A [.removed]#marker# [.inserted]#visible marker, label, or explanation intended to help people understand the dependability condition of displayed information.#
 
-*Source Type*::
-[.removed]#Classification# Attribution*::
-[.inserted]#Identification# of [.inserted]#where# the [.removed]#origin of# information [.removed]#(e.g., Official, Reporter, Community).#
+[.inserted]#*Source Attribution*::#
+[.inserted]#The explicit identification of where displayed information originated.#
 
-*Reliability Metadata*::
-[.removed]#The combined set of fields that explain trustworthiness, including verification status, confidence level, timestamps, and source attribution.# [.inserted]#originated.#
+[.inserted]#*Reliability Metadata*::#
+[.inserted]#Associated contextual information# that helps explain [.removed]#how reliable# the [.removed]#information is.#
 
-====== System [.removed]#State# [.inserted]#Condition# Terms
+[.removed]#*Source Attribution*::#
+[.removed]#Identification# [.inserted]#dependability, freshness, status, or origin# of [.removed]#where the information originated.# [.inserted]#a reported value.#
+[.inserted]#Examples may include timestamps, verification states, confidence levels, and attribution references.#
+
+====== System Condition Terms
 
 *Degraded State*::
-[.removed]#A system condition where full functionality or complete data# [.inserted]#Operation continues, but information# is [.removed]#not available due to source failures, partial outages, missing fields,# [.inserted]#missing, delayed,# or [.removed]#inconsistencies.# [.inserted]#incomplete.#
+[.removed]#Operation continues, but# [.inserted]#A condition in which operation continues while expected# information [.removed]#is missing,# [.inserted]#remains# delayed, [.inserted]#incomplete, inconsistent,# or [.removed]#incomplete.# [.inserted]#partially unavailable.#
 
 *Graceful Degradation*::
-[.removed]#The system remains usable under# [.inserted]#Providing# partial [.removed]#failure by showing last known valid data and clearly communicating# [.inserted]#information with clear# limitations instead of failing completely.
+[.removed]#Providing# [.inserted]#Continued provision of# partial [.inserted]#but clearly qualified# information [.removed]#with clear limitations# instead of [.removed]#failing completely.# [.inserted]#abrupt absence or misleading certainty.#
 
-*Silent Failure*::
-[.removed]#A failure where incorrect or missing# Overwrite*::
-[.inserted]#Replacing# information [.removed]#is presented# without [.removed]#warning, explanation,# [.inserted]#preserving previous values# or [.removed]#status messaging.# [.inserted]#indicating change.#
+*Silent Overwrite*::
+[.removed]#Replacing# [.inserted]#Replacement of previously communicated# information without preserving [.removed]#previous values# [.inserted]#visible indication that a change# or [.removed]#indicating change.# [.inserted]#conflict occurred.#
 
 *Unknown*::
-[.inserted]#A value is not available and should not be inferred.#
+[.removed]#A# [.inserted]#An explicit indication that a relevant# value is [.inserted]#presently# not [.removed]#available# [.inserted]#known# and [.removed]#should# [.inserted]#must# not be inferred.

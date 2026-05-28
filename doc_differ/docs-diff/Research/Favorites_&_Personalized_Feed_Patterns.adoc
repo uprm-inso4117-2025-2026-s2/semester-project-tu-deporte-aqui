@@ -1,274 +1,274 @@
-= [.inserted]#Favorites & Personalized Feed Patterns#
-[.inserted]#Project: Tu Deporte Aquí#
+= Favorites & Personalized Feed Patterns
+Project: Tu Deporte Aquí
 
-== [.inserted]#Research Summary#
+== Research Summary
 
-[.inserted]#This research examines how different sports apps implement Favorites systems and how those selections influence the user’s personalized home or feed experience.#
+This research examines how different sports apps implement Favorites systems and how those selections influence the user’s personalized home or feed experience.
 
-[.inserted]#The goal is to identify simple, repeatable patterns that can be applied to Tu Deporte Aquí without expanding the project scope beyond the current milestone.#
-
----
-
-== [.inserted]#Platforms Analyzed#
-
-[.inserted]#The analysis focused on widely used consumer sports platforms that already implement personalization features:#
-
-* [.inserted]#ESPN#
-* [.inserted]#SofaScore#
-* [.inserted]#Flashscore#
-* [.inserted]#Bleacher Report#
-* [.inserted]#OneFootball#
-
-[.inserted]#These platforms combine live scores, schedules, standings, and sports news within personalized environments.#
+The goal is to identify simple, repeatable patterns that can be applied to Tu Deporte Aquí without expanding the project scope beyond the current milestone.
 
 ---
 
-== [.inserted]#1. How Favorites Are Added and Managed#
+== Platforms Analyzed
 
-[.inserted]#Across platforms, three common entry points were identified:#
+The analysis focused on widely used consumer sports platforms that already implement personalization features:
 
-=== [.inserted]#Onboarding Selection#
+* ESPN
+* SofaScore
+* Flashscore
+* Bleacher Report
+* OneFootball
 
-[.inserted]#During first launch, users are prompted to select favorite teams, leagues, or athletes.  #
-[.inserted]#This allows the app to personalize content immediately.#
-
-=== [.inserted]#Search-Based Favoriting#
-
-[.inserted]#Users can search for a team or league and tap actions such as *Follow* or *Favorite*.  #
-[.inserted]#This supports gradual personalization over time.#
-
-=== [.inserted]#Contextual Favoriting#
-
-[.inserted]#Users can favorite directly from match pages, team profiles, or standings tables without leaving the current view.#
+These platforms combine live scores, schedules, standings, and sports news within personalized environments.
 
 ---
 
-=== [.inserted]#Management Patterns#
+== 1. How Favorites Are Added and Managed
 
-[.inserted]#Favorites are typically managed through:#
+Across platforms, three common entry points were identified:
 
-* [.inserted]#A dedicated Favorites section#
-* [.inserted]#Profile or settings pages#
-* [.inserted]#Editable lists (add / remove)#
+=== Onboarding Selection
 
-[.inserted]#Most apps allow multiple favorites but prioritize certain entities in the interface.#
+During first launch, users are prompted to select favorite teams, leagues, or athletes.  
+This allows the app to personalize content immediately.
 
----
+=== Search-Based Favoriting
 
-== [.inserted]#2. Where Favorites Appear in the App#
+Users can search for a team or league and tap actions such as *Follow* or *Favorite*.  
+This supports gradual personalization over time.
 
-[.inserted]#Favorites influence several interface areas:#
+=== Contextual Favoriting
 
-=== [.inserted]#Navigation Access#
-
-[.inserted]#Some platforms include a Favorites or *My Teams* tab for quick access.#
-
-=== [.inserted]#Home Feed Prioritization#
-
-[.inserted]#Matches, leagues, and news related to favorites appear first in the feed.#
-
-=== [.inserted]#Notifications#
-
-[.inserted]#Favorites often drive alerts such as match start times or score updates.#
+Users can favorite directly from match pages, team profiles, or standings tables without leaving the current view.
 
 ---
 
-== [.inserted]#3. Personalized Feed Content Patterns#
+=== Management Patterns
 
-[.inserted]#Common modules powered by favorites include:#
+Favorites are typically managed through:
 
-=== [.inserted]#Live and Recent Scores#
+* A dedicated Favorites section
+* Profile or settings pages
+* Editable lists (add / remove)
 
-[.inserted]#Ongoing or recently completed matches involving followed entities.#
-
-=== [.inserted]#Upcoming Fixtures#
-
-[.inserted]#Next scheduled matches with date and time indicators.#
-
-=== [.inserted]#Standings#
-
-[.inserted]#League tables and rankings connected to favorite teams.#
-
-=== [.inserted]#News and Updates#
-
-[.inserted]#Injuries, transfers, or match highlights, depending on platform focus.#
+Most apps allow multiple favorites but prioritize certain entities in the interface.
 
 ---
 
-== [.inserted]#4. Behavior When No Favorites Exist#
+== 2. Where Favorites Appear in the App
 
-[.inserted]#All analyzed apps implement fallback experiences.#
+Favorites influence several interface areas:
 
-=== [.inserted]#Prompt-Based Empty State#
+=== Navigation Access
 
-[.inserted]#Users are encouraged to select favorites to improve personalization.#
+Some platforms include a Favorites or *My Teams* tab for quick access.
 
-=== [.inserted]#Generic Feed Fallback#
+=== Home Feed Prioritization
 
-[.inserted]#Until favorites are added, the app displays:#
+Matches, leagues, and news related to favorites appear first in the feed.
 
-* [.inserted]#Featured matches#
-* [.inserted]#Popular leagues#
-* [.inserted]#National events#
+=== Notifications
 
-[.inserted]#This ensures usability even without user preference data.#
+Favorites often drive alerts such as match start times or score updates.
 
 ---
 
-== [.inserted]#5. Extracted Design Patterns#
+== 3. Personalized Feed Content Patterns
 
-[.inserted]#Several repeatable system patterns emerged:#
+Common modules powered by favorites include:
 
-=== [.inserted]#Follow Graph Model#
+=== Live and Recent Scores
 
-[.inserted]#Users establish relationships with teams, leagues, or athletes that drive personalization.#
+Ongoing or recently completed matches involving followed entities.
 
-=== [.inserted]#Priority Sorting#
+=== Upcoming Fixtures
 
-[.inserted]#Favorite entities rank higher than general or trending content.#
+Next scheduled matches with date and time indicators.
 
-=== [.inserted]#Modular Feed Structure#
+=== Standings
 
-[.inserted]#Feeds are composed of blocks (scores, standings, news) filtered by favorites.#
+League tables and rankings connected to favorite teams.
 
-=== [.inserted]#Rule-Based Personalization#
+=== News and Updates
 
-[.inserted]#Most systems rely on simple logic rather than machine learning.#
+Injuries, transfers, or match highlights, depending on platform focus.
 
 ---
 
-== [.inserted]#6. MVP Proposal for Tu Deporte Aquí#
+== 4. Behavior When No Favorites Exist
 
-[.inserted]#A minimal implementation aligned with milestone scope includes:#
+All analyzed apps implement fallback experiences.
 
-=== [.inserted]#Data Model#
+=== Prompt-Based Empty State
+
+Users are encouraged to select favorites to improve personalization.
+
+=== Generic Feed Fallback
+
+Until favorites are added, the app displays:
+
+* Featured matches
+* Popular leagues
+* National events
+
+This ensures usability even without user preference data.
+
+---
+
+== 5. Extracted Design Patterns
+
+Several repeatable system patterns emerged:
+
+=== Follow Graph Model
+
+Users establish relationships with teams, leagues, or athletes that drive personalization.
+
+=== Priority Sorting
+
+Favorite entities rank higher than general or trending content.
+
+=== Modular Feed Structure
+
+Feeds are composed of blocks (scores, standings, news) filtered by favorites.
+
+=== Rule-Based Personalization
+
+Most systems rely on simple logic rather than machine learning.
+
+---
+
+== 6. MVP Proposal for Tu Deporte Aquí
+
+A minimal implementation aligned with milestone scope includes:
+
+=== Data Model
 
 [source]
 ----
-[.inserted]#favorites#
+favorites
 
-[.inserted]#favorite_id#
-[.inserted]#user_id#
-[.inserted]#entity_type (team / league / athlete)#
-[.inserted]#entity_id#
-[.inserted]#created_at#
+favorite_id
+user_id
+entity_type (team / league / athlete)
+entity_id
+created_at
 ----
 
 ---
 
-=== [.inserted]#Core Capabilities#
+=== Core Capabilities
 
-* [.inserted]#Add favorite#
-* [.inserted]#Remove favorite#
-* [.inserted]#Retrieve favorites list#
-
----
-
-=== [.inserted]#Feed Logic#
-
-[.inserted]#If favorites exist:#
-
-* [.inserted]#Show matches involving favorite teams first#
-* [.inserted]#Display upcoming fixtures#
-* [.inserted]#Surface relevant standings#
-
-[.inserted]#If no favorites exist:#
-
-* [.inserted]#Show featured Puerto Rican leagues#
-* [.inserted]#Highlight trending events#
+* Add favorite
+* Remove favorite
+* Retrieve favorites list
 
 ---
 
-=== [.inserted]#UI Placement#
+=== Feed Logic
 
-[.inserted]#Proposed MVP surfaces:#
+If favorites exist:
 
-* [.inserted]#Star icon on entity pages#
-* [.inserted]#Favorites section in home view#
-* [.inserted]#Editable favorites list#
+* Show matches involving favorite teams first
+* Display upcoming fixtures
+* Surface relevant standings
 
-[.inserted]#A dedicated tab is not required for this milestone.#
+If no favorites exist:
 
----
-
-== [.inserted]#7. Technical Complexity#
-
-=== [.inserted]#Backend#
-
-[.inserted]#Low complexity. Requires filtering events by favorite entities.#
-
-=== [.inserted]#Database#
-
-[.inserted]#Single relational table sufficient.#
-
-=== [.inserted]#Infrastructure#
-
-[.inserted]#No real-time systems required for MVP.#
+* Show featured Puerto Rican leagues
+* Highlight trending events
 
 ---
 
-== [.inserted]#8. Value Assessment#
+=== UI Placement
 
-=== [.inserted]#Product Value#
+Proposed MVP surfaces:
 
-[.inserted]#Improves navigation speed and relevance of content.#
+* Star icon on entity pages
+* Favorites section in home view
+* Editable favorites list
 
-=== [.inserted]#Engagement Impact#
-
-[.inserted]#Encourages repeat visits to track team performance.#
-
-=== [.inserted]#Scope Cost#
-
-[.inserted]#Moderate. Requires CRUD operations and feed filtering but minimal infrastructure.#
+A dedicated tab is not required for this milestone.
 
 ---
 
-== [.inserted]#9. Final Recommendation#
+== 7. Technical Complexity
 
-[.inserted]#Implement Favorites for:#
+=== Backend
 
-* [.inserted]#Teams#
-* [.inserted]#Leagues#
+Low complexity. Requires filtering events by favorite entities.
 
-[.inserted]#Athlete-level following can be deferred if scope becomes constrained.#
+=== Database
 
-[.inserted]#Deployment should remain:#
+Single relational table sufficient.
 
-* [.inserted]#Rule-based#
-* [.inserted]#Non-algorithmic#
-* [.inserted]#Feed prioritization only#
+=== Infrastructure
 
-[.inserted]#No predictive ranking or notification systems required for initial release.#
+No real-time systems required for MVP.
 
 ---
 
-== [.inserted]#Conclusion#
+== 8. Value Assessment
 
-[.inserted]#Favorites systems provide a high-impact personalization layer with relatively low implementation complexity.#
+=== Product Value
 
-[.inserted]#They improve:#
+Improves navigation speed and relevance of content.
 
-* [.inserted]#Content relevance#
-* [.inserted]#Navigation efficiency#
-* [.inserted]#User retention#
+=== Engagement Impact
 
-[.inserted]#A simple follow model with prioritized feed modules is sufficient for the project’s MVP phase.#
+Encourages repeat visits to track team performance.
+
+=== Scope Cost
+
+Moderate. Requires CRUD operations and feed filtering but minimal infrastructure.
 
 ---
 
-== [.inserted]#References#
+== 9. Final Recommendation
 
-* [.inserted]#ESPN. (N/A). ESPN App Personalization & Favorites Features.  #
-[.inserted]#  https://www.espn.com/#
+Implement Favorites for:
 
-* [.inserted]#SofaScore. (N/A). SofaScore Favorites and Match Tracking System.  #
-[.inserted]#  https://www.sofascore.com/#
+* Teams
+* Leagues
 
-* [.inserted]#Flashscore. (N/A). Flashscore Followed Competitions & Teams.  #
-[.inserted]#  https://www.flashscore.com/#
+Athlete-level following can be deferred if scope becomes constrained.
 
-* [.inserted]#Bleacher Report. (N/A). Team-Based Content Personalization.  #
-[.inserted]#  https://bleacherreport.com/#
+Deployment should remain:
 
-* [.inserted]#OneFootball. (N/A). Personalized Feed & Club Following System.  #
-[.inserted]#  https://onefootball.com/#
+* Rule-based
+* Non-algorithmic
+* Feed prioritization only
+
+No predictive ranking or notification systems required for initial release.
+
+---
+
+== Conclusion
+
+Favorites systems provide a high-impact personalization layer with relatively low implementation complexity.
+
+They improve:
+
+* Content relevance
+* Navigation efficiency
+* User retention
+
+A simple follow model with prioritized feed modules is sufficient for the project’s MVP phase.
+
+---
+
+== References
+
+* ESPN. (N/A). ESPN App Personalization & Favorites Features.  
+  https://www.espn.com/
+
+* SofaScore. (N/A). SofaScore Favorites and Match Tracking System.  
+  https://www.sofascore.com/
+
+* Flashscore. (N/A). Flashscore Followed Competitions & Teams.  
+  https://www.flashscore.com/
+
+* Bleacher Report. (N/A). Team-Based Content Personalization.  
+  https://bleacherreport.com/
+
+* OneFootball. (N/A). Personalized Feed & Club Following System.  
+  https://onefootball.com/

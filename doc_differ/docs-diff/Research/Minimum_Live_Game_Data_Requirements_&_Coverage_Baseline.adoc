@@ -1,165 +1,165 @@
-= [.inserted]#Research Findings – Minimum Live Game Data Requirements & Coverage Baseline#
-[.inserted]#Project: Tu Deporte Aquí#
+= Research Findings – Minimum Live Game Data Requirements & Coverage Baseline
+Project: Tu Deporte Aquí
 
-== [.inserted]#1. Platforms Reviewed#
+== 1. Platforms Reviewed
 
-[.inserted]#To understand what qualifies as *“live” coverage*, the following platforms were analyzed:#
+To understand what qualifies as *“live” coverage*, the following platforms were analyzed:
 
-* [.inserted]#ESPN#
-* [.inserted]#Flashscore#
-* [.inserted]#Sofascore#
-* [.inserted]#OneFootball#
+* ESPN
+* Flashscore
+* Sofascore
+* OneFootball
 
-== [.inserted]#2. Findings#
+== 2. Findings
 
-=== [.inserted]#2.1 Common Live Data Fields#
+=== 2.1 Common Live Data Fields
 
-[.inserted]#After comparing multiple matches across platforms and sports, several fields consistently appeared when a match was labeled as *Live*.#
+After comparing multiple matches across platforms and sports, several fields consistently appeared when a match was labeled as *Live*.
 
-==== [.inserted]#Core Fields (Always Present)#
+==== Core Fields (Always Present)
 
-* [.inserted]#Team A name#
-* [.inserted]#Team B name#
-* [.inserted]#League or competition name#
-* [.inserted]#Match status (Live, 1H, Q3, HT, etc.)#
-* [.inserted]#Score (even if 0–0)#
+* Team A name
+* Team B name
+* League or competition name
+* Match status (Live, 1H, Q3, HT, etc.)
+* Score (even if 0–0)
 
-[.inserted]#These fields appear in both:#
+These fields appear in both:
 
-* [.inserted]#List views#
-* [.inserted]#Detailed match views#
+* List views
+* Detailed match views
 
-[.inserted]#IMPORTANT:  #
-[.inserted]#If any of these fields were missing, the match was usually *not displayed as live*.#
+IMPORTANT:  
+If any of these fields were missing, the match was usually *not displayed as live*.
 
-[.inserted]#NOTE:  #
-[.inserted]#The clock may temporarily disappear, but the match can still be labeled *Live* if the score and status are present.#
-
----
-
-=== [.inserted]#2.2 Handling Partial Live Data#
-
-[.inserted]#Platforms behave differently when live data is incomplete.#
-
-==== [.inserted]#A. Score-Only Live#
-
-[.inserted]#Conditions:#
-
-* [.inserted]#Status = Live#
-* [.inserted]#Score is available#
-* [.inserted]#Clock is missing#
-
-[.inserted]#Behavior:#
-
-* [.inserted]#Match remains labeled *Live*#
-* [.inserted]#No artificial time is inserted#
-* [.inserted]#Clock is simply omitted#
+NOTE:  
+The clock may temporarily disappear, but the match can still be labeled *Live* if the score and status are present.
 
 ---
 
-==== [.inserted]#B. Delayed Updates#
+=== 2.2 Handling Partial Live Data
 
-[.inserted]#When updates stop arriving:#
+Platforms behave differently when live data is incomplete.
 
-* [.inserted]#Match often remains labeled *Live*#
-* [.inserted]#Data freshness degrades silently#
-* [.inserted]#Some platforms do not explicitly say “delayed”#
+==== A. Score-Only Live
 
-[.inserted]#However:#
+Conditions:
 
-* [.inserted]#Users can infer delay through timestamps#
+* Status = Live
+* Score is available
+* Clock is missing
 
----
+Behavior:
 
-=== [.inserted]#2.3 Proposed Coverage State Model for Tu Deporte Aquí#
-
-[.inserted]#To avoid unpredictable UI behavior when data is incomplete, the following states are defined:#
-
-==== [.inserted]#Full Live#
-
-[.inserted]#Conditions:#
-
-* [.inserted]#Status = Live#
-* [.inserted]#Score present#
-* [.inserted]#Clock or segment present#
-* [.inserted]#Last update within freshness window#
-
-[.inserted]#UI Behavior:#
-
-* [.inserted]#LIVE badge#
-* [.inserted]#Score displayed#
-* [.inserted]#Clock displayed#
-* [.inserted]#Last updated timestamp#
+* Match remains labeled *Live*
+* No artificial time is inserted
+* Clock is simply omitted
 
 ---
 
-==== [.inserted]#Live – Score Only#
+==== B. Delayed Updates
 
-[.inserted]#Conditions:#
+When updates stop arriving:
 
-* [.inserted]#Status = Live#
-* [.inserted]#Score present#
-* [.inserted]#Clock missing#
+* Match often remains labeled *Live*
+* Data freshness degrades silently
+* Some platforms do not explicitly say “delayed”
 
-[.inserted]#UI Behavior:#
+However:
 
-* [.inserted]#LIVE badge#
-* [.inserted]#Score displayed#
-* [.inserted]#"Clock unavailable"#
-* [.inserted]#Timestamp#
+* Users can infer delay through timestamps
 
 ---
 
-==== [.inserted]#Live – Status Only (Limited Coverage)#
+=== 2.3 Proposed Coverage State Model for Tu Deporte Aquí
 
-[.inserted]#Conditions:#
+To avoid unpredictable UI behavior when data is incomplete, the following states are defined:
 
-* [.inserted]#Status = Live#
-* [.inserted]#Score missing#
-* [.inserted]#Clock missing#
+==== Full Live
 
-[.inserted]#UI Behavior:#
+Conditions:
 
-* [.inserted]#LIVE (Limited)#
-* [.inserted]#"Score not available"#
-* [.inserted]#Timestamp#
+* Status = Live
+* Score present
+* Clock or segment present
+* Last update within freshness window
 
----
+UI Behavior:
 
-==== [.inserted]#Live – Delayed#
-
-[.inserted]#Conditions:#
-
-* [.inserted]#Status = Live#
-* [.inserted]#Last update older than freshness threshold  #
-[.inserted]#  (Delayed ≤ 10 minutes)#
-
-[.inserted]#UI Behavior:#
-
-* [.inserted]#LIVE (Delayed)#
-* [.inserted]#Last known score#
-* [.inserted]#Timestamp#
+* LIVE badge
+* Score displayed
+* Clock displayed
+* Last updated timestamp
 
 ---
 
-== [.inserted]#3. Minimum Live Data Set for MVP#
+==== Live – Score Only
 
-[.inserted]#A match qualifies as *LIVE* in the MVP if:#
+Conditions:
 
-[.inserted]#1. Both teams are identified#
-[.inserted]#2. League is identified#
-[.inserted]#3. Status indicates in-progress#
-[.inserted]#4. Score OR clock is present#
-[.inserted]#5. A last updated timestamp exists#
+* Status = Live
+* Score present
+* Clock missing
 
-[.inserted]#IMPORTANT:  #
-[.inserted]#This ensures that the system never displays *Live* without visible evidence of recency.#
+UI Behavior:
+
+* LIVE badge
+* Score displayed
+* "Clock unavailable"
+* Timestamp
 
 ---
 
-== [.inserted]#4. References#
+==== Live – Status Only (Limited Coverage)
 
-* [.inserted]#https://www.espn.com#
-* [.inserted]#https://www.flashscore.com#
-* [.inserted]#https://www.sofascore.com#
-* [.inserted]#https://onefootball.com#
+Conditions:
+
+* Status = Live
+* Score missing
+* Clock missing
+
+UI Behavior:
+
+* LIVE (Limited)
+* "Score not available"
+* Timestamp
+
+---
+
+==== Live – Delayed
+
+Conditions:
+
+* Status = Live
+* Last update older than freshness threshold  
+  (Delayed ≤ 10 minutes)
+
+UI Behavior:
+
+* LIVE (Delayed)
+* Last known score
+* Timestamp
+
+---
+
+== 3. Minimum Live Data Set for MVP
+
+A match qualifies as *LIVE* in the MVP if:
+
+1. Both teams are identified
+2. League is identified
+3. Status indicates in-progress
+4. Score OR clock is present
+5. A last updated timestamp exists
+
+IMPORTANT:  
+This ensures that the system never displays *Live* without visible evidence of recency.
+
+---
+
+== 4. References
+
+* https://www.espn.com
+* https://www.flashscore.com
+* https://www.sofascore.com
+* https://onefootball.com

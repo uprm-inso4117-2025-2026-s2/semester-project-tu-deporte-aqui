@@ -1,64 +1,191 @@
 
-==== [.inserted]#3.2.1 Validation and Verification#
+=== 3.2.1 Validation and Verification
 
-===== [.inserted]#Purpose#
+===== Purpose
 
-[.inserted]#This section defines how the concepts, assumptions, and reliability strategies proposed for Tu Deporte Aquí will be evaluated during Milestone 1. Since this milestone focuses on documentation rather than implementation, validation emphasizes conceptual correctness, clarity, and alignment with project goals rather than executable testing.#
+This section [.removed]#defines how# [.inserted]#evaluates whether# the concepts, assumptions, and [.removed]#reliability strategies# [.inserted]#requirements#
+proposed for Tu Deporte Aquí [.removed]#will be evaluated during Milestone 1. Since this milestone focuses on documentation rather than implementation, validation emphasizes conceptual correctness, clarity,# [.inserted]#remain coherent with the observed domain# and [.removed]#alignment# with
+[.inserted]#the current state of# project [.removed]#goals rather than executable testing.# [.inserted]#development.#
 
-[.inserted]#Validation ensures that the proposed system behavior addresses real-world conditions of local Puerto Rico sports data, including delayed updates, conflicting sources, and limited official APIs. Verification confirms that documentation artifacts are internally consistent and correctly structured.#
+Validation [.removed]#ensures that# [.inserted]#focuses on determining whether# the [.removed]#proposed system behavior addresses real-world conditions of# [.inserted]#documented concepts address the#
+[.inserted]#actual problems identified in# local Puerto Rico sports [.removed]#data, including delayed updates, conflicting sources, and limited official APIs.# [.inserted]#information practices.#
 
-===== [.inserted]#Validation Approach#
+Verification [.removed]#confirms that documentation artifacts are internally consistent and correctly structured.#
 
-[.inserted]#Validation during Milestone 1 focuses on confirming that the proposed concepts meet stakeholder expectations and realistic operating conditions.#
 
-====== [.inserted]#Concept Validation#
 
-[.inserted]#The reliability and transparency strategies are evaluated by analyzing whether they:#
+[.removed]#Validation during Milestone 1# focuses on confirming that [.inserted]#documentation artifacts,#
+[.inserted]#requirements, and documented system descriptions remain internally consistent#
+[.inserted]#and structurally correct.#
 
-* [.inserted]#Address delayed, missing, and conflicting information scenarios#
-* [.inserted]#Reflect informal data environments common in Puerto Rico sports#
-* [.inserted]#Provide predictable and understandable system behavior#
-* [.inserted]#Align with user expectations for trust and clarity#
+[.inserted]#Since the project has progressed beyond purely conceptual definition,#
+[.inserted]#validation and verification activities are limited to implemented and currently#
+[.inserted]#documented functionality rather than future development intentions.#
 
-====== [.inserted]#Scenario-Based Evaluation#
+===== Validation Activities
 
-[.inserted]#Concepts are examined using representative scenarios such as:#
+[.inserted]#Validation examines whether the concepts introduced throughout the project#
+[.inserted]#remain useful and meaningful under representative domain situations.#
 
-* [.inserted]#Conflicting scores reported by multiple sources#
-* [.inserted]#Missing updates during live events#
-* [.inserted]#Delayed standings publication#
-* [.inserted]#Partial data availability from unreliable sources#
+====== Validation of Domain Assumptions
 
-[.inserted]#These scenarios help determine whether the proposed behaviors remain consistent and reasonable.#
+[.inserted]#The project assumptions were reviewed against observations documented in the#
+[.inserted]#Current Situation and Narrative sections.#
 
-===== [.inserted]#Verification Approach#
+[.inserted]#Validation focused on determining whether:#
 
-[.inserted]#Verification ensures the documentation itself is correct, complete, and internally consistent.#
 
-====== [.inserted]#Documentation Consistency#
+* [.inserted]#fragmented information environments remain represented#
+* [.inserted]#delayed publication scenarios are addressed#
+* [.inserted]#conflicting reports remain visible instead of hidden#
+* [.inserted]#source context supports interpretation#
+* [.inserted]#transparency contributes to user understanding#
 
-[.inserted]#Verification activities include:#
+[.inserted]#This review confirmed that# the proposed [.removed]#concepts meet stakeholder expectations and realistic operating conditions.#
 
-* [.inserted]#Cross-checking terminology across sections#
-* [.inserted]#Ensuring alignment between needs, ideas, and concepts#
-* [.inserted]#Confirming traceability between sections of the A3 expansion#
-* [.inserted]#Reviewing structural correctness of AsciiDoc hierarchy#
 
-====== [.inserted]#Structural Verification#
 
-[.inserted]#The documentation structure is verified by:#
+[.removed]#The reliability and transparency strategies are evaluated by analyzing whether they:#
 
-* [.inserted]#Confirming correct section and subsection levels#
-* [.inserted]#Ensuring files are placed in the correct repository folders#
-* [.inserted]#Validating successful compilation through the AsciiDoc workflow#
 
-====== [.inserted]#Expected Outcomes#
+* [.removed]#Address delayed, missing, and conflicting information scenarios#
+* [.removed]#Reflect informal data environments common in Puerto Rico sports#
+* [.removed]#Provide predictable and understandable system behavior#
+* [.removed]#Align# [.inserted]#conceptual model remains aligned# with [.removed]#user expectations for trust and clarity#
+[.inserted]#the conditions observed during domain exploration.#
 
-[.inserted]#By completing validation and verification activities during Milestone 1, the project establishes:#
+====== Scenario-Based 
 
-* [.inserted]#Confidence in conceptual correctness#
-* [.inserted]#Clear alignment with stakeholder needs#
-* [.inserted]#Reliable documentation foundation for implementation phases#
-* [.inserted]#Reduced risk of misunderstanding before development begins#
+[.removed]#Concepts are examined using representative# [.inserted]#Validation#
 
-[.inserted]#This approach supports a documentation-first engineering methodology and prepares the project for future technical validation stages.#
+[.inserted]#Representative# scenarios [.removed]#such as:#
+
+
+* [.removed]#Conflicting# [.inserted]#were used to evaluate conceptual behavior.#
+
+[.inserted]#Examples include:#
+
+[cols="2,3"]
+|===
+|[.inserted]#Scenario#|[.inserted]#Validation Focus#
+
+|[.inserted]#Conflicting# scores reported [.removed]#by multiple sources#
+
+* [.removed]#Missing# [.inserted]#simultaneously#
+|[.inserted]#Determine whether concepts support interpretation under disagreement#
+
+|[.inserted]#Standings updated significantly later than game reports#
+|[.inserted]#Evaluate freshness and reliability communication#
+
+|[.inserted]#Missing# updates during [.removed]#live events#
+
+* [.removed]#Delayed standings publication#
+* [.removed]#Partial data availability from unreliable sources#
+
+[.removed]#These# [.inserted]#active matches#
+|[.inserted]#Evaluate handling of incomplete information#
+
+|[.inserted]#Corrections published after earlier reports#
+|[.inserted]#Evaluate traceability and visibility of changes#
+|===
+
+[.inserted]#The# scenarios [.removed]#help# [.inserted]#were reviewed qualitatively to# determine whether the [.removed]#proposed behaviors remain consistent# [.inserted]#documented#
+[.inserted]#concepts produced understandable# and [.removed]#reasonable.# [.inserted]#predictable outcomes.#
+
+====== Requirements Alignment
+
+[.inserted]#Validation also reviewed consistency between:#
+
+
+* [.inserted]#Current Situation#
+* [.inserted]#Needs#
+* [.inserted]#Ideas#
+* [.inserted]#Goals#
+* [.inserted]#Domain Concepts#
+* [.inserted]#Requirements#
+
+[.inserted]#This activity helped verify that later sections remained traceable to earlier#
+[.inserted]#observations rather than introducing unsupported assumptions.#
+
+===== Verification  Activities
+
+Verification [.removed]#ensures the documentation itself is correct, complete, and internally consistent.# [.inserted]#focuses on confirming internal correctness of project artifacts.#
+
+====== Documentation 
+
+Verification [.removed]#activities include:#
+
+[.inserted]#Documentation verification included:#
+
+* [.removed]#Cross-checking# [.inserted]#reviewing# terminology [.inserted]#consistency# across sections
+* [.removed]#Ensuring alignment between needs, ideas, and concepts# [.inserted]#confirming concept usage remained stable#
+* [.removed]#Confirming traceability# [.inserted]#checking references# between [.inserted]#related# sections [.removed]#of the A3 expansion#
+* [.removed]#Reviewing structural correctness of AsciiDoc hierarchy# [.inserted]#identifying duplicated or conflicting definitions#
+* [.inserted]#confirming alignment between concept analysis and requirements#
+
+[.inserted]#Special attention was given to preventing conceptual drift between descriptive#
+[.inserted]#and analytic sections.#
+
+====== Structural Verification
+
+[.removed]#The documentation structure is verified by:# [.inserted]#Structural verification included:#
+
+* [.removed]#Confirming# [.inserted]#confirming# correct [.removed]#section# [.inserted]#AsciiDoc heading hierarchy#
+* [.inserted]#validating successful documentation compilation#
+* [.inserted]#reviewing document navigation# and [.removed]#subsection levels# [.inserted]#organization#
+* [.removed]#Ensuring files are placed in the correct# [.inserted]#checking# repository [.removed]#folders# [.inserted]#structure consistency#
+* [.removed]#Validating successful compilation through# [.inserted]#verifying integration of documentation files#
+
+[.inserted]#These activities ensured# the [.removed]#AsciiDoc workflow# [.inserted]#documentation remained maintainable and usable.#
+
+
+[.removed]#By completing validation# [.inserted]#Traceability Verification#
+
+[.inserted]#Traceability was reviewed by confirming relationships between:#
+
+[cols="1,2"]
+|===
+|[.inserted]#Artifact#|[.inserted]#Verified Against#
+
+|[.inserted]#Needs#
+|[.inserted]#Ideas and Goals#
+
+|[.inserted]#Concept Analysis#
+|[.inserted]#Domain Description#
+
+|[.inserted]#Requirements#
+|[.inserted]#Concept Definitions#
+
+|[.inserted]#Implementation Fragments#
+|[.inserted]#Requirements#
+|===
+
+[.inserted]#This review reduced inconsistencies between sections and improved document#
+[.inserted]#coherence.#
+
+===== Observed Limitations
+
+[.inserted]#Validation# and verification activities [.removed]#during Milestone 1,# [.inserted]#remain constrained by# the [.removed]#project establishes:# [.inserted]#current level#
+[.inserted]#of implementation.#
+
+[.inserted]#Current limitations include:#
+
+* [.removed]#Confidence in conceptual correctness# [.inserted]#incomplete feature coverage#
+* [.removed]#Clear alignment with stakeholder needs# [.inserted]#limited execution-based verification#
+* [.removed]#Reliable documentation foundation for# [.inserted]#partial# implementation [.removed]#phases# [.inserted]#of reliability mechanisms#
+* [.removed]#Reduced risk# [.inserted]#evolving requirements and interface behavior#
+
+[.inserted]#These limitations do not invalidate the conceptual work but define the current#
+[.inserted]#boundary of confidence.#
+
+===== Summary
+
+[.inserted]#Validation and verification activities support confidence that Tu Deporte Aquí#
+[.inserted]#currently maintains conceptual consistency, traceability, and alignment with#
+[.inserted]#observed domain conditions.#
+
+[.inserted]#The purpose# of [.inserted]#these activities is not to prove final system correctness but#
+[.inserted]#to reduce# misunderstanding [.removed]#before development begins#
+
+[.removed]#This approach supports a documentation-first engineering methodology# and [.removed]#prepares the project for# [.inserted]#improve reliability of# future [.removed]#technical validation stages.# [.inserted]#development and#
+[.inserted]#testing efforts.#

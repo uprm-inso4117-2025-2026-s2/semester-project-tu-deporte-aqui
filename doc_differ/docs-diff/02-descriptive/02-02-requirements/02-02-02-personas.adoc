@@ -1,238 +1,398 @@
+ 2.2.2 Personas
 
-==== 2.2.2 Personas
+[.removed]#The personas below ground the user stories in Section 2.2.1. They are meant#
+[.removed]#to capture habits, pressure, context, and acceptable tradeoffs in this domain,#
+[.removed]#not just a short list of goals and pain points.#
 
-===== [.removed]#Persona A: Sebastian Rivera,# [.inserted]##The personas below ground# the [.removed]#Superfan# [.inserted]#user stories in Section 2.2.1. They are meant#
-[.inserted]#to capture habits, pressure, context, and acceptable tradeoffs in this domain,#
-[.inserted]#not just a short list of goals and pain points.##
+==== Sebastian Rivera "The Score-Checking Superfan"
 
-#===# Sebastian [.inserted]#Rivera "The Superfan"#
+[.removed]#Background:# Sebastian Rivera is a [.removed]#22-year-old Puerto Rico sports fan# [.inserted]#20-year-old college student# from [.inserted]#Mayagüez. He#
+[.removed]#Bayamón who# follows local [.removed]#leagues the way some people follow national teams.#
+[.removed]#He checks scores during games, refreshes standings during playoffs,# [.inserted]#basketball# and [.removed]#keeps#
+[.removed]#group chats alive with "cuanto va el juego?" messages. Most of his sports#
+[.removed]#information comes# [.inserted]#volleyball because several friends# from [.removed]#a messy mix of league posts, Instagram stories,# [.inserted]#school# and [.inserted]#his neighborhood play#
+[.removed]#whatever link someone drops# in [.inserted]#local leagues. He plays pickup basketball on weekends, but for organized games he is mostly# a [.removed]#chat. When everything lines up,# [.inserted]#spectator. On game days# he [.removed]#gets what# [.inserted]#usually wears a team cap, a loose T-shirt, and sneakers. If# he [.removed]#needs fast. When sources conflict or updates arrive late, confusion starts#
+[.removed]#immediately.# [.inserted]#owns a shirt from the team he follows, he wears it even if the game is only being discussed through social media.#
 
-[.inserted]##Background: Sebastian Rivera# is a [.inserted]#22-year-old# Puerto Rico sports fan [.inserted]#from#
-[.inserted]#Bayamón# who follows local leagues [.removed]#weekly and# [.inserted]#the way some people follow national teams.#
-[.inserted]#He# checks scores during [.removed]#games and playoffs.#
-[.removed]#He values speed# [.inserted]#games, refreshes standings during playoffs,# and [.removed]#clarity,# [.inserted]#keeps#
-[.inserted]#group chats alive with "cuanto va el juego?" messages. Most of his sports#
-[.inserted]#information comes from a messy mix of league posts, Instagram stories,# and
-[.inserted]#whatever link someone drops in a chat. When everything lines up,# he gets [.removed]#frustrated when different# [.inserted]#what#
-[.inserted]#he needs fast. When# sources [.removed]#disagree# [.inserted]#conflict# or updates arrive [.removed]#late.#
+Sebastian does not [.removed]#want deep analysis. He wants# [.inserted]#sit down with a laptop# to [.removed]#know what happened, what#
+[.removed]#is happening now, and whether the information# [.inserted]#follow games. He checks from his phone while walking between classes, eating with friends, waiting# in [.removed]#front of him deserves trust,#
+[.removed]#especially when# a [.removed]#big# [.inserted]#car, or watching another# game [.removed]#is# on [.inserted]#TV. He follows team Instagram stories, league pages, Facebook posts,# and [.removed]#everyone around# [.inserted]#group chats. His friends often ask# him [.inserted]#for scores because he# is [.removed]#checking# [.inserted]#usually# the [.removed]#same#
+[.removed]#thing.#
 
-Goals::
-* [.removed]#Quickly see# [.inserted]#late, confusion starts#
-[.inserted]#immediately.##
+[.removed]#Age: 22 years old.#
+[.removed]#Role: College student# [.inserted]#one checking first. Sometimes he goes to games in person, especially if they are near Mayagüez, but most of his following happens through posts# and [.removed]#weekly local-sports follower.#
+[.removed]#Interests:# [.inserted]#messages.#
 
-[.inserted]##Sebastian does not want deep analysis. He wants to know what happened, what#
-[.inserted]#is happening now, and whether the information in front of him deserves trust,#
-[.inserted]#especially when a big# game [.inserted]#is on and everyone around him is checking the same thing.##
+[.inserted]#The problem for# Sebastian [.removed]#likes staying connected# [.inserted]#is not that he refuses# to [.removed]#local sports culture.# [.inserted]#check multiple sources.# He [.inserted]#already does that. The problem is that checking several places makes him unsure. A#
+[.removed]#watches games with friends, follows# team [.removed]#accounts,# [.inserted]#story may show one score, a group chat may show a screenshot with another score,# and [.removed]#cares about standings#
+[.removed]#changes because they become instant conversation# [.inserted]#the league page may not update until later. If he shares the wrong score, his friends correct him# in [.removed]#chats and on campus. He#
+[.removed]#likes quick, clear information# [.inserted]#the chat# and [.removed]#gets impatient when# he [.removed]#has to hunt for what# [.inserted]#feels like he# should have [.removed]#been a simple score update.#
 
-[.inserted]##Age: 22 years old.##
-[.inserted]##Role: College student and weekly local-sports follower.##
-[.inserted]##Interests: Sebastian likes staying connected to local sports culture. He#
-[.inserted]#watches games with friends, follows team accounts, and cares about standings#
-[.inserted]#changes because they become instant conversation in chats and on campus. He#
-[.inserted]#likes quick, clear information and gets impatient when he has to hunt for what#
-[.inserted]#should have been a simple score update.##
+[.removed]#Goals:# [.inserted]#waited.#
 
-[.inserted]##Goals: Sebastian wants one fast place to check scores, final# results,
-standings, and key [.removed]#updates in one place#
-* [.removed]#Know# [.inserted]#updates. He wants to know# whether information is current [.removed]#and trustworthy#
-[.inserted]#enough to trust# during [.removed]#big events#
-* [.removed]#Avoid confusion when reports conflict#
+Sebastian [.removed]#wants one fast place to check scores, final results,#
+[.removed]#standings, and key updates. He wants to know whether information is current#
+[.removed]#enough to trust during live games and playoffs. He also# wants the platform to [.inserted]#help him answer simple questions quickly: Who won? Is the game still live? Is this score final? When was it updated? Did another source# say [.removed]#clearly when# something [.removed]#is uncertain, instead of leaving him to guess# [.inserted]#different?#
 
-Pain points::
-* [.removed]#Different pages and posts report different scores or update at different times#
-* [.removed]#During playoffs, sites lag or go down exactly when he needs them most#
-* [.removed]#When something is missing, he does not know if it is an error or just not posted yet#
+[.inserted]#Goals:#
 
-===== [.removed]#Persona B: Coach Abiel Rullan, the Team Organizer#
-[.removed]#Abiel manages a local team and cares about schedules, standings,# [.inserted]#live games# and [.removed]#accurate public reporting of results.# [.inserted]#playoffs.# He [.inserted]#also# wants the platform to [.removed]#reflect reality#
-[.inserted]#say clearly when something is uncertain, instead of leaving him to guess#
-[.inserted]#whether the problem is the source, the system, or the event itself.#
 
-[.inserted]##Problems: Puerto Rico sports updates are scattered across platforms# and [.removed]#avoid spreading incorrect information about teams# [.inserted]#often#
-[.inserted]#inconsistent. Sebastian runs into different sources reporting different scores,#
-[.inserted]#missing context,# or [.removed]#players.#
+* [.inserted]#Check local scores quickly from a phone.#
+* [.inserted]#Know# whether [.removed]#the problem# [.inserted]#a game# is [.removed]#the source, the system,# [.inserted]#upcoming, live, delayed, postponed,# or [.removed]#the event itself.#
 
-Goals::
-* [.removed]#Confirm schedules# [.inserted]#posting results late. During playoffs# and [.removed]#standings are accurate for his league#
-* [.removed]#Catch# [.inserted]#major events,#
-[.inserted]#the places he checks most often become slow or unreliable,# and [.removed]#correct errors quickly# when something [.removed]#looks wrong#
-* [.removed]#Share trustworthy#
-[.inserted]#is missing he cannot tell if it has not been posted yet or if something broke.#
+[.removed]#Problems: Puerto Rico sports updates are scattered across platforms and often#
+[.removed]#inconsistent. Sebastian runs into different sources reporting different scores,#
+[.removed]#missing context,# [.inserted]#final.#
 
-[.inserted]##Quotes:##
-[.inserted]##"I do not want to search five places just to confirm the score."##
-[.inserted]##"If the info is not reliable during playoffs, what is the point?"##
+* [.inserted]#Follow local teams without opening several social media pages.#
+* [.inserted]#Avoid sharing a score that is old, provisional,# or [.removed]#posting results late. During playoffs# [.inserted]#disputed.#
+* [.inserted]#Keep access to final scores after temporary stories disappear.#
 
-[.inserted]##Solutions:##
-[.inserted]##Feature - Consolidated Results and Standings: A centralized place to view#
-[.inserted]#scores, standings, and key# updates [.inserted]#without hopping between sources.##
-[.inserted]##Feature - Freshness and Source Labels: Show where the info came from and when#
-[.inserted]#it was last updated so Sebastian can judge reliability quickly.##
-[.inserted]##Feature - Degraded Messaging: Clear explanations when updates are delayed or#
-[.inserted]#missing so uncertainty does not look like an error.##
+[.inserted]#Pain points:#
 
-=== [.inserted]#Coach Abiel Rullan "The Team Organizer"#
 
-[.inserted]#Background: Abiel Rullan is a local coach and team organizer who manages#
-[.inserted]#schedules, communicates# with players and [.removed]#parents#
+* [.inserted]#Scores posted as stories disappear after a short time.#
+* [.inserted]#Team names, logos,# and [.removed]#major events,#
+[.removed]#the places he checks most often become slow# [.inserted]#abbreviations are not always consistent.#
 
-Pain points::
-* [.removed]#Updates are often delayed# [.inserted]#parents,# and [.removed]#he has# [.inserted]#cares deeply about#
-[.inserted]#results being reported correctly. For Abiel, sports information is not just#
-[.inserted]#something# to [.removed]#double-check multiple sources#
-* [.removed]#Conflicting reports create arguments# [.inserted]#check for fun. It affects planning, transportation, attendance,#
-and [.removed]#confusion among teams# [.inserted]#team morale. When standings or schedules are wrong online, he ends up#
-[.inserted]#answering questions, calming people down,# and [.removed]#fans#
-* [.removed]#There# [.inserted]#correcting the situation by#
-[.inserted]#hand.##
+* [.inserted]#Friends send screenshots without source# or [.removed]#unreliable, and# [.inserted]#time context.#
+* [.inserted]#Some pages update during a game while others stay silent.#
+* [.inserted]#A score may look final even# when [.removed]#something#
+[.removed]#is missing he cannot tell if# it has not been [.removed]#posted yet or if something broke.#
 
-[.inserted]##Abiel can tolerate honest delay. What frustrates him# is [.inserted]#having# no clear way
-to tell [.removed]#if# [.inserted]#whether something is verified, provisional, or simply outdated.##
+[.removed]#Quotes:#
+[.removed]#"I do not want to search five places just to confirm the score."#
+[.removed]#"If the info is# [.inserted]#confirmed.#
 
-[.inserted]##Age: 34 years old.##
-[.inserted]##Role: Coach and league participant (organizer/communicator).##
-[.inserted]##Interests: Abiel values structure and clarity. He wants schedules and#
-[.inserted]#standings that match reality and a way to communicate accurate information#
-[.inserted]#with confidence. He frequently double-checks postings because he has learned#
-[.inserted]#that one random post can spread faster than an official correction.##
+[.inserted]#Design implications:#
 
-[.inserted]##Goals: Abiel wants standings and schedules that reflect what actually#
-[.inserted]#happened, not what one account posted first. He wants a clean way to separate#
-[.inserted]#confirmed information from early or doubtful reports. He also wants to spot#
-[.inserted]#conflicts quickly so he can avoid repeating bad information to players,#
-[.inserted]#families, and other teams.##
 
-[.inserted]##Problems: Updates can be delayed, incomplete, or inconsistent across#
-[.inserted]#sources. Conflicting reports create disputes among teams and fans. Abiel often#
-[.inserted]#has to verify information manually because he cannot tell which source is#
-[.inserted]#authoritative or whether# a result is [.removed]#verified or provisional#
+* [.inserted]#The score view should show teams, score, game status, and last-updated time without extra searching.#
+* [.inserted]#Conflict and provisional indicators should be visible but# not [.removed]#reliable during playoffs, what is the point?"#
 
-===== [.removed]#Persona C: Andres Perez,# [.inserted]#final.#
+[.removed]#Solutions:#
+[.removed]#Feature - Consolidated Results# [.inserted]#written like technical warnings.#
 
-[.inserted]##Quotes:##
-[.inserted]##"If# the [.removed]#Sports Reporter standings are wrong, I am the one who has to explain it to everyone."##
-[.inserted]##"I just need a clear way to know what is confirmed and what is still pending."##
+* [.inserted]#Mobile layout matters more for Sebastian than dense tables.#
+* [.inserted]#Filters by team, league,# and [.removed]#Standings: A centralized place# [.inserted]#sport should be easy# to [.removed]#view#
+[.removed]#scores, standings,# [.inserted]#reach.#
 
-[.inserted]##Solutions:##
-[.inserted]##Feature - Verified vs Provisional Indicators: A domain-level signal that#
-[.inserted]#distinguishes confirmed results from developing reports.##
-[.inserted]##Feature - Conflict Flagging: Highlight disagreements between sources so#
-[.inserted]#Abiel knows not to treat the information as final.##
-[.inserted]##Feature - Prioritize Trusted Sources: When official league results exist,#
-[.inserted]#they should be treated as the strongest reference.##
+[.inserted]#Relevant epics# and [.removed]#key updates without hopping between sources.#
+[.removed]#Feature - Freshness# [.inserted]#features:#
 
-#===# Andres [.removed]#covers Puerto Rico# [.inserted]#Perez "The Deadline Reporter"#
 
-[.inserted]##Background: Andres Perez is a 26-year-old# sports [.inserted]#reporter# and [.inserted]#community#
-[.inserted]#updater who# posts rapid [.removed]#updates, especially# [.inserted]#updates# during tournaments and breaking [.removed]#news.# [.inserted]#moments.# He [.removed]#needs# [.inserted]#is#
-[.inserted]#used to working with incomplete information at first. Someone sends# a [.removed]#platform that can# [.inserted]#partial#
-[.inserted]#score, a post goes up without details, and corrections arrive later. Andres#
-[.inserted]#cares about speed, but he cares even more about not spreading misinformation.#
-[.inserted]#He wants a clean way to# represent uncertainty [.removed]#cleanly# #while the story is still moving.##
+* [.inserted]#Epic 1: Local Sports Information Feed.#
+* [.inserted]#Epic 2: Source-Aware Information# and [.removed]#Source Labels: Show where# [.inserted]#Uncertainty.#
+* [.inserted]#Epic 4: Mobile-First Access for Game Information.#
+* [.inserted]#Features: score view, game status, last-updated indicator, conflict indicator, mobile game cards.#
 
-[.inserted]##Andres also knows that the platform will get blamed for confusion even# when [.removed]#details#
-[.inserted]#the underlying sources# are [.inserted]#the real problem. If the platform becomes slow#
-[.inserted]#during major events or fails when a source goes down, the audience will blame the platform first.#
+[.inserted]#Example user stories tied to Sebastian:#
 
-[.inserted]##Age: 26 years old.##
-[.inserted]##Role: Sports reporter / community updater.##
-[.inserted]##Interests: Andres likes live coverage, community engagement, and being first#
-[.inserted]#without being wrong. He pays attention to the difference between what is known#
-[.inserted]#now and what is# still developing. [.inserted]#He also cares about whether the platform#
-[.inserted]#stays readable under pressure, because high-traffic moments are when his work#
-[.inserted]#matters most.##
 
-[.inserted]##Goals: Andres wants to publish or#
+* [.inserted]#As Sebastian, I want to see# the [.removed]#info came from# [.inserted]#score# and [.removed]#when#
+[.removed]#it was last updated# [.inserted]#game status in one mobile view# so [.removed]#Sebastian# [.inserted]#that I# can [.removed]#judge reliability quickly.#
+[.removed]#Feature - Degraded Messaging: Clear explanations when updates are delayed or#
+[.removed]#missing# [.inserted]#check a game between classes.#
 
-Goals::
-* [.removed]#Publish and# reference updates without [.removed]#causing misinformation#
-* [.removed]#Make it clear when an update# [.inserted]#overstating what#
-is [.removed]#preliminary vs confirmed#
-* [.removed]#Keep coverage# [.inserted]#known. He wants the platform to mark developing information clearly, keep#
-[.inserted]#conflicts visible, and stay# stable [.inserted]#enough that live coverage does not collapse#
-during [.removed]#high-traffic moments#
+* [.inserted]#As Sebastian, I want disputed scores to be marked# so [.removed]#uncertainty does# [.inserted]#that I do# not [.removed]#look like an error.#
 
-Pain points::
-[.removed]#*# [.inserted]#the most important events.#
+ share a score that may be wrong.
 
-[.inserted]#Problems:# Early reports [.removed]#may be# [.inserted]#are often# incomplete, but the public wants immediate [.removed]#updates#
-* [.removed]#A single wrong post#
-[.inserted]#updates. Conflicting sources# can spread [.removed]#fast if the platform does not handle conflicts well#
-[.removed]#*# [.inserted]#misinformation quickly.# When systems
-degrade, users [.removed]#often receive# [.inserted]#get# confusing [.removed]#or unhelpful error messages#
+* [.inserted]#As Sebastian, I want final scores to remain available after social media stories expire so that I can check older results later.#
+* [.inserted]#As Sebastian, I want to filter by my favorite team so that I do not have to scroll through every local game.#
 
-====== [.removed]#Persona D: Chris Ramos,# [.inserted]#errors instead of clear explanations, and trust#
-[.inserted]#drops fast. During playoffs and high-traffic events, performance issues become#
-[.inserted]#visible immediately.#
+==== Coach Abiel  Rullán "The Team Organizer"
 
-[.inserted]#Quotes:#
-[.inserted]#"I can post fast, but I need a way to show what is confirmed and what is#
-[.inserted]#still developing."#
-[.inserted]#"If# the [.inserted]#site goes down during the biggest game, people will not trust it#
-[.inserted]#again."#
+[.removed]#Background:# Abiel [.removed]#Rullan# [.inserted]#Rullán# is a [.removed]#local# [.inserted]#34-year-old assistant# coach [.inserted]#for a local youth basketball team. He works during the day# and [.removed]#team organizer who manages#
+[.removed]#schedules, communicates# [.inserted]#helps# with [.removed]#players and parents,# [.inserted]#practice in the afternoon. He keeps a notebook in his bag with drills, player notes,# and [.removed]#cares deeply about#
+[.removed]#results being reported correctly. For Abiel, sports information# [.inserted]#reminders from previous practices. He# is [.inserted]#the kind of person who answers messages from parents even when he is busy because he knows a missed detail can create problems for the team.#
 
-[.inserted]##Solutions:##
-[.inserted]##Feature - Preliminary vs Confirmed Updates: A way to represent developing#
-[.inserted]#information responsibly.##
-[.inserted]##Feature - Standardized Fallback Behavior: Clear behavior when sources fail so#
-[.inserted]#the platform stays understandable during outages.##
-[.inserted]##Feature - Reliability Testing and Monitoring Foundation: Stress and failure#
-[.inserted]#scenarios modeled early so peak-event reliability is not a surprise.##
+[.inserted]#Abiel does# not [.removed]#just#
+[.removed]#something# [.inserted]#follow local sports only as a fan. He depends on local sports information# to [.removed]#check for fun. It# [.inserted]#organize people. A game time, venue change, opponent change, or postponement# affects [.removed]#planning,# [.inserted]#players, parents,# transportation, [.removed]#attendance,#
+and [.removed]#team morale.# [.inserted]#practice plans. Most updates reach him through WhatsApp, Facebook posts, league announcements, screenshots, and calls from other coaches.#
 
-=== [.inserted]#Chris Ramos "The# Platform [.removed]#Engineer# [.inserted]#Engineer"#
+[.inserted]#He checks information from his phone between work and practice.# When [.removed]#standings or schedules are wrong online,# [.inserted]#a schedule changes,# he [.removed]#ends up#
+[.removed]#answering questions, calming people down, and correcting the situation by#
+[.removed]#hand.#
 
-[.inserted]##Background:# Chris [.inserted]#Ramos# is [.removed]#responsible for reliability# [.inserted]#the team member who gets pulled in when the#
-[.inserted]#platform behaves differently under pressure than it did in a calm demo. He#
-[.inserted]#watches what happens when sources conflict, when one feed stops updating, when#
-[.inserted]#traffic jumps,# and [.removed]#quality of# [.inserted]#when recovery does not happen# the [.removed]#sports information platform.# [.inserted]#same way twice. Chris is#
-[.inserted]#less interested in whether one screen looks polished and more interested in#
-[.inserted]#whether the same domain situation leads to the same system behavior every#
-[.inserted]#time.##
+[.removed]#Abiel can tolerate honest delay. What frustrates him is having no clear way# [.inserted]#needs# to [.removed]#tell# [.inserted]#know# whether [.removed]#something# [.inserted]#the change# is [.removed]#verified, provisional,# [.inserted]#reliable before sending it to the team chat. If he forwards wrong information, parents may drive to the wrong place# or [.removed]#simply outdated.#
 
-[.inserted]##Chris expects this project to operate in a messy environment.# He [.removed]#focuses# [.inserted]#assumes that#
-[.inserted]#sources will disagree, some updates will arrive late, and outages will happen.#
-[.inserted]#What matters to him is whether the platform reacts in a way that can be#
-[.inserted]#understood, tested, and improved.##
+[.removed]#Age: 34 years old.#
+[.removed]#Role: Coach and league participant (organizer/communicator).#
+[.removed]#Interests:# [.inserted]#players may prepare for the wrong time. That makes uncertainty more serious for him than for a casual fan.#
 
-[.inserted]##Age: 28 years old.##
-[.inserted]##Role: Platform engineer focused# on [.inserted]#reliability and quality.##
-[.inserted]##Interests: Chris cares about# predictable [.removed]#behavior under failures, automation in# [.inserted]#behavior, repeatable# testing,
-[.inserted]#observability,# and clear [.removed]#user-facing status.#
+Abiel [.removed]#values structure and clarity.# [.inserted]#does not need a social-media-style feed.# He [.removed]#wants schedules# [.inserted]#needs clear team-related information, visible source context,# and [.inserted]#correction indicators.#
 
-Goals::
-* [.removed]#Prevent incorrect# [.inserted]#fallback logic. He wants the project to expose where#
-[.inserted]#things fail, not hide those failures behind vague messages# or [.removed]#outdated information from being shown as “final”#
-* [.removed]#Keep# [.inserted]#silent#
-[.inserted]#assumptions. He also cares about having evidence when someone says# the system [.removed]#available during peak events#
-* [.removed]#Standardize#
-[.inserted]#is more reliable than it was before.##
+[.inserted]#Goals:#
 
-[.inserted]##Goals: Chris wants# reliability [.removed]#tests# [.inserted]#rules that can be tested, fallback behavior#
-[.inserted]#that stays consistent under failure,# and [.removed]#integrate# [.inserted]#metrics that show whether conflict#
-[.inserted]#handling, freshness handling, and recovery behavior are getting better or#
-[.inserted]#worse over time. He also wants stress conditions to be modeled before users#
-[.inserted]#find# them [.removed]#into CI#
 
-Pain points::
-* [.removed]#Most tests pass# [.inserted]#first.##
+* [.inserted]#Confirm schedule, venue, opponent,#
+[.removed]#standings that match reality# and [.inserted]#game-status information.#
 
-[.inserted]##Problems: If source failures are handled differently across pages, users lose#
-[.inserted]#trust and developers lose time. If reliability behavior is not covered by#
-[.inserted]#tests, regressions slip# in [.removed]#normal conditions but# [.inserted]#quietly. If the team cannot see accuracy,#
-[.inserted]#availability, consistency, and recovery trends, then reliability arguments#
-[.inserted]#turn into opinion instead of evidence.##
+* [.inserted]#Know when# a [.removed]#way# [.inserted]#schedule or result was corrected.#
+* [.inserted]#Avoid sending outdated information# to [.removed]#communicate accurate# [.inserted]#players and parents.#
+* [.inserted]#Focus on team-specific updates instead of browsing unrelated games.#
+* [.inserted]#Use# information
+[.removed]#with confidence. He frequently double-checks postings because he has learned#
+that [.inserted]#is clear enough to forward or explain.#
 
-[.inserted]##Quotes:##
-[.inserted]##"If we cannot test it under failure, we# do not [.removed]#cover# [.inserted]#really know how it behaves."##
-[.inserted]##"I do not want the first real outage to be the first time we learn the#
-[.inserted]#fallback logic is inconsistent."##
+[.inserted]#Pain points:#
 
-[.inserted]##Solutions:##
-[.inserted]##Feature - Automated Reliability Tests: Simulate conflict, delay, missing-data,#
-[.inserted]#and outage scenarios before users encounter them.##
-[.inserted]##Feature - Fault Injection and Recovery Checks: Verify that external dependency#
-failures [.inserted]#trigger the documented fallback behavior.##
-[.inserted]##Feature - Monitoring# and [.removed]#stress#
-* [.removed]#External sources fail or behave unpredictably#
-* [.removed]#It is hard to measure trust-impacting issues without good observability# [.inserted]#Reliability Metrics: Track availability, accuracy,#
-[.inserted]#consistency, and recovery time so changes can be judged with evidence.#
+
+* [.inserted]#Schedule changes are sometimes posted in only# one [.removed]#random post can spread faster than an# [.inserted]#place.#
+* [.inserted]#A screenshot may circulate before the# official [.removed]#correction.#
+
+[.removed]#Goals:# [.inserted]#page updates.#
+
+* [.inserted]#Parents may ask for confirmation before# Abiel [.removed]#wants standings and schedules that reflect what actually#
+[.removed]#happened, not what one account posted first. He wants# [.inserted]#has# a [.removed]#clean way to separate#
+[.removed]#confirmed information from early or doubtful reports. He also wants to spot#
+[.removed]#conflicts quickly so he can avoid repeating bad# [.inserted]#dependable answer.#
+
+* [.inserted]#Corrected# information [.inserted]#may appear after the original post was already shared.#
+* [.inserted]#League pages and team pages may use different wording for the same event.#
+
+[.inserted]#Design implications:#
+
+
+* [.inserted]#Team pages should make upcoming games, venue, and status easy# to [.removed]#players,#
+[.removed]#families,# [.inserted]#find.#
+
+* [.inserted]#Schedule changes should show source# and [.removed]#other teams.#
+
+[.removed]#Problems: Updates can# [.inserted]#update time.#
+
+* [.inserted]#Corrected values should# be [.removed]#delayed, incomplete,# [.inserted]#marked clearly.#
+* [.inserted]#Unknown# or [.removed]#inconsistent across#
+[.removed]#sources. Conflicting reports create disputes among teams and fans. Abiel often#
+[.removed]#has to verify# [.inserted]#stale# information [.removed]#manually because he cannot tell which# [.inserted]#should not look like confirmed information.#
+
+* [.inserted]#The system should support quick checking without making Abiel read every report.#
+
+[.inserted]#Relevant epics and features:#
+
+
+* [.inserted]#Epic 1: Local Sports Information Feed.#
+* [.inserted]#Epic 2: Source-Aware Information and Uncertainty.#
+* [.inserted]#Epic 3: Corrections and Change History.#
+* [.inserted]#Features: team schedule view, correction indicator,# source [.removed]#is#
+[.removed]#authoritative or whether# [.inserted]#label, stale status, last-updated time.#
+
+[.inserted]#Example user stories tied to Abiel:#
+
+
+* [.inserted]#As Abiel, I want# a [.removed]#result is final.#
+
+[.removed]#Quotes:#
+[.removed]#"If the standings are wrong,# [.inserted]#team schedule view so that# I [.removed]#am the one who has# [.inserted]#can confirm upcoming games without searching through unrelated posts.#
+
+* [.inserted]#As Abiel, I want venue or time changes# to [.removed]#explain it# [.inserted]#show their source so that I know whether# to [.removed]#everyone."#
+[.removed]#"I just need a clear way# [.inserted]#notify the team.#
+
+* [.inserted]#As Abiel, I want corrected schedule information# to [.removed]#know what is confirmed and what is still pending."#
+
+[.removed]#Solutions:#
+[.removed]#Feature - Verified vs Provisional Indicators: A domain-level signal that#
+[.removed]#distinguishes confirmed results from developing reports.#
+[.removed]#Feature - Conflict Flagging: Highlight disagreements between sources# [.inserted]#be marked# so [.inserted]#that I do#
+[.removed]#Abiel knows# not [.removed]#to treat the# [.inserted]#keep using an old announcement.#
+
+* [.inserted]#As Abiel, I want stale# information [.removed]#as final.#
+[.removed]#Feature - Prioritize Trusted Sources: When official league results exist,#
+[.removed]#they should# [.inserted]#to# be [.removed]#treated as the strongest reference.#
+
+ labeled so that I know when I should check another source before sending a message.
+
+==== Andres  Pérez "The Deadline Reporter"
+
+[.removed]#Background:# Andres [.removed]#Perez# [.inserted]#Pérez# is a 26-year-old [.inserted]#local# sports [.removed]#reporter and# [.inserted]#reporter. He covers school games,# community [.inserted]#tournaments, and league updates. He writes short#
+[.removed]#updater who# posts [.removed]#rapid updates during tournaments# [.inserted]#for social media# and [.removed]#breaking moments.# [.inserted]#longer recaps when he has enough information.# He [.removed]#is#
+[.removed]#used to working with incomplete information at first. Someone sends a partial#
+[.removed]#score, a post# goes [.removed]#up without details,# [.inserted]#to games when he can, but he cannot be everywhere, so he depends on team pages, league posts, messages from organizers, photos from contacts,# and [.removed]#corrections arrive later.# [.inserted]#other reporters.#
+
+Andres [.inserted]#usually has a laptop bag with him,#
+[.removed]#cares about speed,# but [.removed]#he cares even more about not spreading misinformation.# [.inserted]#a lot of his checking happens from his phone.# He [.removed]#wants# [.inserted]#keeps quick notes in# a [.removed]#clean way to represent uncertainty while the story# [.inserted]#notes app. When he# is [.removed]#still moving.#
+
+[.removed]#Andres also knows that the platform will get blamed for confusion even when#
+[.removed]#the underlying sources are the real problem. If the platform becomes slow#
+[.removed]#during major events or fails when# [.inserted]#writing, he cares about details like team names, score order, whether# a [.removed]#source goes down, the audience will blame#
+[.removed]#the platform first.#
+
+[.removed]#Age: 26 years old.#
+[.removed]#Role: Sports reporter / community updater.#
+[.removed]#Interests: Andres likes live coverage, community engagement,# [.inserted]#game was final,# and [.removed]#being first#
+[.removed]#without being wrong.# [.inserted]#whether a correction replaced an earlier score.# He [.removed]#pays attention to the difference between what# is [.removed]#known#
+[.removed]#now and what is still developing. He also cares about whether the platform#
+[.removed]#stays readable under pressure,# [.inserted]#careful# because [.removed]#high-traffic moments are when# [.inserted]#publishing a wrong result makes people question# his [.removed]#work#
+[.removed]#matters most.#
+
+[.removed]#Goals:# [.inserted]#reliability.#
+
+Andres [.removed]#wants to publish or reference updates without overstating what#
+is [.removed]#known. He wants# [.inserted]#not asking# the platform to [.removed]#mark developing information clearly, keep#
+[.removed]#conflicts visible,# [.inserted]#decide truth for him. He wants it to show the available reports, the source context, the update time,# and [.removed]#stay stable enough that live coverage does not collapse#
+[.removed]#during# [.inserted]#whether# the [.removed]#most important events.#
+
+[.removed]#Problems: Early# reports [.removed]#are often incomplete, but# [.inserted]#disagree. If# the [.removed]#public wants immediate#
+[.removed]#updates. Conflicting sources can spread misinformation quickly. When systems#
+[.removed]#degrade, users get confusing errors instead of clear explanations, and trust#
+[.removed]#drops fast. During playoffs and high-traffic events, performance issues become#
+[.removed]#visible immediately.#
+
+[.removed]#Quotes:#
+[.removed]#"I# [.inserted]#platform hides disagreement, it creates a problem for him. If it shows uncertainty clearly, he# can [.removed]#post fast, but I need# [.inserted]#write more carefully.#
+
+[.inserted]#Goals:#
+
+
+* [.inserted]#Check whether# a [.removed]#way to show what# [.inserted]#score or schedule update# is [.removed]#confirmed# [.inserted]#supported by a dependable source.#
+* [.inserted]#See whether different sources disagree.#
+* [.inserted]#Avoid treating provisional information as final.#
+* [.inserted]#Track corrections after an earlier value was posted.#
+* [.inserted]#Use source# and [.removed]#what is#
+[.removed]#still developing."#
+[.removed]#"If# [.inserted]#timing context when writing updates.#
+
+[.inserted]#Pain points:#
+
+
+* [.inserted]#Some posts do not include a date or timestamp.#
+* [.inserted]#Final-score posts may be images with no searchable text.#
+* [.inserted]#Sources may disagree on# the [.removed]#site goes down during# [.inserted]#score, status, or opponent.#
+* [.inserted]#Corrections may appear after# the [.removed]#biggest game, people will not trust it#
+[.removed]#again."#
+
+[.removed]#Solutions:#
+[.removed]#Feature - Preliminary vs Confirmed Updates: A way# [.inserted]#first version was shared.#
+
+* [.inserted]#Two posts may refer# to [.removed]#represent developing#
+[.removed]#information responsibly.#
+[.removed]#Feature - Standardized Fallback Behavior: Clear behavior when sources fail so#
+the [.inserted]#same game using different team nicknames or abbreviations.#
+
+[.inserted]#Design implications:#
+
+
+* [.inserted]#The game detail view should preserve source context, not only the final displayed value.#
+* [.inserted]#Conflict status should be visible when reports disagree.#
+* [.inserted]#Correction traces should keep enough information to explain what changed.#
+* [.inserted]#Source labels should distinguish team pages, league pages, reporter posts, sports media posts, and community reports.#
+* [.inserted]#The# platform [.removed]#stays understandable during outages.#
+[.removed]##Feature -# [.inserted]#should not overstate confidence when information is still being checked.#
+
+[.inserted]#Relevant epics and features:#
+
+
+* [.inserted]#Epic 2: Source-Aware Information and Uncertainty.#
+* [.inserted]#Epic 3: Corrections and Change History.#
+* [.inserted]#Epic 5:# Reliability Testing and [.removed]#Monitoring Foundation: Stress and failure#
+[.removed]#scenarios modeled early# [.inserted]#Maintainability.#
+
+* [.inserted]#Features: source-aware game records, conflict indicator, correction trace, confidence indicator, last-updated time.#
+
+[.inserted]#Example user stories tied to Andres:#
+
+
+* [.inserted]#As Andres, I want conflicting scores to be marked# so [.removed]#peak-event reliability is# [.inserted]#that I do# not [.inserted]#report# a [.removed]#surprise.#
+
+ disputed value as final.
+
+* [.inserted]#As Andres, I want to see the source of each reported value so that I can decide whether more checking is needed.#
+* [.inserted]#As Andres, I want corrections to keep old and new values so that I can understand what changed.#
+* [.inserted]#As Andres, I want last-updated times attached to game records so that I can avoid using stale information in a post.#
+
+==== Chris Ramos "The Platform Engineer"
+
+[.removed]#Background:# Chris Ramos is [.inserted]#a 23-year-old computing student working on# the [.removed]#team member who gets pulled in when# [.inserted]#implementation side of# the [.inserted]#platform.#
+[.removed]#platform behaves differently under pressure than it did in a calm demo.# He [.inserted]#follows sports casually, mostly#
+[.removed]#watches what happens when sources conflict, when one feed stops updating,# when [.inserted]#friends invite him to games or#
+[.removed]#traffic jumps, and# when [.removed]#recovery does# [.inserted]#a local team reaches an important match. He is# not [.removed]#happen# the [.removed]#same way twice. Chris is#
+[.removed]#less interested in whether one screen looks polished and more interested# [.inserted]#loudest fan# in
+[.removed]#whether# the [.removed]#same domain situation leads to# [.inserted]#group, but he is# the [.removed]#same system behavior every#
+[.removed]#time.# [.inserted]#person who notices when an app behaves inconsistently.#
+
+Chris [.removed]#expects# [.inserted]#reads documentation before changing code because the data cases in# this project [.inserted]#are easy# to [.removed]#operate in a messy environment. He assumes that#
+[.removed]#sources will disagree, some updates will# [.inserted]#mishandle. Scores can be missing. A report can# arrive [.removed]#late, and outages will happen.#
+[.removed]#What matters to him is whether the platform reacts in a way that# [.inserted]#late. A correction# can [.inserted]#replace an earlier value. A score may# be [.inserted]#complete in one place#
+[.removed]#understood, tested,# and [.removed]#improved.#
+
+[.removed]#Age: 28 years old.#
+[.removed]#Role: Platform engineer focused on reliability# [.inserted]#incomplete in another. If the documentation says one thing# and [.removed]#quality.#
+[.removed]#Interests:# [.inserted]#the code does another,# Chris [.removed]#cares about predictable behavior, repeatable testing,#
+[.removed]#observability, and clear fallback logic.# [.inserted]#loses time trying to guess which source to follow.#
+
+He [.inserted]#prefers small functions with clear responsibility. If `formatScore` handles missing score values, then callers should not duplicate that check before calling it. If `isScoreComplete` owns score completeness, then formatting should delegate that decision instead of copying the condition. Chris# wants the [.removed]#project# [.inserted]#documentation# to [.removed]#expose where#
+[.removed]#things fail, not hide those failures behind vague messages or silent#
+[.removed]#assumptions. He also cares about having evidence when someone says# [.inserted]#help# the [.removed]#system#
+[.removed]#is more reliable than it was before.# [.inserted]#team make those decisions consistently.#
+
+Goals: [.removed]#Chris wants reliability rules that can be tested, fallback behavior#
+[.removed]#that stays consistent under failure, and metrics that show whether conflict#
+[.removed]#handling, freshness handling,#
+
+* [.inserted]#Understand which function owns each responsibility.#
+* [.inserted]#Keep score formatting, score completeness,# and [.removed]#recovery# [.inserted]#display-building# behavior [.removed]#are getting better or#
+[.removed]#worse over time. He also wants stress conditions# [.inserted]#separated.#
+
+* [.inserted]#Tie documentation fragments# to [.removed]#be modeled before users#
+[.removed]#find them first.#
+
+[.removed]#Problems: If source failures are handled differently across pages, users lose#
+[.removed]#trust# [.inserted]#real implementation code.#
+
+* [.inserted]#Add tests for missing, conflicting, stale,# and [.removed]#developers lose time. If reliability behavior is not covered by#
+[.removed]#tests, regressions slip in quietly. If the team# [.inserted]#corrected information.#
+
+* [.inserted]#Avoid vague domain terms that# cannot [.removed]#see accuracy,#
+[.removed]#availability, consistency, and recovery trends, then reliability arguments#
+[.removed]#turn# [.inserted]#be turned# into [.removed]#opinion instead of evidence.#
+
+[.removed]#Quotes:#
+[.removed]#"If we cannot test it under failure, we do# [.inserted]#code or tests.#
+
+[.inserted]#Pain points:#
+
+
+* [.inserted]#Function signatures are hard to implement if they use undefined types.#
+* [.inserted]#Conceptual implementation fragments are# not#
+[.removed]#"I# [.inserted]#useful if they# do not [.removed]#want# [.inserted]#match# the [.removed]#first real outage# [.inserted]#actual code.#
+
+* [.inserted]#Missing-score checks can be duplicated across functions.#
+* [.inserted]#Broad claims about testing are weak if only one example exists.#
+* [.inserted]#Domain terms like reliability metadata need enough detail# to [.inserted]#guide implementation.#
+
+[.inserted]#Design implications:#
+
+
+* [.inserted]#Function signatures should use defined domain types.#
+* [.inserted]#Implementation examples should come from actual code or# be [.removed]#the first time we learn the#
+[.removed]#fallback logic is inconsistent."#
+
+[.removed]#Solutions:#
+[.removed]#Feature - Automated Reliability Tests: Simulate conflict, delay, missing-data,#
+[.removed]#and outage scenarios before users encounter them.#
+[.removed]#Feature - Fault Injection# [.inserted]#clearly tied to it.#
+
+* [.inserted]#Responsibility boundaries should be stated where formatting, validation,# and [.removed]#Recovery Checks: Verify# [.inserted]#display construction interact.#
+* [.inserted]#Tests should cover specific behavior, not only normal score display.#
+* [.inserted]#Documentation should avoid saying# that [.removed]#external dependency#
+[.removed]#failures trigger the documented fallback behavior.#
+[.removed]#Feature - Monitoring# [.inserted]#future testing will happen without showing current evidence.#
+
+[.inserted]#Relevant epics# and [.inserted]#features:#
+
+
+* [.inserted]#Epic 5:# Reliability [.removed]#Metrics: Track availability, accuracy,#
+[.removed]#consistency,# [.inserted]#Testing# and [.removed]#recovery time# [.inserted]#Maintainability.#
+
+* [.inserted]#Epic 2: Source-Aware Information and Uncertainty.#
+* [.inserted]#Epic 3: Corrections and Change History.#
+* [.inserted]#Features: score formatting tests, conflict tests, correction tests, stale-data tests, function responsibility review.#
+
+[.inserted]#Example user stories tied to Chris:#
+
+
+* [.inserted]#As Chris, I want score formatting responsibility to live in one place# so [.removed]#changes# [.inserted]#that null or incomplete scores are handled consistently.#
+* [.inserted]#As Chris, I want function signatures to use defined domain types so that I# can [.removed]#be judged with evidence.# [.inserted]#connect documentation to implementation.#
+* [.inserted]#As Chris, I want implementation fragments to come from actual code so that the documentation is useful during review.#
+* [.inserted]#As Chris, I want tests for missing and conflicting score data so that reliability behavior does not depend only on manual checking.#

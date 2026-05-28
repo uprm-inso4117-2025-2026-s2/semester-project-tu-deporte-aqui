@@ -2,66 +2,67 @@
 
 ===== Purpose
 
-[.removed]#Milestone 1 of Tu Deporte Aquí emphasizes documentation, research, and structured system preparation rather than implementation.# This section describes the non-development activities that [.removed]#contribute to system reliability, transparency, and organized collaboration.#
+This section describes the non-development activities that support [.removed]#the implementation of# Tu Deporte [.removed]#Aquí.# [.inserted]#Aquí during the final milestone.#
 
-[.removed]#These activities ensure that# [.inserted]#support# the [.removed]#project evolves through disciplined engineering practices before any source code is written.#
+While Milestone 1 focused on research and documentation, [.removed]#the current milestone# [.inserted]#and Milestone 2 focused on implementation, Milestone 3# emphasizes [.removed]#implementation. However, supporting# [.inserted]#integration, stability, polish, and final delivery. Supporting# activities such as [.removed]#documentation,# [.inserted]#documentation updates, pull request review, CI verification, team# coordination, and [.removed]#workflow management# [.inserted]#quality checks# remain necessary to [.removed]#ensure consistency and integration across teams.# [.inserted]#keep the project consistent.#
 
-===== [.removed]#Research Activities#
-
-[.removed]#Research plays a central role in# [.inserted]#implementation of Tu Deporte Aquí.#
-
-[.inserted]#While# Milestone [.removed]#1. Key# [.inserted]#1 focused on# research [.removed]#efforts include:#
-
-- [.removed]#Investigating reliability strategies for conflicting# and [.removed]#delayed sports data#
-- [.removed]#Defining scope boundaries# [.inserted]#documentation, the current milestone emphasizes implementation. However, supporting activities such as documentation, coordination,# and [.removed]#out-of-scope conditions#
-- [.removed]#Exploring data lineage# [.inserted]#workflow management remain necessary to ensure consistency# and [.removed]#audit trail strategies#
-- [.removed]#Studying transparency indicators for uncertain information#
-- [.removed]#Analyzing requirements classification (functional vs non-functional)# [.inserted]#integration across teams.#
-
-These [.removed]#research tasks ensure that system behavior is well-defined under real-world constraints.# [.inserted]#activities help maintain structure and reduce errors during development.#
+These activities help [.removed]#maintain structure and# [.inserted]#the team# reduce [.removed]#errors during development.# [.inserted]#integration problems, address professor feedback, and prepare the project for the final presentation.#
 
 ===== Documentation-as-Code
 
-The project [.removed]#adopts# [.inserted]#continues to use# a documentation-as-code model using AsciiDoc and GitHub.
+The project continues to use a documentation-as-code model using AsciiDoc and GitHub.
 
 This includes:
 
 - Structured folder hierarchy under /docs
 - Modular section files linked through include:: directives
 - Version-controlled documentation
-- Pull-request-based [.removed]#content integration# [.inserted]#updates#
-- Automated HTML/PDF [.removed]#build via# [.inserted]#builds through# CI [.removed]#workflow#
+- Pull-request-based updates
+- Automated HTML/PDF builds through CI
 
-[.removed]#This approach ensures traceability, consistency,#
+[.removed]#Documentation# [.inserted]#During Milestone 3, documentation work focuses on final cleanup. This includes updating outdated milestone language, correcting professor feedback, documenting the implemented product more accurately, and preparing the final documentation for submission.#
 
-[.inserted]#Documentation is updated alongside implementation to reflect system behavior# and [.removed]#reproducibility of documentation.# [.inserted]#design decisions.#
+===== Professor Feedback Revisions
+
+[.inserted]#A major non-development activity in Milestone 3# is [.removed]#updated alongside# [.inserted]#revising documentation based on professor feedback.#
+
+[.inserted]#This includes:#
+
+
+- [.inserted]#Removing unsupported or overly broad claims#
+- [.inserted]#Fixing formatting and markup issues#
+- [.inserted]#Clarifying the difference between primary goals and derived goals#
+- [.inserted]#Improving consistency between needs, goals, requirements, and# implementation [.removed]#to reflect system behavior#
+- [.inserted]#Replacing future-tense descriptions with actual project evidence where possible#
+- [.inserted]#Updating sections that still describe earlier milestone assumptions#
+
+[.inserted]#These revisions help make the documentation more accurate# and [.removed]#design decisions.# [.inserted]#easier to review.#
 
 ===== Pull Request and Review Process
 
-All contributions are integrated through a [.removed]#PR-only# [.inserted]#PR-based# workflow.
+All contributions are integrated through a PR-based workflow.
 
 The process includes:
 
 1. Issue creation using the standardized template
-2. Feature branch creation
-3. [.removed]#Focused modification of assigned section# [.inserted]#Implementation or documentation update#
+2. [.removed]#Feature branch# [.inserted]#Branch# creation [.inserted]#for the assigned task#
+3. [.removed]#Implementation# [.inserted]#Bug fix, feature completion,# or documentation update
 4. Pull request submission
-5. [.removed]#Automated# CI build verification
+5. CI build verification
 6. Team Lead review
 7. Manager approval and merge
 
-This [.removed]#structured# process ensures [.removed]#quality control# [.inserted]#that changes are reviewed before being integrated# and [.removed]#accountability.# [.inserted]#reduces inconsistencies between teams.#
+This process ensures that changes are reviewed before being integrated and reduces inconsistencies between [.removed]#teams.# [.inserted]#teams during final stabilization.#
 
 ===== CI/CD and Build Automation
 
-The project [.removed]#includes# [.inserted]#uses# a GitHub Actions workflow that:
+The project uses a GitHub Actions workflow that:
 
-- [.removed]#Compiles# [.inserted]#Builds# the [.removed]#master AsciiDoc document# [.inserted]#project and documentation#
-- Verifies [.removed]#include# structure
-- [.removed]#Generates HTML# and [.removed]#PDF artifacts# [.inserted]#formatting#
-- Detects [.removed]#build or formatting# errors [.inserted]#before merging#
+- Builds the project and documentation
+- Verifies structure and formatting
+- Detects errors before merging
 
-This [.removed]#automation# [.inserted]#helps prevent broken builds and# ensures [.removed]#documentation integrity before approval.# [.inserted]#that changes do not introduce issues.#
+[.removed]#This helps prevent broken builds and ensures that changes do not introduce issues.# [.inserted]#During Milestone 3, these checks are important because the project must remain stable for the final demo. Broken builds, documentation errors, or obvious integration issues should be addressed before merging.#
 
 ===== Task Tracking and Governance
 
@@ -69,50 +70,76 @@ All work is tracked through GitHub Issues.
 
 Each issue includes:
 
-- [.removed]#Clear# [.inserted]#Defined# objective
-- [.removed]#Defined acceptance# [.inserted]#Acceptance# criteria
-- [.removed]#Urgency and difficulty rating#
+- Defined objective
+- Acceptance criteria
 - Assigned contributor
-- Milestone [.removed]#linkage#
+- Milestone association
 
-[.removed]#Documentation scaffold sections# [.inserted]#association#
+Documentation-related issues reference the master scaffold issue (#53) to maintain structure.
 
-[.inserted]#Documentation-related issues# reference the master [.inserted]#scaffold# issue (#53) to maintain [.removed]#structural traceability.# [.inserted]#structure.#
-
-This [.removed]#governance structure prevents duplication and supports milestone compliance.# [.inserted]#allows work to be distributed while still keeping visibility across teams.#
+This allows work to be distributed while [.removed]#still# keeping visibility across teams. [.inserted]#It also helps the team track which final fixes, documentation revisions, and integration tasks still need review.#
 
 ===== Team Coordination
 
 Collaboration is supported through:
 
-- Team-based [.removed]#specialization (five domain-focused teams)#
-- [.removed]#Regular coordination discussions# [.inserted]#responsibilities#
-- [.removed]#Milestone planning# [.inserted]#Cross-team communication when dependencies exist#
-- [.removed]#Alignment on scope# [.inserted]#Coordination between frontend, backend,# and [.removed]#assumptions# [.inserted]#data teams#
-- Shared [.removed]#responsibility for reliability modeling#
+- Team-based responsibilities
+- Cross-team communication when dependencies exist
+- Coordination between frontend, backend, [.inserted]#authentication,# and data teams
+- Shared use of components and APIs
 
-[.removed]#These coordination practices ensure consistent interpretation# [.inserted]#use# of [.removed]#requirements across teams.# [.inserted]#components and APIs#
+Coordination is [.removed]#necessary# [.inserted]#especially important in Milestone 3# because [.removed]#features depend on# [.inserted]#the project is no longer only about individual features. Pages, API routes, Supabase data, authentication, and# shared [.inserted]#UI components must work together as one final product.#
 
-[.inserted]#Coordination is necessary because features depend on shared data and structure.#
+===== Final QA and Stability Checks
 
-===== Milestone Planning and [.removed]#Retrospectives#
+[.inserted]#Quality assurance is another important non-development activity during the final milestone.#
 
-[.removed]#Milestone 1# [.inserted]#Iteration#
+[.inserted]#Teams are expected to verify that:#
 
-[.inserted]#The project follows milestone-based development.#
 
-[.inserted]#This# includes:
+- [.inserted]#Main pages load without crashing#
+- [.inserted]#API routes return valid# data
+- [.inserted]#Supabase integration works consistently#
+- [.inserted]#Authentication behaves correctly after refresh or navigation#
+- [.inserted]#Loading# and [.removed]#structure.# [.inserted]#error states are visible#
+- [.inserted]#Mobile layouts remain usable#
+- [.inserted]#Major console or runtime errors are resolved#
 
-- [.removed]#Clear completion criteria#
-[.removed]#-# Defined [.removed]#deliverables (compiled documentation)#
-- [.removed]#Explicit failure and uncertainty modeling# [.inserted]#implementation goals#
-- Iterative [.removed]#refinement through# [.inserted]#updates based on# feedback
-[.removed]#Retrospective reflection ensures continuous improvement in# - [.inserted]#Adjustments to# documentation [.removed]#quality# and [.removed]#team workflow.# [.inserted]#structure as the system evolves#
+[.inserted]#These checks help confirm that the project is ready for final presentation.#
 
-[.inserted]#Unlike Milestone 1, changes now reflect actual system behavior rather than planned behavior.#
+===== Milestone Planning and Iteration
+
+The project follows milestone-based development.
+
+This includes:
+
+- Defined [.removed]#implementation# [.inserted]#final delivery# goals
+- Iterative updates based on feedback
+- Adjustments to documentation and structure as the system evolves
+[.removed]#Unlike# [.inserted]#- Prioritization of stability over new feature expansion#
+
+[.inserted]#In# Milestone [.removed]#1,# [.inserted]#3,# changes [.removed]#now# [.inserted]#should# reflect [.removed]#actual system behavior rather than planned behavior.# [.inserted]#the current state of the implemented product instead of describing future work that has not been completed.#
+
+===== Demo and Final Delivery Preparation
+
+[.inserted]#The final milestone also includes preparing the project for presentation and review.#
+
+[.inserted]#This includes:#
+
+
+- [.inserted]#Confirming that setup instructions are accurate#
+- [.inserted]#Finalizing the README#
+- [.inserted]#Checking that main pages are ready to demonstrate#
+- [.inserted]#Making repository structure understandable#
+- [.inserted]#Preparing explanations of implemented features#
+- [.inserted]#Ensuring documentation matches the current product#
+
+[.inserted]#This work helps the team present the project clearly and reduces avoidable issues during the final demo.#
 
 ===== Conclusion
 
-Tu Deporte Aquí [.removed]#extends# [.inserted]#includes activities# beyond [.removed]#software implementation. Research,# [.inserted]#writing code. Documentation, coordination, and# structured [.removed]#documentation, governance modeling,# [.inserted]#workflows support implementation# and [.removed]#automated validation form the foundation of the project.# [.inserted]#reduce integration issues.#
+Tu Deporte Aquí includes activities beyond writing code. [.removed]#Documentation,# [.inserted]#Documentation cleanup, issue tracking, pull request review, CI verification, team# coordination, [.inserted]#QA checks,# and [.removed]#structured workflows# [.inserted]#demo preparation all# support [.removed]#implementation and reduce integration issues.#
 
-These [.removed]#non-development# activities [.inserted]#help# ensure that [.removed]#when implementation begins, it# [.inserted]#the system# is [.removed]#grounded in clearly defined scope, reliability expectations,# [.inserted]#built consistently# and [.removed]#transparent engineering practices.# [.inserted]#that changes remain traceable across milestones.#
+[.removed]#These# [.inserted]#the final product.#
+
+[.inserted]#During Milestone 3, these# activities help ensure that the [.removed]#system# [.inserted]#project# is [.removed]#built consistently# [.inserted]#stable, understandable,# and [.removed]#that changes remain traceable across milestones.# [.inserted]#ready for final delivery.#

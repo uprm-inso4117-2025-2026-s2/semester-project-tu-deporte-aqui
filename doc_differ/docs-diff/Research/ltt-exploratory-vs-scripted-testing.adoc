@@ -1,0 +1,277 @@
+= Lecture Topic Task: Exploratory Testing vs Scripted Testing in Sports Platforms
+[.inserted]#:toc:#
+[.inserted]#:toclevels: 3#
+
+== Introduction
+
+[.inserted]#Software testing includes multiple approaches that help developers and testers evaluate software quality, identify defects, and improve reliability. Two commonly discussed approaches in software testing are scripted testing and exploratory testing.#
+
+[.inserted]#Scripted testing focuses on predefined test cases and expected outcomes, while exploratory testing focuses on active investigation and adaptive learning during the testing process. Both approaches are valuable because they help identify different categories of defects and evaluate software behavior from different perspectives.#
+
+[.inserted]#In sports information platforms, testing becomes especially important because information changes rapidly and users depend on timely and understandable updates. Systems that display schedules, standings, live scores, and status changes must remain reliable even when information is incomplete, delayed, or conflicting.#
+
+[.inserted]#This Lecture Topic Task analyzes exploratory testing and scripted testing, explains their differences, and discusses how both approaches can be applied to Tu Deporte Aquí.#
+
+== Overview of Scripted Testing
+
+[.inserted]#Scripted testing is a structured testing approach in which test cases are designed before execution.#
+
+[.inserted]#A scripted test usually contains:#
+
+- [.inserted]#predefined steps#
+- [.inserted]#specific inputs#
+- [.inserted]#expected outputs#
+- [.inserted]#validation conditions#
+
+[.inserted]#The tester follows the documented instructions exactly in order to verify that the system behaves as expected.#
+
+[.inserted]#Scripted testing is commonly used for:#
+
+- [.inserted]#regression testing#
+- [.inserted]#requirement validation#
+- [.inserted]#repeated verification of critical features#
+- [.inserted]#automated testing workflows#
+- [.inserted]#consistency across multiple testing sessions#
+
+[.inserted]#One important advantage of scripted testing is repeatability. Since the steps and expected results are predefined, different testers can execute the same tests and compare results consistently.#
+
+[.inserted]#Another advantage is traceability. Scripted tests can be directly connected to requirements, acceptance criteria, and system behaviors.#
+
+[.inserted]#However, scripted testing also has limitations. Because the tester follows predefined instructions, unexpected defects or unusual interactions may remain undiscovered. Scripted testing tends to focus on expected behavior rather than unpredictable situations.#
+
+== Overview of Exploratory Testing
+
+[.inserted]#Exploratory testing is a flexible testing approach in which learning, investigation, and test execution occur simultaneously.#
+
+[.inserted]#Instead of following rigid predefined test cases, the tester actively interacts with the system while observing behaviors, identifying risks, and adapting testing decisions dynamically.#
+
+[.inserted]#Exploratory testing is useful when:#
+
+- [.inserted]#requirements change frequently#
+- [.inserted]#the system contains unpredictable interactions#
+- [.inserted]#usability concerns exist#
+- [.inserted]#developers want to discover unexpected defects#
+- [.inserted]#real user behavior is difficult to predict#
+
+[.inserted]#One major advantage of exploratory testing is adaptability. The tester can immediately investigate suspicious behaviors, unusual outputs, or inconsistent workflows.#
+
+[.inserted]#Exploratory testing is also effective for identifying:#
+
+- [.inserted]#usability problems#
+- [.inserted]#navigation issues#
+- [.inserted]#confusing interface behavior#
+- [.inserted]#inconsistent error handling#
+- [.inserted]#unexpected edge cases#
+
+[.inserted]#However, exploratory testing also has limitations. Because testing is less structured, coverage may vary between testers. The results are also harder to reproduce exactly compared to scripted testing.#
+
+[.inserted]#Exploratory testing depends heavily on tester experience, observation skills, and understanding of the system.#
+
+== Major Differences Between Both Approaches
+
+[cols="1,1,1", options="header"]
+|===
+|[.inserted]#Category#
+|[.inserted]#Scripted Testing#
+|[.inserted]#Exploratory Testing#
+
+|[.inserted]#Structure#
+|[.inserted]#Highly structured#
+|[.inserted]#Flexible and adaptive#
+
+|[.inserted]#Planning#
+|[.inserted]#Prepared before execution#
+|[.inserted]#Designed during execution#
+
+|[.inserted]#Execution Style#
+|[.inserted]#Follows predefined steps#
+|[.inserted]#Investigates dynamically#
+
+|[.inserted]#Repeatability#
+|[.inserted]#High#
+|[.inserted]#Lower#
+
+|[.inserted]#Documentation#
+|[.inserted]#Detailed test cases#
+|[.inserted]#Lightweight notes and observations#
+
+|[.inserted]#Primary Goal#
+|[.inserted]#Requirement verification#
+|[.inserted]#Defect discovery and investigation#
+
+|[.inserted]#Best Use Cases#
+|[.inserted]#Stable workflows and regression testing#
+|[.inserted]#Unexpected behavior and usability evaluation#
+
+|[.inserted]#Automation Potential#
+|[.inserted]#High#
+|[.inserted]#Low#
+
+|[.inserted]#Tester Freedom#
+|[.inserted]#Limited#
+|[.inserted]#High#
+|===
+
+[.inserted]#Although the approaches are different, they are not opposites. In practice, many software projects combine both approaches to improve testing quality and coverage.#
+
+== Advantages and Limitations
+
+=== Advantages of Scripted Testing
+
+
+- [.inserted]#Consistent execution between testers#
+- [.inserted]#Easier regression testing#
+- [.inserted]#Easier automation#
+- [.inserted]#Strong traceability to requirements#
+- [.inserted]#Clear expected outcomes#
+
+=== Limitations of Scripted Testing
+
+
+- [.inserted]#Less flexible during execution#
+- [.inserted]#Unexpected defects may remain hidden#
+- [.inserted]#Heavy dependence on predefined scenarios#
+- [.inserted]#Can overlook real-world user behavior#
+
+=== Advantages of Exploratory Testing
+
+
+- [.inserted]#Better discovery of unexpected issues#
+- [.inserted]#Strong usability evaluation#
+- [.inserted]#Flexible investigation process#
+- [.inserted]#Encourages critical thinking during testing#
+- [.inserted]#Useful during rapidly changing development#
+
+=== Limitations of Exploratory Testing
+
+
+- [.inserted]#Harder to reproduce exactly#
+- [.inserted]#Less consistent coverage#
+- [.inserted]#More difficult documentation#
+- [.inserted]#Depends heavily on tester experience#
+
+== Application to Sports Information Platforms
+
+[.inserted]#Sports information platforms present unique testing challenges because they manage dynamic information that changes continuously.#
+
+[.inserted]#Examples include:#
+
+- [.inserted]#live score updates#
+- [.inserted]#standings calculations#
+- [.inserted]#game status transitions#
+- [.inserted]#delayed updates#
+- [.inserted]#conflicting information from multiple sources#
+- [.inserted]#high-traffic situations during major events#
+
+[.inserted]#Testing these systems requires both predictable validation and flexible investigation.#
+
+[.inserted]#Scripted testing is useful for validating:#
+
+- [.inserted]#score rendering#
+- [.inserted]#API responses#
+- [.inserted]#standings ordering#
+- [.inserted]#filtering functionality#
+- [.inserted]#scheduled game displays#
+- [.inserted]#authentication workflows#
+
+[.inserted]#Exploratory testing is useful for investigating:#
+
+- [.inserted]#usability during live updates#
+- [.inserted]#confusing reliability messaging#
+- [.inserted]#unexpected interface behavior#
+- [.inserted]#inconsistent refresh timing#
+- [.inserted]#degraded-state communication#
+- [.inserted]#responsiveness under unusual conditions#
+
+[.inserted]#Because sports platforms often involve real-time interaction and uncertainty, relying only on scripted testing may leave important usability and reliability issues undiscovered.#
+
+== Application to Tu Deporte Aquí
+
+[.inserted]#Tu Deporte Aquí focuses on local Puerto Rico sports information and emphasizes reliability, transparency, and understandable communication of uncertain information.#
+
+[.inserted]#The project handles:#
+
+- [.inserted]#schedules#
+- [.inserted]#standings#
+- [.inserted]#scores#
+- [.inserted]#status updates#
+- [.inserted]#delayed information#
+- [.inserted]#potentially conflicting reports#
+
+[.inserted]#Because of this, both scripted and exploratory testing approaches are valuable.#
+
+[.inserted]#Scripted testing could help verify:#
+
+- [.inserted]#correct rendering of standings#
+- [.inserted]#consistency of game information#
+- [.inserted]#correct handling of API responses#
+- [.inserted]#proper display of timestamps#
+- [.inserted]#expected behavior of filtering and navigation features#
+
+[.inserted]#Exploratory testing could help investigate:#
+
+- [.inserted]#how users interpret degraded-state messages#
+- [.inserted]#whether conflicting information is understandable#
+- [.inserted]#usability during high-update situations#
+- [.inserted]#confusing navigation behavior#
+- [.inserted]#interface clarity during uncertain situations#
+
+[.inserted]#The reliability-oriented philosophy of Tu Deporte Aquí makes exploratory testing especially important because the project must not only present correct information, but also communicate uncertainty clearly to users.#
+
+== Why Both Approaches Are Important
+
+[.inserted]#Using only scripted testing may create a false sense of confidence because predefined tests mainly validate expected behavior.#
+
+[.inserted]#Using only exploratory testing may leave important workflows insufficiently verified because testing coverage becomes inconsistent.#
+
+[.inserted]#Combining both approaches improves overall software quality.#
+
+[.inserted]#Scripted testing provides:#
+
+- [.inserted]#consistency#
+- [.inserted]#repeatability#
+- [.inserted]#regression protection#
+- [.inserted]#requirement verification#
+
+[.inserted]#Exploratory testing provides:#
+
+- [.inserted]#flexibility#
+- [.inserted]#usability investigation#
+- [.inserted]#discovery of unexpected defects#
+- [.inserted]#evaluation of real-world interactions#
+
+[.inserted]#For projects such as Tu Deporte Aquí, where reliability and transparency are important, combining both approaches allows the team to validate technical correctness while also evaluating user understanding and system behavior under imperfect conditions.#
+
+== Recommended Testing Strategy for Tu Deporte Aquí
+
+[.inserted]#A balanced testing strategy is recommended for the project.#
+
+[.inserted]#Scripted testing should be prioritized for:#
+
+- [.inserted]#standings calculations#
+- [.inserted]#API validation#
+- [.inserted]#scheduled game rendering#
+- [.inserted]#authentication workflows#
+- [.inserted]#regression testing#
+
+[.inserted]#Exploratory testing should be prioritized for:#
+
+- [.inserted]#live-update interaction behavior#
+- [.inserted]#degraded-state communication#
+- [.inserted]#reliability indicator interpretation#
+- [.inserted]#usability evaluation#
+- [.inserted]#high-traffic and edge-case investigation#
+
+[.inserted]#This combined approach would improve both functional reliability and user-facing quality.#
+
+[.inserted]#It would also support the project’s goal of maintaining user trust even when information is delayed, incomplete, or conflicting.#
+
+== Conclusion
+
+[.inserted]#Scripted testing and exploratory testing are both valuable software testing approaches that support software quality in different ways.#
+
+[.inserted]#Scripted testing focuses on consistency, repeatability, and structured verification of expected behavior. Exploratory testing focuses on adaptability, investigation, and discovery of unexpected issues.#
+
+[.inserted]#Sports information systems create testing challenges because they involve rapidly changing data, uncertainty, and strong user dependence on timely updates.#
+
+[.inserted]#For Tu Deporte Aquí, combining both testing approaches would provide stronger reliability validation, better usability evaluation, and improved confidence in system behavior under both normal and imperfect conditions.#

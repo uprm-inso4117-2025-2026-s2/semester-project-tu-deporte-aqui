@@ -1,150 +1,150 @@
-= [.inserted]#Feed Transparency Feature: “Why am I seeing this?”#
-[.inserted]#Author: Diego A. Rios Morales#
-[.inserted]#Date: February 27, 2026#
+= Feed Transparency Feature: “Why am I seeing this?”
+Author: Diego A. Rios Morales
+Date: February 27, 2026
 
-== [.inserted]#Objective#
+== Objective
 
-[.inserted]#The objective of this research is to design a transparency feature that explains to users why a specific news item appears in their feed.#
+The objective of this research is to design a transparency feature that explains to users why a specific news item appears in their feed.
 
-== [.inserted]#Problem#
+== Problem
 
-[.inserted]#When users do not understand how their feed behaves, confusion increases.#
+When users do not understand how their feed behaves, confusion increases.
 
-[.inserted]#A short “reason label” per story can:#
+A short “reason label” per story can:
 
-* [.inserted]#Reduce confusion#
-* [.inserted]#Improve trust#
-* [.inserted]#Allow users to decide whether they want to continue seeing similar content#
+* Reduce confusion
+* Improve trust
+* Allow users to decide whether they want to continue seeing similar content
 
-== [.inserted]#UX Principles#
+== UX Principles
 
-* [.inserted]#*Non-intrusive*: Must be short and direct#
-* [.inserted]#*Privacy*: Do not expose sensitive information#
-* [.inserted]#*Actionable*: Must include options such as mute, follow, or manage preferences#
+* *Non-intrusive*: Must be short and direct
+* *Privacy*: Do not expose sensitive information
+* *Actionable*: Must include options such as mute, follow, or manage preferences
 
-== [.inserted]#Explanation Categories (Proposed)#
+== Explanation Categories (Proposed)
 
-[.inserted]#Each story should include:#
+Each story should include:
 
-* [.inserted]#1 primary reason (always visible)#
-* [.inserted]#Up to 2 secondary reasons (shown in details view)#
+* 1 primary reason (always visible)
+* Up to 2 secondary reasons (shown in details view)
 
-=== [.inserted]#Following / Subscriptions#
+=== Following / Subscriptions
 
-* [.inserted]#Shown because you follow Team X#
-* [.inserted]#Shown because you follow League Y#
-* [.inserted]#From a source you follow#
+* Shown because you follow Team X
+* Shown because you follow League Y
+* From a source you follow
 
-=== [.inserted]#Location / Regional Relevance#
+=== Location / Regional Relevance
 
-* [.inserted]#Trending in your region#
+* Trending in your region
 
-[.inserted]#NOTE: Use only broad region (no precise location)#
+NOTE: Use only broad region (no precise location)
 
-=== [.inserted]#Breaking / Urgent#
+=== Breaking / Urgent
 
-* [.inserted]#Breaking news#
-* [.inserted]#Game-time update#
-* [.inserted]#Injury update (sports-specific)#
+* Breaking news
+* Game-time update
+* Injury update (sports-specific)
 
-=== [.inserted]#Recency / Recently Changed#
+=== Recency / Recently Changed
 
-* [.inserted]#Recently updated#
-* [.inserted]#Score updated#
+* Recently updated
+* Score updated
 
-=== [.inserted]#Popularity Signal#
+=== Popularity Signal
 
-* [.inserted]#Trending now#
-* [.inserted]#Popular with fans of Team X#
+* Trending now
+* Popular with fans of Team X
 
-=== [.inserted]#System / Product Rules#
+=== System / Product Rules
 
-* [.inserted]#Featured#
-* [.inserted]#Pinned by admins#
-* [.inserted]#Recommended for new users#
+* Featured
+* Pinned by admins
+* Recommended for new users
 
-== [.inserted]#UI Placement Options#
+== UI Placement Options
 
-=== [.inserted]#Option A (Recommended): Micro-label under headline#
+=== Option A (Recommended): Micro-label under headline
 
-[.inserted]#Place a one-line reason label under the story title, before time/source metadata.#
+Place a one-line reason label under the story title, before time/source metadata.
 
-==== [.inserted]#Pros#
+==== Pros
 
-* [.inserted]#Always visible#
-* [.inserted]#Builds trust passively#
+* Always visible
+* Builds trust passively
 
-==== [.inserted]#Cons#
+==== Cons
 
-* [.inserted]#Must remain short (one line maximum)#
+* Must remain short (one line maximum)
 
-=== [.inserted]#Option B: Info icon only#
+=== Option B: Info icon only
 
-[.inserted]#Show only an `(i)` icon near time/source; tapping reveals the reason.#
+Show only an `(i)` icon near time/source; tapping reveals the reason.
 
-==== [.inserted]#Pros#
+==== Pros
 
-* [.inserted]#Minimal visual clutter#
+* Minimal visual clutter
 
-==== [.inserted]#Cons#
+==== Cons
 
-* [.inserted]#Lower discoverability#
+* Lower discoverability
 
-== [.inserted]#Interaction Behavior#
+== Interaction Behavior
 
-=== [.inserted]#Default Behavior#
+=== Default Behavior
 
-* [.inserted]#Show primary reason label under headline (Option A)#
-* [.inserted]#Include a small `(i)` icon next to the label for details#
+* Show primary reason label under headline (Option A)
+* Include a small `(i)` icon next to the label for details
 
-=== [.inserted]#On Click / Tap#
+=== On Click / Tap
 
-* [.inserted]#Desktop: Open a popover panel#
+* Desktop: Open a popover panel
 
-=== [.inserted]#Details Panel Content (Example)#
+=== Details Panel Content (Example)
 
-[.inserted]#*Title:* Why you’re seeing this#
+*Title:* Why you’re seeing this
 
-[.inserted]#*Reasons (max 3):*#
-* [.inserted]#You follow Team X#
-* [.inserted]#Trending in your region#
-* [.inserted]#Recently updated#
+*Reasons (max 3):*
+* You follow Team X
+* Trending in your region
+* Recently updated
 
-[.inserted]#*Actions:*#
-* [.inserted]#Manage feed preferences#
-* [.inserted]#Mute Team X#
-* [.inserted]#Hide this topic#
-* [.inserted]#Learn how ranking works#
+*Actions:*
+* Manage feed preferences
+* Mute Team X
+* Hide this topic
+* Learn how ranking works
 
-== [.inserted]#Copy and Privacy Rules#
+== Copy and Privacy Rules
 
-=== [.inserted]#Guidelines#
+=== Guidelines
 
-* [.inserted]#Avoid precise tracking statements like:#
-[.inserted]#** “Because you searched ____ yesterday”#
+* Avoid precise tracking statements like:
+** “Because you searched ____ yesterday”
 
-* [.inserted]#Prefer privacy-safe phrasing:#
-[.inserted]#** “Based on your recent activity”#
+* Prefer privacy-safe phrasing:
+** “Based on your recent activity”
 
-* [.inserted]#Do not show exact location#
-[.inserted]#** Use region-level language only#
+* Do not show exact location
+** Use region-level language only
 
-=== [.inserted]#Priority Order for Primary Reason#
+=== Priority Order for Primary Reason
 
-[.inserted]#1. Following#
-[.inserted]#2. Breaking#
-[.inserted]#3. Local / Trending#
-[.inserted]#4. Recently updated#
-[.inserted]#5. Similar interest#
+1. Following
+2. Breaking
+3. Local / Trending
+4. Recently updated
+5. Similar interest
 
-== [.inserted]#Edge Cases#
+== Edge Cases
 
-=== [.inserted]#Cold Start (New Users)#
+=== Cold Start (New Users)
 
-* [.inserted]#Recommended for you#
-* [.inserted]#Popular right now#
+* Recommended for you
+* Popular right now
 
-=== [.inserted]#Old News Resurfacing#
+=== Old News Resurfacing
 
-* [.inserted]#Trending again#
-* [.inserted]#Popular this week#
+* Trending again
+* Popular this week

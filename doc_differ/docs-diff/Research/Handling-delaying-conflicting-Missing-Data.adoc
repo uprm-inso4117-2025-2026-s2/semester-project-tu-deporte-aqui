@@ -1,114 +1,114 @@
-== [.inserted]#Research: Handling of Delayed, Conflicting, or Missing Live Game Data#
-[.inserted]#Author: Angel A. Villegas Colon#
-[.inserted]#Date: February 2026#
+== Research: Handling of Delayed, Conflicting, or Missing Live Game Data
+Author: Angel A. Villegas Colon
+Date: February 2026
 
-== [.inserted]#1. Handling Delayed Live Updates#
+== 1. Handling Delayed Live Updates
 
-=== [.inserted]#NBA Platform#
+=== NBA Platform
 
-[.inserted]#Observed behavior:#
+Observed behavior:
 
-* [.inserted]#Displays a live game clock and score.#
-* [.inserted]#If updates are delayed, the clock may visually pause.#
-* [.inserted]#Clearly shows “End of Quarter” or “Halftime” to prevent confusion.#
-* [.inserted]#Does not explicitly display “data delayed,” but avoids presenting uncertain values.#
+* Displays a live game clock and score.
+* If updates are delayed, the clock may visually pause.
+* Clearly shows “End of Quarter” or “Halftime” to prevent confusion.
+* Does not explicitly display “data delayed,” but avoids presenting uncertain values.
 
-[.inserted]#Observed Strategy:#
+Observed Strategy:
 
-* [.inserted]#Freeze the last confirmed data.#
-* [.inserted]#Avoid displaying speculative or estimated updates.#
-* [.inserted]#Maintain structured game states (Q1, Q2, Halftime, Final).#
+* Freeze the last confirmed data.
+* Avoid displaying speculative or estimated updates.
+* Maintain structured game states (Q1, Q2, Halftime, Final).
 
-=== [.inserted]#ESPN Platform#
+=== ESPN Platform
 
-[.inserted]#Observed behavior:#
+Observed behavior:
 
-* [.inserted]#Displays timestamp indicators such as “Final” or “Live.”#
-* [.inserted]#Occasionally shows “Delayed” during broadcast interruptions.#
-* [.inserted]#Uses structured status labels (Scheduled, Live, Final).#
+* Displays timestamp indicators such as “Final” or “Live.”
+* Occasionally shows “Delayed” during broadcast interruptions.
+* Uses structured status labels (Scheduled, Live, Final).
 
-[.inserted]#Observed Strategy:#
+Observed Strategy:
 
-* [.inserted]#Clearly label the game state.#
-* [.inserted]#Avoid partial or incomplete updates.#
-* [.inserted]#Maintain consistent formatting even if data pauses.#
+* Clearly label the game state.
+* Avoid partial or incomplete updates.
+* Maintain consistent formatting even if data pauses.
 
-== [.inserted]#2. Handling Conflicting Scores Across Sources#
+== 2. Handling Conflicting Scores Across Sources
 
-[.inserted]#Neither the NBA nor ESPN publicly display conflicts between sources.#
+Neither the NBA nor ESPN publicly display conflicts between sources.
 
-[.inserted]#Observed Industry Strategy:#
+Observed Industry Strategy:
 
-* [.inserted]#Use a primary trusted data provider.#
-* [.inserted]#Do not display multiple score versions.#
-* [.inserted]#Update scores only after verification.#
-* [.inserted]#Perform silent backend reconciliation (users do not see conflicts).#
+* Use a primary trusted data provider.
+* Do not display multiple score versions.
+* Update scores only after verification.
+* Perform silent backend reconciliation (users do not see conflicts).
 
-[.inserted]#Key Insight:#
+Key Insight:
 
-[.inserted]#Major platforms resolve discrepancies internally before updating the user interface. Conflicting information is never exposed to users.#
+Major platforms resolve discrepancies internally before updating the user interface. Conflicting information is never exposed to users.
 
-== [.inserted]#3. Handling Missing or Incomplete Information#
+== 3. Handling Missing or Incomplete Information
 
-=== [.inserted]#NBA Platform#
+=== NBA Platform
 
-[.inserted]#Observed behavior:#
+Observed behavior:
 
-* [.inserted]#If statistics are unavailable, fields are hidden.#
-* [.inserted]#Play-by-play sections may temporarily show “No plays available.”#
-* [.inserted]#No placeholders are shown with incorrect data.#
+* If statistics are unavailable, fields are hidden.
+* Play-by-play sections may temporarily show “No plays available.”
+* No placeholders are shown with incorrect data.
 
-=== [.inserted]#ESPN Platform#
+=== ESPN Platform
 
-[.inserted]#Observed behavior:#
+Observed behavior:
 
-* [.inserted]#Displays “No data available” in certain statistics sections.#
-* [.inserted]#Uses structured fallback states such as dashes or blank values.#
-* [.inserted]#Maintains layout consistency even if data is missing.#
+* Displays “No data available” in certain statistics sections.
+* Uses structured fallback states such as dashes or blank values.
+* Maintains layout consistency even if data is missing.
 
-[.inserted]#Observed Strategy:#
+Observed Strategy:
 
-* [.inserted]#Avoid displaying inaccurate placeholders.#
-* [.inserted]#Clearly label unavailable sections.#
-* [.inserted]#Preserve UI structure to prevent confusion.#
+* Avoid displaying inaccurate placeholders.
+* Clearly label unavailable sections.
+* Preserve UI structure to prevent confusion.
 
-== [.inserted]#4. Communicating Uncertainty or Provisional Data#
+== 4. Communicating Uncertainty or Provisional Data
 
-[.inserted]#Common approaches observed across platforms:#
+Common approaches observed across platforms:
 
-* [.inserted]#Use clear game state labels (Live, Final, Scheduled).#
-* [.inserted]#Apply timestamp-based validation (e.g., “Final” locks the score).#
-* [.inserted]#Avoid speculative updates.#
-* [.inserted]#Do not display confidence percentages.#
-* [.inserted]#Maintain a clean UI without technical error messages.#
+* Use clear game state labels (Live, Final, Scheduled).
+* Apply timestamp-based validation (e.g., “Final” locks the score).
+* Avoid speculative updates.
+* Do not display confidence percentages.
+* Maintain a clean UI without technical error messages.
 
-[.inserted]#Key Pattern Across Platforms:#
+Key Pattern Across Platforms:
 
-[.inserted]#Transparency is achieved through structured status labels rather than technical explanations.#
+Transparency is achieved through structured status labels rather than technical explanations.
 
-== [.inserted]#5. Summary of Practical Approaches#
+== 5. Summary of Practical Approaches
 
 [cols="1,1", options="header"]
-[.inserted]#|===#
-[.inserted]#| Scenario | Common Strategy#
+|===
+| Scenario | Common Strategy
 
-[.inserted]#| Delayed Updates#
-[.inserted]#| Freeze last confirmed data and maintain game state labels#
+| Delayed Updates
+| Freeze last confirmed data and maintain game state labels
 
-[.inserted]#| Conflicting Scores#
-[.inserted]#| Resolve internally before updating UI#
+| Conflicting Scores
+| Resolve internally before updating UI
 
-[.inserted]#| Missing Data#
-[.inserted]#| Hide or clearly label sections as unavailable#
+| Missing Data
+| Hide or clearly label sections as unavailable
 
-[.inserted]#| Uncertainty#
-[.inserted]#| Use structured status indicators (Live, Final, Scheduled)#
-[.inserted]#|===#
+| Uncertainty
+| Use structured status indicators (Live, Final, Scheduled)
+|===
 
-== [.inserted]#6. Key Findings for System Design#
+== 6. Key Findings for System Design
 
-* [.inserted]#A single trusted source should be prioritized.#
-* [.inserted]#Conflicts should be resolved internally, not displayed to users.#
-* [.inserted]#Clear game status labeling is critical.#
-* [.inserted]#Missing data should be labeled rather than guessed.#
-* [.inserted]#UI stability builds user trust more effectively than raw update speed.#
+* A single trusted source should be prioritized.
+* Conflicts should be resolved internally, not displayed to users.
+* Clear game status labeling is critical.
+* Missing data should be labeled rather than guessed.
+* UI stability builds user trust more effectively than raw update speed.

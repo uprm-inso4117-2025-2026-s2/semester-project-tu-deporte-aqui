@@ -54,8 +54,36 @@ A system failure where incorrect or missing data is presented without any indica
 == Notes
 
 All teams must use these terms consistently across:
+
 * Documentation
 * Testing scenarios
 * User-facing messaging
 
 Terminology must align with the project’s reliability-first philosophy and support transparency in data quality.
+
+== Reliability Terms for BDD Scenarios
+
+[cols="1,3,3",options="header"]
+|===
+|[.inserted]#Canonical term#|[.inserted]#Meaning#|[.inserted]#Example usage in a scenario#
+
+|[.inserted]#stale#
+|[.inserted]#Data is older than the freshness threshold and may no longer match the current event state.#
+|[.inserted]#`Then Sebastian should see a "Stale" badge next to the score`#
+
+|[.inserted]#provisional#
+|[.inserted]#Data is shown for now while waiting for confirmation from a higher-authority source.#
+|[.inserted]#`Then the score is considered provisional`#
+
+|[.inserted]#conflicting reports#
+|[.inserted]#Two or more sources provide different values for the same field or event.#
+|[.inserted]#`Then conflicting reports exist between the newspaper and the league`#
+
+|[.inserted]#partial data#
+|[.inserted]#Only part of the expected data is available because one or more sources are unavailable or incomplete.#
+|[.inserted]#`And the system should set a "partial data" flag for affected entities`#
+
+|[.inserted]#source down#
+|[.inserted]#A source is currently unavailable and cannot provide fresh data.#
+|[.inserted]#`Given the primary data source for live games is source down`#
+|===

@@ -1,0 +1,372 @@
+= Lecture Topic Task: Risk-Oriented Test Prioritization for Live Sports Information Systems
+
+== Objective
+
+[.inserted]#This Lecture Topic Task analyzes how risk-oriented test prioritization can improve testing efficiency, reliability, and defect prevention in Tu Deporte Aquí by focusing testing effort on the parts of the platform whose failure would create the greatest negative impact on users and information dependability.#
+
+[.inserted]#The deliverable connects software testing lecture concepts related to risk-based testing, defect severity, probability analysis, and testing prioritization to realistic workflows and reliability concerns present in local sports information systems.#
+
+== Introduction
+
+[.inserted]#Testing resources are always limited. Development teams rarely have enough time to test every feature with equal intensity before deployment. Because of this, software testing frequently prioritizes the areas that present the highest combination of defect probability and defect impact.#
+
+[.inserted]#This approach is commonly known as risk-oriented test prioritization or risk-based testing.#
+
+[.inserted]#In sports information systems such as Tu Deporte Aquí, some defects are significantly more harmful than others. A cosmetic alignment issue in a profile page may be inconvenient, but an incorrect final score, outdated standings table, or broken live update system can directly damage user trust and platform reliability.#
+
+[.inserted]#The project itself is heavily centered around dependability, conflicting information, delayed updates, and uncertainty communication. Because of this, risk-oriented testing aligns naturally with the project’s domain goals.#
+
+== Risk-Oriented Testing
+
+[.inserted]#Risk-oriented testing is a testing strategy in which testing effort is prioritized according to the estimated risk associated with different parts of the system.#
+
+[.inserted]#Risk is commonly evaluated using two dimensions:#
+
+
+* [.inserted]#probability that a defect may occur#
+* [.inserted]#impact caused if the defect occurs#
+
+[.inserted]#Areas with both high probability and high impact become the highest testing priority.#
+
+[.inserted]#This strategy allows development teams to:#
+
+
+* [.inserted]#allocate testing resources more efficiently#
+* [.inserted]#focus on critical system behaviors first#
+* [.inserted]#reduce severe production failures#
+* [.inserted]#improve reliability under limited development time#
+* [.inserted]#identify failure-sensitive workflows earlier#
+
+[.inserted]#Risk-oriented testing is especially important in systems that process dynamic, changing, or partially uncertain information.#
+
+== Defect Probability and Impact
+
+=== Defect Probability
+
+[.inserted]#Defect probability refers to the likelihood that a system component may contain defects or fail during operation.#
+
+[.inserted]#Factors that increase probability include:#
+
+
+* [.inserted]#complex logic#
+* [.inserted]#frequent code changes#
+* [.inserted]#dependence on external APIs#
+* [.inserted]#asynchronous updates#
+* [.inserted]#incomplete validation#
+* [.inserted]#inconsistent incoming data#
+* [.inserted]#rapid development cycles#
+
+=== Defect Impact
+
+[.inserted]#Defect impact refers to the consequences caused when a defect reaches production.#
+
+[.inserted]#Impact may involve:#
+
+
+* [.inserted]#incorrect information displayed to users#
+* [.inserted]#reduced trust in the platform#
+* [.inserted]#inability to access important features#
+* [.inserted]#propagation of conflicting data#
+* [.inserted]#broken user workflows#
+* [.inserted]#system instability during live events#
+
+[.inserted]#Some defects may have low technical complexity but extremely high user impact.#
+
+== Risk Areas in Tu Deporte Aquí
+
+[.inserted]#The following areas represent realistic high-risk components within the project domain.#
+
+[cols="1,3,2,2,2", options="header"]
+|===
+|[.inserted]#ID#
+|[.inserted]#Risk Area#
+|[.inserted]#Probability#
+|[.inserted]#Impact#
+|[.inserted]#Priority#
+
+|[.inserted]#R1#
+|[.inserted]#Live score update synchronization#
+|[.inserted]#High#
+|[.inserted]#High#
+|[.inserted]#Critical#
+
+|[.inserted]#R2#
+|[.inserted]#Standings calculation and ranking logic#
+|[.inserted]#Medium#
+|[.inserted]#High#
+|[.inserted]#Critical#
+
+|[.inserted]#R3#
+|[.inserted]#API failure or incomplete responses#
+|[.inserted]#High#
+|[.inserted]#High#
+|[.inserted]#Critical#
+
+|[.inserted]#R4#
+|[.inserted]#Authentication and user access workflows#
+|[.inserted]#Medium#
+|[.inserted]#High#
+|[.inserted]#High#
+
+|[.inserted]#R5#
+|[.inserted]#Conflicting or delayed sports information#
+|[.inserted]#High#
+|[.inserted]#Medium#
+|[.inserted]#High#
+
+|[.inserted]#R6#
+|[.inserted]#High-traffic game scenarios#
+|[.inserted]#Medium#
+|[.inserted]#High#
+|[.inserted]#High#
+
+|[.inserted]#R7#
+|[.inserted]#Broken image/media loading#
+|[.inserted]#Medium#
+|[.inserted]#Low#
+|[.inserted]#Medium#
+
+|[.inserted]#R8#
+|[.inserted]#Minor visual formatting issues#
+|[.inserted]#High#
+|[.inserted]#Low#
+|[.inserted]#Low#
+|===
+
+== Risk Matrix
+
+[.inserted]#The following matrix illustrates how probability and impact combine to determine testing priority.#
+
+[cols="1,1,1,1", options="header"]
+|===
+|[.inserted]#Impact / Probability#
+|[.inserted]#Low Probability#
+|[.inserted]#Medium Probability#
+|[.inserted]#High Probability#
+
+|[.inserted]#High Impact#
+|[.inserted]#Medium Priority#
+|[.inserted]#High Priority#
+|[.inserted]#Critical Priority#
+
+|[.inserted]#Medium Impact#
+|[.inserted]#Low Priority#
+|[.inserted]#Medium Priority#
+|[.inserted]#High Priority#
+
+|[.inserted]#Low Impact#
+|[.inserted]#Low Priority#
+|[.inserted]#Low Priority#
+|[.inserted]#Medium Priority#
+|===
+
+[.inserted]#Using this model, defects involving live score synchronization and API reliability become critical testing targets because they combine:#
+
+
+* [.inserted]#strong probability of failure#
+* [.inserted]#severe consequences if incorrect#
+
+== High-Risk Testing Targets
+
+=== Live Score Updates
+
+[.inserted]#Live updates represent one of the highest-risk areas in the project.#
+
+[.inserted]#Observed risks include:#
+
+
+* [.inserted]#delayed score propagation#
+* [.inserted]#duplicate updates#
+* [.inserted]#incorrect score ordering#
+* [.inserted]#conflicting score states#
+* [.inserted]#stale live-game information#
+* [.inserted]#race conditions during rapid updates#
+
+[.inserted]#Because users rely heavily on live accuracy, even short inconsistencies may damage confidence in the platform.#
+
+[.inserted]#Recommended testing emphasis:#
+
+
+* [.inserted]#integration testing#
+* [.inserted]#API reliability testing#
+* [.inserted]#concurrency testing#
+* [.inserted]#delayed-update simulation#
+* [.inserted]#stress testing during active games#
+
+=== Standings Calculation Logic
+
+[.inserted]#Standings directly influence user interpretation of league performance.#
+
+[.inserted]#Potential risks include:#
+
+
+* [.inserted]#incorrect ranking order#
+* [.inserted]#invalid tiebreak calculations#
+* [.inserted]#incomplete record aggregation#
+* [.inserted]#delayed standings refresh#
+* [.inserted]#incorrect handling of canceled games#
+
+[.inserted]#A single standings defect may affect multiple teams simultaneously.#
+
+[.inserted]#Recommended testing emphasis:#
+
+
+* [.inserted]#unit testing#
+* [.inserted]#property-based testing#
+* [.inserted]#edge-case validation#
+* [.inserted]#historical data verification#
+
+=== API Reliability
+
+[.inserted]#The platform depends heavily on external and internal data communication.#
+
+[.inserted]#Potential failures include:#
+
+
+* [.inserted]#missing fields#
+* [.inserted]#malformed responses#
+* [.inserted]#inconsistent schemas#
+* [.inserted]#partial API outages#
+* [.inserted]#delayed synchronization#
+
+[.inserted]#Because frontend reliability depends on backend consistency, API-related defects should receive continuous testing attention.#
+
+[.inserted]#Recommended testing emphasis:#
+
+
+* [.inserted]#schema validation#
+* [.inserted]#API contract testing#
+* [.inserted]#automated integration testing#
+* [.inserted]#error-response validation#
+
+== Medium-Risk Testing Targets
+
+=== Authentication and User Access
+
+[.inserted]#Authentication defects may affect:#
+
+
+* [.inserted]#protected workflows#
+* [.inserted]#user personalization#
+* [.inserted]#moderation features#
+* [.inserted]#session handling#
+
+[.inserted]#Although authentication failures may not affect sports information directly, they strongly impact usability and trust.#
+
+[.inserted]#Recommended testing emphasis:#
+
+
+* [.inserted]#login validation#
+* [.inserted]#session expiration testing#
+* [.inserted]#role-access testing#
+
+=== Delayed or Conflicting Information
+
+[.inserted]#The project specifically acknowledges that sports information may be uncertain or inconsistent.#
+
+[.inserted]#Potential risks include:#
+
+
+* [.inserted]#outdated game states#
+* [.inserted]#conflicting reports#
+* [.inserted]#inconsistent timestamps#
+* [.inserted]#incorrect confidence representation#
+
+[.inserted]#Testing should verify that uncertainty is communicated clearly instead of hidden.#
+
+== Lower-Risk Testing Targets
+
+[.inserted]#Some features may still require testing but do not justify the same level of prioritization.#
+
+[.inserted]#Examples include:#
+
+
+* [.inserted]#minor spacing inconsistencies#
+* [.inserted]#non-critical styling issues#
+* [.inserted]#image alignment problems#
+* [.inserted]#secondary animation behaviors#
+
+[.inserted]#These issues should still be corrected, but they should not consume testing effort needed for reliability-critical workflows.#
+
+== Prioritization Strategy During Development
+
+[.inserted]#A realistic prioritization strategy for Tu Deporte Aquí may include the following order:#
+
+[cols="1,3", options="header"]
+|===
+|[.inserted]#Priority Level#
+|[.inserted]#Testing Focus#
+
+|[.inserted]#Critical#
+|[.inserted]#live updates, API reliability, standings logic#
+
+|[.inserted]#High#
+|[.inserted]#authentication, delayed information handling, conflict management#
+
+|[.inserted]#Medium#
+|[.inserted]#media rendering, navigation consistency, filtering workflows#
+
+|[.inserted]#Low#
+|[.inserted]#cosmetic styling and secondary UI polish#
+|===
+
+[.inserted]#This approach allows the project to preserve reliability in the areas most closely connected to user trust and information dependability.#
+
+== Risk-Oriented Testing During Release Cycles
+
+[.inserted]#Testing priorities may also change depending on release timing.#
+
+=== Before Major Sporting Events
+
+[.inserted]#Higher testing emphasis should be placed on:#
+
+
+* [.inserted]#live updates#
+* [.inserted]#traffic handling#
+* [.inserted]#API response consistency#
+* [.inserted]#scoreboard rendering#
+
+=== During Regular Maintenance Releases
+
+[.inserted]#Testing may focus more heavily on:#
+
+
+* [.inserted]#regression testing#
+* [.inserted]#UI consistency#
+* [.inserted]#low-priority defect cleanup#
+
+=== During Feature Expansion
+
+[.inserted]#Testing focus should prioritize:#
+
+
+* [.inserted]#integration compatibility#
+* [.inserted]#schema validation#
+* [.inserted]#conflict handling#
+* [.inserted]#backward compatibility#
+
+== Connection to Reliability and User Trust
+
+[.inserted]#The project repeatedly emphasizes reliability, uncertainty communication, and dependability.#
+
+[.inserted]#Risk-oriented testing directly supports these goals because it prioritizes the failures most capable of damaging user trust.#
+
+[.inserted]#For example:#
+
+
+* [.inserted]#incorrect final scores may reduce confidence in the platform#
+* [.inserted]#stale standings may affect perceived reliability#
+* [.inserted]#missing timestamps may create uncertainty#
+* [.inserted]#broken APIs may prevent users from validating information#
+
+[.inserted]#By identifying and prioritizing high-risk workflows early, the project can better preserve platform credibility during real-world usage.#
+
+== Conclusion
+
+[.inserted]#Risk-oriented test prioritization provides a structured way to allocate limited testing resources toward the parts of the system that matter most.#
+
+[.inserted]#In Tu Deporte Aquí, the most critical risks are strongly connected to information dependability, live updates, standings accuracy, API consistency, and uncertainty handling.#
+
+[.inserted]#Rather than treating every defect equally, risk-oriented testing recognizes that some failures have far greater consequences for user trust and platform reliability.#
+
+[.inserted]#Applying this approach allows the project to focus testing effort where defects are most likely to occur and where their impact would be most severe.#

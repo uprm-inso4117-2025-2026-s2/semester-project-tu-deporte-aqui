@@ -1,211 +1,211 @@
-= [.inserted]#Live Game State Modeling & State Transitions#
-[.inserted]#Project: Tu Deporte Aquí#
+= Live Game State Modeling & State Transitions
+Project: Tu Deporte Aquí
 
 ---
 
-== [.inserted]#1. Overview#
+== 1. Overview
 
-[.inserted]#Live sports platforms manage games through structured states such as:#
+Live sports platforms manage games through structured states such as:
 
-* [.inserted]#Scheduled#
-* [.inserted]#Live#
-* [.inserted]#Halftime#
-* [.inserted]#Delayed#
-* [.inserted]#Final#
+* Scheduled
+* Live
+* Halftime
+* Delayed
+* Final
 
-[.inserted]#These states are typically exposed through APIs and user interfaces to ensure:#
+These states are typically exposed through APIs and user interfaces to ensure:
 
-* [.inserted]#Clarity#
-* [.inserted]#Consistency#
-* [.inserted]#Real-time communication#
+* Clarity
+* Consistency
+* Real-time communication
 
-[.inserted]#Unlike major platforms (ESPN, NBA), the Baloncesto Superior Nacional (BSN) does not maintain a centralized structured tracking system.#
+Unlike major platforms (ESPN, NBA), the Baloncesto Superior Nacional (BSN) does not maintain a centralized structured tracking system.
 
-[.inserted]#Instead:#
+Instead:
 
-* [.inserted]#Updates are shared via social media and broadcasts#
-* [.inserted]#State transitions may be irregular#
-* [.inserted]#Manual updates and corrections are required#
-
----
-
-== [.inserted]#2. Platforms Analyzed#
-
-* [.inserted]#Baloncesto Superior Nacional (BSN) – Social media updates#
-* [.inserted]#ESPN Gamecast#
-* [.inserted]#Flashscore Live Matches#
-* [.inserted]#NBA Official Game Tracker#
+* Updates are shared via social media and broadcasts
+* State transitions may be irregular
+* Manual updates and corrections are required
 
 ---
 
-== [.inserted]#3. Platform Game State Comparison#
+== 2. Platforms Analyzed
+
+* Baloncesto Superior Nacional (BSN) – Social media updates
+* ESPN Gamecast
+* Flashscore Live Matches
+* NBA Official Game Tracker
+
+---
+
+== 3. Platform Game State Comparison
 
 [cols="1,1,1,1,1,1", options="header"]
-[.inserted]#|===#
-[.inserted]#| Platform | Pre-Game | Live | Halftime | Delay | Final#
+|===
+| Platform | Pre-Game | Live | Halftime | Delay | Final
 
-[.inserted]#| BSN#
-[.inserted]#| N/A#
-[.inserted]#| N/A#
-[.inserted]#| N/A#
-[.inserted]#| N/A#
-[.inserted]#| N/A#
+| BSN
+| N/A
+| N/A
+| N/A
+| N/A
+| N/A
 
-[.inserted]#| ESPN#
-[.inserted]#| Scheduled#
-[.inserted]#| Live#
-[.inserted]#| Halftime#
-[.inserted]#| Delayed#
-[.inserted]#| Final#
+| ESPN
+| Scheduled
+| Live
+| Halftime
+| Delayed
+| Final
 
-[.inserted]#| Flashscore#
-[.inserted]#| Not Started#
-[.inserted]#| Live#
-[.inserted]#| Break#
-[.inserted]#| Interrupted#
-[.inserted]#| FT#
+| Flashscore
+| Not Started
+| Live
+| Break
+| Interrupted
+| FT
 
-[.inserted]#| NBA#
-[.inserted]#| Scheduled#
-[.inserted]#| Live#
-[.inserted]#| Halftime#
-[.inserted]#| Delayed#
-[.inserted]#| Final#
-[.inserted]#|===#
-
----
-
-== [.inserted]#4. Standardized Game State Definitions#
-
-* [.inserted]#*Scheduled*  #
-[.inserted]#  Game confirmed but not started.#
-
-* [.inserted]#*Live*  #
-[.inserted]#  Game actively in progress with real-time updates.#
-
-* [.inserted]#*Halftime*  #
-[.inserted]#  Official break between regulation periods.#
-
-* [.inserted]#*Overtime*  #
-[.inserted]#  Additional period if regulation ends in a tie.#
-
-* [.inserted]#*Delayed*  #
-[.inserted]#  Temporary interruption (e.g., power outage, weather).#
-
-* [.inserted]#*Suspended*  #
-[.inserted]#  Game paused indefinitely with possible later resumption.#
-
-* [.inserted]#*Final*  #
-[.inserted]#  Game officially completed with confirmed result.#
-
-* [.inserted]#*Canceled*  #
-[.inserted]#  Game will not be played.#
-
-* [.inserted]#*Postponed*  #
-[.inserted]#  Game rescheduled before starting.#
+| NBA
+| Scheduled
+| Live
+| Halftime
+| Delayed
+| Final
+|===
 
 ---
 
-== [.inserted]#5. State Transition Model#
+== 4. Standardized Game State Definitions
+
+* *Scheduled*  
+  Game confirmed but not started.
+
+* *Live*  
+  Game actively in progress with real-time updates.
+
+* *Halftime*  
+  Official break between regulation periods.
+
+* *Overtime*  
+  Additional period if regulation ends in a tie.
+
+* *Delayed*  
+  Temporary interruption (e.g., power outage, weather).
+
+* *Suspended*  
+  Game paused indefinitely with possible later resumption.
+
+* *Final*  
+  Game officially completed with confirmed result.
+
+* *Canceled*  
+  Game will not be played.
+
+* *Postponed*  
+  Game rescheduled before starting.
+
+---
+
+== 5. State Transition Model
 
 [cols="1,2,1", options="header"]
-[.inserted]#|===#
-[.inserted]#| From | Trigger | To#
+|===
+| From | Trigger | To
 
-[.inserted]#| Scheduled#
-[.inserted]#| Official start time reached#
-[.inserted]#| Live#
+| Scheduled
+| Official start time reached
+| Live
 
-[.inserted]#| Live#
-[.inserted]#| End of regulation period#
-[.inserted]#| Halftime#
+| Live
+| End of regulation period
+| Halftime
 
-[.inserted]#| Halftime#
-[.inserted]#| Break ends#
-[.inserted]#| Live#
+| Halftime
+| Break ends
+| Live
 
-[.inserted]#| Live#
-[.inserted]#| Tie at end of regulation#
-[.inserted]#| Overtime#
+| Live
+| Tie at end of regulation
+| Overtime
 
-[.inserted]#| Live / Overtime#
-[.inserted]#| Game completion#
-[.inserted]#| Final#
-[.inserted]#|===#
-
----
-
-== [.inserted]#6. Edge Cases#
-
-* [.inserted]#Live → Delayed  #
-[.inserted]#  Due to technical issues or external interruptions#
-
-* [.inserted]#Live → Suspended → Resume  #
-[.inserted]#  Game paused and resumed later (possibly next day)#
-
-* [.inserted]#Scheduled → Postponed  #
-[.inserted]#  Due to weather or administrative decisions#
-
-* [.inserted]#Live → Final (Correction)  #
-[.inserted]#  When an incorrect state was previously published#
+| Live / Overtime
+| Game completion
+| Final
+|===
 
 ---
 
-== [.inserted]#7. Recommended Model for BSN#
+== 6. Edge Cases
 
-[.inserted]#Recommended standardized states:#
+* Live → Delayed  
+  Due to technical issues or external interruptions
 
-* [.inserted]#Scheduled#
-* [.inserted]#Live#
-* [.inserted]#Halftime#
-* [.inserted]#Overtime#
-* [.inserted]#Delayed#
-* [.inserted]#Suspended#
-* [.inserted]#Final#
-* [.inserted]#Canceled#
-* [.inserted]#Postponed#
+* Live → Suspended → Resume  
+  Game paused and resumed later (possibly next day)
 
----
+* Scheduled → Postponed  
+  Due to weather or administrative decisions
 
-== [.inserted]#8. Key Implementation Requirements#
-
-[.inserted]#To support this model:#
-
-[.inserted]#1. Manual override capability  #
-[.inserted]#2. Timestamped state transitions  #
-[.inserted]#3. Correction logging mechanism  #
-[.inserted]#4. Mobile-first visual indicators  #
-[.inserted]#5. Support for irregular transition timing  #
-
-[.inserted]#This ensures flexibility while maintaining consistency across the system.#
+* Live → Final (Correction)  
+  When an incorrect state was previously published
 
 ---
 
-== [.inserted]#Conclusion#
+== 7. Recommended Model for BSN
 
-[.inserted]#A standardized game state model is essential for:#
+Recommended standardized states:
 
-* [.inserted]#Consistent UI behavior#
-* [.inserted]#Reliable backend logic#
-* [.inserted]#Clear user communication#
-
-[.inserted]#By adopting structured states and flexible transitions, Tu Deporte Aquí can:#
-
-* [.inserted]#Handle real-world inconsistencies#
-* [.inserted]#Support local league variability#
-* [.inserted]#Maintain clarity for users#
+* Scheduled
+* Live
+* Halftime
+* Overtime
+* Delayed
+* Suspended
+* Final
+* Canceled
+* Postponed
 
 ---
 
-== [.inserted]#References#
+== 8. Key Implementation Requirements
 
-* [.inserted]#ESPN (2024) – Gamecast  #
-[.inserted]#  https://www.espn.com#
+To support this model:
 
-* [.inserted]#Flashscore (2024) – Live Matches  #
-[.inserted]#  https://www.flashscore.com#
+1. Manual override capability  
+2. Timestamped state transitions  
+3. Correction logging mechanism  
+4. Mobile-first visual indicators  
+5. Support for irregular transition timing  
 
-* [.inserted]#NBA (2024) – Official Game Tracker  #
-[.inserted]#  https://www.nba.com#
+This ensures flexibility while maintaining consistency across the system.
 
-* [.inserted]#Baloncesto Superior Nacional (2024) – Official updates#
+---
+
+== Conclusion
+
+A standardized game state model is essential for:
+
+* Consistent UI behavior
+* Reliable backend logic
+* Clear user communication
+
+By adopting structured states and flexible transitions, Tu Deporte Aquí can:
+
+* Handle real-world inconsistencies
+* Support local league variability
+* Maintain clarity for users
+
+---
+
+== References
+
+* ESPN (2024) – Gamecast  
+  https://www.espn.com
+
+* Flashscore (2024) – Live Matches  
+  https://www.flashscore.com
+
+* NBA (2024) – Official Game Tracker  
+  https://www.nba.com
+
+* Baloncesto Superior Nacional (2024) – Official updates

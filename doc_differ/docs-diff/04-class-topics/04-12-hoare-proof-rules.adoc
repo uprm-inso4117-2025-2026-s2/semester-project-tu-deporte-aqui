@@ -1,0 +1,61 @@
+=== 4.12 Applying Hoare Proof Rules to getGameLabelStatus
+
+===== Purpose
+
+[.inserted]#This section applies Hoare proof rules from lecture to formally verify the correctness of the `getGameLabelStatus` function in `lib/label_status.ts`. The goal is to demonstrate that for any valid input, the function always produces the correct label as defined by the project's game status classification.#
+
+===== The Function
+
+[.inserted]#The `getGameLabelStatus` function takes a game status string and returns one of three labels that indicate the reliability of the data associated with that game:#
+
+
+- [.inserted]#*Provisional*: the game is not yet finished (live, upcoming, or delayed)#
+- [.inserted]#*Confirmed*: the game has finished (final)#
+- [.inserted]#*Non oficial*: the status is unknown, unreliable, canceled, or unrecognized#
+
+[.inserted]#The function first normalizes the input status using `normalizeGameStatus`, which maps raw status strings such as `"in_progress"`, `"scheduled"`, or `"postponed"` to a standard `NormalizedGameStatus` value. It then uses a switch statement to determine the appropriate label.#
+
+===== The Hoare Triple
+
+[.inserted]#A Hoare triple has the form `{ P } S { Q }`, where `P` is the pre-condition that must hold before the program `S` executes, and `Q` is the post-condition that must hold after execution.#
+
+[.inserted]#For `getGameLabelStatus`, the triple is defined as follows:#
+
+[.inserted]#*Pre-condition P*: `status` is any value of type `string`, `null`, or `undefined`.#
+
+[.inserted]#*Program S*: `getGameLabelStatus(status)`#
+
+[.inserted]#*Post-condition Q*:#
+
+
+- [.inserted]#If `status` normalizes to `live`, `upcoming`, or `delayed`, then `result = "Provisional"`#
+- [.inserted]#If `status` normalizes to `final`, then `result = "Confirmed"`#
+- [.inserted]#If `status` normalizes to `canceled` or `unknown` (including null, undefined, or unrecognized strings), then `result = "Non oficial"`#
+
+===== Applying the IF Proof Rule
+
+[.inserted]#The IF proof rule states that to verify a conditional statement, each branch must be verified independently. For each branch, we assume the branch condition holds alongside the pre-condition, and verify that the post-condition is satisfied.#
+
+[.inserted]#The switch statement in `getGameLabelStatus` has three branches. Each is verified below.#
+
+===== Branch 1: Provisional
+
+[.inserted]#*Branch condition*: the normalized status is `live`, `upcoming`, or `delayed`.#
+
+[.inserted]#*Verification*: when the pre-condition holds and the normalized status falls into this group, the switch statement matches one of these cases and returns `"Provisional"`. The post-condition `result = "Provisional"` is satisfied. This branch holds.#
+
+===== Branch 2: Confirmed
+
+[.inserted]#*Branch condition*: the normalized status is `final`.#
+
+[.inserted]#*Verification*: when the pre-condition holds and the normalized status is `final`, the switch statement matches this case and returns `"Confirmed"`. The post-condition `result = "Confirmed"` is satisfied. This branch holds.#
+
+===== Branch 3: Non oficial
+
+[.inserted]#*Branch condition*: the normalized status is `canceled`, `unknown`, or any unrecognized value (including null and undefined inputs, which `normalizeGameStatus` maps to `unknown`).#
+
+[.inserted]#*Verification*: when the pre-condition holds and the normalized status falls into this group, the switch statement reaches the `canceled`, `unknown`, or default case and returns `"Non oficial"`. The post-condition `result = "Non oficial"` is satisfied. This branch holds.#
+
+===== Conclusion
+
+[.inserted]#All three branches of `getGameLabelStatus` satisfy the post-condition given the pre-condition. By the IF proof rule, the function is formally verified to be correct for any input of type `string`, `null`, or `undefined`. This confirms that the function reliably maps any game status value to the appropriate label as required by the project.#

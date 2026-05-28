@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Script to compare docs and docs_m1 directories and generate diff output
+# Script to compare directories and generate diff output
 # Creates a new directory with asciidoc files showing word-level differences
 
-DIR1="${1:-./docs}"
-DIR2="${2:-./docs_m1}"
+DIR1="${1:-../docs}"
+DIR2="${2:-./docs-m2}"
 OUTPUT_DIR="${3:-./docs-diff}"
 
 # Validate directories exist

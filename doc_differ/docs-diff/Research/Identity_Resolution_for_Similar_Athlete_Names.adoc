@@ -1,155 +1,155 @@
-= [.inserted]#Identity Resolution for Similar Athlete Names#
-[.inserted]#Author: Noel Colón Mena#
-[.inserted]#Project: Tu Deporte Aquí#
+= Identity Resolution for Similar Athlete Names
+Author: Noel Colón Mena
+Project: Tu Deporte Aquí
 
 ---
 
-== [.inserted]#1. Introduction#
+== 1. Introduction
 
-[.inserted]#Tu Deporte Aquí combines sports information from multiple leagues, reporters, and informal sources in Puerto Rico.#
+Tu Deporte Aquí combines sports information from multiple leagues, reporters, and informal sources in Puerto Rico.
 
-[.inserted]#Because athlete names may appear:#
+Because athlete names may appear:
 
-* [.inserted]#Duplicated#
-* [.inserted]#Misspelled#
-* [.inserted]#Formatted differently#
-* [.inserted]#Incomplete#
+* Duplicated
+* Misspelled
+* Formatted differently
+* Incomplete
 
-[.inserted]#the system faces a significant *identity resolution problem*.#
+the system faces a significant *identity resolution problem*.
 
-[.inserted]#Without a structured strategy, the platform risks:#
+Without a structured strategy, the platform risks:
 
-* [.inserted]#Merging two different athletes into one profile#
-* [.inserted]#Creating duplicate profiles#
-* [.inserted]#Misattributing statistics#
+* Merging two different athletes into one profile
+* Creating duplicate profiles
+* Misattributing statistics
 
-[.inserted]#The purpose of this document is to evaluate identity resolution strategies and recommend a reliable approach.#
-
----
-
-== [.inserted]#2. Current Problems#
-
-[.inserted]#Common issues when merging athlete data include:#
-
-* [.inserted]#Accent differences#
-* [.inserted]#Nicknames#
-* [.inserted]#Abbreviations#
+The purpose of this document is to evaluate identity resolution strategies and recommend a reliable approach.
 
 ---
 
-== [.inserted]#3. Methods Evaluated#
+== 2. Current Problems
 
-=== [.inserted]#I. Exact Matching / Strict Matching#
+Common issues when merging athlete data include:
 
-[.inserted]#Records are linked only if all attributes match exactly.#
-
-==== [.inserted]#Pros#
-
-* [.inserted]#Low risk of false matches#
-* [.inserted]#Easy to implement#
-* [.inserted]#Low computational cost#
-
-==== [.inserted]#Cons#
-
-* [.inserted]#High rate of duplicate profiles#
-* [.inserted]#Cannot handle misspellings or nicknames#
+* Accent differences
+* Nicknames
+* Abbreviations
 
 ---
 
-=== [.inserted]#II. Fuzzy Matching#
+== 3. Methods Evaluated
 
-[.inserted]#Records are linked if they match within a certain tolerance (similarity threshold).#
+=== I. Exact Matching / Strict Matching
 
-==== [.inserted]#Pros#
+Records are linked only if all attributes match exactly.
 
-* [.inserted]#Reduces duplicate profiles#
-* [.inserted]#Handles small variations (misspellings, accents)#
+==== Pros
 
-==== [.inserted]#Cons#
+* Low risk of false matches
+* Easy to implement
+* Low computational cost
 
-* [.inserted]#Risk of false merges#
+==== Cons
 
----
-
-=== [.inserted]#III. Metadata Identifier Matching#
-
-[.inserted]#Records are linked using additional identifying attributes (metadata).#
-
-==== [.inserted]#Pros#
-
-* [.inserted]#Lower risk of false merges#
-* [.inserted]#More reliable than name-only approaches#
-
-==== [.inserted]#Cons#
-
-* [.inserted]#Depends on metadata quality#
-* [.inserted]#Slightly more complex to implement#
+* High rate of duplicate profiles
+* Cannot handle misspellings or nicknames
 
 ---
 
-== [.inserted]#4. Strategy Comparison#
+=== II. Fuzzy Matching
+
+Records are linked if they match within a certain tolerance (similarity threshold).
+
+==== Pros
+
+* Reduces duplicate profiles
+* Handles small variations (misspellings, accents)
+
+==== Cons
+
+* Risk of false merges
+
+---
+
+=== III. Metadata Identifier Matching
+
+Records are linked using additional identifying attributes (metadata).
+
+==== Pros
+
+* Lower risk of false merges
+* More reliable than name-only approaches
+
+==== Cons
+
+* Depends on metadata quality
+* Slightly more complex to implement
+
+---
+
+== 4. Strategy Comparison
 
 [cols="1,1,1,1", options="header"]
-[.inserted]#|===#
-[.inserted]#| Method | Duplicates | False Merges | Missed Merges#
+|===
+| Method | Duplicates | False Merges | Missed Merges
 
-[.inserted]#| Exact Matching#
-[.inserted]#| High#
-[.inserted]#| None#
-[.inserted]#| High#
+| Exact Matching
+| High
+| None
+| High
 
-[.inserted]#| Fuzzy Matching#
-[.inserted]#| Medium#
-[.inserted]#| Medium#
-[.inserted]#| Low#
+| Fuzzy Matching
+| Medium
+| Medium
+| Low
 
-[.inserted]#| Metadata Matching#
-[.inserted]#| Very Low#
-[.inserted]#| Low#
-[.inserted]#| Low#
-[.inserted]#|===#
-
----
-
-== [.inserted]#5. Recommended Strategy#
-
-[.inserted]#The most effective approach is a *layered strategy combining Metadata and Fuzzy Matching*.#
-
-=== [.inserted]#Proposed Algorithm#
-
-[.inserted]#1. Group athletes using metadata (e.g., team, league, position).#
-[.inserted]#2. Within each group, apply fuzzy matching to detect duplicates.#
-[.inserted]#3. Merge only when similarity exceeds a defined threshold.#
-
-=== [.inserted]#Benefits#
-
-* [.inserted]#Reduces duplicate profiles#
-* [.inserted]#Minimizes false merges#
-* [.inserted]#Handles real-world inconsistencies in naming#
+| Metadata Matching
+| Very Low
+| Low
+| Low
+|===
 
 ---
 
-== [.inserted]#Conclusion#
+== 5. Recommended Strategy
 
-[.inserted]#A hybrid identity resolution strategy is essential for maintaining data integrity in Tu Deporte Aquí.#
+The most effective approach is a *layered strategy combining Metadata and Fuzzy Matching*.
 
-[.inserted]#By combining metadata grouping with fuzzy matching, the system can:#
+=== Proposed Algorithm
 
-* [.inserted]#Improve accuracy#
-* [.inserted]#Reduce duplication#
-* [.inserted]#Prevent incorrect data associations#
+1. Group athletes using metadata (e.g., team, league, position).
+2. Within each group, apply fuzzy matching to detect duplicates.
+3. Merge only when similarity exceeds a defined threshold.
 
-[.inserted]#This approach balances reliability and practicality for a multi-source sports data platform.#
+=== Benefits
+
+* Reduces duplicate profiles
+* Minimizes false merges
+* Handles real-world inconsistencies in naming
 
 ---
 
-== [.inserted]#References#
+== Conclusion
 
-* [.inserted]#Strict Matching:#
-[.inserted]#  https://www.science.org/doi/10.1126/sciadv.abi8021#
+A hybrid identity resolution strategy is essential for maintaining data integrity in Tu Deporte Aquí.
 
-* [.inserted]#Fuzzy Matching:#
-[.inserted]#  https://www.tandfonline.com/doi/abs/10.1080/01621459.1969.10501049#
+By combining metadata grouping with fuzzy matching, the system can:
 
-* [.inserted]#Metadata Matching:#
-[.inserted]#  https://www.crossref.org/community/special-programs/metadata-matching/#
+* Improve accuracy
+* Reduce duplication
+* Prevent incorrect data associations
+
+This approach balances reliability and practicality for a multi-source sports data platform.
+
+---
+
+== References
+
+* Strict Matching:
+  https://www.science.org/doi/10.1126/sciadv.abi8021
+
+* Fuzzy Matching:
+  https://www.tandfonline.com/doi/abs/10.1080/01621459.1969.10501049
+
+* Metadata Matching:
+  https://www.crossref.org/community/special-programs/metadata-matching/

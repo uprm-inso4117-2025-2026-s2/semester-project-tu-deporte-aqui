@@ -1,155 +1,155 @@
-= [.inserted]#Risks, Failure Scenarios, Testing Plan and Rules for Standings (#74)#
-[.inserted]#Project: Tu Deporte Aquí#
+= Risks, Failure Scenarios, Testing Plan and Rules for Standings (#74)
+Project: Tu Deporte Aquí
 
-[.inserted]#NOTE: This document consolidates research findings from previous issues into a structured plan. A more formal and detailed Test Plan will be developed in Milestone #2.#
+NOTE: This document consolidates research findings from previous issues into a structured plan. A more formal and detailed Test Plan will be developed in Milestone #2.
 
-== [.inserted]#Key Risk Philosophy#
+== Key Risk Philosophy
 
-[.inserted]#Conflicting information, delays, and unexpected issues are inevitable in real-world systems.#
+Conflicting information, delays, and unexpected issues are inevitable in real-world systems.
 
-[.inserted]#The team’s approach focuses on:#
+The team’s approach focuses on:
 
-* [.inserted]#Transparency#
-* [.inserted]#Maintaining user trust#
-* [.inserted]#Clear communication with users#
+* Transparency
+* Maintaining user trust
+* Clear communication with users
 
-[.inserted]#The primary risk identified is:#
+The primary risk identified is:
 
-[.inserted]#*Lack of transparency and communication with users*#
+*Lack of transparency and communication with users*
 
-== [.inserted]#1. Potential Risks Related to Standings and Tournaments#
+== 1. Potential Risks Related to Standings and Tournaments
 
-[.inserted]#NOTE: These risks will be further analyzed and expanded in the next milestone.#
+NOTE: These risks will be further analyzed and expanded in the next milestone.
 
-=== [.inserted]#a. Conflicting Standings#
+=== a. Conflicting Standings
 
-==== [.inserted]#Failure Scenario#
+==== Failure Scenario
 
-* [.inserted]#Scores are conflicting (non-official)#
-* [.inserted]#System does not inform users#
+* Scores are conflicting (non-official)
+* System does not inform users
 
-=== [.inserted]#b. Delays in Real-Time Updates#
+=== b. Delays in Real-Time Updates
 
-==== [.inserted]#Failure Scenario#
+==== Failure Scenario
 
-* [.inserted]#System does not inform users about delayed standings updates#
+* System does not inform users about delayed standings updates
 
-=== [.inserted]#c. System Scalability#
+=== c. System Scalability
 
-==== [.inserted]#Failure Scenario#
+==== Failure Scenario
 
-* [.inserted]#Multiple simultaneous tournaments overload the system#
+* Multiple simultaneous tournaments overload the system
 
-=== [.inserted]#d. API Integration Failures#
+=== d. API Integration Failures
 
-==== [.inserted]#Failure Scenario#
+==== Failure Scenario
 
-* [.inserted]#External API integration fails#
+* External API integration fails
 
-=== [.inserted]#e. Unclear Rules / Instructions#
+=== e. Unclear Rules / Instructions
 
-==== [.inserted]#Failure Scenario#
+==== Failure Scenario
 
-* [.inserted]#Ambiguous or undefined rules cause confusion or incorrect actions#
+* Ambiguous or undefined rules cause confusion or incorrect actions
 
-=== [.inserted]#f. Inconsistent Standings#
+=== f. Inconsistent Standings
 
-==== [.inserted]#Failure Scenario#
+==== Failure Scenario
 
-* [.inserted]#Standings data becomes inconsistent due to missing or conflicting updates#
+* Standings data becomes inconsistent due to missing or conflicting updates
 
-== [.inserted]#2. Rules for Standings#
+== 2. Rules for Standings
 
-[.inserted]#NOTE: These rules will be expanded in Milestone #2.#
+NOTE: These rules will be expanded in Milestone #2.
 
-* [.inserted]#Rules must be clearly defined before tournament start#
-* [.inserted]#Tie-break criteria must remain consistent#
-* [.inserted]#No rule changes during an active tournament#
-* [.inserted]#Every standings table must indicate score status:#
-[.inserted]#** Final#
-[.inserted]#** Provisional#
-[.inserted]#** Conflicting#
-[.inserted]#** Delayed#
-* [.inserted]#A "Last updated" timestamp must always be displayed#
-* [.inserted]#Users must be informed of any corrections to standings#
+* Rules must be clearly defined before tournament start
+* Tie-break criteria must remain consistent
+* No rule changes during an active tournament
+* Every standings table must indicate score status:
+** Final
+** Provisional
+** Conflicting
+** Delayed
+* A "Last updated" timestamp must always be displayed
+* Users must be informed of any corrections to standings
 
-== [.inserted]#3. Recommended Testing Approach#
+== 3. Recommended Testing Approach
 
-[.inserted]#Initial testing approaches:#
+Initial testing approaches:
 
-* [.inserted]#Unit Testing#
-* [.inserted]#Load Testing (Smoke Test)#
-* [.inserted]#System Testing#
-* [.inserted]#Debugging#
-* [.inserted]#Integration Testing#
+* Unit Testing
+* Load Testing (Smoke Test)
+* System Testing
+* Debugging
+* Integration Testing
 
-== [.inserted]#4. Test Scenarios and Acceptance Criteria#
+== 4. Test Scenarios and Acceptance Criteria
 
-=== [.inserted]#Integration and System Tests#
+=== Integration and System Tests
 
-==== [.inserted]#a. Conflicting Data Scenario#
+==== a. Conflicting Data Scenario
 
-[.inserted]#If two data sources provide conflicting information:#
+If two data sources provide conflicting information:
 
-* [.inserted]#System detects inconsistency#
-* [.inserted]#UI displays message indicating:#
-[.inserted]#** Data is unofficial#
-[.inserted]#** Data is unverified#
-[.inserted]#** Data is pending confirmation#
+* System detects inconsistency
+* UI displays message indicating:
+** Data is unofficial
+** Data is unverified
+** Data is pending confirmation
 
-[.inserted]#NOTE: UI labels under consideration:#
-* [.inserted]#Final#
-* [.inserted]#Provisional#
-* [.inserted]#Conflicting#
-* [.inserted]#Delayed#
+NOTE: UI labels under consideration:
+* Final
+* Provisional
+* Conflicting
+* Delayed
 
-==== [.inserted]#b. Updated or Modified Data Scenario#
+==== b. Updated or Modified Data Scenario
 
-[.inserted]#If data changes after publication:#
+If data changes after publication:
 
-* [.inserted]#System displays update history#
-* [.inserted]#Timestamps are shown#
-* [.inserted]#Users can identify how data changed#
+* System displays update history
+* Timestamps are shown
+* Users can identify how data changed
 
-==== [.inserted]#c. Delayed Data Scenario#
+==== c. Delayed Data Scenario
 
-[.inserted]#If data is delayed:#
+If data is delayed:
 
-* [.inserted]#System displays a label indicating delay#
-* [.inserted]#Data is marked as pending verification#
+* System displays a label indicating delay
+* Data is marked as pending verification
 
-=== [.inserted]#Performance Testing#
+=== Performance Testing
 
-==== [.inserted]#Smoke Test (Initial Load Testing)#
+==== Smoke Test (Initial Load Testing)
 
-* [.inserted]#Test system with minimal number of users#
-* [.inserted]#Validate system stability during early stages#
+* Test system with minimal number of users
+* Validate system stability during early stages
 
-[.inserted]#Rationale:#
+Rationale:
 
-* [.inserted]#Suitable for early implementation phase#
-* [.inserted]#Can scale to more advanced testing later#
+* Suitable for early implementation phase
+* Can scale to more advanced testing later
 
-=== [.inserted]#Unit Testing#
+=== Unit Testing
 
-==== [.inserted]#Conflicting Data Detection (Python Reference)#
+==== Conflicting Data Detection (Python Reference)
 
 [source,python]
 ----
-[.inserted]#firstScore != secondScore#
+firstScore != secondScore
 ----
 
-[.inserted]#Success criteria:#
+Success criteria:
 
-* [.inserted]#TRUE → data is conflicting#
-* [.inserted]#FALSE → data is consistent#
+* TRUE → data is conflicting
+* FALSE → data is consistent
 
-[.inserted]#NOTE: This is a simplified validation approach. More detailed test cases will be developed later.#
+NOTE: This is a simplified validation approach. More detailed test cases will be developed later.
 
-== [.inserted]#5. References#
+== 5. References
 
-* [.inserted]#GeekforGeeks, “Methods for Identifying Risks” (2025)  #
-[.inserted]#  https://www.geeksforgeeks.org/software-engineering/methods-for-identifying-risks/#
+* GeekforGeeks, “Methods for Identifying Risks” (2025)  
+  https://www.geeksforgeeks.org/software-engineering/methods-for-identifying-risks/
 
-* [.inserted]#ThinkSys, “Entry and Exit Criteria in Software Testing”  #
-[.inserted]#  https://www.atlassian.com/work-management/project-management/acceptance-criteria#
+* ThinkSys, “Entry and Exit Criteria in Software Testing”  
+  https://www.atlassian.com/work-management/project-management/acceptance-criteria

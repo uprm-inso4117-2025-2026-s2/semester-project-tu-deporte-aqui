@@ -1,89 +1,146 @@
 ==== 2.1.1 Domain Rough Sketch
 
-[.removed]#While shaping the idea for *Tu Deporte Aquí*, we kept running into# [.inserted]##This section keeps# the [.removed]#same real-world constraint: sports information# [.inserted]#early discussion# in [.removed]#Puerto Rico# [.inserted]#a rough form. It# does not [.removed]#live in one# [.inserted]#try to#
-clean [.removed]#database. It# [.inserted]#everything up yet. The point# is [.removed]#scattered across league sites, news outlets, social media, and informal sources, and those channels often disagree or update at different speeds. Because of that, the A3 treats reliability as the main lens for# [.inserted]#to leave# the [.removed]#domain, not just “having features.” The platform has# [.inserted]#original concerns visible#
-[.inserted]#so later sections can trace their concepts back# to [.removed]#consistently show accurate standings, results, and athlete updates, while staying understandable when# [.inserted]#them.##
+This [.removed]#section keeps the early discussion in a# rough [.removed]#form. It does not try to#
+[.removed]#clean everything up yet.# [.inserted]#sketch records concrete situations observed around local Puerto Rico sports information.# The [.removed]#point# [.inserted]#purpose here# is [.inserted]#not# to [.removed]#leave the original concerns visible#
+[.removed]#so# [.inserted]#standardize terms yet. Standardized terms are introduced# later [.removed]#sections can trace their concepts back to them.#
 
-[.inserted]##A lot of# the [.removed]#underlying inputs are messy.#
+[.removed]#A lot of the early conversation kept circling around# [.inserted]#in# the [.removed]#same frustration:#
+[.removed]#people want to follow# [.inserted]#terminology and concept analysis sections.#
 
-Distributed sources and conflicting information::
-[.removed]#A central theme is that# [.inserted]#early conversation kept circling around# the [.removed]#platform must ingest data from multiple leagues and informal reporting channels, which naturally increases# [.inserted]#same frustration:#
-[.inserted]#people want to follow local sports in Puerto Rico, but# the [.removed]#chance of incorrect or outdated information appearing. The domain therefore includes disagreement as a normal scenario, where two sources may report conflicting# information [.removed]#and the system must still behave predictably.#
+=== Raw observations about local sports  updates
 
-Delays and missing updates::
-[.removed]#We also focused on the fact that updates can arrive late or# [.inserted]#does#
-[.inserted]#not come from one place, does# not arrive at [.removed]#all, especially for local events. The platform must handle incomplete, delayed, or missing inputs without turning that uncertainty into user confusion.#
+[.inserted]#During review of local sports information sources,# the [.inserted]#team saw that game# information [.removed]#does#
+[.removed]#not come from one place, does not arrive at one speed,# [.inserted]#is often posted in different places# and [.removed]#does not always#
+[.removed]#match across sources.#
 
-High demand moments::
-[.removed]#Another part# [.inserted]#one speed, and does not always#
-[.inserted]#match across sources.##
+[.removed]#Some of# [.inserted]#in different forms.#
 
-[.inserted]##Some# of the [.removed]#domain# [.inserted]#statements and situations that came up were close to the#
-[.inserted]#following:##
 
-[.inserted]##* "I saw one score on Instagram and a different one in a group chat."##
-[.inserted]##* "Sometimes the reporter posts first, but later the league page says#
-[.inserted]#something else."##
-[.inserted]##* "A game can look live in one place and finished in another."##
-[.inserted]##* "During playoffs everybody starts checking at once, and that# is [.inserted]#exactly#
-[.inserted]#when pages get slow or updates stop."##
-[.inserted]##* "If nothing new has been posted, I still want to know what the last known#
-[.inserted]#score was and when it was last changed."##
-[.inserted]##* "A blank space is worse than saying# that [.removed]#reliability# [.inserted]#the information is missing."##
-[.inserted]##* "If a result# gets [.removed]#stress tested when# [.inserted]#corrected later,# people [.removed]#care# [.inserted]#start arguing about which version#
-[.inserted]#was# the [.removed]#most, such as playoffs, major tournaments,# [.inserted]#real one."##
-[.inserted]##* "Not every local league posts with the same format,# and [.removed]#breaking news. These moments create high traffic pressure,# [.inserted]#some barely post at#
-[.inserted]#all."##
-[.inserted]##* "Sometimes you only get a screenshot, a short post, or a message from#
-[.inserted]#someone who was there."##
-[.inserted]##* "When information changes, I want to know whether it was corrected,#
-[.inserted]#confirmed, or just replaced."##
+* [.inserted]#A team account posted a final score as an Instagram story. The post showed# the [.removed]#statements# [.inserted]#two teams# and [.removed]#situations that came up were close to# the [.inserted]#score, but it did not show the game date. After the story expired, the#
+[.removed]#following:#
 
-[.inserted]##Another thing that kept coming up was that people were not only asking for#
-[.inserted]#scores. They were also trying to figure out whether the information in front#
-[.inserted]#of them deserved trust. In practice, that meant questions like these:##
+[.removed]#"I saw one# score [.removed]#on Instagram and# [.inserted]#was no longer easy to find.#
 
-[.inserted]##* "Who posted this first?"##
-[.inserted]##* "Was this posted by the league, a reporter, or just a community page?"##
-[.inserted]##* "How old is this update?"##
-[.inserted]##* "Is this final, still developing, or just the only thing anyone has posted#
-so [.removed]#availability# [.inserted]#far?"##
+* [.inserted]#A league page posted# a [.removed]#different# [.inserted]#Facebook image with several scores in# one [.inserted]#graphic. The image listed team names and final scores, but the text was embedded# in [.removed]#a group chat."#
+[.removed]#"Sometimes# the [.removed]#reporter posts first,# [.inserted]#image instead of written as structured data.#
 
-[.inserted]##There were also rough discussion points that were not settled yet# and [.removed]#performance under load are part of# [.inserted]#were#
-[.inserted]#left open on purpose:##
+* [.inserted]#A sports media account posted a score update during a game,# but [.removed]#later# the league page [.removed]#says#
+[.removed]#something else."#
+[.removed]#"A game can look live in one place and finished in another."#
+[.removed]#"During playoffs everybody starts checking at once, and that is exactly#
+[.removed]#when pages get slow or updates stop."#
+[.removed]#"If nothing new has been posted, I still want to know what the last known# [.inserted]#did not post an update until much later.#
 
-[.inserted]##* If an official source posts late and a reporter posts earlier, which one#
-[.inserted]#should people follow in# the [.removed]#core domain expectations.#
+* [.inserted]#A fan shared a screenshot of a# score [.removed]#was and when it was last changed."#
+[.removed]#"A blank space is worse than saying that the information is missing."#
+[.removed]#"If# [.inserted]#in# a [.removed]#result gets corrected later, people start arguing about which version#
+[.removed]#was# [.inserted]#group chat before# the [.removed]#real one."#
+[.removed]#"Not every local league posts with# [.inserted]#official page posted anything.#
 
-[.removed]#Clear behavior# [.inserted]#meantime?##
-[.inserted]##* If two sources disagree, should one be shown, should both be shown, or#
-[.inserted]#should the result be held back?##
-[.inserted]##* How old can a live update be before people stop treating it as live?##
-[.inserted]##* What is the minimum amount of information needed before a game should be#
-[.inserted]#shown as in progress?##
-[.inserted]##* If all sources go quiet# during degraded states::
-[.removed]#We identified# [.inserted]#a game, should people see the last known#
-[.inserted]#value, a warning, or both?##
+* [.inserted]#One source listed a match as completed, while another still showed# the same [.removed]#format, and# [.inserted]#match as upcoming.#
+* [.inserted]#In# some [.removed]#barely post at#
+[.removed]#all."#
+[.removed]#"Sometimes you# [.inserted]#posts, the home and away teams were clear. In others,# only [.removed]#get a screenshot, a short post,# [.inserted]#abbreviations# or [.removed]#a message from#
+[.removed]#someone who was there."#
+[.removed]#"When information changes, I want# [.inserted]#logos were shown, so the reader had# to [.removed]#know whether it# [.inserted]#infer which team# was [.removed]#corrected,#
+[.removed]#confirmed,# [.inserted]#which.#
 
-[.inserted]##A recurring tension in these discussions was# that [.removed]#failures are# [.inserted]#failure is# not only
-technical [.removed]#events, they are user-facing experiences.# [.inserted]#here.# If [.removed]#fallback strategies and error handling are weak, failures surface directly to users. In this domain, the platform needs to communicate uncertainty and degraded states clearly, and still keep user messages informative even when dependencies fail# [.inserted]#a source is late, disappears,# or [.inserted]#disagrees with another#
-[.inserted]#source, people experience that as confusion right away. The problem is not#
-[.inserted]#just "the# data is [.removed]#unreliable.#
+* [.inserted]#Some updates showed only the final score. Others included quarter-by-quarter# or [.removed]#just replaced."#
 
-Trust as the main outcome::
-[.removed]#All of these concerns tie back# [.inserted]#messy." The problem is that fans, coaches, reporters, and#
-[.inserted]#organizers still need# to [.inserted]#make sense of what is happening while# the [.removed]#end result the A3 prioritizes: long term user trust. When# information
-is [.removed]#wrong, late,# [.inserted]#incomplete, delayed,# or [.removed]#unclear during important events, users lose confidence quickly# [.inserted]#contradictory.##
+[.removed]#Another thing# [.inserted]#inning-by-inning information.#
 
-[.inserted]##Another recurring point was that the hardest moments are usually the ones#
-[.inserted]#people care about most. Playoffs, tournaments, rivalry games,# and [.inserted]#late-game#
-[.inserted]#updates were brought up more than once because those are# the [.removed]#platform becomes perceived as unreliable over time.#
+* [.inserted]#Some posts were edited or replaced later without a visible explanation of what changed.#
 
-[.removed]#Overall,# [.inserted]#moments when more#
-[.inserted]#people are checking, more posts are appearing, and mistakes become visible#
-[.inserted]#fast.##
+[.inserted]#These observations show# that [.removed]#kept coming up was# [.inserted]#the raw material for the project is not a clean data feed. It is a set of scattered reports, posts, screenshots, and updates# that [.removed]#people were# [.inserted]#may arrive at different times and may# not [.removed]#only asking for#
+[.removed]#scores. They were# [.inserted]#use the same format.#
 
-[.inserted]##At this stage,# the [.removed]#domain# rough sketch [.removed]#describes# [.inserted]#is not meant to explain the domain neatly. It#
-[.inserted]#is# a [.removed]#reliability driven platform that remains available during peak demand, stays consistent when sources conflict or arrive late,# [.inserted]#record of the situations, phrases,# and [.removed]#communicates reliability status# [.inserted]#unresolved questions that kept#
-[.inserted]#appearing# in [.removed]#a way users# [.inserted]#early discussion. Later sections# can [.removed]#understand, supported by testing that targets stress# [.inserted]#organize these into#
-[.inserted]#terminology, actions, requirements,# and [.removed]#failure conditions rather than only normal operation.# [.inserted]#validation steps.##
+=== Raw observations about missing or late information
+
+[.inserted]#The team# also [.inserted]#observed cases where a person# trying to [.removed]#figure out# [.inserted]#follow a game would not know# whether the information [.removed]#in front#
+[.removed]#of them deserved trust. In practice, that meant questions like these:#
+
+[.removed]#"Who posted this first?"#
+[.removed]#"Was this# [.inserted]#was unavailable, late, or simply not# posted [.removed]#by# [.inserted]#yet.#
+
+
+* [.inserted]#A schedule post listed# the [.removed]#league, a reporter, or just# [.inserted]#game time, but no later post confirmed whether the game had started.#
+* [.inserted]#A score was available for one game in# a [.removed]#community page?"#
+[.removed]#"How old is this update?"#
+[.removed]#"Is this final, still developing, or just# [.inserted]#league, while another game from# the [.removed]#only thing anyone has# [.inserted]#same date had no visible result.#
+
+* [.inserted]#A team page# posted
+[.removed]#so far?"#
+
+[.removed]#There were also rough discussion points that were not settled yet and were#
+[.removed]#left open on purpose:#
+
+[.removed]#If an official source posts late and# a [.removed]#reporter posts earlier, which one#
+[.removed]#should people follow in# [.inserted]#result, but# the [.removed]#meantime?#
+[.removed]#If two sources disagree, should one be shown, should both be shown, or#
+[.removed]#should# [.inserted]#standings page did not reflect# the result [.removed]#be held back?#
+[.removed]#How# [.inserted]#yet.#
+
+* [.inserted]#A source showed an# old [.removed]#can# [.inserted]#score without# a [.removed]#live update be# [.inserted]#visible last-updated time.#
+* [.inserted]#A user checking from a phone would have to open several pages# before [.removed]#people stop treating it as live?#
+[.removed]#What is# [.inserted]#knowing whether a missing score was truly missing or just posted somewhere else.#
+
+[.inserted]#These situations create a specific problem for# the [.removed]#minimum amount of# [.inserted]#project: missing# information [.removed]#needed before a game# should [.inserted]#not# be [.inserted]#treated#
+[.removed]#shown# as [.removed]#in progress?#
+[.removed]#If all sources go quiet during a game, should people see the last known#
+[.removed]#value, a warning, or both?# [.inserted]#if it were confirmed information.# A [.removed]#recurring tension in these discussions was# [.inserted]#blank score, an old score, and an unverified score mean different things to the user.#
+
+=== Raw observations about conflicting information
+
+[.inserted]#The team found# that [.removed]#failure# [.inserted]#conflict# is not only
+[.removed]#technical here. If# a [.inserted]#technical issue. It can happen in ordinary use when two sources describe the same event differently.#
+
+
+* [.inserted]#One# source [.removed]#is late, disappears, or disagrees with# [.inserted]#posted a final score, then# another [.inserted]#source posted a different final score for the same teams.#
+* [.inserted]#A social media post used team nicknames, while a standings page used official names, making it unclear whether both posts referred to the same team.#
+* [.inserted]#A game was described#
+[.removed]#source, people experience that# as [.removed]#confusion right away. The problem is not#
+[.removed]#just "the data is messy." The problem is that fans, coaches, reporters, and#
+[.removed]#organizers# [.inserted]#postponed in one place, but# still [.removed]#need# [.inserted]#appeared on a schedule somewhere else.#
+
+* [.inserted]#A correction appeared later, but the earlier incorrect post remained visible.#
+* [.inserted]#A user could see two values and have no simple way# to [.removed]#make sense of what is happening while# [.inserted]#know which one should be trusted.#
+
+[.inserted]#This means# the [.removed]#information#
+[.removed]#is incomplete, delayed, or contradictory.#
+
+[.removed]#Another recurring point was# [.inserted]#system should not assume# that [.inserted]#a single value is always enough. For some events,# the [.removed]#hardest moments are usually# [.inserted]#system may need to preserve# the [.removed]#ones#
+[.removed]#people care# [.inserted]#fact that reports disagree.#
+
+=== Raw observations about  users
+
+[.inserted]#The team considered several kinds of people who would encounter these situations.#
+
+
+* [.inserted]#A fan checking scores from a phone wants to know the current result quickly, especially during or right after a game.#
+* [.inserted]#A coach or team organizer wants to know whether a schedule, venue, or result has changed.#
+* [.inserted]#A reporter needs to avoid repeating a wrong score when sources disagree.#
+* [.inserted]#A platform maintainer needs enough structure to store a report, compare it with other reports,# and [.removed]#late-game#
+[.removed]#updates were brought up more than once because those are# [.inserted]#update a displayed event record later.#
+
+[.inserted]#These users do not all need# the [.removed]#moments# [.inserted]#same screen, but they all depend on the same domain facts: who played, what was reported, who reported it,# when [.removed]#more#
+[.removed]#people are checking, more posts are appearing,# [.inserted]#it was reported,# and [.removed]#mistakes become visible#
+[.removed]#fast.#
+
+[.removed]#At this stage,# [.inserted]#whether another report says something different.#
+
+=== Team interpretation
+
+[.inserted]#From# the [.removed]#rough sketch is not meant to explain# [.inserted]#raw observations,# the [.inserted]#team identified the following# domain [.removed]#neatly. It# [.inserted]#concerns for later concept formation:#
+
+
+* [.inserted]#A sports update should be treated as a report from a source, not automatically as final truth.#
+* [.inserted]#A report needs the actual reported value, not only source metadata.#
+* [.inserted]#A report can arrive before, during, or after a game.#
+* [.inserted]#Two reports about the same event may conflict.#
+* [.inserted]#A later report may correct an earlier value.#
+* [.inserted]#Missing information should be visible instead of silently displayed as if nothing# is [.inserted]#wrong.#
+* [.inserted]#The system should distinguish# a [.removed]#record# [.inserted]#continuous stream of updates from a one-time or spot update.#
+
+[.inserted]#These points are interpretations# of the [.removed]#situations, phrases, and unresolved questions that kept#
+[.removed]#appearing in early discussion. Later sections can organize these into#
+[.removed]#terminology, actions, requirements, and validation steps.# [.inserted]#observations above. The terminology section standardizes the names used for them.#

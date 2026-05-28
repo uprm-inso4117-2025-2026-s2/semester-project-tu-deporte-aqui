@@ -1,179 +1,179 @@
-= [.inserted]#Assumptions for Handling Conflicting Standings Data#
-[.inserted]#Project: Tu Deporte Aquí#
-[.inserted]#Related Issue: #67#
+= Assumptions for Handling Conflicting Standings Data
+Project: Tu Deporte Aquí
+Related Issue: #67
 
-== [.inserted]#1. Objective#
+== 1. Objective
 
-[.inserted]#The purpose of this document is to define how *Tu Deporte Aquí* should internally handle situations where standings data from different sources does not match.#
+The purpose of this document is to define how *Tu Deporte Aquí* should internally handle situations where standings data from different sources does not match.
 
-[.inserted]#These assumptions ensure the system behaves in a:#
+These assumptions ensure the system behaves in a:
 
-* [.inserted]#Consistent manner#
-* [.inserted]#Predictable way#
+* Consistent manner
+* Predictable way
 
-[.inserted]#This occurs before any validation logic or user-facing decisions are applied.#
+This occurs before any validation logic or user-facing decisions are applied.
 
-== [.inserted]#2. Scope#
+== 2. Scope
 
-[.inserted]#This document focuses only on *internal system assumptions*.#
+This document focuses only on *internal system assumptions*.
 
-[.inserted]#It does NOT cover:#
+It does NOT cover:
 
-* [.inserted]#Validation or calculation algorithms#
-* [.inserted]#Data ingestion or scraping rules#
-* [.inserted]#User-facing warnings or messages#
-* [.inserted]#UI or design decisions#
+* Validation or calculation algorithms
+* Data ingestion or scraping rules
+* User-facing warnings or messages
+* UI or design decisions
 
-[.inserted]#These assumptions serve as a foundation for:#
+These assumptions serve as a foundation for:
 
-* [.inserted]#Workflow design#
-* [.inserted]#Validation logic#
-* [.inserted]#UX-related work#
+* Workflow design
+* Validation logic
+* UX-related work
 
-== [.inserted]#3. Context: Why Conflicting Standings Occur#
+== 3. Context: Why Conflicting Standings Occur
 
-[.inserted]#Conflicting standings are common when working with informal or semi-official sports sources.#
+Conflicting standings are common when working with informal or semi-official sports sources.
 
-[.inserted]#This happens due to:#
+This happens due to:
 
-* [.inserted]#Different update schedules between sources#
-* [.inserted]#Delayed reporting of games#
-* [.inserted]#Manual data entry mistakes#
-* [.inserted]#Inconsistent handling of postponed or cancelled games#
+* Different update schedules between sources
+* Delayed reporting of games
+* Manual data entry mistakes
+* Inconsistent handling of postponed or cancelled games
 
-[.inserted]#Because these issues are expected in local sports coverage, the system must interpret conflicts consistently instead of reacting unpredictably.#
+Because these issues are expected in local sports coverage, the system must interpret conflicts consistently instead of reacting unpredictably.
 
-== [.inserted]#4. Core System-Level Assumptions#
+== 4. Core System-Level Assumptions
 
-=== [.inserted]#Assumption 1: Conflicts Are Normal#
+=== Assumption 1: Conflicts Are Normal
 
-[.inserted]#Conflicting standings data should be treated as a *normal condition*, not a system error.#
+Conflicting standings data should be treated as a *normal condition*, not a system error.
 
-[.inserted]#These situations must be:#
+These situations must be:
 
-* [.inserted]#Classified#
-* [.inserted]#Handled appropriately#
-
----
-
-=== [.inserted]#Assumption 2: Timing Differences Do Not Always Mean Errors#
-
-[.inserted]#If differences between sources can be explained by update timing:#
-
-[.inserted]#Example:#
-* [.inserted]#One source has not yet included the most recent game#
-
-[.inserted]#Then the data should be classified as:#
-
-[.inserted]#*Provisional* (not conflicting)#
+* Classified
+* Handled appropriately
 
 ---
 
-=== [.inserted]#Assumption 3: Inconsistent Records Indicate Real Conflicts#
+=== Assumption 2: Timing Differences Do Not Always Mean Errors
 
-[.inserted]#If sources report:#
+If differences between sources can be explained by update timing:
 
-* [.inserted]#Different win/loss totals#
-* [.inserted]#Different number of games played#
-* [.inserted]#Different ranking order#
+Example:
+* One source has not yet included the most recent game
 
-[.inserted]#And no timing explanation exists:#
+Then the data should be classified as:
 
-[.inserted]#Then this is a *true conflict*.#
-
-[.inserted]#The system should:#
-
-* [.inserted]#Avoid automatic resolution#
+*Provisional* (not conflicting)
 
 ---
 
-=== [.inserted]#Assumption 4: Partial Data Can Still Be Useful#
+=== Assumption 3: Inconsistent Records Indicate Real Conflicts
 
-[.inserted]#Incomplete standings:#
+If sources report:
 
-* [.inserted]#May still provide value#
-* [.inserted]#Should NOT be considered final#
+* Different win/loss totals
+* Different number of games played
+* Different ranking order
 
-[.inserted]#Until:#
+And no timing explanation exists:
 
-* [.inserted]#Completeness is confirmed#
+Then this is a *true conflict*.
 
----
+The system should:
 
-=== [.inserted]#Assumption 5: Not All Conflicts Should Be Resolved Automatically#
-
-[.inserted]#Some conflicts require authoritative sources.#
-
-[.inserted]#In these cases, the system should:#
-
-* [.inserted]#Flag the data#
-* [.inserted]#Defer resolution#
-
-[.inserted]#Instead of forcing a decision#
-
-== [.inserted]#5. Classification Outcomes#
-
-[.inserted]#Based on these assumptions, standings data is classified into:#
-
-* [.inserted]#*Final* → Data is consistent across all sources#
-* [.inserted]#*Provisional* → Minor differences (timing or partial updates)#
-* [.inserted]#*Conflicting* → Major inconsistencies preventing reliable interpretation#
-
-[.inserted]#NOTE: These states are internal and used by downstream system components.#
-
-== [.inserted]#6. Example Scenarios and System Actions#
-
-=== [.inserted]#Scenario: Missing Latest Game#
-
-[.inserted]#*System assumption:* Timing difference  #
-[.inserted]#*Result:* Provisional  #
+* Avoid automatic resolution
 
 ---
 
-=== [.inserted]#Scenario: Different Win/Loss Records#
+=== Assumption 4: Partial Data Can Still Be Useful
 
-[.inserted]#*System assumption:* True inconsistency  #
-[.inserted]#*Result:* Conflicting  #
+Incomplete standings:
+
+* May still provide value
+* Should NOT be considered final
+
+Until:
+
+* Completeness is confirmed
 
 ---
 
-=== [.inserted]#Scenario: All Sources Match#
+=== Assumption 5: Not All Conflicts Should Be Resolved Automatically
 
-[.inserted]#*System assumption:* Consistency verified  #
-[.inserted]#*Result:* Final  #
+Some conflicts require authoritative sources.
+
+In these cases, the system should:
+
+* Flag the data
+* Defer resolution
+
+Instead of forcing a decision
+
+== 5. Classification Outcomes
+
+Based on these assumptions, standings data is classified into:
+
+* *Final* → Data is consistent across all sources
+* *Provisional* → Minor differences (timing or partial updates)
+* *Conflicting* → Major inconsistencies preventing reliable interpretation
+
+NOTE: These states are internal and used by downstream system components.
+
+== 6. Example Scenarios and System Actions
+
+=== Scenario: Missing Latest Game
+
+*System assumption:* Timing difference  
+*Result:* Provisional  
 
 ---
 
-=== [.inserted]#Scenario: Partial Standings Data#
+=== Scenario: Different Win/Loss Records
 
-[.inserted]#*System assumption:* Incomplete data  #
-[.inserted]#*Result:* Provisional  #
+*System assumption:* True inconsistency  
+*Result:* Conflicting  
 
-== [.inserted]#7. Validation of Assumptions#
+---
 
-[.inserted]#These assumptions should be validated to ensure they:#
+=== Scenario: All Sources Match
 
-* [.inserted]#Produce consistent system behavior#
-* [.inserted]#Avoid arbitrary conflict resolution#
-* [.inserted]#Provide clear input for workflow and UX layers#
+*System assumption:* Consistency verified  
+*Result:* Final  
 
-[.inserted]#Validation can be done by:#
+---
 
-* [.inserted]#Simulating conflict scenarios#
-* [.inserted]#Verifying classification consistency#
+=== Scenario: Partial Standings Data
 
-== [.inserted]#8. Conclusion#
+*System assumption:* Incomplete data  
+*Result:* Provisional  
 
-[.inserted]#By defining clear system-level assumptions for handling conflicting standings data, *Tu Deporte Aquí* can:#
+== 7. Validation of Assumptions
 
-* [.inserted]#Behave consistently#
-* [.inserted]#Improve transparency#
-* [.inserted]#Handle imperfect data more reliably#
+These assumptions should be validated to ensure they:
 
-[.inserted]#Separating:#
+* Produce consistent system behavior
+* Avoid arbitrary conflict resolution
+* Provide clear input for workflow and UX layers
 
-* [.inserted]#Internal decision-making  #
-[.inserted]#from  #
-* [.inserted]#Validation logic and user-facing messaging  #
+Validation can be done by:
 
-[.inserted]#allows the system to scale and support clearer communication in later stages.#
+* Simulating conflict scenarios
+* Verifying classification consistency
+
+== 8. Conclusion
+
+By defining clear system-level assumptions for handling conflicting standings data, *Tu Deporte Aquí* can:
+
+* Behave consistently
+* Improve transparency
+* Handle imperfect data more reliably
+
+Separating:
+
+* Internal decision-making  
+from  
+* Validation logic and user-facing messaging  
+
+allows the system to scale and support clearer communication in later stages.
