@@ -1,0 +1,150 @@
+= Feed Transparency Feature: “Why am I seeing this?”
+Author: Diego A. Rios Morales
+Date: February 27, 2026
+
+== Objective
+
+The objective of this research is to design a transparency feature that explains to users why a specific news item appears in their feed.
+
+== Problem
+
+When users do not understand how their feed behaves, confusion increases.
+
+A short “reason label” per story can:
+
+* Reduce confusion
+* Improve trust
+* Allow users to decide whether they want to continue seeing similar content
+
+== UX Principles
+
+* *Non-intrusive*: Must be short and direct
+* *Privacy*: Do not expose sensitive information
+* *Actionable*: Must include options such as mute, follow, or manage preferences
+
+== Explanation Categories (Proposed)
+
+Each story should include:
+
+* 1 primary reason (always visible)
+* Up to 2 secondary reasons (shown in details view)
+
+=== Following / Subscriptions
+
+* Shown because you follow Team X
+* Shown because you follow League Y
+* From a source you follow
+
+=== Location / Regional Relevance
+
+* Trending in your region
+
+NOTE: Use only broad region (no precise location)
+
+=== Breaking / Urgent
+
+* Breaking news
+* Game-time update
+* Injury update (sports-specific)
+
+=== Recency / Recently Changed
+
+* Recently updated
+* Score updated
+
+=== Popularity Signal
+
+* Trending now
+* Popular with fans of Team X
+
+=== System / Product Rules
+
+* Featured
+* Pinned by admins
+* Recommended for new users
+
+== UI Placement Options
+
+=== Option A (Recommended): Micro-label under headline
+
+Place a one-line reason label under the story title, before time/source metadata.
+
+==== Pros
+
+* Always visible
+* Builds trust passively
+
+==== Cons
+
+* Must remain short (one line maximum)
+
+=== Option B: Info icon only
+
+Show only an `(i)` icon near time/source; tapping reveals the reason.
+
+==== Pros
+
+* Minimal visual clutter
+
+==== Cons
+
+* Lower discoverability
+
+== Interaction Behavior
+
+=== Default Behavior
+
+* Show primary reason label under headline (Option A)
+* Include a small `(i)` icon next to the label for details
+
+=== On Click / Tap
+
+* Desktop: Open a popover panel
+
+=== Details Panel Content (Example)
+
+*Title:* Why you’re seeing this
+
+*Reasons (max 3):*
+* You follow Team X
+* Trending in your region
+* Recently updated
+
+*Actions:*
+* Manage feed preferences
+* Mute Team X
+* Hide this topic
+* Learn how ranking works
+
+== Copy and Privacy Rules
+
+=== Guidelines
+
+* Avoid precise tracking statements like:
+** “Because you searched ____ yesterday”
+
+* Prefer privacy-safe phrasing:
+** “Based on your recent activity”
+
+* Do not show exact location
+** Use region-level language only
+
+=== Priority Order for Primary Reason
+
+1. Following
+2. Breaking
+3. Local / Trending
+4. Recently updated
+5. Similar interest
+
+== Edge Cases
+
+=== Cold Start (New Users)
+
+* Recommended for you
+* Popular right now
+
+=== Old News Resurfacing
+
+* Trending again
+* Popular this week

@@ -1,0 +1,159 @@
+
+=== 4.10 Error Handling Testing for Unreliable Sports Data
+
+===== Purpose
+
+[.inserted]#This section defines expected system behavior when Tu Deporte Aquí encounters common data issues from unreliable sports sources: missing scores, delayed updates, conflicting information, and partial data. The focus is on defining testable system behavior, not implementation details.#
+
+===== Common Data-Related Errors
+
+====== 1. Missing Scores
+
+[.inserted]#One or both teams' scores are unavailable from all sources due to timing, source unavailability, or data synchronization failures.#
+
+[.inserted]#*Expected Behavior*:#
+
+
+* [.inserted]#Scheduled games: Show game time. Message: "Scores available after game ends."#
+* [.inserted]#Live games: Show last known score with timestamp. Mark as stale if > 10 minutes old.#
+* [.inserted]#Finished games: Display game occurred but score unavailable. Link to external source.#
+* [.inserted]#System never displays guess or default scores (e.g., "0-0").#
+
+====== 2. Delayed Updates
+
+[.inserted]#Sources publish updates significantly after game results become known, causing timing misalignment.#
+
+[.inserted]#*Expected Behavior*:#
+
+
+* [.inserted]#Fresh data (< 10 min old): Display normally.#
+* [.inserted]#Moderately stale (10–30 min): Display with timestamp. Show "Refreshing..." indicator.#
+* [.inserted]#Very stale (> 30 min): Mark as potentially outdated. Display timestamp prominently.#
+* [.inserted]#Game finished: Accept update even if delayed, but show reported time.#
+
+====== 3. Conflicting Data Across Sources
+
+[.inserted]#Different sources report incompatible information for the same game due to update timing, manual entry errors, or tracking different subsets.#
+
+[.inserted]#*Expected Behavior*:#
+
+
+* [.inserted]#Minor difference (1–2 points): Accept most recent value. List all conflicting sources in detail view.#
+* [.inserted]#Moderate difference (3+ points): Flag as conflict. Show both values with sources and timestamps.#
+* [.inserted]#Major discrepancy (different winner): Isolate as critical error. Do not display either score. Alert admin.#
+
+====== 4. Incomplete or Partial Data
+
+[.inserted]#A source provides some fields but not others, or covers only a subset of teams/games.#
+
+[.inserted]#*Expected Behavior*:#
+
+
+* [.inserted]#Missing game time: Show score and teams. Display "Time unavailable."#
+* [.inserted]#Missing standings teams: Show available teams with note: "[X] teams currently available."#
+* [.inserted]#Missing metadata: Display core info (teams, score, status). Show "Additional details unavailable."#
+
+====== 5. Stale or Outdated Data
+
+[.inserted]#Data is correct but older than thresholds that make it unreliable for the game context.#
+
+[.inserted]#*Expected Behavior*:#
+
+
+* [.inserted]#Live game, < 5 min old: Display normally.#
+* [.inserted]#Live game, 5–15 min old: Display with timestamp and "Refreshing..." indicator.#
+* [.inserted]#Live game, > 15 min old: Apply warning icon and text. Suggest manual refresh.#
+* [.inserted]#Finished games: Accept any age. No staleness warning.#
+
+====== 6. Data Corruption or Validation Failures
+
+[.inserted]#Data arrives in unexpected format, violates constraints, or contains impossible values (negative scores, invalid statuses, future dates).#
+
+[.inserted]#*Expected Behavior*:#
+
+
+* [.inserted]#Log error and do not display invalid data.#
+* [.inserted]#Show user message in plain language: "Score data invalid. Check source."#
+* [.inserted]#Continue functioning with remaining valid data sources.#
+
+===== Testing Strategies
+
+====== Scenario-Based Testing (BDD)
+
+[.inserted]#Define Gherkin scenarios for each error type:#
+
+[.inserted]#[source,gherkin]#
+----
+Scenario: Missing score for live game
+Given a live game with no available scores
+When the game is displayed
+Then score field shows "Score unavailable"
+And game remains in schedule
+
+Scenario: Conflicting scores from two sources
+Given Source A reports 80-75, Source B reports 79-75
+When the game is displayed
+Then conflict is flagged
+And both scores shown with source attribution
+----
+
+====== Boundary Testing
+
+[.inserted]#Test thresholds for staleness, conflict magnitude, and retry logic:#
+
+
+* [.inserted]#Data 9 minutes old vs. 11 minutes old during live play#
+* [.inserted]#Score difference 1 point vs. 10 points#
+* [.inserted]#Missing 1 team vs. 5 teams in standings#
+
+====== State Transition Testing
+
+
+* [.inserted]#Scheduled → Live: Show last score or "Game starting"#
+* [.inserted]#Live → Finished: Accept final score regardless of source timing#
+* [.inserted]#Finished with conflict: Flag conflict but accept result#
+* [.inserted]#Any state with stale data during live play: Mark with timestamp and warning#
+
+====== Source Reliability Testing
+
+
+* [.inserted]#Test all sources agreeing (baseline)#
+* [.inserted]#Test one source differing#
+* [.inserted]#Test majority vs. minority source disagreement#
+* [.inserted]#Test all sources providing null (complete failure)#
+
+===== Application to Tu Deporte Aquí
+
+[.inserted]#Puerto Rico sports sources commonly fail in the following ways:#
+
+
+* [.inserted]#Social media posts: delayed, manual entry errors, incomplete standings#
+* [.inserted]#Semi-official websites: outdated 1–6 hours behind, inconsistent records#
+* [.inserted]#Third-party aggregators: conflicting data, incomplete team coverage#
+
+[.inserted]#Error handling priorities:#
+
+
+* [.inserted]#Flag high-priority conflicts (score differences > 5 points)#
+* [.inserted]#Mark data stale if > 10 minutes old during live play#
+* [.inserted]#Display source attribution in all score displays#
+* [.inserted]#Continue service in degraded mode if 1 of 3 sources fails#
+* [.inserted]#Alert administrator if no sources have recent data#
+
+===== Implementation Guidance
+
+[.inserted]#All error handling must meet these requirements:#
+
+[options="header"]
+|===
+|[.inserted]#Component#|[.inserted]#Requirement#
+|[.inserted]#Input Validation#|[.inserted]#All source data passes validation before display#
+|[.inserted]#Error Detection#|[.inserted]#System identifies missing, conflicting, and stale data#
+|[.inserted]#User Messaging#|[.inserted]#Clear, domain-specific feedback for each error type#
+|[.inserted]#Logging#|[.inserted]#All errors logged for administrative review#
+|[.inserted]#Resilience#|[.inserted]#System continues in degraded mode if sources fail#
+|===
+
+===== Conclusion
+
+[.inserted]#Error handling testing ensures Tu Deporte Aquí maintains data integrity and user trust when encountering unreliable sources. By identifying error scenarios, defining expected behavior, and mapping to testable acceptance criteria, the system becomes predictable, transparent, and reliable even under adverse data conditions.#

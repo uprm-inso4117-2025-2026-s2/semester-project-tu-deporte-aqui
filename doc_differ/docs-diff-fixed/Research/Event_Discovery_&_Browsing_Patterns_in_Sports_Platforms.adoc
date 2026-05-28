@@ -1,0 +1,65 @@
+= Event Discovery & Browsing Patterns in Sports Platforms
+Project: Tu Deporte Aquí
+
+== Research Summary
+
+Focus: Event discovery, browsing, and information organization
+
+---
+
+== Purpose
+
+This research was conducted to understand how existing sports information platforms structure and present event listings in a way that supports easy browsing and discovery.
+
+The goal is to identify common organizational patterns that help users quickly find relevant sports events without relying on complex search or prior context.
+
+---
+
+== Platforms Analyzed
+
+The following platforms were reviewed due to their relevance to sports event discovery and scheduling:
+
+* *ESPN* – Broad sports coverage with structured league and event timelines
+* *Flashscore* – Live-score platform emphasizing chronological event browsing
+* *BSNF* – Regional event listings (Baloncesto Superior Nacional Femenino)
+
+---
+
+== Common Event Discovery Patterns Identified
+
+Across the analyzed platforms, several consistent patterns emerged:
+
+* Chronological grouping of events (today, upcoming, completed)
+* Clear visual separation between scheduled, live, and finished events
+* League or sport-based categorization as a primary navigation method
+* Simple filtering mechanisms rather than advanced search
+* Consistent event cards showing essential information at a glance
+
+---
+
+== Usability Observations
+
+* Users tend to browse events chronologically rather than search by name
+* Separating upcoming and completed events reduces confusion
+* Simple layouts support casual sports fans better than dense dashboards
+* Overly detailed views distract from discovery and exploration
+
+---
+
+== Key Takeaways for Project
+
+Based on these findings:
+
+* Chronological browsing should be the default discovery method
+* Event status should be clearly represented through structure, not messaging
+* League and sport grouping should guide navigation decisions
+* Event listings should remain lightweight and scannable
+* The platform should resemble a local sports bulletin rather than a statistics-heavy system
+
+These insights will guide navigation, structure, and content organization decisions in future milestones.
+
+---
+
+== Visual Example
+
+image::images/event-discovery.png[Event Discovery UI Example]

@@ -1,0 +1,110 @@
+==== 4.4 LTT Requirement Traceability for Existing BDD Scenarios
+
+[.inserted]#This table shows which requirement IDs each existing BDD scenario covers.#
+[.inserted]#Requirement IDs come from sections 2.2.3 (Domain), 2.2.4 (Interface), and 2.2.5 (Machine).#
+
+[cols="3,2,2",options="header"]
+|===
+|[.inserted]#Scenario#|[.inserted]#Feature File#|[.inserted]#Requirement IDs#
+
+|[.inserted]#Show when data was last updated#
+|[.inserted]#interface_requirements.feature#
+|[.inserted]#R-DOM-7, R-INT-9#
+
+|[.inserted]#Indicate stale data to the user#
+|[.inserted]#interface_requirements.feature#
+|[.inserted]#R-DOM-7, R-INT-9#
+
+|[.inserted]#Show conflicting reports from different sources#
+|[.inserted]#interface_requirements.feature#
+|[.inserted]#R-DOM-2, R-DOM-3, R-INT-9#
+
+|[.inserted]#Handle missing data gracefully#
+|[.inserted]#interface_requirements.feature#
+|[.inserted]#R-INT-9#
+
+|[.inserted]#Label unverified data from unverified sources#
+|[.inserted]#interface_requirements.feature#
+|[.inserted]#R-DOM-4, R-INT-9#
+
+|[.inserted]#Display source attribution in standings#
+|[.inserted]#interface_requirements.feature#
+|[.inserted]#R-INT-9, R-DOM-7#
+
+|[.inserted]#Communicate system-wide degraded state#
+|[.inserted]#interface_requirements.feature#
+|[.inserted]#R-MAC-9, R-INT-8#
+
+|[.inserted]#Show confidence level for uncertain data#
+|[.inserted]#interface_requirements.feature#
+|[.inserted]#R-DOM-5, R-DOM-4, R-INT-9#
+
+|[.inserted]#Conflicting scores from different sources#
+|[.inserted]#domain_requirements.feature#
+|[.inserted]#R-DOM-1, R-DOM-2, R-DOM-3#
+
+|[.inserted]#Unverified report becomes confirmed#
+|[.inserted]#domain_requirements.feature#
+|[.inserted]#R-DOM-4, R-DOM-1#
+
+|[.inserted]#Official correction after publication#
+|[.inserted]#domain_requirements.feature#
+|[.inserted]#R-DOM-6, R-DOM-10#
+
+|[.inserted]#Multiple unofficial sources agree#
+|[.inserted]#domain_requirements.feature#
+|[.inserted]#R-DOM-5, R-DOM-4#
+
+|[.inserted]#Outdated game information#
+|[.inserted]#domain_requirements.feature#
+|[.inserted]#R-DOM-7#
+
+|[.inserted]#Source becomes unavailable#
+|[.inserted]#domain_requirements.feature#
+|[.inserted]#R-DOM-8, R-DOM-5#
+
+|[.inserted]#Correction without formal announcement#
+|[.inserted]#domain_requirements.feature#
+|[.inserted]#R-DOM-2, R-DOM-1, R-DOM-3#
+
+|[.inserted]#High demand for accurate information during playoffs#
+|[.inserted]#domain_requirements.feature#
+|[.inserted]#R-DOM-1, R-DOM-4, R-DOM-6#
+
+|[.inserted]#Continue operating when a source fails#
+|[.inserted]#machine_requirements.feature#
+|[.inserted]#R-MAC-9, R-MAC-7#
+
+|[.inserted]#Fall back to cached data during source unavailability#
+|[.inserted]#machine_requirements.feature#
+|[.inserted]#R-MAC-9, R-DOM-7#
+
+|[.inserted]#Log conflicts for debugging and analysis#
+|[.inserted]#machine_requirements.feature#
+|[.inserted]#R-DOM-11, R-MAC-7#
+
+|[.inserted]#Prioritize critical endpoints under high traffic#
+|[.inserted]#machine_requirements.feature#
+|[.inserted]#R-MAC-3, R-MAC-4#
+
+|[.inserted]#Resume normal operation after source recovery#
+|[.inserted]#machine_requirements.feature#
+|[.inserted]#R-DOM-8, R-INT-8#
+
+|[.inserted]#Expose reliability metrics for monitoring#
+|[.inserted]#machine_requirements.feature#
+|[.inserted]#R-INT-8, R-MAC-7#
+
+|[.inserted]#Retain correction history for audit purposes#
+|[.inserted]#machine_requirements.feature#
+|[.inserted]#R-DOM-10, R-DOM-6, R-MAC-10#
+
+|[.inserted]#Handle malformed data from a source#
+|[.inserted]#machine_requirements.feature#
+|[.inserted]#R-MAC-7, R-MAC-9#
+
+|[.inserted]#Recover from database connection failure#
+|[.inserted]#machine_requirements.feature#
+|[.inserted]#R-MAC-1, R-MAC-7#
+
+|===

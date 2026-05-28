@@ -1,0 +1,174 @@
+=== 4.9 Usability Testing
+
+==== Summary
+
+[.inserted]#This section documents the use of grammar-based GUI fuzz testing on the Tu Deporte Aquí web application using the framework provided by the Fuzzing Book. The objective of the testing process was to automatically generate sequences of GUI interactions and determine whether any sequence could lead the application to invalid states, specifically HTTP 404 pages. The framework models the application as a finite-state machine (FSM) and uses context-free grammars to generate valid interaction sequences. Several extensions were implemented to improve the robustness of the framework for real-world usage with the project website.#
+
+==== Introduction
+
+[.inserted]#Fuzzing is a software testing technique in which programs are tested using automatically generated random inputs. Rather than manually writing individual test cases, fuzzing frameworks continuously produce inputs and execute the target system to discover unexpected behavior, crashes, or invalid states.#
+
+[.inserted]#When a grammar is available, fuzzers can generate random inputs that conform to a specific structure. For example, grammars can be used to generate syntactically valid:#
+
+
+* [.inserted]#Email addresses#
+* [.inserted]#URLs#
+* [.inserted]#JSON documents#
+
+[.inserted]#Using grammars ensures that generated inputs are valid according to the expected input format of the application under test. This improves testing effectiveness because invalid inputs are filtered out, allowing the fuzzer to focus on meaningful program behavior.#
+
+[.inserted]#The Fuzzing Book framework uses context-free grammars to represent valid inputs and interaction flows. Beyond generating random valid inputs, the framework can also systematically cover all grammar expansion possibilities to improve coverage.#
+
+===== Benefits of Fuzzing
+
+[.inserted]#The main advantages of fuzz testing include:#
+
+
+* [.inserted]#Automatic test generation#
+* [.inserted]#Eliminates the need to manually define large numbers of unit tests.#
+* [.inserted]#Broad input exploration#
+* [.inserted]#Potentially tests every valid input accepted by the program.#
+* [.inserted]#Reduces tester bias regarding which inputs should or should not be tested.#
+
+===== GUI Fuzzing with the Fuzzing Book Framework
+
+[.inserted]#The Fuzzing Book also provides a framework for fuzz testing graphical web interfaces. The framework is based on Selenium and models the application as a finite-state machine (FSM).#
+
+[.inserted]#In this model:#
+
+
+* [.inserted]#An action is an interaction performed on the GUI, such as:#
+[.inserted]#** Clicking a button or link#
+[.inserted]#** Typing into a form field#
+
+* [.inserted]#The current page is analyzed to identify all possible actions.#
+* [.inserted]#A state is defined as the set of actions available at a given moment.#
+
+[.inserted]#The framework encodes the FSM as a context-free grammar. The fuzzer then generates sequences of actions according to this grammar. Because the grammar represents the valid GUI state transitions, generated interaction sequences are guaranteed to be valid within the discovered application flow.#
+
+==== Procedure
+
+[.inserted]#The fuzzing process focused on detecting navigation sequences that lead to HTTP 404 pages.#
+
+===== Test Oracle
+
+[.inserted]#The testing oracle was defined as follows:#
+
+
+* [.inserted]#FAIL: the resulting page is a 404 page.#
+* [.inserted]#PASS: the resulting page is any valid page.#
+
+===== Framework Extensions
+
+[.inserted]#The classes defined in `fuzzingbook.GUIFuzzer` are primarily educational and are not fully suitable for production-level GUI testing. Several modifications were implemented to improve reliability when testing the project website.#
+
+[.inserted]#The framework was extended with:#
+
+
+* [.inserted]#More robust element detection using XPath-based lookup strategies.#
+* [.inserted]#Selenium fallbacks for interaction failures.#
+[.inserted]#** For example, when an element could not be interacted with because it was not visible, JavaScript execution was used to perform the intended action directly.#
+
+===== Coverage Strategy
+
+[.inserted]#The implementation inherited from `GUICoverageFuzzer` instead of the base GUI fuzzer. This decision was made to reduce duplicate interaction sequences before all possible transitions had been explored.#
+
+===== Pages Tested
+
+[.inserted]#Fuzz testing was performed on the following application pages:#
+
+[cols="1,1"]
+|===
+|[.inserted]#Page#|[.inserted]#Route#
+
+|[.inserted]#Home#
+|[.inserted]#`/home`#
+
+|[.inserted]#Login#
+|[.inserted]#`/login`#
+
+|[.inserted]#Teams#
+|[.inserted]#`/teams`#
+
+|[.inserted]#Risk Dashboard#
+|[.inserted]#`/risk-dashboard`#
+
+|[.inserted]#Notifications Subscription#
+|[.inserted]#`/notifications`#
+|===
+
+==== Results
+
+[.inserted]#The implementation and test results are available in:#
+
+[.inserted]#[source,text]#
+----
+tu-deporte-aqui/utils/fuzzing/
+----
+
+[.inserted]#For each trial, the resulting page URL and page title were included in the generated results.#
+
+[.inserted]#The FSM for each page was constructed before fuzz execution began.#
+
+===== Test Configuration
+
+
+* [.inserted]#100 fuzzing trials were executed per page.#
+
+===== Pass Rates
+
+[cols="1,1"]
+|===
+|[.inserted]#Page#|[.inserted]#Pass Rate#
+
+|[.inserted]#Home#
+|[.inserted]#71%#
+
+|[.inserted]#Login#
+|[.inserted]#100%#
+
+|[.inserted]#Teams#
+|[.inserted]#100%#
+
+|[.inserted]#Risk Dashboard#
+|[.inserted]#100%#
+
+|[.inserted]#Notifications#
+|[.inserted]#100%#
+|===
+
+==== Discussion
+
+[.inserted]#The Login and Notifications pages contained relatively few possible actions. This behavior was expected because both pages are small and contain limited interactive components.#
+
+[.inserted]#The Risk Dashboard page produced no possible actions during FSM construction. This was also expected because the page currently contains no clickable or editable elements.#
+
+[.inserted]#The results indicate that only the Home page contains links that lead to HTTP 404 pages. Manual exploration of the application confirmed the fuzzing results and verified that the Home page is the only page exposing broken or incomplete navigation paths.#
+
+[.inserted]#These 404 pages are interpreted as references to planned features or pages that have not yet been implemented.#
+
+==== Conclusion
+
+[.inserted]#The fuzzing process identified unresolved routes related to:#
+
+
+* [.inserted]#`/news/`#
+* [.inserted]#`/games/`#
+
+[.inserted]#These routes should either be implemented or removed until the corresponding pages are available.#
+
+[.inserted]#Not all planned pages were discovered during fuzz testing. For example, a future Terms and Conditions page is planned, but its current link uses `href="#"`, preventing the GUI fuzzer from navigating to a missing route.#
+
+===== Future Work
+
+[.inserted]#Potential future extensions to the testing process include:#
+
+
+* [.inserted]#Detecting links whose `href` values are only `#`.#
+* [.inserted]#Testing form input validation on the Login page.#
+* [.inserted]#Verifying expected GUI behavior.#
+[.inserted]#** For example, ensuring that selecting a sport in the Teams page dropdown updates the displayed teams correctly.#
+
+* [.inserted]#Testing for SQL injection vulnerabilities in the Login page.#
+
+[.inserted]#The results demonstrate that grammar-based GUI fuzzing is effective for automatically discovering broken navigation flows and validating reachable application states in a web application.#

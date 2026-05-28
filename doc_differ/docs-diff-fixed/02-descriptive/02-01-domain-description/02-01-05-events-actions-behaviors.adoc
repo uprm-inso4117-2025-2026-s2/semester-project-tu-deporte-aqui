@@ -1,0 +1,191 @@
+==== 2.1.5 Events, Actions, and Composite Behaviors
+
+This section describes [.removed]#events# [.inserted]#domain-relevant events, actions,# and [.removed]#actions# [.inserted]#composite behaviors# related to how sports information [.removed]#is produced, compared,# [.inserted]#becomes available, changes over time, conflicts with other reports,# and [.removed]#updated.# [.inserted]#remains interpretable under uncertain conditions.#
+
+====== Domain-Relevant Events
+
+*Report Arrival*::
+A [.removed]#new# source [.removed]#report becomes# [.inserted]#makes new information about a sporting event# available.
+[.inserted]#Examples include publication of a score update, standings change, postponement notice, or status update.#
+
+*Conflict Emergence*::
+[.removed]#Multiple reports provide# [.inserted]#A newly arrived source report introduces information that is# incompatible [.removed]#values.# [.inserted]#with information already associated with the same sporting event.#
+
+*Correction Arrival*::
+A [.removed]#report indicates# [.inserted]#source communicates# that [.removed]#previous# [.inserted]#previously reported# information should be [.removed]#changed.# [.inserted]#revised, replaced, or clarified.#
+
+*Freshness Loss*::
+[.removed]#Information becomes outdated due to lack of# [.inserted]#A maintained event record remains without sufficiently# recent [.removed]#updates.# [.inserted]#dependable updates long enough that its currentness becomes questionable for its context.#
+
+*Source Interruption*::
+A source [.removed]#stops# [.inserted]#that had been# providing [.removed]#updates.# [.inserted]#expected updates ceases communication, becomes unreachable, or stops publishing information.#
+
+====== Actions
+
+*Record Report*::
+Consumes:
+
+* source
+* source report
+* sporting event [.inserted]#reference#
+
+Produces:
+
+* [.removed]#stored# [.inserted]#recorded source# report
+* associated [.inserted]#report content#
+* [.inserted]#timestamps and attribution references when available#
+
+Purpose::
+To [.removed]#make the report available# [.inserted]#preserve incoming information# for later [.removed]#use.# [.inserted]#interpretation, comparison, and traceability.#
+
+---
+
+*Assess Dependability*::
+Consumes:
+
+* recorded [.inserted]#source# report
+* source trust level
+* other [.inserted]#related# reports
+* [.inserted]#timing and contextual information#
+
+Produces:
+
+* verification state
+* confidence level
+* [.inserted]#possible provisional condition#
+
+Purpose::
+To evaluate how [.removed]#reliable the# [.inserted]#dependable currently available# information [.removed]#is.# [.inserted]#appears within its context.#
+
+---
+
+*Compare Reports*::
+Consumes:
+
+* multiple [.inserted]#recorded source# reports [.inserted]#regarding the same sporting event#
+
+Produces:
+
+* consistency [.inserted]#finding#
+* [.inserted]#or conflict identification#
+
+Purpose::
+To determine whether [.inserted]#available# reports [.removed]#agree.# [.inserted]#can be treated as mutually supportive or whether incompatibilities remain unresolved.#
+
+---
+
+*Update Event Record*::
+Consumes:
+
+* assessed report
+* current [.inserted]#event# record
+
+Produces:
+
+* [.removed]#updated# [.inserted]#revised event# record
+* updated [.removed]#timestamp# [.inserted]#timestamps#
+* [.inserted]#updated dependability condition#
+
+Purpose::
+To [.removed]#reflect# [.inserted]#revise# the [.removed]#latest# [.inserted]#maintained representation of what is currently# known [.removed]#information.# [.inserted]#about the sporting event.#
+
+---
+
+*Mark Unknown*::
+Consumes:
+
+* [.removed]#incomplete# event record [.inserted]#lacking sufficiently dependable information regarding a relevant value#
+
+Produces:
+
+* explicit unknown [.removed]#value# [.inserted]#indication#
+
+Purpose::
+To avoid [.inserted]#presentation of# unsupported [.removed]#assumptions.# [.inserted]#assumptions or misleading certainty.#
+
+---
+
+*Preserve Change Trace*::
+Consumes:
+
+* [.removed]#old value# [.inserted]#replaced information#
+* [.removed]#new value# [.inserted]#replacement information#
+* [.inserted]#available explanation for the change#
+
+Produces:
+
+* [.inserted]#traceable# record of [.removed]#change# [.inserted]#the revision#
+
+Purpose::
+To [.removed]#maintain traceability.# [.inserted]#preserve explainability when information changes through correction, reconciliation, or later confirmation.#
+
+====== Composite Behaviors
+
+*Information Consolidation*::
+[.removed]#Sequence of:# [.inserted]#This behavior combines:#
+
+
+* [.inserted]#report arrival#
+* [.inserted]#record report#
+* [.inserted]#assess dependability#
+* [.inserted]#update event record#
+
+[.inserted]#It describes how incoming information becomes incorporated into the maintained understanding of a sporting event.#
+
+---
+
+*Conflict Handling*::
+[.removed]#Sequence of:# [.inserted]#This behavior combines:#
+
+
+* [.inserted]#conflict emergence#
+* [.inserted]#compare reports#
+* [.inserted]#assess dependability#
+* [.inserted]#preserve change trace#
+* [.inserted]#update [.inserted]#event record# or mark unknown#
+
+[.inserted]#It describes how incompatible information is managed without silently collapsing differences.#
+
+---
+
+*Correction Handling*::
+[.removed]#Sequence of:# [.inserted]#This behavior combines:#
+
+
+* [.inserted]#correction arrival#
+* [.inserted]#assess dependability#
+* [.inserted]#preserve change trace#
+* [.inserted]#update event record#
+
+[.inserted]#It describes how previously communicated information may later be revised while preserving interpretability.#
+
+---
+
+*Freshness Management*::
+[.removed]#Sequence of:# [.inserted]#This behavior combines:#
+
+
+* [.inserted]#freshness loss#
+* [.inserted]#assess dependability#
+* [.inserted]#mark unknown or retain [.inserted]#older information# with reduced confidence#
+
+[.inserted]#It describes how information changes condition when dependable updates stop arriving.#
+
+---
+
+*Source Failure Handling*::
+[.removed]#Sequence of:# [.inserted]#This behavior combines:#
+
+
+* [.inserted]#source interruption#
+* [.inserted]#freshness loss#
+* [.inserted]#assess dependability#
+* [.inserted]#continue [.removed]#with reduced# operation under degraded conditions#
+
+[.inserted]#It describes how interpretation continues when expected# information [.inserted]#flows become impaired.#
+
+====== Remarks
+
+These concepts [.removed]#describe# [.inserted]#belong to# the domain [.removed]#itself.# [.inserted]#description itself rather than to a specific implementation strategy.#
+
+Later sections [.inserted]#may# define [.inserted]#requirements concerning# how [.removed]#the system must support# [.inserted]#systems present, preserve,# or [.inserted]#process these concepts, but the concepts themselves describe behaviors already# present [.removed]#them.# [.inserted]#within the domain.#

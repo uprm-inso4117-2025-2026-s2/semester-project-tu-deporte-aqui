@@ -1,0 +1,153 @@
+
+=== 4.4 Usability Testing
+
+===== Purpose
+
+[.inserted]#This section applies usability-focused testing to Tu Deporte Aquí by examining how easily users can navigate the platform and access the sports information that matters most. Since the project centers on quick access to live games, standings, and news, usability testing helps determine whether those flows are clear, efficient, and understandable.#
+
+===== Role of Usability Testing in the Project
+
+[.inserted]#Usability testing complements reliability-oriented testing by focusing on the user's experience when interacting with the interface. Even if data is correct, the platform still fails its goal if users cannot quickly find live scores, standings, or the latest sports updates.#
+
+[.inserted]#Key benefits include:#
+
+
+* [.inserted]#Validation of core navigation paths#
+* [.inserted]#Identification of confusing labels or interaction patterns#
+* [.inserted]#Detection of friction when locating high-priority sports information#
+* [.inserted]#Stronger alignment between interface design and real user expectations#
+
+===== Representative User Tasks
+
+[.inserted]#The following tasks were selected because they reflect the primary value of the platform.#
+
+====== Task 1: Find Live Games
+
+[.inserted]#*Goal*: A user wants to quickly see whether there are live games and view current score information.#
+
+[.inserted]#*Expected path*:#
+
+[.inserted]#. Open the home page.#
+[.inserted]#. Locate the live games section or the live games navigation link.#
+[.inserted]#. Identify a live game and understand its current state.#
+
+====== Task 2: Find Standings for a Selected Sport
+
+[.inserted]#*Goal*: A user wants to view standings for a preferred sport, such as basketball or baseball.#
+
+[.inserted]#*Expected path*:#
+
+[.inserted]#. Open the home page.#
+[.inserted]#. Scroll to the standings section or use the standings navigation link.#
+[.inserted]#. Select the desired sport tab.#
+[.inserted]#. Review the ranking information.#
+
+====== Task 3: Find the Latest Sports News
+
+[.inserted]#*Goal*: A user wants to access recent sports news updates.#
+
+[.inserted]#*Expected path*:#
+
+[.inserted]#. Open the home page.#
+[.inserted]#. Locate the sports news section or the news navigation link.#
+[.inserted]#. Open or review the latest visible news item.#
+
+====== Task 4: Determine Whether Information Is Current, Live, or Final
+
+[.inserted]#*Goal*: A user wants to understand the state of displayed information without guessing.#
+
+[.inserted]#*Expected path*:#
+
+[.inserted]#. View a game card or sports update.#
+[.inserted]#. Use labels, badges, timestamps, or contextual cues to determine whether the information is live, current, or final.#
+
+===== Usability Walkthrough Results
+
+[.inserted]#The tasks above were evaluated through a simulated usability walkthrough based on the current interface structure and navigation flows.#
+
+====== Task 1 Findings: Live Games
+
+[.inserted]#*Outcome*: The task can be completed successfully.#
+
+[.inserted]#*Observations*:#
+
+
+* [.inserted]#The top navigation includes a clear "Live Games" entry.#
+* [.inserted]#The home page also highlights live game information in a dedicated section.#
+* [.inserted]#Score and time information are visually prominent enough to support quick scanning.#
+
+[.inserted]#*Confusion points or barriers*:#
+
+
+* [.inserted]#Users may rely on the "LIVE" badge, but there is less clarity for games that are no longer live.#
+* [.inserted]#The distinction between active games and completed games is not always equally explicit.#
+
+====== Task 2 Findings: Standings
+
+[.inserted]#*Outcome*: The task can be completed successfully with low to moderate effort.#
+
+[.inserted]#*Observations*:#
+
+
+* [.inserted]#The standings section is visible on the home page.#
+* [.inserted]#Sport tabs make it possible to switch between standings categories.#
+* [.inserted]#Ranking information is presented in a compact way that is easy to scan.#
+
+[.inserted]#*Confusion points or barriers*:#
+
+
+* [.inserted]#It may not be immediately obvious whether standings rows are interactive or only informational.#
+* [.inserted]#Users unfamiliar with icons or trend indicators may need stronger labeling.#
+
+====== Task 3 Findings: Sports News
+
+[.inserted]#*Outcome*: The task can be completed successfully.#
+
+[.inserted]#*Observations*:#
+
+
+* [.inserted]#The sports news section is easy to identify from the home page.#
+* [.inserted]#News cards make it simple to scan titles and short summaries.#
+* [.inserted]#The presence of category labels improves content recognition.#
+
+[.inserted]#*Confusion points or barriers*:#
+
+
+* [.inserted]#Placeholder images or generic visual blocks reduce clarity and polish.#
+* [.inserted]#It may not always be obvious which story is newest if multiple cards look equally prominent.#
+
+====== Task 4 Findings: Live vs Current vs Final State
+
+[.inserted]#*Outcome*: The task is only partially supported.#
+
+[.inserted]#*Observations*:#
+
+
+* [.inserted]#The interface communicates live content reasonably well through visible status cues.#
+* [.inserted]#Current sports information is grouped into familiar sections, which helps orientation.#
+
+[.inserted]#*Confusion points or barriers*:#
+
+
+* [.inserted]#Final or completed states are not always labeled as explicitly as live states.#
+* [.inserted]#Users may infer status from context rather than from direct language.#
+* [.inserted]#Information freshness could be clearer when a score or update has not changed recently.#
+
+===== Improvement Suggestions
+
+[.inserted]#Based on the walkthrough, the following improvements would strengthen usability:#
+
+
+* [.inserted]#Add a more explicit "FINAL" or completed-state label for finished games.#
+* [.inserted]#Improve visual affordances for clickable rows, cards, or sections.#
+* [.inserted]#Replace placeholder imagery with more meaningful visuals where possible.#
+* [.inserted]#Make recency or freshness indicators easier to interpret.#
+* [.inserted]#Keep badge usage consistent so users can distinguish news categories from game-state labels.#
+
+===== Alignment with Project Goals
+
+[.inserted]#These usability findings support the broader project goal of making Puerto Rico sports information easy to access and understand. A reliability-focused platform must also be usable under quick, real-world conditions, especially when users open the site to check scores, standings, or updates in only a few moments.#
+
+===== Conclusion
+
+[.inserted]#Usability testing shows that Tu Deporte Aquí already supports its core information flows reasonably well, especially for live games, standings, and news discovery. However, the walkthrough also highlights opportunities to improve status clarity, navigation affordances, and information freshness cues so users can interpret the platform more confidently and with less effort.#

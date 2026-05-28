@@ -1,0 +1,98 @@
+=== 4.11 Manual Testing Strategy for Tu Deporte Aquí
+
+===== Purpose
+
+[.inserted]#This document describes a concise manual testing approach to validate core user-facing features before automation. It focuses on user interactions and acceptance checks that testers can execute quickly.#
+
+===== Scope — Core Features
+
+
+- [.inserted]#Teams list and team page#
+- [.inserted]#Athlete profile pages#
+- [.inserted]#Game schedule and game detail pages#
+- [.inserted]#Standings table and standings details#
+- [.inserted]#News list and article pages#
+- [.inserted]#Login / authentication flow#
+- [.inserted]#Notifications / alerts subscription#
+
+===== Test Preparation
+
+
+- [.inserted]#Testers should use the latest dev build or staging environment.#
+- [.inserted]#Have at least one test dataset with: 2 leagues, 4 teams per league, 1 ongoing game, 2 finished games, and 3 news items.#
+- [.inserted]#Record tester name, date, environment URL, and device (desktop/mobile).#
+
+===== Test Approach
+
+
+- [.inserted]#Exploratory first: navigate each feature and note obvious issues.#
+- [.inserted]#Follow structured scenarios below; for each step mark Pass / Fail / Blocked and capture a brief screenshot if failing.#
+- [.inserted]#Use realistic user actions (click, scroll, filter, search, refresh).#
+
+===== User Interaction Scenarios
+
+[.inserted]#1) Teams#
+
+- [.inserted]#Go to Teams page. Verify list loads and team names appear.#
+- [.inserted]#Click a team. Verify team page shows roster, recent games, and link to standings.#
+- [.inserted]#Filter by sport (if available) and verify list updates.#
+
+[.inserted]#2) Athlete profiles#
+
+- [.inserted]#From a team page, open an athlete. Verify photo, bio, stats, and links to team.#
+- [.inserted]#Edit (if authorized) or simulate profile view across devices.#
+
+[.inserted]#3) Game schedule & detail#
+
+- [.inserted]#On schedule, verify games show date/time, teams, and status (scheduled/live/finished).#
+- [.inserted]#Open a live game: verify score area, last-updated timestamp, and play-by-play (if present).#
+- [.inserted]#Open a finished game: verify final score, scoring summary, and source attribution.#
+
+[.inserted]#4) Standings#
+
+- [.inserted]#Open standings for a league. Verify team order, wins/losses, and games played.#
+- [.inserted]#Simulate partial data: confirm UI indicates missing teams or incomplete data.#
+
+[.inserted]#5) News & articles#
+
+- [.inserted]#From News page, open an article. Verify title, author, date, and content render correctly.#
+- [.inserted]#Click links inside articles; ensure navigation works and no 404s appear.#
+
+[.inserted]#6) Login & notifications#
+
+- [.inserted]#Login with valid/invalid credentials; observe error messages and success flow.#
+- [.inserted]#Subscribe/unsubscribe to notifications; verify subscription confirmation.#
+
+===== Acceptance Criteria & Quick Checks
+
+
+- [.inserted]#Pages load within acceptable time (< 3s on staging network).#
+- [.inserted]#No visible UI crashes or unhandled errors.#
+- [.inserted]#Data clearly labeled with timestamps and source attribution where relevant.#
+- [.inserted]#Missing data shows explicit messages (e.g., "Score unavailable") rather than placeholders.#
+- [.inserted]#Conflicting data is visibly flagged or attributed, not silently overwritten.#
+
+===== Test Checklist (to record results)
+
+
+- [ ] [.inserted]# Teams list: loads and team page details OK#
+- [ ] [.inserted]# Athlete profiles: display and links OK#
+- [ ] [.inserted]# Schedule: statuses and timestamps OK#
+- [ ] [.inserted]# Standings: ordering and completeness OK#
+- [ ] [.inserted]# News articles: content and links OK#
+- [ ] [.inserted]# Login flow: success/error messages OK#
+- [ ] [.inserted]# Notifications: subscribe/unsubscribe OK#
+- [ ] [.inserted]# Staleness & missing data: messages and indicators OK#
+
+===== Reporting
+
+
+- [.inserted]#For each failure capture: steps to reproduce, expected vs actual, screenshot, device/browser, and log URL.#
+- [.inserted]#Triage failures as: Bug / UX Issue / Data Issue / Blocker.#
+- [.inserted]#Assign critical regressions to backend or data teams, UI issues to frontend.#
+
+===== Next Steps
+
+
+- [.inserted]#Convert high-frequency scenarios into automated tests after manual validation.#
+- [.inserted]#Maintain the checklist as a short-runbook for release testing.#

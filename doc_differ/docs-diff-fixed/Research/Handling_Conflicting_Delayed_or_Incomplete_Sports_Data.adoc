@@ -1,0 +1,282 @@
+= Handling Conflicting, Delayed, or Incomplete Sports Data
+Project: Tu Deporte Aquí
+Course: INSO 4117 – Software Reliability Testing
+
+== Research Summary
+
+---
+
+== 🎯 Purpose
+
+Tu Deporte Aquí aggregates sports information for Puerto Rico from multiple sources such as league websites, reporters, social media, and third-party feeds.
+
+This creates predictable reliability risks, including:
+
+* Conflicting data (e.g., different scores)
+* Delayed updates (latency)
+* Missing or incomplete information
+* Temporary source outages during high-traffic events
+
+This document investigates *proven strategies used by real-world platforms and distributed systems* and translates them into actionable recommendations.
+
+---
+
+== 🌐 Platforms and Reference Systems Analyzed
+
+=== 1. SofaScore (Consumer Live Scores Platform)
+
+A large-scale platform that handles delayed updates, missing data, and temporary feed failures.
+
+*Key insight:*  
+Live platforms must show *something* even when data is imperfect.
+
+---
+
+=== 2. Flashscore (Consumer Live Scores Platform)
+
+A widely used service providing live coverage across leagues.
+
+*Key insight:*  
+Match state modeling (Scheduled, Live, Final) helps users understand data completeness.
+
+---
+
+=== 3. Official Sports Data Ecosystem (Genius Sports / Sportradar)
+
+Professional providers that distinguish between:
+
+* Official / low-latency feeds
+* Secondary or delayed feeds
+
+This demonstrates that *not all data sources are equal*.
+
+---
+
+=== 4. Amazon Dynamo (Distributed Systems Reference)
+
+A high-availability system that handles:
+
+* Temporary inconsistency
+* Partial failures
+* Conflicting data versions
+
+Provides reusable *reliability patterns*.
+
+---
+
+== 🧩 Common Strategies That Work in Practice
+
+=== 1. Source Trust Levels (Source Prioritization)
+
+*What it is:*  
+Treat data sources as *ranked*, not equal.
+
+Example tiers:
+
+* Official league source  
+* Verified partner  
+* Trusted reporter  
+* Community / social media  
+
+*How it helps:*
+
+* Resolves conflicts deterministically
+* Prevents low-quality data from overriding trusted sources
+
+*Tu Deporte Aquí application:*
+
+* Maintain a *Source Registry* with trust tier and expected latency
+* Prefer higher-tier data when conflicts occur
+* Retain lower-tier values for auditing
+
+*Pros (PR context):*
+
+* Works well with mixed official and informal coverage
+
+*Cons:*
+
+* Requires ongoing maintenance
+
+---
+
+=== 2. Timestamps and Freshness Rules
+
+*What it is:*  
+Track:
+
+* Event time (when it happened)
+* Ingest time (when received)
+
+*How it helps:*
+
+* Makes delays visible
+* Avoids showing stale data silently
+
+*Tu Deporte Aquí application:*
+
+* Display “Last updated at HH:MM”
+* Mark data as *stale* after threshold
+* Keep last known value
+
+*Pros:*
+
+* Supports transparency
+
+*Cons:*
+
+* Requires careful handling of missing timestamps
+
+---
+
+=== 3. Quorum and Reconciliation
+
+*What it is:*  
+Allow disagreement between sources but:
+
+* Require agreement to mark data as confirmed
+* Keep multiple versions temporarily
+
+*Why it works:*  
+Preserves availability during failures.
+
+*Tu Deporte Aquí application:*
+
+* Multiple trusted sources agree → *confirmed*
+* Disagreement → *unconfirmed / provisional*
+* Reconcile later
+
+*Pros:*
+
+* Handles conflicts gracefully
+
+*Cons:*
+
+* May delay confirmation
+
+---
+
+=== 4. Communicating Uncertainty to Users
+
+*What it is:*  
+Make system state explicit.
+
+Suggested states:
+
+* Provisional  
+* Unconfirmed  
+* Confirmed  
+* Final  
+
+*Tu Deporte Aquí application:*
+
+* Label data with reliability status
+* Show short explanations when needed
+
+*Pros:*
+
+* Preserves user trust
+
+*Cons:*
+
+* Messaging must remain simple
+
+---
+
+=== 5. Graceful Degradation
+
+*What it is:*  
+When systems fail or lag:
+
+* Serve cached data
+* Reduce refresh rate
+* Disable non-essential features
+
+*Tu Deporte Aquí application:*
+
+* Always show last-known score
+* Hide unavailable modules
+* Enter *degraded mode*
+
+*Pros:*
+
+* Prevents blank screens
+
+*Cons:*
+
+* Requires clear stale labeling
+
+---
+
+== ⚖️ Pros and Cons Summary (Puerto Rico Context)
+
+[cols="2,3,3", options="header"]
+|===
+| Strategy | Pros | Cons
+
+| Source trust tiers
+| Fits mixed official/informal coverage
+| Requires upkeep
+
+| Freshness & timestamps
+| Transparent delay handling
+| Needs careful definitions
+
+| Quorum & reconciliation
+| Handles disagreement cleanly
+| May delay confirmation
+
+| Provisional UI states
+| Builds trust during uncertainty
+| Messaging must be clear
+
+| Graceful degradation
+| High availability under stress
+| Risk of stale data
+|===
+
+---
+
+== 🛠 Actionable Recommendations for Tu Deporte Aquí
+
+1. *Adopt reliability metadata*  
+   Store source ID, trust tier, ingest time, event time, and reliability label.
+
+2. *Define conflict rules (v1)*  
+   - Higher tier beats lower tier → confirmed  
+   - Peer conflict → most recent + unconfirmed + warning  
+
+3. *Implement stale detection*  
+   Show “Last updated” and mark stale after threshold.
+
+4. *Enable degraded mode*  
+   Serve cached data, reduce polling, notify users.
+
+5. *Prepare for testing*  
+   Define failure scenarios for simulation.
+
+---
+
+== 🧪 Testing Plan Mapping
+
+[cols="2,3", options="header"]
+|===
+| Failure Scenario | Expected Behavior
+
+| Conflicting scores
+| Select by trust tier, mark unconfirmed
+
+| Delayed updates
+| Mark stale, show last updated
+
+| Source outage
+| Use cached data, show degraded mode
+
+| Missing final
+| Keep unconfirmed, notify user
+
+| Partial data
+| Show score, hide missing modules
+
+| Load spike
+| Backoff polling, prioritize core data
+|===

@@ -1,0 +1,282 @@
+=== 1.5  Goals
+
+===== Purpose
+
+[.removed]#The following# [.inserted]#This section defines the# goals [.removed]#are derived from# [.inserted]#that guide Tu Deporte Aquí and connects them to# the current situation, [.removed]#identified# [.inserted]#stakeholder# needs, [.removed]#and# proposed [.removed]#ideas for# [.inserted]#ideas, and project constraints described earlier in the documentation.#
+
+[.inserted]#In the previous version, all goals were presented as derived goals. That made it unclear which goals were central to the project and which goals were supporting goals. This revision separates the goals into two groups:#
+
+
+- [.inserted]#Primary project goals#
+- [.inserted]#Derived and supporting goals#
+
+[.inserted]#Primary goals describe the main purpose of Tu Deporte Aquí. Derived and supporting goals describe additional directions that help the project satisfy the primary goals under real constraints, such as incomplete data, informal sources, mobile-first access, and final delivery needs.#
+
+===== Primary Project Goals
+
+[.inserted]#Primary project goals are the central goals of# Tu Deporte Aquí. These goals [.removed]#represent intended directions# [.inserted]#directly reflect the main reason the project exists.#
+
+====== G1 – Centralize Local Puerto Rico Sports Information
+
+[.inserted]#Tu Deporte Aquí aims to provide one place where users can access local Puerto Rico sports information.#
+
+[.inserted]#This includes:#
+
+
+- [.inserted]#Games#
+- [.inserted]#Scores#
+- [.inserted]#Standings#
+- [.inserted]#Teams#
+- [.inserted]#Athletes#
+- [.inserted]#News and updates#
+
+[.inserted]#This is a primary goal because the project is mainly focused on making local sports information easier to find and use.#
+
+====== G2 – Make Sports Information Easy to Access on Mobile Devices
+
+[.inserted]#Tu Deporte Aquí aims to provide a mobile-first experience# for [.inserted]#users who check sports information from phones.#
+
+[.inserted]#This includes:#
+
+
+- [.inserted]#Responsive layouts#
+- [.inserted]#Simple navigation#
+- [.inserted]#Compact information display#
+- [.inserted]#Clear page structure#
+- [.inserted]#Readable content on smaller screens#
+
+[.inserted]#This is a primary goal because users are expected to access scores, standings, and updates quickly during or after games.#
+
+====== G3 – Present Sports Information Clearly
+
+[.inserted]#Tu Deporte Aquí aims to present sports information in a way users can understand without needing extra explanation.#
+
+[.inserted]#This includes:#
+
+
+- [.inserted]#Clear game status labels#
+- [.inserted]#Organized standings#
+- [.inserted]#Readable team and athlete profiles#
+- [.inserted]#Understandable news or update pages#
+- [.inserted]#Consistent behavior across pages#
+
+[.inserted]#This is a primary goal because# the [.removed]#system rather than strict requirements.#
+
+[.removed]#They help guide design decisions# [.inserted]#platform only helps users if the displayed information is clear# and [.removed]#ensure# [.inserted]#usable.#
+
+===== Derived and Supporting Goals
+
+[.inserted]#Derived and supporting goals are goals# that [.removed]#implementation remains aligned with# [.inserted]#help the project achieve its primary goals. They come from the current situation, system constraints, professor feedback, and# the realities of local sports data.
+
+===== Reliability Goals
+
+======  G4 –  Handle Incomplete or Conflicting Sports Data 
+
+[.removed]#The system is expected to handle conflicting sports data from multiple sources.#
+
+[.removed]#This involves:#
+
+
+- [.removed]#Detecting inconsistencies across sources#
+- [.removed]#Distinguishing between confirmed and provisional values#
+- [.removed]#Allowing updates to replace earlier information when needed#
+
+[.removed]#This goal reflects the nature of informal data sources where discrepancies are common.#
+
+
+
+The system should [.removed]#make it possible to understand how and why data changes over time.# [.inserted]#handle sports information that may be incomplete, delayed, conflicting, or corrected after publication.#
+
+This includes:
+
+- [.removed]#Identifying the source of# [.inserted]#Missing scores#
+- [.inserted]#Delayed# updates
+- [.removed]#Recording# [.inserted]#Conflicting reports#
+- [.inserted]#Corrected results#
+- [.inserted]#Incomplete team or athlete information#
+
+[.inserted]#This goal is derived from the reality that local sports information may come from informal or inconsistent sources.#
+
+====== G5 – Avoid Page Failure When Data Is Missing
+
+[.inserted]#The system should remain usable# when [.removed]#changes occur# [.inserted]#some data is missing or unavailable.#
+
+[.inserted]#This includes:#
+
+- [.removed]#Maintaining a simple history of important# [.inserted]#Showing loading states#
+- [.inserted]#Showing error messages when data cannot be loaded#
+- [.inserted]#Displaying empty states when there is no available content#
+- [.inserted]#Avoiding crashes caused by missing# fields
+
+This supports [.removed]#traceability without requiring complex tracking systems.# [.inserted]#the primary goal of giving users access to sports information even when the available data is limited.#
+
+===== Transparency Goals
+
+======  G6 –  Communicate Data Limitations Clearly
+
+The system should [.removed]#communicate when information may not be fully reliable.# [.inserted]#make data limitations visible instead of hiding them.#
+
+This includes:
+
+- Showing [.removed]#last update times# [.inserted]#when content is unavailable#
+- [.inserted]#Avoiding claims that information is official when it has not been verified#
+- Indicating when [.removed]#data# [.inserted]#information# may be [.removed]#outdated or provisional# [.inserted]#incomplete#
+- [.removed]#Providing context when sources conflict# [.inserted]#Explaining missing or unavailable data through clear messages#
+
+This [.removed]#helps# [.inserted]#goal supports user trust because# users [.removed]#interpret# [.inserted]#should understand what# the [.removed]#information instead of assuming it is always correct.#
+
+
+
+[.removed]#The# system [.removed]#is expected to operate under known limitations, such as:#
+
+
+- [.removed]#Lack of official APIs#
+- [.removed]#Reliance on informal sources#
+- [.removed]#Delays in updates#
+
+[.removed]#Making these assumptions visible helps avoid unrealistic expectations.#
+
+ can and cannot currently provide.
+
+======  G7 –  Support Traceability for Important Updates
+
+The system should [.removed]#continue to function even# [.inserted]#support traceability# when [.removed]#data is incomplete or delayed.# [.inserted]#important sports information changes.#
+
+This includes:
+
+- [.removed]#Displaying previously available data# [.inserted]#Recording# when [.removed]#updates fail# [.inserted]#important values change where applicable#
+- [.inserted]#Identifying source or update information when available#
+- [.inserted]#Making corrections understandable#
+- Avoiding [.removed]#full# [.inserted]#silent replacement of important results#
+
+[.inserted]#This supports reliability and transparency, especially when scores or standings change after publication.#
+
+===== Usability Goals
+
+====== G8 – Keep the Interface Consistent Across Pages
+
+[.inserted]#The# system [.removed]#failure due# [.inserted]#should provide a consistent experience across the main application pages.#
+
+[.inserted]#This includes:#
+
+
+- [.inserted]#Consistent navigation#
+- [.inserted]#Similar loading and error states#
+- [.inserted]#Shared layout behavior#
+- [.inserted]#Mobile-friendly page structure#
+- [.inserted]#Visual consistency between feature areas#
+
+[.inserted]#This goal is derived from the need# to [.removed]#missing# [.inserted]#make the product usable as one application, not separate pages built in isolation.#
+
+====== G9 – Reduce Confusion Around Game and Data Status
+
+[.inserted]#The system should make it clear whether# information [.inserted]#is scheduled, live, final, missing, unavailable, or corrected.#
+
+[.inserted]#This includes:#
+
+- [.removed]#Informing users when data may not be current# [.inserted]#Clear match status labels#
+- [.inserted]#Understandable error messages#
+- [.inserted]#Empty states that explain missing content#
+- [.inserted]#Avoiding conflicting status and score information#
+
+This [.removed]#goal prioritizes# [.inserted]#supports both# usability [.removed]#over completeness.# [.inserted]#and reliability.#
+
+===== Scope and Boundary Goals
+
+======  G10 – Maintain Local League Focus
+
+The system [.removed]#is intended to focus# [.inserted]#should remain focused# on local Puerto Rico sports leagues.
+
+This [.inserted]#means the project should avoid:#
+
+
+- [.inserted]#National league expansion#
+- [.inserted]#International league expansion#
+- [.inserted]#Large new sports coverage areas outside the current scope#
+
+[.inserted]#This# keeps the [.removed]#scope manageable# [.inserted]#project realistic# and aligned with [.removed]#available data.# [.inserted]#the original problem area.#
+
+======  G11 –  Avoid Major New Systems During Final Delivery
+
+The [.removed]#system is expected to prioritize a mobile-first experience.# [.inserted]#project should avoid introducing major new systems during the final milestone.#
+
+This [.removed]#includes:# [.inserted]#includes avoiding:#
+
+- [.removed]#Presenting essential information clearly# [.inserted]#Real-time polling#
+- [.removed]#Keeping layouts simple and readable# [.inserted]#WebSockets#
+- [.removed]#Ensuring usability across different screen sizes# [.inserted]#Automated scraping#
+- [.inserted]#Admin dashboards#
+- [.inserted]#Complex user roles#
+- [.inserted]#Major database redesigns#
+
+This [.removed]#reflects how users are likely to access the platform.# [.inserted]#goal supports final delivery because Milestone 3 is focused on stability, integration, polish, and presentation readiness.#
+
+===== Trust and Governance Goals
+
+======  G12 –  Keep Documentation Consistent With the Implemented Product
+
+The project [.removed]#aims to maintain clear structure in both# [.inserted]#should keep# documentation [.removed]#and implementation.# [.inserted]#aligned with the actual application.#
+
+This includes:
+
+- [.removed]#Keeping system behavior well-defined# [.inserted]#Removing outdated milestone language#
+- [.removed]#Maintaining traceability of changes# [.inserted]#Avoiding unsupported future-tense claims#
+- Updating documentation [.removed]#alongside development# [.inserted]#based on professor feedback#
+- [.inserted]#Documenting API routes, setup steps, and database information accurately#
+- [.inserted]#Ensuring implementation examples match the real codebase when included#
+
+This [.inserted]#goal# supports [.removed]#consistency as# the [.removed]#system evolves.# [.inserted]#final submission because the documentation should describe the product that actually exists.#
+
+======  G13 – Maintain Issue-Based and PR-Driven Collaboration
+
+The team [.removed]#is expected to# [.inserted]#should# continue using [.removed]#issue-based work# [.inserted]#GitHub Issues# and pull [.removed]#request review.# [.inserted]#requests to organize work.#
+
+This [.removed]#helps:#
+
+
+- [.removed]#Track changes over time# [.inserted]#includes:#
+
+- [.removed]#Ensure# [.inserted]#Tracking# work [.removed]#is reviewed# [.inserted]#through issues#
+- [.inserted]#Creating branches for assigned tasks#
+- [.inserted]#Reviewing changes# before merging
+- [.removed]#Maintain coordination# [.inserted]#Using CI checks where applicable#
+- [.inserted]#Keeping responsibility visible# across teams
+
+[.inserted]#This helps the team coordinate final fixes and documentation updates.#
+
+===== Relationship Between Goals
+
+[.inserted]#The goals are related, but they are not all at the same level.#
+
+[.inserted]#The primary goals are:#
+
+
+- [.inserted]#Centralize local Puerto Rico sports information#
+- [.inserted]#Make sports information accessible on mobile devices#
+- [.inserted]#Present sports information clearly#
+
+[.inserted]#The derived and supporting goals explain what the project needs in order to support those primary goals under real constraints.#
+
+[.inserted]#For example:#
+
+
+- [.inserted]#Because local sports data can be incomplete or inconsistent, the system needs reliability and transparency goals.#
+- [.inserted]#Because users are expected to access the platform from phones, the system needs mobile usability goals.#
+- [.inserted]#Because the final milestone focuses on completion, the system needs stability and scope-control goals.#
+- [.inserted]#Because documentation is part of the course deliverable, the project needs documentation and governance goals.#
+
+===== Considerations
+
+These goals are not strict [.removed]#requirements but reference points that# [.inserted]#requirements. They# guide [.inserted]#final# development [.removed]#decisions.#
+
+[.removed]#As implementation progresses, some of these# [.inserted]#decisions and help the team decide what to prioritize.#
+
+[.inserted]#At this stage, the# goals [.removed]#may be refined or translated into more specific requirements.# [.inserted]#should not introduce major new work. They should support the final product by helping the team stabilize existing features, clarify limitations, improve usability, and keep documentation accurate.#
+
+===== Conclusion
+
+[.removed]#These derived goals provide direction for# Tu Deporte Aquí [.removed]#while allowing flexibility during implementation. They reflect the constraints of# [.inserted]#is primarily focused on making# local [.inserted]#Puerto Rico# sports [.removed]#data# [.inserted]#information easier to find, access,# and [.removed]#help keep development aligned with realistic expectations.# [.inserted]#understand.#
+
+[.inserted]#The derived and supporting goals describe how the project handles the difficulties around that purpose, including incomplete data, transparency, usability, scope control, documentation, and final delivery.#
+
+[.inserted]#Separating primary goals from derived goals makes the project direction clearer and addresses the concern that not every goal should be treated as equally derived.#

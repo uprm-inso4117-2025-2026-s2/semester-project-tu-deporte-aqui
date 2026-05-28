@@ -1,0 +1,225 @@
+= Message Templates for System Updates & Alerts
+Author: Diego A Rios Morales
+Date: February 2026
+Project: Tu Deporte Aquí
+
+---
+
+== Communication Principles
+
+Effective system communication should:
+
+* Use simple, non-technical language
+* Clearly state what is happening
+* Explain who is affected
+* Provide next steps or expectations
+* Maintain consistent tone and structure
+
+---
+
+== 1. News Update Template
+
+Used for routine updates such as:
+
+* Match results
+* Schedule announcements
+* Player news
+
+=== Template
+
+----
+Update: <Title>
+
+<Brief summary of the update>
+
+Date: <date>
+Location/Event: <optional>
+
+More details: <link>
+----
+
+---
+
+=== Example
+
+----
+Update: Team A wins championship
+
+Team A defeated Team B 3–1 in the finals.
+
+Date: Feb 15, 2026
+----
+
+---
+
+== 2. Urgent Alert Template
+
+Used for:
+
+* Cancellations
+* Emergencies
+* Safety issues
+* Major disruptions
+
+=== Template
+
+----
+URGENT ALERT
+
+<What happened>
+
+Affected: <who/what is impacted>
+
+Action: <what users should do>
+
+We will provide updates as more information becomes available.
+----
+
+---
+
+=== Example
+
+----
+URGENT ALERT
+
+Today’s match has been canceled due to severe weather.
+
+Affected: All attendees and teams
+
+Action: Do not travel to the venue.
+----
+
+---
+
+== 3. Delayed Data / Pending Update Template
+
+Used when:
+
+* Results are delayed
+* Scores are pending
+* Information is not yet confirmed
+
+=== Template
+
+----
+Update Delayed
+
+We are currently waiting for official confirmation of <information>.
+
+Status: Pending verification
+
+Expected update: <time if known>
+
+Thank you for your patience.
+----
+
+---
+
+=== Example
+
+----
+Update Delayed
+
+We are waiting for official confirmation of the final match score.
+
+Status: Pending verification
+
+Expected update: Shortly
+----
+
+---
+
+== 4. Conflicting Reports Template
+
+Used when:
+
+* Multiple sources provide different information
+
+=== Template
+
+----
+Information Under Review
+
+We have received conflicting reports regarding <event>.
+
+Status: Verification in progress
+
+We will publish confirmed information once verified.
+
+Thank you for your understanding.
+----
+
+---
+
+=== Example
+
+----
+Information Under Review
+
+We have received conflicting reports regarding the match outcome.
+
+Status: Verification in progress
+----
+
+---
+
+== 5. System Status / Technical Issue Template
+
+Used when:
+
+* The platform experiences technical problems
+
+=== Template
+
+----
+System Issue
+
+We are currently experiencing technical difficulties affecting <feature>.
+
+Impact: <what users cannot do>
+
+Our team is working to resolve the issue.
+
+Next update: <timeframe>
+----
+
+---
+
+== 6. Resolution / Issue Resolved Template
+
+Used when:
+
+* A problem has been fixed
+
+=== Template
+
+----
+Issue Resolved
+
+The issue affecting <feature/event> has been resolved.
+
+Thank you for your patience.
+----
+
+---
+
+== Conclusion
+
+Standardized message templates ensure users receive:
+
+* Clear information
+* Consistent communication
+* Trustworthy updates
+
+By covering:
+
+* Routine updates
+* Emergencies
+* Delays
+* Conflicting reports
+
+the platform can:
+
+* Maintain transparency
+* Reduce confusion
+* Improve user confidence

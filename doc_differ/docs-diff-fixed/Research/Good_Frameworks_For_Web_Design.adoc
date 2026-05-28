@@ -1,0 +1,159 @@
+= Good Frameworks for Web Design
+
+== 1. React
+
+Type:: Frontend library  
+Used with:: Next.js  
+
+image::images/react_framework.png[React Framework, width=500]
+
+=== Pros
+
+* Massive ecosystem (UI kits, table libraries, charts)
+* Excellent for dynamic data (standings = perfect use case)
+* Huge community and tutorials
+* Strong hiring relevance
+* Works extremely well with APIs
+
+=== Cons
+
+* Requires choosing many tools
+* Learning curve for beginners
+
+== 2. Next.js
+
+Type:: Full web framework built on React  
+
+image::images/nextjs_framework.png[Next.js Framework, width=500]
+
+=== Pros
+
+* Routing built-in
+* SEO friendly
+* Server + client rendering
+* API routes included
+* Great deployment (Vercel)
+* Perfect for portfolio projects
+
+=== Cons
+
+* Slight extra complexity vs plain React
+
+== 3. Vue
+
+Type:: Frontend framework  
+
+image::images/vue_framework.png[Vue Framework, width=500]
+
+=== Pros
+
+* Simpler mental model
+* Very clean syntax
+* Good documentation
+* Strong UI libraries
+
+=== Cons
+
+* Smaller ecosystem than React
+* Fewer table libraries
+
+== 4. Svelte / SvelteKit
+
+Type:: Modern framework  
+
+image::images/svelte_framework.png[Svelte Framework, width=500]
+
+=== Pros
+
+* Very fast
+* Less boilerplate
+* Great developer experience
+* Smaller bundle size
+
+=== Cons
+
+* Smaller ecosystem
+* Fewer enterprise libraries
+* Less common in industry
+
+== UI Frameworks
+
+These are component/design frameworks used together with frontend frameworks.
+
+Good options for standings UI:
+
+* Material UI (MUI) → Professional tables
+* Shadcn UI → Modern (very popular)
+* Chakra UI → Simple and clean
+* Tailwind CSS → Styling system (extremely popular)
+
+== Data Table Libraries (Critical for Standings)
+
+Best options:
+
+* TanStack Table (React)
+* AG Grid (powerful)
+* React Data Grid
+* Vuetify tables (Vue)
+
+== Recommendation
+
+Based on project requirements and the need for a clean, responsive standings UI:
+
+Primary recommendation:
+
+* Vue + Nuxt
+
+Reasons:
+
+* Simpler development experience
+* Clear project structure
+* Built-in routing and server capabilities
+* Faster development for limited timeline
+
+Backup option:
+
+* Next.js + Tailwind CSS + Shadcn UI + TanStack Table
+
+Reasons:
+
+* Industry-standard stack
+* Highly scalable
+* Strong support for complex data tables
+
+=== Proposed Stack (Primary Option)
+
+* Framework: Nuxt
+* UI Layer: Tailwind CSS (optional Vue UI library like Vuetify or Nuxt UI)
+* Tables: Vue table libraries or AG Grid
+* API: Nuxt server routes or external backend
+* Deployment: Vercel or Netlify
+
+== Conclusion
+
+The most suitable frameworks for this project are:
+
+* React
+* Next.js
+* Vue
+
+Decision trade-offs:
+
+* React / Next.js → Best for scalability and industry relevance
+* Vue → Best for faster development and ease of use
+
+Final decision should balance:
+
+* Development speed
+* Team familiarity
+* Long-term scalability
+
+== References
+
+* https://react.dev/
+* https://nextjs.org/
+* https://vuejs.org/
+* https://mui.com/
+* https://ui.shadcn.com/
+* https://chakra-ui.com/
+* https://tailwindcss.com/

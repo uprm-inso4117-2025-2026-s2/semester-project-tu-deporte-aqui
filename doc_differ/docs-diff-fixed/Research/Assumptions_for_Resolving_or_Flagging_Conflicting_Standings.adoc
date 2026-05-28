@@ -1,0 +1,227 @@
+= Assumptions for Resolving or Flagging Conflicting Standings
+Project: Tu Deporte Aquí
+
+---
+
+== 1. Context
+
+This document defines assumptions for handling conflicting standings data by either:
+
+* Resolving differences automatically
+* Flagging discrepancies for review or user awareness
+
+---
+
+== 2. Common Conflicting Scenarios
+
+=== 2.1 Points or Record Totals Do Not Match
+
+* One data feed updates earlier than others (latency)
+* Matches may be amended due to:
+  - Forfeits
+  - Administrative decisions
+
+---
+
+=== 2.2 Ranking Order Differs (Same Points)
+
+* Different sources may apply *different tiebreaker rules*
+* Tiebreakers may include:
+  - Goal difference
+  - Goals scored
+  - Head-to-head
+  - Disciplinary points
+
+IMPORTANT:
+
+The order of these rules is *competition-specific*
+
+---
+
+=== 2.3 Live vs Official Standings
+
+* Live standings use *provisional data*
+* Official standings are updated after league confirmation
+
+Observation::
+
+Platforms reconcile live data with official results after matches end
+
+---
+
+=== 2.4 Partial Data or Missing Matches
+
+* A provider may not have ingested all matches
+* Postponed matches may be:
+  - Incorrectly marked as played
+  - Omitted entirely
+
+---
+
+=== 2.5 Identity Mapping Issues
+
+* Team naming inconsistencies:
+  - "Man United" vs "Manchester United"
+* League phase changes
+* Team relocation
+
+Result::
+
+Data may be associated with incorrect entities
+
+---
+
+== 3. Data Validation Strategies (Industry Practices)
+
+=== 3.1 Source Hierarchy
+
+* Official > Provider > Community
+
+Official sources are treated as the *final authority*
+
+Example::
+
+Platforms update results after official league corrections
+
+---
+
+=== 3.2 Rule-Based Validation Checks
+
+Automated checks include:
+
+* Points consistency  
+  (e.g., points = 3W + 1D in soccer)
+
+* Matches played consistency  
+  (Played = W + D + L)
+
+* Goal difference validation  
+  (GD = goals for - goals against)
+
+* Ranking consistency  
+  (Higher points → higher rank unless rules differ)
+
+---
+
+=== 3.3 Event Log (Event Sourcing)
+
+* Store raw match events and updates
+* Rebuild standings deterministically
+
+Benefits::
+
+* Traceability
+* Auditability
+* Ability to replay history
+
+---
+
+=== 3.4 Dual-View Publishing
+
+* Live (unofficial, fast, may change)
+* Official (slower, stable)
+
+---
+
+== 4. Assumptions and Resolution Rules
+
+=== Assumption 1 – Competition Rules Define Truth
+
+* Store competition-specific tiebreaker rules
+* Do NOT rely on provider ranking
+
+Implementation::
+
+* Compute ranking locally using official rules
+
+---
+
+=== Assumption 2 – Official Sources Override Live
+
+If conflict occurs:
+
+* Display both versions
+* Prioritize official source
+
+UI Behavior::
+
+* Official = primary
+* Provider/live = secondary
+* Include timestamps and labels
+
+---
+
+=== Assumption 3 – Resolve vs Flag Based on Severity
+
+==== Auto-Resolve (No User Impact)
+
+* Differences caused by latency
+* Differences within correction window after game end
+
+---
+
+==== Flag for Review (User Warning)
+
+* Point totals differ after official finalization
+* Ranking differs due to unclear tiebreak rules
+
+---
+
+==== Hard Block (Do Not Publish as Official)
+
+* Invalid data invariants:
+
+  - Played ≠ W + D + L
+  - Goal difference mismatch
+  - Impossible point values
+  - Missing teams
+
+---
+
+=== Assumption 4 – Always Explain Differences
+
+When conflicts are detected, display:
+
+* Reason for discrepancy:
+  - Tiebreaker rule
+  - Feed delay
+  - Stat correction
+
+* Metadata:
+  - Last updated time
+  - Source
+
+---
+
+== 5. Transparency Principle
+
+The system must clearly communicate:
+
+* Why standings differ
+* Which source is prioritized
+* When data was last updated
+
+This aligns with industry practices for:
+
+* Trust
+* Data reconciliation
+* User transparency
+
+---
+
+== References
+
+* UEFA. (2026). Champions League standings rules.
+  https://www.uefa.com/uefachampionsleague/news/0291-1bd88ae04870-e1e038c319e3-1000
+
+* DraftKings. Stat corrections and live scoring delays.
+  https://support.draftkings.com
+
+* ESPN. Stat Corrections.
+  https://support.espn.com
+
+* Kurrent. Event sourcing in sports systems.
+  https://www.kurrent.io
+
+* Sleeper. Stat corrections.
+  https://support.sleeper.com

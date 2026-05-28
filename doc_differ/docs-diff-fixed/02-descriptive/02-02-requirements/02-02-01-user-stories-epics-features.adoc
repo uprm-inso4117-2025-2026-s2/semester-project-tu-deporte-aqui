@@ -1,0 +1,297 @@
+=== 2.2.1 User Stories, Epics, Features
+
+[.removed]#This section organizes the main requirements-driving# [.inserted]#Epics group related areas of work. They are not written as user# stories [.removed]#for Tu Deporte Aquí.#
+[.removed]#To avoid dropping unexplained persona names on the reader, each story names the#
+[.removed]#role first# [.inserted]#because they cover several features# and [.removed]#then identifies# [.inserted]#several user needs at once. User stories are written under each epic where# the [.removed]#corresponding persona in parentheses. The#
+[.removed]#full persona descriptions appear in Section 2.2.2.# specific user goal is clearer.
+
+==== Epic 1:  Local Sports Information Feed
+
+[.inserted]#This epic covers the basic sports information that users expect to find when following local Puerto Rico leagues. It focuses on scores, schedules, standings, teams, game status, and basic event records. The main problem is that this information often exists across Instagram stories, Facebook posts, screenshots, league pages, team pages, and group chats instead of one consistent source.#
+
+[.inserted]#Features:#
+
+
+* [.inserted]#Recent local game list.#
+* [.inserted]#Upcoming game list.#
+* [.inserted]#Score and game-status view.#
+* [.inserted]#Team and league filtering.#
+* [.inserted]#Basic standings view.#
+* [.inserted]#Game detail page with available source and update information.#
+* [.inserted]#Last-updated information for scores or game status.#
+* [.inserted]#Mobile-friendly score and schedule layout.#
+
+[.inserted]#User stories:#
+
+
+* As a [.removed]#local-sports follower,# local sports fan, I want [.removed]#one place# to [.removed]#check scores, standings,#
+[.removed]#schedules, and athlete updates# [.inserted]#see recent scores for Puerto Rico leagues# so that I do not have to [.removed]#chase scattered#
+[.removed]#posts, league pages, and chats.#
+
+[.removed]#Features#
+
+[.removed]#Consolidated results, standings, schedules, and athlete updates##
+[.removed]#The platform groups the most consulted local-sports information in one place#
+[.removed]#so that a fan or coach can# check [.removed]#the current state of a# [.inserted]#several team and# league [.removed]#without jumping#
+[.removed]#between unrelated# pages [.removed]#and posts.#
+
+[.removed]#Source attribution for each displayed update#
+[.removed]#Each important data item should show where it came from so that readers can#
+[.removed]#tell whether they are looking at an official publication, a reporter update,#
+[.removed]#or a community post.#
+
+[.removed]#Visible freshness indicators#
+[.removed]#Each important item should show when it was last updated so that readers can#
+[.removed]#judge whether the information is still recent enough to trust during a live#
+[.removed]#event or playoff run.#
+
+[.removed]#User stories# [.inserted]#one by one.#
+
+* As a [.removed]#fast-checking# [.inserted]#score-checking# fan [.removed]#(Sebastian),# [.inserted]#like Sebastian,# I want to [.removed]#view the latest# [.inserted]#filter# scores [.removed]#and#
+[.removed]#final results for selected leagues# [.inserted]#by team, sport, or league# so that I can [.removed]#stay updated without#
+[.removed]#switching between websites and social media posts.# [.inserted]#quickly find the game I care about.#
+
+* As a [.removed]#fast-checking# fan [.removed]#(Sebastian),# [.inserted]#checking from my phone between classes,# I want [.removed]#each displayed score, result,#
+[.removed]#or update# [.inserted]#the game status# to show [.removed]#its source# [.inserted]#whether a game is upcoming, live, delayed, postponed, or final# so that I [.removed]#can judge credibility quickly when#
+[.removed]#multiple channels are posting different things.# [.inserted]#know what kind of information I am reading.#
+
+* As [.removed]#an organizing coach (Abiel),# [.inserted]#a parent following a local team, I want schedules and venue information in one place so that I do not have to rely only on forwarded screenshots.#
+* [.inserted]#As a player checking my own team,# I want to [.removed]#view schedules# [.inserted]#see previous results# and [.removed]#standings for#
+[.removed]#my league# [.inserted]#upcoming games# so that I can [.removed]#plan, communicate,# [.inserted]#confirm what happened# and [.removed]#verify information without#
+[.removed]#having to piece it together manually.# [.inserted]#what is next.#
+
+* As a [.removed]#fast-checking# [.inserted]#casual user, I want the score view to avoid unnecessary clutter so that the main score, teams, and game status are visible right away.#
+* [.inserted]#As a# fan [.removed]#(Sebastian),# [.inserted]#who follows more than one sport, I want team and league filters so that baseball, basketball, volleyball, and other sports do not get mixed into one long list.#
+* [.inserted]#As a user checking an old game, I want final scores to stay available after social media stories expire so that results are not lost after one day.#
+
+==== Epic 2: Source-Aware Information and Uncertainty
+
+[.inserted]#This epic covers how the platform handles sports information that may be incomplete, late, conflicting, provisional, stale, or corrected. The system should not present every value as equally final. A score from an official league page, a team story, a reporter post, and a fan screenshot may all be useful, but they do not carry the same weight.#
+
+[.inserted]#Features:#
+
+
+* [.inserted]#Source label for reported information.#
+* [.inserted]#Last-updated time for game records.#
+* [.inserted]#Confirmation status for scores, schedules, and game status.#
+* [.inserted]#Stale or delayed indicator when information has not been updated.#
+* [.inserted]#Conflict indicator when sources disagree.#
+* [.inserted]#Unknown or unavailable state for missing information.#
+* [.inserted]#Correction indicator when a value replaces an earlier value.#
+* [.inserted]#Basic reliability metadata attached to event records.#
+
+[.inserted]#User stories:#
+
+
+* [.inserted]#As Sebastian,# I want to see when [.removed]#each item# [.inserted]#a score# was last updated so that I can tell whether [.inserted]#it may be old.#
+* [.inserted]#As# a [.removed]#page reflects# [.inserted]#fan checking# a live [.removed]#update, a delayed#
+[.removed]#post, or stale information.#
+
+
+
+[.removed]#As a person who depends on local sports information,# [.inserted]#game,# I want [.removed]#the platform# [.inserted]#a provisional score# to [.inserted]#be marked differently from a final score#
+[.removed]#show when information is conflicting, incomplete, delayed, or still developing# so that I do not [.removed]#mistake uncertain information for a final answer.#
+
+[.removed]#Features#
+
+[.removed]#Conflict flagging and conflict visibility#
+[.removed]#When two or more sources disagree about a score, status, result, or standing,#
+[.removed]#the platform should mark the disagreement clearly instead of silently choosing#
+[.removed]#one value and hiding the rest.#
+
+[.removed]#Verified, developing, and provisional indicators#
+[.removed]#The platform should distinguish between information that has already been# [.inserted]#share it as# confirmed [.removed]#and information# [.inserted]#too early.#
+
+* [.inserted]#As Andres, I want conflicting scores to be marked clearly so# that [.removed]#is still developing, provisional, or waiting#
+[.removed]#for confirmation from a stronger source.#
+
+[.removed]#Missing-data and degraded-state messaging#
+[.removed]#When# [.inserted]#I do not repeat# a value [.removed]#is unavailable, delayed, or affected by a source problem, the#
+[.removed]#platform should explain what is missing and what is still known instead of#
+[.removed]#showing blank space or a confusing generic error.#
+
+[.removed]#Trusted-source prioritization#
+[.removed]#When an official or clearly stronger# [.inserted]#as final when sources disagree.#
+
+* [.inserted]#As Abiel, I want schedule changes to show their# source [.removed]#exists, the platform should treat# [.inserted]#so# that [.removed]#source as the primary reference while still making conflicts# [.inserted]#I can decide whether to notify players# and [.removed]#revision#
+[.removed]#history visible when needed.#
+
+[.removed]#User stories# [.inserted]#parents.#
+
+* As a [.removed]#fast-checking fan (Sebastian),# [.inserted]#user,# I want [.removed]#the platform# [.inserted]#missing scores# to [.removed]#flag when two#
+[.removed]#sources disagree on a score# [.inserted]#appear as unknown# or [.removed]#result# [.inserted]#unavailable# so that I do not [.removed]#assume the first number#
+[.removed]#I see is already final.#
+
+
+* [.removed]#As an organizing coach (Abiel), I want the platform to prioritize verified#
+[.removed]#league results when they exist so that standings and schedules do not shift#
+[.removed]#because of unreliable or early posts.# [.inserted]#mistake a blank value for a confirmed result.#
+
+* As a [.removed]#deadline reporter (Andres),# [.inserted]#reporter,# I want to [.removed]#label an update as developing,#
+[.removed]#provisional,# [.inserted]#see whether a value came from a league page, team page, reporter post,# or [.removed]#confirmed# [.inserted]#community source# so that I can [.removed]#communicate uncertainty without#
+[.removed]#spreading misinformation.# [.inserted]#judge how much checking is still needed.#
+
+* As a [.removed]#fast-checking fan (Sebastian),# [.inserted]#maintainer,# I want [.inserted]#source and timing information stored with the report so that later corrections can be understood.#
+* [.inserted]#As# a [.removed]#clear explanation when an#
+[.removed]#update is missing# [.inserted]#user checking standings, I want to know whether standings may be delayed so that I do not assume they already include the latest game.#
+
+==== Epic 3: Corrections and Change History
+
+[.inserted]#This epic covers what happens after sports information changes. Local sports information can change because a first post was wrong, a later source corrected the value, a schedule changed, or a game status was updated after a delay. The system should keep enough context to explain the change.#
+
+[.inserted]#Features:#
+
+
+* [.inserted]#Correction recording.#
+* [.inserted]#Old value and new value preservation for meaningful changes.#
+* [.inserted]#Correction source tracking.#
+* [.inserted]#Corrected status shown to users.#
+* [.inserted]#Recent change review for maintainers.#
+* [.inserted]#Manual correction support for irregular local data.#
+* [.inserted]#Correction trace connected to reliability metadata.#
+
+[.inserted]#User stories:#
+
+
+* [.inserted]#As a platform maintainer, I want to record the source of a correction so that later reviewers can see why a value changed.#
+* [.inserted]#As Andres, I want to know whether a score was corrected after first publication so that I do not cite the wrong value.#
+* [.inserted]#As Abiel, I want corrected schedule information to be visible so that I do not send players to the wrong time or place.#
+* [.inserted]#As Sebastian, I want corrected scores to be marked simply# so that I know [.removed]#whether the information is delayed,#
+[.removed]#unavailable, or still being checked.# [.inserted]#why a score changed from what I saw earlier.#
+
+* As a [.removed]#deadline reporter (Andres),# [.inserted]#league organizer, I want a correction to replace the outdated value while still keeping a trace of what changed.#
+* [.inserted]#As a developer, I want correction behavior to be consistent so that score corrections, schedule corrections, and status corrections are not handled three different ways.#
+* [.inserted]#As a user,# I want the [.removed]#platform# [.inserted]#corrected value# to [.removed]#avoid presenting#
+[.removed]#uncertain information as definitive# [.inserted]#be easier to see than the old value# so that [.removed]#breaking updates do not mislead#
+the [.removed]#public.# [.inserted]#correction does not create more confusion.#
+
+* As a [.removed]#reliability-focused engineer (Chris),# [.inserted]#maintainer,# I want [.removed]#standardized fallback#
+[.removed]#behavior when an external source fails# [.inserted]#manual overrides to create a correction trace# so that [.removed]#outages# [.inserted]#manual changes# do not appear [.removed]#to users#
+[.removed]#as random or inconsistent errors.#
+
+ without explanation.
+
+==== Epic 
+
+[.removed]#As# [.inserted]#4: Mobile-First Access for Game Information#
+
+[.inserted]#This epic covers the way most users will check local sports information: quickly, from# a [.removed]#local-sports follower,# [.inserted]#phone, often while doing something else. The mobile view should support quick checking without hiding uncertainty indicators.#
+
+[.inserted]#Features:#
+
+
+* [.inserted]#Compact game cards.#
+* [.inserted]#Mobile score layout.#
+* [.inserted]#Team and league shortcuts.#
+* [.inserted]#Clear game-status label.#
+* [.inserted]#Readable source and update indicators.#
+* [.inserted]#Quick access to team schedule.#
+* [.inserted]#Reduced navigation for common score-checking tasks.#
+* [.inserted]#Mobile-friendly correction and conflict indicators.#
+
+[.inserted]#User stories:#
+
+
+* [.inserted]#As Sebastian,# I want [.removed]#the platform# to [.removed]#remain usable during#
+[.removed]#playoffs, tournaments, and breaking-news moments# [.inserted]#check a score from my phone in a few seconds# so that I can [.removed]#still get the#
+[.removed]#most important information when demand spikes.#
+
+[.removed]#Features#
+
+[.removed]#Peak-event responsiveness#
+[.removed]#Core pages for scores, standings, and game status should remain responsive#
+[.removed]#during periods of unusually high traffic.#
+
+[.removed]#Prioritized delivery of essential information#
+[.removed]#When load is high, the platform should keep the most important information#
+[.removed]#available first, even if less important details need to wait.#
+
+[.removed]#Recovery visibility during stressed conditions#
+[.removed]#The platform should make it possible to measure whether it stays available,#
+[.removed]#how fast it recovers, and what information remains accessible during stress.#
+
+[.removed]#User stories# [.inserted]#answer friends without opening several apps.#
+
+* As a [.removed]#fast-checking fan (Sebastian),# [.inserted]#spectator at a venue,# I want [.inserted]#the# score and [.removed]#standings pages# [.inserted]#game status# to [.inserted]#be clear on a small screen#
+[.removed]#load reliably during playoffs# so that I can [.removed]#follow games while# [.inserted]#compare# the [.removed]#event is#
+[.removed]#still happening.# [.inserted]#app with what I am seeing.#
+
+* [.inserted]#As Abiel, I want schedule and venue changes to be readable from my phone so that I can notify the team quickly.#
+* As a [.removed]#fast-checking fan (Sebastian),# [.inserted]#parent following a team,# I want [.removed]#the platform# [.inserted]#upcoming games and recent results# to [.removed]#keep showing the#
+[.removed]#most essential information when traffic is extreme# [.inserted]#be easy to find from a phone# so that I [.removed]#am# [.inserted]#do# not [.removed]#blocked#
+[.removed]#from updates entirely.# [.inserted]#need to search through social media posts.#
+
+* As a [.removed]#deadline reporter (Andres),# [.inserted]#casual user,# I want the [.removed]#platform# [.inserted]#app# to [.removed]#stay understandable#
+[.removed]#during major events# [.inserted]#show the score, teams, and status before secondary details# so that [.inserted]#the page does not feel crowded.#
+
+* [.inserted]#As Andres, I want# source [.removed]#delays, outages, or traffic spikes do# [.inserted]#and update information to still be visible on mobile so that quick access does# not [.inserted]#remove important context.#
+[.removed]#turn live coverage into confusion.#
+
+* As a [.removed]#reliability-focused engineer (Chris), I want to measure availability#
+[.removed]#and recovery time during peak-event simulations so that reliability work can#
+[.removed]#be judged# [.inserted]#user# with [.removed]#actual evidence rather than guesswork.#
+
+
+
+[.removed]#As# [.inserted]#poor signal at# a [.removed]#platform engineer,# [.inserted]#venue,# I want [.removed]#reliability testing and monitoring tied into#
+the [.removed]#development workflow so that conflict handling, degraded behavior, and#
+[.removed]#recovery logic are checked before users run into them.#
+
+[.removed]#Features#
+
+[.removed]#Automated reliability test coverage#
+[.removed]#The project should include automated checks for conflicting data, delayed#
+[.removed]#updates, missing fields, and other situations that are common in this domain.#
+
+[.removed]#Fault injection for external dependency failure#
+[.removed]#The team should be able to simulate source failures and unstable conditions# [.inserted]#page# to [.removed]#verify that fallback behavior still matches the documented expectations.#
+
+[.removed]#Operational metrics and monitoring views#
+[.removed]#The project should track reliability-related measures such as availability,#
+[.removed]#accuracy, consistency, and recovery time# [.inserted]#avoid heavy unnecessary content# so that [.removed]#improvements and regressions# [.inserted]#score information# can [.removed]#be seen over time.#
+
+[.removed]#User stories# [.inserted]#load more easily.#
+
+* As a [.removed]#reliability-focused engineer (Chris),# [.inserted]#maintainer reviewing a reported issue from a phone,# I want [.removed]#automated tests# [.inserted]#the game record to show enough source context to understand what may be wrong.#
+
+==== Epic 5: Reliability Testing and Maintainability
+
+[.inserted]#This epic covers implementation support for the parts of the system# that [.inserted]#handle scores, missing values,#
+[.removed]#simulate# conflicting [.removed]#data sources# [.inserted]#reports, corrections, and stale data. The goal is to keep responsibility clear# so that [.removed]#system# [.inserted]#formatting, validation, and display logic do not drift across unrelated functions.#
+
+[.inserted]#Features:#
+
+
+* [.inserted]#Unit tests for score formatting.#
+* [.inserted]#Tests for missing-score behavior.#
+* [.inserted]#Tests for conflict detection.#
+* [.inserted]#Tests for stale or delayed indicators.#
+* [.inserted]#Tests for correction handling.#
+* [.inserted]#Review of function responsibility boundaries.#
+* [.inserted]#Implementation fragments tied to actual code.#
+* [.inserted]#BDD scenarios for selected local sports data cases.#
+
+[.inserted]#User stories:#
+
+
+* [.inserted]#As Chris, I want score formatting# behavior [.removed]#stays predictable#
+[.removed]#when sources disagree.# [.inserted]#to be handled through one clear function so that null, undefined, or incomplete scores are not checked differently in several places.#
+
+* As a [.removed]#reliability-focused engineer (Chris),# [.inserted]#developer,# I want [.removed]#automated# [.inserted]#missing-score cases to have# tests [.removed]#that#
+[.removed]#simulate delayed updates and missing data# so that [.removed]#user-facing behavior stays#
+[.removed]#clear when the incoming information is incomplete.# [.inserted]#blank values are not accidentally displayed as real scores.#
+
+* As a [.removed]#reliability-focused engineer (Chris),# [.inserted]#developer,# I want [.removed]#fault injection# [.inserted]#conflict cases to be covered by# tests
+[.removed]#against external dependencies# so that [.removed]#we can verify fallback strategies and#
+[.removed]#error-handling logic before real outages happen.# [.inserted]#future changes do not hide disagreement between sources.#
+
+* As a [.removed]#reliability-focused engineer (Chris),# [.inserted]#maintainer,# I want [.removed]#CI workflows# [.inserted]#correction behavior# to [.removed]#run#
+[.removed]#reliability tests regularly# [.inserted]#be documented and tested# so that [.removed]#coverage includes stress and failure#
+[.removed]#conditions,# [.inserted]#updated scores do# not [.removed]#only normal operation.# [.inserted]#erase useful change context.#
+
+* As a [.removed]#reliability-focused engineer (Chris),# [.inserted]#reviewer,# I want [.removed]#dashboards# [.inserted]#implementation fragments in the documentation to come from real code so that the documentation is worth checking during review.#
+* [.inserted]#As a developer, I want BDD scenarios# for [.removed]#accuracy,#
+[.removed]#consistency, availability,# [.inserted]#at least the main score-checking# and [.removed]#recovery time# [.inserted]#conflict-handling cases so that behavior is described in user-level terms before or alongside implementation.#
+
+* [.inserted]#As Chris, I want function responsibilities to be separated clearly so that display builders do not duplicate checks owned by score-formatting or score-completeness functions.#
+* [.inserted]#As a project maintainer, I want tests tied to specific reliability behavior# so that [.removed]#we can see whether# the system [.removed]#is actually improving.# [.inserted]#does not only test happy-path score display.#

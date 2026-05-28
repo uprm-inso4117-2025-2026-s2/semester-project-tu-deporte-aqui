@@ -1,0 +1,132 @@
+
+==== 2.1.3 Domain Terminology in Relation to Domain Rough Sketch
+
+===== Purpose
+
+This section [.removed]#explains how the terminology from Section 2.1.2 is used after# [.inserted]#maps# the [.removed]#rough sketch# [.inserted]#observations# in Section [.removed]#2.1.1. The rough sketch names the main concerns of# [.inserted]#2.1.1 to# the [.removed]#domain# [.inserted]#standardized terms defined# in [.removed]#broad terms.# [.inserted]#Section 2.1.2.# The [.removed]#terminology section then gives fixed terms# [.inserted]#goal is to keep one consistent vocabulary# for [.removed]#those concerns so the rest of the document can describe them more precisely# [.inserted]#domain description, requirements,# and [.removed]#consistently.# [.inserted]#later analysis.#
+
+
+[.removed]#The rough sketch uses plain-language descriptions such as conflicting reports, delayed updates, degraded states, and trust.# [.inserted]#Mapping Method#
+
+[.inserted]#Section 2.1.1 records raw situations in plain language.# Section 2.1.2 [.removed]#introduces fixed# [.inserted]#defines precise# terms for those [.removed]#conditions# [.inserted]#same situations. This section connects both,# so [.removed]#later sections do not have to redefine them# each [.removed]#time.#
+
+[.removed]#In that sense, Section 2.1.2 does not replace the rough sketch. It provides a controlled vocabulary for discussing the same domain concerns in a more exact way.#
+
+
+
+[.removed]#When the document discusses the status of sports information, it uses the verification terms from Section 2.1.2:#
+
+
+- [.removed]#*Confirmed*#
+- [.removed]#*Unverified*#
+- [.removed]#*Developing*#
+- [.removed]#*Conflicting*#
+- [.removed]#*Delayed*#
+- [.removed]#*Corrected*#
+
+[.removed]#These# [.inserted]#rough-sketch concern is linked to specific terminology and no additional# terms are [.removed]#used to describe how information stands at a given moment, especially when reports differ, arrive late, or change over time.# [.inserted]#introduced here.#
+
+===== Rough-Sketch Concern to Terminology 
+
+[.removed]#When# [.inserted]#Mapping#
+
+[.inserted]#The mapping below shows how# the [.removed]#document needs to distinguish stronger# [.inserted]#broad concerns# from [.removed]#weaker support for a reported value, it uses# [.inserted]#Section 2.1.1 are expressed with# the [.removed]#confidence# [.inserted]#fixed# terms from Section [.removed]#2.1.2:#
+
+
+- [.removed]#*High Confidence*#
+- [.removed]#*Medium Confidence*#
+- [.removed]#*Low Confidence*#
+
+[.removed]#These terms do# [.inserted]#2.1.2.#
+
+====== Concern A: Information arrives as scattered reports, not  one clean feed
+
+[.inserted]#The rough sketch describes posts, screenshots, and updates coming from different origins and formats. In terminology, this is represented by:#
+
+
+* [.inserted]#*Source*#
+* [.inserted]#*Source Report*#
+* [.inserted]#*Sporting Event*#
+* [.inserted]#*Event Record*#
+* [.inserted]#*Source Attribution*#
+* [.inserted]#*Reliability Metadata*#
+
+[.inserted]#This mapping keeps# a [.removed]#value.# clear distinction between what is reported (*Source Report*) and 
+
+[.removed]#When# [.inserted]#what# the [.removed]#document needs to state where# [.inserted]#system currently maintains (*Event Record*).#
+
+====== Concern B: Missing, stale, or late information  must not look confirmed
+
+[.inserted]#The rough sketch notes that users often cannot tell if data is missing, outdated,# or [.removed]#how recent it is, it uses:#
+
+[.removed]#-# [.inserted]#pending confirmation. In terminology, this is represented by:#
+
+
+* [.inserted]#*Verification State* (*Unverified*, *Confirmed*, *Final*)#
+* [.inserted]#*Provisional*#
+* [.inserted]#*Unknown*#
+* [.inserted]# *Publish Time*#
+[.removed]#-# * [.inserted]#*Ingest Time*#
+
+* [.inserted]# *Last Updated Time*#
+- [.removed]#*Source Type*#
+- [.removed]#*Reliability Metadata*#
+
+[.removed]#These terms are used whenever the documentation refers to source attribution, freshness,#
+
+* [.inserted]#*Staleness*#
+
+[.inserted]#This mapping ensures missing# or [.removed]#the contextual data attached to a report.#
+
+[.removed]#When the document discusses conditions affecting the platform as a whole rather than a single report, it uses:#
+
+
+- [.removed]#*Degraded State*#
+- [.removed]#*Graceful Degradation*#
+- [.removed]#*Silent Failure*#
+
+[.removed]#These terms# [.inserted]#old values# are [.removed]#used to describe what happens when the platform cannot operate under normal conditions.# described explicitly instead of being presented with misleading certainty.
+
+====== Concern C: Two or more reports can disagree
+
+The rough sketch [.removed]#remains# [.inserted]#includes cases where# the [.removed]#broad description# [.inserted]#same event is shown differently across sources. In terminology, this is represented by:#
+
+
+* [.inserted]#*Conflict*#
+* [.inserted]#*Correction*#
+* [.inserted]#*Verification State*#
+* [.inserted]#*Confidence Level* (*High Confidence*, *Medium Confidence*, *Low Confidence*)#
+* [.inserted]#*Silent Overwrite*#
+
+[.inserted]#This mapping supports documenting disagreement, later correction, and traceable changes instead# of [.inserted]#silently replacing values.#
+
+====== Concern D: Dependability should be visible to users
+
+[.inserted]#The rough sketch emphasizes user trust and# the [.removed]#domain.# [.inserted]#need to interpret uncertain information quickly. In terminology, this is represented by:#
+
+
+* [.inserted]#*Dependability Indicator*#
+* [.inserted]#*Source Trust Level*#
+* [.inserted]#*Confidence Level*#
+* [.inserted]#*Source Attribution*#
+
+[.inserted]#This mapping formalizes how the system communicates certainty, uncertainty, and origin to users.#
+
+====== Concern E: The  system may continue operating under partial failure
+
+[.inserted]#The rough sketch includes delayed updates, incomplete coverage, and inconsistent availability. In terminology, this is represented by:#
+
+
+* [.inserted]#*Degraded State*#
+* [.inserted]#*Graceful Degradation*#
+
+[.inserted]#This mapping states that# the [.removed]#source# [.inserted]#platform should continue providing qualified partial information instead# of [.removed]#truth# [.inserted]#failing silently.#
+
+===== Consistency Rules for Later Sections
+
+[.inserted]#To keep terminology consistent across the document:#
+
+
+* [.inserted]#Later sections should use# the [.removed]#defined# terms [.inserted]#from Section 2.1.2 exactly as defined.#
+* [.inserted]#Plain-language wording from Section 2.1.1 may be# used [.removed]#afterward. This section only states that relationship. It does not introduce# [.inserted]#for examples, but normative discussion should use standardized terms.#
+* [.inserted]#If a# new [.removed]#concepts beyond those already# [.inserted]#domain term is needed in future milestones, it must first be# defined in Section [.removed]#2.1.2.# [.inserted]#2.1.2 before being used elsewhere.#

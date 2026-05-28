@@ -1,0 +1,146 @@
+==== 2.1.1 Domain Rough Sketch
+
+This [.removed]#section keeps the early discussion in a# rough [.removed]#form. It does not try to#
+[.removed]#clean everything up yet.# [.inserted]#sketch records concrete situations observed around local Puerto Rico sports information.# The [.removed]#point# [.inserted]#purpose here# is [.inserted]#not# to [.removed]#leave the original concerns visible#
+[.removed]#so# [.inserted]#standardize terms yet. Standardized terms are introduced# later [.removed]#sections can trace their concepts back to them.#
+
+[.removed]#A lot of the early conversation kept circling around# [.inserted]#in# the [.removed]#same frustration:#
+[.removed]#people want to follow# [.inserted]#terminology and concept analysis sections.#
+
+=== Raw observations about local sports  updates
+
+[.inserted]#During review of local sports information sources,# the [.inserted]#team saw that game# information [.removed]#does#
+[.removed]#not come from one place, does not arrive at one speed,# [.inserted]#is often posted in different places# and [.removed]#does not always#
+[.removed]#match across sources.#
+
+[.removed]#Some of# [.inserted]#in different forms.#
+
+
+* [.inserted]#A team account posted a final score as an Instagram story. The post showed# the [.removed]#statements# [.inserted]#two teams# and [.removed]#situations that came up were close to# the [.inserted]#score, but it did not show the game date. After the story expired, the#
+[.removed]#following:#
+
+[.removed]#"I saw one# score [.removed]#on Instagram and# [.inserted]#was no longer easy to find.#
+
+* [.inserted]#A league page posted# a [.removed]#different# [.inserted]#Facebook image with several scores in# one [.inserted]#graphic. The image listed team names and final scores, but the text was embedded# in [.removed]#a group chat."#
+[.removed]#"Sometimes# the [.removed]#reporter posts first,# [.inserted]#image instead of written as structured data.#
+
+* [.inserted]#A sports media account posted a score update during a game,# but [.removed]#later# the league page [.removed]#says#
+[.removed]#something else."#
+[.removed]#"A game can look live in one place and finished in another."#
+[.removed]#"During playoffs everybody starts checking at once, and that is exactly#
+[.removed]#when pages get slow or updates stop."#
+[.removed]#"If nothing new has been posted, I still want to know what the last known# [.inserted]#did not post an update until much later.#
+
+* [.inserted]#A fan shared a screenshot of a# score [.removed]#was and when it was last changed."#
+[.removed]#"A blank space is worse than saying that the information is missing."#
+[.removed]#"If# [.inserted]#in# a [.removed]#result gets corrected later, people start arguing about which version#
+[.removed]#was# [.inserted]#group chat before# the [.removed]#real one."#
+[.removed]#"Not every local league posts with# [.inserted]#official page posted anything.#
+
+* [.inserted]#One source listed a match as completed, while another still showed# the same [.removed]#format, and# [.inserted]#match as upcoming.#
+* [.inserted]#In# some [.removed]#barely post at#
+[.removed]#all."#
+[.removed]#"Sometimes you# [.inserted]#posts, the home and away teams were clear. In others,# only [.removed]#get a screenshot, a short post,# [.inserted]#abbreviations# or [.removed]#a message from#
+[.removed]#someone who was there."#
+[.removed]#"When information changes, I want# [.inserted]#logos were shown, so the reader had# to [.removed]#know whether it# [.inserted]#infer which team# was [.removed]#corrected,#
+[.removed]#confirmed,# [.inserted]#which.#
+
+* [.inserted]#Some updates showed only the final score. Others included quarter-by-quarter# or [.removed]#just replaced."#
+
+[.removed]#Another thing# [.inserted]#inning-by-inning information.#
+
+* [.inserted]#Some posts were edited or replaced later without a visible explanation of what changed.#
+
+[.inserted]#These observations show# that [.removed]#kept coming up was# [.inserted]#the raw material for the project is not a clean data feed. It is a set of scattered reports, posts, screenshots, and updates# that [.removed]#people were# [.inserted]#may arrive at different times and may# not [.removed]#only asking for#
+[.removed]#scores. They were# [.inserted]#use the same format.#
+
+=== Raw observations about missing or late information
+
+[.inserted]#The team# also [.inserted]#observed cases where a person# trying to [.removed]#figure out# [.inserted]#follow a game would not know# whether the information [.removed]#in front#
+[.removed]#of them deserved trust. In practice, that meant questions like these:#
+
+[.removed]#"Who posted this first?"#
+[.removed]#"Was this# [.inserted]#was unavailable, late, or simply not# posted [.removed]#by# [.inserted]#yet.#
+
+
+* [.inserted]#A schedule post listed# the [.removed]#league, a reporter, or just# [.inserted]#game time, but no later post confirmed whether the game had started.#
+* [.inserted]#A score was available for one game in# a [.removed]#community page?"#
+[.removed]#"How old is this update?"#
+[.removed]#"Is this final, still developing, or just# [.inserted]#league, while another game from# the [.removed]#only thing anyone has# [.inserted]#same date had no visible result.#
+
+* [.inserted]#A team page# posted
+[.removed]#so far?"#
+
+[.removed]#There were also rough discussion points that were not settled yet and were#
+[.removed]#left open on purpose:#
+
+[.removed]#If an official source posts late and# a [.removed]#reporter posts earlier, which one#
+[.removed]#should people follow in# [.inserted]#result, but# the [.removed]#meantime?#
+[.removed]#If two sources disagree, should one be shown, should both be shown, or#
+[.removed]#should# [.inserted]#standings page did not reflect# the result [.removed]#be held back?#
+[.removed]#How# [.inserted]#yet.#
+
+* [.inserted]#A source showed an# old [.removed]#can# [.inserted]#score without# a [.removed]#live update be# [.inserted]#visible last-updated time.#
+* [.inserted]#A user checking from a phone would have to open several pages# before [.removed]#people stop treating it as live?#
+[.removed]#What is# [.inserted]#knowing whether a missing score was truly missing or just posted somewhere else.#
+
+[.inserted]#These situations create a specific problem for# the [.removed]#minimum amount of# [.inserted]#project: missing# information [.removed]#needed before a game# should [.inserted]#not# be [.inserted]#treated#
+[.removed]#shown# as [.removed]#in progress?#
+[.removed]#If all sources go quiet during a game, should people see the last known#
+[.removed]#value, a warning, or both?# [.inserted]#if it were confirmed information.# A [.removed]#recurring tension in these discussions was# [.inserted]#blank score, an old score, and an unverified score mean different things to the user.#
+
+=== Raw observations about conflicting information
+
+[.inserted]#The team found# that [.removed]#failure# [.inserted]#conflict# is not only
+[.removed]#technical here. If# a [.inserted]#technical issue. It can happen in ordinary use when two sources describe the same event differently.#
+
+
+* [.inserted]#One# source [.removed]#is late, disappears, or disagrees with# [.inserted]#posted a final score, then# another [.inserted]#source posted a different final score for the same teams.#
+* [.inserted]#A social media post used team nicknames, while a standings page used official names, making it unclear whether both posts referred to the same team.#
+* [.inserted]#A game was described#
+[.removed]#source, people experience that# as [.removed]#confusion right away. The problem is not#
+[.removed]#just "the data is messy." The problem is that fans, coaches, reporters, and#
+[.removed]#organizers# [.inserted]#postponed in one place, but# still [.removed]#need# [.inserted]#appeared on a schedule somewhere else.#
+
+* [.inserted]#A correction appeared later, but the earlier incorrect post remained visible.#
+* [.inserted]#A user could see two values and have no simple way# to [.removed]#make sense of what is happening while# [.inserted]#know which one should be trusted.#
+
+[.inserted]#This means# the [.removed]#information#
+[.removed]#is incomplete, delayed, or contradictory.#
+
+[.removed]#Another recurring point was# [.inserted]#system should not assume# that [.inserted]#a single value is always enough. For some events,# the [.removed]#hardest moments are usually# [.inserted]#system may need to preserve# the [.removed]#ones#
+[.removed]#people care# [.inserted]#fact that reports disagree.#
+
+=== Raw observations about  users
+
+[.inserted]#The team considered several kinds of people who would encounter these situations.#
+
+
+* [.inserted]#A fan checking scores from a phone wants to know the current result quickly, especially during or right after a game.#
+* [.inserted]#A coach or team organizer wants to know whether a schedule, venue, or result has changed.#
+* [.inserted]#A reporter needs to avoid repeating a wrong score when sources disagree.#
+* [.inserted]#A platform maintainer needs enough structure to store a report, compare it with other reports,# and [.removed]#late-game#
+[.removed]#updates were brought up more than once because those are# [.inserted]#update a displayed event record later.#
+
+[.inserted]#These users do not all need# the [.removed]#moments# [.inserted]#same screen, but they all depend on the same domain facts: who played, what was reported, who reported it,# when [.removed]#more#
+[.removed]#people are checking, more posts are appearing,# [.inserted]#it was reported,# and [.removed]#mistakes become visible#
+[.removed]#fast.#
+
+[.removed]#At this stage,# [.inserted]#whether another report says something different.#
+
+=== Team interpretation
+
+[.inserted]#From# the [.removed]#rough sketch is not meant to explain# [.inserted]#raw observations,# the [.inserted]#team identified the following# domain [.removed]#neatly. It# [.inserted]#concerns for later concept formation:#
+
+
+* [.inserted]#A sports update should be treated as a report from a source, not automatically as final truth.#
+* [.inserted]#A report needs the actual reported value, not only source metadata.#
+* [.inserted]#A report can arrive before, during, or after a game.#
+* [.inserted]#Two reports about the same event may conflict.#
+* [.inserted]#A later report may correct an earlier value.#
+* [.inserted]#Missing information should be visible instead of silently displayed as if nothing# is [.inserted]#wrong.#
+* [.inserted]#The system should distinguish# a [.removed]#record# [.inserted]#continuous stream of updates from a one-time or spot update.#
+
+[.inserted]#These points are interpretations# of the [.removed]#situations, phrases, and unresolved questions that kept#
+[.removed]#appearing in early discussion. Later sections can organize these into#
+[.removed]#terminology, actions, requirements, and validation steps.# [.inserted]#observations above. The terminology section standardizes the names used for them.#

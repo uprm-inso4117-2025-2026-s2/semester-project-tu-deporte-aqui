@@ -1,0 +1,103 @@
+==== 2.1.2 Terminology
+
+This section defines [.removed]#terms# [.inserted]#terminology# used throughout the document [.inserted]#in order# to maintain consistent [.removed]#meaning.# [.inserted]#meaning across the domain description, requirements discussion, and behavioral analysis.#
+
+[.inserted]#The terminology reflects concepts identified during analysis of how local sports information is produced, communicated, corrected, interpreted, and trusted.#
+
+====== Core Domain Terms
+
+*Sporting Event*::
+A [.inserted]#bounded sports occurrence such as a# game, match, or competition that people may [.removed]#follow.# [.inserted]#follow, discuss, report on, or reference through updates and standings.#
+
+*Source*::
+An origin [.removed]#of# [.inserted]#from which# information about a sporting [.removed]#event.#
+[.removed]#Examples# [.inserted]#event is obtained.#
+[.inserted]#Sources may# include [.inserted]#official# league [.removed]#websites, team# pages, [.removed]#sports media,# [.inserted]#school athletic programs,# reporters, [.inserted]#community accounts, livestream updates, social media posts,# and third-party [.inserted]#sports# platforms.
+
+*Source Report*::
+A [.removed]#specific# [.inserted]#communicated# piece of information produced by a [.removed]#source, such as# [.inserted]#source regarding# a [.inserted]#sporting event.#
+[.inserted]#Examples include# score [.removed]#update, status,# [.inserted]#updates, game-status declarations, postponement notices, standings updates, corrections,# or [.removed]#correction.# [.inserted]#schedule publications.#
+
+*Event Record*::
+The maintained representation of what is currently known about a sporting [.removed]#event.# [.inserted]#event after considering available reports, corrections, and updates.#
+
+*Standings Snapshot*::
+A reported [.removed]#ordering or ranking# [.inserted]#representation# of [.removed]#teams# [.inserted]#team ordering, ranking, or records# at a [.removed]#specific# [.inserted]#particular moment in# time.
+
+*Correction*::
+A [.removed]#change# [.inserted]#later modification# to previously [.removed]#reported# [.inserted]#communicated# information [.removed]#based on new# [.inserted]#caused by reconciliation, review,# or [.removed]#updated data.# [.inserted]#newly available information.#
+
+====== Dependability and Verification Terms
+
+*Source Trust Level*::
+A [.removed]#general# [.inserted]#relatively stable# assessment of how dependable a source [.removed]#tends# [.inserted]#is generally considered# to [.removed]#be.# [.inserted]#be within the domain.#
+[.inserted]#This concerns the source itself rather than a specific reported value.#
+
+*Verification State*::
+The [.removed]#level# [.inserted]#current state# of confirmation [.removed]#of# [.inserted]#associated with# a reported [.removed]#value.# [.inserted]#value or maintained event record.#
+
+Defined [.removed]#states:# [.inserted]#verification states are:#
+
+* *Unverified* — [.inserted]#information has# not yet [.removed]#confirmed# [.inserted]#been sufficiently corroborated#
+* *Confirmed* — [.inserted]#information is# supported by corroborating or authoritative [.removed]#sources# [.inserted]#reports#
+* *Final* — [.inserted]#information is considered stable and# not [.inserted]#normally# expected to change [.removed]#under normal conditions# [.inserted]#further#
+
+*Provisional*::
+[.removed]#Information that is available but# [.inserted]#A condition in which information# may [.inserted]#already be useful while# still [.removed]#change.# [.inserted]#remaining subject to later correction, clarification, or confirmation.#
+
+NOTE: Provisional [.removed]#describes a condition,# [.inserted]#is# not [.inserted]#itself# a verification state. [.inserted]#It describes the current condition of dependability.#
+
+*Conflict*::
+A situation [.removed]#where multiple# [.inserted]#in which two or more source# reports [.removed]#provide# [.inserted]#communicate# incompatible [.removed]#information.# [.inserted]#values regarding the same relevant aspect of a sporting event.#
+
+*Confidence Level*::
+An assessment of how dependable a [.removed]#specific# [.inserted]#particular reported# value is [.removed]#in# [.inserted]#considered within its current# context.
+
+Defined [.removed]#levels:# [.inserted]#confidence levels are:#
+
+* *High Confidence* [.inserted]#— strong supporting basis exists for dependability#
+* *Medium Confidence* [.inserted]#— information appears plausible but uncertainty remains#
+* *Low Confidence* [.inserted]#— substantial uncertainty or inconsistency remains unresolved#
+
+NOTE: Confidence [.inserted]#level# depends on factors such as [.removed]#source,# [.inserted]#source trust,# recency, [.inserted]#corroboration,# and [.removed]#consistency.# [.inserted]#unresolved conflicts.#
+
+====== Freshness and Transparency Terms
+
+*Publish Time*::
+[.removed]#When# [.inserted]#The time at which# a source originally [.removed]#released the information.# [.inserted]#made information available.#
+
+*Ingest Time*::
+[.removed]#When the# [.inserted]#The time at which# information [.removed]#was# [.inserted]#becomes# recorded [.removed]#by# [.inserted]#or incorporated into# the [.removed]#system.# [.inserted]#maintained event record.#
+
+*Last Updated Time*::
+The most recent [.removed]#change to# [.inserted]#time at which# the [.inserted]#maintained# event [.removed]#record.# [.inserted]#record changed.#
+
+*Staleness*::
+A condition [.removed]#where# [.inserted]#in which# information [.removed]#is# [.inserted]#can# no longer [.inserted]#be treated as sufficiently# current [.removed]#enough# for its [.removed]#context.# [.inserted]#context because too much time has passed since the last dependable update.#
+
+*Dependability Indicator*::
+A [.removed]#marker# [.inserted]#visible marker, label, or explanation intended to help people understand the dependability condition of displayed information.#
+
+[.inserted]#*Source Attribution*::#
+[.inserted]#The explicit identification of where displayed information originated.#
+
+[.inserted]#*Reliability Metadata*::#
+[.inserted]#Associated contextual information# that helps explain [.removed]#how reliable# the [.removed]#information is.#
+
+[.removed]#*Source Attribution*::#
+[.removed]#Identification# [.inserted]#dependability, freshness, status, or origin# of [.removed]#where the information originated.# [.inserted]#a reported value.#
+[.inserted]#Examples may include timestamps, verification states, confidence levels, and attribution references.#
+
+====== System Condition Terms
+
+*Degraded State*::
+[.removed]#Operation continues, but# [.inserted]#A condition in which operation continues while expected# information [.removed]#is missing,# [.inserted]#remains# delayed, [.inserted]#incomplete, inconsistent,# or [.removed]#incomplete.# [.inserted]#partially unavailable.#
+
+*Graceful Degradation*::
+[.removed]#Providing# [.inserted]#Continued provision of# partial [.inserted]#but clearly qualified# information [.removed]#with clear limitations# instead of [.removed]#failing completely.# [.inserted]#abrupt absence or misleading certainty.#
+
+*Silent Overwrite*::
+[.removed]#Replacing# [.inserted]#Replacement of previously communicated# information without preserving [.removed]#previous values# [.inserted]#visible indication that a change# or [.removed]#indicating change.# [.inserted]#conflict occurred.#
+
+*Unknown*::
+[.removed]#A# [.inserted]#An explicit indication that a relevant# value is [.inserted]#presently# not [.removed]#available# [.inserted]#known# and [.removed]#should# [.inserted]#must# not be inferred.

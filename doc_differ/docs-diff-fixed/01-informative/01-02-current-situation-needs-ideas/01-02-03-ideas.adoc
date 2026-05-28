@@ -1,0 +1,77 @@
+
+==== 1.2.3 Ideas
+
+===== Purpose
+
+This section [.removed]#outlines# [.inserted]#defines# the [.removed]#main# [.inserted]#core# ideas [.removed]#for# [.inserted]#that guide# Tu Deporte Aquí. [.removed]#These# [.inserted]#The# ideas respond to [.removed]#the needs described in# Section 1.2.2 [.inserted]#needs# and [.removed]#give a high-level view of# [.inserted]#explain how# the [.removed]#kind of system# [.inserted]#project approaches reliability, transparency, and uncertain local sports data in Puerto Rico.#
+
+===== Context Driving These Ideas
+
+[.inserted]#Many local leagues and school programs do not provide a stable official API or a consistent structured feed. In practice, updates are often published through mixed channels such as social media posts, image graphics, manual standings tables, and delayed website updates.#
+
+[.inserted]#Because this environment is fragmented and uneven,# the [.removed]#team intends to build.# [.inserted]#project ideas below focus on making useful information available while preserving uncertainty and source context.#
+
+=====  Core Idea 1: Unified Access to Local  Coverage
+
+[.removed]#One central idea is to build a platform focused on# [.inserted]#Tu Deporte Aquí should provide one mobile-first place for# local Puerto Rico [.removed]#sports. The platform is meant# [.inserted]#sports updates, so users do not have# to [.removed]#bring together# [.inserted]#reconstruct event status by switching across multiple platforms.#
+
+[.inserted]#This idea is about reducing discovery friction for# scores, schedules, standings, and [.removed]#related updates that are currently spread across league websites, social media posts, news outlets, and other reporting channels.#
+
+[.removed]#This idea follows from the fragmented situation described earlier. Rather than expecting followers to check many sources on their own, the system-to-be would gather relevant information into one place.#
+
+
+
+[.removed]#Another main idea is that the platform should treat uncertainty as normal rather than exceptional. Since# [.inserted]#status changes under# local [.removed]#sports information may be delayed, incomplete, or contradictory, the platform should not present all data as equally settled.#
+
+[.removed]#At a high level, this means the system-to-be should separate information that appears stable from information that is still uncertain, and it should make conflicts or missing information visible instead of hiding them.#
+
+
+
+[.removed]#The platform should present sports information together with enough source context for people to judge it. The main idea is not only to show a score or status, but also to show where that information came from and how recent it is.#
+
+[.removed]#This idea follows from the need for dependability described in Section 1.2.2. If information comes from sources with different levels of authority or different update timing, the platform should preserve that context instead of presenting all updates in the same way.# [.inserted]#reporting conditions.#
+
+=====  Core Idea 2: Reliability by Design, Not by Assumption
+
+The platform should [.removed]#allow for the fact that sports information can change after it is first reported. Scores may be corrected, schedules may shift,# [.inserted]#treat incomplete, delayed,# and [.removed]#previously incomplete# [.inserted]#conflicting# information [.removed]#may later be filled in.#
+
+[.removed]#The idea here is that the system-to-be# [.inserted]#as expected conditions. It# should not assume [.removed]#that# the first reported value is always [.removed]#the# final [.removed]#one. It# [.inserted]#or authoritative.#
+
+[.inserted]#This idea drives a reliability-first presentation where uncertain data is explicitly qualified instead of shown with false certainty.#
+
+===== Core Idea 3: Transparent Source and Freshness Context
+
+[.inserted]#Every important value# should [.removed]#make room# [.inserted]#be accompanied by enough context# for [.removed]#updates, corrections,# [.inserted]#interpretation: where it came from, when it was published or updated,# and [.removed]#later clarification.#
+
+
+
+[.removed]#Another idea# [.inserted]#whether it# is [.inserted]#stable, provisional, or disputed.#
+
+[.inserted]#This idea connects directly# to [.removed]#treat# [.inserted]#user trust: people can make better decisions when they understand origin and recency, not only# the [.inserted]#value itself.#
+
+===== Core Idea 4: Explicit Conflict and Correction Handling
+
+[.inserted]#The# platform [.removed]#as mobile-first. Many followers check# [.inserted]#should preserve evidence of disagreement and later correction rather than silently replacing prior information. If reports conflict, the conflict remains visible until resolved; if a correction occurs, the change remains traceable.#
+
+[.inserted]#This idea supports accountability for leagues, reporters, and community contributors while helping users understand why displayed values changed.#
+
+===== Core Idea 5: Pragmatic Operation Under Limited Data Infrastructure
+
+[.inserted]#Since structured local# sports [.removed]#information from their phones during games# [.inserted]#data can be limited, inconsistent,# or [.removed]#while moving between activities, so# [.inserted]#delayed,# the [.removed]#system# [.inserted]#platform# should [.removed]#be designed with small-screen access in mind.#
+
+[.removed]#At a high level, this# [.inserted]#still provide useful service under partial information conditions instead of failing closed.#
+
+[.inserted]#This idea# means [.inserted]#operational pragmatism: provide best-available qualified information, keep uncertainty visible, and continue updating as better data appears.#
+
+===== How These Ideas Shape the  Rest of the Document
+
+[.inserted]#These ideas inform:#
+
+
+* [.inserted]#domain terminology for uncertainty and dependability (Section 2.1.2)#
+* [.inserted]#domain interpretation and concept formation (Section 2.1 and Section 3.1)#
+* [.inserted]#requirements# on [.removed]#large layouts or long explanations.# [.inserted]#transparency, source attribution, correction traceability, and degraded operation (Section 2.2)#
+
+===== Scope of This Section
+
+This section [.removed]#gives a high-level view of how the team intends to address the needs from Section 1.2.2. It states the main# [.inserted]#defines guiding# ideas [.removed]#behind the system-to-be, but it# [.inserted]#and rationale. It# does not define [.removed]#detailed behavior, technical mechanisms,# [.inserted]#implementation details, architecture,# or formal requirements.

@@ -1,0 +1,216 @@
+
+==== 3.2.2 System Testing Perspectives
+
+===== Purpose
+
+This section describes [.removed]#testing strategies that will be applied during#
+[.removed]#future development stages of# the [.removed]#Tu Deporte Aquí platform. This section outlines#
+testing [.removed]#approaches that will evaluate the behavior of the#
+[.removed]#system once implementation begins.#
+
+[.removed]#These testing strategies focus on ensuring that the platform remains#
+[.removed]#reliable, responsive, and easy# [.inserted]#perspectives currently used# to [.removed]#use for sports fans accessing#
+[.removed]#information such as teams, athletes, standings, game schedules, and#
+[.removed]#sports news.#
+
+
+
+[.removed]#Testing for# [.inserted]#evaluate#
+Tu Deporte Aquí [.removed]#focuses on evaluating both the technical#
+[.removed]#performance of the system# and [.removed]#the usability of the user interface.#
+[.removed]#These testing perspectives help ensure# [.inserted]#to identify areas# that [.removed]#users can access sports#
+[.removed]#information quickly and interact with the platform without difficulty.#
+
+
+
+[.removed]#Performance# [.inserted]#require additional stabilization.#
+
+[.inserted]#Rather than defining future# testing [.removed]#evaluates how the system behaves when multiple#
+[.removed]#users access the platform simultaneously.#
+
+[.removed]#The goal of# [.inserted]#plans,# this [.inserted]#section explains how# testing [.removed]#approach is# [.inserted]#perspectives are currently used#
+to [.removed]#verify that the system remains#
+[.removed]#responsive when users request sports information such as team standings,#
+[.removed]#athlete statistics, or upcoming game schedules.#
+
+[.removed]#Performance testing helps determine whether the system:#
+
+
+* [.removed]#Maintains acceptable response times when multiple users access the# [.inserted]#assess responsiveness, usability, and# system
+* [.removed]#Handles concurrent requests for sports data without delays#
+* [.removed]#Avoids server overload during moderate traffic conditions#
+* [.removed]#Provides stable access to sports information pages#
+
+[.removed]#Representative scenarios include:#
+
+
+* [.removed]#Multiple users checking standings at the same time#
+* [.removed]#Several users accessing team or athlete pages simultaneously#
+* [.removed]#Users viewing game schedules during sports events#
+
+
+
+[.removed]#Usability testing evaluates how easily users can navigate# [.inserted]#behavior under representative usage conditions.#
+
+[.inserted]#These perspectives complement validation# and [.removed]#interact# [.inserted]#verification activities by#
+[.inserted]#focusing on observable interaction# with the platform.
+
+[.removed]#Since the primary users#
+
+===== Testing Perspectives
+
+[.inserted]#Testing activities were organized around two complementary perspectives:#
+
+
+* [.inserted]#system performance under expected user activity#
+* [.inserted]#usability# of [.inserted]#information access and interaction#
+
+[.inserted]#These perspectives were selected because# Tu Deporte Aquí [.removed]#are# [.inserted]#depends heavily on#
+[.inserted]#rapid interpretation of changing# sports [.removed]#fans looking for#
+[.removed]#quick# [.inserted]#information.#
+
+===== Performance Perspective
+
+[.inserted]#Performance evaluation focuses on whether users can# access [.inserted]#information without#
+[.inserted]#unnecessary delay under normal usage conditions.#
+
+[.inserted]#The objective is not# to [.removed]#match results, standings, and athlete information, the#
+[.removed]#system interface must allow users# [.inserted]#establish formal benchmark values but# to [.removed]#find# [.inserted]#identify#
+[.inserted]#conditions that negatively affect responsiveness and user experience.#
+
+[.inserted]#Observed evaluation concerns included:#
+
+
+* [.inserted]#loading behavior across sports pages#
+* [.inserted]#repeated navigation between standings and teams#
+* [.inserted]#responsiveness during multiple simultaneous requests#
+* [.inserted]#rendering behavior when# information [.removed]#efficiently# [.inserted]#updates occur#
+
+[.inserted]#Representative evaluation situations included:#
+
+[cols="2,3"]
+|===
+|[.inserted]#Scenario#|[.inserted]#Observed Focus#
+
+|[.inserted]#Users opening standings repeatedly#
+|[.inserted]#Page responsiveness# and [.inserted]#loading behavior#
+
+|[.inserted]#Multiple users accessing athlete pages#
+|[.inserted]#Concurrent request handling#
+
+|[.inserted]#Navigation between teams and schedules#
+|[.inserted]#Route transition performance#
+
+|[.inserted]#Opening pages with incomplete data#
+|[.inserted]#Graceful degradation and recovery#
+|===
+
+[.inserted]#These evaluations helped identify situations that could reduce usability or#
+[.inserted]#system reliability.#
+
+[.removed]#without confusion.# Usability [.removed]#testing# [.inserted]#Perspective#
+
+[.inserted]#Usability evaluation# focuses on [.removed]#verifying# whether [.removed]#the platform:#
+
+
+* [.removed]#Allows# users [.removed]#to# [.inserted]#can# locate [.inserted]#and interpret# sports
+information [.removed]#quickly# [.inserted]#efficiently.#
+
+[.inserted]#The evaluation emphasizes practical interaction rather than interface#
+[.inserted]#appearance alone.#
+
+[.inserted]#Observed usability concerns included:#
+
+* [.removed]#Presents data in a clear and understandable format# [.inserted]#discoverability of information#
+* [.removed]#Provides intuitive navigation between sections# [.inserted]#clarity# of [.removed]#the platform# [.inserted]#page organization#
+* [.removed]#Supports efficient user interaction without unnecessary complexity#
+
+[.removed]#Typical usability scenarios include:# [.inserted]#navigation consistency#
+
+* [.removed]#Finding the# [.inserted]#interpretation of incomplete information#
+
+[.inserted]#Representative evaluation situations included:#
+
+[cols="2,3"]
+|===
+|[.inserted]#Scenario#|[.inserted]#Observed Focus#
+
+|[.inserted]#Finding# standings for a [.removed]#specific# [.inserted]#selected# team |[.inserted]#Navigation clarity#
+
+|[.inserted]#Viewing# upcoming [.removed]#games#
+
+* [.removed]#Accessing# [.inserted]#schedules#
+|[.inserted]#Information accessibility#
+
+|[.inserted]#Accessing# athlete [.removed]#statistics#
+
+* [.removed]#Navigating between# [.inserted]#information#
+|[.inserted]#Content organization#
+
+|[.inserted]#Moving across# teams, standings, and news [.removed]#sections#
+
+
+
+[.removed]#By applying performance and usability testing#
+|[.inserted]#Interaction consistency#
+|===
+
+[.inserted]#Special attention was given to minimizing interpretation effort# during [.removed]#later development#
+[.removed]#phases,#
+[.inserted]#time-sensitive sports situations.#
+
+===== Relationship to Reliability Goals
+
+[.inserted]#System testing perspectives support# the [.removed]#project aims# [.inserted]#broader goals of the project.#
+
+[.inserted]#Performance contributes to:#
+
+
+* [.inserted]#timely access# to [.removed]#ensure that# [.inserted]#information#
+* [.inserted]#reduction of interaction delays#
+* [.inserted]#dependable platform behavior#
+
+[.inserted]#Usability contributes to:#
+
+
+* [.inserted]#transparency#
+* [.inserted]#lower interpretation effort#
+* [.inserted]#improved user trust#
+
+[.inserted]#These perspectives reinforce# the [.inserted]#project objective of helping users understand#
+[.inserted]#sports information rather than simply displaying data.#
+
+===== Current Limitations
+
+[.inserted]#Testing activities remain exploratory and reflect the current state of project#
+[.inserted]#development.#
+
+[.inserted]#Current limitations include:#
+
+
+* [.inserted]#incomplete feature implementation#
+* [.inserted]#limited measurement-based performance evaluation#
+* [.inserted]#partial coverage of user interaction scenarios#
+* [.inserted]#evolving interface behavior#
+
+[.inserted]#These limitations define the current confidence boundary rather than indicate#
+[.inserted]#failure.#
+
+===== Summary
+
+[.inserted]#System testing perspectives provide a structured way to evaluate how users#
+[.inserted]#interact with# Tu Deporte Aquí [.removed]#platform#
+[.removed]#provides reliable# and [.removed]#user-friendly access to sports information.#
+
+[.removed]#These testing approaches help establish:#
+
+
+* [.removed]#Responsive system behavior under normal user activity#
+* [.removed]#Clear# [.inserted]#how reliably information can be accessed# and [.removed]#intuitive navigation for sports fans#
+* [.removed]#Consistent access#
+[.inserted]#interpreted.#
+
+[.inserted]#The goal of these evaluations is# to [.removed]#teams, athletes, schedules, and standings#
+
+* [.removed]#A positive overall user experience# [.inserted]#support iterative improvement rather than#
+[.inserted]#to claim complete verification of the final system.#

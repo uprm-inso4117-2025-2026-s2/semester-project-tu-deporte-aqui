@@ -1,0 +1,227 @@
+=== 4.2 BDD and BDD Tool Usage
+
+===== Purpose
+
+This section [.removed]#describes# [.inserted]#documents# how [.inserted]#Behavior-Driven Development (BDD) is applied in# the *Tu Deporte Aquí* [.removed]#team currently applies Behavior-Driven Development (BDD)# [.inserted]#project# to [.removed]#define, validate,# [.inserted]#connect requirements (Section 2) with implementation# and [.removed]#test system behavior. Unlike Milestone 1, where BDD was primarily used# [.inserted]#testing. It describes the artifacts that capture behavioral specifications, the current state of automated validation, and the trajectory# for [.removed]#planning,# [.inserted]#further integration.#
+
+===== BDD in  the Project
+
+BDD is [.removed]#actively used to guide implementation and verify# [.inserted]#a collaborative practice that uses concrete, plain‑language examples—written in Gherkin—to define expected system# behavior [.removed]#through automated# [.inserted]#before implementation. These examples serve simultaneously as specifications, acceptance criteria, and executable# tests. [.inserted]#In this project, BDD artifacts are organized into three layers:#
+
+
+* [.inserted]#High‑level scenarios linked#
+
+
+ to 
+
+[.removed]#We continue# [.inserted]#functional and non‑functional requirements.#
+
+* [.inserted]#Step definitions that bridge natural language# to [.removed]#derive acceptance criteria from user stories (Section 2.2.1)# [.inserted]#application code.#
+* [.inserted]#A test runner (Cucumber) that executes scenarios# and [.removed]#refine them into concrete# [.inserted]#reports results.#
+
+===== Specification Artifacts
+
+[.inserted]#The repository contains three sets of `.feature` files, each serving a distinct purpose.#
+
+====== `features/` – Refined Requirements-Level Specifications
+
+[.inserted]#The directory `features/` at the repository root holds the most precise and up‑to‑date# behavioral [.removed]#scenarios. These scenarios are expressed using# [.inserted]#specifications. Three files cover# the [.removed]#Given–When–Then structure# [.inserted]#main requirement areas:#
+
+
+* [.inserted]#`domain_requirements.feature` – domain rules for conflict detection, source authority, corrections,# and [.removed]#stored# [.inserted]#data staleness.#
+* [.inserted]#`interface_requirements.feature` – user‑visible indicators: timestamps, stale badges, missing‑data placeholders, source attribution, confidence displays.#
+* [.inserted]#`machine_requirements.feature` – system behavior under load, failures, caching, logging, and recovery.#
+
+[.inserted]#Every scenario# in [.removed]#`.feature`# [.inserted]#these# files [.removed]#within# [.inserted]#uses a consistent, domain‑specific vocabulary (e.g., “stale”, “conflicting reports”, “source down”, “partial data”) and is annotated with# the [.removed]#codebase.#
+
+
+[.removed]#Consider# [.inserted]#requirement IDs it validates (e.g., `# Req: R-DOM-2, R-DOM-3`). These files constitute# the [.removed]#following user story from Epic 1:#
+
+[.removed]#[quote]#
+[.removed]#____#
+[.removed]#As Sebastian, I want each score and update to show its# [.inserted]#canonical specification for the system’s behavior.#
+
+====== `tu-deporte-aqui/features/` – Intermediate Versions
+
+[.inserted]#The subdirectory `tu-deporte-aqui/features/` contains earlier versions of the same three feature files. The scenarios are substantially equivalent, but the terminology was less refined (e.g., “Continue operating when a# source [.removed]#so that I can judge credibility# [.inserted]#fails” rather than the current “Continue operating# when [.removed]#multiple channels exist.#
+[.removed]#____#
+
+[.removed]#We define scenarios such as:#
+
+[.removed]#[source,gherkin]#
+
+
+ a  source is down”). These files were used to bootstrap the initial step‑definition stubs in `stepdefs.js`. They are retained for historical reference; the `features/` versions supersede them.
+
+====== `tu-deporte-aqui/utils/.feature` – Utility‑Level Specification
+
+The file `tu-deporte-aqui/utils/.feature` is an implementation‑oriented specification that directly reflects the existing score‑utility functions (`formatScore`, `mapGameStatus`, `isGameStale`). It contains numeric, concrete examples (e.g., “home score 80 and away score 
+
+ 75”, “timestamp older than threshold”) and tests the 
+
+
+[.removed]#These scenarios represent concrete, testable examples# [.inserted]#narrow slice# of [.removed]#expected system behavior.#
+
+
+
+
+
+[.removed]#Our current BDD workflow follows three steps:#
+
+
+
+[.removed]#We define system behavior using Gherkin-style scenarios stored in the repository. These scenarios:#
+
+
+* [.removed]#describe# behavior [.removed]#in domain language#
+* [.removed]#are understandable by developers and stakeholders#
+* [.removed]#serve as# [.inserted]#that is already implemented. This file is not# a [.removed]#reference# [.inserted]#replacement# for [.removed]#implementation#
+
+[.removed]#Example scenarios cover:#
+
+
+* [.removed]#score formatting#
+* [.removed]#missing score handling#
+* [.removed]#game status mapping (live, final, scheduled)#
+* [.removed]#stale data detection#
+
+
+
+[.removed]#The behavior described in scenarios is implemented in the application code. For example:#
+
+
+* [.removed]#`formatScore()` handles score formatting#
+* [.removed]#`mapGameStatus()` determines game state#
+* [.removed]#`isGameStale()` evaluates data freshness#
+
+[.removed]#These functions represent the system behavior defined in# the [.removed]#scenarios.#
+
+
+
+[.removed]#Instead of using a dedicated BDD runner at this stage, we validate behavior using *Vitest*, a JavaScript testing framework.#
+
+[.removed]#Each scenario is translated into automated tests located in:#
+
+
+* [.removed]#`utils/scoreUtils.test.js`#
+* [.removed]#`utils/scoreIntegration.test.js`#
+
+[.removed]#Example test:#
+
+[.removed]#[source,javascript]#
+
+
+
+
+[.removed]#These tests directly verify# [.inserted]#high‑level requirements scenarios; it documents# the [.removed]#outcomes described# [.inserted]#capabilities currently present# in the [.removed]#BDD scenarios.# [.inserted]#utility layer.#
+
+
+[.removed]#The following table illustrates how BDD scenarios map to implementation and automated tests:#
+
+[options="header"]
+|===
+|[.removed]# BDD Scenario #|[.removed]#Implementation | Test Verification#
+|[.removed]# Display valid score #|[.removed]#`formatScore()` | score formatting test#
+|[.removed]# Missing score fallback #|[.removed]#`formatScore()` | returns "Score unavailable"#
+|[.removed]# Map game status #|[.removed]#`mapGameStatus()` | status mapping tests#
+|[.removed]# Detect stale data #|[.removed]#`isGameStale()` | timestamp validation tests#
+|===
+
+[.removed]#This mapping ensures that each scenario is both implemented# [.inserted]#Automation# and [.removed]#verifiable.#
+
+
+
+
+
+[.removed]#We use Gherkin syntax to define behavior# [.inserted]#Execution#
+
+[.inserted]#Step definitions are maintained# in [.removed]#`.feature` files. These# [.inserted]#`features/step_definitions/stepdefs.js`. Every Gherkin step from the requirements‑level feature# files [.removed]#serve as:#
+
+
+* [.removed]#living documentation#
+* [.removed]#a shared understanding of expected behavior#
+* [.removed]#[.inserted]#has# a#
+
+
+
+[.removed]#We use *Vitest* to execute tests that validate# [.inserted]#corresponding function. Steps for which# the [.removed]#behavior described in scenarios.#
+
+[.removed]#Tests# [.inserted]#underlying logic has not yet been built return `'pending'`, so the Cucumber runner reports them explicitly as not yet implemented. Steps backed by existing code contain real assertions and# are [.inserted]#reported as passed or failed.#
+
+[.inserted]#The Cucumber suite is# executed [.removed]#using:# [.inserted]#with:#
+
+[source,bash]
+----
+npm run  test-cucumber
+----
+
+[.removed]#Vitest runs all test files and reports pass/fail results for each behavior.#
+
+
+
+At [.removed]#this stage, we do not yet use a dedicated BDD tool such as Cucumber to directly execute `.feature` files. Instead:#
+
+
+* [.removed]#`.feature` files define behavior#
+* [.removed]#Vitest tests validate that behavior programmatically#
+
+[.removed]#This approach allows us to maintain BDD principles while keeping# the [.removed]#testing setup simple during early implementation.# [.inserted]#time of writing, the full suite yields two passing scenarios and all others marked as pending.#
+
+
+[.removed]#The following scenario:# [.inserted]#Scenarios Validated as Passing#
+
+[.inserted]#Only two high‑level scenarios currently pass, both from `features/interface_requirements.feature`. Their Gherkin is:#
+
+[source,gherkin]
+----
+Scenario:  Indicate stale data to the user
+  Given  the game data is "35 minutes" old
+And the staleness threshold for live games is "30 minutes"
+When Sebastian views the game  details page
+Then Sebastian should see a "Stale" badge next to the score
+  And Sebastian should see an explanation about possible stale data
+  And the stale indicator should use a muted color scheme
+
+Scenario: Handle missing data gracefully
+Given no source has provided a score for this game
+  When Sebastian views the game  details page
+  Then  Sebastian should  see a placeholder indicating score is not reported
+And Sebastian should not see an empty or "0-0" value
+And Sebastian should not see any error messages
+----
+
+[.removed]#Is implemented# [.inserted]#These scenarios are fulfilled by the existing staleness‑detection# and [.removed]#validated through:#
+
+
+* [.removed]#logic# [.inserted]#score‑formatting utilities. All remaining scenarios—including those for conflict resolution, source attribution, caching, metrics, and audit trails—remain# in [.removed]#`formatScore()`#
+* [.removed]##
+
+===== Current Implementation Coverage
+
+[.inserted]#The# automated test [.removed]#asserting fallback behavior#
+
+[.removed]#This demonstrates how behavior flows from# [.inserted]#results show that the majority of the behavioral# specification [.removed]#→ implementation → validation.#
+
+
+
+[.removed]#In Milestone 2, BDD# is [.removed]#no longer only# [.inserted]#not yet implemented. Consequently, most functional and non‑functional requirements are unmet. This reflects the project’s scope relative to# a [.removed]#planning tool# [.inserted]#single‑semester development cycle: the BDD infrastructure has been established,# but [.removed]#an active part of development. The team uses:#
+
+
+* [.removed]#Gherkin scenarios to define expected behavior#
+* [.removed]#[.inserted]#the# application logic needed# to [.removed]#implement that behavior# [.inserted]#satisfy the full set of scenarios is incomplete.#
+
+===== Next Steps
+
+[.inserted]#Further adoption of BDD is planned by doing the following:#
+
+* [.removed]#Vitest tests# [.inserted]#*Scenario‑completion enforcement* – Institute a pull‑request policy requiring that every merged PR either adds a new Gherkin scenario or converts an existing pending scenario# to [.removed]#verify correctness# [.inserted]#passing.# This [.removed]#approach# ensures that [.removed]#system behavior remains:#
+* [.removed]#testable# [.inserted]#code changes are always accompanied by corresponding behavioral specifications.#
+* [.removed]#aligned# [.inserted]#*Automated reporting* – Develop a CI bot that comments on pull requests# with [.removed]#user needs#
+
+[.removed]#As# the [.removed]#project evolves, these# [.inserted]#list of# scenarios [.removed]#can be further integrated with dedicated# [.inserted]#that changed status (pending → passing or passing → failing), making# BDD [.removed]#tools for direct execution, but they already serve# [.inserted]#progress visible to reviewers.#
+
+* [.inserted]#*Step‑definition implementation* – Extend the step‑definition layer to cover the remaining scenarios# as [.inserted]#the underlying domain services (conflict detection, source reliability, caching, audit logs) are built.#
+
+===== Summary
+
+[.inserted]#The project uses BDD to maintain# a [.removed]#strong foundation for behavior-driven testing# [.inserted]#direct link from requirements to executable specifications. The authoritative feature files reside# in [.inserted]#`features/`, while older versions and utility‑level specifications support# the [.removed]#current system.# [.inserted]#transition. Two interface‑related scenarios have been automated and pass; all others are pending.#

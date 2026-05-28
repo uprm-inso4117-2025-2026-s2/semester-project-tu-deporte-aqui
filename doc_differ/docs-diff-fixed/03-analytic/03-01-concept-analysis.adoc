@@ -1,0 +1,246 @@
+
+=== 3.1 Concept Analysis
+
+===== Purpose
+
+This section analyzes the [.removed]#key# conceptual [.removed]#elements# [.inserted]#structures# that [.removed]#define# [.inserted]#emerge from# the [.removed]#behavior,#
+[.removed]#structure,# [.inserted]#observed#
+[.inserted]#sports information environment described in the descriptive part.#
+
+[.inserted]#Rather than introducing implementation details, this section identifies# and [.removed]#reliability characteristics of#
+[.inserted]#standardizes the concepts needed to describe how sports information is created,#
+[.inserted]#distributed, interpreted, and trusted inside# Tu Deporte Aquí.
+
+The analysis focuses [.inserted]#particularly# on [.removed]#how# uncertainty, conflicting [.removed]#information,# [.inserted]#reports, temporal#
+[.inserted]#variation,# and [.removed]#informal#
+[.removed]#data sources influence system design decisions.# [.inserted]#differences between information sources.#
+
+=====  From Domain Observations to Concepts
+
+[.inserted]#The domain rough sketch identified recurring situations in local Puerto Rico#
+[.inserted]#sports coverage.#
+
+[.inserted]#Observed situations included:#
+
+
+* [.inserted]#identical events being reported by different sources#
+* [.inserted]#delays between event occurrence and publication#
+* [.inserted]#conflicting score reports#
+* [.inserted]#corrections appearing after initial publication#
+* [.inserted]#information becoming unavailable over time#
+* [.inserted]#incomplete game status updates#
+
+[.inserted]#These observations are transformed into stable concepts that can later be used#
+[.inserted]#consistently throughout requirements, implementation, and validation.#
+
+[cols="2,2"]
+|===
+|[.inserted]#Observed Situation#|[.inserted]#Resulting Concept#
+
+|[.inserted]#Multiple pages describe the same event differently#
+|[.inserted]#Information Conflict#
+
+|[.inserted]#Updates appear at different times#
+|[.inserted]#Freshness#
+
+|[.inserted]#Original information source matters#
+|[.inserted]#Source Context#
+
+|[.inserted]#Information changes after publication#
+|[.inserted]#Traceability#
+
+|[.inserted]#Users must judge credibility#
+|[.inserted]#Reliability State#
+
+|[.inserted]#Information may disappear or become outdated#
+|[.inserted]#Staleness#
+|===
+
+===== Concept Definitions
+
+====== Sports Information 
+
+Sports [.removed]#information represents data related# [.inserted]#Information refers# to [.removed]#games, teams, leagues, standings,#
+[.removed]#scores,# [.inserted]#structured information describing sporting events,#
+[.inserted]#including# schedules, [.inserted]#scores, standings, game states, announcements,# and [.removed]#events.#
+
+[.removed]#This# [.inserted]#related# [.inserted]#context.# [.inserted]#Sports# information [.removed]#may originate from multiple sources with varying reliability# [.removed]#levels.# is treated as a representation of observed events rather [.inserted]#than as guaranteed objective truth.#
+
+====== Data  Source
+
+[.inserted]#A# Data [.removed]#sources# [.inserted]#Source is any origin from which sports information becomes available.#
+
+[.inserted]#Examples# include:
+
+* [.removed]#League websites# [.inserted]#official league pages#
+* [.removed]#Social# [.inserted]#school athletic accounts#
+* [.inserted]#social# media [.removed]#updates# [.inserted]#publications#
+* [.removed]#News outlets# [.inserted]#reporters and journalists#
+* [.removed]#Community# [.inserted]#livestream updates#
+* [.inserted]#community# reports
+
+[.removed]#Sources# [.inserted]#Different sources# may [.removed]#differ# [.inserted]#vary# in [.removed]#accuracy, timeliness,# [.inserted]#authority, update frequency, completeness,# and [.removed]#structure.#
+
+
+[.inserted]#consistency.#
+
+====== Reliability State
+
+Reliability State
+
+[.removed]#The reliability state# represents the [.removed]#confidence level# [.inserted]#current interpretation# of [.inserted]#how dependable# a
+piece of [.removed]#data.# [.inserted]#information appears within its available context.#
+
+Possible states include:
+
+* Confirmed [.inserted]#— multiple indicators support consistency#
+* Provisional [.inserted]#— information exists but remains unsettled#
+* Conflicting [.inserted]#— multiple incompatible reports exist#
+* Missing [.inserted]#— expected information is unavailable#
+* Stale [.inserted]#— information has exceeded expected update expectations#
+
+[.inserted]#Reliability State is not absolute truth but a representation of current# [.inserted]#confidence.# Freshness
+
+[.removed]#Each data element includes temporal metadata indicating when the# [.inserted]#Freshness describes how recently# information was [.removed]#last# [.inserted]#known to be# updated.
+
+Freshness [.removed]#indicators help users interpret reliability.# [.inserted]#exists independently from correctness.#
+
+[.inserted]#Recent information may still be inaccurate, while older information may remain#
+[.inserted]#correct.#
+
+====== Traceability
+
+[.inserted]#Traceability describes the ability to understand:#
+
+
+* [.inserted]#where information originated#
+* [.inserted]#when information was obtained#
+* [.inserted]#whether later corrections occurred#
+* [.inserted]#how the current representation evolved#
+
+[.inserted]#Traceability supports interpretation under uncertainty.#
+
+===== Concept Relationships
+
+
+
+[.removed]#Multiple sources may provide information about the same event.#
+
+The [.removed]#system must support:#
+
+
+* [.removed]##
+[.inserted]#independently.#
+
+[cols="1,3"]
+|===
+|[.inserted]#Concept#|[.inserted]#Relationship#
+
+|[.inserted]#Data# Source [.removed]#attribution#
+
+* [.removed]#Conflict detection#
+* [.removed]#Priority rules#
+|[.inserted]#Produces Sports Information#
+
+|[.inserted]#Sports Information#
+|[.inserted]#Receives Reliability State#
+
+|[.inserted]#Timestamp#
+|[.inserted]#Supports Freshness evaluation#
+
+|[.inserted]#Freshness#
+|[.inserted]#Influences Reliability State#
+
+|[.inserted]#Traceability#
+|[.inserted]#Explains information changes#
+
+|[.inserted]#Reliability State#
+|[.inserted]#Supports user interpretation#
+|===
+
+[.inserted]#Information therefore becomes interpretable not only through content itself,#
+[.inserted]#but through surrounding context.#
+
+===== Reliability Interpretation
+
+Reliability [.removed]#states influence:#
+
+
+* [.removed]#User interface indicators#
+* [.removed]#System decision logic#
+* [.removed]#Validation behavior#
+
+
+
+[.removed]#Transparent# [.inserted]#is treated as an interpretive concept rather than a guarantee of#
+[.inserted]#correctness.#
+
+[.inserted]#Two reports may describe the same event differently while both remain visible#
+[.inserted]#to users.#
+
+[.inserted]#The system therefore emphasizes# communication of uncertainty [.removed]#improves user trust and reduces#
+[.removed]#misinterpretation# [.inserted]#instead# of [.removed]#data.# [.inserted]#hiding#
+[.inserted]#ambiguity.#
+
+[.inserted]#This approach supports informed interpretation rather than automated authority.#
+
+===== User Trust and Transparency
+
+[.inserted]#Trust is influenced not only by whether information is correct, but also by#
+[.inserted]#whether users understand the conditions under which information was obtained.#
+
+[.inserted]#Users are therefore expected to benefit from visibility of:#
+
+
+* [.inserted]#source attribution#
+* [.inserted]#update timing#
+* [.inserted]#conflicting reports#
+* [.inserted]#correction history#
+* [.inserted]#reliability indicators#
+
+[.inserted]#Transparency supports confidence even when certainty cannot be guaranteed.#
+
+===== Conceptual Constraints
+
+
+
+[.removed]#Tu Deporte Aquí# [.inserted]#The conceptual model# operates [.inserted]#under constraints observed# in [.removed]#an environment where:# [.inserted]#the domain.#
+
+[.inserted]#These constraints include:#
+
+* [.removed]#Official# [.inserted]#lack of standardized publication formats#
+* [.inserted]#inconsistent reporting schedules#
+* [.inserted]#absence of official# APIs [.removed]#may not exist#
+* [.removed]#Data may be delayed# [.inserted]#temporary information availability#
+* [.removed]#Conflicts are common#
+
+[.removed]#System concepts must accommodate these constraints.# [.inserted]#manual update processes#
+
+[.inserted]#The conceptual model therefore prioritizes interpretation and transparency over#
+[.inserted]#complete automation.#
+
+===== Mobile-First 
+
+[.removed]#Concept design# [.inserted]#Considerations#
+
+[.inserted]#Since most users are expected to access the platform through mobile devices,#
+[.inserted]#concept presentation# must [.removed]#prioritize:# [.inserted]#remain concise and quickly interpretable.#
+
+[.inserted]#Concept communication should emphasize:#
+
+* [.removed]#Compact information display# [.inserted]#minimal visual overload#
+* [.removed]#Clear# [.inserted]#compact# status indicators
+* [.removed]#Fast interpretation# [.inserted]#immediate understanding of reliability context#
+
+===== Summary
+
+Concept [.removed]#analysis provides a structured understanding of the# [.inserted]#Analysis transforms observed# domain [.removed]#elements#
+[.removed]#that influence system reliability, transparency, and behavior.#
+
+[.removed]#These# [.inserted]#situations into reusable# concepts
+[.inserted]#that# guide [.removed]#later modeling# [.inserted]#requirements, implementation decisions,# and [.inserted]#later# validation
+activities.
+
+[.inserted]#The resulting concepts provide a shared language for describing uncertainty,#
+[.inserted]#source behavior, information reliability, and interpretation inside Tu Deporte#
+[.inserted]#Aquí.#

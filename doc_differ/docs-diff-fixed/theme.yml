@@ -1,0 +1,18 @@
+extends: default
+
+base:
+  font_family: Noto Serif
+
+block:
+  heading:
+    margin_bottom: 0.5em
+
+role:
+  inserted:
+    background_color: #ccffcc
+    font_color: 000000
+
+  removed:
+    background_color: #ffcccc
+    font_color: 000000
+    strikethrough: true

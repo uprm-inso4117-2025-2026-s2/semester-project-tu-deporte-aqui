@@ -1,0 +1,110 @@
+= Title: Relational Gherkin Mapping: Aligning Database State Postconditions with BDD Specifications
+
+[.inserted]#Author Luis Sorrentini#
+
+
+[.inserted]#A Relational Gherkin Mapping strategy applies the Declarative Gherkin Syntax Structure (Given-When-Then) to analytically research and trace how Supabase database query outputs fulfill frontend user story specifications under complex data states. This document applies that strategy to the Tu Deporte Aquí project, where the database schema, nullable field risks, FK relationships, seed data, and RLS policies provide a well-defined test basis that maps naturally to BDD scenario formulation in support of the project's frontend reliability and crash-prevention objectives.#
+
+=== Acceptance Criteria
+
+[.inserted]#[cols="2,4", options="header"]#
+[.inserted]#|===#
+[.inserted]#| Criterion | Status#
+
+[.inserted]#| Schema and Table Mapping#
+[.inserted]#| All seven tables (`teams`, `athletes`, `games`, `standings`, `news`, `profiles`, `comments`) are documented in the Database Schema Reference section. The User Scenario to Table Mapping section provides a structured AsciiDoc table connecting `games`, `standings`, and `news` to all nine active project user scenarios derived from `home/page.tsx` and `supabase/validation/validation-script.sql`.#
+
+[.inserted]#| Gherkin Scenarios for Edge Cases#
+[.inserted]#| Nine scenarios written in standard Gherkin format are included in the Gherkin Scenarios section. Each scenario demonstrates how the system must handle broken or delayed data states — specifically, nullable fields such as `home_score`, `away_score`, `wins`, `losses`, `athlete_id`, `source_url`, `display_name`, and `published_at` — using concrete Given-When-Then blocks that reference actual column names and frontend component names from the codebase.#
+
+[.inserted]#| Plain-Text Evaluation#
+[.inserted]#| The Plain-Text Evaluation section proves that the current database layout provides every property the frontend utilities need to display text correctly. Each core table is evaluated column by column against what `home/page.tsx` consumes, with explicit risk flags on all nullable fields that feed visible text and recommendations for safe fallback handling.#
+
+[.inserted]#| Testing Plan#
+[.inserted]#| All nine Gherkin scenarios are cross-checked against `supabase/validation/validation-script.sql` in the Testing Plan section. Coverage status is documented per scenario, partial coverage gaps are identified, and alignment with the Given-When-Then structure from the course lecture slides is confirmed.#
+[.inserted]#|===#
+
+=== Testing Plan
+
+[.inserted]#[cols="2,4", options="header"]#
+[.inserted]#|===#
+[.inserted]#| Activity | Result#
+
+[.inserted]#| Manual Scenario Execution#
+[.inserted]#| All nine sections of `supabase/validation/validation-script.sql` were reviewed against the live schema and seed data. Each Gherkin scenario was traced to a specific section of the validation script. All essential queries confirmed to return accurate data sets across all nine user scenarios.#
+
+[.inserted]#| Analytical Verification#
+[.inserted]#| Each Gherkin scenario maps to a specific schema requirement, nullable column risk, or RLS policy derived from the test basis. Coverage gaps were identified: the scheduled game with NULL scores (US-02) and the navbar display name fallback (US-08) are only partially covered by SQL validation alone and require frontend-level null guard verification.#
+
+[.inserted]#| Retesting and Traceability#
+[.inserted]#| The scenario structure supports targeted retesting. Each Given-When-Then block is independently traceable to a table, column, and validation script section so that a fix to a specific field or JOIN can be retested in isolation without re-running all nine scenarios.#
+
+[.inserted]#| Relationship Tests#
+[.inserted]#| FK existence confirmed for all referencing tables: `athletes.team_id -> teams.id`, both `games` FK columns, `standings.team_id -> teams.id`, three `news` FK columns, and two `comments` FK columns. JOIN queries for athletes, games, news, and comments all returned the expected row counts as confirmed by validation script sections 5 through 8.#
+
+[.inserted]#| BDD Scenario Alignment#
+[.inserted]#| All nine scenarios conform to the Declarative Gherkin Syntax Structure from the course lecture. Given describes the database precondition. When describes the frontend component action. Then describes the exact postcondition the UI must produce. Concrete column names and component names replace abstract placeholders throughout.#
+[.inserted]#|===#
+
+=== Database Schema Reference
+
+[.inserted]#The following schema was extracted from the live Supabase project via `information_schema.columns` (Query 1) and constitutes the test basis for all Gherkin scenarios. The `teams` table holds `id` (uuid, NOT NULL), `name` (text, NOT NULL), `league` (text, NOT NULL), `city` (text, nullable), and `logo_url` (text, nullable). The `athletes` table holds `id` (uuid, NOT NULL), `team_id` (uuid, nullable), `first_name` (text, NOT NULL), `last_name` (text, NOT NULL), `position` (text, nullable), and `number` (integer, nullable). The `games` table holds `id` (uuid, NOT NULL), `home_team_id` (uuid, nullable), `away_team_id` (uuid, nullable), `league` (text, nullable), `season` (text, nullable), `game_date` (date, nullable), `start_time` (time, nullable), `venue` (text, nullable), `status` (text, nullable), `home_score` (integer, nullable), and `away_score` (integer, nullable). The `standings` table holds `id` (uuid, NOT NULL), `team_id` (uuid, nullable), `league` (text, nullable), `season` (text, nullable), `wins` (integer, nullable), and `losses` (integer, nullable). The `news` table holds `id` (uuid, NOT NULL), `team_id` (uuid, nullable), `athlete_id` (uuid, nullable), `game_id` (uuid, nullable), `league` (text, nullable), `title` (text, NOT NULL), `content` (text, NOT NULL), `source` (text, nullable), `source_url` (text, nullable), and `published_at` (timestamptz, nullable). The `profiles` table holds `id` (uuid, NOT NULL), `display_name` (text, nullable), `avatar_url` (text, nullable), and `is_admin` (boolean, nullable). The `comments` table holds `id` (uuid, NOT NULL), `user_id` (uuid, nullable), `news_id` (uuid, nullable), `content` (text, NOT NULL), and `published_at` (timestamptz, nullable).#
+
+=== Row Level Security Policy Reference
+
+[.inserted]#Five tables — `teams`, `games`, `athletes`, `news`, and `standings` — carry public SELECT policies that allow any caller to read their rows without authentication (source: `pg_policies` export, Query 2). The `profiles` table carries a restrictive SELECT policy keyed to `auth.uid() = id`, meaning a user can only read their own row and cross-user reads are blocked by design. The `comments` table has no RLS policy defined in the exported results. If RLS is enabled on that table without a policy, all reads are silently blocked, which would break any frontend component displaying comments. This must be confirmed with the team before the scenarios covering US-09 can be considered fully verified.#
+
+=== User Scenario to Table Mapping
+
+[.inserted]#The nine active user scenarios derived from the frontend (`home/page.tsx`) and validation script (`supabase/validation/validation-script.sql`) map to the three core tables as follows.#
+
+[.inserted]#[cols="1,3,2", options="header"]#
+[.inserted]#|===#
+[.inserted]#| Scenario # | User Scenario Description | Tables Involved#
+
+[.inserted]#| US-01 | View live game scores on the home page | games, teams#
+[.inserted]#| US-02 | View a scheduled game with no score yet | games, teams#
+[.inserted]#| US-03 | View team standings by league | standings, teams#
+[.inserted]#| US-04 | View latest sports news articles | news, teams, athletes#
+[.inserted]#| US-05 | View a news article linked to a specific game | news, games, teams#
+[.inserted]#| US-06 | View a news article where the athlete reference is null | news, teams#
+[.inserted]#| US-07 | View athletes on a team roster | athletes, teams#
+[.inserted]#| US-08 | View user profile display name in the navbar | profiles#
+[.inserted]#| US-09 | View comments on a news article | comments, profiles, news#
+[.inserted]#|===#
+
+=== Gherkin Scenarios
+
+[.inserted]#The following nine scenarios are written in standard Gherkin format and demonstrate how the system must handle the full range of database states — including broken or delayed data — that the frontend components in `home/page.tsx` must survive without crashing.#
+
+[.inserted]#Scenario US-01 covers a live game with both scores populated. Given a game record exists in the `games` table with `status = 'live'`, and `home_score` and `away_score` are both integers, and `home_team_id` and `away_team_id` both resolve to valid `teams` records. When the user opens the home page and the `LiveGamesSection` renders. Then the frontend displays the home team name, away team name, `home_score`, and `away_score`, and no null or undefined value is rendered visibly to the user.#
+
+[.inserted]#Scenario US-02 covers a scheduled game with NULL scores. Given a game record exists in the `games` table with `status = 'scheduled'`, and `home_score` is NULL, and `away_score` is NULL. When the user opens the home page and the `LiveGamesSection` renders. Then the frontend does not crash or render the string "null" on screen, and the game card displays a placeholder such as "–" or "TBD" in place of each score, and `game_date` and `start_time` are shown to indicate when the game begins.#
+
+[.inserted]#Scenario US-03 covers standings with wins and losses present. Given at least one `standings` record exists linked to a valid team via `team_id`, and the `wins` and `losses` columns contain integer values. When the user selects a league tab on the `StandingsSection`. Then teams are listed in descending order of wins, and the team name is resolved from the `teams` table JOIN, and `wins` and `losses` are rendered as integers.#
+
+[.inserted]#Scenario US-04 covers standings with NULL wins or losses. Given a `standings` record exists for a team, and `wins` is NULL, and `losses` is NULL. When the frontend queries the `standings` table and renders the `StandingsSection`. Then the frontend does not crash, and the wins and losses columns show "–" or "0" instead of null, and the team name is still resolved and displayed.#
+
+[.inserted]#Scenario US-05 covers a news article with full metadata. Given a `news` record exists with a non-null `title` and `content`, and `team_id` resolves to a valid `teams` record, and `athlete_id` resolves to a valid `athletes` record, and `game_id` resolves to a valid `games` record, and `published_at` is a valid timestamp. When the user opens the `NewsSection` on the home page. Then the article title is displayed, and the league, team name, and `published_at` timestamp are rendered, and no relational field causes a render crash.#
+
+[.inserted]#Scenario US-06 covers a news article where `athlete_id` is NULL. Given a `news` record exists where `athlete_id` is NULL, and `team_id` resolves to a valid `teams` record. When the frontend queries the `news` table using a LEFT JOIN on `athletes`. Then the article still renders without crashing, and the athlete name field is either hidden or shown as "N/A", and `title`, `content`, and `published_at` are displayed correctly.#
+
+[.inserted]#Scenario US-07 covers a news article where `source_url` is NULL. Given a `news` record exists where `source_url` is NULL and `source` is also NULL. When the `NewsSection` renders the article card. Then no broken hyperlink is rendered, and the "Read More" link either navigates to the internal article page or the external link element is conditionally hidden.#
+
+[.inserted]#Scenario US-08 covers the authenticated user display name in the navbar. Given a user is authenticated via Supabase Auth and a `profiles` record exists for that user where `display_name` is not NULL. When the `Navbar` component queries `profiles.select('display_name').eq('id', user.id)`. Then the navbar renders "Signed in as <display_name>". And in the case where `display_name` is NULL, the `Navbar` component falls back through user metadata fields and then derives a username from the user's email via `email.split('@')[0]`, and renders "Signed in as <derived_username>" without crashing.#
+
+[.inserted]#Scenario US-09 covers comments displayed on a news article. Given at least one `comments` record exists linked to a valid `news` record via `news_id` and a valid `profiles` record via `user_id`. When the frontend queries comments for a specific article. Then each comment displays the commenter's `display_name`, the comment `content`, and `published_at`, and no missing profile or news reference causes a crash.#
+
+=== Plain-Text Evaluation: Database Layout vs. Frontend Utility Requirements
+
+[.inserted]#This section evaluates whether the current database layout provides every property the frontend utility functions need to display text correctly, based on analysis of `home/page.tsx` against the confirmed schema.#
+
+[.inserted]#For the `games` table: `home_team_id` and `away_team_id` are nullable UUIDs that resolve team names via JOIN on `teams.name`, which is NOT NULL, making team name display safe. `home_score` and `away_score` are nullable integers and present a crash risk for the `LiveGamesSection` — the frontend must guard against NULL and render a fallback string such as "–". `status` is nullable and must default to "Unknown" if absent; the `LiveGamesSection` uses this field to decide the badge label. `start_time` and `game_date` are both nullable and must fall back to "TBD" to avoid rendering invalid date strings. `league` is nullable but drives tab filtering; a NULL value would break league routing and a NOT NULL constraint is recommended.#
+
+[.inserted]#For the `standings` table: `team_id` resolves team name via JOIN on `teams.name` which is NOT NULL, so team display is safe. `wins` and `losses` are nullable integers; the `StandingsSection` must render 0 or "–" rather than null. `league` is nullable and drives the tab selector; same risk as in `games` — NULL would break tab logic. `season` is nullable but display-only and lower risk.#
+
+[.inserted]#For the `news` table: `title` and `content` are NOT NULL and always safe. `published_at` is nullable and must be guarded — rendering a NULL timestamp as a date string produces "Invalid Date" in JavaScript. `source_url` is nullable and must be conditionally rendered; passing NULL directly to an anchor `href` attribute produces a broken link. `athlete_id` and `game_id` are both nullable by design — the seed data confirms article `e100...005` has both set to NULL — so the frontend must always use LEFT JOIN and handle the absent relation gracefully. `team_id` is nullable and the same LEFT JOIN rule applies.#
+
+[.inserted]#For the `profiles` table: `display_name` is nullable and the `Navbar` component already implements a multi-step fallback through user metadata fields and finally the email prefix, which is the correct pattern. `avatar_url` is nullable and low risk if a default avatar is substituted. `is_admin` is nullable and must be treated as false when NULL — access must never be granted on a NULL boolean.#
+
+[.inserted]#The database layout provides all properties the frontend needs to display text correctly. However, nine nullable columns across four core tables create runtime crash risk if the frontend renders them without null guards. All nullable fields that feed visible text must be wrapped in conditional rendering or assigned a defined fallback string before reaching the DOM.#
