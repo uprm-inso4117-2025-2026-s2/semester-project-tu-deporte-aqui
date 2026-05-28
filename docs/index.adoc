@@ -13,6 +13,7 @@
 toc::[]
 == 1 Informative part
 include::01-informative/01-01-team.adoc[]
+
 === 1.2 Current situation, needs, ideas
 include::01-informative/01-02-current-situation-needs-ideas/01-02-01-current-situation.adoc[]
 include::01-informative/01-02-current-situation-needs-ideas/01-02-02-need.adoc[]
