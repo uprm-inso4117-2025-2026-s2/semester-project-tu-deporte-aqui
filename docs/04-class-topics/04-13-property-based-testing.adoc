@@ -1,0 +1,83 @@
+
+=== 4.13 Property-Based Testing
+
+===== Purpose
+
+This section documents how property-based testing was applied in the project to
+verify that game status sorting behaves correctly across many generated inputs.
+
+Unlike traditional example-based testing, property-based testing evaluates
+general rules that should remain true regardless of the specific generated
+dataset.
+
+===== Application in the Project
+
+Property-based testing was applied to the game status sorting functionality.
+
+The tests focused on validating whether generated game datasets continue
+respecting expected sorting and status behavior under randomized conditions.
+
+===== Tested Properties
+
+The implemented tests verified that:
+
+* sorting does not throw runtime errors
+* sorting preserves the total number of games
+* game status priority ordering remains valid
+* sorting behavior remains deterministic
+
+===== Generated Data
+
+Randomized game datasets were generated using the `fast-check` library.
+
+Generated values included:
+
+* game status values
+* timestamps
+* scheduled dates
+* partial and undefined values
+
+This approach allowed testing behavior across many automatically generated
+combinations rather than relying only on manually selected examples.
+
+===== Evidence
+
+The following screenshots show portions of the implemented property-based tests
+and successful execution results.
+
+
+====== Tests
+image::04-class-topics/images/property-testing-code-1.png[width=700]
+
+image::04-class-topics/images/property-testing-code-2.png[width=700]
+
+
+====== Results
+
+image::04-class-topics/images/property-based-testing-results.png[width=500]
+
+===== Observed Benefits
+
+Property-based testing helped identify whether sorting logic continued behaving
+correctly under a wider range of generated inputs than conventional example
+tests typically cover.
+
+This approach improved confidence in:
+
+* sorting stability
+* handling of unusual values
+* deterministic behavior
+* resistance to malformed generated datasets
+
+===== Limitations
+
+The implemented tests focus specifically on game status sorting behavior.
+
+These tests do not validate all project functionality or all possible sports
+data inconsistencies.
+
+===== Summary
+
+Property-based testing strengthens reliability by verifying that important
+behavioral properties continue holding across many generated cases instead of
+only a small number of fixed examples.

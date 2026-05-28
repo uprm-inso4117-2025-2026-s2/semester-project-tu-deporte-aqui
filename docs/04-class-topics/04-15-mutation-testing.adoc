@@ -1,0 +1,121 @@
+
+=== 4.15 Mutation Testing
+
+==== Purpose
+
+Mutation testing evaluates the effectiveness of existing automated tests by introducing small intentional modifications (mutations) into the source code and verifying whether the implemented tests or observable system behavior detect the modified logic.
+
+This technique helps identify weak or incomplete testing scenarios that may still pass despite incorrect implementation behavior.
+
+==== Relevance to the Project
+
+In the project, mutation testing is relevant because the platform depends on reliable handling of sports data, status ordering, and source-aware information.
+
+Small unnoticed logic changes could produce:
+
+* incorrect standings
+* invalid score ordering
+* inconsistent UI behavior
+* incorrect API responses
+* stale or conflicting information display
+
+Mutation testing helps validate whether the implemented testing and validation strategies are capable of detecting these behavioral regressions.
+
+==== Mutation Testing Approach
+
+The mutation testing analysis focused on the `/api/games` route responsible for retrieving and processing sports data.
+
+Several intentional code mutations were introduced to simulate realistic implementation faults.
+
+The evaluation observed:
+
+* frontend behavior
+* API responses
+* terminal/server logs
+* visible UI inconsistencies
+
+A mutation was considered:
+
+* *Killed* if the fault produced observable incorrect behavior
+* *Survived* if the system behaved as if nothing was wrong
+
+==== Mutation Summary
+
+[cols="1,3,2", options="header"]
+|===
+| Mutation
+| Description
+| Result
+
+| M1
+| Invalid database table reference
+| Killed
+
+| M2
+| Inverted error condition logic
+| Killed
+
+| M3
+| Incorrect HTTP status response
+| Killed
+
+| M4
+| Removed required `status` field
+| Killed
+
+| M5
+| Modified error response structure
+| Killed
+|===
+
+==== Observed Results
+
+The implemented mutation scenarios successfully triggered detectable failures during execution.
+
+Observed failures included:
+
+* frontend error messages
+* invalid API responses
+* incorrect status handling
+* missing UI information
+* HTTP 500 responses
+* inconsistent rendering behavior
+
+These observations demonstrated that the implemented reliability mechanisms are capable of exposing several categories of implementation faults.
+
+==== Mutation Score
+
+Mutation Score = (Killed Mutants / Total Mutants) × 100
+
+Mutation Score = (5 / 5) × 100 = 100%
+
+All introduced mutations produced observable incorrect behavior and were successfully detected during evaluation.
+
+==== Relationship to Existing Testing
+
+Mutation testing complements:
+
+* property-based testing
+* manual testing
+* error-handling validation
+* TDD and BDD workflows
+
+While traditional tests verify expected behavior, mutation testing evaluates whether those tests are sufficiently strong to detect implementation defects.
+
+==== Current Limitations
+
+The project currently does not implement a fully automated mutation testing pipeline.
+
+Additionally:
+
+* testing focused on a single API route
+* only a limited number of mutations were evaluated
+* detection relied primarily on observable runtime behavior
+
+Future improvements could include automated mutation frameworks and broader system-wide mutation coverage.
+
+==== Summary
+
+Mutation testing strengthened confidence in the project’s reliability strategy by verifying that intentionally introduced faults produced visible and detectable failures.
+
+The performed evaluation demonstrated that the implemented validation and error-handling mechanisms are capable of detecting several categories of behavioral regressions and implementation defects.

@@ -1,0 +1,65 @@
+=== 4.16 Load Testing
+
+==== Purpose
+
+Load testing was performed to evaluate the stability and responsiveness of the platform API endpoints under concurrent traffic conditions.
+
+The objective was to verify that the system could continue serving valid sports data requests while maintaining acceptable response times and reliability.
+
+==== Testing Environment
+
+Load testing was executed locally on the `games-n-standings` branch using the `k6` load testing framework.
+
+The following endpoints were evaluated:
+
+* `/api/games`
+* `/api/standings`
+
+==== Test Results
+
+The executed load test completed successfully and all configured checks passed.
+
+Observed results included:
+
+* HTTP status `200` responses for all tested endpoints
+* successful response data retrieval
+* stable behavior during concurrent execution
+* zero request failures during the test session
+
+The test achieved:
+
+* p95 response time of `373.41 ms`
+* `0.00%` request failure rate
+* `1204` processed HTTP requests
+* approximately `23.71` requests per second
+
+These results indicate that the platform maintained stable performance during the executed load conditions.
+
+==== Evidence
+
+The following screenshots show the executed k6 load testing results and endpoint responses.
+
+image::04-class-topics/images/load-testing-results-1.png[]
+
+image::04-class-topics/images/load-testing-results-2.png[]
+
+==== Reliability Contribution
+
+Load testing contributes to reliability evaluation by validating that the platform remains stable during repeated and concurrent API requests.
+
+This helps identify possible performance bottlenecks, response degradation, or instability issues under increased workload conditions.
+
+==== Limitations
+
+The performed tests focused specifically on the `/api/games` and `/api/standings` endpoints under a local testing environment.
+
+Additional future improvements may include:
+
+* larger concurrent user simulations
+* long-duration stress testing
+* cloud-hosted execution environments
+* automated CI/CD performance testing integration
+
+==== Summary
+
+The performed load testing demonstrated stable endpoint behavior, successful request handling, and acceptable response times during concurrent traffic execution.
