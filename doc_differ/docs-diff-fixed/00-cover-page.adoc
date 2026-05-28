@@ -1,4 +1,3 @@
-
 = Tu Deporte Aquí
 :title-page:
 :doctype: book
