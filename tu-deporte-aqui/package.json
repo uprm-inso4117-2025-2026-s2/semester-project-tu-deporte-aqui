@@ -39,6 +39,7 @@
     "@types/web-push": "^3.6.4",
     "eslint": "^9.39.2",
     "eslint-config-next": "16.1.6",
+    "fast-check": "^4.8.0",
     "postcss": "^8",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
