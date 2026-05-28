@@ -1,0 +1,55 @@
+=== 4.14 Fuzzing Testing
+
+===== Purpose
+
+This section describes how fuzzing concepts relate to reliability testing in
+the project.
+
+Fuzzing testing evaluates system behavior when unexpected, malformed, or
+incomplete values are introduced as inputs.
+
+===== Relevance to the project
+
+Sports information may originate from informal or inconsistent sources.
+
+As a result, the project must tolerate situations such as:
+
+* missing scores
+* invalid timestamps
+* incomplete team information
+* unexpected status values
+* malformed source data
+
+===== Example Fuzzing Inputs
+
+Representative malformed inputs may include:
+
+* negative scores
+* empty team names
+* extremely long values
+* invalid dates
+* unknown game states
+* missing source identifiers
+
+===== Expected Behavior
+
+Under invalid or malformed inputs, the project should:
+
+* avoid crashes
+* preserve available valid information
+* display understandable fallback messages
+* isolate invalid values when possible
+* support later debugging and correction
+
+===== Relationship to Reliability
+
+Fuzzing contributes to reliability by exposing situations that may not appear
+during normal manually selected tests.
+
+This helps evaluate how stable the project remains under unpredictable input
+conditions.
+
+===== Summary
+
+Fuzzing testing supports reliability goals by evaluating system behavior under
+unexpected and malformed input scenarios.
