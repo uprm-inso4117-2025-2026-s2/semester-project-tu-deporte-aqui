@@ -44,11 +44,11 @@ combinations rather than relying only on manually selected examples.
 The following screenshots show portions of the implemented property-based tests
 and successful execution results.
 
-image::images/property-testing-code-1.png[]
+image::04-class-topics/images/property-testing-code-1.png[width=700]
 
-image::images/property-testing-code-2.png[]
+image::04-class-topics/images/property-testing-code-2.png[width=700]
 
-image::images/property-testing-results.png[]
+image::04-class-topics/images/property-testing-results.png[width=500]
 
 ===== Observed Benefits
 
