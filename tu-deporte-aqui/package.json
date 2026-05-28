@@ -10,7 +10,7 @@
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
-    "test": "vitest",
+    "test": "NODE_TLS_REJECT_UNAUTHORIZED=0 vitest",
     "test-cucumber": "cucumber-js"
   },
   "dependencies": {

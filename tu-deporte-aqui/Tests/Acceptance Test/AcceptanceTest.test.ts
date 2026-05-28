@@ -167,7 +167,6 @@ describe("checkContent", () => {
   });
 });
 
-// Remove .skip to run against the real network
 describe("real network checks", () => {
   it("example.com returns 200", async () => {
     const result = await checkLink("https://example.com");
