@@ -50,8 +50,7 @@ export default async function AthletePage({
         <p className="mt-3 max-w-3xl text-slate-300">
           {athleteName} is a {athlete.position ?? "player"} for the{" "}
           {athlete.teams?.name ?? "team"} in the{" "}
-          {athlete.teams?.league ?? "league"}. This profile displays core player
-          information from the athlete API route.
+          {athlete.teams?.league ?? "league"}.
         </p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
